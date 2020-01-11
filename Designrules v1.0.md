@@ -73,7 +73,7 @@ REST applies existing HTTP operations to implement functionality at one service 
 
 ### Language usage
 
-Since the exact meaning of concepts are often lost in translation, resources are the underlying entities and attributes are defined in Dutch.
+Since the exact meaning of concepts are often lost in translation, resources and the underlying entities and attributes are defined in Dutch.
 
 > [API principle: Define interfaces in Dutch unless there is an official English glossary](#api-04)
 
