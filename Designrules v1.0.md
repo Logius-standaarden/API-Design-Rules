@@ -28,7 +28,7 @@ For each operation one has to specify whether it has to be *safe* and/or *idempo
 
 > **Safe (read-only)**
 >
-> Safe (read-only) in this case means that the semantics has been defined as read-only. THis is important, because clients and middelware like to use caching.
+> Safe (read-only) in this case means that the semantics have been defined as read-only. This is important, because clients and middelware like to use caching.
 
 > **Idempotent**
 >
