@@ -28,7 +28,7 @@ For each operation one has to specify whether it has to be *safe* and/or *idempo
 
 > **Safe (read-only)**
 >
-> Safe (read-only) in this case means that the semantics has been defined as read-only. THis is important, because clients and middelware like to use caching.
+> Safe (read-only) in this case means that the semantics have been defined as read-only. This is important, because clients and middelware like to use caching.
 
 > **Idempotent**
 >
@@ -73,7 +73,7 @@ REST applies existing HTTP operations to implement functionality at one service 
 
 ### Language usage
 
-Since the exacy meaning of concepts are often lost in translation, resources are the underlying entities and attributes are defined in Dutch.
+Since the exact meaning of concepts are often lost in translation, resources and the underlying entities and attributes are defined in Dutch.
 
 > [API principle: Define interfaces in Dutch unless there is an official English glossary](#api-04)
 
