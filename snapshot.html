@@ -1,0 +1,921 @@
+<!DOCTYPE html><html lang="en"><!-- HTML-Header ============================================================================== --><head><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta content="text/html; charset=utf-8" http-equiv="content-type"><meta name="generator" content="ReSpec 24.5.2"><style>/* --- ISSUES/NOTES --- */
+.issue-label {
+    text-transform: initial;
+}
+
+.warning > p:first-child { margin-top: 0 }
+.warning {
+    padding: .5em;
+    border-left-width: .5em;
+    border-left-style: solid;
+}
+span.warning { padding: .1em .5em .15em; }
+
+.issue.closed span.issue-number {
+    text-decoration: line-through;
+}
+
+.warning {
+    border-color: #f11;
+    border-width: .2em;
+    border-style: solid;
+    background: #fbe9e9;
+}
+
+.warning-title:before{
+    content: "⚠"; /*U+26A0 WARNING SIGN*/
+    font-size: 3em;
+    float: left;
+    height: 100%;
+    padding-right: .3em;
+    vertical-align: top;
+    margin-top: -0.5em;
+}
+
+li.task-list-item {
+    list-style: none;
+}
+
+input.task-list-item-checkbox {
+    margin: 0 0.35em 0.25em -1.6em;
+    vertical-align: middle;
+}
+
+.issue a.respec-gh-label {
+  padding: 5px;
+  margin: 0 2px 0 2px;
+  font-size: 10px;
+  text-transform: none;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+  position: relative;
+  bottom: 2px;
+  border: none;
+}
+
+.issue a.respec-label-dark {
+  color: #fff;
+  background-color: #000;
+}
+
+.issue a.respec-label-light {
+  color: #000;
+  background-color: #fff;
+}
+</style>
+    
+    
+    <!-- Invullen: de titel van de standaard of het document ==================================== -->
+    <title>API Designrules (Nederlandse API Strategie IIa)</title>
+    <!-- Invullen: de naam van de lokale CSS file =============================================== -->
+    <link rel="stylesheet" type="text/css" href="./media/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="https://tools.geostandaarden.nl/respec/style/logos/Geonovum.ico">
+    
+    
+<!-- ============================================================================================ -->
+<!-- File. . . :  index.html                                                                      -->
+<!-- Bevat . . :  Template voor de index.html die verplicht is voor respec                        -->
+<!--              Gebaseerd op https://github.com/Geonovum/respec/wiki                            -->
+<!--              Deze file moet worden neergezet in de root-directory van de                     -->
+<!--              betreffende standaard.                                                          -->
+<!-- Door. . . :  Jan van Gelder                                                                  -->
+<!-- ============================================================================================ -->
+<!-- ============================================================================================ -->
+<!-- Log . . . :  20181015 - JvG - Initiele versie                                                -->
+<!-- 
+====================================================================================================
+0        1         2         3         4         5         6         7         8         9         0
+1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890
+================================================================================================= -->
+  
+  <style id="respec-mainstyle">/*****************************************************************
+ * ReSpec 3 CSS
+ * Robin Berjon - http://berjon.com/
+ *****************************************************************/
+
+/* Override code highlighter background */
+.hljs {
+  background: transparent !important;
+}
+
+/* --- INLINES --- */
+h1 abbr,
+h2 abbr,
+h3 abbr,
+h4 abbr,
+h5 abbr,
+h6 abbr,
+a abbr {
+  border: none;
+}
+
+dfn {
+  font-weight: bold;
+}
+
+a.internalDFN {
+  color: inherit;
+  border-bottom: 1px solid #99c;
+  text-decoration: none;
+}
+
+a.externalDFN {
+  color: inherit;
+  border-bottom: 1px dotted #ccc;
+  text-decoration: none;
+}
+
+a.bibref {
+  text-decoration: none;
+}
+
+#references :target {
+  background: #eaf3ff;
+}
+
+cite .bibref {
+  font-style: normal;
+}
+
+code {
+  color: #c83500;
+}
+
+th code {
+  color: inherit;
+}
+
+/* --- TOC --- */
+
+.toc a,
+.tof a {
+  text-decoration: none;
+}
+
+a .secno,
+a .figno {
+  color: #000;
+}
+
+ul.tof,
+ol.tof {
+  list-style: none outside none;
+}
+
+.caption {
+  margin-top: 0.5em;
+  font-style: italic;
+}
+
+/* --- TABLE --- */
+
+table.simple {
+  border-spacing: 0;
+  border-collapse: collapse;
+  border-bottom: 3px solid #005a9c;
+}
+
+.simple th {
+  background: #005a9c;
+  color: #fff;
+  padding: 3px 5px;
+  text-align: left;
+}
+
+.simple th[scope="row"] {
+  background: inherit;
+  color: inherit;
+  border-top: 1px solid #ddd;
+}
+
+.simple td {
+  padding: 3px 10px;
+  border-top: 1px solid #ddd;
+}
+
+.simple tr:nth-child(even) {
+  background: #f0f6ff;
+}
+
+/* --- DL --- */
+
+.section dd>p:first-child {
+  margin-top: 0;
+}
+
+.section dd>p:last-child {
+  margin-bottom: 0;
+}
+
+.section dd {
+  margin-bottom: 1em;
+}
+
+.section dl.attrs dd,
+.section dl.eldef dd {
+  margin-bottom: 0;
+}
+
+#issue-summary>ul,
+.respec-dfn-list {
+  column-count: 2;
+}
+
+#issue-summary li,
+.respec-dfn-list li {
+  list-style: none;
+}
+
+details.respec-tests-details {
+  margin-left: 1em;
+  display: inline-block;
+  vertical-align: top;
+}
+
+details.respec-tests-details>* {
+  padding-right: 2em;
+}
+
+details.respec-tests-details[open] {
+  z-index: 999999;
+  position: absolute;
+  border: thin solid #cad3e2;
+  border-radius: 0.3em;
+  background-color: white;
+  padding-bottom: 0.5em;
+}
+
+details.respec-tests-details[open]>summary {
+  border-bottom: thin solid #cad3e2;
+  padding-left: 1em;
+  margin-bottom: 1em;
+  line-height: 2em;
+}
+
+details.respec-tests-details>ul {
+  width: 100%;
+  margin-top: -0.3em;
+}
+
+details.respec-tests-details>li {
+  padding-left: 1em;
+}
+
+a[href].self-link:hover {
+  opacity: 1;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  position: relative;
+}
+
+aside.example .marker > a.self-link {
+  color: inherit;
+}
+
+h2>a.self-link,
+h3>a.self-link,
+h4>a.self-link,
+h5>a.self-link,
+h6>a.self-link {
+  border: none;
+  color: inherit;
+  font-size: 83%;
+  height: 2em;
+  left: -1.6em;
+  opacity: .5;
+  position: absolute;
+  text-align: center;
+  text-decoration: none;
+  top: 0;
+  transition: opacity .2s;
+  width: 2em;
+}
+
+h2>a.self-link::before,
+h3>a.self-link::before,
+h4>a.self-link::before,
+h5>a.self-link::before,
+h6>a.self-link::before {
+  content: "§";
+  display: block;
+}
+
+@media (max-width: 767px) {
+  dd {
+    margin-left: 0;
+  }
+
+  /* Don't position self-link in headings off-screen */
+  h2>a.self-link,
+  h3>a.self-link,
+  h4>a.self-link,
+  h5>a.self-link,
+  h6>a.self-link {
+    left: auto;
+    top: auto;
+  }
+}
+
+@media print {
+  .removeOnSave {
+    display: none;
+  }
+}
+</style><link rel="stylesheet" href="https://tools.geostandaarden.nl/respec/style/GN-VV.css"><link rel="shortcut icon" type="image/x-icon" href="https://tools.geostandaarden.nl/respec/style/logos/Geonovum.ico"><script id="initialUserConfig" type="application/json">{
+  "specStatus": "GN-VV",
+  "specType": "ST",
+  "pubDomain": "api",
+  "publishDate": "2019-07-15",
+  "previousPublishDate": "2019-02-13",
+  "previousMaturity": "GN-CV",
+  "editors": [
+    {
+      "name": "Frank Terpstra",
+      "company": "Geonovum",
+      "companyURL": "http://www.geonovum.nl/"
+    },
+    {
+      "name": "Jan van Gelder",
+      "company": "Geonovum",
+      "companyURL": "http://www.Geonovum.nl/"
+    }
+  ],
+  "authors": [
+    {
+      "name": "Jasper Roes",
+      "company": "Het Kadaster",
+      "companyURL": "http://www.kadaster.nl/"
+    }
+  ],
+  "shortName": "API-Designrules",
+  "github": "https://github.com/geonovum/API-Designrules",
+  "issueBase": "https://github.com/geonovum/API-Designrules/issues/",
+  "localBiblio": {
+    "OAuth2": {
+      "href": "https://tools.ietf.org/html/rfc6749",
+      "title": "The OAuth 2.0 Authorization Framework",
+      "authors": [
+        "D. Hardt"
+      ],
+      "date": "October 2012",
+      "publisher": "The Internet Engineering Task Force"
+    },
+    "Expert": {
+      "href": "https://www.forumstandaardisatie.nl/sites/bfs/files/Expertadvies%20OAuth%202.0.pdf",
+      "title": "Expertadvies OAuth 2.0",
+      "authors": [
+        "P. Dam"
+      ],
+      "date": "24 februari 2017",
+      "publisher": "Forum Standaardisatie"
+    },
+    "JWT": {
+      "href": "https://tools.ietf.org/html/rfc7519",
+      "title": "JSON Web Token (JWT)",
+      "authors": [
+        "M. Jones, J. Bradley, N. Sakimura"
+      ],
+      "date": "may 2015",
+      "publisher": "IETF"
+    },
+    "JWS": {
+      "href": "https://tools.ietf.org/html/rfc7515",
+      "title": "JSON Web Signature (JWS)",
+      "authors": [
+        "M. Jones, J. Bradley, N. Sakimura"
+      ],
+      "date": "may 2015",
+      "publisher": "IETF"
+    },
+    "JWE": {
+      "href": "https://tools.ietf.org/html/rfc7516",
+      "title": "JSON Web Encryption (JWE)",
+      "authors": [
+        "M. Jones, J. Hildebrand"
+      ],
+      "date": "may 2015",
+      "publisher": "IETF"
+    },
+    "JWK": {
+      "href": "https://tools.ietf.org/html/rfc7517",
+      "title": "JSON Web Key (JWK))",
+      "authors": [
+        "M. Jones"
+      ],
+      "date": "may 2015",
+      "publisher": "IETF"
+    },
+    "JWA": {
+      "href": "https://tools.ietf.org/html/rfc7518",
+      "title": "JSON Web Algorithms (JWA)",
+      "authors": [
+        "M. Jones"
+      ],
+      "date": "may 2015",
+      "publisher": "IETF"
+    },
+    "PKCE": {
+      "href": "https://tools.ietf.org/html/rfc7636",
+      "title": "Proof Key for Code Exchange by OAuth Public Clients",
+      "authors": [
+        "N. Sakimura, J. Bradley, N. Agarwal"
+      ],
+      "date": "september 2015",
+      "publisher": "IETF"
+    },
+    "Introspection": {
+      "href": "https://tools.ietf.org/html/rfc7662",
+      "title": "OAuth 2.0 Token Introspection",
+      "authors": [
+        "J. Richer"
+      ],
+      "date": "October 2015",
+      "publisher": "IETF"
+    },
+    "OpenID.Core": {
+      "href": "https://openid.net/specs/openid-connect-core-1_0.html",
+      "title": "OpenID Connect Core 1.0",
+      "authors": [
+        "N. Sakimura, J. Bradley, M. Jones, B. de Medeiros, C. Mortimore"
+      ],
+      "date": "November 8 2014",
+      "publisher": "OpenID foundation"
+    },
+    "iGOV.OpenID": {
+      "href": "https://openid.net/specs/openid-igov-openid-connect-1_0.html",
+      "title": "International Government Assurance Profile (iGov) for OpenID Connect 1.0 - draft 3",
+      "authors": [
+        "M. Varley, P. Grassi"
+      ],
+      "date": "October 5 2018",
+      "publisher": "OpenID foundation"
+    },
+    "iGOV.OAuth2": {
+      "href": "https://openid.net/specs/openid-igov-oauth2-1_0.html",
+      "title": "International Government Assurance Profile (iGov) for OAuth 2.0",
+      "authors": [
+        "J. Richer, M. Varley, P. Grassi"
+      ],
+      "date": "October 5 2018",
+      "publisher": "OpenID foundation"
+    },
+    "OpenID.Discovery": {
+      "href": "https://openid.net/specs/openid-connect-discovery-1_0.html",
+      "title": "OpenID Connect Discovery 1.0",
+      "authors": [
+        "N. Sakimura, J. Bradley, M. Jones, E. Jay"
+      ],
+      "date": "November 8 2014",
+      "publisher": "OpenID foundation"
+    },
+    "I-D.ietf-oauth-pop-architecture": {
+      "href": "https://tools.ietf.org/html/draft-ietf-oauth-pop-architecture-08",
+      "title": "OAuth 2.0 Proof-of-Possession (PoP) Security Architecture",
+      "authors": [
+        "P. Hunt, J. Richer, W. Mills, P. Mishra, H. Tschofenig"
+      ],
+      "date": "July 8, 2016",
+      "publisher": "IETF"
+    },
+    "HEART.OAuth2": {
+      "href": "https://openid.net/specs/openid-heart-oauth2-1_0.html",
+      "title": "Health Relationship Trust Profile for OAuth 2.0",
+      "authors": [
+        "J. Richer"
+      ],
+      "date": "April 25, 2017",
+      "publisher": "OpenID foundation"
+    },
+    "JWS.JWE.Algs": {
+      "href": "https://www.iana.org/assignments/jose/jose.xhtml#web-signature-encryption-algorithms",
+      "title": "IANA JSON Web Signatures and Encryption Algorithms registry",
+      "authors": [
+        "Jim Schaad, Jeff Hodges, Joe Hildebrand, Sean Turner"
+      ],
+      "date": "",
+      "publisher": "IANA"
+    },
+    "BCP195": {
+      "href": "https://tools.ietf.org/html/bcp195",
+      "title": "Recommendations for Secure Use of Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS)",
+      "authors": [
+        "Y. Sheffer, R. Holz, P. Saint-Andre"
+      ],
+      "date": "May 2015",
+      "publisher": "IETF"
+    },
+    "HAL": {
+      "href": "http://stateless.co/hal_specification.html",
+      "title": "HAL - Hypertext Application Language",
+      "authors": [
+        "Mike Kelly"
+      ],
+      "date": " 2013-09-18"
+    }
+  },
+  "publishISODate": "2019-07-15T00:00:00.000Z",
+  "generatedSubtitle": "Versie ter vaststelling 15 juli 2019"
+}</script><meta name="description" content="This document contains a normative standard for designing APIs in the Dutch Public Sector."><script type="application/ld+json">{
+  "@context": [
+    "http://schema.org",
+    {
+      "@vocab": "http://schema.org/",
+      "@language": "en",
+      "foaf": "http://xmlns.com/foaf/0.1/",
+      "datePublished": {
+        "@type": "http://www.w3.org/2001/XMLSchema#date"
+      },
+      "inLanguage": {
+        "@language": null
+      },
+      "isBasedOn": {
+        "@type": "@id"
+      },
+      "license": {
+        "@type": "@id"
+      }
+    }
+  ],
+  "id": "https://docs.geostandaarden.nl/api/vv-st-API-Designrules-20190715/",
+  "type": [
+    "TechArticle"
+  ],
+  "name": "API Designrules (Nederlandse API Strategie IIa)",
+  "inLanguage": "en",
+  "license": "https://creativecommons.org/licenses/by/4.0/legalcode",
+  "datePublished": "2019-07-15",
+  "copyrightHolder": {
+    "name": "Geonovum",
+    "url": "https://www.geonovum.nl/"
+  },
+  "discussionUrl": "https://github.com/geonovum/API-Designrules/issues/",
+  "alternativeHeadline": "",
+  "isBasedOn": "https://docs.geostandaarden.nl/api/cv-st-API-Designrules-20190213/",
+  "description": "This document contains a normative standard for designing APIs in the Dutch Public Sector.",
+  "editor": [
+    {
+      "type": "Person",
+      "name": "Frank Terpstra",
+      "worksFor": {
+        "name": "Geonovum",
+        "url": "http://www.geonovum.nl/"
+      }
+    },
+    {
+      "type": "Person",
+      "name": "Jan van Gelder",
+      "worksFor": {
+        "name": "Geonovum",
+        "url": "http://www.Geonovum.nl/"
+      }
+    }
+  ],
+  "contributor": [
+    {
+      "type": "Person",
+      "name": "Jasper Roes",
+      "worksFor": {
+        "name": "Het Kadaster",
+        "url": "http://www.kadaster.nl/"
+      }
+    }
+  ],
+  "citation": []
+}</script></head>  
+  <!-- HTML-Body ================================================================================ -->
+  <body class="h-entry toc-inline"><div class="head">
+  <a href="https://www.geonovum.nl/" class="logo"><img id="Geonovum" alt="Geonovum" src="https://tools.geostandaarden.nl/respec/style/logos/Geonovum.svg" width="132" height="67"></a>
+  <h1 class="title p-name" id="title">API Designrules (Nederlandse API Strategie IIa)</h1>
+  
+  <h2>Geonovum Standaard<br>
+  Versie ter vaststelling <time class="dt-published" datetime="2019-07-15">15 juli 2019</time></h2>
+  <dl>
+    <dt>This version:</dt><dd><a class="u-url" href="https://docs.geostandaarden.nl/api/vv-st-API-Designrules-20190715/">https://docs.geostandaarden.nl/api/vv-st-API-Designrules-20190715/</a></dd><dt>Latest published version:</dt><dd><a href="https://docs.geostandaarden.nl/api/API-Designrules/">https://docs.geostandaarden.nl/api/API-Designrules/</a></dd>
+    
+    <dt>Vorige versie:</dt><dd><a href="https://docs.geostandaarden.nl/api/cv-st-API-Designrules-20190213/">https://docs.geostandaarden.nl/api/cv-st-API-Designrules-20190213/</a></dd>
+    <dt>Latest editor's draft:</dt><dd><a href="https://geonovum.github.io/API-Designrules/">https://geonovum.github.io/API-Designrules/</a></dd>
+    <dt>Editors:</dt>
+    <dd class="p-author h-card vcard"><span class="p-name fn">Frank Terpstra</span>, <a class="p-org org h-org h-card" href="http://www.geonovum.nl/">Geonovum</a></dd><dd class="p-author h-card vcard"><span class="p-name fn">Jan van Gelder</span>, <a class="p-org org h-org h-card" href="http://www.Geonovum.nl/">Geonovum</a></dd>
+    <dt>Author:</dt><dd class="p-author h-card vcard"><span class="p-name fn">Jasper Roes</span>, <a class="p-org org h-org h-card" href="http://www.kadaster.nl/">Het Kadaster</a></dd>
+    <dt>Participate:</dt><dd>
+      <a href="https://github.com/geonovum/API-Designrules/">GitHub geonovum/API-Designrules</a>
+    </dd><dd>
+      <a href="https://github.com/geonovum/API-Designrules/issues/">File a bug</a>
+    </dd><dd>
+      <a href="https://github.com/geonovum/API-Designrules/commits/">Commit history</a>
+    </dd><dd>
+      <a href="https://github.com/geonovum/API-Designrules/pulls/">Pull requests</a>
+    </dd>
+  </dl>
+  
+  
+    <dl>
+          <dt>Rechtenbeleid:</dt>
+          <dd>
+            <div class="copyright" style="margin: 0.25em 0;">
+              <abbr title="Creative Commons Attribution 4.0 International Public License">
+              <a href="https://creativecommons.org/licenses/by/4.0/legalcode"><img src="https://tools.geostandaarden.nl/respec/style/logos/cc-by.svg" alt="Creative Commons Attribution 4.0 International Public License" width="115" height="40"></a>
+            </abbr>
+              <div style="display:inline-block; vertical-align:top">
+                <p style="font-size: small;">Creative Commons Attribution 4.0 International Public License<br>(CC-BY)</p>
+              </div>
+            </div>
+          </dd>
+        </dl>
+  <hr title="Separator for header">
+</div>
+    <section id="abstract" data-format="markdown" aria-busy="false" class="introductory"><h2>Abstract</h2><p>This document contains a normative standard for designing APIs in the Dutch Public Sector.</p></section>        
+    <section id="sotd" class="introductory"><h2>Status of This Document</h2><p>
+    <em>This section describes the status of this document at the time of its publication. Other documents may supersede this document. A list of current Geonovum publications and the latest revision of this document can be found via <a href="https://www.geonovum.nl/geo-standaarden/alle-standaarden">https://www.geonovum.nl/geo-standaarden/alle-standaarden</a>(in Dutch).</em>
+  </p><p>
+
+
+
+
+  Dit is een definitief concept van de nieuwe versie van de standaard. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.
+
+
+
+ De programmaraad van Geonovum beoordeelt dit definitief concept. Keurt zij het goed, dan is er een nieuwe standaard.
+
+</p><p></p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#introduction"><span class="secno">1. </span>Introduction</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#status-of-the-api-designrules"><span class="secno">1.1 </span>Status of the API Designrules</a></li><li class="tocline"><a class="tocxref" href="#authors"><span class="secno">1.2 </span>Authors</a></li><li class="tocline"><a class="tocxref" href="#reading-guide"><span class="secno">1.3 </span>Reading Guide</a></li></ol></li><li class="tocline"><a class="tocxref" href="#api-designrules"><span class="secno">2. </span>API designrules</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#introduction-0"><span class="secno">2.1 </span>Introduction</a></li><li class="tocline"><a class="tocxref" href="#restful-principles"><span class="secno">2.2 </span>RESTful principles</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#what-are-resources"><span class="secno">2.2.1 </span>What are resources?</a></li><li class="tocline"><a class="tocxref" href="#language-usage"><span class="secno">2.2.2 </span>Language usage</a></li><li class="tocline"><a class="tocxref" href="#interface-nomenclature-singular-or-plural"><span class="secno">2.2.3 </span>Interface nomenclature: singular or plural?</a></li><li class="tocline"><a class="tocxref" href="#how-to-deal-with-relations"><span class="secno">2.2.4 </span>How to deal with relations?</a></li><li class="tocline"><a class="tocxref" href="#custom-representation"><span class="secno">2.2.5 </span>Custom representation</a></li><li class="tocline"><a class="tocxref" href="#how-to-implement-operations-that-do-not-fit-the-crud-model"><span class="secno">2.2.6 </span>How to implement operations that do not fit the CRUD model?</a></li></ol></li><li class="tocline"><a class="tocxref" href="#documentation"><span class="secno">2.3 </span>Documentation</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#best-practice-s"><span class="secno">2.3.1 </span>Best practice(s)</a></li></ol></li><li class="tocline"><a class="tocxref" href="#versioning"><span class="secno">2.4 </span>Versioning</a></li><li class="tocline"><a class="tocxref" href="#extensions"><span class="secno">2.5 </span>Extensions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#normative-api-principles"><span class="secno">3. </span><strong>Normative API Principles</strong></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#api-01-operations-are-safe-and-or-idempotent"><span class="secno">3.1 </span><span name="api-01" class="formerLink"></span>API-01: Operations are <em>Safe</em> and/or <em>Idempotent</em></a></li><li class="tocline"><a class="tocxref" href="#api-02-do-not-maintain-state-information-at-the-server"><span class="secno">3.2 </span><span name="api-02" class="formerLink"></span>API-02: Do not maintain state information at the server</a></li><li class="tocline"><a class="tocxref" href="#api-03-only-apply-default-http-operations"><span class="secno">3.3 </span><span name="api-03" class="formerLink"></span>API-03: Only apply default HTTP operations</a></li><li class="tocline"><a class="tocxref" href="#api-04-define-interfaces-in-dutch-unless-there-is-an-official-english-glossary"><span class="secno">3.4 </span><span name="api-04" class="formerLink"></span>API-04: Define interfaces in Dutch unless there is an official English glossary</a></li><li class="tocline"><a class="tocxref" href="#api-05-use-plural-nouns-to-indicate-resources"><span class="secno">3.5 </span><span name="api-05" class="formerLink"></span>API-05: Use plural nouns to indicate resources</a></li><li class="tocline"><a class="tocxref" href="#api-06-create-relations-of-nested-resources-within-the-endpoint"><span class="secno">3.6 </span><span name="api-06" class="formerLink"></span>API-06: Create relations of nested resources within the endpoint</a></li><li class="tocline"><a class="tocxref" href="#api-09-implement-custom-representation-if-supported"><span class="secno">3.7 </span><span name="api-09" class="formerLink"></span>API-09: Implement custom representation if supported</a></li><li class="tocline"><a class="tocxref" href="#api-10-implement-operations-that-do-not-fit-the-crud-model-as-sub-resources"><span class="secno">3.8 </span><span name="api-10" class="formerLink"></span>API-10: Implement operations that do not fit the CRUD model as sub-resources</a></li><li class="tocline"><a class="tocxref" href="#api-16-use-oas-3-0-for-documentation"><span class="secno">3.9 </span><span name="api-16" class="formerLink"></span>API-16: Use OAS 3.0 for documentation</a></li><li class="tocline"><a class="tocxref" href="#api-17-publish-documentation-in-dutch-unless-there-is-existing-documentation-in-english-or-there-is-an-official-english-glossary-available"><span class="secno">3.10 </span><span name="api-17" class="formerLink"></span>API-17: Publish documentation in Dutch unless there is existing documentation in English or there is an official English glossary available</a></li><li class="tocline"><a class="tocxref" href="#api-18-include-a-deprecation-schedule-when-publishing-api-changes"><span class="secno">3.11 </span><span name="api-18" class="formerLink"></span>API-18: Include a deprecation schedule when publishing API changes</a></li><li class="tocline"><a class="tocxref" href="#api-19-allow-for-a-maximum-1-year-transition-period-to-a-new-api-version"><span class="secno">3.12 </span><span name="api-19" class="formerLink"></span>API-19: Allow for a maximum 1 year transition period to a new API version</a></li><li class="tocline"><a class="tocxref" href="#api-20-include-the-major-version-number-only-in-ihe-uri"><span class="secno">3.13 </span><span name="api-20" class="formerLink"></span>API-20: Include the major version number only in ihe URI</a></li><li class="tocline"><a class="tocxref" href="#api-48-leave-off-trailing-slashes-from-api-endpoints"><span class="secno">3.14 </span><span name="api-48" class="formerLink"></span>API-48: Leave off trailing slashes from API endpoints</a></li><li class="tocline"><a class="tocxref" href="#api-51-publish-oas-at-the-base-uri-in-json-format"><span class="secno">3.15 </span><span name="api-51" class="formerLink"></span>API-51: Publish OAS at the base-URI in JSON-format</a></li></ol></li></ol></nav>  
+    <!-- vanaf hier per hoofdstuk een sectie of een div in het document ======================== -->
+    <!-- Secties komen in de inhoudsopgave div's niet ========================================== -->
+    <!-- Secties hebben verplicht <h2> tags, div's niet ======================================== -->
+    <section data-format="markdown" class="informative" aria-busy="false" id="introduction"><!--OddPage--><h2 id="x1-introduction"><span class="secno">1. </span>Introduction</h2><p><em>Dit onderdeel is niet normatief.</em></p><p>This chapter contains a short introduction on the API Designrules standard.</p><section id="status-of-the-api-designrules"><h3 id="x1-1-status-of-the-api-designrules"><span class="secno">1.1 </span>Status of the API Designrules</h3><p>THis version of the desgnrules has been submitted to "Forum Standaardisatie" for inclusion<br>on the Comply or Explain list of mandatory standards in the Dutch Public Sector.
+This document originates from chapter 4 of the document "API Strategie voor de Nederlandse Overheid" 
+which can be found at the following location: <a href="http://docs.geostandaarden.nl/api/vv-hr-API-Strategie-20190715">http://docs.geostandaarden.nl/api/vv-hr-API-Strategie-20190715</a></p></section><section id="authors"><h3 id="x1-2-authors"><span class="secno">1.2 </span>Authors</h3><p>Despite the fact that only one author is mentioned in the list of authors, this document is the result
+of a collaborative effort by the API Designrules Working Group.</p></section><section id="reading-guide"><h3 id="x1-3-reading-guide"><span class="secno">1.3 </span>Reading Guide</h3><p>This document is part of the "Nederlandse API Strategie" </p><table>
+<thead>
+<tr>
+<th>Part</th>
+<th>Description</th>
+<th>Status</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>I</td>
+<td>General description of the API Strategy</td>
+<td>Informative</td>
+<td><a href="https://geonovum.github.io/KP-APIs/API-strategie-algemeen/">https://geonovum.github.io/KP-APIs/API-strategie-algemeen/</a></td>
+</tr>
+<tr>
+<td><strong>IIa</strong></td>
+<td><strong>Standard for designing APIs</strong></td>
+<td><strong>Normative</strong></td>
+<td><a href="https://geonovum.github.io/API-Designrules">https://geonovum.github.io/API-Designrules</a></td>
+</tr>
+<tr>
+<td>IIb</td>
+<td>Extension on the Standard for designing APIs</td>
+<td>Informative</td>
+<td><a href="https://geonovum.github.io/KP-APIs/API-strategie-extensies/">https://geonovum.github.io/KP-APIs/API-strategie-extensies/</a></td>
+</tr>
+</tbody></table></section></section>
+    <section data-format="markdown" aria-busy="false" id="api-designrules"><!--OddPage--><h2 id="x2-api-designrules"><span class="secno">2. </span>API designrules</h2><blockquote>
+<p><em>This chapter aims to describe a set of design rules for the unambiguous provision of RESTful APIs (henceforth abbreviated as APIs). This achieves a predictable governments so developers can easily start consuming and combining APIs. Until now, this chapter does not include rules for other types of APIs, e.g. SOAP. In the addendum *API-principles</em>, the set of rules has been condensed into a number of core principles to keep in mind for the design and creation of APIs.*</p>
+</blockquote><section id="introduction-0"><h3 id="x2-1-introduction"><span class="secno">2.1 </span>Introduction</h3><p>More and more government organisations implement and provide RESTful APIs. In many cases, these APIs provide access to data sets complementary to existing interfaces, e.g. SOAP and WFS. These APIs aim to be developer-friendly (see also paragraph 2.6 and chapter 3) and quick to implement. While this is a commendable aim, it does not shield a developer from a steep learning curve getting to know every new API. A developer has to understand how every API can be used, but there should have to not be a difference in the technical implementation. The Knowlegde Platform APIs aims to provide a set of design rules or prinicples for APIs to align their technical operation across government organisations and to facilitate their implementation. This chapter describes the widely applicable set of design rules. Hopefully, government organisations will adopt these design rules in their own API strategies and provide feedback about exceptions and additions to subsequently improve these design rules.</p><p>Keep in mind, these design rules should be applied in the creation of an API only if the functionality described is desirable.</p><p>All paragraphs in this chapter, except for paragraph 4.5 are <strong>Normative</strong>. Paragraph 4.5 is <strong>Informative</strong>.</p></section><section id="restful-principles"><h3 id="x2-2-restful-principles"><span class="secno">2.2 </span>RESTful principles</h3><p>The most important prinicple of REST is the seperation of the API in logical resources (<em>things</em>). The resources describe the information of the <em>thing</em>. These resources are manipulated using HTTP-requests and HTTP-operations. Each operation (<code>GET</code>, <code>POST</code>, <code>PUT</code>, <code>PATCH</code>, <code>DELETE</code>) has a specific meaning.</p><blockquote>
+<p>HTTP also defines operations, e.g. <code>HEAD</code>, <code>TRACE</code>, <code>OPTIONS</code> en <code>CONNECT</code>. In the context of REST, these operations are hardly ever used and have been excluded from the rest of this chapter.</p>
+</blockquote><table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>CRUD</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>POST</code></td>
+<td>Create</td>
+<td>Create resources that represent collections (i.e. <code>POST</code> adds a resource to a collection).</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td>Read</td>
+<td>Retrieve a resource from the server. Data is only retrieved and not modified.</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td>Update</td>
+<td>Replace a specific resource. Is also used as a <em>create</em> " if the resource at the indicated identifier/URI does not exist yet.</td>
+</tr>
+<tr>
+<td><code>PATCH</code></td>
+<td>Update</td>
+<td>Partially modify an existing resource. The request contains the data that have to be changed and the operations that modify the resource in the designated JSON merge patch format (RFC 7386).</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td>Delete</td>
+<td>Remove the specific resource.</td>
+</tr>
+</tbody></table><p>For each operation one has to specify whether it has to be <em>safe</em> and/or <em>idempotent</em>. This is important, because clients and middelware rely on this.</p><blockquote>
+<p><strong>Safe (read-only)</strong></p>
+<p>Safe (read-only) in this case means that the semantics have been defined as read-only. This is important, because clients and middelware like to use caching.</p>
+</blockquote><blockquote>
+<p><strong>Idempotent</strong></p>
+<p>Idempotent means that multiple, identical requests have the same effect as one request.</p>
+</blockquote><table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Safe</th>
+<th>Idempotent</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>POST</code></td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>GET</code>, <code>OPTIONS</code>, <code>HEAD</code></td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>PATCH</code></td>
+<td>No</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+</tbody></table><blockquote>
+<p><a href="#api-01">API principle: operations are <em>Safe</em> and/or <em>Idempotent</em></a></p>
+</blockquote><p>REST makes use of the client stateless server design principle derived from client server with the additional constraint that it is not allowed to maintain the state at the server. Each request from the client to the server has to contain all information required to process the request without the need to use state-information at the server.</p><blockquote>
+<p><a href="#api-02">API principle: do not maintain state information at the server</a></p>
+</blockquote><section id="what-are-resources"><h4 id="x2-2-1-what-are-resources"><span class="secno">2.2.1 </span>What are resources?</h4><p>A fundamental concept in every RESTful API is the resource. A resource is an object with a type, attributes, relation with other resources and a number of operations to modify them. Resources are referred to using nouns (not verbs) that are relevant from the perspective of the user of the API. Operations are actions applied to these resources. Operations are referred to using verbs that are relevant from the perspectie of the user of the API.</p><p>One can translate internal data models as-is to resources, but not by definition. The point is to not hide all relevant implementation details. Some example resources are: <em>aanvragen</em> (applications), <em>activiteiten</em> (activities), <em>panden</em> (buildings), <em>rijksmonumenten</em> (national monuments), and <em>vergunningen</em> (permits).</p><p>Once the resources have been identified, one determines the operation that are applicable and how the API supports them. RESTful APIs perform CRUD (Create, Read, Update, Delete) operations using HTTP operations:</p><table>
+<thead>
+<tr>
+<th>Request</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>GET /rijksmonumenten</code></td>
+<td>Retrieves a list of national monuments</td>
+</tr>
+<tr>
+<td><code>GET /rijksmonumenten/12</code></td>
+<td>Retrieves a specific national monument</td>
+</tr>
+<tr>
+<td><code>POST /rijksmonumenten</code></td>
+<td>Creates a new national monument</td>
+</tr>
+<tr>
+<td><code>PUT /rijksmonumenten/12</code></td>
+<td>Modifies national monument #12 completely</td>
+</tr>
+<tr>
+<td><code>PATCH /rijksmonumenten/12</code></td>
+<td>Modified national monument #12 partially</td>
+</tr>
+<tr>
+<td><code>DELETE /rijksmonumenten/12</code></td>
+<td>Deletes national monument #12</td>
+</tr>
+</tbody></table><p>REST applies existing HTTP operations to implement functionality at one service endpoint. This removes the requirement for additional URI naming conventions and the URI structure remains clear.</p><blockquote>
+<p><a href="#api-03">API principle: Only apply default HTTP operations</a></p>
+</blockquote><blockquote>
+<p><a href="#api-48">API principle: Leave off trailing slashes from API endpoints</a></p>
+</blockquote></section><section id="language-usage"><h4 id="x2-2-2-language-usage"><span class="secno">2.2.2 </span>Language usage</h4><p>Since the exact meaning of concepts are often lost in translation, resources and the underlying entities and attributes are defined in Dutch.</p><blockquote>
+<p><a href="#api-04">API principle: Define interfaces in Dutch unless there is an official English glossary</a></p>
+</blockquote></section><section id="interface-nomenclature-singular-or-plural"><h4 id="x2-2-3-interface-nomenclature-singular-or-plural"><span class="secno">2.2.3 </span>Interface nomenclature: singular or plural?</h4><p>Here, the <em>Keep It Simple Stupid</em> (KISS) rule is applicable. Although grammatically, it may feel wrong to request a single resource using the plural of the resource, it is a pragmatic choice to refer to endpoints consistently using plural. For the user it is much easier to not have to keep in mind singular and plural (<em>aanvraag/aanvragen, regel/regels</em>). Furthermore, this implementation is much more straightforward as most development frameworks are able to resolve both a single resource (<code>/aanvragen/12</code>) and multiple resources (<code>/aanvragen</code>) using one controller.</p><blockquote>
+<p><a href="#api-05">API principle: Use plural nouns to indicate resources</a></p>
+</blockquote></section><section id="how-to-deal-with-relations"><h4 id="x2-2-4-how-to-deal-with-relations"><span class="secno">2.2.4 </span>How to deal with relations?</h4><p>If a relation can only exist in the context of another resource (1 to n relation), then the dependent resource (child) can only be retrieved through the parent. The next example explains this. A status belongs to one application. Statuses can be retrieved through the endpoint <code>/aanvragen</code>:</p><table>
+<thead>
+<tr>
+<th>Request</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>GET /aanvragen/12/statussen</code></td>
+<td>Retrieves a list of statuses of application #12</td>
+</tr>
+<tr>
+<td><code>GET /aanvragen/12/statussen/5</code></td>
+<td>Retrieves a specific status (#5) of application #12</td>
+</tr>
+<tr>
+<td><code>POST /aanvragen/12/statussen</code></td>
+<td>Creates a new status for application #12</td>
+</tr>
+<tr>
+<td><code>PUT /aanvragen/12/statussen/5</code></td>
+<td>Modifies status #5 of application #12 completely</td>
+</tr>
+<tr>
+<td><code>PATCH /aanvragen/12/statussen/5</code></td>
+<td>Modifies status #5 of application #12 partially</td>
+</tr>
+<tr>
+<td><code>DELETE /aanvragen/12/statussen/5</code></td>
+<td>Deletes status #5 of application #12</td>
+</tr>
+</tbody></table><blockquote>
+<p><a href="#api-06">API principle: Create relations of nested resources within the endpoint</a></p>
+</blockquote><p>In case of an n-to-n relation, there are various ways to retrieve a resource. The following requests respond identically:</p><table>
+<thead>
+<tr>
+<th>Request</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>GET /aanvragen/12/activiteiten</code></td>
+<td>Retrieves a list of activities for application #12</td>
+</tr>
+<tr>
+<td><code>GET /activiteiten?aanvraag=12</code></td>
+<td>Retrieves a list of activities, filtered by application #12</td>
+</tr>
+</tbody></table><p>In case of an n-to-m relation, the API supports the retrieval of individual resources anyway, at least providing the identifier of the related resource (relation). The user has to request the endpoint of the related resource (relation) to retrieve this one. This is referred to as <em>lazy loading</em>. The user decides whether to load the relation and when.</p></section><section id="custom-representation"><h4 id="x2-2-5-custom-representation"><span class="secno">2.2.5 </span>Custom representation</h4><p>The user of an API does not alway require the complete representation (i.e. all attributes) of a resource. Providing the option to select the required attributes in the requests reduces network traffic (relevant for light-weight applications), simplifies the use of the API and makes it adjustable (fit-for-use). The query parameter <code>fields</code> supports this usage. The query parameter accepts a comma-separated list of field names. The result is a custom representation. For example, the following request retrieves sufficient information to show a sorted list of applications (<em>aanvragen</em>):</p><p>In the case of HAL, linked resources are embedded in the default representation. Applying the aforementioned <code>fields</code> parameter, the contents of the  body can be customised as required. </p><p><code>GET /aanvragen?fields=id,onderwerp,aanvrager,wijzigDatum&amp;status=open&amp;sorteer=wijzigDatum</code></p><blockquote>
+<p><a href="#api-09">API principle: Implement custom representation if supported</a></p>
+</blockquote></section><section id="how-to-implement-operations-that-do-not-fit-the-crud-model"><h4 id="x2-2-6-how-to-implement-operations-that-do-not-fit-the-crud-model"><span class="secno">2.2.6 </span>How to implement operations that do not fit the CRUD model?</h4><p>There are resource operations that are not related to data manipulation (CRUD). Examples of this kind of operations are: changing the state (activate and deactivate) of a resource and marking (starring) a resource. Depending on the type of operation there are three approaches:</p><ol>
+<li><p>Restructure the operation to incorporate it into the resource. This approach applies if the operation does not require any parameters. For example, an activation operation can be assigned to a boolean field <code>geactiveerd</code> that can be modified by a <code>PATCH</code> to the resource.</p>
+</li>
+<li><p>Treat the operation as a sub-resource. For example, mark an application by <code>PUT /aanvragen/12/markeringen</code> and remove a mark by <code>DELETE /aanvragen/12/markeringen</code>. To fully follow the REST principles, also provide the <code>GET</code> operation for this sub-resource.</p>
+</li>
+<li><p>Sometimes there is no logical way to link an operation to an existing resource. An example of this kind of operations is a search across multiple resources. This operation cannot be assigned to anyone specific resource. In this case, the creation of an independent service endpoint <code>/_zoek</code> is the most obvious solution. Use the imperative mood of a verb to distinguish these endpoints from <em>genuine</em>  endpoints that use the indicative mood of a verb.</p>
+</li>
+</ol><p>The Dutch API strategy prefers approach 2 and 3.</p><blockquote>
+<p><a href="#api-10">API principle: Implement operations that do not fit the CRUD model as sub-resources</a></p>
+</blockquote></section></section><section id="documentation"><h3 id="x2-3-documentation"><span class="secno">2.3 </span>Documentation</h3><p>An API is as good as the accompanying documentation. The documentation has to be easily findable, searchable and publicly accessible. Most developers will first read the documentation before they start the implementation. Hiding the documentation in PDF documents and/or behind a login creates a barrier not only for developers but also for search engines. Specifications (documentation) are avaialble as Open API Specification (OAS) v3.0 or newer.</p><blockquote>
+<p><a href="#api-16">API principle: Documentation conforms to OAS v3.0 or newer</a></p>
+</blockquote><blockquote>
+<p><a href="#api-17">API principle: Publish documentation in Dutch unless there is existing documentation in English or there is an official English glossary available</a></p>
+</blockquote><p>The documentation should provide examples including full request and response cycles. Developers should be able to test (and perform) requests directly from within the documentation. Furthermore, each error should be described and labeled with a unique error code to trace errors.</p><p>Once an API is in production, the <em>contract</em> (interface) should not be changed without prior notice. The documentation should include a deprecation schedule and all details of the change. Changes should be published not only as a changelog on a publicly available blog but also through a mailing list, using the email addresses obtained when the API keys were issued.</p><blockquote>
+<p><a href="#api-18">API principle: Include a deprecation schedule when publishing API changes</a></p>
+</blockquote><section id="best-practice-s"><h4 id="x2-3-1-best-practice-s"><span class="secno">2.3.1 </span>Best practice(s)</h4><blockquote>
+<p><a href="#api-51">API principle: Publish OAS at a base-URI in JSON-format</a></p>
+</blockquote></section></section><section id="versioning"><h3 id="x2-4-versioning"><span class="secno">2.4 </span>Versioning</h3><p>APIs should always be versioned. Versioning facilitates the transition between changes. Old and new versions are offered during a limited (1 year) deprecation period. A maximum of 3 versions of the API should be supported. Users decide for themselves the moment they transition from the old to the new version of an API, as long as they do this prior to the end of the deprecation period.</p><blockquote>
+<p><a href="#api-19">API principle: Allow for a (maximum) 1 year deprecation period to a new API version</a></p>
+<p>Provide old and new versions (maximum 3) of an API concurrently for a limited, maximum 1 year deprecation period.</p>
+</blockquote><p>The URI of an API should include the major version number only. This allows the exploration of multiple versions of an API in the browser.</p><p>The version number start at 1 and is raised with 1 for every major release that breaks the backwards compatibility of the interface. The minor and patch version numbers are always in the response header of the message in the <code>major.minor.patch</code> format.</p><p>The header (both request and  response) should be implemented as follows:</p><table>
+<thead>
+<tr>
+<th>HTTP header</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>API-Version</code></td>
+<td>Indicates a specific API version in the context of a specific request. For example: <code>API-version: 1.2.56</code></td>
+</tr>
+</tbody></table><p>Using an optional request header one minor/patch version can be addressed. This means, that the client can send a request header to not only access versions v1 and v2 (the designated versions that are addressed in the URIs) but also access one <em>older</em> or <em>newer</em> version of API in the (pre-) production or acceptance test environment. For example, the following URIs point to the designated production release of the API that can be accessed in the URI:</p><p><code>https://service.omgevingswet.overheid.nl/publiek/catalogus/api/raadplegen/v1</code></p><p><code>API-version: 1.0.2</code> (response header)</p><p><code>https://service.omgevingswet.overheid.nl/publiek/catalogus/api/raadplegen/v2</code></p><p><code>API-version: 2.1.0</code> (response header)</p><p>Leaving off the request-header (<code>API-version: x.y.z</code>), one addresses always the <em>designated</em> production version. In case there is one other designated version available, e.g. v2.1.1, then it can be provided and addressed at the same base endpoint passing the correct request parameter: </p><p><code>API-version: 2.1.1</code> (request header)</p><p><code>https://service.omgevingswet.overheid.nl/publiek/catalogus/api/raadplegen/v2</code></p><p><code>API-version: 2.1.1</code> (response header)</p><p>Examples of backward compatible changes are the addition of an endpoint or an optional attribute to the payload.</p><blockquote>
+<p><a href="#api-20">API principle: Include only the major version number in the URI</a></p>
+<p>One should only include the major version number. Minor version number and patch version number are included in the header of the message. Minor and patch versions have no impact on existing code, but major version do.</p>
+</blockquote><p>An API will never be fully stable. Change is inevitable. Managing change is important. In general, well documented and timely communicated deprecation schedules are the most importand for API users.</p></section><section data-format="markdown" class="informative" id="extensions"><h3 id="x2-5-extensions"><span class="secno">2.5 </span>Extensions</h3><p><em>Dit onderdeel is niet normatief.</em></p><p>The extensions document exists in a "latest published version" ("Gepubliceerde versie" in Dutch) and a "latest editors draft" ("Werkversie" in Dutch). 
+The "latest editor's draft" is actively being worked on and can be found on Github. It contains the most recent changes.
+</p><p>The documents can be found here:</p><p><a href="https://docs.geostandaarden.nl/api/vv-hr-API-Strategie-ext-20190715/">Extensions Gepubliceerde versie</a>
+<a href="https://geonovum.github.io/KP-APIs/Werkgroep%20API%20strategie/extensions/">Extensions Werkversie</a></p></section></section>
+    <section data-format="markdown" aria-busy="false" id="normative-api-principles"><!--OddPage--><h2 id="x3-normative-api-principles"><span class="secno">3. </span><strong>Normative API Principles</strong></h2><div class="note" role="note" id="issue-container-generatedID"><div role="heading" class="note-title marker" id="h-note" aria-level="3"><span>Note</span></div><aside class="">
+API principles have unique numbers, depricated principles are removed from the list, new principles
+will get a new and higher nunmber. Thus gaps in the sequence can occur
+</aside></div><section id="api-01-operations-are-safe-and-or-idempotent"><h3 id="x3-1-api-01-operations-are-safe-and-or-idempotent"><span class="secno">3.1 </span><a name="api-01"></a>API-01: Operations are <em>Safe</em> and/or <em>Idempotent</em></h3><p>Operations of an API are guaranteed to be <em>safe</em> and/or <em>idempotent</em> if that has
+been specified.</p></section><section id="api-02-do-not-maintain-state-information-at-the-server"><h3 id="x3-2-api-02-do-not-maintain-state-information-at-the-server"><span class="secno">3.2 </span><a name="api-02"></a>API-02: Do not maintain state information at the server</h3><p>The client state is tracked fully at the client.</p></section><section id="api-03-only-apply-default-http-operations"><h3 id="x3-3-api-03-only-apply-default-http-operations"><span class="secno">3.3 </span><a name="api-03"></a>API-03: Only apply default HTTP operations</h3><p>A RESTful API is an application programming interface that supports the default
+HTTP operations GET, PUT, POST, PATCH and DELETE.</p></section><section id="api-04-define-interfaces-in-dutch-unless-there-is-an-official-english-glossary"><h3 id="x3-4-api-04-define-interfaces-in-dutch-unless-there-is-an-official-english-glossary"><span class="secno">3.4 </span><a name="api-04"></a>API-04: Define interfaces in Dutch unless there is an official English glossary</h3><p>Define resources and the underlying entities, fields and so on (the information
+model ad the external interface) in Dutch. English is allowed in case there is
+an official English glossary.</p></section><section id="api-05-use-plural-nouns-to-indicate-resources"><h3 id="x3-5-api-05-use-plural-nouns-to-indicate-resources"><span class="secno">3.5 </span><a name="api-05"></a>API-05: Use plural nouns to indicate resources</h3><p>Names of resources are nouns and always in the plural form, e.g. <em>aanvragen</em> ,
+<em>activiteiten</em>, <em>vergunningen</em>, even when it applies to single resources.</p></section><section id="api-06-create-relations-of-nested-resources-within-the-endpoint"><h3 id="x3-6-api-06-create-relations-of-nested-resources-within-the-endpoint"><span class="secno">3.6 </span><a name="api-06"></a>API-06: Create relations of nested resources within the endpoint</h3><p>Preferrably, create relation within the endpoint if a relation can only exist
+with another resource (nested resource). In that case, the dependent resource
+does not have its own endpoint.</p></section><section id="api-09-implement-custom-representation-if-supported"><h3 id="x3-7-api-09-implement-custom-representation-if-supported"><span class="secno">3.7 </span><a name="api-09"></a>API-09: Implement custom representation if supported</h3><p>Provide a comma-separated list of field names using the query parameter <code>fields</code>
+te retrieve a custom representation. In case non-existent field names are
+passed, a 400 Bad Request error message is returned.</p></section><section id="api-10-implement-operations-that-do-not-fit-the-crud-model-as-sub-resources"><h3 id="x3-8-api-10-implement-operations-that-do-not-fit-the-crud-model-as-sub-resources"><span class="secno">3.8 </span><a name="api-10"></a>API-10: Implement operations that do not fit the CRUD model as sub-resources</h3><p>"Operations that do not fit the CRUD model are implemented as follows:</p><ul>
+<li><p>Treat an operation as a sub-resource.</p>
+</li>
+<li><p>Only in exceptional cases, an operator is implemented as an endpoint."</p>
+</li>
+</ul></section><section id="api-16-use-oas-3-0-for-documentation"><h3 id="x3-9-api-16-use-oas-3-0-for-documentation"><span class="secno">3.9 </span><a name="api-16"></a>API-16: Use OAS 3.0 for documentation</h3><p>Publish specifications (documentation) as Open API Specification (OAS) 3.0 or
+higher.</p></section><section id="api-17-publish-documentation-in-dutch-unless-there-is-existing-documentation-in-english-or-there-is-an-official-english-glossary-available"><h3 id="x3-10-api-17-publish-documentation-in-dutch-unless-there-is-existing-documentation-in-english-or-there-is-an-official-english-glossary-available"><span class="secno">3.10 </span><a name="api-17"></a>API-17: Publish documentation in Dutch unless there is existing documentation in English or there is an official English glossary available</h3><p>Publish API documentation in Dutch. You may refer to existing documentation in
+Engelish and in case there is an official English glossary avaialble.</p></section><section id="api-18-include-a-deprecation-schedule-when-publishing-api-changes"><h3 id="x3-11-api-18-include-a-deprecation-schedule-when-publishing-api-changes"><span class="secno">3.11 </span><a name="api-18"></a>API-18: Include a deprecation schedule when publishing API changes</h3><p>API changes and a deprecation schedule should be published not only as a
+changelog on a publicly available blog but also through a mailing list.</p></section><section id="api-19-allow-for-a-maximum-1-year-transition-period-to-a-new-api-version"><h3 id="x3-12-api-19-allow-for-a-maximum-1-year-transition-period-to-a-new-api-version"><span class="secno">3.12 </span><a name="api-19"></a>API-19: Allow for a maximum 1 year transition period to a new API version</h3><p>Old and new versions (maximum 3) of an API should be provided concurrently for a
+limited, maximum 1 year transition period.</p></section><section id="api-20-include-the-major-version-number-only-in-ihe-uri"><h3 id="x3-13-api-20-include-the-major-version-number-only-in-ihe-uri"><span class="secno">3.13 </span><a name="api-20"></a>API-20: Include the major version number only in ihe URI</h3><p>The URI of an API should include the major version number only. The minor and
+patch version numbers are in the response header of the message. Minor and patch
+versions have no impact on existing code, but major version do.</p></section><section id="api-48-leave-off-trailing-slashes-from-api-endpoints"><h3 id="x3-14-api-48-leave-off-trailing-slashes-from-api-endpoints"><span class="secno">3.14 </span><a name="api-48"></a>API-48: Leave off trailing slashes from API endpoints</h3><p>URIs to retrieve collections of resources or individual resources don't include
+a trailing slash. A resource is only available at one endpoint/path. Resource
+paths end without a slash.</p></section><section id="api-51-publish-oas-at-the-base-uri-in-json-format"><h3 id="x3-15-api-51-publish-oas-at-the-base-uri-in-json-format"><span class="secno">3.15 </span><a name="api-51"></a>API-51: Publish OAS at the base-URI in JSON-format</h3><p>Publish up-to-date documentation in the Open API Specification (OAS) at the
+publicly accessible root endpoint of the API in JSON format:</p><p><code>https://service.omgevingswet.overheid.nl/publiek/catalogus/api/raadplegen/v1</code></p><p>Makes the OAS relevant to v1 of the API available.</p><p>Thus, the up-to-date documentation is linked to a unique location (that is
+always concurrent with the features available in the API).</p></section></section>
+  
+
+<p role="navigation" id="back-to-top"><a href="#title"><abbr title="Back to Top">↑</abbr></a></p><script src="https://www.w3.org/scripts/TR/2016/fixup.js"></script></body></html>
