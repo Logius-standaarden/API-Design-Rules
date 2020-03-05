@@ -67,9 +67,9 @@ Once the resources have been identified, one determines the operation that are a
 |`PATCH /rijksmonumenten/12`|Modified national monument #12 partially|
 |`DELETE /rijksmonumenten/12`|Deletes national monument #12|
 
-REST applies existing HTTP operations to implement functionality at one service endpoint. This removes the requirement for additional URI naming conventions and the URI structure remains clear.
+REST applies existing HTTP/1.1 (https://tools.ietf.org/html/rfc2616) operations to implement functionality at one service endpoint. This removes the requirement for additional URI naming conventions and the URI structure remains clear.
 
-> [API principle: Only apply default HTTP operations](#api-03)
+> [API principle: Only apply default HTTP/1.1 operations](#api-03)
 
 > [API principle: Leave off trailing slashes from API endpoints](#api-48)
 
