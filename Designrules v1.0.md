@@ -54,7 +54,7 @@ REST makes use of the client stateless server design principle derived from clie
 
 A fundamental concept in every RESTful API is the resource. A resource is an object with a type, attributes, relation with other resources and a number of operations to modify them. Resources are referred to using nouns (not verbs) that are relevant from the perspective of the user of the API. Operations are actions applied to these resources. Operations are referred to using verbs that are relevant from the perspectie of the user of the API.
 
-One can translate internal data models as-is to resources, but not by definition. The point is to not hide all relevant implementation details. Some example resources are: *aanvragen* (applications), *activiteiten* (activities), *panden* (buildings), *rijksmonumenten* (national monuments), and *vergunningen* (permits).
+One can translate internal data models as-is to resources, but not by definition. The point is to hide all not relevant implementation details. Some example resources are: *aanvragen* (applications), *activiteiten* (activities), *panden* (buildings), *rijksmonumenten* (national monuments), and *vergunningen* (permits).
 
 Once the resources have been identified, one determines the operation that are applicable and how the API supports them. RESTful APIs perform CRUD (Create, Read, Update, Delete) operations using HTTP operations:
 
@@ -72,6 +72,8 @@ REST applies existing HTTP/1.1 (https://tools.ietf.org/html/rfc2616) operations 
 > [API principle: Only apply default HTTP/1.1 operations](#api-03)
 
 > [API principle: Leave off trailing slashes from API endpoints](#api-48)
+
+> [API principle: Hide not relevant implementatoin details](#api-53)
 
 ### Language usage
 
