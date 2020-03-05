@@ -167,7 +167,7 @@ APIs should always be versioned. Versioning facilitates the transition between c
 
 The URI of an API should include the major version number only. This allows the exploration of multiple versions of an API in the browser.
 
-The version number start at 1 and is raised with 1 for every major release that breaks the backwards compatibility of the interface. The minor and patch version numbers are always in the response header of the message in the `major.minor.patch` format.
+The version number start at 1 and is raised with 1 for every major release that breaks the backwards compatibility of the interface. The minor and patch version numbers are always in the response header of the message in the `major.minor.patch` format (see also https://semver.org/)
 
 The header (both request and  response) should be implemented as follows:
 
