@@ -77,7 +77,7 @@ REST applies existing HTTP/1.1 (https://tools.ietf.org/html/rfc2616) operations 
 
 ### Language usage
 
-Since the exact meaning of concepts are often lost in translation, resources and the underlying entities and attributes are defined in Dutch. Note that glossaries exist that define useful sets of attributes which should preferably be reused, examples can be found at http://schema.org/docs/schemas.html.
+Since the exact meaning of concepts are often lost in translation, resources and the underlying entities and attributes are defined in Dutch. Note that glossaries exist that define useful sets of attributes which should preferably be reused, examples can be found at http://schema.org/docs/schemas.html. Please note that usage of an API outside of the Netherlands might also be a reason to define interfaces in English.
 
 > [API principle: Define interfaces in Dutch unless there is an official English glossary](#api-04)
 
