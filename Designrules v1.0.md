@@ -1,6 +1,6 @@
 # API designrules
 
-> *This chapter aims to describe a set of design rules for the unambiguous provision of RESTful APIs (henceforth abbreviated as APIs). This achieves a predictable governments so developers can easily start consuming and combining APIs. Until now, this chapter does not include rules for other types of APIs, e.g. SOAP. In the addendum *API-principles*, the set of rules has been condensed into a number of core principles to keep in mind for the design and creation of APIs.*
+> *This chapter aims to describe a set of design rules for the unambiguous provision of RESTful APIs (henceforth abbreviated as APIs). This achieves a predictable government so developers can easily start consuming and combining APIs. Until now, this chapter does not include rules for other types of APIs, e.g. SOAP. In the addendum *API-principles*, the set of rules has been condensed into a number of core principles to keep in mind for the design and creation of APIs.*
 
 ## Introduction
 
@@ -24,7 +24,7 @@ The most important prinicple of REST is the seperation of the API in logical res
 |`PATCH`|Update|Partially modify an existing resource. The request contains the data that have to be changed and the operations that modify the resource in the designated JSON merge patch format (RFC 7386).|
 |`DELETE`|Delete|Remove the specific resource.|
 
-For each operation one has to specify whether it has to be *safe* and/or *idempotent*. This is important, because clients and middelware rely on this.
+For each operation one has to specify whether it has to be *safe* and/or *idempotent*. This is important, because clients and middleware rely on this.
 
 > **Safe (read-only)**
 >
@@ -32,7 +32,7 @@ For each operation one has to specify whether it has to be *safe* and/or *idempo
 
 > **Idempotent**
 >
-> Idempotent means that multiple, identical requests have the same effect as one request.
+> Idempotent means that multiple, identical requests have the same effect as one request. For a DELETE this means that the second (or third) identical DELETE request would not change the dataset anymore.
 
 |Operation|Safe|Idempotent|
 |-|-|-|
@@ -73,13 +73,13 @@ REST applies existing HTTP operations to implement functionality at one service 
 
 ### Language usage
 
-Since the exact meaning of concepts are often lost in translation, resources and the underlying entities and attributes are defined in Dutch.
+Since the exact meaning of concepts are often lost in translation, resources and the underlying entities and attributes are defined in Dutch. Note that glossaries exist that define useful sets of attributes which should preferably be reused, examples can be found at http://schema.org/docs/schemas.html.
 
 > [API principle: Define interfaces in Dutch unless there is an official English glossary](#api-04)
 
 ### Interface nomenclature: singular or plural?
 
-Here, the *Keep It Simple Stupid* (KISS) rule is applicable. Although grammatically, it may feel wrong to request a single resource using the plural of the resource, it is a pragmatic choice to refer to endpoints consistently using plural. For the user it is much easier to not have to keep in mind singular and plural (*aanvraag/aanvragen, regel/regels*). Furthermore, this implementation is much more straightforward as most development frameworks are able to resolve both a single resource (`/aanvragen/12`) and multiple resources (`/aanvragen`) using one controller.
+Here, the *Keep It Simple Stupid* (KISS) rule is applicable.  Collections and items of collections are addressed via the plural and single resources via the singular. Although grammatically, it may feel wrong to request a single resource using the plural of the resource, it is a pragmatic choice to refer to endpoints consistently using plural. For the user it is much easier to not have to keep in mind singular and plural (*aanvraag/aanvragen, regel/regels*). Furthermore, this implementation is much more straightforward as most development frameworks are able to resolve both a single resource (`/aanvragen/12`) and multiple resources (`/aanvragen`) using one controller.
 
 > [API principle: Use plural nouns to indicate resources](#api-05)
 
@@ -109,11 +109,11 @@ In case of an n-to-m relation, the API supports the retrieval of individual reso
 
 ### Custom representation
 
-The user of an API does not alway require the complete representation (i.e. all attributes) of a resource. Providing the option to select the required attributes in the requests reduces network traffic (relevant for light-weight applications), simplifies the use of the API and makes it adjustable (fit-for-use). The query parameter `fields` supports this usage. The query parameter accepts a comma-separated list of field names. The result is a custom representation. For example, the following request retrieves sufficient information to show a sorted list of applications (*aanvragen*):
-
-In the case of HAL, linked resources are embedded in the default representation. Applying the aforementioned `fields` parameter, the contents of the  body can be customised as required. 
+The user of an API does not always require the complete representation (i.e. all attributes) of a resource. Providing the option to select the required attributes in the requests reduces network traffic (relevant for light-weight applications), simplifies the use of the API and makes it adjustable (fit-for-use). The query parameter `fields` supports this usage. The query parameter accepts a comma-separated list of field names. The result is a custom representation. For example, the following request retrieves sufficient information to show a sorted list of applications (*aanvragen*):
 
 `GET /aanvragen?fields=id,onderwerp,aanvrager,wijzigDatum&status=open&sorteer=wijzigDatum`
+
+In the case of HAL, linked resources are embedded in the default representation. Applying the aforementioned `fields` parameter, the contents of the  body can be customised as required. 
 
 > [API principle: Implement custom representation if supported](#api-09)
 
@@ -151,11 +151,11 @@ Once an API is in production, the *contract* (interface) should not be changed w
 
 ## Versioning
 
-APIs should always be versioned. Versioning facilitates the transition between changes. Old and new versions are offered during a limited (1 year) deprecation period. A maximum of 3 versions of the API should be supported. Users decide for themselves the moment they transition from the old to the new version of an API, as long as they do this prior to the end of the deprecation period.
+APIs should always be versioned. Versioning facilitates the transition between changes. Old and new versions are offered during a limited deprecation period. A maximum of 3 versions of the API should be supported. Users decide for themselves the moment they transition from the old to the new version of an API, as long as they do this prior to the end of the deprecation period.
 
-> [API principle: Allow for a (maximum) 1 year deprecation period to a new API version](#api-19)
+> [API principle: Allow for a limited deprecation period to a new API version](#api-19)
 >
-> Provide old and new versions (maximum 3) of an API concurrently for a limited, maximum 1 year deprecation period.
+> Provide old and new versions (maximum 3) of an API concurrently for a limited deprecation period.
 
 The URI of an API should include the major version number only. This allows the exploration of multiple versions of an API in the browser.
 
@@ -191,7 +191,7 @@ Examples of backward compatible changes are the addition of an endpoint or an op
 >
 > One should only include the major version number. Minor version number and patch version number are included in the header of the message. Minor and patch versions have no impact on existing code, but major version do.
 
-An API will never be fully stable. Change is inevitable. Managing change is important. In general, well documented and timely communicated deprecation schedules are the most importand for API users.
+An API will never be fully stable. Change is inevitable. Managing change is important. In general, well documented and timely communicated deprecation schedules are the most important for API users.
 
 
 <section data-format="markdown" class="informative">
@@ -202,7 +202,7 @@ The "latest editor's draft" is actively being worked on and can be found on Gith
 
 The documents can be found here:
 
-[Extensions Gepubliceerde versie](https://docs.geostandaarden.nl/api/vv-hr-API-Strategie-ext-20190715/)
-[Extensions Werkversie](https://geonovum.github.io/KP-APIs/Werkgroep%20API%20strategie/extensions/)
+[Extensions Gepubliceerde versie](https://docs.geostandaarden.nl/api/API-Strategie-ext/)
+[Extensions Werkversie](https://geonovum.github.io/KP-APIs/API-strategie-extensies/)
 		  
 </section>
