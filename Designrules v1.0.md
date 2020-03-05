@@ -139,15 +139,15 @@ The Dutch API strategy prefers approach 2 and 3.
 
 > [API principle: Implement operations that do not fit the CRUD model as sub-resources](#api-10)
 
-## Documentation
+## Technical documentation
 
-An API is as good as the accompanying documentation. The documentation has to be easily findable, searchable and publicly accessible. Most developers will first read the documentation before they start the implementation. Hiding the documentation in PDF documents and/or behind a login creates a barrier not only for developers but also for search engines. Specifications (documentation) are avaialble as Open API Specification (OAS) v3.0 or newer.
+An API is as good as the accompanying technical documentation. The documentation has to be easily findable, searchable and publicly accessible. Most developers will first read the documentation before they start the implementation. Hiding the technical documentation in PDF documents and/or behind a login creates a barrier not only for developers but also for search engines. Technical specifications (technical documentation) are available as Open API Specification (OAS) v3.0 or newer. Also provide context documentation as described in paragraph 3.4.3.
 
-> [API principle: Documentation conforms to OAS v3.0 or newer](#api-16)
+> [API principle: Technical documentation conforms to OAS v3.0 or newer](#api-16)
 
-> [API principle: Publish documentation in Dutch unless there is existing documentation in English or there is an official English glossary available](#api-17)
+> [API principle: Publish technical documentation in Dutch unless there is existing technical documentation in English or there is an official English glossary available](#api-17)
 
-The documentation should provide examples including full request and response cycles. Developers should be able to test (and perform) requests directly from within the documentation. Furthermore, each error should be described and labeled with a unique error code to trace errors.
+The technical documentation should provide examples including full request and response cycles. Developers should be able to test (and perform) requests directly from within the technical documentation. Furthermore, each error should be described and labeled with a unique error code to trace errors.
 
 Once an API is in production, the *contract* (interface) should not be changed without prior notice. The documentation should include a deprecation schedule and all details of the change. Changes should be published not only as a changelog on a publicly available blog but also through a mailing list, using the email addresses obtained when the API keys were issued.
 
