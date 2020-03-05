@@ -42,6 +42,8 @@ For each operation one has to specify whether it has to be *safe* and/or *idempo
 |`PATCH`|No|Optional|
 |`DELETE`|No|Yes|
 
+See also: https://tools.ietf.org/html/rfc2616#section-9
+
 > [API principle: operations are *Safe* and/or *Idempotent*](#api-01)
 
 REST makes use of the client stateless server design principle derived from client server with the additional constraint that it is not allowed to maintain the state at the server. Each request from the client to the server has to contain all information required to process the request without the need to use state-information at the server.
