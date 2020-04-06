@@ -4,9 +4,9 @@ This chapter contains a short introduction on the API Designrules standard.
 
 ## Status of the API Designrules
 
-This version of the desgnrules has been submitted to "Forum Standaardisatie" for inclusion  
+This version of the designrules has been submitted to "Forum Standaardisatie" for inclusion
 on the Comply or Explain list of mandatory standards in the Dutch Public Sector.
-This document originates from chapter 4 of the document "API Strategie voor de Nederlandse Overheid" 
+This document originates from chapter 4 of the document "API Strategie voor de Nederlandse Overheid"
 which can be found at the following location: http://docs.geostandaarden.nl/api/vv-hr-API-Strategie-20190715
 
 ## Authors
@@ -16,7 +16,7 @@ of a collaborative effort by the API Designrules Working Group.
 
 ## Reading Guide
 
-This document is part of the "Nederlandse API Strategie" 
+This document is part of the "Nederlandse API Strategie"
 
 | Part    | Description                                   | Status          | Link                                                        |
 |---------|-----------------------------------------------| ----------------|-------------------------------------------------------------|

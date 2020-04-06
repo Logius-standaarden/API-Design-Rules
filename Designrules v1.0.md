@@ -1,6 +1,6 @@
-# API designrules
+# The Designrules
 
-> *This chapter aims to describe a set of design rules for the unambiguous provision of RESTful APIs (henceforth abbreviated as APIs). This achieves a predictable government so developers can easily start consuming and combining APIs. Until now, this chapter does not include rules for other types of APIs, e.g. SOAP. In the addendum *API-principles*, the set of rules has been condensed into a number of core principles to keep in mind for the design and creation of APIs.*
+This chapter aims to describe a set of design rules for the unambiguous provision of RESTful APIs (henceforth abbreviated as APIs). This achieves a predictable government so developers can easily start consuming and combining APIs. Until now, this chapter does not include rules for other types of APIs, e.g. SOAP. In the addendum *API-principles*, the set of rules has been condensed into a number of core principles to keep in mind for the design and creation of APIs.
 
 ## Introduction
 
@@ -44,11 +44,17 @@ For each operation one has to specify whether it has to be *safe* and/or *idempo
 
 See also: https://tools.ietf.org/html/rfc2616#section-9
 
-> [API principle: operations are *Safe* and/or *Idempotent*](#api-01)
+<div class="rule" id="api-01">
+  <p class="rulelab"><strong>API-01</strong>: Operations are *Safe* and/or *Idempotent*</p>
+  <p>Operations of an API are guaranteed to be safe and/or idempotent if that has been specified.</p>
+</div>
 
 REST makes use of the client stateless server design principle derived from client server with the additional constraint that it is not allowed to maintain the state at the server. Each request from the client to the server has to contain all information required to process the request without the need to use state-information at the server.
 
-> [API principle: do not maintain state information at the server](#api-02)
+<div class="rule" id="api-02">
+  <p class="rulelab"><strong>API-02</strong>: Do not maintain state information at the server</p>
+  <p>The client state is tracked fully at the client.</p>
+</div>
 
 ### What are resources?
 
@@ -69,23 +75,37 @@ Once the resources have been identified, one determines the operation that are a
 
 REST applies existing HTTP/1.1 (https://tools.ietf.org/html/rfc2616) operations to implement functionality at one service endpoint. This removes the requirement for additional URI naming conventions and the URI structure remains clear.
 
-> [API principle: Only apply default HTTP/1.1 operations](#api-03)
+<div class="rule" id="api-03">
+  <p class="rulelab"><strong>API-03</strong>: Only apply default HTTP operations</p>
+  <p>A RESTful API is an application programming interface that supports the default HTTP operations <code>GET</code>, <code>PUT</code>, <code>POST</code>, <code>PATCH</code> and <code>DELETE</code>.</p>
+</div>
 
-> [API principle: Leave off trailing slashes from API endpoints](#api-48)
+<div class="rule" id="api-48">
+  <p class="rulelab"><strong>API-48</strong>: Leave off trailing slashes from API endpoints</p>
+  <p>URIs to retrieve collections of resources or individual resources don't include a trailing slash. A resource is only available at one endpoint/path. Resource paths end without a slash.</p>
+</div>
 
-> [API principle: Hide not relevant implementatoin details](#api-53)
+<div class="rule" id="api-53">
+  <p class="rulelab"><strong>API-53</strong>: Hide not relevant implementation details</p>
+</div>
 
 ### Language usage
 
 Since the exact meaning of concepts are often lost in translation, resources and the underlying entities and attributes are defined in Dutch. Note that glossaries exist that define useful sets of attributes which should preferably be reused, examples can be found at http://schema.org/docs/schemas.html. Please note that usage of an API outside of the Netherlands might also be a reason to define interfaces in English.
 
-> [API principle: Define interfaces in Dutch unless there is an official English glossary](#api-04)
+<div class="rule" id="api-04">
+  <p class="rulelab"><strong>API-04</strong>: Use plural nouns to indicate resources</p>
+  <p>Names of resources are nouns and always in the plural form, e.g. <i>aanvragen</i>, <i>activiteiten</i>, <i>vergunningen</i>, even when it applies to single resources.</p>
+</div>
 
 ### Interface nomenclature: singular or plural?
 
 Here, the *Keep It Simple Stupid* (KISS) rule is applicable.  Collections and items of collections are addressed via the plural and single resources via the singular. Although grammatically, it may feel wrong to request a single resource using the plural of the resource, it is a pragmatic choice to refer to endpoints consistently using plural. For the user it is much easier to not have to keep in mind singular and plural (*aanvraag/aanvragen, regel/regels*). Furthermore, this implementation is much more straightforward as most development frameworks are able to resolve both a single resource (`/aanvragen/12`) and multiple resources (`/aanvragen`) using one controller.
 
-> [API principle: Use plural nouns to indicate resources](#api-05)
+<div class="rule" id="api-05">
+  <p class="rulelab"><strong>API-05</strong>: Define interfaces in Dutch unless there is an official English glossary</p>
+  <p>Define resources and the underlying entities, fields and so on (the information model ad the external interface) in Dutch. English is allowed in case there is an official English glossary.</p>
+</div>
 
 ### Naming convention
 
@@ -106,7 +126,10 @@ If a relation can only exist in the context of another resource (1 to n relation
 |`PATCH /aanvragen/12/statussen/5`|Modifies status #5 of application #12 partially|
 |`DELETE /aanvragen/12/statussen/5`|Deletes status #5 of application #12|
 
-> [API principle: Create relations of nested resources within the endpoint](#api-06)
+<div class="rule" id="api-06">
+  <p class="rulelab"><strong>API-06</strong>: Create relations of nested resources within the endpoint</p>
+  <p>Preferrably, create relation within the endpoint if a relation can only exist with another resource (nested resource). In that case, the dependent resource does not have its own endpoint.</p>
+</div>
 
 In case of an n-to-n relation, there are various ways to retrieve a resource. The following requests respond identically:
 
@@ -123,9 +146,12 @@ The user of an API does not always require the complete representation (i.e. all
 
 `GET /aanvragen?fields=id,onderwerp,aanvrager,wijzigDatum&status=open&sorteer=wijzigDatum`
 
-In the case of HAL, linked resources are embedded in the default representation. Applying the aforementioned `fields` parameter, the contents of the  body can be customised as required. 
+In the case of HAL, linked resources are embedded in the default representation. Applying the aforementioned `fields` parameter, the contents of the  body can be customised as required.
 
-> [API principle: Implement custom representation if supported](#api-09)
+<div class="rule" id="api-09">
+  <p class="rulelab"><strong>API-09</strong>: Implement custom representation if supported</p>
+  <p>Provide a comma-separated list of field names using the query parameter fields te retrieve a custom representation. In case non-existent field names are passed, a <code>400 Bad Request</code> error message is returned.</p>
+</div>
 
 ### How to implement operations that do not fit the CRUD model?
 
@@ -139,39 +165,62 @@ There are resource operations that are not related to data manipulation (CRUD). 
 
 The Dutch API strategy prefers approach 2 and 3.
 
-> [API principle: Implement operations that do not fit the CRUD model as sub-resources](#api-10)
+<div class="rule" id="api-10">
+  <p class="rulelab"><strong>API-10</strong>: Implement operations that do not fit the CRUD model as sub-resources</p>
+  <p>Operations that do not fit the CRUD model are implemented as follows:</p>
+  <ul>
+    <li>Treat an operation as a sub-resource.</li>
+    <li>Only in exceptional cases, an operator is implemented as an endpoint.</li>
+  </ul>
+</div>
 
 ## Technical documentation
 
 An API is as good as the accompanying technical documentation. The documentation has to be easily findable, searchable and publicly accessible. Most developers will first read the documentation before they start the implementation. Hiding the technical documentation in PDF documents and/or behind a login creates a barrier not only for developers but also for search engines. Technical specifications (technical documentation) are available as Open API Specification (OAS) v3.0 or newer. Also provide context documentation as described in paragraph 3.4.3.
 
-> [API principle: Technical documentation conforms to OAS v3.0 or newer](#api-16)
+<div class="rule" id="api-16">
+  <p class="rulelab"><strong>API-16</strong>: Use OAS 3.0 for documentation</p>
+  <p>Publish specifications (documentation) as Open API Specification (OAS) 3.0 or higher.</p>
+</div>
 
-> [API principle: Publish technical documentation in Dutch unless there is existing technical documentation in English or there is an official English glossary available](#api-17)
+<div class="rule" id="api-17">
+  <p class="rulelab"><strong>API-17</strong>: Publish documentation in Dutch unless there is existing documentation in English or there is an official English glossary available</p>
+  <p>Publish API documentation in Dutch. You may refer to existing documentation in English and in case there is an official English glossary available.</p>
+</div>
 
 The technical documentation should provide examples including full request and response cycles. Developers should be able to test (and perform) requests directly from within the technical documentation. Furthermore, each error should be described and labeled with a unique error code to trace errors.
 
 Once an API is in production, the *contract* (interface) should not be changed without prior notice. The documentation should include a deprecation schedule and all details of the change. Changes should be published not only as a changelog on a publicly available blog but also through a mailing list, using the email addresses obtained when the API keys were issued.
 
-> [API principle: Include a deprecation schedule when publishing API changes](#api-18)
+<div class="rule" id="api-18">
+  <p class="rulelab"><strong>API-18</strong>: Include a deprecation schedule when publishing API changes</p>
+  <p>API changes and a deprecation schedule should be published not only as a changelog on a publicly available blog but also through a mailing list.</p>
+</div>
 
 ### Best practice(s)
 
-> [API principle: Publish OAS at a base-URI in JSON-format](#api-51)
+<div class="rule" id="api-51">
+  <p class="rulelab"><strong>API-51</strong>: Publish OAS at the base-URI in JSON-format</p>
+  <p>Publish up-to-date documentation in the OpenAPI Specification (OAS) at the publicly accessible root endpoint of the API in JSON format:</p>
+  <p><code>https://service.omgevingswet.overheid.nl/publiek/catalogus/api/raadplegen/v1</code></p>
+  <p>Makes the OAS relevant to v1 of the API available. Thus, the up-to-date documentation is linked to a unique location (that is
+always concurrent with the features available in the API).</p>
+</div>
 
 ## Versioning
 
 APIs should always be versioned. Versioning facilitates the transition between changes. Old and new versions are offered during a limited deprecation period. A maximum of 3 versions of the API should be supported. Users decide for themselves the moment they transition from the old to the new version of an API, as long as they do this prior to the end of the deprecation period.
 
-> [API principle: Allow for a limited deprecation period to a new API version](#api-19)
->
-> Provide old and new versions (maximum 3) of an API concurrently for a limited deprecation period.
+<div class="rule" id="api-19">
+  <p class="rulelab"><strong>API-19</strong>: Allow for a maximum 1 year transition period to a new API version</p>
+  <p>Old and new versions (maximum 3) of an API should be provided concurrently for a limited, maximum 1 year transition period.</p>
+</div>
 
 The URI of an API should include the major version number only. This allows the exploration of multiple versions of an API in the browser.
 
 The version number start at 1 and is raised with 1 for every major release that breaks the backwards compatibility of the interface. The minor and patch version numbers are always in the response header of the message in the `major.minor.patch` format (see also https://semver.org/)
 
-The header (both request and  response) should be implemented as follows:
+The header (both request and response) should be implemented as follows:
 
 |HTTP header|Description|
 |-|-|
@@ -187,7 +236,7 @@ Using an optional request header one minor/patch version can be addressed. This 
 
 `API-version: 2.1.0` (response header)
 
-Leaving off the request-header (`API-version: x.y.z`), one addresses always the *designated* production version. In case there is one other designated version available, e.g. v2.1.1, then it can be provided and addressed at the same base endpoint passing the correct request parameter: 
+Leaving off the request-header (`API-version: x.y.z`), one addresses always the *designated* production version. In case there is one other designated version available, e.g. v2.1.1, then it can be provided and addressed at the same base endpoint passing the correct request parameter:
 
 `API-version: 2.1.1` (request header)
 
@@ -197,22 +246,22 @@ Leaving off the request-header (`API-version: x.y.z`), one addresses always the 
 
 Examples of backward compatible changes are the addition of an endpoint or an optional attribute to the payload.
 
-> [API principle: Include only the major version number in the URI](#api-20)
->
-> One should only include the major version number. Minor version number and patch version number are included in the header of the message. Minor and patch versions have no impact on existing code, but major version do.
+<div class="rule" id="api-20">
+  <p class="rulelab"><strong>API-20</strong>: Include the major version number only in ihe URI</p>
+  <p>The URI of an API should include the major version number only. The minor and patch version numbers are in the response header of the message. Minor and patch versions have no impact on existing code, but major version do.</p>
+</div>
 
 An API will never be fully stable. Change is inevitable. Managing change is important. In general, well documented and timely communicated deprecation schedules are the most important for API users.
 
-
 <section data-format="markdown" class="informative">
-## Extensions        
+## Extensions
 
-The extensions document exists in a "latest published version" ("Gepubliceerde versie" in Dutch) and a "latest editors draft" ("Werkversie" in Dutch). 
+The extensions document exists in a "latest published version" ("Gepubliceerde versie" in Dutch) and a "latest editors draft" ("Werkversie" in Dutch).
 The "latest editor's draft" is actively being worked on and can be found on Github. It contains the most recent changes.
 
 The documents can be found here:
 
 [Extensions Gepubliceerde versie](https://docs.geostandaarden.nl/api/API-Strategie-ext/)
 [Extensions Werkversie](https://geonovum.github.io/KP-APIs/API-strategie-extensies/)
-		  
+
 </section>
