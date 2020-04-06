@@ -21,3 +21,4 @@ Designrules have unique and permanent numbers. In the event of designrules being
 * <a href="#api-20">API-20</a>: Include the major version number only in ihe URI
 * <a href="#api-48">API-48</a>: Leave off trailing slashes from API endpoints
 * <a href="#api-51">API-51</a>: Publish OAS at the base-URI in JSON-format
+* <a href="#api-53">API-53</a>: Hide not relevant implementation details
