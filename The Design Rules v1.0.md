@@ -1,20 +1,9 @@
 # The Design Rules
 
-This chapter aims to describe a set of design rules for the unambiguous provision of RESTful APIs (henceforth abbreviated as APIs). This achieves a predictable government so developers can easily start consuming and combining APIs. Until now, this chapter does not include rules for other types of APIs, e.g. SOAP. In the addendum *API-principles*, the set of rules has been condensed into a number of core principles to keep in mind for the design and creation of APIs.
-
-## Introduction
-
-More and more government organisations implement and provide RESTful APIs. In many cases, these APIs provide access to data sets complementary to existing interfaces, e.g. SOAP and WFS. These APIs aim to be developer-friendly (see also paragraph 2.6 and chapter 3) and quick to implement. While this is a commendable aim, it does not shield a developer from a steep learning curve getting to know every new API. A developer has to understand how every API can be used, but there should have to not be a difference in the technical implementation. The Knowlegde Platform APIs aims to provide a set of design rules or prinicples for APIs to align their technical operation across government organisations and to facilitate their implementation. This chapter describes the widely applicable set of design rules. Hopefully, government organisations will adopt these design rules in their own API strategies and provide feedback about exceptions and additions to subsequently improve these design rules.
-
-Keep in mind, these design rules should be applied in the creation of an API only if the functionality described is desirable.
-
-All paragraphs in this chapter, except for paragraph 4.5 are **Normative**. Paragraph 4.5 is **Informative**.
-
-## RESTful principles
+## REST principles
 
 The most important principle of REST is the seperation of the API in logical resources (*things*). The resources describe the information of the *thing*. These resources are manipulated using HTTP-requests and HTTP-operations. Each operation (`GET`, `POST`, `PUT`, `PATCH`, `DELETE`) has a specific meaning.
 > HTTP also defines operations, e.g. `HEAD`, `TRACE`, `OPTIONS` en `CONNECT`. In the context of REST, these operations are hardly ever used and have been excluded from the rest of this chapter.
-
 
 |Operation|CRUD|Description|
 |-|-|-|
@@ -56,13 +45,13 @@ REST makes use of the client stateless server design principle derived from clie
   <p>The client state is tracked fully at the client.</p>
 </div>
 
-### What are resources?
+## What are resources?
 
-A fundamental concept in every RESTful API is the resource. A resource is an object with a type, attributes, relation with other resources and a number of operations to modify them. Resources are referred to using nouns (not verbs) that are relevant from the perspective of the user of the API. Operations are actions applied to these resources. Operations are referred to using verbs that are relevant from the perspectie of the user of the API.
+A fundamental concept in every REST API is the resource. A resource is an object with a type, attributes, relation with other resources and a number of operations to modify them. Resources are referred to using nouns (not verbs) that are relevant from the perspective of the user of the API. Operations are actions applied to these resources. Operations are referred to using verbs that are relevant from the perspectie of the user of the API.
 
 One can translate internal data models as-is to resources, but not by definition. The point is to hide all not relevant implementation details. Some example resources are: *aanvragen* (applications), *activiteiten* (activities), *panden* (buildings), *rijksmonumenten* (national monuments), and *vergunningen* (permits).
 
-Once the resources have been identified, one determines the operation that are applicable and how the API supports them. RESTful APIs perform CRUD (Create, Read, Update, Delete) operations using HTTP operations:
+Once the resources have been identified, one determines the operation that are applicable and how the API supports them. REST APIs perform CRUD (Create, Read, Update, Delete) operations using HTTP operations:
 
 |Request|Description|
 |-|-|
@@ -77,7 +66,7 @@ REST applies existing HTTP/1.1 (https://tools.ietf.org/html/rfc2616) operations 
 
 <div class="rule" id="api-03">
   <p class="rulelab"><strong>API-03</strong>: Only apply default HTTP operations</p>
-  <p>A RESTful API is an application programming interface that supports the default HTTP operations <code>GET</code>, <code>PUT</code>, <code>POST</code>, <code>PATCH</code> and <code>DELETE</code>.</p>
+  <p>A REST API is an application programming interface that supports the default HTTP operations <code>GET</code>, <code>PUT</code>, <code>POST</code>, <code>PATCH</code> and <code>DELETE</code>.</p>
 </div>
 
 <div class="rule" id="api-48">
@@ -89,7 +78,7 @@ REST applies existing HTTP/1.1 (https://tools.ietf.org/html/rfc2616) operations 
   <p class="rulelab"><strong>API-53</strong>: Hide not relevant implementation details</p>
 </div>
 
-### Language usage
+## Language usage
 
 Since the exact meaning of concepts are often lost in translation, resources and the underlying entities and attributes are defined in Dutch. Note that glossaries exist that define useful sets of attributes which should preferably be reused, examples can be found at http://schema.org/docs/schemas.html. Please note that usage of an API outside of the Netherlands might also be a reason to define interfaces in English.
 
@@ -98,7 +87,7 @@ Since the exact meaning of concepts are often lost in translation, resources and
   <p>Names of resources are nouns and always in the plural form, e.g. <i>aanvragen</i>, <i>activiteiten</i>, <i>vergunningen</i>, even when it applies to single resources.</p>
 </div>
 
-### Interface nomenclature: singular or plural?
+## Interface nomenclature: singular or plural?
 
 Here, the *Keep It Simple Stupid* (KISS) rule is applicable.  Collections and items of collections are addressed via the plural and single resources via the singular. Although grammatically, it may feel wrong to request a single resource using the plural of the resource, it is a pragmatic choice to refer to endpoints consistently using plural. For the user it is much easier to not have to keep in mind singular and plural (*aanvraag/aanvragen, regel/regels*). Furthermore, this implementation is much more straightforward as most development frameworks are able to resolve both a single resource (`/aanvragen/12`) and multiple resources (`/aanvragen`) using one controller.
 
@@ -107,13 +96,13 @@ Here, the *Keep It Simple Stupid* (KISS) rule is applicable.  Collections and it
   <p>Define resources and the underlying entities, fields and so on (the information model ad the external interface) in Dutch. English is allowed in case there is an official English glossary.</p>
 </div>
 
-### Naming convention
+## Naming convention
 
 The API Design rules do not specify naming conventions for API's, inspiration for naming an API can be found at:
 - Service names: https://cloud.google.com/apis/design/naming_convention#service_names
 - Interface names: https://cloud.google.com/apis/design/naming_convention#interface_names
 
-### How to deal with relations?
+## How to deal with relations?
 
 If a relation can only exist in the context of another resource (1 to n relation), then the dependent resource (child) can only be retrieved through the parent. The next example explains this. A status belongs to one application. Statuses can be retrieved through the endpoint `/aanvragen`:
 
@@ -140,7 +129,7 @@ In case of an n-to-n relation, there are various ways to retrieve a resource. Th
 
 In case of an n-to-m relation, the API supports the retrieval of individual resources anyway, at least providing the identifier of the related resource (relation). The user has to request the endpoint of the related resource (relation) to retrieve this one. This is referred to as *lazy loading*. The user decides whether to load the relation and when.
 
-### Custom representation
+## Custom representation
 
 The user of an API does not always require the complete representation (i.e. all attributes) of a resource. Providing the option to select the required attributes in the requests reduces network traffic (relevant for light-weight applications), simplifies the use of the API and makes it adjustable (fit-for-use). The query parameter `fields` supports this usage. The query parameter accepts a comma-separated list of field names. The result is a custom representation. For example, the following request retrieves sufficient information to show a sorted list of applications (*aanvragen*):
 
@@ -153,7 +142,7 @@ In the case of HAL, linked resources are embedded in the default representation.
   <p>Provide a comma-separated list of field names using the query parameter fields te retrieve a custom representation. In case non-existent field names are passed, a <code>400 Bad Request</code> error message is returned.</p>
 </div>
 
-### How to implement operations that do not fit the CRUD model?
+## How to implement operations that do not fit the CRUD model?
 
 There are resource operations that are not related to data manipulation (CRUD). Examples of this kind of operations are: changing the state (activate and deactivate) of a resource and marking (starring) a resource. Depending on the type of operation there are three approaches:
 
@@ -196,8 +185,6 @@ Once an API is in production, the *contract* (interface) should not be changed w
   <p class="rulelab"><strong>API-18</strong>: Include a deprecation schedule when publishing API changes</p>
   <p>API changes and a deprecation schedule should be published not only as a changelog on a publicly available blog but also through a mailing list.</p>
 </div>
-
-### Best practice(s)
 
 <div class="rule" id="api-51">
   <p class="rulelab"><strong>API-51</strong>: Publish OAS at the base-URI in JSON-format</p>
