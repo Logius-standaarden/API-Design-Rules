@@ -1,7 +1,7 @@
 ## Summary
 
 <aside class="note">
-Designrules have unique and permanent numbers. In the event of designrules being deprecated or restructured, they are removed from the list. Therefore, gaps in the sequence can occur. New design rules will always get a new and higher number.
+Design rules have unique and permanent numbers. In the event of design rules being deprecated or restructured, they are removed from the list. Therefore, gaps in the sequence can occur. New design rules will always get a new and higher number.
 </aside>
 
 ### Normative Design Rules
