@@ -83,7 +83,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
       <tr>
         <td><code>PATCH</code></td>
         <td>Update</td>
-        <td>Partially updates an existing resource. The request only contains the data that has to be modified using the designated JSON Merge Patch format [[RFC7396]].</td>
+        <td>Partially updates an existing resource. The request only contains the data that has to be modified using the designated JSON Merge Patch format [[rfc7396]].</td>
       </tr>
       <tr>
         <td><code>DELETE</code></td>
