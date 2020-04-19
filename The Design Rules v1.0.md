@@ -6,7 +6,7 @@ The REST architectural style is centered around the concept of a [resource](#dfn
 
 A resource describing a single thing is called a [singular resource](#dfn-singular-resource). Resources can also be grouped into collections, which can typically be paged, sorted and filtered. Most often these contained things have the same type, but this is not necessarily the case. A resource describing multiple things is called a [collection resource](#dfn-collection-resource).
 
-<div class="rule" id="api-04">
+<div class="rule" id="api-05">
   <p class="rulelab"><strong>API-05</strong>: Use plural nouns to name resources</p>
   <p>Resources are named using globally unique URIs. Because resources describe things (and thus not actions), resources are referred to using nouns (instead of verbs) that are relevant from the perspective of the user of the API.</p>
   <div class="example">
@@ -26,7 +26,7 @@ A resource describing a single thing is called a [singular resource](#dfn-singul
   </div>
 </div>
 
-<div class="rule" id="api-05">
+<div class="rule" id="api-04">
   <p class="rulelab"><strong>API-04</strong>: Define interfaces in Dutch unless there is an official English glossary available</p>
   <p>Since the exact meaning of concepts is often lost in translation, resources and the underlying attributes should be defined in the Dutch language unless there is an official English glossary available. Publishing an API for an international audience might also be a reason to define interfaces in English.</p>
   <p>Note that glossaries exist that define useful sets of attributes which should preferably be reused. Examples can be found at <a href="http://schema.org/docs/schemas.html">schema.org</a>.</p>
