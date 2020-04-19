@@ -1,99 +1,192 @@
 # The Design Rules
 
-## REST principles
+## Resources
 
-The most important principle of REST is the seperation of the API in logical resources (*things*). The resources describe the information of the *thing*. These resources are manipulated using HTTP-requests and HTTP-operations. Each operation (`GET`, `POST`, `PUT`, `PATCH`, `DELETE`) has a specific meaning.
-> HTTP also defines operations, e.g. `HEAD`, `TRACE`, `OPTIONS` en `CONNECT`. In the context of REST, these operations are hardly ever used and have been excluded from the rest of this chapter.
+The REST architectural style is centered around the concept of a [resource](#dfn-resource). A resource is the key abstraction of information, where every piece of information is named by assigning a globally unique [URI](#dfn-uri) (Uniform Resource Identifier). Resources describe *things*, which can vary between physical objects (e.g. a building or a person) and more abstract concepts (e.g. a permit or an event).
 
-|Operation|CRUD|Description|
-|-|-|-|
-|`POST`|Create|Create resources that represent collections (i.e. `POST` adds a resource to a collection).|
-|`GET`|Read|Retrieve a resource from the server. Data is only retrieved and not modified.|
-|`PUT`|Update|Replace a specific resource. Is also used as a *create* " if the resource at the indicated identifier/URI does not exist yet.|
-|`PATCH`|Update|Partially modify an existing resource. The request contains the data that have to be changed and the operations that modify the resource in the designated JSON merge patch format (RFC 7386).|
-|`DELETE`|Delete|Remove the specific resource.|
+A resource describing a single thing is called a [singular resource](#dfn-singular-resource). Resources can also be grouped into collections, which can typically be paged, sorted and filtered. Most often these contained things have the same type, but this is not necessarily the case. A resource describing multiple things is called a [collection resource](#dfn-collection-resource).
 
-For each operation one has to specify whether it has to be *safe* and/or *idempotent*. This is important, because clients and middleware rely on this.
-
-> **Safe (read-only)**
->
-> Safe (read-only) in this case means that the semantics have been defined as read-only. This is important, because clients and middelware like to use caching.
-
-> **Idempotent**
->
-> Idempotent means that multiple, identical requests have the same effect as one request. For a DELETE this means that the second (or third) identical DELETE request would not change the dataset anymore.
-
-|Operation|Safe|Idempotent|
-|-|-|-|
-|`POST`|No|No|
-|`GET`, `OPTIONS`, `HEAD`|Yes|Yes|
-|`PUT`|No|Yes|
-|`PATCH`|No|Optional|
-|`DELETE`|No|Yes|
-
-See also: https://tools.ietf.org/html/rfc2616#section-9
-
-<div class="rule" id="api-01">
-  <p class="rulelab"><strong>API-01</strong>: Operations are *Safe* and/or *Idempotent*</p>
-  <p>Operations of an API are guaranteed to be safe and/or idempotent if that has been specified.</p>
+<div class="rule" id="api-04">
+  <p class="rulelab"><strong>API-04</strong>: Use plural nouns to name resources</p>
+  <p>Resources are named using globally unique URIs. Because resources describe things (and thus not actions), resources are referred to using nouns (instead of verbs) that are relevant from the perspective of the user of the API.</p>
+  <div class="example">
+    <p>A few examples of nouns, which can be used as part of the URI:</p>
+    <ul>
+      <li>Gebouw</li>
+      <li>Aanvraag</li>
+      <li>Activiteit</li>
+    </p>
+  </div>
+  <p>Although grammatically, it may feel wrong to request a single resource using the plural of the resource, it is a pragmatic choice to refer to endpoints consistently using plurals. For the user it is much easier not having to deal with the distinction between the singular and plural form (<i>gebouw/gebouwen, regel/regels</i>). Furthermore, this implementation is much more straightforward as most development frameworks are able to resolve both a singular resource (<code>/gebouwen/3b9710c4-6614-467a-ab82-36822cf48db1</code>) and a collection resource (<code>/gebouwen</code>) using a single controller.</p>
+  <div class="example">
+    <p>Collection resources, describing a list of things:</p>
+    <pre>https://api.example.org/v1/gebouwen<br/>https://api.example.org/v1/vergunningen</pre>
+    <p>Singular resource, describing an individual thing:</p>
+    <pre>https://api.example.org/v1/gebouwen/3b9710c4-6614-467a-ab82-36822cf48db1<br/>https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pre>
+  </div>
 </div>
 
-REST makes use of the client stateless server design principle derived from client server with the additional constraint that it is not allowed to maintain the state at the server. Each request from the client to the server has to contain all information required to process the request without the need to use state-information at the server.
-
-<div class="rule" id="api-02">
-  <p class="rulelab"><strong>API-02</strong>: Do not maintain state information at the server</p>
-  <p>The client state is tracked fully at the client.</p>
-</div>
-
-## What are resources?
-
-A fundamental concept in every REST API is the resource. A resource is an object with a type, attributes, relation with other resources and a number of operations to modify them. Resources are referred to using nouns (not verbs) that are relevant from the perspective of the user of the API. Operations are actions applied to these resources. Operations are referred to using verbs that are relevant from the perspectie of the user of the API.
-
-One can translate internal data models as-is to resources, but not by definition. The point is to hide all not relevant implementation details. Some example resources are: *aanvragen* (applications), *activiteiten* (activities), *panden* (buildings), *rijksmonumenten* (national monuments), and *vergunningen* (permits).
-
-Once the resources have been identified, one determines the operation that are applicable and how the API supports them. REST APIs perform CRUD (Create, Read, Update, Delete) operations using HTTP operations:
-
-|Request|Description|
-|-|-|
-|`GET /rijksmonumenten`|Retrieves a list of national monuments|
-|`GET /rijksmonumenten/12`|Retrieves a specific national monument|
-|`POST /rijksmonumenten`|Creates a new national monument|
-|`PUT /rijksmonumenten/12`|Modifies national monument #12 completely|
-|`PATCH /rijksmonumenten/12`|Modified national monument #12 partially|
-|`DELETE /rijksmonumenten/12`|Deletes national monument #12|
-
-REST applies existing HTTP/1.1 (https://tools.ietf.org/html/rfc2616) operations to implement functionality at one service endpoint. This removes the requirement for additional URI naming conventions and the URI structure remains clear.
-
-<div class="rule" id="api-03">
-  <p class="rulelab"><strong>API-03</strong>: Only apply default HTTP operations</p>
-  <p>A REST API is an application programming interface that supports the default HTTP operations <code>GET</code>, <code>PUT</code>, <code>POST</code>, <code>PATCH</code> and <code>DELETE</code>.</p>
+<div class="rule" id="api-05">
+  <p class="rulelab"><strong>API-05</strong>: Define interfaces in Dutch unless there is an official English glossary available</p>
+  <p>Since the exact meaning of concepts is often lost in translation, resources and the underlying attributes should be defined in the Dutch language unless there is an official English glossary available. Publishing an API for an international audience might also be a reason to define interfaces in English.</p>
+  <p>Note that glossaries exist that define useful sets of attributes which should preferably be reused. Examples can be found at <a href="http://schema.org/docs/schemas.html">schema.org</a>.</p>
 </div>
 
 <div class="rule" id="api-48">
   <p class="rulelab"><strong>API-48</strong>: Leave off trailing slashes from API endpoints</p>
-  <p>URIs to retrieve collections of resources or individual resources don't include a trailing slash. A resource is only available at one endpoint/path. Resource paths end without a slash.</p>
+  <p>According to the URI specification [[rfc3986]], URIs may contain a trailing slash. However, for REST APIs this is considered as a bad practice since a URI including or excluding a trailing slash might be interpreted as a different resource (which is strictly speaking the correct interpretation).</p>
+  <p>To avoid confusion and ambiguity, a URI should not contain a trailing slash. When requesting a resource including a trailing slash, this should result in a 404 (not found) error response and not a redirect. This enforces API consumers to use the correct URI.</p>
+  <div class="example">
+    <p>URI without a trailing slash (good):</p>
+    <pre>https://api.example.org/v1/gebouwen</pre>
+    <p>URI with a trailing slash (bad):</p>
+    <pre>https://api.example.org/v1/gebouwen/</pre>
+  </div>
 </div>
 
 <div class="rule" id="api-53">
-  <p class="rulelab"><strong>API-53</strong>: Hide not relevant implementation details</p>
+  <p class="rulelab"><strong>API-53</strong>: Hide irrelevant implementation details</p>
+  <p>One could translate internal data models <i>as-is</i> to resources, but this should not be done by definition. The point is to hide all not relevant implementation details.</p>
 </div>
 
-## Language usage
+## HTTP methods
 
-Since the exact meaning of concepts are often lost in translation, resources and the underlying entities and attributes are defined in Dutch. Note that glossaries exist that define useful sets of attributes which should preferably be reused, examples can be found at http://schema.org/docs/schemas.html. Please note that usage of an API outside of the Netherlands might also be a reason to define interfaces in English.
+Although the REST architectural style does not impose a specific protocol, REST APIs are typically implemented using HTTP [[rfc7231]].
 
-<div class="rule" id="api-04">
-  <p class="rulelab"><strong>API-04</strong>: Use plural nouns to indicate resources</p>
-  <p>Names of resources are nouns and always in the plural form, e.g. <i>aanvragen</i>, <i>activiteiten</i>, <i>vergunningen</i>, even when it applies to single resources.</p>
+<div class="rule" id="api-03">
+  <p class="rulelab"><strong>API-03</strong>: Only apply standard HTTP methods</p>
+  <p>The HTTP specification [[rfc7231]] offers a set of standard methods, where every method has explicit semantics. Adhering to the HTTP specification is important, since HTTP clients and middleware applications rely on standardized characteristics. Therefore, resources should be retrieved or manipulated using standard HTTP methods.</p>
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Method</th>
+        <th scope="col">Operation</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>GET</code></td>
+        <td>Read</td>
+        <td>Retrieve a resource representation for the given URI. Data is only retrieved and never modified.</td>
+      </tr>
+      <tr>
+        <td><code>POST</code></td>
+        <td>Create</td>
+        <td>Create a subresource as part of a collection resource. This operation is not relevant for singular resources.</td>
+      </tr>
+      <tr>
+        <td><code>PUT</code></td>
+        <td>Create/update</td>
+        <td>Create a resource with the given URI or replace (full update) a resource when the resource already exists.</td>
+      </tr>
+      <tr>
+        <td><code>PATCH</code></td>
+        <td>Update</td>
+        <td>Partially updates an existing resource. The request only contains the data that has to be modified using the designated JSON Merge Patch format [[RFC7396]].</td>
+      </tr>
+      <tr>
+        <td><code>DELETE</code></td>
+        <td>Delete</td>
+        <td>Remove a resource with the given URI.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>The following table shows some examples of the use of standard HTTP methods</p>
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Request</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>GET /rijksmonumenten</code></td>
+        <td>Retrieves a list of national monuments.</td>
+      </tr>
+      <tr>
+        <td><code>GET /rijksmonumenten/12</code></td>
+        <td>Retrieves an individual national monument.</td>
+      </tr>
+      <tr>
+        <td><code>POST /rijksmonumenten</code></td>
+        <td>Creates a new national monument.</td>
+      </tr>
+      <tr>
+        <td><code>PUT /rijksmonumenten/12</code></td>
+        <td>Modifies national monument #12 completely.</td>
+      </tr>
+      <tr>
+        <td><code>PATCH /rijksmonumenten/12</code></td>
+        <td>Modifies national monument #12 partially.</td>
+      </tr>
+      <tr>
+        <td><code>DELETE /rijksmonumenten/12</code></td>
+        <td>Deletes national monument #12.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="note">HTTP also defines other methods, e.g. <code>HEAD</code>, <code>OPTIONS</code> and <code>TRACE</code>. For the purpose of this design rule, these operations are left out of scope.</p>
 </div>
 
-## Interface nomenclature: singular or plural?
+<div class="rule" id="api-01">
+  <p class="rulelab"><strong>API-01</strong>: Operations are safe and/or idempotent</p>
+  <p>The HTTP specification [[rfc7231]] defines whether an HTTP method should be considered safe and/or idempotent. These characteristics are important for clients and middleware applications, because they should be taken into account when implementing caching and fault tolerance strategies.</p>
+  <p>Request methods are considered <i>safe</i> if their defined semantics are essentially read-only; i.e., the client does not request, and does not expect, any state change on the origin server as a result of applying a safe method to a target resource. A request method is considered <i>idempotent</i> if the intended effect on the server of multiple identical requests with that method is the same as the effect for a single such request.</p>
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Method</th>
+        <th scope="col">Safe</th>
+        <th scope="col">Idempotent</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>GET</code></td>
+        <td>Yes</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td><code>HEAD</code></td>
+        <td>Yes</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td><code>OPTIONS</code></td>
+        <td>Yes</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td><code>POST</code></td>
+        <td>No</td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td><code>PUT</code></td>
+        <td>No</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td><code>PATCH</code></td>
+        <td>No</td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td><code>DELETE</code></td>
+        <td>No</td>
+        <td>Yes</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-Here, the *Keep It Simple Stupid* (KISS) rule is applicable.  Collections and items of collections are addressed via the plural and single resources via the singular. Although grammatically, it may feel wrong to request a single resource using the plural of the resource, it is a pragmatic choice to refer to endpoints consistently using plural. For the user it is much easier to not have to keep in mind singular and plural (*aanvraag/aanvragen, regel/regels*). Furthermore, this implementation is much more straightforward as most development frameworks are able to resolve both a single resource (`/aanvragen/12`) and multiple resources (`/aanvragen`) using one controller.
+## Stateless
 
-<div class="rule" id="api-05">
-  <p class="rulelab"><strong>API-05</strong>: Define interfaces in Dutch unless there is an official English glossary</p>
-  <p>Define resources and the underlying entities, fields and so on (the information model ad the external interface) in Dutch. English is allowed in case there is an official English glossary.</p>
+<div class="rule" id="api-02">
+  <p class="rulelab"><strong>API-02</strong>: Do not maintain state information at the server</p>
+  <p>REST makes use of the client stateless server design principle derived from client server with the additional constraint that it is not allowed to maintain the state at the server. Each request from the client to the server has to contain all information required to process the request without the need to use state-information at the server.</p>
 </div>
 
 ## Naming convention
