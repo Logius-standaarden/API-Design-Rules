@@ -24,12 +24,12 @@ var respecConfig =
     {
       name: "Frank Terpstra",
       company: "Geonovum",
-      companyURL: "http://www.geonovum.nl/",
+      companyURL: "https://www.geonovum.nl",
     },
     {
       name: "Jan van Gelder",
       company: "Geonovum",
-      companyURL: "http://www.Geonovum.nl/",
+      companyURL: "https://www.geonovum.nl",
     }
   ],
   authors:
@@ -37,8 +37,13 @@ var respecConfig =
     {
       name: "Jasper Roes",
       company: "Het Kadaster",
-      companyURL: "http://www.kadaster.nl/",
+      companyURL: "https://www.kadaster.nl",
     },
+    {
+      name: "Joost Farla",
+      company: "Het Kadaster",
+      companyURL: "https://www.kadaster.nl",
+    }
   ],
   shortName: "API-Designrules",
   github: "https://github.com/geonovum/API-Designrules",
