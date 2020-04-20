@@ -189,12 +189,6 @@ Although the REST architectural style does not impose a specific protocol, REST 
   <p>REST makes use of the client stateless server design principle derived from client server with the additional constraint that it is not allowed to maintain the state at the server. Each request from the client to the server has to contain all information required to process the request without the need to use state-information at the server.</p>
 </div>
 
-## Naming convention
-
-The API Design rules do not specify naming conventions for API's, inspiration for naming an API can be found at:
-- Service names: https://cloud.google.com/apis/design/naming_convention#service_names
-- Interface names: https://cloud.google.com/apis/design/naming_convention#interface_names
-
 ## How to deal with relations?
 
 If a relation can only exist in the context of another resource (1 to n relation), then the dependent resource (child) can only be retrieved through the parent. The next example explains this. A status belongs to one application. Statuses can be retrieved through the endpoint `/aanvragen`:
