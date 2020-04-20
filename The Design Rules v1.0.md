@@ -327,7 +327,7 @@ Leaving off the request-header (`API-version: x.y.z`), one addresses always the 
 Examples of backward compatible changes are the addition of an endpoint or an optional attribute to the payload.
 
 <div class="rule" id="api-20">
-  <p class="rulelab"><strong>API-20</strong>: Include the major version number only in ihe URI</p>
+  <p class="rulelab"><strong>API-20</strong>: Include the major version number only in the URI</p>
   <p>The URI of an API should include the major version number only. The minor and patch version numbers are in the response header of the message. Minor and patch versions have no impact on existing code, but major version do.</p>
 </div>
 
