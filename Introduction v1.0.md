@@ -12,7 +12,7 @@ This version of the design rules has been submitted to Forum Standaardisatie for
 
 ## Authors
 
-Despite the fact that a single author is mentioned in the list of authors, this document is the result of a collaborative effort by the members of the *API Design Rules Working Group*.
+Despite the fact that two authors are mentioned in the list of authors, this document is the result of a collaborative effort by the members of the *API Design Rules Working Group*.
 
 ## Reading Guide
 
