@@ -35,7 +35,7 @@ A resource describing a single thing is called a [singular resource](#dfn-singul
 <div class="rule" id="api-48">
   <p class="rulelab"><strong>API-48</strong>: Leave off trailing slashes from API endpoints</p>
   <p>According to the URI specification [[rfc3986]], URIs may contain a trailing slash. However, for REST APIs this is considered as a bad practice since a URI including or excluding a trailing slash might be interpreted as a different resource (which is strictly speaking the correct interpretation).</p>
-  <p>To avoid confusion and ambiguity, a URI should not contain a trailing slash. When requesting a resource including a trailing slash, this should result in a 404 (not found) error response and not a redirect. This enforces API consumers to use the correct URI.</p>
+  <p>To avoid confusion and ambiguity, a URI should never contain a trailing slash. When requesting a resource including a trailing slash, this should result in a 404 (not found) error response and not a redirect. This enforces API consumers to use the correct URI.</p>
   <div class="example">
     <p>URI without a trailing slash (good):</p>
     <pre>https://api.example.org/v1/gebouwen</pre>
@@ -55,7 +55,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
 
 <div class="rule" id="api-03">
   <p class="rulelab"><strong>API-03</strong>: Only apply standard HTTP methods</p>
-  <p>The HTTP specification [[rfc7231]] offers a set of standard methods, where every method has explicit semantics. Adhering to the HTTP specification is important, since HTTP clients and middleware applications rely on standardized characteristics. Therefore, resources should be retrieved or manipulated using standard HTTP methods.</p>
+  <p>The HTTP specification [[rfc7231]] and the later introduced <code>PATCH</code> method specification [[rfc5789]] offer a set of standard methods, where every method is designed with explicit semantics. Adhering to the HTTP specification is crucial, since HTTP clients and middleware applications rely on standardized characteristics. Therefore, resources must be retrieved or manipulated using standard HTTP methods.</p>
   <table>
     <thead>
       <tr>
@@ -92,7 +92,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
       </tr>
     </tbody>
   </table>
-  <p>The following table shows some examples of the use of standard HTTP methods</p>
+  <p>The following table shows some examples of the use of standard HTTP methods:</p>
   <table>
     <thead>
       <tr>
@@ -132,7 +132,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
 
 <div class="rule" id="api-01">
   <p class="rulelab"><strong>API-01</strong>: Operations are safe and/or idempotent</p>
-  <p>The HTTP specification [[rfc7231]] defines whether an HTTP method should be considered safe and/or idempotent. These characteristics are important for clients and middleware applications, because they should be taken into account when implementing caching and fault tolerance strategies.</p>
+  <p>The HTTP protocol [[rfc7231]] specifies whether an HTTP method should be considered safe and/or idempotent. These characteristics are important for clients and middleware applications, because they should be taken into account when implementing caching and fault tolerance strategies.</p>
   <p>Request methods are considered <i>safe</i> if their defined semantics are essentially read-only; i.e., the client does not request, and does not expect, any state change on the origin server as a result of applying a safe method to a target resource. A request method is considered <i>idempotent</i> if the intended effect on the server of multiple identical requests with that method is the same as the effect for a single such request.</p>
   <table>
     <thead>
