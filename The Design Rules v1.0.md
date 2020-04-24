@@ -4,25 +4,38 @@
 
 The REST architectural style is centered around the concept of a [resource](#dfn-resource). A resource is the key abstraction of information, where every piece of information is named by assigning a globally unique [URI](#dfn-uri) (Uniform Resource Identifier). Resources describe *things*, which can vary between physical objects (e.g. a building or a person) and more abstract concepts (e.g. a permit or an event).
 
-A resource describing a single thing is called a [singular resource](#dfn-singular-resource). Resources can also be grouped into collections, which can typically be paged, sorted and filtered. Most often these contained things have the same type, but this is not necessarily the case. A resource describing multiple things is called a [collection resource](#dfn-collection-resource).
-
 <div class="rule" id="api-05">
-  <p class="rulelab"><strong>API-05</strong>: Use plural nouns to name resources</p>
-  <p>Resources are named using globally unique URIs. Because resources describe things (and thus not actions), resources are referred to using nouns (instead of verbs) that are relevant from the perspective of the user of the API.</p>
+  <p class="rulelab"><strong>API-05</strong>: Use nouns to name resources</p>
+  <p>Because resources describe things (and thus not actions), resources are referred to using nouns (instead of verbs) that are relevant from the perspective of the user of the API.</p>
   <div class="example">
-    <p>A few examples of nouns, which can be used as part of the URI:</p>
+    <p>A few correct examples of nouns as part of a URI:</p>
     <ul>
       <li>Gebouw</li>
-      <li>Aanvraag</li>
-      <li>Activiteit</li>
-    </p>
+      <li>Vergunning</li>
+    </ul>
+    <p>This is different than RPC-style APIs, where verbs are often used to perform certain actions:</p>
+    <ul>
+      <li>Opvragen</li>
+      <li>Registreren</li>
+    </ul>
   </div>
-  <p>Although grammatically, it may feel wrong to request a single resource using the plural of the resource, it is a pragmatic choice to refer to endpoints consistently using plurals. For the user it is much easier not having to deal with the distinction between the singular and plural form (<i>gebouw/gebouwen, regel/regels</i>). Furthermore, this implementation is much more straightforward as most development frameworks are able to resolve both a singular resource (<code>/gebouwen/3b9710c4-6614-467a-ab82-36822cf48db1</code>) and a collection resource (<code>/gebouwen</code>) using a single controller.</p>
+</div>
+
+A resource describing a single thing is called a [singular resource](#dfn-singular-resource). Resources can also be grouped into collections, which can typically be paged, sorted and filtered. Most often all collection members have the same type, but this is not necessarily the case. A resource describing multiple things is called a [collection resource](#dfn-collection-resource). Collection resources typically contain references to the underlying singular resources.
+
+<div class="rule" id="api-54">
+  <p class="rulelab"><strong>API-54</strong>: Use plural nouns to name collection members</p>
+  <p>In most cases, resources are organized into collections. Although grammatically it may feel wrong to request a single resource using the plural of the resource, it is a pragmatic choice to refer to endpoints consistently using plurals. For the user it is much easier not having to deal with the distinction between the singular and plural form (<i>gebouwen/gebouw, regels/regel</i>). Furthermore, this implementation is much more straightforward as most development frameworks are able to resolve both a collection resource (<code>/gebouwen</code> and a singular resource (<code>/gebouwen/3b9710c4-6614-467a-ab82-36822cf48db1</code>)) using a single controller.</p>
   <div class="example">
     <p>Collection resources, describing a list of things:</p>
     <pre>https://api.example.org/v1/gebouwen<br/>https://api.example.org/v1/vergunningen</pre>
     <p>Singular resource, describing an individual thing:</p>
     <pre>https://api.example.org/v1/gebouwen/3b9710c4-6614-467a-ab82-36822cf48db1<br/>https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pre>
+  </div>
+  <p>This design rule does not account for singular resources not being part of a collection. These must be named in the singular form:</p>
+  <div class="example">
+    <p>A resource describing the profile of the currently authenticated user:</p>
+    <pre>https://api.example.org/v1/gebruikersprofiel</pre>
   </div>
 </div>
 
