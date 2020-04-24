@@ -263,35 +263,32 @@ The Dutch API strategy prefers approach 2 and 3.
   </ul>
 </div>
 
-## Technical documentation
+## Documentation
 
-An API is as good as the accompanying technical documentation. The documentation has to be easily findable, searchable and publicly accessible. Most developers will first read the documentation before they start the implementation. Hiding the technical documentation in PDF documents and/or behind a login creates a barrier not only for developers but also for search engines. Technical specifications (technical documentation) are available as Open API Specification (OAS) v3.0 or newer. Also provide context documentation as described in paragraph 3.4.3.
+An API is as good as the accompanying documentation. The documentation has to be easily findable, searchable and publicly accessible. Most developers will first read the documentation before they start implementing. Hiding the technical documentation in PDF documents and/or behind a login creates a barrier for both developers and search engines.
 
 <div class="rule" id="api-16">
-  <p class="rulelab"><strong>API-16</strong>: Use OAS 3.0 for documentation</p>
-  <p>Publish specifications (documentation) as Open API Specification (OAS) 3.0 or higher.</p>
+  <p class="rulelab"><strong>API-16</strong>: Use OpenAPI Specification v3 for documentation</p>
+  <p>The OpenAPI Specification (OAS) [[OPENAPIS]] defines a standard, language-agnostic interface to RESTful APIs which allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection. When properly defined, a consumer can understand and interact with the remote service with a minimal amount of implementation logic.</p>
+  <p>API documentation must be provided in the form of an OpenAPI definition document which conforms to the OpenAPI Specification v3. As a result, a variety of tools can be used to render the documentation (e.g. Swagger UI or ReDoc) or automate tasks such as testing or code generation. The OAS document should provide clear descriptions and examples.</p>
 </div>
 
 <div class="rule" id="api-17">
-  <p class="rulelab"><strong>API-17</strong>: Publish documentation in Dutch unless there is existing documentation in English or there is an official English glossary available</p>
-  <p>Publish API documentation in Dutch. You may refer to existing documentation in English and in case there is an official English glossary available.</p>
-</div>
-
-The technical documentation should provide examples including full request and response cycles. Developers should be able to test (and perform) requests directly from within the technical documentation. Furthermore, each error should be described and labeled with a unique error code to trace errors.
-
-Once an API is in production, the *contract* (interface) should not be changed without prior notice. The documentation should include a deprecation schedule and all details of the change. Changes should be published not only as a changelog on a publicly available blog but also through a mailing list, using the email addresses obtained when the API keys were issued.
-
-<div class="rule" id="api-18">
-  <p class="rulelab"><strong>API-18</strong>: Include a deprecation schedule when publishing API changes</p>
-  <p>API changes and a deprecation schedule should be published not only as a changelog on a publicly available blog but also through a mailing list.</p>
+  <p class="rulelab"><strong>API-17</strong>: Publish documentation in Dutch unless there is existing documentation in English</p>
+  <p>In line with design rule <a href="#api-04">API-04</a>, the OAS document (e.g. descriptions and examples) should be written in Dutch. If relevant, you may refer to existing documentation written in English.</p>
 </div>
 
 <div class="rule" id="api-51">
-  <p class="rulelab"><strong>API-51</strong>: Publish OAS at the base-URI in JSON-format</p>
-  <p>Publish up-to-date documentation in the OpenAPI Specification (OAS) at the publicly accessible root endpoint of the API in JSON format:</p>
-  <p><code>https://service.omgevingswet.overheid.nl/publiek/catalogus/api/raadplegen/v1</code></p>
-  <p>Makes the OAS relevant to v1 of the API available. Thus, the up-to-date documentation is linked to a unique location (that is
-always concurrent with the features available in the API).</p>
+  <p class="rulelab"><strong>API-51</strong>: Publish OAS document at a standard location in JSON-format</p>
+  <p>To make the OAS document easy to find and to facilitate self-discovering clients, there should be one standard location where the OAS document is available for download. Clients (such as Swagger UI or ReDoc) must be able to retrieve the document without having to authenticate. Furthermore, the CORS policy for this URI must allow external domains to read the documentation from a browser environment.</p>
+  <p>The standard location for the OAS document is a URI called <code>openapi.json</code> or <code>openapi.yaml</code> within the base path of the API. This can be convenient, because OAS document updates can easily  become part of the CI/CD process.</p>
+  <p>At least the JSON format must be supported. When having multiple (major) versions of an API, every API should provide its own OAS document(s).</p>
+  <div class="example">
+    <p>An API having base path <code>https://api.example.org/v1/</code> must publish the OAS document at:</p>
+    <pre>https://api.example.org/v1/openapi.json</pre>
+    <p>Optionally, the same OAS document may be provided in YAML format:</p>
+    <pre>https://api.example.org/v1/openapi.yaml</pre>
+  </div>
 </div>
 
 ## Versioning
@@ -339,6 +336,16 @@ Examples of backward compatible changes are the addition of an endpoint or an op
 </div>
 
 An API will never be fully stable. Change is inevitable. Managing change is important. In general, well documented and timely communicated deprecation schedules are the most important for API users.
+
+<div class="rule" id="api-55">
+  <p class="rulelab"><strong>API-55</strong>: Publish a changelog for API changes between versions</p>
+  <p>When releasing new versions, all API changes must be documented in a publicly available changelog.</p>
+</div>
+
+<div class="rule" id="api-18">
+  <p class="rulelab"><strong>API-18</strong>: Include a deprecation schedule when deprecating features or versions</p>
+  <p>When deprecating features or versions, a deprecation schedule must be published. This document should be published on a public web page. Furthermore, active clients should be informed by e-mail once the schedule has been updated or when versions have reached end-of-life.</p>
+</div>
 
 <section data-format="markdown" class="informative">
 ## Extensions
