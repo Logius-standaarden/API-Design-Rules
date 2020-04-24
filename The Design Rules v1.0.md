@@ -25,7 +25,7 @@ A resource describing a single thing is called a [singular resource](#dfn-singul
 
 <div class="rule" id="api-54">
   <p class="rulelab"><strong>API-54</strong>: Use plural nouns to name collection members</p>
-  <p>In most cases, resources are organized into collections. Although grammatically it may feel wrong to request a single resource using the plural of the resource, it is a pragmatic choice to refer to endpoints consistently using plurals. For the user it is much easier not having to deal with the distinction between the singular and plural form (<i>gebouwen/gebouw, regels/regel</i>). Furthermore, this implementation is much more straightforward as most development frameworks are able to resolve both a collection resource (<code>/gebouwen</code> and a singular resource (<code>/gebouwen/3b9710c4-6614-467a-ab82-36822cf48db1</code>)) using a single controller.</p>
+  <p>In most cases, resources are organized into collections. Although grammatically it may feel wrong to request a single resource using the plural of the resource, it's a pragmatic choice to refer to endpoints consistently using plurals. For the user it is much easier not having to deal with the distinction between the singular and plural form (<i>gebouwen/gebouw, regels/regel</i>). Furthermore, this implementation is much more straightforward as most development frameworks are able to resolve both a collection resource and underlying singular resources using a single controller.</p>
   <div class="example">
     <p>Collection resources, describing a list of things:</p>
     <pre>https://api.example.org/v1/gebouwen<br/>https://api.example.org/v1/vergunningen</pre>
