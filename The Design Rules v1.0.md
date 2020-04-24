@@ -346,16 +346,3 @@ An API will never be fully stable. Change is inevitable. Managing change is impo
   <p class="rulelab"><strong>API-18</strong>: Include a deprecation schedule when deprecating features or versions</p>
   <p>When deprecating features or versions, a deprecation schedule must be published. This document should be published on a public web page. Furthermore, active clients should be informed by e-mail once the schedule has been updated or when versions have reached end-of-life.</p>
 </div>
-
-<section data-format="markdown" class="informative">
-## Extensions
-
-The extensions document exists in a "latest published version" ("Gepubliceerde versie" in Dutch) and a "latest editors draft" ("Werkversie" in Dutch).
-The "latest editor's draft" is actively being worked on and can be found on Github. It contains the most recent changes.
-
-The documents can be found here:
-
-[Extensions Gepubliceerde versie](https://docs.geostandaarden.nl/api/API-Strategie-ext/)
-[Extensions Werkversie](https://geonovum.github.io/KP-APIs/API-strategie-extensies/)
-
-</section>

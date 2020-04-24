@@ -23,3 +23,12 @@ This document is part of the *Nederlandse API Strategie*.
 | I       | General description of the API Strategy       | Informative     | https://docs.geostandaarden.nl/api/API-Strategie/           |
 | **IIa** | **Standard for designing APIs**               | **Normative**   | https://docs.geostandaarden.nl/api/API-Designrules/         |
 | IIb     | Extension on the Standard for designing APIs  | Informative     | https://docs.geostandaarden.nl/api/API-Strategie-ext/       |
+
+## Extensions
+
+In addition to this (normative) document, a separate document has been written providing a set of informative extensions. This extensions document exists in a *latest published version* (*Gepubliceerde versie* in Dutch) and a *latest editors draft* (*Werkversie* in Dutch). The *latest editor's draft*s is actively being worked on and can be found on GitHub. It contains the most recent changes.
+
+The documents can be found here:
+
+[Extensions Gepubliceerde versie](https://docs.geostandaarden.nl/api/API-Strategie-ext/)
+[Extensions Werkversie](https://geonovum.github.io/KP-APIs/API-strategie-extensies/)
