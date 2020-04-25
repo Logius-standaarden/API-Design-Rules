@@ -7,7 +7,7 @@ Design rules have unique and permanent numbers. In the event of design rules bei
 ### Normative Design Rules
 
 * <a href="#api-01">API-01</a>: Operations are safe and/or idempotent
-* <a href="#api-02">API-02</a>: Do not maintain state information at the server
+* <a href="#api-02">API-02</a>: Do not maintain session state on the server
 * <a href="#api-03">API-03</a>: Only apply standard HTTP methods
 * <a href="#api-04">API-04</a>: Define interfaces in Dutch unless there is an official English glossary available
 * <a href="#api-05">API-05</a>: Use nouns to name resources

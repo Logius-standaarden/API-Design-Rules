@@ -195,11 +195,26 @@ Although the REST architectural style does not impose a specific protocol, REST 
   </table>
 </div>
 
-## Stateless
+## Statelessness
+
+One of the key constraints of the REST architectural style is stateless communication between client and server. It means that every request from client to server must contain all of the information necessary to understand the request. The server cannot take advantage of any stored session context on the server as it didn’t memorize previous requests. Session state must therefore reside entirely on the client.
+
+To properly understand this constraint, it's important to make a distinction between two different types of state:
+* *Session state*: information about the interactions of an end user with a particular client application within the same user session, such as the last page being viewed, the login state or form data in a multi-step registration process. Session state must reside entirely on the client (e.g. in the user's browser).
+* *Resource state*: information that is permanently stored on the server beyond the scope of a single user session, such as the user's profile, a product purchase or information about a building. Resource state is persisted on the server and must be exchanged between client and server (in both directions) using  representations as part of the request or response payload. This is actually where the term *REpresentational State Transfer (REST)* originates from.
+
+<p class="note">It's a misconception that there should be no state at all. The stateless communication constraint should be seen from the server's point of view and states that the server should not be aware of any <em>session state</em>.</p>
+
+Stateless communication offers many advantages, including:
+* *Simplicity* is increased because the server doesn't have to memorize or retrieve session state while processing requests
+* *Scalability* is improved because not having to incorporate session state across multiple requests enables higher concurrency and performance
+* *Observability* is improved since every request can be monitored or analyzed in isolation without having to incorporate session context from other requests
+* *Reliability* is improved because it eases the task of recovering from partial failures since the server doesn't have to maintain, update or communicate session state. One failing request does not influence other requests (depending on the nature of the failure of course).
 
 <div class="rule" id="api-02">
-  <p class="rulelab"><strong>API-02</strong>: Do not maintain state information at the server</p>
-  <p>REST makes use of the client stateless server design principle derived from client server with the additional constraint that it is not allowed to maintain the state at the server. Each request from the client to the server has to contain all information required to process the request without the need to use state-information at the server.</p>
+  <p class="rulelab"><strong>API-02</strong>: Do not maintain session state on the server</p>
+  <p>In the context of REST APIs, the server must not maintain or require any notion of the functionality of the client application and the corresponding end user interactions. To achieve full decoupling between client and server, and to benefit from the advantages mentioned above, no session state must reside on the server. Session state must therefore reside entirely on the client.</p>
+  <p class="note">The client of a REST API could be a variety of applications such as a browser application, a mobile or desktop application and even another server serving as a backend component for another client. REST APIs should therefore be completely client-agnostic.</p>
 </div>
 
 ## How to deal with relations?
