@@ -147,6 +147,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
   <p class="rulelab"><strong>API-01</strong>: Operations are safe and/or idempotent</p>
   <p>The HTTP protocol [[rfc7231]] specifies whether an HTTP method should be considered safe and/or idempotent. These characteristics are important for clients and middleware applications, because they should be taken into account when implementing caching and fault tolerance strategies.</p>
   <p>Request methods are considered <i>safe</i> if their defined semantics are essentially read-only; i.e., the client does not request, and does not expect, any state change on the origin server as a result of applying a safe method to a target resource. A request method is considered <i>idempotent</i> if the intended effect on the server of multiple identical requests with that method is the same as the effect for a single such request.</p>
+  <p>The following table describes which HTTP methods must behave as safe and/or idempotent:</p>
   <table>
     <thead>
       <tr>
