@@ -47,12 +47,12 @@ A resource describing a single thing is called a [singular resource](#dfn-singul
 
 <div class="rule" id="api-48">
   <p class="rulelab"><strong>API-48</strong>: Leave off trailing slashes from URIs</p>
-  <p>According to the URI specification [[rfc3986]], URIs may contain a trailing slash. However, for REST APIs this is considered as a bad practice since a URI including or excluding a trailing slash might be interpreted as a different resource (which is strictly speaking the correct interpretation).</p>
-  <p>To avoid confusion and ambiguity, a URI should never contain a trailing slash. When requesting a resource including a trailing slash, this should result in a 404 (not found) error response and not a redirect. This enforces API consumers to use the correct URI.</p>
+  <p>According to the URI specification [[rfc3986]], URIs may contain a trailing slash. However, for REST APIs this is considered as a bad practice since a URI including or excluding a trailing slash might be interpreted as different resources (which is strictly speaking the correct interpretation).</p>
+  <p>To avoid confusion and ambiguity, a URI must never contain a trailing slash. When requesting a resource including a trailing slash, this must result in a 404 (not found) error response and not a redirect. This enforces API consumers to use the correct URI.</p>
   <div class="example">
-    <p>URI without a trailing slash (good):</p>
+    <p>URI without a trailing slash (correct):</p>
     <pre>https://api.example.org/v1/gebouwen</pre>
-    <p>URI with a trailing slash (bad):</p>
+    <p>URI with a trailing slash (incorrect):</p>
     <pre>https://api.example.org/v1/gebouwen/</pre>
   </div>
 </div>
