@@ -21,7 +21,7 @@ The REST architectural style is centered around the concept of a [resource](#dfn
   </div>
 </div>
 
-A resource describing a single thing is called a [singular resource](#dfn-singular-resource). Resources can also be grouped into collections, which can typically be paged, sorted and filtered. Most often all collection members have the same type, but this is not necessarily the case. A resource describing multiple things is called a [collection resource](#dfn-collection-resource). Collection resources typically contain references to the underlying singular resources.
+A resource describing a single thing is called a [singular resource](#dfn-singular-resource). Resources can also be grouped into collections, which are resources in their own right and can typically be paged, sorted and filtered. Most often all collection members have the same type, but this is not necessarily the case. A resource describing multiple things is called a [collection resource](#dfn-collection-resource). Collection resources typically contain references to the underlying singular resources.
 
 <div class="rule" id="api-54">
   <p class="rulelab"><strong>API-54</strong>: Use plural nouns to name collection members</p>
@@ -200,7 +200,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
 
 One of the key constraints of the REST architectural style is stateless communication between client and server. It means that every request from client to server must contain all of the information necessary to understand the request. The server cannot take advantage of any stored session context on the server as it didn’t memorize previous requests. Session state must therefore reside entirely on the client.
 
-To properly understand this constraint, it's important to make a distinction between two different types of state:
+To properly understand this constraint, it's important to make a distinction between two different kinds of state:
 * *Session state*: information about the interactions of an end user with a particular client application within the same user session, such as the last page being viewed, the login state or form data in a multi-step registration process. Session state must reside entirely on the client (e.g. in the user's browser).
 * *Resource state*: information that is permanently stored on the server beyond the scope of a single user session, such as the user's profile, a product purchase or information about a building. Resource state is persisted on the server and must be exchanged between client and server (in both directions) using  representations as part of the request or response payload. This is actually where the term *REpresentational State Transfer (REST)* originates from.
 
