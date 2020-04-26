@@ -12,7 +12,6 @@ Design rules have unique and permanent numbers. In the event of design rules bei
 * <a href="#api-04">API-04</a>: Define interfaces in Dutch unless there is an official English glossary available
 * <a href="#api-05">API-05</a>: Use nouns to name resources
 * <a href="#api-06">API-06</a>: Create relations of nested resources within the endpoint
-* <a href="#api-09">API-09</a>: Implement custom representation if supported
 * <a href="#api-10">API-10</a>: Implement operations that do not fit the CRUD model as sub-resources
 * <a href="#api-16">API-16</a>: Use OpenAPI Specification v3 for documentation
 * <a href="#api-17">API-17</a>: Publish documentation in Dutch unless there is existing documentation in English
