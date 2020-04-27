@@ -218,32 +218,27 @@ Stateless communication offers many advantages, including:
   <p class="note">The client of a REST API could be a variety of applications such as a browser application, a mobile or desktop application and even another server serving as a backend component for another client. REST APIs should therefore be completely client-agnostic.</p>
 </div>
 
-## How to deal with relations?
+## Relationships
 
-If a relation can only exist in the context of another resource (1 to n relation), then the dependent resource (child) can only be retrieved through the parent. The next example explains this. A status belongs to one application. Statuses can be retrieved through the endpoint `/aanvragen`:
-
-|Request|Description|
-|-|-|
-|`GET /aanvragen/12/statussen`|Retrieves a list of statuses of application #12|
-|`GET /aanvragen/12/statussen/5`|Retrieves a specific status (#5) of application #12|
-|`POST /aanvragen/12/statussen`|Creates a new status for application #12|
-|`PUT /aanvragen/12/statussen/5`|Modifies status #5 of application #12 completely|
-|`PATCH /aanvragen/12/statussen/5`|Modifies status #5 of application #12 partially|
-|`DELETE /aanvragen/12/statussen/5`|Deletes status #5 of application #12|
+Resources are often interconnected by relationships. Relationships can be modelled in different ways depending on the cardinality, semantics and more importantly, the use cases and access patterns the REST API needs to support.
 
 <div class="rule" id="api-06">
-  <p class="rulelab"><strong>API-06</strong>: Create relations of nested resources within the endpoint</p>
-  <p>Preferrably, create relation within the endpoint if a relation can only exist with another resource (nested resource). In that case, the dependent resource does not have its own endpoint.</p>
+  <p class="rulelab"><strong>API-06</strong>: Use nested URIs for child resources</p>
+  <p>When having a child resource which can only exist in the context of a parent resource, the URI should be nested. In that case, the child resource does not necessarily have a top-level collection resource. The best way to explain this design rule is by example.</p>
+  <div class="example">
+    <p>When modelling resources for a news platform including the ability for users to write comments, it might be a good strategy to model the <a href="#dfn-collection-resource">collection resources</a> hierarchically:</p>
+    <pre>https://api.example.org/v1/articles/123/comments</pre>
+    <p>The platform might also offer a photo section, where the same commenting functionality is offered. In the same way as for articles, the corresponding sub-collection resource might be published at:</p>
+    <pre>https://api.example.org/v1/photos/456/comments</pre>
+    <p>These nested sub-collection resources can be used to post a new comment (<code>POST</code> method) and to retrieve a list of comments (<code>GET</code> method) belonging to the parent resource, i.e. the article or photo. An important consideration is that these comments could never have existed without the existence of the parent resource.</p>
+    <p>From the consumer's perspective, this approach makes logical sense, because the most obvious use case is to show comments below the parent article or photo (e.g. on the same web page) including the possibility to paginate through the comments. The process of posting a comment is separate from the process of publishing a new article. Another client use case might also be to show a global <em>latest comments</em> section in the sidebar. For this use case, an additional resource could be provided:</p>
+    <pre>https://api.example.org/v1/comments/latest</pre>
+    <p>If this would have not been a meaningful use case, this resource should not exist at all. Because it doesn't make sense to post a new comment from a global context, this resource would be read-only (only <code>GET</code> method is supported) and may possibly provide a more compact representation than the parent-specific sub-collections.</p>
+    <p>The <a href="#dfn-singular-resource">singular resources</a> for comments, referenced from all 3 collections, could still be modelled on a higher level to avoid deep nesting of URIs (which might increase complexity or problems due to the URI length):</p>
+    <pre>https://api.example.org/v1/comments/123<br />https://api.example.org/v1/comments/456</pre>
+    <p>Although this approach might seem counterintuitive from a technical perspective (we simply could have modelled a single <code>/comments</code> resource with optional filters for article and photo) and might introduce partially redundant functionality, it makes perfect sense from the perspective of the consumer, which increases developer experience.</p>
+  </div>
 </div>
-
-In case of an n-to-n relation, there are various ways to retrieve a resource. The following requests respond identically:
-
-|Request|Description|
-|-|-|
-|`GET /aanvragen/12/activiteiten`|Retrieves a list of activities for application #12|
-|`GET /activiteiten?aanvraag=12`|Retrieves a list of activities, filtered by application #12|
-
-In case of an n-to-m relation, the API supports the retrieval of individual resources anyway, at least providing the identifier of the related resource (relation). The user has to request the endpoint of the related resource (relation) to retrieve this one. This is referred to as *lazy loading*. The user decides whether to load the relation and when.
 
 ## How to implement operations that do not fit the CRUD model?
 
