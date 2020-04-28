@@ -240,7 +240,7 @@ Resources are often interconnected by relationships. Relationships can be modell
   </div>
 </div>
 
-## How to implement operations that do not fit the CRUD model?
+## Operations
 
 There are resource operations that are not related to data manipulation (CRUD). Examples of this kind of operations are: changing the state (activate and deactivate) of a resource and marking (starring) a resource. Depending on the type of operation there are three approaches:
 
