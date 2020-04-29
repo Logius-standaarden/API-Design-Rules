@@ -86,7 +86,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
       <tr>
         <td><code>POST</code></td>
         <td>Create</td>
-        <td>Create a subresource as part of a collection resource. This operation is not relevant for singular resources.</td>
+        <td>Create a subresource as part of a collection resource. This operation is not relevant for singular resources. This method can also be used for <a href="#operations">exceptional cases</a>.</td>
       </tr>
       <tr>
         <td><code>PUT</code></td>
