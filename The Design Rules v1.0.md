@@ -294,8 +294,8 @@ An API is as good as the accompanying documentation. The documentation has to be
 APIs should always be versioned. Versioning facilitates the transition between changes. Old and new versions are offered during a limited deprecation period. A maximum of 3 versions of the API should be supported. Users decide for themselves the moment they transition from the old to the new version of an API, as long as they do this prior to the end of the deprecation period.
 
 <div class="rule" id="api-19">
-  <p class="rulelab"><strong>API-19</strong>: Allow for a maximum 1 year transition period to a new API version</p>
-  <p>Old and new versions (maximum 3) of an API should be provided concurrently for a limited, maximum 1 year transition period.</p>
+  <p class="rulelab"><strong>API-19</strong>: Schedule a fixed transition period for a new major API-version</p>
+  <p>Old and new versions (maximum 3) of an API should be provided concurrently for a limited, but fixed transition period.</p>
 </div>
 
 The URI of an API should include the major version number only. This allows the exploration of multiple versions of an API in the browser.
