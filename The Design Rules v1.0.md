@@ -86,7 +86,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
       <tr>
         <td><code>POST</code></td>
         <td>Create</td>
-        <td>Create a subresource as part of a collection resource. This operation is not relevant for singular resources. This method can also be used for <a href="#operations">exceptional cases</a>.</td>
+        <td>Create a subresource as part of a collection resource. This operation is not relevant for singular resources. This method can also be used for <a href="#api-10">exceptional cases</a>.</td>
       </tr>
       <tr>
         <td><code>PUT</code></td>
@@ -242,23 +242,16 @@ Resources are often interconnected by relationships. Relationships can be modell
 
 ## Operations
 
-There are resource operations that are not related to data manipulation (CRUD). Examples of this kind of operations are: changing the state (activate and deactivate) of a resource and marking (starring) a resource. Depending on the type of operation there are three approaches:
-
-1. Restructure the operation to incorporate it into the resource. This approach applies if the operation does not require any parameters. For example, an activation operation can be assigned to a boolean field `geactiveerd` that can be modified by a `PATCH` to the resource.
-
-2. Treat the operation as a sub-resource. For example, mark an application by `PUT /aanvragen/12/markeringen` and remove a mark by `DELETE /aanvragen/12/markeringen`. To fully follow the REST principles, also provide the `GET` operation for this sub-resource.
-
-3. Sometimes there is no logical way to link an operation to an existing resource. An example of such an operation is a search across multiple resources. This operation cannot be assigned to any specific resource. In this case, the creation of an independent service endpoint is the most obvious solution. Use the imperative mood of a verb, maybe even prefix it with a underscore, to distinguish these endpoints from dedicated resource endpoints. For example: `/search` or `/_search`.
-
-The Dutch API strategy prefers approach 2 and 3.
 
 <div class="rule" id="api-10">
-  <p class="rulelab"><strong>API-10</strong>: Implement operations that do not fit the CRUD model as sub-resources</p>
-  <p>Operations that do not fit the CRUD model are implemented as follows:</p>
-  <ul>
-    <li>Treat an operation as a sub-resource.</li>
-    <li>Only in exceptional cases, an operator is implemented as an endpoint.</li>
-  </ul>
+  <p class="rulelab"><strong>API-10</strong>: Model resource operations as a sub-resource or dedicated resource</p>
+  <p>There are resource operations which might not seem to fit well in the CRUD interaction model. For example, approving of a submission or notifying a customer. Depending on the type of the operation, there are three possible approaches:</p>
+  <ol>
+    <li>Re-model the resource to incorporate extra fields supporting the particular operation. For example, an approval operation can be modelled in a boolean attribute <code>goedgekeurd</code> that can be modified by issuing a <code>PATCH</code> request against the resource. Drawback of this approach is that the resource does not contain any metadata about the operation (when and by whom was the approval given? Was the submission declined in an earlier stage?). Furthermore, this requires a fine-grained authorization model, since approval might require a specific role.</li>
+    <li>Treat the operation as a sub-resource. For example, model a sub-collection resource <code>/inzendingen/12/beoordelingen</code> and add an approval or declination by issuing a <code>POST</code> request. To be able to retrieve the review history (and to consistently adhere to the REST principles), also support the <code>GET</code> method for this resource. The <code>/inzendingen/12</code> resource might still provide a <code>goedgekeurd</code> boolean attribute (same as approach 1) which gets automatically updated on the background after adding a review. This attribute should however be read-only.</li>
+    <li>In exceptional cases, the approaches above still don't offer an appropriate solution. An example of such an operation is a global search across multiple resources. In this case, the creation of a dedicated resource, possibly nested under an existing resource, is the most obvious solution. Use the imperative mood of a verb, maybe even prefix it with a underscore to distinguish these endpoints from dedicated resource endpoints. For example: <code>/search</code> or <code>/_search</code>. Depending on the operation characteristics, <code>GET</code> and/or <code>POST</code> method may be supported for such a resource.</li>
+  </ol>
+  <p>In this design rule, approach 2 and 3 are preferred.</p>
 </div>
 
 ## Documentation
