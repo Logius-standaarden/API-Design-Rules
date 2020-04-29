@@ -266,9 +266,9 @@ The Dutch API strategy prefers approach 2 and 3.
 An API is as good as the accompanying documentation. The documentation has to be easily findable, searchable and publicly accessible. Most developers will first read the documentation before they start implementing. Hiding the technical documentation in PDF documents and/or behind a login creates a barrier for both developers and search engines.
 
 <div class="rule" id="api-16">
-  <p class="rulelab"><strong>API-16</strong>: Use OpenAPI Specification v3 for documentation</p>
+  <p class="rulelab"><strong>API-16</strong>: Use OpenAPI Specification for documentation</p>
   <p>The OpenAPI Specification (OAS) [[OPENAPIS]] defines a standard, language-agnostic interface to RESTful APIs which allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection. When properly defined, a consumer can understand and interact with the remote service with a minimal amount of implementation logic.</p>
-  <p>API documentation must be provided in the form of an OpenAPI definition document which conforms to the OpenAPI Specification v3. As a result, a variety of tools can be used to render the documentation (e.g. Swagger UI or ReDoc) or automate tasks such as testing or code generation. The OAS document should provide clear descriptions and examples.</p>
+  <p>API documentation must be provided in the form of an OpenAPI definition document which conforms to the OpenAPI Specification (from v3 onwards). As a result, a variety of tools can be used to render the documentation (e.g. Swagger UI or ReDoc) or automate tasks such as testing or code generation. The OAS document should provide clear descriptions and examples.</p>
 </div>
 
 <div class="rule" id="api-17">
