@@ -66,7 +66,7 @@ A resource describing a single thing is called a [singular resource](#dfn-singul
   <p>An API should not expose implementation details of the underlying application. The primary motivation behind this design rule is that an API design must focus on usability for the client, regardless of the implementation details under the hood. The API, application and infrastructure need to be able to evolve independently to ease the task of maintaining backwards compatibility for APIs during an agile development process.</p>
   <p>A few examples of implementation details:</p>
   <ul>
-    <li>The API design should not be a 1-on-1 mapping of the underlying domain- or persistence model</li>
+    <li>The API design should not necessarily be a 1-on-1 mapping of the underlying domain- or persistence model</li>
     <li>The API should not expose information about the technical components being used, such as development platforms/frameworks or database systems</li>
     <li>The API should offer client-friendly attribute names and values, while persisted data may contain abbreviated terms or serializations which might be cumbersome for consumption</li>
   </ul>
