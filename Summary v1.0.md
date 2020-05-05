@@ -21,7 +21,7 @@ Design rules have unique and permanent numbers. In the event of design rules bei
 * <a href="#api-48">API-48</a>: Leave off trailing slashes from URIs
 * <a href="#api-51">API-51</a>: Publish OAS document at a standard location in JSON-format
 * <a href="#api-53">API-53</a>: Hide irrelevant implementation details
-* <a href="#api-54">API-54</a>: Use plural nouns to name collection members
+* <a href="#api-54">API-54</a>: Use plural nouns to name collection resources
 * <a href="#api-55">API-55</a>: Publish a changelog for API changes between versions
 * <a href="#api-56">API-56</a>: Adhere to the Semantic Versioning model when releasing API changes
 * <a href="#api-57">API-57</a>: Return the full version number in a response header

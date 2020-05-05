@@ -24,15 +24,19 @@ The REST architectural style is centered around the concept of a [resource](#dfn
 A resource describing a single thing is called a [singular resource](#dfn-singular-resource). Resources can also be grouped into collections, which are resources in their own right and can typically be paged, sorted and filtered. Most often all collection members have the same type, but this is not necessarily the case. A resource describing multiple things is called a [collection resource](#dfn-collection-resource). Collection resources typically contain references to the underlying singular resources.
 
 <div class="rule" id="api-54">
-  <p class="rulelab"><strong>API-54</strong>: Use plural nouns to name collection members</p>
-  <p>In most cases, resources are organized into collections. Although grammatically it may feel wrong to request a single resource using the plural of the resource, it's a pragmatic choice to refer to endpoints consistently using plurals. For the user it is much easier not having to deal with the distinction between the singular and plural form (<i>gebouwen/gebouw, regels/regel</i>). Furthermore, this implementation is much more straightforward as most development frameworks are able to resolve both a collection resource and underlying singular resources using a single controller.</p>
+  <p class="rulelab"><strong>API-54</strong>: Use plural nouns to name collection resources</p>
+  <p>In many cases, resources are organized into collections. Because a collection represents multiple things, the name of the resource must be written in the plural form.</p>
   <div class="example">
-    <p>Collection resources, describing a list of things:</p>
+    <p>Example collection resources, describing a list of things:</p>
     <pre>https://api.example.org/v1/gebouwen<br/>https://api.example.org/v1/vergunningen</pre>
-    <p>Singular resource, describing an individual thing:</p>
+  </div>
+  <p>When a singular resource is hierarchically nested within a collection (e.g. when representing a member of the collection), the URI must retain the plural form of the parent collection resource.</p>
+  <div class="example">
+    <p>Example singular resource, hierarchically nested within a collection:</p>
     <pre>https://api.example.org/v1/gebouwen/3b9710c4-6614-467a-ab82-36822cf48db1<br/>https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pre>
   </div>
-  <p>This design rule does not account for singular resources not being part of a collection. These must be named in the singular form:</p>
+  <p>This simplifies the URI structure since the client does not have to deal with the distinction between the singular and plural form (<i>gebouwen/gebouw, regels/regel</i>). Furthermore, this implementation is much more straightforward as most development frameworks are able to resolve both a collection resource and underlying singular resources using a single controller.</p>
+  <p>This design rule does not account for singular resources not being hierarchically nested within a collection. These must be named in the singular form:</p>
   <div class="example">
     <p>A resource describing the profile of the currently authenticated user:</p>
     <pre>https://api.example.org/v1/gebruikersprofiel</pre>
