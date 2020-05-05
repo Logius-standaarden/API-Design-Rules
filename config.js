@@ -48,5 +48,12 @@ var respecConfig =
   shortName: "API-Designrules",
   github: "https://github.com/geonovum/API-Designrules",
   issueBase: "https://github.com/geonovum/API-Designrules/issues/",
-  localBiblio: {},
+  localBiblio: {
+    "SemVer": {
+      href: "https://semver.org",
+      title: "Semantic Versioning 2.0.0",
+      authors: ["T. Preston-Werner"],
+      date: "June 2013"
+    }
+  },
 };

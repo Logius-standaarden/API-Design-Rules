@@ -290,56 +290,43 @@ An API is as good as the accompanying documentation. The documentation has to be
 
 ## Versioning
 
-APIs should always be versioned. Versioning facilitates the transition between changes. Old and new versions are offered during a limited deprecation period. A maximum of 3 versions of the API should be supported. Users decide for themselves the moment they transition from the old to the new version of an API, as long as they do this prior to the end of the deprecation period.
+Changes in APIs are inevitable. APIs should therefore always be versioned, facilitating the transition between changes.
 
-<div class="rule" id="api-19">
-  <p class="rulelab"><strong>API-19</strong>: Schedule a fixed transition period for a new major API-version</p>
-  <p>Old and new versions (maximum 3) of an API should be provided concurrently for a limited, but fixed transition period.</p>
+<div class="rule" id="api-56">
+  <p class="rulelab"><strong>API-56</strong>: Adhere to the Semantic Versioning model when releasing API changes</p>
+  <p>Version numbering must follow the Semantic Versioning [[SemVer]] model to prevent breaking changes when releasing new API versions. Versions are formatted using the <code>major.minor.patch</code> template. When releasing a new version which contains backwards-incompatible changes, a new major version must be released. Minor and patch releases may only contain backwards compatible changes (e.g. the addition of an endpoint or an optional attribute).</p>
 </div>
-
-The URI of an API should include the major version number only. This allows the exploration of multiple versions of an API in the browser.
-
-The version number start at 1 and is raised with 1 for every major release that breaks the backwards compatibility of the interface. The minor and patch version numbers are always in the response header of the message in the `major.minor.patch` format (see also https://semver.org/)
-
-The header (both request and response) should be implemented as follows:
-
-|HTTP header|Description|
-|-|-|
-|`API-Version`|Indicates a specific API version in the context of a specific request. For example: `API-version: 1.2.56`|
-
-Using an optional request header one minor/patch version can be addressed. This means, that the client can send a request header to not only access versions v1 and v2 (the designated versions that are addressed in the URIs) but also access one *older* or *newer* version of API in the (pre-) production or acceptance test environment. For example, the following URIs point to the designated production release of the API that can be accessed in the URI:
-
-`https://service.omgevingswet.overheid.nl/publiek/catalogus/api/raadplegen/v1`
-
-`API-version: 1.0.2` (response header)
-
-`https://service.omgevingswet.overheid.nl/publiek/catalogus/api/raadplegen/v2`
-
-`API-version: 2.1.0` (response header)
-
-Leaving off the request-header (`API-version: x.y.z`), one addresses always the *designated* production version. In case there is one other designated version available, e.g. v2.1.1, then it can be provided and addressed at the same base endpoint passing the correct request parameter:
-
-`API-version: 2.1.1` (request header)
-
-`https://service.omgevingswet.overheid.nl/publiek/catalogus/api/raadplegen/v2`
-
-`API-version: 2.1.1` (response header)
-
-Examples of backward compatible changes are the addition of an endpoint or an optional attribute to the payload.
 
 <div class="rule" id="api-20">
-  <p class="rulelab"><strong>API-20</strong>: Include the major version number only in the URI</p>
-  <p>The URI of an API should include the major version number only. The minor and patch version numbers are in the response header of the message. Minor and patch versions have no impact on existing code, but major version do.</p>
+  <p class="rulelab"><strong>API-20</strong>: Include the major version number in the URI</p>
+  <p>The URI of an API (base path) must include the major version number, prefixed by the letter <code>v</code>. This allows the exploration of multiple versions of an API in the browser. The minor and patch version numbers are not part of the URI and may not have any impact on existing client implementations.</p>
+  <div class="example">
+    <p>An example of a base path for an API with current version <code>1.0.2</code>:</p>
+    <code>https://api.example.org/v1/</code>
+  </div>
 </div>
 
-An API will never be fully stable. Change is inevitable. Managing change is important. In general, well documented and timely communicated deprecation schedules are the most important for API users.
+<div class="rule" id="api-57">
+  <p class="rulelab"><strong>API-57</strong>: Return the full version number in a response header</p>
+  <p>Since the URI only contains the major version, it's useful to provide the full version number in the response headers for every API call. This information could then be used for logging, debugging or auditing purposes. In cases where an intermediate networking component returns an error response (e.g. a reverse proxy enforcing access policies), the version number may be omitted.</p>
+  <p>The version number must be returned in an HTTP response header named <code>API-Version</code> (case-insensitive) and should not be prefixed.</p>
+  <div class="example">
+    <p>An example of an API version response header:</p>
+    <pre>API-Version: 1.0.2</pre>
+  </div>
+</div>
 
 <div class="rule" id="api-55">
   <p class="rulelab"><strong>API-55</strong>: Publish a changelog for API changes between versions</p>
-  <p>When releasing new versions, all API changes must be documented in a publicly available changelog.</p>
+  <p>When releasing new (major, minor or patch) versions, all API changes must be documented properly in a publicly available changelog.</p>
 </div>
 
 <div class="rule" id="api-18">
   <p class="rulelab"><strong>API-18</strong>: Include a deprecation schedule when deprecating features or versions</p>
-  <p>When deprecating features or versions, a deprecation schedule must be published. This document should be published on a public web page. Furthermore, active clients should be informed by e-mail once the schedule has been updated or when versions have reached end-of-life.</p>
+  <p>Managing change is important. In general, well documented and timely communicated deprecation schedules are the most important for API users. When deprecating features or versions, a deprecation schedule must be published. This document should be published on a public web page. Furthermore, active clients should be informed by e-mail once the schedule has been updated or when versions have reached end-of-life.</p>
+</div>
+
+<div class="rule" id="api-19">
+  <p class="rulelab"><strong>API-19</strong>: Schedule a fixed transition period for a new major API version</p>
+  <p>When releasing a new major API version, the old version must remain available for a limited and fixed deprecation period. Offering a deprecation period allows clients to carefully plan and execute the migration from the old to the new API version, as long as they do this prior to the end of the deprecation period. A maximum of 2 major API versions may be published concurrently.</p>
 </div>
