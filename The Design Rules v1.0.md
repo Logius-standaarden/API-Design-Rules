@@ -25,20 +25,19 @@ A resource describing a single thing is called a [singular resource](#dfn-singul
 
 <div class="rule" id="api-54">
   <p class="rulelab"><strong>API-54</strong>: Use plural nouns to name collection resources</p>
-  <p>In many cases, resources are organized into collections. Because a collection represents multiple things, the name of the resource must be written in the plural form.</p>
+  <p>Because a collection resource represents multiple things, the path segment describing the name of the collection resource must be written in the plural form.</p>
   <div class="example">
     <p>Example collection resources, describing a list of things:</p>
     <pre>https://api.example.org/v1/gebouwen<br/>https://api.example.org/v1/vergunningen</pre>
   </div>
-  <p>When a singular resource is hierarchically nested within a collection (e.g. when representing a member of the collection), the URI must retain the plural form of the parent collection resource.</p>
+  <p>Singular resources contained within a collection resource are generally named by appending a path segment for the identification of each individual resource.</p>
   <div class="example">
-    <p>Example singular resource, hierarchically nested within a collection:</p>
+    <p>Example singular resource, contained within a collection resource:</p>
     <pre>https://api.example.org/v1/gebouwen/3b9710c4-6614-467a-ab82-36822cf48db1<br/>https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pre>
   </div>
-  <p>This simplifies the URI structure since the client does not have to deal with the distinction between the singular and plural form (<i>gebouwen/gebouw, regels/regel</i>). Furthermore, this implementation is much more straightforward as most development frameworks are able to resolve both a collection resource and underlying singular resources using a single controller.</p>
-  <p>This design rule does not account for singular resources not being hierarchically nested within a collection. These must be named in the singular form:</p>
+  <p>Singular resources that stand on their own, i.e. which are not contained within a collection resource, must be named with a path segment that is written in the singular form.</p>
   <div class="example">
-    <p>A resource describing the profile of the currently authenticated user:</p>
+    <p>Example singular resource describing the profile of the currently authenticated user:</p>
     <pre>https://api.example.org/v1/gebruikersprofiel</pre>
   </div>
 </div>
