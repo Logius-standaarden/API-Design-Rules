@@ -8,15 +8,15 @@ Onderstaande indeling is concept. De indeling kan nog op alle punten wijzigen.
 
 |#|hoofdstuk| md-bestand | opmerkingen |
 |---|---|---|---|
-|1| Doel van het document en leewijzer|dk_doel_document.md| |
-|2| Wat is Digikoppeling|dk_wat_is_digikoppeling.md|
-|3| Digikoppeling Architectuurprincipes|dk_architectuurprincipes.md| aanpassing ivm RFC bevragen en melden|
-|4| Digikoppeling Keten |dk_keten.md| toegevoegd transactiepatronen en verduidelijken rollen|
-|5| Koppelvlakstandaarden en voorschriften| dk_koppelvlakstandaarden_en_voorschriften.md| hierin wordt ook een verwijzing opgenomen naar het neuwe Digikoppeling REstful API profiel|
-|6| Digikoppeling voorzieningen|dk_voorzieningen.md||
-|7| Use cases|dk_usecases.md| dit is een nieuw hoofdstuk|
-|8| Implementatie aspecten|dk_implementatie.md||
-|B1| Bronnen| dk_bijlage_bronnen.md||
-|B2| begrippen|dk_bijlage_begrippen.md||
-|B3| Nora Architectuurprincipes|dk_bijlage_nora_architectuur_principes.md||
-|B4| Niet functionele eisen|dk_bijlage_niet_functionele_eisen.md||
+|1| Doel van het document en leewijzer|[dk_doel_document.md](dk_doel_document.md)| |
+|2| Wat is Digikoppeling|[dk_wat_is_digikoppeling.md](dk_wat_is_digikoppeling.md)|
+|3| Digikoppeling Architectuurprincipes|[dk_architectuurprincipes.md](dk_architectuurprincipes.md)| aanpassing ivm RFC bevragen en melden|
+|4| Digikoppeling Keten |[dk_keten.md](dk_keten.md)| toegevoegd transactiepatronen en verduidelijken rollen|
+|5| Koppelvlakstandaarden en voorschriften| [dk_koppelvlakstandaarden_en_voorschriften.md](dk_koppelvlakstandaarden_en_voorschriften.md)| hierin wordt ook een verwijzing opgenomen naar het neuwe Digikoppeling REstful API profiel|
+|6| Digikoppeling voorzieningen|[dk_voorzieningen.md](dk_voorzieningen.md)||
+|7| Use cases|[dk_usecases.md](dk_usecases.md)| dit is een nieuw hoofdstuk|
+|8| Implementatie aspecten|[dk_implementatie.md](dk_implementatie.md)||
+|B1| Bronnen| [dk_bijlage_bronnen.md](dk_bijlage_bronnen.md)||
+|B2| begrippen|[dk_bijlage_begrippen.md](dk_bijlage_begrippen.md)||
+|B3| Nora Architectuurprincipes|[dk_bijlage_nora_architectuur_principes.md](dk_bijlage_nora_architectuur_principes.md)||
+|B4| Niet functionele eisen|[dk_bijlage_niet_functionele_eisen.md](dk_bijlage_niet_functionele_eisen.md)||
