@@ -4,7 +4,7 @@ In dit project wordt een nieuwe versie van het Digikoppeling Architectuur docume
 
 Als basis wordt de huidige versie van de Digikoppeling Architectuur gebruikt. Bij  de bespreking van de RFC over melden en bevragen werd al geconcludeerd dat de impact op het bestaande architectuurdocument groot was. Omdat dit jaar (2020) op verzoek van het TO Digikoppeling een Restful APi profiel wordt opgenomen in de standaard is, is besloten om deze beide grote onderdelen in één keer in een nieuw doucment te verwerken.
 
-Integrale view in [Respec] van het document: (https://github.com/w3c/respec/wiki):  [Architectuur2.0-metRestfulAPI](https://centrumvoorstandaarden.github.io/Architectuur2.0-metRestfulAPI/)
+Integrale view in [Respec](https://github.com/w3c/respec/wiki) van het document: :  [Architectuur2.0-metRestfulAPI](https://centrumvoorstandaarden.github.io/Architectuur2.0-metRestfulAPI/)
 
 Onderstaande indeling is concept. De indeling kan nog op alle punten wijzigen.
 
