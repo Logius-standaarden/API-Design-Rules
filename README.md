@@ -1,12 +1,24 @@
 # Digikoppeling Architectuur 2.0
 
-In dit project wordt een nieuwe versie van het Digikoppeling Architectuur document ontwikkeld. de aanleiding van de vernieuwing is een RFC over relatie van de Digikoppeling profielen met *bevragen en melden* en de opnamen van een Rest API profiel in de Digikoppeling Standaard.
+In dit project wordt een nieuwe versie van het Digikoppeling Architectuur document ontwikkeld. De aanleiding van de vernieuwing is tweeledig: in 2019 is een RFC ingediend over relatie van de Digikoppeling profielen met *bevragen en melden*. Daarnaast wordt in 2020 een Rest API profiel uitgewerkt en opgenomen in de Digikoppeling Standaard.
 
-Als basis wordt de huidige versie van de Digikoppeling Architectuur gebruikt. Bij  de bespreking van de RFC over melden en bevragen werd al geconcludeerd dat de impact op het bestaande architectuurdocument groot was. Omdat dit jaar (2020) op verzoek van het TO Digikoppeling een Restful APi profiel wordt opgenomen in de standaard is, is besloten om deze beide grote onderdelen in één keer in een nieuw doucment te verwerken.
+Als basis voor het nieuwe document wordt de huidige versie van de Digikoppeling Architectuur gebruikt. Bij  de bespreking van de RFC over melden en bevragen werd al geconcludeerd dat de impact van deze change op het bestaande architectuurdocument groot was. Omdat dit jaar (2020) op verzoek van het TO Digikoppeling een Restful APi profiel wordt opgenomen in de standaard is, is besloten om deze beide grote onderdelen in één keer in een nieuw document te verwerken.
 
-Integrale view in [Respec](https://github.com/w3c/respec/wiki) van het document: :  [Architectuur2.0-metRestfulAPI](https://centrumvoorstandaarden.github.io/Architectuur2.0-metRestfulAPI/)
+## Wat wijzigt in de nieuwe architectuur?
+- Overzicht profielen (toevoegen DK Profiel voor RESTful API's)
+- Overzicht transactiepatronen (nieuw)
+- Rollen: End-to-end, verwerker, intermediair, SAAS dienstverlener (herziening)
+- Overzicht use cases (nieuw)
+- Hoe gaan we om met de nadruk op Bevragingen en Meldingen in het huidge documen?
+    Moeten we deze begrippen handhaven of niet meer noemen? Of vervangen door:
+  - push/pull
+  - synchroon/asynchroon
+  - best effort/betrouwbaar
 
-Onderstaande indeling is concept. De indeling kan nog op alle punten wijzigen.
+## Integrale versie
+De gehele versie van dit document kan bekeken worden in [Respec](https://github.com/w3c/respec/wiki) template op  van het document: :  [Architectuur2.0-metRestfulAPI](https://centrumvoorstandaarden.github.io/Architectuur2.0-metRestfulAPI/)
+
+Onderstaande indeling is concept. Dit kan nog op alle punten wijzigen.
 
 |#|hoofdstuk| md-bestand | opmerkingen |
 |---|---|---|---|
