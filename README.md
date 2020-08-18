@@ -30,7 +30,7 @@ Onderstaande indeling is concept. Dit kan nog op alle punten wijzigen.
 |2|[Wat is Digikoppeling](dk_wat_is_digikoppeling.md)|||
 |3|[Digikoppeling Architectuurprincipes](dk_architectuurprincipes.md)| aanpassing ivm RFC bevragen en melden||
 |4|[Digikoppeling Keten](dk_keten.md)||toevoegen transactiepatronen en verduidelijken rollen|
-|5|[Koppelvlakstandaarden en voorschriften](dk_koppelvlakstandaarden_en_voorschriften.md)|| hierin wordt ook een verwijzing opgenomen naar het nieuwe Digikoppeling Restful API profiel|
+|5|[Koppelvlakstandaarden en voorschriften](dk_koppelvlakstandaarden_en_voorschriften.md)||opnemen verwijzing naar het nieuwe Digikoppeling Restful API profiel|
 |6|[Digikoppeling voorzieningen](dk_voorzieningen.md)|||
 |7|[Digikoppeling Use cases](dk_usecases.md)| dit is een nieuw hoofdstuk|input van gebruikers|
 |8|[Implementatie aspecten](dk_implementatie.md)|||
