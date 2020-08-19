@@ -1,5 +1,7 @@
 # Digikoppeling Architectuur 2.0
 
+HTML versie: [Architectuur2.0-metRestfulAPI](https://centrumvoorstandaarden.github.io/Architectuur2.0-metRestfulAPI/)
+
 In dit project wordt een nieuwe versie van het Digikoppeling Architectuur document ontwikkeld. De aanleiding van de vernieuwing is tweeledig: in 2019 is een RFC ingediend over relatie van de Digikoppeling profielen met *bevragen en melden*. Daarnaast wordt in 2020 een Rest API profiel uitgewerkt en opgenomen in de Digikoppeling Standaard.
 
 Als basis voor het nieuwe document wordt de huidige versie van de Digikoppeling Architectuur gebruikt. Bij  de bespreking van de RFC over melden en bevragen werd al geconcludeerd dat de impact van deze change op het bestaande architectuurdocument groot was. Omdat dit jaar (2020) op verzoek van het TO Digikoppeling een Restful APi profiel wordt opgenomen in de standaard is, is besloten om deze beide grote onderdelen in één keer in een nieuw document te verwerken.
