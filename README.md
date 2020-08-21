@@ -26,11 +26,11 @@ De gehele versie van het document staat hier :  [Architectuur2.0-metRestfulAPI](
 
 Onderstaande indeling is concept. Dit kan nog op alle punten wijzigen.
 
-|#|Hoofdstuk| Opmerkingen | Todo |
+|#|Hoofdstuk| Opmerkingen | Todo/Doing |
 |-|---|---|---|
 |1|[Doel van het document en leewijzer](dk_doel_document.md)|||
 |2|[Wat is Digikoppeling](dk_wat_is_digikoppeling.md)|||
-|3|[Digikoppeling Architectuurprincipes](dk_architectuurprincipes.md)| aanpassing ivm RFC bevragen en melden||
+|3|[Digikoppeling Architectuurprincipes](dk_architectuurprincipes.md)| aanpassing ivm RFC bevragen en melden|**eerste aanpassing met nog een hoop todo's**|
 |4|[Digikoppeling Keten](dk_keten.md)||toevoegen transactiepatronen en verduidelijken rollen|
 |5|[Koppelvlakstandaarden en voorschriften](dk_koppelvlakstandaarden_en_voorschriften.md)||opnemen verwijzing naar het nieuwe Digikoppeling Restful API profiel|
 |6|[Digikoppeling voorzieningen](dk_voorzieningen.md)|||

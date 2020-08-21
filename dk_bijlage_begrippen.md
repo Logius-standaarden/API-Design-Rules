@@ -115,6 +115,7 @@ TCP/IP, netwerk, etc. Hiervoor kunt u andere bronnen via internet raadplegen.*
 | Reliability                              | Zie: Betrouwbaarheid |
 | Reliable                                 | Zie: Betrouwbaar |
 | Reliable messaging-profiel               | Protocol waarmee SOAP-berichten betrouwbaar geleverd kunnen worden                                                   |
+|Resource | `todo`|
 | Sectoraal knooppunt                      | Intermediair die de gegevensuitwisseling faciliteert tussen partijen in een samenwerkingsverband.                    |
 | Service                                  | Een geautomatiseerde uitwisseling van informatie tussen twee systemen op basis van berichten.                        |
 | Serviceaanbieder                         | De partij die een service aanbiedt.                                                                                  |
