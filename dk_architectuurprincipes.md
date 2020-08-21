@@ -71,7 +71,7 @@ De ebMS2 standaard wordt door OASIS ([www.oasis.org](https://www.oasis.org)) beh
 
 <br><sup><a name="f14"><dfn>14</dfn></a> EIF 1.0. Het begrip webservices is een algemeen concept dat gerelateerd is aan Service georiënteerde architectuur. Zowel WUS als ebMS werken volgens dit concept. Omdat de WS-\* familie voortbouwt op de basisstandaarden WSDL, UDDI en SOAP, wordt deze familie wel aangeduid met WUS.</sup>
 
-<br><del><sup><a name="f15"><dfn>15</dfn></a> Voor de toepassing binnen Digikoppeling is in eerste instantie de beperking van die twee families overgenomen; de andere families hebben onvoldoende relevantie voor de Europese en Nederlandse overheid om afwijking van dit kader te rechtvaardigen.</sup><del>
+<br><del><sup><a name="f15"><dfn>15</dfn></a> Voor de toepassing binnen Digikoppeling is in eerste instantie de beperking van die twee families overgenomen; de andere families hebben onvoldoende relevantie voor de Europese en Nederlandse overheid om afwijking van dit kader te rechtvaardigen.</sup></del>
 
 ## Gebruik standaardoplossingen (minimum aan maatwerk)
 
