@@ -2,11 +2,11 @@
 
 # De Digikoppeling-keten
 
-Dit hoofdstuk beschrijft de Digikoppeling als bouwsteen van de eOverheid. de keten van alle Digikoppeling-gerelateerde componenten die gegevensuitwisseling voor de eOverheid invullen duiden we in dit document aan als de de Digikoppeling-keten. In dit hoofdstuk worden de vormen van gegevensuitwisseling – `vraag/antwoord en meldingen `- op procesniveau beschreven.
+Dit hoofdstuk beschrijft de Digikoppeling als bouwsteen van de Digitale Overheid. de keten van alle Digikoppeling-gerelateerde componenten die gegevensuitwisseling voor de Digitale Overheid invullen duiden we in dit document aan als de de Digikoppeling-keten. In dit hoofdstuk worden de vormen van gegevensuitwisseling – `vraag/antwoord en meldingen `- op procesniveau beschreven.
 
-## Digikoppeling als bouwsteen van de eOverheid
+## Digikoppeling als bouwsteen van de  Digitale Overheid
 
-De Nederlandse overheid werkt aan betere dienstverlening aan burgers en bedrijven met een basisinfrastructuur voor de eOverheid die is gebaseerd op services zoals beschreven in de Nederlandse Overheids Referentie Architectuur (NORA). Een reden voor het gebruik van services is dat ze herbruikbaar en daardoor efficiënt zijn.
+De Nederlandse overheid werkt aan betere dienstverlening aan burgers en bedrijven met een basisinfrastructuur voor de Digitale Overheid die is gebaseerd op services zoals beschreven in de Nederlandse Overheids Referentie Architectuur (NORA). Een reden voor het gebruik van services is dat ze herbruikbaar en daardoor efficiënt zijn.
 
 De basisinfrastructuur bestaat uit bouwstenen voor de dienstverlening aan burgers, aan bedrijven en de inrichting van de informatiehuishouding van de overheid zelf. De bouwstenen beslaan drie pijlers:
 
@@ -18,7 +18,7 @@ De basisinfrastructuur bestaat uit bouwstenen voor de dienstverlening aan burger
 
 In dit document vatten we de loketten en voorzieningen voor burgers en bedrijven samen met het begrip ‘landelijke voorzieningen”. Om deze pijlers als samenhangend geheel te laten functioneren is het nodig dat zij informatie kunnen uitwisselen’.
 
-Digikoppeling maakt het mogelijk om berichten uit te wisselen en services aan te roepen en is daarmee een essentiële bouwsteen van de basisinfrastructuur van de eOverheid. Organisaties kunnen via Digikoppeling rechtstreeks (bilateraal) gegevens met elkaar uitwisselen. Vaak zijn er extra schakels betrokken, zoals een sectoraal knooppunt of een intermediair.
+Digikoppeling maakt het mogelijk om berichten uit te wisselen, resources te raadplgen en bewerken en services aan te roepen en is daarmee een essentiële bouwsteen van de basisinfrastructuur van de Digitale Overheid. Organisaties kunnen via Digikoppeling rechtstreeks (bilateraal) gegevens met elkaar uitwisselen. Vaak zijn er extra schakels betrokken, zoals een sectoraal knooppunt of een intermediair.
 
 Digikoppeling biedt een standaard voor het uitwisselen van berichten tussen systemen. Het is dus niet bedoeld om gegevens aan een eindgebruiker te tonen; dat gebeurt via een applicatie bij de eindgebruiker zelf. Digikoppeling standaardiseert de inrichting van het berichtenverkeer zodat verschillende partijen berichten kunnen uitwisselen, ongeacht om welke gegevens het gaat.
 
@@ -26,7 +26,7 @@ Digikoppeling biedt een standaard voor het uitwisselen van berichten tussen syst
 
 De Digikoppeling-keten bestaat uit:
 
-- Deelnemende publieke organisaties die gegevens met elkaar uitwisselen (partijen). Een partij kan een service aanbieden – in de rol van serviceaanbieder – of een service afnemen – in de rol van serviceafnemer.
+- Deelnemende publieke organisaties die gegevens met elkaar uitwisselen (partijen). Een partij kan een service of resource aanbieden – in de rol van serviceaanbieder – of een service afnemen – in de rol van serviceafnemer.
 
 - Intermediairs: organisaties die voor deze deelnemende organisaties bemiddelen in de uitwisseling van gegevens. Partijen maken onderling (of via een intermediair) afspraken over de inhoud en vorm van de gegevensuitwisseling.
 
@@ -92,7 +92,7 @@ Uitwisselingsvormen onderscheiden we op alle niveaus van inhoud, logistiek en tr
 
 ### Business-behoefte
 
-Op business-niveau is er een veelheid aan uitwisselingsvormen waaraan behoefte bestaat. Deze zijn vaak contextspecifiek. Soms zijn deze vormen ook specifiek voor een sector waardoor het loont om deze in een sectorale berichtstandaard voor de inhoud van een bericht af te spreken (b.v. StUF, SuwiML en NEN3610). Een aantal proceskenmerken op business-niveau bepaalt welke door Digikoppeling geboden logistieke vormen geschikt zijn. Zonder alle mogelijke behoeften uit te werken, behandelt deze sub-paragraaf wel de voor de keuze van Digikoppeling belangrijke kenmerken:
+Op business-niveau is er een veelheid aan uitwisselingsvormen waaraan behoefte bestaat. Deze zijn vaak contextspecifiek. Soms zijn deze vormen ook specifiek voor een sector waardoor het loont om deze in een sectorale berichtstandaard voor de inhoud van een bericht af te spreken (b.v. StUF, SuwiML en NEN3610 `todo: is dit nog geldig?`). Een aantal proceskenmerken op business-niveau bepaalt welke door Digikoppeling geboden logistieke vormen geschikt zijn. Zonder alle mogelijke behoeften uit te werken, behandelt deze sub-paragraaf wel de voor de keuze van Digikoppeling belangrijke kenmerken:
 
 1. De impact op de serviceaanbieder is afhankelijk van de dienst die deze levert:
 
@@ -118,6 +118,11 @@ Combineren van deze primitieve interacties tot meerdere (eventueel over de tijd 
 
 ### Digikoppeling-aanbod
 
+```
+todo: ik stel voor om deze gehele paragraaf te wijzigen en in te gaan op synchrone en asynchrone (/reliability) patronen, in plaats van het onderschheid tussen de patronen bevragingen en transacties
+```
+
+<del>
 Digikoppeling onderscheidt twee hoofdvormen van uitwisseling:
 
 - `bevraging (synchrone request-response)`
@@ -175,15 +180,21 @@ Een typische toepassing hiervoor is een batch-verwerkende applicatie die in een 
 **Samenvatting**  
 Een `Digikoppeling bevraging` is vooral geschikt als de (business) applicatie een onmiddellijke reactie nodig heeft. Een `Digikoppeling melding` is vooral geschikt voor uitgestelde verwerking en transacties.`
 
-### Bevraging
+</del>
 
+### <del>Bevraging</del> Synchroon
+
+<del>
 `Digikoppeling bevragingen` zijn synchroon: het vragende informatiesysteem wacht op een antwoord. Dit wachten heeft een beperkte duur (time-out). Als een (tijdig) antwoord uitblijft moet de vrager besluiten of hij de vraag opnieuw stelt of niet. De snelheid van afleveren is hier vaak belangrijker dan een betrouwbare aflevering.`
+</del>
 
 <del> Bevragingen worden ingericht op basis van de Digikoppeling-koppelvlakstandaard WUS. </del>
 
-### Melding (Transactie)
+### <del>Melding (Transactie)</del> asynchroon
 
+<del>
 Een `melding` is een enkelvoudig bericht waarop eventueel enige tijd later een retour-melding volgt. Het gebruikte protocol regelt de betrouwbare ontvangst en de onweerlegbaarheid (non-repudiation) van een bericht. Bij meldingen is de betrouwbare aflevering van het bericht essentieel. Als een partij het bericht niet direct kan aannemen, voorzien de protocollen erin dat het bericht nogmaals wordt aangeboden.
+</del>
 
 <del> Meldingen kunnen worden ingericht op basis van de Digikoppeling-koppelvlakstandaard ebMS2. </del>
 

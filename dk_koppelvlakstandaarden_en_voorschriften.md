@@ -2,13 +2,17 @@
 
 ## Overzicht
 
-`Bevragingen en meldingen` - eventueel in combinatie met grote berichten - bieden door hun verscheidenheid aan profielen en opties de logistieke bouwstenen om diverse interactiepatronen te realiseren. Digikoppeling heeft drie koppelvlakstandaarden onderkend die deze interactiepatronen ondersteunen:
+De Digikoppeling Architectuur legde in de eerdere versies grote nadruk op bevragingen en meldingen en legde een verband tussen deze iteractiepatronen en de onderliggende standaarden, ('WUS voor bevragingen, ebMS voor meldingen en kennisgevingen'). Dit verband bleek in de praktijk niet altijd werkbaar of wennselijk. In 2020 is daarom besloten om de richtlijnen voor het toepassen van de Digikoppeling standaarden te wijzigen. 'todo: check consistentie met ander hoofdstukken' 
 
-- WUS voor <span style="color:green"> synchrone uitwisseling </span><del> bevragingen. </del>
+<del>`Bevragingen en meldingen` - eventueel in combinatie met grote berichten - bieden door hun verscheidenheid aan profielen en opties de logistieke bouwstenen om diverse interactiepatronen te realiseren.</del> Digikoppeling kent <del>drie</del>vier koppelvlakstandaarden 
 
-- ebMS2 voor <span style="color:green"> asynchrone uitwisseling </span><del> meldingen. </del>
+- WUS voor <span style="color:green"> synchrone uitwisseling van gestructeerde berichten</span><del> bevragingen; </del>
 
-- Grote berichten voor het uitwisselen van grote bestanden.
+- ebMS2 voor <span style="color:green"> asynchrone uitwisseling </span><del> meldingen; </del>
+
+- Restful API voor synchrone uitwsseling, de focus ligt op het bevragen en bewerken van resources;
+
+- Grote berichten voor het uitwisselen van grote bestanden;
 
 De Digikoppeling-koppelvlakstandaarden beschrijven verschillende profielen. Elk profiel biedt een combinatie van kenmerken die in een bepaalde functionele behoefte voorziet.
 
@@ -32,8 +36,9 @@ Door het gebruik van deze profielen worden deze aspecten correct afgehandeld en 
 
 | Onderdeel | Toelichting|
 |---|---|
-| Koppelvlakstandaard WUS | het gebruik van WUS <del> voor bevragingen </del><span style="color:green"> synchrone uitwisseling </span> en de WUS profielen.|
-| Koppelvlakstandaard ebMS2 | Het gebruik van ebMS2 <del> voor meldingen </del> <span style="color:green"> asynchrone uitwisseling </span> en de ebMS2 profielen                                                                                                                |
+| Koppelvlakstandaard WUS | het gebruik van WUS <del> voor bevragingen </del><span style="color:green"> synchrone uitwisseling van gestructureerde berichten </span> en de WUS profielen.|
+| Koppelvlakstandaard ebMS2 | Het gebruik van ebMS2 <del> voor meldingen </del> <span style="color:green"> asynchrone uitwisseling </span> en de ebMS2 profielen|
+|Koppelvlakstandaard Restful API| Het gebruik van Restful APIs voor het synchroon raadplegen en bewerken van resources|
 | Koppelvlakstandaard Grote Berichten | Voor de uitwisseling van grote berichten maakt gebruik van WUS met HTTPS bestandsoverdracht of ebMS2 met HTTPS bestandsoverdracht |
 | Beveiligingstandaarden en voorschriften  | Beschrijft de beveilingstandaarden (TLS, signing en encryption) voor de Digikoppeling profielen WUS, ebMS2 en Grote berichten |
 | Identificatie en Authenticatie | Beschrijft de identificatie van partijen, het opzetten van een tweezijdige beveiligde TLS-verbinding en over het ondertekenen  en versleutelen van berichten en bijlagen. |
@@ -103,7 +108,7 @@ De wijze waarop een WSDL wordt toegepast staat beschreven in Digikoppeling Best 
 
 ### ebMS2 familie van standaarden
 
-Digikoppeling maakt ook gebruik van een familie van standaarden die we “ebMS2” noemen. Deze familie van standaarden is gebaseerd op web-service standaarden uit de profielen van de OASIS “ebXML Messaging Services“ Technical Committee (ebMS2).
+Digikoppeling maakt  gebruik van een familie van standaarden die we “ebMS2” noemen. Deze familie van standaarden is gebaseerd op web-service standaarden uit de profielen van de OASIS “ebXML Messaging Services“ Technical Committee (ebMS2).
 
 Kenmerkend voor de ebMS2-standaarden die voortkomen uit de EDIFACT-wereld is de 1-op-1 relatie tussen een beperkt aantal (vaak twee) partijen. Dit betekent dat twee partijen samen een CPA moeten afspreken, creëren en implementeren; de CPA is dus van zowel de serviceaanbieder als de serviceafnemer.
 
@@ -151,26 +156,30 @@ Een CPA is een formeel xml-document om de gebruikte functionele en technische ei
 
 De wijze waarop een CPA wordt toegepast staat beschreven in Digikoppeling Best Practices ebMS2. Het CPA Register ondersteunt partijen in het creëren van een CPA.
 
+<del>
+
 ### ebMS2 voor vragen met een uitgesteld antwoord
 
 In sommige sectoren wordt een vraag verstuurd met ebMS2 en komt het
 (uitgestelde) antwoord ook via ebMS2 retour. Deze vorm van uitwisseling is asynchroon en voldoet dus niet aan de definitie voor `bevragingen`, omdat een `bevraging` synchroon is. Digikoppeling biedt hiervoor meldingen. Bij dit type gebruik is de betrouwbaarheid eigenlijk overbodig. Het ebMS2 best effort profiel van de koppelvlakstandaard ebMS2 kan ook voor dit type vragen met uitgestelde antwoorden worden gebruikt, als partijen dit onderling afspreken. Dit gebruik wordt niet op landelijk of intersectoraal niveau toegestaan en is dus uitsluitend optioneel binnen sectoren.`
 
+</del>
+
 ## Grote berichten
 
 ### Werking grote berichten
 
-Zoals eerder aangegeven kan de situatie zich voordoen dat een WUS en/of ebMS2 bericht een grootte krijgt die niet meer efficiënt door de WUS / ebMS2 adapters verwerkt kan worden. Ook kan het zich voordoen dat er behoefte bestaat aan het buiten de normale procesgang ('out-of-band') sturen van aanvullende informatie naar systemen. In die gevallen zal dit “grote bericht” op een andere wijze verstuurd moeten worden: middels de Digikoppeling koppelvlakstandaard Grote Berichten.
+Zoals eerder aangegeven kan de situatie zich voordoen dat een WUS, Restful API, en/of ebMS2 bericht een grootte krijgt die niet meer efficiënt door de WUS / ebMS2 / Restful API adapters en services verwerkt kan worden. Ook kan er behoefte zijn aan het buiten de normale procesgang ('out-of-band') sturen van aanvullende informatie naar systemen. In die gevallen zal dit “grote bericht” op een andere wijze verstuurd moeten worden: middels de Digikoppeling koppelvlakstandaard Grote Berichten.
 
 De volgende standaard aanpak wordt hierbij gehanteerd:
 
-- Met WUS of ebMS2 wordt referentie (link) verstuurd;
+- Met WUS of ebMS2 wordt referentie (link) verstuurd; '`todo: ook Restful API vermelden?`
 
 - de referentie wordt gebruikt om een groot bestand te downloaden.
 
 Het grote bericht zelf zal vaak volledig in het grote bestand zijn opgenomen; het WUS of ebMS2 bericht bevat dan alleen metadata (waaronder de link naar het bestand). Maar het kan ook gebeuren dat een klein deel van het oorspronkelijk grote bericht al in het WUS-bericht is opgenomen en de rest (bijvoorbeeld bijlagen bij het bericht) in een of meerdere bestanden is opgenomen.
 
-Het principe dat Digikoppeling grote berichten toepast is het ‘claim-check’ principe. Dit betekent dat het bericht zelf (WUS of ebMS2) alleen een referentie (claim-check) naar het grote bestand bevat. Deze referentie wordt vervolgens gebruikt om het bestand zelf op te halen.
+Het principe dat Digikoppeling grote berichten toepast is het ‘claim-check’ principe. Dit betekent dat het bericht zelf (WUS of ebMS2 'todo`) alleen een referentie (claim-check) naar het grote bestand bevat. Deze referentie wordt vervolgens gebruikt om het bestand zelf op te halen.
 
 Een belangrijk voordeel hiervan is dat het grootste deel (het grote bestand zelf) de berichtenuitwisseling niet verstoort doordat het niet door de message-handler afgehandeld hoeft te worden (en deze bijvoorbeeld vertraagt). Maar ook is een voordeel dat de afhandeling van het grote deel op een ander moment in de tijd kan plaatsvinden en daardoor de procesgang van achterliggende informatiesystemen niet verstoord.
 
@@ -178,9 +187,9 @@ De standaard doet geen uitspraak over gegevensstromen waarin kleine en grote ber
 
 ### Standaarden voor grote berichten
 
-De *Digikoppeling Koppelvlakstaard Grote Berichten* (KVS GB) maakt gebruik van WUS en ebMS2 voor het verzenden van metadata. Voor ophalen van het grote bestand maakt de standaard gebruik van HTTPS-downloads. Daardoor zijn reliability en security gelijkwaardig aan WUS en ebMS2. Ook is het gebruik van transparante intermediairs mogelijk.
+De *Digikoppeling Koppelvlakstaard Grote Berichten* (KVS GB) maakt gebruik van WUS en ebMS2 `todo` voor het verzenden van metadata. Voor ophalen van het grote bestand maakt de standaard gebruik van HTTPS-downloads. Daardoor zijn reliability en security gelijkwaardig aan WUS en ebMS2. Ook is het gebruik van transparante intermediairs mogelijk.
 
-De KVS GB regelt de volgende functionaliteiten <del> voor meldingen of bevragingen </del>, in aanvulling op WUS of ebMS2:`
+De KVS GB regelt de volgende functionaliteiten <del> voor meldingen of bevragingen </del>, in aanvulling op WUS of ebMS2 `todo`:`
 
 - Identificatie en authenticatie van partijen (OIN)
 
