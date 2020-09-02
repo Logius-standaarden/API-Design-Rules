@@ -2,9 +2,13 @@
 
 ## Overzicht
 
-De Digikoppeling Architectuur legde in de eerdere versies grote nadruk op bevragingen en meldingen en legde een verband tussen deze iteractiepatronen en de onderliggende standaarden, ('WUS voor bevragingen, ebMS voor meldingen en kennisgevingen'). Dit verband bleek in de praktijk niet altijd werkbaar of wennselijk. In 2020 is daarom besloten om de richtlijnen voor het toepassen van de Digikoppeling standaarden te wijzigen. 'todo: check consistentie met ander hoofdstukken' 
+De Digikoppeling Architectuur legde in de eerdere versies grote nadruk op bevragingen en meldingen en legde een verband tussen deze iteractiepatronen en de onderliggende standaarden, ('WUS voor bevragingen, ebMS voor meldingen en kennisgevingen'). Dit verband bleek in de praktijk niet altijd werkbaar of wennselijk. In 2020 is daarom besloten om de richtlijnen voor het toepassen van de Digikoppeling standaarden te wijzigen. 
 
-<del>`Bevragingen en meldingen` - eventueel in combinatie met grote berichten - bieden door hun verscheidenheid aan profielen en opties de logistieke bouwstenen om diverse interactiepatronen te realiseren.</del> Digikoppeling kent <del>drie</del>vier koppelvlakstandaarden 
+> `TODO`: check consistentie met andere hoofdstukken 
+
+<del>`Bevragingen en meldingen` - eventueel in combinatie met grote berichten - bieden door hun verscheidenheid aan profielen en opties de logistieke bouwstenen om diverse interactiepatronen te realiseren.</del> 
+
+Digikoppeling kent <del>drie</del>vier koppelvlakstandaarden 
 
 - WUS voor <span style="color:green"> synchrone uitwisseling van gestructeerde berichten</span><del> bevragingen; </del>
 
@@ -64,7 +68,7 @@ Tabel 4: Digikoppeling-voorschriften
 
 ## Restful Api's
 
-`todo`
+> `TODO`
 
 ## WUS
 
@@ -157,12 +161,9 @@ Een CPA is een formeel xml-document om de gebruikte functionele en technische ei
 De wijze waarop een CPA wordt toegepast staat beschreven in Digikoppeling Best Practices ebMS2. Het CPA Register ondersteunt partijen in het creëren van een CPA.
 
 <del>
-
 ### ebMS2 voor vragen met een uitgesteld antwoord
-
 In sommige sectoren wordt een vraag verstuurd met ebMS2 en komt het
 (uitgestelde) antwoord ook via ebMS2 retour. Deze vorm van uitwisseling is asynchroon en voldoet dus niet aan de definitie voor `bevragingen`, omdat een `bevraging` synchroon is. Digikoppeling biedt hiervoor meldingen. Bij dit type gebruik is de betrouwbaarheid eigenlijk overbodig. Het ebMS2 best effort profiel van de koppelvlakstandaard ebMS2 kan ook voor dit type vragen met uitgestelde antwoorden worden gebruikt, als partijen dit onderling afspreken. Dit gebruik wordt niet op landelijk of intersectoraal niveau toegestaan en is dus uitsluitend optioneel binnen sectoren.`
-
 </del>
 
 ## Grote berichten
@@ -173,13 +174,19 @@ Zoals eerder aangegeven kan de situatie zich voordoen dat een WUS, Restful API, 
 
 De volgende standaard aanpak wordt hierbij gehanteerd:
 
-- Met WUS of ebMS2 wordt referentie (link) verstuurd; '`todo: ook Restful API vermelden?`
+- Met WUS of ebMS2 wordt referentie (link) verstuurd; 
+
+> `TODO`: hier ook Restful API vermelden?
 
 - de referentie wordt gebruikt om een groot bestand te downloaden.
 
 Het grote bericht zelf zal vaak volledig in het grote bestand zijn opgenomen; het WUS of ebMS2 bericht bevat dan alleen metadata (waaronder de link naar het bestand). Maar het kan ook gebeuren dat een klein deel van het oorspronkelijk grote bericht al in het WUS-bericht is opgenomen en de rest (bijvoorbeeld bijlagen bij het bericht) in een of meerdere bestanden is opgenomen.
 
-Het principe dat Digikoppeling grote berichten toepast is het ‘claim-check’ principe. Dit betekent dat het bericht zelf (WUS of ebMS2 'todo`) alleen een referentie (claim-check) naar het grote bestand bevat. Deze referentie wordt vervolgens gebruikt om het bestand zelf op te halen.
+Het principe dat Digikoppeling grote berichten toepast is het ‘claim-check’ principe. Dit betekent dat het bericht zelf (WUS of ebMS2) 
+
+> `TODO:`komt er ook een Restful API invulling van GB?
+
+alleen een referentie (claim-check) naar het grote bestand bevat. Deze referentie wordt vervolgens gebruikt om het bestand zelf op te halen.
 
 Een belangrijk voordeel hiervan is dat het grootste deel (het grote bestand zelf) de berichtenuitwisseling niet verstoort doordat het niet door de message-handler afgehandeld hoeft te worden (en deze bijvoorbeeld vertraagt). Maar ook is een voordeel dat de afhandeling van het grote deel op een ander moment in de tijd kan plaatsvinden en daardoor de procesgang van achterliggende informatiesystemen niet verstoord.
 
@@ -187,9 +194,15 @@ De standaard doet geen uitspraak over gegevensstromen waarin kleine en grote ber
 
 ### Standaarden voor grote berichten
 
-De *Digikoppeling Koppelvlakstaard Grote Berichten* (KVS GB) maakt gebruik van WUS en ebMS2 `todo` voor het verzenden van metadata. Voor ophalen van het grote bestand maakt de standaard gebruik van HTTPS-downloads. Daardoor zijn reliability en security gelijkwaardig aan WUS en ebMS2. Ook is het gebruik van transparante intermediairs mogelijk.
+De *Digikoppeling Koppelvlakstaard Grote Berichten* (KVS GB) maakt gebruik van WUS en ebMS2 
 
-De KVS GB regelt de volgende functionaliteiten <del> voor meldingen of bevragingen </del>, in aanvulling op WUS of ebMS2 `todo`:`
+> `TODO`: zie eerder opmerking over evt toevoegen van API voor GB
+
+ voor het verzenden van metadata. Voor ophalen van het grote bestand maakt de standaard gebruik van HTTPS-downloads. Daardoor zijn reliability en security gelijkwaardig aan WUS en ebMS2. Ook is het gebruik van transparante intermediairs mogelijk.
+
+De KVS GB regelt de volgende functionaliteiten <del> voor meldingen of bevragingen </del>, in aanvulling op WUS of ebMS2 
+
+> `TODO`: zie eerder opmerking over evt toevoegen API voor GB
 
 - Identificatie en authenticatie van partijen (OIN)
 

@@ -3,7 +3,7 @@
 ## Uitgangspunten
 
 <details>
-  <summary>Waarom deze wijziging?</summary>
+  <summary>let op: Principe 4 is gewijzigd. Waarom?</summary>
   > Principe 4 is vervangen door een gewijzigd principe 4. Er moet nog een check worden uitgevoerd op de NORA.
 </details>
 
@@ -12,12 +12,12 @@ De volgende uitgangspunten vormen de basis voor de uitwerking van deze architect
 1. De Digikoppeling standaarden zijn openbaar, vindbaar, transparant, leveranciersonafhankelijk en interoperabel. Zie bijlage D voor uitleg.
 
 2. De Digikoppeling-standaarden ondersteunen veilige gegevensuitwisseling voor:
-- synchrone en asynchrone uitwisseling;
-- op berichten of op resources gebaseerde uitwisseling;
-- best effort of reliable uitwisseling;
-- uitwisselen van grote berichten;
+   - synchrone en asynchrone uitwisseling;
+   - op berichten of op resources gebaseerde uitwisseling;
+   - best effort of reliable uitwisseling;
+   - uitwisselen van grote berichten;
 
-`todo: is bovenstaande lijstje compleet? toe te voegen patronen kunnen bijvoorbeeld zijn: stateful/stateless, push/pull, enz.`
+> `TODO: is bovenstaande lijstje compleet? toe te voegen patronen kunnen bijvoorbeeld zijn: stateful/stateless, push/pull, enz.`
 
 <del>op basis van `meldingen` (ebMS2) , `bevragingen` (WUS)   of in combinatie met grote berichten (GB).`</del>
 
@@ -51,7 +51,10 @@ De architectuurprincipes geven richting aan de Digikoppeling-standaarden en Digi
 
 **Rationale:** Door het gebruik van internationale open standaarden is het eenvoudiger en goedkoper om gegevens onderling uit te wisselen. Dit volgt uit de NORA en <del>het European Interoperability Framework (IDABC)</del>.
 
-**Invulling:** `todo: Zowel IEF 2.0 als het European Framwork 2.0 zijn verouderd en vervangen door de  'New' EIF en de de EIRA. Onderbouwing meot daar vernieuwd`  <del>Het European Interoperability Framework 2. 0 maakt gebruik van een conceptueel model voor de levering van publieke diensten . In dit model is de *Secure Data Exchange/Management* laag verantwoordelijk voor de veilige uitwisseling van diensten en informatie. Deze laag regelt de veilige uitwisseling van gecontroleerde en betrouwbare berichten, documenten, formulieren en ander informatiedragers tussen verschillende systemen. Naast het transport van gegevens moet deze laag ook specifieke beveiligingsaspecten regelen zoals elektronische handtekeningen, certificaten, encryptie en tijdregistratie.<sup>[13](#f13)</sup></del>
+**Invulling:** 
+> `TODO: Zowel IEF 2.0 als het European Framwork 2.0 zijn verouderd en vervangen door de  'New' EIF en de de EIRA. Onderbouwing moet daarom worden vernieuwd`  
+
+<del>Het European Interoperability Framework 2. 0 maakt gebruik van een conceptueel model voor de levering van publieke diensten . In dit model is de *Secure Data Exchange/Management* laag verantwoordelijk voor de veilige uitwisseling van diensten en informatie. Deze laag regelt de veilige uitwisseling van gecontroleerde en betrouwbare berichten, documenten, formulieren en ander informatiedragers tussen verschillende systemen. Naast het transport van gegevens moet deze laag ook specifieke beveiligingsaspecten regelen zoals elektronische handtekeningen, certificaten, encryptie en tijdregistratie.<sup>[13](#f13)</sup></del>
 
 
 Deze laag wordt in de Nederlandse publieke sector ingevuld door Digikoppeling. Digikoppeling maakt hiervoor gebruik van twee internationale families van open standaarden voor webservices:<sup>[14](#f14)</sup> en RESTful API's,een architectuurstijl gebaseerd op het gebruik van resources en de standaarden HTTP en JSON.  
@@ -60,9 +63,9 @@ Deze laag wordt in de Nederlandse publieke sector ingevuld door Digikoppeling. D
 
 - WS-\*familie: WUS (WSDL, UDDI en SOAP), inclusief WS-Security, WS-Addressing enzovoort.
 
-- `todo hier iets over ADR (HTTP/JSON)?`
+> `TODO`: hier iets over ADR (HTTP/JSON)?
 
-De ebMS2 standaard wordt door OASIS ([www.oasis.org](https://www.oasis.org)) beheerd, de WUS standaarden door W3C ([www.w3c.org](https://www.w3c.org)).<sup>[15](#f15)</sup>
+De ebMS2 standaard wordt door OASIS ([www.oasis.org](https://www.oasis.org)) beheerd, de WUS profielen door OASIS en de onderliggende WUS standaarden door W3c ([www.w3c.org](https://www.w3c.org)).<sup>[15](#f15)</sup>
 
 **Gevolg:** Digikoppeling schrijft ebMS2-, WUS-standaarden en de Nederlandse API Design Rules voor in de vorm van de Digikoppeling-koppelvlakstandaarden en profielen. Organisaties kunnen hiermee effectief, snel en veilig berichten uitwisselen.
 
@@ -114,13 +117,17 @@ Digikoppeling stelt het gebruik van het PKIoverheid certificaten verplicht voor 
 
 ## Betrouwbaarheid
 
-`todo: opties tussen transportprotocol en in businesslaag  verduidelijken` 
+> `TODO:` opties tussen transportprotocol en in businesslaag  verduidelijken 
 
 **Principe:** De berichtuitwisseling is betrouwbaar indien nodig.
 
 **Rationale:** Betrouwbaarheid betekent een goede aflevering van berichten. Zie ook NORA BP09.
 
-**Invulling:** Dit principe wordt ingevuld met <del>meldingen</del> het ebMS profiel, dat een reliable variant kent. De verzender is verantwoordelijk voor de goede aflevering van gegevens (d.m.v. berichten) en kan hiervoor een betrouwbaar Digikoppeling-profiel gebruiken. `todo: moet het volgende nieuwe gedeelte hier of als voetnoot:` Naast betrouwbaarheid op Transportprotocol niveau, kan dit principe ook worden ingevuld in de businesslaag door het uitwisselen van controleberichten.
+**Invulling:** Dit principe wordt ingevuld met <del>meldingen</del> het ebMS profiel, dat een reliable variant kent. De verzender is verantwoordelijk voor de goede aflevering van gegevens (d.m.v. berichten) en kan hiervoor een betrouwbaar Digikoppeling-profiel gebruiken.
+
+> `TODO`: moet de volgende nieuwe zin - zie hieronder-, hier of als voetnoot worden vermeld? 
+
+Naast betrouwbaarheid op Transportprotocol niveau, kan dit principe ook worden ingevuld in de businesslaag door het uitwisselen van controleberichten.
 
 **Gevolg:** Een betrouwbaar profiel garandeert dat een bericht met zekerheid (slechts één keer) wordt afgeleverd en dat berichten zo mogelijk in de juiste volgorde worden afgeleverd, ook als de partner tijdelijk niet beschikbaar is. Berichtuitwisseling is traceerbaar.
 

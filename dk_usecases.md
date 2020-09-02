@@ -1,4 +1,6 @@
 # Overzicht Use Cases
 
 Dit is een nieuw hoofdstuk.
-`todo`
+
+> `TODO:` Het voorstel is om hier succesvolle (of minder geslaagde) bestpractices te vermelden van werkende Digikoppeling Koppelvlakken. 
+> Hiervoor is **input** nodig van gebruikers!

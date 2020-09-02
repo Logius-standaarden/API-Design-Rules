@@ -100,9 +100,9 @@ De opname op de ‘Pas toe of leg uit’-lijst houdt in dat Digikoppeling de sta
 
 Het functioneel toepassingsgebied van Digikoppeling is door het Forum Standaardisatie als volgt gedefinieerd:
 
-<p style="color:green">Digikoppeling moet worden toegepast op alle digitale gegevensuitwisseling met behulp van gestructureerde berichten die plaatsvindt met voorzieningen die onderdeel zijn van de GDI, waaronder de basisregistraties, of die sector-overstijgend is. Geautomatiseerde gegevensuitwisseling tussen informatiesystemen op basis van NEN3610 is uitgesloten van het functioneel toepassingsgebied.  </p>
+Digikoppeling moet worden toegepast op alle digitale gegevensuitwisseling met behulp van gestructureerde berichten die plaatsvindt met voorzieningen die onderdeel zijn van de GDI, waaronder de basisregistraties, of die sector-overstijgend is. Geautomatiseerde gegevensuitwisseling tussen informatiesystemen op basis van NEN3610 is uitgesloten van het functioneel toepassingsgebied.  
 
-<p style="color:green">Op 24 mei 2018 is de omschrijving van het functioneel toepassingsgebied door het Overheidsbrede Beleidsoverleg Digitale Overheid (OBDO) opnieuw bekrachtigd.</p>
+Op 24 mei 2018 is de omschrijving van het functioneel toepassingsgebied door het Overheidsbrede Beleidsoverleg Digitale Overheid (OBDO) opnieuw bekrachtigd.
 
 <del><sup>[10](#f10)</sup>Geautomatiseerde gegevensuitwisseling tussen informatiesystemen voor sectoroverstijgend berichtenverkeer, op basis van:</del>  
 <del>
@@ -123,17 +123,17 @@ Het functioneel toepassingsgebied van Digikoppeling is door het Forum Standaardi
 
 Het organisatorisch werkingsgebied van Digikoppeling is door <del>het College Standaardisatie</del><span style="color:green">het OBDO</span> gedefinieerd als:
 
-- <span style="color:green">Nederlandse</span> overheden (Rijk, provincies, gemeenten en waterschappen) en instellingen
-- uit de <span style="color:green">(semi-)</span>publieke sector.
+- Nederlandse overheden (Rijk, provincies, gemeenten en waterschappen) en instellingen
+- uit de (semi-) publieke sector.
 
 <del>Het werkingsgebied van de standaard is bedoeld voor intersectoraal verkeer en verkeer met basisregistraties en kent geen verplichting binnen sectoren. Het Forum is wel van mening dat gebruik binnen sectoren ook aanbevelenswaardig is en roept de beheerder van de standaard dan ook op dit gebruik te promoten.
 </del>  
 
 <del>Het organisatorisch werkingsgebied beschrijft de overheden die verplicht zijn om Digikoppeling te gebruiken voor een bepaald doel, in dit geval berichtenverkeer met basisregistraties en sectoroverstijgend berichtenverkeer. In de praktijk wordt Digikoppeling ook door vele organisaties buiten dit domein gebruikt en in sommige sectoren ook voor het sectorale verkeer. De landelijke eOverheids voorzieningen maken tevens gebruik van Digikoppeling voor het berichtenverkeer met hun afnemers.</del>  
-<p style="color:green">Digikoppeling is van toepassing bij aanschaf of ontwikkeling van systemen bedoeld voor gestructureerde berichtenuitwisseling met voorzieningen die onderdeel zijn van de GDI  (zoals de basisregistraties) en berichtverkeer dat sectoroverstijgend is.</p>
 
-</p>
-<p style="color:green">Uitgezonderd zijn: de uitwisseling van Geo-informatie (daarvoor bestaat NEN3610) en de gevallen waarin de aanbieder van gegevens vaststelt dat geen noodzaak bestaat om de afnemer van de gegevens te authenticeren.</p>
+Digikoppeling is van toepassing bij aanschaf of ontwikkeling van systemen bedoeld voor gestructureerde berichtenuitwisseling met voorzieningen die onderdeel zijn van de GDI  (zoals de basisregistraties) en berichtverkeer dat sectoroverstijgend is.
+
+Uitgezonderd zijn: de uitwisseling van Geo-informatie (daarvoor bestaat NEN3610) en de gevallen waarin de aanbieder van gegevens vaststelt dat geen noodzaak bestaat om de afnemer van de gegevens te authenticeren.
 
 ### Toepassing binnen sectoren of buiten de overheid
 
