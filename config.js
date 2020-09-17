@@ -46,8 +46,8 @@ var respecConfig =
     }
   ],
   shortName: "API-Designrules",
-  github: "https://github.com/geonovum/API-Designrules",
-  issueBase: "https://github.com/geonovum/API-Designrules/issues/",
+  github: "https://github.com/Logius-standaarden/API-Designrules",
+  issueBase: "https://github.com/Logius-standaarden/API-Designrules/issues/",
   localBiblio: {
     "SemVer": {
       href: "https://semver.org",
