@@ -17,7 +17,7 @@ De volgende uitgangspunten vormen de basis voor de uitwerking van deze architect
    - best effort of reliable uitwisseling;
    - uitwisselen van grote berichten;
 
-> `TODO: is bovenstaande lijstje compleet? toe te voegen patronen kunnen bijvoorbeeld zijn: stateful/stateless, push/pull, enz.`
+> `TODO`: is bovenstaande lijstje compleet? toe te voegen patronen kunnen bijvoorbeeld zijn: stateful/stateless, push/pull, enz.
 
 <del>op basis van `meldingen` (ebMS2) , `bevragingen` (WUS)   of in combinatie met grote berichten (GB).`</del>
 
@@ -52,12 +52,12 @@ De architectuurprincipes geven richting aan de Digikoppeling-standaarden en Digi
 **Rationale:** Door het gebruik van internationale open standaarden is het eenvoudiger en goedkoper om gegevens onderling uit te wisselen. Dit volgt uit de NORA en <del>het European Interoperability Framework (IDABC)</del>.
 
 **Invulling:** 
-> `TODO: Zowel IEF 2.0 als het European Framwork 2.0 zijn verouderd en vervangen door de  'New' EIF en de de EIRA. Onderbouwing moet daarom worden vernieuwd`  
+> `TODO`: Zowel IEF 2.0 als het European Framwork 2.0 zijn verouderd en vervangen door de  'New' EIF en de de EIRA. Onderbouwing moet daarom worden vernieuwd  
 
 <del>Het European Interoperability Framework 2. 0 maakt gebruik van een conceptueel model voor de levering van publieke diensten . In dit model is de *Secure Data Exchange/Management* laag verantwoordelijk voor de veilige uitwisseling van diensten en informatie. Deze laag regelt de veilige uitwisseling van gecontroleerde en betrouwbare berichten, documenten, formulieren en ander informatiedragers tussen verschillende systemen. Naast het transport van gegevens moet deze laag ook specifieke beveiligingsaspecten regelen zoals elektronische handtekeningen, certificaten, encryptie en tijdregistratie.<sup>[13](#f13)</sup></del>
 
 
-Deze laag wordt in de Nederlandse publieke sector ingevuld door Digikoppeling. Digikoppeling maakt hiervoor gebruik van twee internationale families van open standaarden voor webservices:<sup>[14](#f14)</sup> en RESTful API's,een architectuurstijl gebaseerd op het gebruik van resources en de standaarden HTTP en JSON.  
+Deze laag wordt in de Nederlandse publieke sector ingevuld door Digikoppeling. Digikoppeling maakt hiervoor gebruik van twee internationale families van open standaarden voor webservices:<sup>[14](#f14)</sup> en REST-API's,een architectuurstijl gebaseerd op het gebruik van resources en de standaarden HTTP en JSON.  
 
 - ebXML en op de logistieke laag met name ebMS2;
 

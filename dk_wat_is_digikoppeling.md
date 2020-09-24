@@ -6,11 +6,15 @@ Dit hoofdstuk geeft een overzicht van wat Digikoppeling inhoudt en hoe deze stan
 
 (Overheids)organisaties willen diensten klantgericht, efficiënt, flexibel en rechtmatig aanbieden aan burgers en bedrijven. Daarvoor moeten zij gegevens en documenten op een generieke manier met elkaar kunnen uitwisselen.
 
-Digikoppeling voorziet hierin door de standaarden voor deze uitwisseling te definiëren. Met deze logistieke standaardisatie bevordert Digikoppeling de interoperabiliteit tussen (overheids)organisaties. Digikoppeling richt zich op de 'envelop' van het bericht, niet op de inhoud. Daardoor kan iedere organisatie die Digikoppeling gebruikt, de postverzending onafhankelijk van de inhoud inrichten.
+Digikoppeling voorziet hierin door de standaarden voor deze uitwisseling te definiëren. Met deze logistieke standaardisatie bevordert Digikoppeling de interoperabiliteit tussen (overheids)organisaties. Digikoppeling heeft zich vanaf het begin van haar onstaan gericht zich op de 'envelop' van een bericht, niet op de inhoud. Daardoor kan iedere organisatie die Digikoppeling gebruikt, de postverzending onafhankelijk van de inhoud inrichten. Met de toevoeging van het Digikoppeling Rest-API profiel komt de metafoor met berichten in enveloppen wat in het gedrang te staan, maar het basisprincipe blijft dt Digikoppeling zich niet met de inhoud bemoeit.
+
+![Verschil SOAP en REST](media/Upwork-Envelop-postcard.png "Soap vs. REST APIs (bron upwork.com")
+<br>bron: [https://www.upwork.com/resources/soap-vs-rest-a-look-at-two-different-api-styles](https://www.upwork.com/resources/soap-vs-rest-a-look-at-two-different-api-styles)
 
 Digikoppeling is primair bedoeld voor gegevensuitwisseling tussen systemen van overheidsorganisaties, in het bijzonder de basisregistraties en landelijke of intersectorale gegevensdiensten, maar wordt breder ingezet in de (semi)publieke sector. Digikoppeling is beschikbaar voor elke organisatie die veilig en betrouwbaar gegevens wil uitwisselen met andere organisaties in de publieke sector. Gebruik van Digikoppeling buiten de publieke sector is ook mogelijk.
 
-## Servicegerichte architectuur conform NORA
+> `TODO` De NORA richt zicht ook steeds meer op halen bij de bron en raadt het gebruik van API sterk aan.  Onderstaande alinea is aan vervanging toe
+<del>## Servicegerichte architectuur conform NORA
 
 Digikoppeling sluit aan bij de servicegerichte architectuur die NORA (Nederlandse Overheids Referentie Architectuur)<sup>[1](#f1)</sup>: voorstaat. Deze vorm van informatie-uitwisseling verloopt via geautomatiseerde systemen van organisaties. Digikoppeling richt zich dus op de communicatie tussen ICT-systemen van verschillende organisaties, specifiek in de vorm van berichtenverkeer.
 
@@ -20,10 +24,11 @@ NORA 3.0 bestaat uit basisprincipes, afgeleide principes en katernen. Bijlage C 
 <br><sup><a name="f1"><dfn>1</dfn></a>: *Voor meer informatie over NORA zie http://www.noraonline.nl*</sup>
 
 <sup><a name="f2"><dfn>2</dfn></a>: In ontwikkeling.</sup>
+</del>
 
 ## Scope van Digikoppeling
 
-Om digitale berichten uit te wisselen moeten organisaties op drie niveaus afspraken maken:
+Om ~~digitale berichten~~gegevens uit te wisselen moeten organisaties op verschillende niveaus afspraken maken:
 
 - Over de inhoud en betekenis van berichten (payload en eventuele bijlagen): de structuur, semantiek, waardebereiken enzovoort.
 
@@ -31,27 +36,31 @@ Om digitale berichten uit te wisselen moeten organisaties op drie niveaus afspra
 
 - Over het transport (netwerk): de protocollen van de TCP/IP stack (TCP voor Transport, IP voor Netwerk) en de infrastructuur, bijvoorbeeld Diginetwerk of Internet.
 
-Digikoppeling richt zich op de logistieke laag van de berichtuitwisseling in de publieke sector. Daarbij conformeert Digikoppeling zich aan de Nederlandse Overheid Referentie Architectuur (NORA) en het European Interoperability Framework.
+- Over de informatie die beschikbaar is in de aan te bieden 'resources'
+
+Digikoppeling richt zich op de logistieke laag van de ~~~bericht~~~gegevensuitwisseling in de publieke sector. Daarbij conformeert Digikoppeling zich aan de Nederlandse Overheid Referentie Architectuur (NORA) en het European Interoperability Framework.
 
 De kaders van die logistieke laag zijn uitgewerkt in deze Digikoppeling Architectuur. De wijze waarop deze kaders worden toegepast en ingevuld zijn uitgewerkt in de Digikoppeling-koppelvlakstandaarden. De Digikoppeling-voorzieningen ondersteunen de implementatie van Digikoppeling: ze zijn bedoeld om koppelvlakken te testen, om organisaties te identificeren (OIN) en om (CPA-)contracten te registreren.
 
 ## De Digikoppeling standaard
 
-Digikoppeling is gebaseerd op internationale open standaarden van OASIS, een wereldwijde standaardisatie-organisatie voor open standaarden.
+Digikoppeling is gebaseerd op internationale open standaarden van OASIS en W3C,wereldwijde standaardisatie-organisaties voor open standaarden.
 
 De Digikoppeling-standaard bestaat uit meerdere koppelvlakstandaarden. De koppelvlakstandaarden beschrijven de afspraken die nodig zijn om het berichtenverkeer tussen informatiesystemen mogelijk te maken.
 
-Digikoppeling beschrijft drie verschillende, maar aanvullende koppelvlakstandaarden: ebMS2<sup>[3](#f3)</sup>, WUS en Grote Berichten. In de Digikoppeling-documentatie zijn de koppelvlakstandaarden onafhankelijk van specifieke implementaties beschreven. Dat geeft organisaties de vrijheid om ICT-producten met een aansluiting op Digikoppeling te selecteren uit het aanbod van de markt of zelf iets te ontwikkelen.
+Digikoppeling beschrijft vier verschillende, maar aanvullende, soms overlappende  koppelvlakstandaarden: ebMS2<sup>[3](#f3)</sup>, WUS, REST-API<sup>[3a](#f3a)</sup> en Grote Berichten. In de Digikoppeling-documentatie zijn de koppelvlakstandaarden onafhankelijk van specifieke implementaties beschreven. Dat geeft organisaties de vrijheid om ICT-producten met een aansluiting op Digikoppeling te selecteren uit het aanbod van de markt of zelf iets te ontwikkelen.
 
-<del>De keuze voor het gebruik van de ebMS2 of WUS standaarden hangt onder meer af van het gewenste berichtenverkeer (bevragingen en/of meldingen), of er al gebruik wordt gemaakt van deze standaarden en welke standaarden door ketenpartners worden gebruikt.</del>
+<del>De keuze voor het gebruik van REST-API of de ebMS2 of WUS standaarden hangt onder meer af van het gewenste ~~berichtenverkeer~~~informatieuitwisseling ~~~bevragingen en/of meldingen)~~~, of er al gebruik wordt gemaakt van deze standaarden en welke standaarden door ketenpartners worden gebruikt.</del>
 
-<br><sup><a name="f3"><dfn>3</dfn></a>: ebMS2 verwijst naar de ebXML Message Service Specification 2.0, waarop het Digikoppeling ebMS profiel is gebaseerd. We hanteren in de Digikoppeling deze expliciete verwijzing naar versie 2 om elke verwarring met ebMS 3.0 en AS4 profielen te vermijden.</sup> 
+<br><sup><a name="f3"><dfn>3</dfn></a>: REST-API is geen standaard maar een Architectuurstijl. Eigenlijk had hier HTTP moeten staan.</sup> 
+
+<br><sup><a name="f3a"><dfn>3a</dfn></a>: ebMS2 verwijst naar de ebXML Message Service Specification 2.0, waarop het Digikoppeling ebMS profiel is gebaseerd. We hanteren in de Digikoppeling deze expliciete verwijzing naar versie 2 om elke verwarring met ebMS 3.0 en AS4 profielen te vermijden.</sup> 
 
 ## Besparingen door Digikoppeling
 
 In 2010 heeft PriceWaterhouseCoopers de meerwaarde onderzocht van de gemeenschappelijke stelselvoorzieningen die de verplichte uitwisseling van gegevens tussen bronhouder en afnemer uit 13 landelijke registraties ondersteunen*.*<sup>[4](#f4)</sup>
 
-De business case stelt dat:
+De business case stelde dat:
 
 > *‘Met de ontwikkeling van gemeenschappelijke voorzieningen wordt redundantie in investeringen en kosten in het stelsel voorkomen doordat faciliteiten gemeenschappelijk worden ontwikkeld en toegepast. De baten van de businesscase zijn vermeden kosten en investeringen.’* <sup>[5](#f5)</sup>
 
@@ -69,8 +78,10 @@ Wanneer meer organisaties Digikoppeling gaan gebruiken, is de winst in termen va
 
 De toepassing van Digikoppeling heeft enkele grote voordelen:
 
-- Organisaties die Digikoppeling implementeren, kunnen veilig digitaal berichten uitwisselen met andere organisaties die ook Digikoppeling gebruiken<sup>[7](#f7)</sup>.
+- Organisaties die Digikoppeling implementeren, kunnen veilig digitaal ~~~berichten~~~gegevens uitwisselen met andere organisaties die ook Digikoppeling gebruiken<sup>[7](#f7)</sup>.
  <sup><a name="f7"><dfn>7</dfn></a>: *Expertadvies Digikoppeling v2.0, final, 13 februari 2013.*</sup> 
+
+> `TODO` is onderstaande nog het geval?
 
 - Met Digikoppeling kan een serviceaanbieder met één interface al zijn serviceafnemers bedienen. En een serviceafnemer kan met één interface alle serviceaanbieders bevragen.
 
@@ -131,7 +142,7 @@ Het organisatorisch werkingsgebied van Digikoppeling is door <del>het College St
 
 <del>Het organisatorisch werkingsgebied beschrijft de overheden die verplicht zijn om Digikoppeling te gebruiken voor een bepaald doel, in dit geval berichtenverkeer met basisregistraties en sectoroverstijgend berichtenverkeer. In de praktijk wordt Digikoppeling ook door vele organisaties buiten dit domein gebruikt en in sommige sectoren ook voor het sectorale verkeer. De landelijke eOverheids voorzieningen maken tevens gebruik van Digikoppeling voor het berichtenverkeer met hun afnemers.</del>  
 
-Digikoppeling is van toepassing bij aanschaf of ontwikkeling van systemen bedoeld voor gestructureerde berichtenuitwisseling met voorzieningen die onderdeel zijn van de GDI  (zoals de basisregistraties) en berichtverkeer dat sectoroverstijgend is.
+Digikoppeling is van toepassing bij aanschaf of ontwikkeling van systemen bedoeld voor gestructureerde berichtenuitwisseling met voorzieningen die onderdeel zijn van de GDI (zoals de basisregistraties) en berichtverkeer dat sectoroverstijgend is.
 
 Uitgezonderd zijn: de uitwisseling van Geo-informatie (daarvoor bestaat NEN3610) en de gevallen waarin de aanbieder van gegevens vaststelt dat geen noodzaak bestaat om de afnemer van de gegevens te authenticeren.
 
@@ -185,7 +196,7 @@ Hieronder staan de belangrijkste onderdelen van de beheeromgeving.
 
 - De gebruikers van Digikoppeling, die samenkomen in:
   - Het Technisch Overleg Digikoppeling, waarin voorgestelde wijzigingen worden afgestemd.
-  - Een openbare community (op Pleio) voor het uitwisselen van kennis en het voeren van een bredere discussie over de wijze van samenwerken en het uitwisselen van gegevens via Digikoppeling.
+  - Een openbare community (op Pleio en Github) voor het uitwisselen van kennis en het voeren van een bredere discussie over de wijze van samenwerken en het uitwisselen van gegevens via Digikoppeling.
   - <del>  - Het Afnemersoverleg, het formele orgaan dat besluiten neemt over stelselvoorzieningen. Naast Afnemersoverleg kunnen besluiten ook nog worden voorgelegd aan de Regieraad Gegevens .Bijeenkomsten met leveranciers en gebruikers.
 </del>  
   - De beheerorganisatie, ondergebracht bij Logius, die de standaarden en voorzieningen beheert, ontwikkelingen in de omgeving volgt en periodiek voorstellen ter doorontwikkeling uitwerkt.
