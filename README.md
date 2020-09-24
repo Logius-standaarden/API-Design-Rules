@@ -1,6 +1,6 @@
 # Digikoppeling Architectuur 2.0
 
-HTML versie: [Architectuur2.0-metRestfulAPI](https://centrumvoorstandaarden.github.io/Architectuur2.0-metRestfulAPI/)
+HTML versie: [Architectuur2.0-metRestfulAPI](https://centrumvoorstandaarden.github.io/Architectuur2.0-metRestfulAPI/snapshot.html)
 
 In dit project wordt een nieuwe versie van het Digikoppeling Architectuur document ontwikkeld. De aanleiding van de vernieuwing is tweeledig: in 2019 is een RFC ingediend over relatie van de Digikoppeling profielen met *bevragen en melden*. Daarnaast wordt in 2020 een Rest API profiel uitgewerkt en opgenomen in de Digikoppeling Standaard.
 
@@ -40,3 +40,23 @@ Onderstaande indeling is concept. Dit kan nog op alle punten wijzigen.
 |B2|[Bijlage begrippen](dk_bijlage_begrippen.md)|||
 |B3|[Bijlage Nora Architectuurprincipes](dk_bijlage_nora_architectuur_principes.md)|||
 |B4|[Bijlage Niet functionele eisen](dk_bijlage_niet_functionele_eisen.md)|||
+
+## TODO's
+|#|tekst| todo|
+|-|---|---|
+|2|..met Digikoppeling kan een serviceaanbieder met één interface al zijn serviceafnemers bedienen...De implementatie van Digikoppeling (en de bijbehorende investering) is eenmalig.|is dit  nog het geval?|
+|2|referentie aan de NORA|De NORA richt zicht ook steeds meer op halen bij de bron en raadt het gebruik van API sterk aan.  Onderstaande alinea is aan vervanging toe|
+|3|De Digikoppeling-standaarden ondersteunen veilige gegevensuitwisseling voor...|is bovenstaande lijstje compleet? toe te voegen patronen kunnen bijvoorbeeld zijn: stateful/stateless, push/pull, enz.|
+|3|IEF,EIF |Zowel IEF 2.0 als het European Framwork 2.0 zijn verouderd en vervangen door de  'New' EIF en de de EIRA. Onderbouwing moet daarom worden vernieuwd |
+|3|principe betrouwbaarheid|opties tussen transportprotocol en in businesslaag  verduidelijken|
+|3|betrouwbaarheid ... in de businesslaag|moet de volgende nieuwe zin - zie hieronder-, hier of als voetnoot worden vermeld? |
+|3|Digikoppeling maakt hiervoor gebruik van twee internationale families...|hier iets over ADR (HTTP/JSON)?|
+|4|rollen|Er is grote behoefte om de rollen nader uit te werken. Dit kan in een aparte paragraaf of als verdere aanvulling op de vorige paragraaf|
+|4|op business-niveau is er een veelheid aan uitwisselingsvormen...|s bovenstaande zin nog actueel?|
+|4|Invulling van de behoefte met het aanbod|De oorspronkelijke paragraaf geskipt, nieuwe invulling is nodig|
+|4|Overzicht transactiepatronen (nieuw)|nu de koppeling met bevraging en melding is losgelaten is het wel nodig om te beschrijven in welke situatie je Digikoppeling kan en moet gebruiken. Het gaat in dit hoofdstuk nog om de patronen. In het hoofdstuk usecases willen we graag praktijkvoorbeelden beschrijven.|
+|4|Digikoppeling-bevragingen en -meldingen|Plaatje herzien |
+|4|Bilaterale uitwisseling|Plaatje moet mogelijk worden herzien omdat in de plaat de nadruk ligt op berichten|
+
+
+
