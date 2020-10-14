@@ -1,7 +1,5 @@
 # De Digikoppeling-keten
 
-# De Digikoppeling-keten
-
 Dit hoofdstuk beschrijft de Digikoppeling als bouwsteen van de Digitale Overheid. de keten van alle Digikoppeling-gerelateerde componenten die gegevensuitwisseling voor de Digitale Overheid invullen duiden we in dit document aan als de de Digikoppeling-keten. In dit hoofdstuk worden de vormen van gegevensuitwisseling op procesniveau beschreven.
 
 ## Digikoppeling als bouwsteen van de  Digitale Overheid
@@ -125,7 +123,7 @@ Combineren van deze primitieve interacties tot meerdere (eventueel over de tijd 
 
 Digikoppeling onderscheidt verschillende vormen van uitwisseling:
 
-- *synchrone* request-response voor bevraging en bewerking van objecten, ook wel *resources* genoemd
+- *synchrone* request-response voor bevraging en bewerking van objecten en in de context van het gebruik van REST *resources*. 
 
 - *synchrone* request-response met gestructureerde berichtuitwsseling 
 
@@ -234,7 +232,7 @@ Asynchrone uitwisseling kunnen worden ingericht op basis van de Digikoppeling-ko
 
 De Provider bepaalt welk koppelvlak - Restful API, WUS of ebMS- van toepassing is op de door haar geleverde dienst. 
 
-Tot 2019 werd in de Digikoppeling Standaard onderscheid gemaakt tussen 'WUS voor bevragingen' en 'ebMS voor meldingen'. In de praktijk bleek dit onderscheid niet altijd goed te werken. Er zijn usecases waarin WUS beter geschikt is voor meldingen. In afwachting van een grondige herziening in de loop van 2020 van het toepassingsgebied van Digikoppeling -  door de komst van koppelvlakken gebaseerd van (RESTful)API's- wordt deze aanpassing nu al doorgevoerd. 
+Tot en met 2019 werd in de Digikoppeling Standaard onderscheid gemaakt tussen 'WUS voor bevragingen' en 'ebMS voor meldingen'. In de praktijk bleek dit onderscheid niet altijd goed te werken. Er zijn usecases waarin WUS beter geschikt is voor meldingen. In afwachting van een grondige herziening in de loop van 2020 van het toepassingsgebied van Digikoppeling -  door de komst van koppelvlakken gebaseerd van (RESTful)API's- wordt deze aanpassing nu al doorgevoerd. 
 
 ### Grote Berichten
 
@@ -259,7 +257,7 @@ Digikoppeling Grote Berichten maakt verschillende vormen van uitwisseling op bus
 
 ## Overzicht transactiepatronen (nieuw)
 
-> `TODO`: nu de koppeling met bevraging en melding is losgelaten is het wel nodig om te beschrijven in welke situatie je Digikoppeling kan en moet gebruiken. Het gaat in dit hoofdstuk nog om de patronen. In het hoofdstuk usecases willen we graag praktijkvoorbeelden beschrijven.
+> `TODO`: nu de koppeling met bevraging en melding is losgelaten is het nodig om te beschrijven in welke situatie je Digikoppeling kan en moet gebruiken. Het gaat in dit hoofdstuk nog om de patronen. In het hoofdstuk usecases willen we graag praktijkvoorbeelden beschrijven.
 > Hiervoor is **alle input** welkom! 
 
 > EDUkoppeling beschrijft (in de *concept Architectuur 2.0*) de volgende patronen

@@ -68,7 +68,27 @@ Tabel 4: Digikoppeling-voorschriften
 
 ## Restful Api's
 
-> `TODO`
+Het Digikoppeling REST-API profiel is gebaseerd op de REST-API Design rules die in 2020 door het Kennisplatform API's is ontwikkeld. 
+
+Een application programming interface (API) is een gestructureerd en gedocumenteerd koppelvlak voor communicatie tussen applicaties. In de laatste 10 jaar heeft Representational state transfer (REST) zich ontwikkeld tot een bepalend principe voor het realiseren van API's.
+
+De standaard REST-API Design Rules geeft een verzameling basisregels voor structuur en naamgeving waarmee de overheid op een uniforme en eenduidige manier REST-API's aanbiedt. Dit maakt het voor ontwikkelaars gemakkelijker om betrouwbare applicaties met te ontwikkelen met API's van de overheid.
+
+De KVS API biedt de volgende functionaliteiten:
+
+> `TODO:` wacht op input DK API Profiel
+
+- Identificatie en authenticatie van partijen
+
+- Foutmeldingen
+
+- ...
+
+## OAS: OpenAPI Specification 
+
+Een OpenAPI Specification (OAS) beschrijft de eigenschappen van de data die een API als input accepteert en als output teruggeeft. OAS 3.0 specificeert alleen welke attributen de API verwerkt en hun datatypen, niet welke implementatie er achter de API schuilgaat.
+
+Voor het beschrijven van DK-Rest API's is het gebruik van OAS veplicht. Op de Pas-toe-leg-uit lijst van het Forum Standaardisatie staat beschreven welke versie toegepast moet worden.  
 
 ## WUS
 
@@ -102,7 +122,7 @@ De KVS WUS biedt de volgende functionaliteiten: <del> voor bevragingen: </del>
 
 - Foutmeldingen
 
-### WSDL
+### WSDL: Web Services Description Language
 
 Een WSDL is een formeel xml-document om de gebruikte functionele en technische eigenschappen van de berichtuitwisseling via WUS vast te leggen. Elke service heeft één WSDL, die door de serviceaanbieder wordt opgesteld. Deze is door alle afnemers te gebruiken. Door importeren van de WSDL in de Digikoppeling-adapter van een afnemer wordt de berichtuitwisseling geconfigureerd.
 
@@ -170,7 +190,7 @@ In sommige sectoren wordt een vraag verstuurd met ebMS2 en komt het
 
 ### Werking grote berichten
 
-Zoals eerder aangegeven kan de situatie zich voordoen dat een WUS, Restful API, en/of ebMS2 bericht een grootte krijgt die niet meer efficiënt door de WUS / ebMS2 / Restful API adapters en services verwerkt kan worden. Ook kan er behoefte zijn aan het buiten de normale procesgang ('out-of-band') sturen van aanvullende informatie naar systemen. In die gevallen zal dit “grote bericht” op een andere wijze verstuurd moeten worden: middels de Digikoppeling koppelvlakstandaard Grote Berichten.
+De situatie kan zich voordoen dat een WUS, Restful API, en/of ebMS2 bericht een grootte krijgt die niet meer efficiënt door de WUS / ebMS2 / Restful API adapters en services verwerkt kan worden. Ook kan er behoefte zijn aan het buiten de normale procesgang ('out-of-band') sturen van aanvullende informatie naar systemen. In die gevallen zal dit “grote bericht” op een andere wijze verstuurd moeten worden: middels de Digikoppeling koppelvlakstandaard Grote Berichten.
 
 De volgende standaard aanpak wordt hierbij gehanteerd:
 
@@ -178,7 +198,7 @@ De volgende standaard aanpak wordt hierbij gehanteerd:
 
 > `TODO`: hier ook Restful API vermelden?
 
-- de referentie wordt gebruikt om een groot bestand te downloaden.
+- de referentie verwijst naar de locatie van het grote bestand. Het hangt af van het  gebruikte Digikoppeling Grote berichten profiel of de ontvanger het bestand moet downloaden of dat de zender het grote bestand inmiddesl als naar de ontvanger heeft geupload.
 
 Het grote bericht zelf zal vaak volledig in het grote bestand zijn opgenomen; het WUS of ebMS2 bericht bevat dan alleen metadata (waaronder de link naar het bestand). Maar het kan ook gebeuren dat een klein deel van het oorspronkelijk grote bericht al in het WUS-bericht is opgenomen en de rest (bijvoorbeeld bijlagen bij het bericht) in een of meerdere bestanden is opgenomen.
 

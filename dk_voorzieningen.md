@@ -10,7 +10,7 @@ De volgende Digikoppeling-voorzieningen ondersteunen het ontwikkel- en implement
 
 - het CPA Register voor het creëren van een CPA (tbv ebMS2 berichtuitwisseling);
 
-- Het OIN Register voor het raadplegen van organisatiegegevens.
+- De Centrale OIN Raadpleegvoorziening (COR) voor het raadplegen van het OIN register. Het OIN staat voor het Organisatie Identificatienummer.
 
 Digikoppeling adapters of applicaties kunnen worden getest op compliance met de koppelvlakstandaarden via de het Digikoppeling Portaal. Al deze voorzieningen zijn bereikbaar via https://portaal.digikoppeling.nl.
 
@@ -40,7 +40,7 @@ De volgende compliancevoorzieningen zijn beschikbaar: <sup>[28](#f28)</sup>
 
 ## OIN Register (Centrale OIN Raadpleegvoorziening)
 
-Logius beheert de Centrale OIN Raadpleegvoorziening (COR) waarin uitgegeven Organisatie identificatienummers zijn gepubliceerd. Dit register is openbaar raadpleegbaar en via een API bevraagbaar.
+Logius beheert de Centrale OIN Raadpleegvoorziening (COR) waarin uitgegeven Organisatie identificatienummers zijn gepubliceerd. Dit register is openbaar raadpleegbaar en zowel via het web als via een REST-API bevraagbaar.
 
 Het OIN register is te vinden op https://register.digikoppeling.nl/registers.
 

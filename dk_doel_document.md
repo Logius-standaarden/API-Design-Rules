@@ -27,7 +27,7 @@ De *Architectuur Digikoppeling* is mede gebaseerd op:
 
 - De *Digikoppeling-koppelvlakstandaarden.* Onderdelen uit deze documenten zijn hier samengevat om voor de lezer duidelijk te maken.
 
-- Het *hoofdstuk over de Digikoppeling* keten bevat elementen *uit De Architectuurschets*, de context voor gegevensuitwisseling binnen de overheid in algemene zin en voor Digikoppeling in het bijzonder. *De     Architectuurschets* is een tijdelijk product; de essentiële elementen van *De Architectuurschets* worden opgenomen in het *NORA Katern Verbinden*.
+- Het *hoofdstuk over de Digikoppeling* keten bevat elementen *uit De Architectuurschets*, de context voor gegevensuitwisseling binnen de overheid in algemene zin en voor Digikoppeling in het bijzonder. *De Architectuurschets* is een tijdelijk product; de essentiële elementen van *De Architectuurschets* worden opgenomen in het *NORA Katern Verbinden*.
 
 De architectuur van Digikoppeling wordt regelmatig geactualiseerd om goed te blijven aansluiten op de behoeften van overheden en de wensen van de maatschappij.
 

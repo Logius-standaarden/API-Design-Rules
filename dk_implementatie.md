@@ -54,7 +54,7 @@ Per berichtuitwisseling moet worden bepaald welk profiel het meest geschikt is. 
 ### Selectie van profielen
 
 Vanwege interoperabiliteit, eenvoud en overzichtelijkheid onderscheidt
-Digikoppeling per koppelvlakstandaard een aantal standaardprofielen. Elk profiel bestaat uit vooraf gedefinieerde keuzen over kenmerken als synchroniciteit, beveiliging en betrouwbaarheid voor WUS of ebMS2. Door toepassing van de Digikoppeling profielen worden deze kenmerken correct afgehandeld en kunnen partijen sneller een koppelvlakstandaard implementeren. De profielen worden nader gespecificeerd in de koppelvlakstandaarden WUS en ebMS2.
+Digikoppeling per koppelvlakstandaard een aantal standaardprofielen. Elk profiel bestaat uit vooraf gedefinieerde keuzen over kenmerken als synchroniciteit, beveiliging en betrouwbaarheid voor REST-API, WUS of ebMS2. Door toepassing van de Digikoppeling profielen worden deze kenmerken correct afgehandeld en kunnen partijen sneller een koppelvlakstandaard implementeren. De profielen worden nader gespecificeerd in de koppelvlakstandaarden WUS en ebMS2.
 
 De volgende kenmerken zijn onderkend:
 
@@ -80,20 +80,24 @@ De aanduiding van de profielen kent de volgende systematiek:
 
 - osb= overheidsservicebus, de oude naam van Digikoppeling
 
-| Invulling voorschriften      | WUS-profielen | ebMS2-profielen |
-|------------------------------|---------------|-----------------|
-| `Bevragingen`                 |               |                 |
-| best-effort                  | 2W-be         | osb-be          |
-| best-effort signed           | 2W-be-S       | osb-be-s        |
-| best-effort signed/encrypted | 2W-be-SE      | osb-be-e        |
+> `TODO:` Tabel met de verschillende API, WUS en ebMS profielen langslopen
+
+| Invulling voorschriften | API profielen | WUS-profielen | ebMS2-profielen |
+|---|---|---|---|
+| `Bevragingen`                 |               |                 ||
+| best-effort                  | xxx-be |2W-be | osb-be |
+| best-effort signed           |  |2W-be-S | osb-be-s |
+| best-effort signed/encrypted |  |2W-be-SE | osb-be-e |
 | `Meldingen`                    |               |                 |
-| reliable                     |               | osb-rm          |
-| reliable signed              |               | osb-rm-s        |
-| reliable signed en encrypted |               | osb-rm-e        |
+| reliable                     ||               | osb-rm          |
+| reliable signed              ||               | osb-rm-s        |
+| reliable signed en encrypted ||               | osb-rm-e        |
 
 Tabel 6: Profielen in relatie tot Digikoppeling-voorschriften
 
 *NB: De profielnamen komen uit eerdere versies van de koppelvlakstandaarden. Zij moeten gehandhaafd blijven in verband met het feit dat deze standaarden reeds in gebruik zijn bij vele organisaties. Dit verklaart de verschillen in de gebruikte afkortingen tussen de WUS- en ebMS2-profielen.*
+
+> `TODO:` aspecten keuze voor een profiel herzien  
 
 Neem de volgende aspecten mee bij de keuze van een profiel:
 
@@ -111,17 +115,20 @@ Neem de volgende aspecten mee bij de keuze van een profiel:
 
 De berichtuitwisseling wordt vormgegeven door services. Een service bestaat uit een servicebeschrijving (een servicecontract) en berichtdefinitie waarmee de inhoud van een bericht is gespecificeerd. Deze worden op voorhand tussen partijen afgesproken en uitgewerkt.
 
-De servicebeschrijving bevat de gemaakte afspraken over de kwaliteit en vorm van uitwisseling. De berichten zelf zijn in een technisch formaat (XML) beschreven. Servicebeschrijvingen worden opgesteld door een serviceaanbieder (bijvoorbeeld een basisregistratie).
+De servicebeschrijving bevat de gemaakte afspraken over de kwaliteit en vorm van uitwisseling. De berichten of antwoorden van een service zelf zijn in een technisch formaat (XML bij WUS en ebMS, JSON bij RES-API) beschreven. Servicebeschrijvingen worden opgesteld door een serviceaanbieder (bijvoorbeeld een basisregistratie).
 
 Een servicecontract voor een ebMS2 service heet een CPA. Dit contract wordt afgesloten tussen de serviceaanbieder en serviceafnemer. Een CPA moet worden gecreëerd via het CPA-Register en wordt daarna ingelezen in de systemen van de serviceaanbieder en serviceafnemer.
 
 Een servicecontract voor een WUS service heet een WSDL. Dit contract wordt afgesloten tussen de serviceaanbieder en serviceafnemer(s). Een WSDL voor een <del>bevraging</del><span style="color:green">request</span> kan door meerdere afnemers worden gebruikt. Een WSDL wordt door een aanbiedende partij opgesteld.
 
+De beschrijving voor een REST-API service heet een OAS. Deze beschrijving wordt opgesteld door de aanbieder van de service. Een OAS voor een API Servicecall kan door meerdere afnemers worden gebruikt.
+
+
 ### Gebruik van de Digikoppeling voorzieningen
 
 Digikoppeling bestaat uit een set diensten, afspraken en ondersteunende voorzieningen. Die positionering bepaalt de manier waarop Digikoppeling omgaat met het verschil tussen productie en test.
 
-Digikoppeling-voorzieningen ondersteunen het ontwikkelproces en maken daarom geen onderscheid tussen productie en test<sup>[30](#f30)</sup>. In de berichtuitwisseling moeten organisaties hier wel onderscheid in maken. Wanneer er op een generieke infrastructurele component TLS-terminatie plaatsvindt, zal er in het algemeen slechts met productiecertificaten kunnen worden gewerkt. Dergelijke componenten worden ingezet voor zonering tussen niet-vertrouwde, semi-vertrouwde en vertrouwde netwerkzones. Keten- of pre-productietesten zullen in het algemeen gebruik kunnen maken van generieke infrastructuur.
+Digikoppeling-voorzieningen ondersteunen het ontwikkelproces en maken daarom geen onderscheid tussen productie en test<sup>[30](#f30)</sup>. In de gegevensuitwisseling moeten organisaties hier wel onderscheid in maken. Wanneer er op een generieke infrastructurele component TLS-terminatie plaatsvindt, zal er in het algemeen slechts met productiecertificaten kunnen worden gewerkt. Dergelijke componenten worden ingezet voor zonering tussen niet-vertrouwde, semi-vertrouwde en vertrouwde netwerkzones. Keten- of pre-productietesten zullen in het algemeen gebruik kunnen maken van generieke infrastructuur.
 
 Daarom geldt:
 
@@ -153,9 +160,11 @@ Het gebruik van gegevens uit andere bronnen wordt intern binnen een organisatie 
 
 ### Berichtinhoud en semantiek
 
-Digikoppeling gaat over de uitwisseling van berichten. Binnen Digikoppeling wordt een bericht conform de SOAP<sup>[31](#f31)</sup> messaging protocol samengesteld.
+Digikoppeling gaat over de uitwisseling van gegevens. Binnen Digikoppeling wordt een bericht dat uitgewisseld wordt met WUS of ebMS conform de SOAP<sup>[31](#f31)</sup> messaging protocol samengesteld.
 
-Een bericht bestaat uit de volgende onderdelen:
+Bij het gebruik van het Digikoppeling REST-API profiel is er geen sprake van berichtuitwisseling. In dit profiel wordt een een Application Programming Interface (API) op een resource aangeboden die door een gebruiker kan worden bevraagd of bewerkt, afhangend wat de API en de autorisatie eisen toelaat. De aanroep van een resource vindt plaats met HTTP-request. De HTTP-response bevat JSOn of XML.
+
+Een bericht (WUS of ebMS) bestaat uit de volgende onderdelen:
 
 - Een bericht header (envelop)
 
@@ -163,7 +172,7 @@ Een bericht bestaat uit de volgende onderdelen:
 
 - Attachments (bijlagen)
 
-Een bericht voldoet aan de volgende eisen:
+Een bericht (WUS of ebMS) voldoet aan de volgende eisen:
 
 - Alle berichten, zowel WUS als ebMS2, hebben een unieke identificatie. De gekozen structuur is geldig in de ebMS2-omgeving en in de WUS-omgeving. Zo kan dezelfde berichtidentificatie gebruikt worden in zowel een ebMS2-traject als op een voorafgaand of volgend WUS-traject. Een bepaald bericht kan daardoor direct ‘gevolgd’ worden. Gekozen is voor de structuur UUID\@URI.
 
@@ -181,6 +190,7 @@ Berichtdefinities worden door partijen in overleg opgesteld. De semantische inte
 
 <br><sup><a name="f32"><dfn>32</dfn></a>: Attachments mogen andere formaten hebben.</sup> 
 
+> `TODO`: hier nog een detailbeschrijving van een REST-API uitwisseling?  
 
 ### Karakterset en codering
 
@@ -194,7 +204,7 @@ Voor de karakterset beperkt Digikoppeling zich tot Unicode 2.0 (ISO/IEC 10646), 
 
 Digikoppeling stelt ook randvoorwaarden op het niveau van het transport:
 
-- Gebruik van http
+- Gebruik van HTTPS
 
 - Gebruik van TCP/IP stack.
 
@@ -210,7 +220,7 @@ Deze paragraaf legt zeer beknopt een relatie met de beoogde oplossing voor de la
 
 ### Transport Level Security (TLS)
 
-Zowel de Digikoppeling-koppelvlakstandaard ebMS2 als de Digikoppeling-koppelvlakstandaard WUS en Digikopppeling-koppelvlakstandaard Grote Berichten schrijven het gebruik voor van (tweezijdig) TLS om de berichtenstroom te beveiligen. Het protocol TLS heeft betrekking op het communicatiekanaal. De Digikoppeling-koppelvlakstandaarden stellen deze eis dus aan de transportlaag.
+Alle Digikoppeling-koppelvlakstandaarden schrijven het gebruik voor van (tweezijdig) TLS om de berichtenstroom te beveiligen. Het protocol TLS heeft betrekking op het communicatiekanaal. De Digikoppeling-koppelvlakstandaarden stellen deze eis dus aan de transportlaag.
 
 In Digikoppeling is ervoor gekozen om PKIoverheid certificaten te gebruiken op het niveau van het communicatiekanaal (TLS) om de directe communicatiepartners te authenticeren (enkele hop). TLS kan niet toegepast worden om end-to-end authenticatie uit te voeren in een multi-hop omgeving; zie daarvoor beveiliging op berichtniveau (signed of signed en encrypted profielen).
 
@@ -225,7 +235,7 @@ Gegevensuitwisseling via Digikoppeling stelt wel enkele eisen aan het transport:
 
 - Standaarden zijn gebaseerd op ‘bindings’ – verbindingen of connecties - naar Uniform Resource Identifiers (URI’s). Het netwerk moet de ‘DNS resolving’ <sup>[33](#f33)</sup>van de domeinnaam uit de URI regelen en de routering naar het resulterende IP-adres. Het netwerk en/of DNS-resolving mag ook een lokaal netwerk/host zijn.
 
-- Digikoppeling past SOAP over HTTPS toe. De netwerken (en firewalls) zullen daarom https-transport over TCP/IP moeten toestaan.
+- Digikoppeling past HTTPS. De netwerken (en firewalls) zullen daarom https-transport over TCP/IP moeten toestaan.
 
 Om goed te functioneren heeft Digikoppeling dus alleen basale connectiviteit nodig.
 

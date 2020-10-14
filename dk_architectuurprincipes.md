@@ -1,17 +1,13 @@
+<!-- markdownlint-disable MD033 MD024 MD041 MD038 -->
 # Digikoppeling-architectuurprincipes
 
 ## Uitgangspunten
-
-<details>
-  <summary>let op: Principe 4 is gewijzigd. Waarom?</summary>
-  > Principe 4 is vervangen door een gewijzigd principe 4. Er moet nog een check worden uitgevoerd op de NORA.
-</details>
 
 De volgende uitgangspunten vormen de basis voor de uitwerking van deze architectuur:
 
 1. De Digikoppeling standaarden zijn openbaar, vindbaar, transparant, leveranciersonafhankelijk en interoperabel. Zie bijlage D voor uitleg.
 
-2. De Digikoppeling-standaarden ondersteunen veilige gegevensuitwisseling voor:
+2. De Digikoppeling-standaarden ondersteunen veilige gegevensuitwisseling <del>op basis van meldingen (ebMS2) , bevragingen (WUS) of in combinatie met grote berichten (GB).</del> voor:
    - synchrone en asynchrone uitwisseling;
    - op berichten of op resources gebaseerde uitwisseling;
    - best effort of reliable uitwisseling;
@@ -19,11 +15,16 @@ De volgende uitgangspunten vormen de basis voor de uitwerking van deze architect
 
 > `TODO`: is bovenstaande lijstje compleet? toe te voegen patronen kunnen bijvoorbeeld zijn: stateful/stateless, push/pull, enz.
 
-<del>op basis van `meldingen` (ebMS2) , `bevragingen` (WUS)   of in combinatie met grote berichten (GB).`</del>
 
-3. Partijen kunnen kiezen welk interactiepatroon nodig voor gegevensuitwisseling. <del>`meldingen en/of bevragingen`</del>, afhankelijk van hun behoefte. Partijen bepalen in onderling overleg welke <del> WUS- of ebMS2-</del> Digikoppeling profiel ze gebruiken.
 
-<del> 4. Basisregistraties en landelijke voorzieningen moeten beide koppelvlakstandaarden ondersteunen<sup>[12](#f12)</sup>. Mochten de serviceafnemers voldoende hebben aan één van de koppelvlakstandaarden, dan kan de aanbieder zich tot deze koppelvlakstandaard beperken. </del>
+3. Partijen kunnen kiezen welk interactiepatroon nodig is voor gegevensuitwisseling. <del>meldingen en/of bevragingen</del>, afhankelijk van hun behoefte. Partijen bepalen in onderling overleg welke <del> WUS- of ebMS2-</del> Digikoppeling profiel ze gebruiken.
+
+<details>
+  <summary>let op: Principe 4 is gewijzigd. Waarom?</summary>
+  > Principe 4 is vervangen door een gewijzigd principe 4. Er moet nog een check worden uitgevoerd op de NORA.
+</details>
+
+~~4. Basisregistraties en landelijke voorzieningen moeten beide koppelvlakstandaarden ondersteunen<sup>[12](#f12)</sup>. Mochten de serviceafnemers voldoende hebben aan één van de koppelvlakstandaarden, dan kan de aanbieder zich tot deze koppelvlakstandaard beperken.~~ 
 
 4. Basisregistraties en landelijke voorzieningen bepalen welke koppelvlakstandaard gebruikt wordt door een door hun geleverde dienst. Per dienst kunnen meerdere koppelvlakstandaard gebruikt worden.
 
@@ -39,7 +40,7 @@ De architectuurprincipes geven richting aan de Digikoppeling-standaarden en Digi
 
 2. **Standaardoplossingen:** Het gebruik van standaardoplossingen is mogelijk, met een minimum aan ontwikkelinspanning of maatwerk.
 
-3. **Veiligheid en vertrouwelijkheid:** Gegevens worden veilig uitgewisseld conform de eisen van de toepasselijke wet en regelgeving. Wanneer berichten met persoonsgegevens verstuurd worden, moet de serviceafnemer nagaan of de uitwisseling voldoet aan de wet- en regelgeving (in het bijzonder de ~~WBP~~<span style="color:green"> AVG </span>).
+3. **Veiligheid en vertrouwelijkheid:** Gegevens worden veilig uitgewisseld conform de eisen van de toepasselijke wet en regelgeving. Wanneer berichten met persoonsgegevens verstuurd worden, moet de serviceafnemer nagaan of de uitwisseling voldoet aan de wet- en regelgeving (in het bijzonder de ~~WBP~~AVG ).
 
 4. **Betrouwbaarheid:** Berichtuitwisseling is betrouwbaar indien nodig.
 
@@ -65,9 +66,9 @@ Deze laag wordt in de Nederlandse publieke sector ingevuld door Digikoppeling. D
 
 > `TODO`: hier iets over ADR (HTTP/JSON)?
 
-De ebMS2 standaard wordt door OASIS ([www.oasis.org](https://www.oasis.org)) beheerd, de WUS profielen door OASIS en de onderliggende WUS standaarden door W3c ([www.w3c.org](https://www.w3c.org)).<sup>[15](#f15)</sup>
+De ebMS2 standaard en de WUS profielen worden door OASIS ([www.oasis.org](https://www.oasis.org)) beheerd en de onderliggende WUS standaarden door W3c ([www.w3c.org](https://www.w3c.org)).<sup>[15](#f15)</sup>
 
-**Gevolg:** Digikoppeling schrijft ebMS2-, WUS-standaarden en de Nederlandse API Design Rules voor in de vorm van de Digikoppeling-koppelvlakstandaarden en profielen. Organisaties kunnen hiermee effectief, snel en veilig berichten uitwisselen.
+**Gevolg:** Digikoppeling schrijft ebMS2-, WUS-standaarden en de Nederlandse API Design Rules voor in de vorm van de Digikoppeling-koppelvlakstandaarden en profielen. Organisaties kunnen hiermee effectief, snel en veilig gegevens uitwisselen.
 
 <br>
 <br><del><sup><a name="f13"><dfn>13</dfn></a> Annex II - EIF (European Interoperability Framework) of the Communication “Towards interoperability for European public services” on the 16th of December 2010.</sup></del>
@@ -117,7 +118,7 @@ Digikoppeling stelt het gebruik van het PKIoverheid certificaten verplicht voor 
 
 ## Betrouwbaarheid
 
-> `TODO:` opties tussen transportprotocol en in businesslaag  verduidelijken 
+> `TODO:` opties tussen transportprotocol en in businesslaag verduidelijken 
 
 **Principe:** De berichtuitwisseling is betrouwbaar indien nodig.
 

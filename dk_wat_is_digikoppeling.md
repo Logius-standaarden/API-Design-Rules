@@ -6,29 +6,29 @@ Dit hoofdstuk geeft een overzicht van wat Digikoppeling inhoudt en hoe deze stan
 
 (Overheids)organisaties willen diensten klantgericht, efficiënt, flexibel en rechtmatig aanbieden aan burgers en bedrijven. Daarvoor moeten zij gegevens en documenten op een generieke manier met elkaar kunnen uitwisselen.
 
-Digikoppeling voorziet hierin door de standaarden voor deze uitwisseling te definiëren. Met deze logistieke standaardisatie bevordert Digikoppeling de interoperabiliteit tussen (overheids)organisaties. Digikoppeling heeft zich vanaf het begin van haar onstaan gericht zich op de 'envelop' van een bericht, niet op de inhoud. Daardoor kan iedere organisatie die Digikoppeling gebruikt, de postverzending onafhankelijk van de inhoud inrichten. Met de toevoeging van het Digikoppeling Rest-API profiel komt de metafoor met berichten in enveloppen wat in het gedrang te staan, maar het basisprincipe blijft dt Digikoppeling zich niet met de inhoud bemoeit.
+Digikoppeling voorziet hierin door de standaarden voor deze uitwisseling te definiëren. Met deze logistieke standaardisatie bevordert Digikoppeling de interoperabiliteit tussen (overheids)organisaties. Digikoppeling heeft zich vanaf het begin van haar onstaan gericht zich op de 'envelop' van een bericht, niet op de inhoud. Daardoor kan iedere organisatie die Digikoppeling gebruikt, de postverzending onafhankelijk van de inhoud inrichten. Met de toevoeging van het Digikoppeling Rest-API profiel komt de metafoor met berichten in enveloppen wat in het gedrang, maar het basisprincipe blijft dat Digikoppeling zich niet met de inhoud bemoeit, *'Geen boodschap aan de boodschap'*.
 
 ![Verschil SOAP en REST](media/Upwork-Envelop-postcard.png "Soap vs. REST APIs (bron upwork.com")
 <br>bron: [https://www.upwork.com/resources/soap-vs-rest-a-look-at-two-different-api-styles](https://www.upwork.com/resources/soap-vs-rest-a-look-at-two-different-api-styles)
 
 Digikoppeling is primair bedoeld voor gegevensuitwisseling tussen systemen van overheidsorganisaties, in het bijzonder de basisregistraties en landelijke of intersectorale gegevensdiensten, maar wordt breder ingezet in de (semi)publieke sector. Digikoppeling is beschikbaar voor elke organisatie die veilig en betrouwbaar gegevens wil uitwisselen met andere organisaties in de publieke sector. Gebruik van Digikoppeling buiten de publieke sector is ook mogelijk.
 
-> `TODO` De NORA richt zicht ook steeds meer op halen bij de bron en raadt het gebruik van API sterk aan.  Onderstaande alinea is aan vervanging toe
-<del>## Servicegerichte architectuur conform NORA
+> `TODO` De NORA richt zicht ook steeds meer op halen bij de bron en raadt het gebruik van API sterk aan.  Onderstaande alinea is daarom aan vervanging toe
+<del>## Servicegerichte architectuur conform NORA</del>
 
-Digikoppeling sluit aan bij de servicegerichte architectuur die NORA (Nederlandse Overheids Referentie Architectuur)<sup>[1](#f1)</sup>: voorstaat. Deze vorm van informatie-uitwisseling verloopt via geautomatiseerde systemen van organisaties. Digikoppeling richt zich dus op de communicatie tussen ICT-systemen van verschillende organisaties, specifiek in de vorm van berichtenverkeer.
+<del>
+Digikoppeling sluit aan bij de servicegerichte architectuur die NORA (Nederlandse Overheids Referentie Architectuur)<sup>[1](#f1)</sup>: voorstaat. Deze vorm van informatie-uitwisseling verloopt via geautomatiseerde systemen van organisaties. Digikoppeling richt zich dus op de communicatie tussen ICT-systemen van verschillende organisaties, specifiek in de vorm van berichtenverkeer.</del>
 
+<del>NORA 3.0 bestaat uit basisprincipes, afgeleide principes en katernen. Bijlage C geeft aan hoe Digikoppeling aansluit op de NORA-principes en welke NORA-principes met Digikoppeling worden ingevuld. Digikoppeling sluit ook aan op het NORA Katern Verbinden<sup>[2](#f2)</sup> en het NORA Katern Informatiebeveiliging.</del>
 
-NORA 3.0 bestaat uit basisprincipes, afgeleide principes en katernen. Bijlage C geeft aan hoe Digikoppeling aansluit op de NORA-principes en welke NORA-principes met Digikoppeling worden ingevuld. Digikoppeling sluit ook aan op het NORA Katern Verbinden<sup>[2](#f2)</sup> en het NORA Katern Informatiebeveiliging.
-
-<br><sup><a name="f1"><dfn>1</dfn></a>: *Voor meer informatie over NORA zie http://www.noraonline.nl*</sup>
+<del><br><sup><a name="f1"><dfn>1</dfn></a>: *Voor meer informatie over NORA zie http://www.noraonline.nl*</sup>
 
 <sup><a name="f2"><dfn>2</dfn></a>: In ontwikkeling.</sup>
 </del>
 
 ## Scope van Digikoppeling
 
-Om ~~digitale berichten~~gegevens uit te wisselen moeten organisaties op verschillende niveaus afspraken maken:
+Om ~~digitale berichten~~ gegevens uit te wisselen moeten organisaties op verschillende niveaus afspraken maken:
 
 - Over de inhoud en betekenis van berichten (payload en eventuele bijlagen): de structuur, semantiek, waardebereiken enzovoort.
 
@@ -44,7 +44,7 @@ De kaders van die logistieke laag zijn uitgewerkt in deze Digikoppeling Architec
 
 ## De Digikoppeling standaard
 
-Digikoppeling is gebaseerd op internationale open standaarden van OASIS en W3C,wereldwijde standaardisatie-organisaties voor open standaarden.
+Digikoppeling is gebaseerd op internationale open standaarden van OASIS en W3C, wereldwijde standaardisatie-organisaties voor open standaarden.
 
 De Digikoppeling-standaard bestaat uit meerdere koppelvlakstandaarden. De koppelvlakstandaarden beschrijven de afspraken die nodig zijn om het berichtenverkeer tussen informatiesystemen mogelijk te maken.
 
@@ -168,7 +168,7 @@ Versie 2.0 is ‘backwards compatible’: organisaties die versie 1.0 gebruiken 
 Digikoppeling 2.0 is in 2013 door het College Standaardisatie opgenomen op de
 ‘Pas toe of leg uit’-lijst van standaarden. Omdat versie 2.0 backwards compatible is, voldoen implementaties van Digikoppeling 1.0 nog steeds aan die lijst.
 
-### Digikoppeling versionering op documentniveau
+### vanaf 2018: Digikoppeling versionering niet meer of hoofdniveau, maar op documentniveau
 
 Voor de Digikoppeling standaard is in 2018 de versionering op het hoofdniveau beëindigd. Er zal alleen nog worden gerefereerd aan de Digikoppeling standaard en de versionering van de verschillende onderdelen wordt op documentniveau bijgehouden.
 
