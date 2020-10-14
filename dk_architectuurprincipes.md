@@ -20,7 +20,8 @@ De volgende uitgangspunten vormen de basis voor de uitwerking van deze architect
 
 > **let op** Principe 4 is vervangen door een gewijzigd principe 4. Er moet nog een check worden uitgevoerd op de NORA.
 >
-> De vorige formulering was 
+> De vorige formulering was
+> 
 > 4. ~~Basisregistraties en landelijke voorzieningen moeten beide koppelvlakstandaarden ondersteunen<sup>[12](#f12)</sup>. Mochten de serviceafnemers voldoende hebben aan één van de koppelvlakstandaarden, dan kan de aanbieder zich tot deze koppelvlakstandaard beperken.~~ 
 > ~~<br><sup><a name="f12"><dfn>12</dfn></a> Serviceafnemers kunnen hierdoor ebMS gebruiken voor zowel bevragingen (binnen de sector), meldingen als grote berichten. ~~</sup>
 
