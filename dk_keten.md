@@ -225,10 +225,7 @@ Asynchrone uitwisseling kunnen worden ingericht op basis van de Digikoppeling-ko
 
 ### Geen onderscheid meer in gebruik WUS en ebMS2 voor bevragingen en transacties
 
-<details>
-  <summary>DIt is een eerder toevoeging. Waarom deze wijziging?</summary>
-  > Dit voorstel voor nieuwe paragraafis al eerder besproken in het TO , naar aanleiding van de ingediende 'RFC WUS voor meldingen'.
-</details>
+> Deze is al eerder besproken in het TO, naar aanleiding van de ingediende 'RFC WUS voor meldingen'.
 
 De Provider bepaalt welk koppelvlak - Restful API, WUS of ebMS- van toepassing is op de door haar geleverde dienst. 
 

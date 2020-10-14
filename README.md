@@ -48,7 +48,7 @@ Onderstaande indeling is concept. Dit kan nog op alle punten wijzigen.
 |2|referentie aan de NORA|De NORA richt zicht ook steeds meer op halen bij de bron en raadt het gebruik van API sterk aan.  Onderstaande alinea is aan vervanging toe|
 |3|De Digikoppeling-standaarden ondersteunen veilige gegevensuitwisseling voor...|is bovenstaande lijstje compleet? toe te voegen patronen kunnen bijvoorbeeld zijn: stateful/stateless, push/pull, enz.|
 |3|IEF,EIF |Zowel IEF 2.0 als het European Framwork 2.0 zijn verouderd en vervangen door de  'New' EIF en de de EIRA. Onderbouwing moet daarom worden vernieuwd |
-|3|principe betrouwbaarheid|opties tussen transportprotocol en in businesslaag  verduidelijken|
+|3|principe betrouwbaarheid|opties tussen op betrouwbaarheid op transportprotocolniveau en in businesslaag verduidelijken|
 |3|betrouwbaarheid ... in de businesslaag|moet de volgende nieuwe zin - zie hieronder-, hier of als voetnoot worden vermeld? |
 |3|Digikoppeling maakt hiervoor gebruik van twee internationale families...|hier iets over ADR (HTTP/JSON)?|
 |4|rollen|Er is grote behoefte om de rollen nader uit te werken. Dit kan in een aparte paragraaf of als verdere aanvulling op de vorige paragraaf|

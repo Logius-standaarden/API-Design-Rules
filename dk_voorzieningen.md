@@ -15,7 +15,7 @@ De volgende Digikoppeling-voorzieningen ondersteunen het ontwikkel- en implement
 Digikoppeling adapters of applicaties kunnen worden getest op compliance met de koppelvlakstandaarden via de het Digikoppeling Portaal. Al deze voorzieningen zijn bereikbaar via https://portaal.digikoppeling.nl.
 
 | Functionaliteit  | Uitleg | Invulling |
-| --- |--- | --- |
+|--------------------------------------------|---|---|
 | Compliance WUS services | WUS services kunnen worden getest op compliance met de Digikoppeling-koppelvlakstandaard WUS.  | Digikoppeling Portaal -Compliancevoorziening WUS |
 | Compliance ebMS2 services  | ebMS2 services kunnen worden getest op compliance met de Digikoppeling-koppelvlakstandaard ebMS2. | Digikoppeling Portaal -Compliancevoorziening ebMS2 |
 | Compliance Grote Berichten | Grote berichten kunnen in combinatie met WUS of ebMS2 services worden getest op compliance met de koppelvlakstandaarden | Digikoppeling Portaal-Compliancevoorziening WUS en ebMS2                                                  |

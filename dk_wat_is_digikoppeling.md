@@ -14,7 +14,7 @@ Digikoppeling voorziet hierin door de standaarden voor deze uitwisseling te defi
 Digikoppeling is primair bedoeld voor gegevensuitwisseling tussen systemen van overheidsorganisaties, in het bijzonder de basisregistraties en landelijke of intersectorale gegevensdiensten, maar wordt breder ingezet in de (semi)publieke sector. Digikoppeling is beschikbaar voor elke organisatie die veilig en betrouwbaar gegevens wil uitwisselen met andere organisaties in de publieke sector. Gebruik van Digikoppeling buiten de publieke sector is ook mogelijk.
 
 > `TODO` De NORA richt zicht ook steeds meer op halen bij de bron en raadt het gebruik van API sterk aan.  Onderstaande alinea is daarom aan vervanging toe
-<del>## Servicegerichte architectuur conform NORA</del>
+## ~~Servicegerichte architectuur conform NORA~~
 
 <del>
 Digikoppeling sluit aan bij de servicegerichte architectuur die NORA (Nederlandse Overheids Referentie Architectuur)<sup>[1](#f1)</sup>: voorstaat. Deze vorm van informatie-uitwisseling verloopt via geautomatiseerde systemen van organisaties. Digikoppeling richt zich dus op de communicatie tussen ICT-systemen van verschillende organisaties, specifiek in de vorm van berichtenverkeer.</del>
@@ -93,7 +93,7 @@ De toepassing van Digikoppeling heeft enkele grote voordelen:
 
 ### De ‘Pas toe of leg uit’-lijst
 
-Digikoppeling staat op de ‘Pas toe of leg uit’-lijst van open standaarden van het Forum <del>en College</del> Standaardisatie<sup>[8](#f8)</sup>. Welke koppelvlakken nodig zijn en welke standaarden uit de lijst ingezet moeten worden, is afhankelijk van de aan te schaffen functionaliteit<sup>[9](#f9)</sup>.
+Digikoppeling staat op de ‘Pas toe of leg uit’-lijst van open standaarden van het Forum Standaardisatie<sup>[8](#f8)</sup>. Welke koppelvlakken nodig zijn en welke standaarden uit de lijst ingezet moeten worden, is afhankelijk van de aan te schaffen functionaliteit<sup>[9](#f9)</sup>.
 
 <sup><a name="f8"><dfn>8</dfn></a>: Voor meer informatie over open standaarden en de ‘pas toe of leg uit’ lijst zie: *https://www.forumstandaardisatie.nl/open-standaarden*.</sup> 
 
@@ -103,44 +103,24 @@ De opname op de ‘Pas toe of leg uit’-lijst houdt in dat Digikoppeling de sta
 
 ### Het functioneel toepassingsgebied
 
-<details>
-<summary>Waarom deze wijziging?</summary>
-
 > De inhoud van deze paragraaf is gelijkgetrokken met het Functionale Toepassingsgebied van Digikoppeling op de Pas-toe-of-leg-uit lijst van het Forum Standaardisatie, zie [https://www.forumstandaardisatie.nl/standaard/digikoppeling)](https://www.forumstandaardisatie.nl/standaard/digikoppeling)
-</details>
 
-Het functioneel toepassingsgebied van Digikoppeling is door het Forum Standaardisatie als volgt gedefinieerd:
+Het functioneel toepassingsgebied van Digikoppeling is door OBDO als volgt gedefinieerd:
 
 Digikoppeling moet worden toegepast op alle digitale gegevensuitwisseling met behulp van gestructureerde berichten die plaatsvindt met voorzieningen die onderdeel zijn van de GDI, waaronder de basisregistraties, of die sector-overstijgend is. Geautomatiseerde gegevensuitwisseling tussen informatiesystemen op basis van NEN3610 is uitgesloten van het functioneel toepassingsgebied.  
 
 Op 24 mei 2018 is de omschrijving van het functioneel toepassingsgebied door het Overheidsbrede Beleidsoverleg Digitale Overheid (OBDO) opnieuw bekrachtigd.
 
-<del><sup>[10](#f10)</sup>Geautomatiseerde gegevensuitwisseling tussen informatiesystemen voor sectoroverstijgend berichtenverkeer, op basis van:</del>  
-<del>
-- Digikoppeling ebMS2-standaard voor meldingen tussen informatiesystemen.
-- Digikoppeling WUS-standaard voor de bevraging van informatiesystemen. 
-- Digikoppeling GB-standaard voor de uitwisseling van grote berichten.
-</del>  
-
 <sup><a name="f10"><dfn>10</dfn></a>: [https://lijsten.forumstandaardisatie.nl/open-standaarden/digikoppeling](https://lijsten.forumstandaardisatie.nl/open-standaarden/digikoppeling)</sup>
 
 ### Het organisatorisch werkingsgebied
 
-<details>
-<summary>Waarom deze wijziging?</summary>
-
 > De inhoud van deze paragraaf is gelijkgetrokken met het Organisatorische Werkingsgebied van Digikoppeling op de Pas-toe-of-leg-uit lijst van het Forum Standaardisatie, zie [https://www.forumstandaardisatie.nl/standaard/digikoppeling)](https://www.forumstandaardisatie.nl/standaard/digikoppeling)
-</details>
 
-Het organisatorisch werkingsgebied van Digikoppeling is door <del>het College Standaardisatie</del><span style="color:green">het OBDO</span> gedefinieerd als:
+Het organisatorisch werkingsgebied van Digikoppeling is door het OBDO gedefinieerd als:
 
 - Nederlandse overheden (Rijk, provincies, gemeenten en waterschappen) en instellingen
 - uit de (semi-) publieke sector.
-
-<del>Het werkingsgebied van de standaard is bedoeld voor intersectoraal verkeer en verkeer met basisregistraties en kent geen verplichting binnen sectoren. Het Forum is wel van mening dat gebruik binnen sectoren ook aanbevelenswaardig is en roept de beheerder van de standaard dan ook op dit gebruik te promoten.
-</del>  
-
-<del>Het organisatorisch werkingsgebied beschrijft de overheden die verplicht zijn om Digikoppeling te gebruiken voor een bepaald doel, in dit geval berichtenverkeer met basisregistraties en sectoroverstijgend berichtenverkeer. In de praktijk wordt Digikoppeling ook door vele organisaties buiten dit domein gebruikt en in sommige sectoren ook voor het sectorale verkeer. De landelijke eOverheids voorzieningen maken tevens gebruik van Digikoppeling voor het berichtenverkeer met hun afnemers.</del>  
 
 Digikoppeling is van toepassing bij aanschaf of ontwikkeling van systemen bedoeld voor gestructureerde berichtenuitwisseling met voorzieningen die onderdeel zijn van de GDI (zoals de basisregistraties) en berichtverkeer dat sectoroverstijgend is.
 
@@ -168,7 +148,7 @@ Versie 2.0 is ‘backwards compatible’: organisaties die versie 1.0 gebruiken 
 Digikoppeling 2.0 is in 2013 door het College Standaardisatie opgenomen op de
 ‘Pas toe of leg uit’-lijst van standaarden. Omdat versie 2.0 backwards compatible is, voldoen implementaties van Digikoppeling 1.0 nog steeds aan die lijst.
 
-### vanaf 2018: Digikoppeling versionering niet meer of hoofdniveau, maar op documentniveau
+### Vanaf 2018: Digikoppeling versionering niet meer of hoofdniveau, maar op documentniveau
 
 Voor de Digikoppeling standaard is in 2018 de versionering op het hoofdniveau beëindigd. Er zal alleen nog worden gerefereerd aan de Digikoppeling standaard en de versionering van de verschillende onderdelen wordt op documentniveau bijgehouden.
 
@@ -196,12 +176,12 @@ Hieronder staan de belangrijkste onderdelen van de beheeromgeving.
 
 - De gebruikers van Digikoppeling, die samenkomen in:
   - Het Technisch Overleg Digikoppeling, waarin voorgestelde wijzigingen worden afgestemd.
-  - Een openbare community (op Pleio en Github) voor het uitwisselen van kennis en het voeren van een bredere discussie over de wijze van samenwerken en het uitwisselen van gegevens via Digikoppeling.
-  - <del>  - Het Afnemersoverleg, het formele orgaan dat besluiten neemt over stelselvoorzieningen. Naast Afnemersoverleg kunnen besluiten ook nog worden voorgelegd aan de Regieraad Gegevens .Bijeenkomsten met leveranciers en gebruikers.
+  - Een openbare community (op ~~Pleio~~Github) voor het uitwisselen van kennis en het voeren van een bredere discussie over de wijze van samenwerken en het uitwisselen van gegevens via Digikoppeling.
+  - <del>Het Afnemersoverleg, het formele orgaan dat besluiten neemt over stelselvoorzieningen. Naast Afnemersoverleg kunnen besluiten ook nog worden voorgelegd aan de Regieraad Gegevens .Bijeenkomsten met leveranciers en gebruikers.
 </del>  
   - De beheerorganisatie, ondergebracht bij Logius, die de standaarden en voorzieningen beheert, ontwikkelingen in de omgeving volgt en periodiek voorstellen ter doorontwikkeling uitwerkt.
-  - Standaardisatieprocessen en -organen (onder andere het Forum en ~~College Standaardisatie~~ <span style="color:green">OBDO</span>).
-
+  - Standaardisatieprocessen en -organen (onder andere het Forum en OBDO).
+<br>
 Het hele beheerproces staat beschreven in het *Digikoppeling Beheermodel en Releasebeleid.*
 
 De Digikoppeling-beheerder is verantwoordelijk voor het opstellen en beheren van overheidsbrede standaarden en afspraken over het gebruik van Digikoppeling en voor het beheren van de Digikoppeling-voorzieningen.

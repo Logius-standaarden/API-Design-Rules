@@ -6,13 +6,13 @@ De Digikoppeling Architectuur legde in de eerdere versies grote nadruk op bevrag
 
 > `TODO`: check consistentie met andere hoofdstukken 
 
-<del>`Bevragingen en meldingen` - eventueel in combinatie met grote berichten - bieden door hun verscheidenheid aan profielen en opties de logistieke bouwstenen om diverse interactiepatronen te realiseren.</del> 
+~~Bevragingen en meldingen - eventueel in combinatie met grote berichten - bieden door hun verscheidenheid aan profielen en opties de logistieke bouwstenen om diverse interactiepatronen te realiseren.~~ 
 
-Digikoppeling kent <del>drie</del>vier koppelvlakstandaarden 
+Digikoppeling kent ~~drie~~**vier** koppelvlakstandaarden 
 
-- WUS voor <span style="color:green"> synchrone uitwisseling van gestructeerde berichten</span><del> bevragingen; </del>
+- WUS voor synchrone uitwisseling van gestructeerde berichten ~~bevragingen~~;
 
-- ebMS2 voor <span style="color:green"> asynchrone uitwisseling </span><del> meldingen; </del>
+- ebMS2 voor asynchrone uitwisseling ~~meldingen~~;
 
 - Restful API voor synchrone uitwsseling, de focus ligt op het bevragen en bewerken van resources;
 
@@ -22,11 +22,10 @@ De Digikoppeling-koppelvlakstandaarden beschrijven verschillende profielen. Elk 
 
 De volgende profielen zijn onderkend:
 
-- Best effort – geschikt voor `bevragingen` <del> (WUS en ebMS2) </del><sup>[*](#f*)</sup>
+- Best effort – geschikt voor bevragingen ~~(WUS en ebMS2)~~
 
-- Betrouwbaar (reliable) – geschikt voor `meldingen` <del> (ebMS2) </del>`
+- Betrouwbaar (reliable) – geschikt voor meldingen ~~(ebMS2)~~
 
-<sup><a name="f*"><dfn>*</dfn></a>: Zie 5.4.4. ebMS2 voor vragen met een uitgesteld antwoord</sup>
 
 Deze komen in de volgende varianten voor:
 
@@ -40,8 +39,8 @@ Door het gebruik van deze profielen worden deze aspecten correct afgehandeld en 
 
 | Onderdeel | Toelichting|
 |---|---|
-| Koppelvlakstandaard WUS | het gebruik van WUS <del> voor bevragingen </del><span style="color:green"> synchrone uitwisseling van gestructureerde berichten </span> en de WUS profielen.|
-| Koppelvlakstandaard ebMS2 | Het gebruik van ebMS2 <del> voor meldingen </del> <span style="color:green"> asynchrone uitwisseling </span> en de ebMS2 profielen|
+| Koppelvlakstandaard WUS | het gebruik van WUS voor ~~bevragingen~~ synchrone uitwisseling van gestructureerde berichten en de WUS profielen.|
+| Koppelvlakstandaard ebMS2 | Het gebruik van ebMS2 voor ~~meldingen~~ asynchrone uitwisseling en de ebMS2 profielen|
 |Koppelvlakstandaard Restful API| Het gebruik van Restful APIs voor het synchroon raadplegen en bewerken van resources|
 | Koppelvlakstandaard Grote Berichten | Voor de uitwisseling van grote berichten maakt gebruik van WUS met HTTPS bestandsoverdracht of ebMS2 met HTTPS bestandsoverdracht |
 | Beveiligingstandaarden en voorschriften  | Beschrijft de beveilingstandaarden (TLS, signing en encryption) voor de Digikoppeling profielen WUS, ebMS2 en Grote berichten |
@@ -100,11 +99,11 @@ Kenmerkend voor de WUS-standaarden die voortkomen uit de Internet-wereld is de 1
 
 <sup><a name="f27"><dfn>27</dfn></a>: Voorheen Web Services Interoperability (WS-I) organization</sup> 
 
-### <span style="color:green"> Digikoppeling </span> WUS <del> voor bevragingen </del>
+### Digikoppeling WUS ~~voor bevragingen~~
 
-De Digikoppeling-koppelvlakstandaard WUS (KVS WUS) ondersteunt het uitvoeren van <del> bevragingen </del> <span style="color:green"> synchrone requests </span> tussen geautomatiseerde informatiesystemen.
+De Digikoppeling-koppelvlakstandaard WUS (KVS WUS) ondersteunt het uitvoeren van ~~bevragingen~~ synchrone requests tussen geautomatiseerde informatiesystemen.
 
-De KVS WUS biedt de volgende functionaliteiten: <del> voor bevragingen: </del>
+De KVS WUS biedt de volgende functionaliteiten: ~~voor bevragingen~~
 
 - Identificatie en authenticatie van partijen
 
@@ -136,13 +135,13 @@ Digikoppeling maakt  gebruik van een familie van standaarden die we “ebMS2” 
 
 Kenmerkend voor de ebMS2-standaarden die voortkomen uit de EDIFACT-wereld is de 1-op-1 relatie tussen een beperkt aantal (vaak twee) partijen. Dit betekent dat twee partijen samen een CPA moeten afspreken, creëren en implementeren; de CPA is dus van zowel de serviceaanbieder als de serviceafnemer.
 
-### <span style="color:green"> Digikoppeling </span> ebMS2 <del> voor meldingen </del>
+### Digikoppeling ebMS2 ~~voor meldingen~~
 
-De Digikoppeling-koppelvlakstandaard ebMS2 (KVS ebMS2) ondersteunt het uitvoeren van <span style="color:green"> asynchrone berichten </span><del> meldingen </del> tussen geautomatiseerde informatiesystemen.
+De Digikoppeling-koppelvlakstandaard ebMS2 (KVS ebMS2) ondersteunt het uitvoeren van asynchrone berichten ~~meldingen~~ tussen geautomatiseerde informatiesystemen.
 
 Het protocol regelt de betrouwbare ontvangst van een bericht en eventueel de onweerlegbaarheid (non-repudiation) in de vorm van een ondertekende ontvangstbevestiging. Hoewel Digikoppeling-meldingen (op de logistieke laag) asynchroon zijn kan de business-laag wel synchroon werken als de verzender wacht op een retourmelding.`
 
-De KVS ebMS2 regelt de volgende functionaliteiten: <del> voor meldingen </del>:
+De KVS ebMS2 regelt de volgende functionaliteiten: ~~voor meldingen~~:
 
 - Identificatie en authenticatie van partijen
 
@@ -180,11 +179,8 @@ Een CPA is een formeel xml-document om de gebruikte functionele en technische ei
 
 De wijze waarop een CPA wordt toegepast staat beschreven in Digikoppeling Best Practices ebMS2. Het CPA Register ondersteunt partijen in het creëren van een CPA.
 
-<del>
-### ebMS2 voor vragen met een uitgesteld antwoord
-In sommige sectoren wordt een vraag verstuurd met ebMS2 en komt het
-(uitgestelde) antwoord ook via ebMS2 retour. Deze vorm van uitwisseling is asynchroon en voldoet dus niet aan de definitie voor `bevragingen`, omdat een `bevraging` synchroon is. Digikoppeling biedt hiervoor meldingen. Bij dit type gebruik is de betrouwbaarheid eigenlijk overbodig. Het ebMS2 best effort profiel van de koppelvlakstandaard ebMS2 kan ook voor dit type vragen met uitgestelde antwoorden worden gebruikt, als partijen dit onderling afspreken. Dit gebruik wordt niet op landelijk of intersectoraal niveau toegestaan en is dus uitsluitend optioneel binnen sectoren.`
-</del>
+### ~~ebMS2 voor vragen met een uitgesteld antwoord~~
+~~In sommige sectoren wordt een vraag verstuurd met ebMS2 en komt het (uitgestelde) antwoord ook via ebMS2 retour. Deze vorm van uitwisseling is asynchroon en voldoet dus niet aan de definitie voor bevragingen, omdat een bevraging synchroon is. Digikoppeling biedt hiervoor meldingen. Bij dit type gebruik is de betrouwbaarheid eigenlijk overbodig. Het ebMS2 best effort profiel van de koppelvlakstandaard ebMS2 kan ook voor dit type vragen met uitgestelde antwoorden worden gebruikt, als partijen dit onderling afspreken. Dit gebruik wordt niet op landelijk of intersectoraal niveau toegestaan en is dus uitsluitend optioneel binnen sectoren.~~
 
 ## Grote berichten
 
@@ -194,7 +190,7 @@ De situatie kan zich voordoen dat een WUS, Restful API, en/of ebMS2 bericht een 
 
 De volgende standaard aanpak wordt hierbij gehanteerd:
 
-- Met WUS of ebMS2 wordt referentie (link) verstuurd; 
+- Met WUS of ebMS2 wordt referentie (link) verstuurd;
 
 > `TODO`: hier ook Restful API vermelden?
 
@@ -220,7 +216,7 @@ De *Digikoppeling Koppelvlakstaard Grote Berichten* (KVS GB) maakt gebruik van W
 
  voor het verzenden van metadata. Voor ophalen van het grote bestand maakt de standaard gebruik van HTTPS-downloads. Daardoor zijn reliability en security gelijkwaardig aan WUS en ebMS2. Ook is het gebruik van transparante intermediairs mogelijk.
 
-De KVS GB regelt de volgende functionaliteiten <del> voor meldingen of bevragingen </del>, in aanvulling op WUS of ebMS2 
+De KVS GB regelt de volgende functionaliteiten ~~voor meldingen of bevragingen~~, in aanvulling op WUS of ebMS2 
 
 > `TODO`: zie eerder opmerking over evt toevoegen API voor GB
 
