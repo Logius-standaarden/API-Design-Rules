@@ -44,6 +44,8 @@ Onderstaande indeling is concept. Dit kan nog op alle punten wijzigen.
 ## TODO's
 |#|tekst| todo|
 |-|---|---|
+|0|algemeen|aanname: een snelle versie is nodig, denken we: afstappen van bevragen en melden, inbedden REST API|
+|0|algemeen|aanname: focus op use cases en scenario's, minder op verplichtingen|
 |2|..met Digikoppeling kan een serviceaanbieder met één interface al zijn serviceafnemers bedienen...De implementatie van Digikoppeling (en de bijbehorende investering) is eenmalig.|is dit  nog het geval?|
 |2|referentie aan de NORA|De NORA richt zicht ook steeds meer op halen bij de bron en raadt het gebruik van API sterk aan.  Onderstaande alinea is aan vervanging toe|
 |3|De Digikoppeling-standaarden ondersteunen veilige gegevensuitwisseling voor...|is bovenstaande lijstje compleet? toe te voegen patronen kunnen bijvoorbeeld zijn: stateful/stateless, push/pull, enz.|
