@@ -45,9 +45,9 @@ var respecConfig =
       companyURL: "https://www.kadaster.nl",
     }
   ],
-  shortName: "API-Designrules",
-  github: "https://github.com/Logius-standaarden/API-Designrules",
-  issueBase: "https://github.com/Logius-standaarden/API-Designrules/issues/",
+  shortName: "API-Design-Rules",
+  github: "https://github.com/Logius-standaarden/API-Design-Rules",
+  issueBase: "https://github.com/Logius-standaarden/API-Design-Rules/issues/",
   localBiblio: {
     "SemVer": {
       href: "https://semver.org",
