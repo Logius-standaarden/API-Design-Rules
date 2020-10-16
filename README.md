@@ -4,10 +4,12 @@
 
 Bekijk hier de **laatste vastgestelde versie** van de standaard:
 
-https://publicatie.centrumvoorstandaarden.nl/api/API-Designrules/
+https://publicatie.centrumvoorstandaarden.nl/api/adr/
 
 Bekijk hier **de laatste werkversie** van de standaard:
 
-https://Logius-standaarden.github.io/API-Designrules/
+https://Logius-standaarden.github.io/API-Design-Rules/
 
+**Deze repository**:
 
+https://github.com/Logius-standaarden/API-Design-Rules/
