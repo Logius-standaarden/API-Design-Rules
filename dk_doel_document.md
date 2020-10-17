@@ -12,12 +12,17 @@ De *Architectuur Digikoppeling* definieert de kaders – de gehanteerde principe
 
 De *Architectuur Digikoppeling* is bedoeld voor ICT-professionals in de publieke sector en voor ICT-leveranciers die Digikoppeling (willen gaan) gebruiken. Zie ook onderstaande tabel.
 
-| Afkorting | Rol                             | Taak                                                                                                      | Doelgroep? |
-|-----------|---------------------------------|-----------------------------------------------------------------------------------------------------------|------------|
+<span class="simple">
+
+
+| Afkorting | Rol | Taak  | Doelgroep? |
+| --------- | --- | --- | ------------ |
 | [M]       | Management                      | Bevoegdheid om namens organisatie (strategische) besluiten te nemen.                                      | **Nee**    |
 | [P]       | Projectleiding                  | Verzorgen van de aansturing van projecten.                                                                | **Nee**    |
 | [A&D]     | Analyseren & ontwerpen (design) | Analyseren en ontwerpen van oplossings-richtingen. Het verbinden van Business aan de IT.                  | **Ja**     |
 | [OT&B]    | Ontwikkelen, testen en beheer   | Ontwikkelt, bouwt en configureert de techniek conform specificaties. Zorgen voor beheer na ingebruikname. | **Ja**     |
+
+</span>
 
 ## Verantwoording
 
@@ -54,6 +59,8 @@ Belangrijke begrippen en afkortingen zijn opgenomen in *Bijlage B: Begrippen*.
 
 De Architectuur Digikoppeling is als volgt opgebouwd:
 
+<span class="simple">
+
 | Hoofdstuk   | Titel                                                    |
 |-------------|----------------------------------------------------------|
 | Hoofdstuk 2 | Wat is Digikoppeling?                                    |
@@ -67,5 +74,7 @@ De Architectuur Digikoppeling is als volgt opgebouwd:
 | Bijlage B   | Begrippenlijst                                           |
 | Bijlage C   | NORA-principes                                           |
 | Bijlage D   | Eisen aan de standaard                                   |
+
+</span>
 
 Tabel 1: Leeswijzer

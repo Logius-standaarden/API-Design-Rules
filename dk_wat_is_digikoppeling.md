@@ -13,7 +13,12 @@ Digikoppeling voorziet hierin door de standaarden voor deze uitwisseling te defi
 
 Digikoppeling is primair bedoeld voor gegevensuitwisseling tussen systemen van overheidsorganisaties, in het bijzonder de basisregistraties en landelijke of intersectorale gegevensdiensten, maar wordt breder ingezet in de (semi)publieke sector. Digikoppeling is beschikbaar voor elke organisatie die veilig en betrouwbaar gegevens wil uitwisselen met andere organisaties in de publieke sector. Gebruik van Digikoppeling buiten de publieke sector is ook mogelijk.
 
+<aside class="note">
+
 > `TODO` De NORA richt zicht ook steeds meer op halen bij de bron en raadt het gebruik van API sterk aan.  Onderstaande alinea is daarom aan vervanging toe
+
+</aside>
+
 ## ~~Servicegerichte architectuur conform NORA~~
 
 <del>
@@ -21,7 +26,7 @@ Digikoppeling sluit aan bij de servicegerichte architectuur die NORA (Nederlands
 
 <del>NORA 3.0 bestaat uit basisprincipes, afgeleide principes en katernen. Bijlage C geeft aan hoe Digikoppeling aansluit op de NORA-principes en welke NORA-principes met Digikoppeling worden ingevuld. Digikoppeling sluit ook aan op het NORA Katern Verbinden<sup>[2](#f2)</sup> en het NORA Katern Informatiebeveiliging.</del>
 
-<del><br><sup><a name="f1"><dfn>1</dfn></a>: *Voor meer informatie over NORA zie http://www.noraonline.nl*</sup>
+<del><br><sup><a name="f1"><dfn>1</dfn></a>: *Voor meer informatie over NORA zie <http://www.noraonline.nl>*</sup>
 
 <sup><a name="f2"><dfn>2</dfn></a>: In ontwikkeling.</sup>
 </del>
@@ -52,9 +57,9 @@ Digikoppeling beschrijft vier verschillende, maar aanvullende, soms overlappende
 
 <del>De keuze voor het gebruik van REST-API of de ebMS2 of WUS standaarden hangt onder meer af van het gewenste ~~berichtenverkeer~~~informatieuitwisseling ~~~bevragingen en/of meldingen)~~~, of er al gebruik wordt gemaakt van deze standaarden en welke standaarden door ketenpartners worden gebruikt.</del>
 
-<br><sup><a name="f3"><dfn>3</dfn></a>: REST-API is geen standaard maar een Architectuurstijl. Eigenlijk had hier HTTP moeten staan.</sup> 
+<br><sup><a name="f3"><dfn>3</dfn></a>: REST-API is geen standaard maar een Architectuurstijl. Eigenlijk had hier HTTP moeten staan.</sup>
 
-<br><sup><a name="f3a"><dfn>3a</dfn></a>: ebMS2 verwijst naar de ebXML Message Service Specification 2.0, waarop het Digikoppeling ebMS profiel is gebaseerd. We hanteren in de Digikoppeling deze expliciete verwijzing naar versie 2 om elke verwarring met ebMS 3.0 en AS4 profielen te vermijden.</sup> 
+<br><sup><a name="f3a"><dfn>3a</dfn></a>: ebMS2 verwijst naar de ebXML Message Service Specification 2.0, waarop het Digikoppeling ebMS profiel is gebaseerd. We hanteren in de Digikoppeling deze expliciete verwijzing naar versie 2 om elke verwarring met ebMS 3.0 en AS4 profielen te vermijden.</sup>
 
 ## Besparingen door Digikoppeling
 
@@ -70,18 +75,22 @@ Wanneer meer organisaties Digikoppeling gaan gebruiken, is de winst in termen va
 
 <sup><a name="f4"><dfn>4</dfn></a>:  *Verfijning en herijking kosten- batenanalyse voor investeringen in gemeenschappelijke voorzieningen in het stelsel van basisregistraties: Grip op centrale en decentrale investeringen en kosten maximaliseert de businesscase, 23 februari 2010. Hierna “Business Case”, 2010*</sup>
 
-<br><sup><a name="f5"><dfn>5</dfn></a>: Verfijning en herijking kosten- batenanalyse voor investeringen in gemeenschappelijke voorzieningen in het stelsel van basisregistraties: Grip op centrale en decentrale investeringen en kosten maximaliseert de businesscase, 23 februari 2010. Hierna “Business Case”, 2010.</sup> 
+<br><sup><a name="f5"><dfn>5</dfn></a>: Verfijning en herijking kosten- batenanalyse voor investeringen in gemeenschappelijke voorzieningen in het stelsel van basisregistraties: Grip op centrale en decentrale investeringen en kosten maximaliseert de businesscase, 23 februari 2010. Hierna “Business Case”, 2010.</sup>
 
-<br><sup><a name="f6"><dfn>6</dfn></a>: Het netto voordeel bestaat uit de vermeden kosten en investeringen minus kosten en investeringen in Digikoppeling voor ontwikkeling, beheer en gebruik door aanbieders en afnemers.</sup> 
+<br><sup><a name="f6"><dfn>6</dfn></a>: Het netto voordeel bestaat uit de vermeden kosten en investeringen minus kosten en investeringen in Digikoppeling voor ontwikkeling, beheer en gebruik door aanbieders en afnemers.</sup>
 
 ## Toepassing van Digikoppeling
 
 De toepassing van Digikoppeling heeft enkele grote voordelen:
 
 - Organisaties die Digikoppeling implementeren, kunnen veilig digitaal ~~~berichten~~~gegevens uitwisselen met andere organisaties die ook Digikoppeling gebruiken<sup>[7](#f7)</sup>.
- <sup><a name="f7"><dfn>7</dfn></a>: *Expertadvies Digikoppeling v2.0, final, 13 februari 2013.*</sup> 
+ <sup><a name="f7"><dfn>7</dfn></a>: *Expertadvies Digikoppeling v2.0, final, 13 februari 2013.*</sup>
+
+<aside class="note">
 
 > `TODO` is onderstaande nog het geval?
+
+</aside>
 
 - Met Digikoppeling kan een serviceaanbieder met één interface al zijn serviceafnemers bedienen. En een serviceafnemer kan met één interface alle serviceaanbieders bevragen.
 
@@ -95,7 +104,7 @@ De toepassing van Digikoppeling heeft enkele grote voordelen:
 
 Digikoppeling staat op de ‘Pas toe of leg uit’-lijst van open standaarden van het Forum Standaardisatie<sup>[8](#f8)</sup>. Welke koppelvlakken nodig zijn en welke standaarden uit de lijst ingezet moeten worden, is afhankelijk van de aan te schaffen functionaliteit<sup>[9](#f9)</sup>.
 
-<sup><a name="f8"><dfn>8</dfn></a>: Voor meer informatie over open standaarden en de ‘pas toe of leg uit’ lijst zie: *https://www.forumstandaardisatie.nl/open-standaarden*.</sup> 
+<sup><a name="f8"><dfn>8</dfn></a>: Voor meer informatie over open standaarden en de ‘pas toe of leg uit’ lijst zie: *<https://www.forumstandaardisatie.nl/open-standaarden>*.</sup>
 
 <br><sup><a name="f9"><dfn>9</dfn></a>:  *Expertadvies Digikoppeling v2.0, final, 13 februari 2013*</sup>
 
@@ -103,7 +112,11 @@ De opname op de ‘Pas toe of leg uit’-lijst houdt in dat Digikoppeling de sta
 
 ### Het functioneel toepassingsgebied
 
+<aside class="note">
+
 > De inhoud van deze paragraaf is gelijkgetrokken met het Functionale Toepassingsgebied van Digikoppeling op de Pas-toe-of-leg-uit lijst van het Forum Standaardisatie, zie [https://www.forumstandaardisatie.nl/standaard/digikoppeling)](https://www.forumstandaardisatie.nl/standaard/digikoppeling)
+
+</aside>
 
 Het functioneel toepassingsgebied van Digikoppeling is door OBDO als volgt gedefinieerd:
 
@@ -115,7 +128,11 @@ Op 24 mei 2018 is de omschrijving van het functioneel toepassingsgebied door het
 
 ### Het organisatorisch werkingsgebied
 
+<aside class="note">
+
 > De inhoud van deze paragraaf is gelijkgetrokken met het Organisatorische Werkingsgebied van Digikoppeling op de Pas-toe-of-leg-uit lijst van het Forum Standaardisatie, zie [https://www.forumstandaardisatie.nl/standaard/digikoppeling)](https://www.forumstandaardisatie.nl/standaard/digikoppeling)
+
+</aside>
 
 Het organisatorisch werkingsgebied van Digikoppeling is door het OBDO gedefinieerd als:
 
