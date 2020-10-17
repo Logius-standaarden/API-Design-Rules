@@ -20,7 +20,7 @@ Als basis voor het nieuwe document wordt de huidige versie van de Digikoppeling 
 
 ## Integrale versie
 
-De gehele versie van het document staat hier :  [Architectuur2.0-metRestfulAPI](https://centrumvoorstandaarden.github.io/Architectuur2.0-metRestfulAPI/). Deze versie is  opgemaakt in [Respec](https://github.com/w3c/respec/wiki).
+De gehele versie van het document staat hier :  [Architectuur2.0-metRestfulAPI](https://centrumvoorstandaarden.github.io/Architectuur2.0-metRestfulAPI/snapshot.html). Deze versie is  opgemaakt in [Respec](https://github.com/w3c/respec/wiki).
 
 ## Indeling in hoofdstukken
 
