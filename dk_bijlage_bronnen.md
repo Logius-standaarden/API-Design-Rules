@@ -1,8 +1,10 @@
-# Bijlage A: Bronnen 
+# Bijlage A: Bronnen
 
-Alle goedgekeurde Digikoppeling documenten zijn beschikbaar op https://www.logius.nl/diensten/digikoppeling/documentatie
+Alle goedgekeurde Digikoppeling documenten zijn beschikbaar op <https://www.logius.nl/diensten/digikoppeling/documentatie>
 
-### Digikoppeling-standaarden en gerelateerde documenten
+## Digikoppeling-standaarden en gerelateerde documenten
+
+<span class="simple">
 
 | Documentnaam                                            | Auteur(s)              |
 |---------------------------------------------------------|------------------------|
@@ -19,6 +21,8 @@ Alle goedgekeurde Digikoppeling documenten zijn beschikbaar op https://www.logiu
 | Best Practices ebMS Digikoppeling                       | Logius Centrum voor Standaarden |
 | Best Practice Grote Berichten                           | Logius Centrum voor Standaarden |
 
+</span>
+
 Tabel 6: Digikoppeling-standaarden en gerelateerde documenten
 
 ### Digikoppeling documentatie
@@ -29,6 +33,8 @@ Tabel 6: Digikoppeling-standaarden en gerelateerde documenten
 
 Overige Digikoppeling documentatie
 
+<span class="simple">
+
 | Documentnaam                                | Auteur(s)              | Status     |
 |---------------------------------------------|------------------------|------------|
 | Handleiding aansluiten                      | Logius                 | Definitief |
@@ -37,9 +43,13 @@ Overige Digikoppeling documentatie
 | Gebruikershandleiding Digikoppeling Portaal | Logius                 | Definitief |
 | Handleiding CPA Register                    | Logius                 | Definitief |
 
+</span>
+
 Tabel 7: Overige Digikoppeling documentatie
 
 ### Overige geraadpleegde bronnen
+
+<span class="simple">
 
 | Documentnaam  | Versie     | Datum      | Auteur(s)  | Status|
 |---------------|------------|------------|------------|-------|
@@ -55,5 +65,7 @@ Tabel 7: Overige Digikoppeling documentatie
 | NORA 3.0 Knformatiebeveiliging, 2010           | 1.0        | 2010       | Noraonline.nl   | Gepubliceerd  |
 | NORA 3.0 vording Principes voor samenwerking en dienstverlening   | Ntb  | 29-9-2010  | Jasper van Lieshout | Definitief  |
 | NORA Beeldtaal | Ntb        | 13-11-2012 | ICTU  |                              |
+
+</span>
 
 Tabel 8: Overige geraadpleegde bronnen

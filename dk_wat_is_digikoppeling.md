@@ -26,7 +26,7 @@ Digikoppeling sluit aan bij de servicegerichte architectuur die NORA (Nederlands
 
 <del>NORA 3.0 bestaat uit basisprincipes, afgeleide principes en katernen. Bijlage C geeft aan hoe Digikoppeling aansluit op de NORA-principes en welke NORA-principes met Digikoppeling worden ingevuld. Digikoppeling sluit ook aan op het NORA Katern Verbinden<sup>[2](#f2)</sup> en het NORA Katern Informatiebeveiliging.</del>
 
-<del><br><sup><a name="f1"><dfn>1</dfn></a>: *Voor meer informatie over NORA zie <http://www.noraonline.nl>*</sup>
+<del><br><sup><a name="f1"><dfn>1</dfn></a>: *Voor meer informatie over NORA zie [http://www.noraonline.nl](http://www.noraonline.nl)*</sup>
 
 <sup><a name="f2"><dfn>2</dfn></a>: In ontwikkeling.</sup>
 </del>
@@ -104,7 +104,7 @@ De toepassing van Digikoppeling heeft enkele grote voordelen:
 
 Digikoppeling staat op de ‘Pas toe of leg uit’-lijst van open standaarden van het Forum Standaardisatie<sup>[8](#f8)</sup>. Welke koppelvlakken nodig zijn en welke standaarden uit de lijst ingezet moeten worden, is afhankelijk van de aan te schaffen functionaliteit<sup>[9](#f9)</sup>.
 
-<sup><a name="f8"><dfn>8</dfn></a>: Voor meer informatie over open standaarden en de ‘pas toe of leg uit’ lijst zie: *<https://www.forumstandaardisatie.nl/open-standaarden>*.</sup>
+<sup><a name="f8"><dfn>8</dfn></a>: Voor meer informatie over open standaarden en de ‘pas toe of leg uit’ lijst zie: *[https://www.forumstandaardisatie.nl/open-standaarden](https://www.forumstandaardisatie.nl/open-standaarden)*.</sup>
 
 <br><sup><a name="f9"><dfn>9</dfn></a>:  *Expertadvies Digikoppeling v2.0, final, 13 februari 2013*</sup>
 

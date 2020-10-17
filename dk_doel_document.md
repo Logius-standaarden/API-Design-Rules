@@ -14,7 +14,6 @@ De *Architectuur Digikoppeling* is bedoeld voor ICT-professionals in de publieke
 
 <span class="simple">
 
-
 | Afkorting | Rol | Taak  | Doelgroep? |
 | --------- | --- | --- | ------------ |
 | [M]       | Management                      | Bevoegdheid om namens organisatie (strategische) besluiten te nemen.                                      | **Nee**    |

@@ -1,9 +1,11 @@
-# Bijlage B: Begrippenlijst 
+# Bijlage B: Begrippenlijst
 
 Deze begrippenlijst is specifiek voor de *Architectuur Digikoppeling*.
 
 *Let op: dit zijn de definities op business niveau. Deze kunnen afwijken van de technische definities die in de protocollen en koppelvlakstandaarden zelf worden gehanteerd. Ook wordt een aantal vaktermen hier niet gedefinieerd zoals http,
 TCP/IP, netwerk, etc. Hiervoor kunt u andere bronnen via internet raadplegen.*
+
+<span class="simple">
 
 | Begrip                                   | Uitleg                                                                                                                                                                                                                                                                          |
 |------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -147,6 +149,9 @@ TCP/IP, netwerk, etc. Hiervoor kunt u andere bronnen via internet raadplegen.*
 | WSDL                                     | Servicecontract voor WUS services.                                                                                                                 |
 | WUS                                      | WSDL/UDDI/SOAP stack. Het is een stelsel uit de W3C WS-\* standaarden.                                                                             |
 | XML                                      | eXtensible Markup Language. Een wereldwijde open standaard voor het beschrijven van gestructureerde gegevens in leesbare tekst.                    |
-| XSD schema definitie                     | XML technologie om het formaat van een XML bericht vast te leggen zodat ten alle tijd bepaald kan worden of een XML bericht correct is of niet.    |
+| XSD schema definitie                     | XML technologie om het formaat van een XML bericht vast te leggen zodat te allen tijde bepaald kan worden of een XML bericht correct is of niet.    |
+
+</span>
+
 
 Tabel 9: Gebruikte begrippen

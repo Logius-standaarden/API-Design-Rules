@@ -12,18 +12,28 @@ De volgende uitgangspunten vormen de basis voor de uitwerking van deze architect
    - best effort of reliable uitwisseling;
    - uitwisselen van grote berichten;
 
+
+
+<aside class="note">
+
 > `TODO`: is bovenstaande lijstje compleet? toe te voegen patronen kunnen bijvoorbeeld zijn: stateful/stateless, push/pull, enz.
+
+</aside>
 
 3. Partijen kunnen kiezen welk interactiepatroon nodig is voor gegevensuitwisseling. ~~meldingen en/of bevragingen~~, afhankelijk van hun behoefte. Partijen bepalen in onderling overleg welke ~~ WUS- of ebMS2-~~ Digikoppeling profiel ze gebruiken.
 
 4. Basisregistraties en landelijke voorzieningen bepalen welke koppelvlakstandaard gebruikt wordt door een door hun geleverde dienst. Per dienst kunnen meerdere koppelvlakstandaarden gebruikt worden.
 
+<aside class="note">
+
 > **let op** Principe 4 is vervangen door een gewijzigd principe 4. Er moet nog een check worden uitgevoerd op de NORA.
 >
 > De vorige formulering was
-> 
-> 4. ~~Basisregistraties en landelijke voorzieningen moeten beide koppelvlakstandaarden ondersteunen<sup>[12](#f12)</sup>. Mochten de serviceafnemers voldoende hebben aan één van de koppelvlakstandaarden, dan kan de aanbieder zich tot deze koppelvlakstandaard beperken.~~ 
+>
+> 4. ~~Basisregistraties en landelijke voorzieningen moeten beide koppelvlakstandaarden ondersteunen<sup>[12](#f12)</sup>. Mochten de serviceafnemers voldoende hebben aan één van de koppelvlakstandaarden, dan kan de aanbieder zich tot deze koppelvlakstandaard beperken.~~
 > ~~<br><sup><a name="f12"><dfn>12</dfn></a> Serviceafnemers kunnen hierdoor ebMS gebruiken voor zowel bevragingen (binnen de sector), meldingen als grote berichten. ~~</sup>
+
+</aside>
 
 In vorige versies van de Digikoppeling Architectuur werden profielen gekoppeld aan bevragingen en meldingen. Dit voorschrift bleek in de praktijk niet meer goed bruikbaar. Vandaar dat met ingang van versie `xx` deze relatie is komen te vervallen.
 
@@ -47,8 +57,13 @@ De architectuurprincipes geven richting aan de Digikoppeling-standaarden en Digi
 
 **Rationale:** Door het gebruik van internationale open standaarden is het eenvoudiger en goedkoper om gegevens onderling uit te wisselen. Dit volgt uit de NORA en ~~het European Interoperability Framework (IDABC)~~.
 
-**Invulling:** 
+**Invulling:**
+
+<aside class="note">
+
 > `TODO`: Zowel IEF 2.0 als het European Framwork 2.0 zijn verouderd en vervangen door de  'New' EIF en de de EIRA. Onderbouwing moet daarom worden vernieuwd  
+
+</aside>
 
 ~~Het European Interoperability Framework 2. 0 maakt gebruik van een conceptueel model voor de levering van publieke diensten . In dit model is de *Secure Data Exchange/Management* laag verantwoordelijk voor de veilige uitwisseling van diensten en informatie. Deze laag regelt de veilige uitwisseling van gecontroleerde en betrouwbare berichten, documenten, formulieren en ander informatiedragers tussen verschillende systemen. Naast het transport van gegevens moet deze laag ook specifieke beveiligingsaspecten regelen zoals elektronische handtekeningen, certificaten, encryptie en tijdregistratie.<sup>[13](#f13)</sup>~~
 
@@ -59,7 +74,11 @@ Deze laag wordt in de Nederlandse publieke sector ingevuld door Digikoppeling. D
 
 - WS-\*familie: WUS (WSDL, UDDI en SOAP), inclusief WS-Security, WS-Addressing enzovoort.
 
+<aside class="note">
+
 > `TODO`: hier iets over ADR (HTTP/JSON)?
+
+</aside>
 
 De ebMS2 standaard en de WUS profielen worden door OASIS ([www.oasis.org](https://www.oasis.org)) beheerd en de onderliggende WUS standaarden door W3c ([www.w3c.org](https://www.w3c.org)).<sup>[15](#f15)</sup>
 
@@ -113,15 +132,22 @@ Digikoppeling stelt het gebruik van het PKIoverheid certificaten verplicht voor 
 
 ## Betrouwbaarheid
 
-> `TODO:` opties tussen op betrouwbaarheid op transportprotocolniveau en in businesslaag verduidelijken 
+<aside class="note">
+
+> `TODO:` opties tussen op betrouwbaarheid op transportprotocolniveau en in businesslaag verduidelijken
+
+</aside>
 
 **Principe:** De berichtuitwisseling is betrouwbaar indien nodig.
 
 **Rationale:** Betrouwbaarheid betekent een goede aflevering van berichten. Zie ook NORA BP09.
 
 **Invulling:** Dit principe wordt ingevuld met ~~meldingen~~ het ebMS profiel, dat een reliable variant kent. De verzender is verantwoordelijk voor de goede aflevering van gegevens (d.m.v. berichten) en kan hiervoor een betrouwbaar Digikoppeling-profiel gebruiken.
+<aside class="note">
 
-> `TODO`: moet de volgende nieuwe zin - zie hieronder-, hier of als voetnoot worden vermeld? 
+> `TODO`: moet de volgende nieuwe zin - zie hieronder-, hier of als voetnoot worden vermeld?
+
+</aside>
 
 Naast betrouwbaarheid op Transportprotocol niveau, kan dit principe ook worden ingevuld in de businesslaag door het uitwisselen van controleberichten.
 

@@ -1,4 +1,4 @@
-# Bijlage D: Niet-functionele eisen 
+# Bijlage D: Niet-functionele eisen
 
 Standaarden op de Pas-toe of leg uit lijst dienen te voldoen aan enkele niet-functionele eisen.
 
@@ -43,6 +43,6 @@ Aangezien veranderingen tot nog toe bestonden uit uitbreidingen met nieuwe
 De standaard is vindbaar en toegankelijk op een laagdrempelige manier. De standaard en documentatie wordt gepubliceerd op de website van Logius: www.logius.nl/digikoppeling
 
 De standaard is tevens vindbaar via de ‘Pas toe of leg uit’-lijst van het Forum
-Standaardisatie: https://www.forumstandaardisatie.nl/open-standaarden.
+Standaardisatie: [https://www.forumstandaardisatie.nl/open-standaarden](https://www.forumstandaardisatie.nl/open-standaarden).
 
-Wijzigingen op de standaard worden conform het Beheermodel in openbaarheid besproken en beheerd.
+Wijzigingen op de standaard worden conform het Beheermodel in openbaarheid besproken en beheerd

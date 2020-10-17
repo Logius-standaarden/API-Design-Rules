@@ -2,7 +2,7 @@
 
 ## Architectuuraspecten van de aansluiting op Digikoppeling
 
-Om gebruik te maken van Digikoppeling zijn een aantal zaken van belang. Zo dient u met uw partners afspraken te maken over de gegevensuitwisseling die via Digikoppeling plaats vindt. Ook dient u in uw organisatie een Digikoppeling-adapter te implementeren waarmee de koppelvlakken worden ingericht. Deze alinea beschrijft enkel de architectuur-aspecten van de aansluiting op Digikoppeling. Meer informatie over de aansluiting zelf vindt u op https://www.logius.nl/digikoppeling/ .
+Om gebruik te maken van Digikoppeling zijn een aantal zaken van belang. Zo dient u met uw partners afspraken te maken over de gegevensuitwisseling die via Digikoppeling plaats vindt. Ook dient u in uw organisatie een Digikoppeling-adapter te implementeren waarmee de koppelvlakken worden ingericht. Deze alinea beschrijft enkel de architectuur-aspecten van de aansluiting op Digikoppeling. Meer informatie over de aansluiting zelf vindt u op [https://www.logius.nl/digikoppeling/](https://www.logius.nl/digikoppeling/).
 
 ### Afspraken over de inhoud en interactie van de uitwisseling
 
@@ -80,7 +80,13 @@ De aanduiding van de profielen kent de volgende systematiek:
 
 - osb= overheidsservicebus, de oude naam van Digikoppeling
 
+<aside class="note">
+
 > `TODO:` Tabel met de verschillende API, WUS en ebMS profielen langslopen
+
+</aside>
+
+<span class="simple">
 
 | Invulling voorschriften | API profielen | WUS-profielen | ebMS2-profielen |
 |---|---|---|---|
@@ -93,11 +99,17 @@ De aanduiding van de profielen kent de volgende systematiek:
 | reliable signed              ||               | osb-rm-s        |
 | reliable signed en encrypted ||               | osb-rm-e        |
 
+</span>
+
 Tabel 6: Profielen in relatie tot Digikoppeling-voorschriften
 
 *NB: De profielnamen komen uit eerdere versies van de koppelvlakstandaarden. Zij moeten gehandhaafd blijven in verband met het feit dat deze standaarden reeds in gebruik zijn bij vele organisaties. Dit verklaart de verschillen in de gebruikte afkortingen tussen de WUS- en ebMS2-profielen.*
 
-> `TODO:` aspecten keuze voor een profiel herzien  
+<aside class="note">
+
+> `TODO:` aspecten keuze voor een profiel herzien
+
+</aside>
 
 Neem de volgende aspecten mee bij de keuze van een profiel:
 
@@ -188,9 +200,13 @@ Berichtdefinities worden door partijen in overleg opgesteld. De semantische inte
 
 <br><sup><a name="f31"><dfn>31</dfn></a>: SOAP (Simple Object Access Protocol) is een [computerprotocol](http://nl.wikipedia.org/wiki/Protocol#computerprotocol) dat wordt gebruikt voor communicatie tussen verschillende componenten van systemen.</sup>
 
-<br><sup><a name="f32"><dfn>32</dfn></a>: Attachments mogen andere formaten hebben.</sup> 
+<br><sup><a name="f32"><dfn>32</dfn></a>: Attachments mogen andere formaten hebben.</sup>
 
-> `TODO`: hier nog een detailbeschrijving van een REST-API uitwisseling?  
+<aside class="note">
+
+  > `TODO`: hier nog een detailbeschrijving van een REST-API uitwisseling?  
+
+</aside>
 
 ### Karakterset en codering
 
@@ -239,7 +255,7 @@ Gegevensuitwisseling via Digikoppeling stelt wel enkele eisen aan het transport:
 
 Om goed te functioneren heeft Digikoppeling dus alleen basale connectiviteit nodig.
 
- <br><sup><a name="f33"><dfn>33</dfn></a>: DNS ‘resolving’ is het opzoeken van de domeinnaam en het bijbehorend IP-adres, conform het DNS protocol.</sup> 
+ <br><sup><a name="f33"><dfn>33</dfn></a>: DNS ‘resolving’ is het opzoeken van de domeinnaam en het bijbehorend IP-adres, conform het DNS protocol.</sup>
 
 ### Diginetwerk
 

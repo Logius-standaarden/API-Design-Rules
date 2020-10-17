@@ -12,7 +12,9 @@ De volgende Digikoppeling-voorzieningen ondersteunen het ontwikkel- en implement
 
 - De Centrale OIN Raadpleegvoorziening (COR) voor het raadplegen van het OIN register. Het OIN staat voor het Organisatie Identificatienummer.
 
-Digikoppeling adapters of applicaties kunnen worden getest op compliance met de koppelvlakstandaarden via de het Digikoppeling Portaal. Al deze voorzieningen zijn bereikbaar via https://portaal.digikoppeling.nl.
+Digikoppeling adapters of applicaties kunnen worden getest op compliance met de koppelvlakstandaarden via de het Digikoppeling Portaal. Al deze voorzieningen zijn bereikbaar via [https://portaal.digikoppeling.nl](https://portaal.digikoppeling.nl).
+
+<span class="simple">
 
 | Functionaliteit  | Uitleg | Invulling |
 |--------------------------------------------|---|---|
@@ -22,6 +24,8 @@ Digikoppeling adapters of applicaties kunnen worden getest op compliance met de 
 | CPA Register | Een CPA-contract voor ebMS2 services tussen twee partijen kan via het CPA Register worden opgesteld en beheerd. | CPA Register |
 | OIN Register | Het OIN bevat alle uitgegeven Organisatie identificatienummers waarmee organisaties zich uniek identificeren bij het uitwisselen van berichten. | Digikoppeling Portaal – OIN Register (COR)                                   |
 
+</span>
+
 Tabel 5: Ondersteunende functionaliteiten van de Digikoppeling-voorzieningen
 
 ## Compliancevoorzieningen
@@ -30,11 +34,11 @@ Met de WUS compliancevoorziening kan een organisatie controleren of haar adapter
 
 De volgende compliancevoorzieningen zijn beschikbaar: <sup>[28](#f28)</sup>
 
-- Digikoppeling-WUS compliancevoorziening voor het testen van <del>{- bevragingen -}</del> {+ synchroon berichtenverkeer +} op basis van WUS, inclusief grote berichten.
+- Digikoppeling-WUS compliancevoorziening voor het testen van ~~{- bevragingen -}~~ synchroon berichtenverkeer op basis van WUS, inclusief grote berichten.
 
-- Digikoppeling-ebMS2 compliancevoorziening voor het testen van <del>{- meldingen -}</del>  {+ asynchroon berichtenverkeer +}  op basis van ebMS2, inclusief grote berichten.
+- Digikoppeling-ebMS2 compliancevoorziening voor het testen van ~~{- meldingen -}~~  asynchroon berichtenverkeer  op basis van ebMS2, inclusief grote berichten.
 
-> Informatie over de compliancevoorzieningen staat op https://portaal.digikoppeling.nl.
+> Informatie over de compliancevoorzieningen staat op [https://portaal.digikoppeling.nl](https://portaal.digikoppeling.nl).
 
 <sup><a name="f28"><dfn>28</dfn></a>: *Digikoppeling Koppelvlakstandaard WUS*</sup>
 
@@ -42,7 +46,7 @@ De volgende compliancevoorzieningen zijn beschikbaar: <sup>[28](#f28)</sup>
 
 Logius beheert de Centrale OIN Raadpleegvoorziening (COR) waarin uitgegeven Organisatie identificatienummers zijn gepubliceerd. Dit register is openbaar raadpleegbaar en zowel via het web als via een REST-API bevraagbaar.
 
-Het OIN register is te vinden op https://register.digikoppeling.nl/registers.
+Het OIN register is te vinden op [https://register.digikoppeling.nl/registers](https://register.digikoppeling.nl/registers).
 
 ## CPA Register
 
@@ -56,6 +60,6 @@ Het CPA Register ondersteunt partijen bij het maken van een CPA (Collaboration P
 
 - Het biedt zekerheid dat beide partijen dezelfde instellingen gebruiken.
 
-De wijze waarop een CPA wordt toegepast staat beschreven in Digikoppeling Best Practices ebMS2. Het CPA Register is beschreven in de Gebruikershandleiding. Het CPA register is te vinden op https://cparegister.minvenj.nl
+De wijze waarop een CPA wordt toegepast staat beschreven in Digikoppeling Best Practices ebMS2. Het CPA Register is beschreven in de Gebruikershandleiding. Het CPA register is te vinden op [https://cparegister.minvenj.nl](https://cparegister.minvenj.nl)
 
-<br><sup><a name="f29"><dfn>29</dfn></a>: *Digikoppeling Best Practices ebMS*</sup> 
+<br><sup><a name="f29"><dfn>29</dfn></a>: *Digikoppeling Best Practices ebMS*</sup

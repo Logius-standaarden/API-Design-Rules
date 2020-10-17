@@ -2,7 +2,11 @@
 
 De NORA (Nederlandse Overheids Referentie Architectuur) is de bron voor de architectuur principes. NORA definieert 10 basisprincipes<sup>[34](#f34)</sup>
 <br>
-<sup><a name="f34"><dfn>34</dfn></a>:  *Bron: http://www.wikixl.nl/wiki/nora/index.php/Basisprincipes*</sup>
+<sup><a name="f34"><dfn>34</dfn></a>:  *Bron: [http://www.wikixl.nl/wiki/nora/index.php/Basisprincipes](http://www.wikixl.nl/wiki/nora/index.php/Basisprincipes)*</sup>
+
+Overzicht
+
+<span class="simple">
 
 | Principe      | Statement                                                                                      | ID   |
 |---------------|------------------------------------------------------------------------------------------------|------|
@@ -17,7 +21,11 @@ De NORA (Nederlandse Overheids Referentie Architectuur) is de bron voor de archi
 | BETROUWBAAR   | Afnemers kunnen erop vertrouwen dat de dienstverlener zich aan afspraken houdt.                | BP09 |
 | ONTVANKELIJK  | Afnemers kunnen input leveren over de dienstverlening.                                         | BP10 |
 
+</span>
+
 Tabel 10: NORA Basisprincipes
+
+<span class="simple">
 
 | NORA Afgeleide principes                   | ID   | Stelling                                                                                               | Cluster                         | Realiseert                           | DK principes                                                          |
 |--------------------------------------------|------|--------------------------------------------------------------------------------------------------------|---------------------------------|--------------------------------------|-----------------------------------------------------------------------|
@@ -38,5 +46,7 @@ Tabel 10: NORA Basisprincipes
 | Uitgangs-situatie herstellen               | AP36 | Wanneer de levering van een dienst mislukt wordt de uitgangssituatie hersteld                          | Betrouwbaarheid                 | Betrouwbaar                          | DK 4. Betrouwbaarheid                                                 |
 | Identificatie authenticatie en autorisatie | AP37 | Dienstverlener en afnemer zijn geauthenticeerd wanneer de dienst een vertrouwelijk karakter heeft      | Betrouwbaarheid                 | Vertrouwelijk                        | DK 3. Veiligheid en vertrouwelijkheid                                 |
 | Uitwisseling berichten onweerlegbaar       | AP40 | De berichtenuitwisseling is onweerlegbaar                                                              | Betrouwbaarheid                 | Betrouwbaar                          | DK 4. Betrouwbaarheid                                                 |
+
+</span>
 
 Tabel 11: Relevante afgeleide NORA principes en mapping naar Digikoppeling (DK) principes

@@ -2,13 +2,17 @@
 
 ## Overzicht
 
-De Digikoppeling Architectuur legde in de eerdere versies grote nadruk op bevragingen en meldingen en legde een verband tussen deze iteractiepatronen en de onderliggende standaarden, ('WUS voor bevragingen, ebMS voor meldingen en kennisgevingen'). Dit verband bleek in de praktijk niet altijd werkbaar of wennselijk. In 2020 is daarom besloten om de richtlijnen voor het toepassen van de Digikoppeling standaarden te wijzigen. 
+De Digikoppeling Architectuur legde in de eerdere versies grote nadruk op bevragingen en meldingen en legde een verband tussen deze iteractiepatronen en de onderliggende standaarden, ('WUS voor bevragingen, ebMS voor meldingen en kennisgevingen'). Dit verband bleek in de praktijk niet altijd werkbaar of wennselijk. In 2020 is daarom besloten om de richtlijnen voor het toepassen van de Digikoppeling standaarden te wijzigen.
 
-> `TODO`: check consistentie met andere hoofdstukken 
+<aside class="note">
 
-~~Bevragingen en meldingen - eventueel in combinatie met grote berichten - bieden door hun verscheidenheid aan profielen en opties de logistieke bouwstenen om diverse interactiepatronen te realiseren.~~ 
+> `TODO`: check consistentie met andere hoofdstukken
 
-Digikoppeling kent ~~drie~~**vier** koppelvlakstandaarden 
+</aside>
+
+~~Bevragingen en meldingen - eventueel in combinatie met grote berichten - bieden door hun verscheidenheid aan profielen en opties de logistieke bouwstenen om diverse interactiepatronen te realiseren.~~
+
+Digikoppeling kent ~~drie~~**vier** koppelvlakstandaarden
 
 - WUS voor synchrone uitwisseling van gestructeerde berichten ~~bevragingen~~;
 
@@ -37,6 +41,8 @@ Deze komen in de volgende varianten voor:
 
 Door het gebruik van deze profielen worden deze aspecten correct afgehandeld en kunnen partijen sneller een koppelvlakstandaard implementeren.
 
+<span class="simple">
+
 | Onderdeel | Toelichting|
 |---|---|
 | Koppelvlakstandaard WUS | het gebruik van WUS voor ~~bevragingen~~ synchrone uitwisseling van gestructureerde berichten en de WUS profielen.|
@@ -48,6 +54,8 @@ Door het gebruik van deze profielen worden deze aspecten correct afgehandeld en 
 | Overzicht Actuele Documentatie en Compliance | Overzicht van de actuele versie van de  Digikopeling specifcaties (normatief en niet-normatief)  |
 | Gebruik en Achtergrond Digikoppeling Certificaten | Beschrijft de werking en gebruik van PKIoverheid Certificaten (niet-normatief) |
 
+</span>
+
 Tabel 3: Digikoppeling-standaarden
 
 ## Digikoppeling-voorschriften
@@ -56,6 +64,9 @@ Enkele afspraken over de functionaliteit van Digikoppeling hebben betrekking op 
 
 Onderstaande voorschriften gelden voor de hele Digikoppeling-keten. Partijen moeten er in hun eigen organisatie voor zorgen dat hun systemen, applicaties en toegang voor gebruikers aan de eisen voldoen.
 
+
+<span class="simple">
+
 | Aspect | Voorschrift | Toepassing en uitleg |
 |---|---|---|
 | Identiteit, authenticatie en autorisatie | Identificatie en authenticatie van partijen (ook intermediairs) vindt plaats in overeenstemming met het beleid hiervoor. Zowel service aanbieder als service afnemer moeten overeenkomstig afspraken autoriseren. De autorisatie gebeurt op organisatieniveau, niet op medewerkerniveau. | Beleid staat uitgewerkt in het document “Digikoppeling Identificatie en Authenticatie”. Een praktische werkwijze is uitgewerkt in het document “Gebruik en achtergrond Digikoppeling certificaten”. Autoriseren kan afhankelijk van noodzaak tweezijdig afgesproken worden. Immers bijvoorbeeld ook het stellen van een vraag kan al vertrouwelijk zijn.                                                                                                                             |
@@ -63,19 +74,24 @@ Onderstaande voorschriften gelden voor de hele Digikoppeling-keten. Partijen moe
 | Traceerbaarheid | De berichtenstroom is traceerbaar via elke schakel in de logistieke keten.  | Elke schakel in de Digikoppeling-keten moet inkomende en uitgaande berichten monitoren, loggen en moet voorzien in een audittrail.  Dit geldt met name voor de betrouwbare profielen.  |
 | Foutafhandeling  | Fouten worden correct en tijdig afgehandeld. Uitval van meldingen wordt zoveel mogelijk voorkomen, mede door het gebruik van een betrouwbaar profiel.  | Elke schakel in de Digikoppeling-keten moet foutafhandeling inrichten.  Dit geldt met name voor de betrouwbare profielen. |
 
+</span>
+
 Tabel 4: Digikoppeling-voorschriften
 
 ## Restful Api's
 
-Het Digikoppeling REST-API profiel is gebaseerd op de REST-API Design rules die in 2020 door het Kennisplatform API's is ontwikkeld. 
+Het Digikoppeling REST-API profiel is gebaseerd op de REST-API Design rules die in 2020 door het Kennisplatform API's is ontwikkeld.
 
 Een application programming interface (API) is een gestructureerd en gedocumenteerd koppelvlak voor communicatie tussen applicaties. In de laatste 10 jaar heeft Representational state transfer (REST) zich ontwikkeld tot een bepalend principe voor het realiseren van API's.
 
 De standaard REST-API Design Rules geeft een verzameling basisregels voor structuur en naamgeving waarmee de overheid op een uniforme en eenduidige manier REST-API's aanbiedt. Dit maakt het voor ontwikkelaars gemakkelijker om betrouwbare applicaties met te ontwikkelen met API's van de overheid.
 
 De KVS API biedt de volgende functionaliteiten:
+<aside class="note">
 
 > `TODO:` wacht op input DK API Profiel
+
+</aside>
 
 - Identificatie en authenticatie van partijen
 
@@ -83,11 +99,11 @@ De KVS API biedt de volgende functionaliteiten:
 
 - ...
 
-## OAS: OpenAPI Specification 
+## OAS: OpenAPI Specification
 
 Een OpenAPI Specification (OAS) beschrijft de eigenschappen van de data die een API als input accepteert en als output teruggeeft. OAS 3.0 specificeert alleen welke attributen de API verwerkt en hun datatypen, niet welke implementatie er achter de API schuilgaat.
 
-Voor het beschrijven van DK-Rest API's is het gebruik van OAS veplicht. Op de Pas-toe-leg-uit lijst van het Forum Standaardisatie staat beschreven welke versie toegepast moet worden.  
+Voor het beschrijven van DK-Rest API's is het gebruik van OAS veplicht. Op de Pas-toe-leg-uit lijst van het Forum Standaardisatie staat beschreven welke versie toegepast moet worden.
 
 ## WUS
 
@@ -97,7 +113,7 @@ Digikoppeling maakt gebruik van een familie van standaarden die we binnen Digiko
 
 Kenmerkend voor de WUS-standaarden die voortkomen uit de Internet-wereld is de 1-op-n relatie tussen service aanbieder en meerdere service afnemers. Dit betekent b.v. dat een WUS service één WSDL heeft die door alle afnemers kan worden gebruikt.
 
-<sup><a name="f27"><dfn>27</dfn></a>: Voorheen Web Services Interoperability (WS-I) organization</sup> 
+<sup><a name="f27"><dfn>27</dfn></a>: Voorheen Web Services Interoperability (WS-I) organization</sup>
 
 ### Digikoppeling WUS ~~voor bevragingen~~
 
@@ -193,15 +209,23 @@ De volgende standaard aanpak wordt hierbij gehanteerd:
 
 - Met WUS of ebMS2 wordt referentie (link) verstuurd;
 
+<aside class="note">
+
 > `TODO`: hier ook Restful API vermelden?
+
+</aside>
 
 - de referentie verwijst naar de locatie van het grote bestand. Het hangt af van het  gebruikte Digikoppeling Grote berichten profiel of de ontvanger het bestand moet downloaden of dat de zender het grote bestand inmiddesl als naar de ontvanger heeft geupload.
 
 Het grote bericht zelf zal vaak volledig in het grote bestand zijn opgenomen; het WUS of ebMS2 bericht bevat dan alleen metadata (waaronder de link naar het bestand). Maar het kan ook gebeuren dat een klein deel van het oorspronkelijk grote bericht al in het WUS-bericht is opgenomen en de rest (bijvoorbeeld bijlagen bij het bericht) in een of meerdere bestanden is opgenomen.
 
-Het principe dat Digikoppeling grote berichten toepast is het ‘claim-check’ principe. Dit betekent dat het bericht zelf (WUS of ebMS2) 
+Het principe dat Digikoppeling grote berichten toepast is het ‘claim-check’ principe. Dit betekent dat het bericht zelf (WUS of ebMS2)
+
+<aside class="note">
 
 > `TODO:`komt er ook een Restful API invulling van GB?
+
+</aside>
 
 alleen een referentie (claim-check) naar het grote bestand bevat. Deze referentie wordt vervolgens gebruikt om het bestand zelf op te halen.
 
@@ -211,15 +235,23 @@ De standaard doet geen uitspraak over gegevensstromen waarin kleine en grote ber
 
 ### Standaarden voor grote berichten
 
-De *Digikoppeling Koppelvlakstaard Grote Berichten* (KVS GB) maakt gebruik van WUS en ebMS2 
+De *Digikoppeling Koppelvlakstaard Grote Berichten* (KVS GB) maakt gebruik van WUS en ebMS2
+
+<aside class="note">
 
 > `TODO`: zie eerder opmerking over evt toevoegen van API voor GB
 
+</aside>
+
  voor het verzenden van metadata. Voor ophalen van het grote bestand maakt de standaard gebruik van HTTPS-downloads. Daardoor zijn reliability en security gelijkwaardig aan WUS en ebMS2. Ook is het gebruik van transparante intermediairs mogelijk.
 
-De KVS GB regelt de volgende functionaliteiten ~~voor meldingen of bevragingen~~, in aanvulling op WUS of ebMS2 
+De KVS GB regelt de volgende functionaliteiten ~~voor meldingen of bevragingen~~, in aanvulling op WUS of ebMS2
+
+<aside class="note">
 
 > `TODO`: zie eerder opmerking over evt toevoegen API voor GB
+
+</aside>
 
 - Identificatie en authenticatie van partijen (OIN)
 
