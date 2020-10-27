@@ -292,12 +292,13 @@ Digikoppeling Grote Berichten maakt verschillende vormen van uitwisseling op bus
 <aside class="note">
 
 > EDUkoppeling beschrijft (in de *concept Architectuur 2.0*) de volgende patronen
+>
 > - **Request-response (bevraging)**
 >   - een vraag waar direct een reactie op wordt verwacht
 > - **Melding-bevestiging**
 >   - De informatie wordt gestuurd door A en de ontvangst wordt synchroon door B bevestigd.
 >   - (PH: Is dit een businesstransactie? Een patroon dat Digikoppeling niet kent (tot nu toe?)
->   -  Belangrijk is de schadelijke effecten te voorkomen als een bericht twee keer wordt verzonden (door een time-out) of als meldingen in de verkeerde volgorde binnenkomen. Digikoppeling lost dat op met het patroon Gegarandeerde aflevering. Edukoppeling ondersteunt dat niet.
+>   - Belangrijk is de schadelijke effecten te voorkomen als een bericht twee keer wordt verzonden (door een time-out) of als meldingen in de verkeerde volgorde binnenkomen. Digikoppeling lost dat op met het patroon Gegarandeerde aflevering. Edukoppeling ondersteunt dat niet.
 > - **Asynchrone uitwisseling**
 >   - Een asynchrone uitwisseling is twee keer het patroon melding-bevestiging in verschillende richtingen.
 > - **Grote berichten**
@@ -306,12 +307,11 @@ Digikoppeling Grote Berichten maakt verschillende vormen van uitwisseling op bus
 
 EduKoppeling hanteert voor abonneren de volgende uitgangspunten:
 
->   - Elke resource, elk object (verderop: gegevens) kent een beheerder; de organisatie die het gegeven in beheer heeft, en 1 of meer afnemers; de organisaties die deze resources gebruiken. In 1:n koppelvlakken is de centrale dienstverlener de houder van de gegevens, en zijn de gekoppelde organisaties de afnemers. In 1:1 situaties wordt een van beide partijen aangewezen als beheerder.
->   - Updates op gegevens bij de beheerder worden geïnitieerd door de afnemer middels het patroon ‘Melding - bevestiging’ of ‘ Asynchrone uitwisseling’.
->   - Ophalen van de actuele stand van zaken wordt altijd middels het request -response patroon gerealiseerd, niet door een melding vanuit de beheerder.
->   - Wanneer een partij geïnteresseerd is in wijzigingen in een gegeven bij de beheerder kan hij dat kenbaar maken middels een abonnementenservice. Dit is een service die de beheerder moet leveren aan zijn afnemers.
+> - Elke resource, elk object (verderop: gegevens) kent een beheerder; de organisatie die het gegeven in beheer heeft, en 1 of meer afnemers; de organisaties die deze resources gebruiken. In 1:n koppelvlakken is de centrale dienstverlener de houder van de gegevens, en zijn de gekoppelde organisaties de afnemers. In 1:1 situaties wordt een van beide partijen aangewezen als beheerder.
+> - Updates op gegevens bij de beheerder worden geïnitieerd door de afnemer middels het patroon ‘Melding - bevestiging’ of ‘ Asynchrone uitwisseling’.
+> - Ophalen van de actuele stand van zaken wordt altijd middels het request -response patroon gerealiseerd, niet door een melding vanuit de beheerder.
+> - Wanneer een partij geïnteresseerd is in wijzigingen in een gegeven bij de beheerder kan hij dat kenbaar maken middels een abonnementenservice. Dit is een service die de beheerder moet leveren aan zijn afnemers.
 >   - Bij een wijziging op een gegeven worden alle abonnees hiervan in kennis gesteld middels een notificatiebericht. Dus is altijd een “Melding - Bevestiging” met daarin alleen het unieke resourceID waarmee de abonnee, op het moment dat het hem uitkomt, de actuele stand kan ophalen. De gegevens zelf worden niet direct teruggeleverd. Hiermee wordt een maximale ontkoppeling gegarandeerd, ook bij wijzigingen in de toekomst.
-
 >
 > EDUkoppeling noemt ook een
 >
