@@ -60,7 +60,9 @@ Digikoppeling gaat over communicatie tussen de overheden (G2G) en niet over uitw
 Digikoppeling moet worden toegepast voor geautomatiseerde gegevensuitwisseling tussen informatiesystemen en is verplicht voor nederlandse overheden (Rijk, provincies, gemeenten en waterschappen) en instellingen uit de (semi-)publieke sector. 
 
 <aside class="note">
+
 **Digikoppeling moet worden toegepast wanneer niet-publieke gegevens - Closed Data -   worden uitgewisseld tussen overheden. `LET OP: Dit is voorstel voor een inperking van de huidige verplichting`**. Daarbuiten mag Digikoppeling worden toegepast, bestaande koppelvlakken die nu volgens de Digikoppeling standaard zijn ingericht blijven gewoon bestaan.
+
 </aside>
 
 ![Digikoppeling voor closed data G2G uitwisseling](media/DK_closed_g2g.png "Digikoppeling voor closed data G2G uitwisseling")
