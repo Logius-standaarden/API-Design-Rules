@@ -154,91 +154,6 @@ Bij een synchrone request-response met gestructureerde berichtuitwsseling stuurt
 
 Bij een asynchrone request-response verstuurt de service-requester een bericht naar de ontvangende partij (ontvanger) en wacht op een (technische) ontvangstbevestiging. De verzendende (business) applicatie vertrouwt er op dat het bericht (betrouwbaar) afgeleverd wordt. De (business)applicatie zal niet wachten op het antwoord: deze applicatie zal het eventuele 'antwoordbericht' op een ander moment ontvangen en moeten correleren aan het oorspronkelijke vraag bericht.
 
-### Invulling van de behoefte met het aanbod
-
-<aside class="note">
-
-> `TODO`: De oorspronkelijke paragraaf geskipt, nieuwe invulling is nodig:
->
->In de oorspronkelijke paragraaf werd uitgebreid ingegaan op **bevragingen en meldingen** en de verschillen hiertussen. De begrippen *Digikoppeling Bevraging* en *Digikoppeling Melding* werden geïntroduceerd. De paragraaf diende hierdoor als inleiding om het toepassen van WUS en ebMS op beide vormen in de verdere paragrafen in het hoofdstuk (voor) te (be)schrijven.
->
->Nu we deze koppeling bevragen en melden in de standaard hebben losgelaten is het de vraag of we deze vormen nog met zoveel nadruk moeten benoemen.
->
->Ik denk zelf van niet.
-
-</aside>
-
-<details>
-  <summary>Oorspronkelijke tekst</summary>
-  <span style="color:red">
-  ### Digikoppeling-aanbod
-
-Digikoppeling onderscheidt twee hoofdvormen van uitwisseling:
-
-- `bevraging (synchrone request-response)`
-
-- `melding (asynchrone` {+ request-response en +} `reliable messaging)`
-
-Bij een `bevraging` (vraag-antwoord) stuurt de service-requester een voorgedefinieerde vraag (request) aan de service-provider, die een antwoord (response) verstrekt. Het initiatief ligt bij de service-requester. Gaat er in de uitwisseling iets mis dan zal de service-requester na een bepaalde tijd de uitwisseling afbreken (time-out).
-
-Bij een `melding` (betrouwbaar bericht) verstuurt de service-requester een betrouwbaar bericht (`melding`) naar de ontvangende partij (ontvanger) en wacht op een (technische) ontvangstbevestiging. De verzendende (business) applicatie vertrouwt er op dat het bericht (betrouwbaar) afgeleverd wordt. De (business)applicatie zal niet wachten op het antwoord: deze applicatie zal het eventuele 'antwoordbericht' op een ander moment ontvangen en moeten correleren aan het oorspronkelijke vraag bericht.`
-
-### Invulling van de behoefte met het aanbod
-
-Beide door Digikoppeling geboden uitwisselingsvormen moeten op de volgende wijze voor de eerder aangegeven vier primitieve business-interacties, toegepast worden.
-
-<span class="simple">
-
-|                | **Onmiddellijk**           | **Uitgesteld**        |
-|----------------|----------------------------|-----------------------|
-| **Bevraging**  | `Digikoppeling bevraging`    | Digikoppeling melding |
-| **Transactie** | `Digikoppeling melding`[^20] | Digikoppeling melding |
-
-</span>
-
-[^20]: Soms kan ook een Digikoppeling 'bevraging' toegepast worden. Zie toelichting.
-
-Uit bovenstaande tabel blijkt dat de `Digikoppeling bevraging` niet identiek is aan de `bevraging` op business-niveau en dat de `Digikoppeling melding` niet identiek is aan de `transactie` op business-niveau.`
-
-**Onmiddellijke bevraging**
-
-In deze situatie wordt altijd een `Digikoppeling bevraging` toegepast. Het onmiddellijke karakter, direct een response die automatisch gerelateerd wordt aan het request, is hier doorslaggevend voor. De betrouwbaarheid van een Digikoppeling melding is niet nodig.
-
-Een typische toepassing voor deze vorm is een gebruiker die via een online web-applicatie informatie opvraagt aan een achterliggend systeem; de koppeling tussen de web-applicatie en het achterliggende systeem vindt dan met een `Digikoppeling bevraging` plaats.`
-
-**Uitgestelde bevraging**
-
-In deze situatie wordt altijd een `Digikoppeling melding` toegepast. Het uitgestelde karakter, een antwoord komt later en hoeft niet automatisch gerelateerd te worden aan de vraag, is hier doorslaggevend voor. De betrouwbaarheid van een Digikoppeling melding is weliswaar niet nodig maar kan hier ook geen ‘kwaad’.`
-
-Een typische toepassing voor deze vorm is een business-applicatie die voor een interne (bijvoorbeeld batch) verwerking een actuele status uit een andere applicatie nodig heeft. De applicatie zal met andere verwerking verder gaan terwijl zolang geen antwoord ontvangen is. Een dergelijke situatie komt minder vaak voor.
-
-**Onmiddellijke transactie**
-
-In deze situatie wordt normaliter een `Digikoppeling melding` toegepast. De betrouwbaarheid van de `Digikoppeling melding` is hier bepalend. In bijzondere situaties kan betrouwbaarheid ook anders geregeld worden (zie hieronder) maar algemeen wordt dat afgeraden.
-
-Een typische toepassing voor deze vorm is een gebruiker die via een online webapplicatie informatie aanpast en deze aanpassing moet met zekerheid in een achterliggende registratie afgehandeld worden (bijvoorbeeld uitvoeren van een bankoverschrijving[^21]). De koppeling tussen de webapplicatie en de achterliggende registratie verloopt via een `Digikoppeling melding`.
-
-[^21]: N.B. ; Merk op dat in dit voorbeeld afhandelen geen garantie geeft op verwerking als er een saldo-tekort is op het moment van uitvoeren.
-
-Een uitzondering bestaat wanneer de service-requester dringend een response nodig heeft om verder te gaan. In dit geval geeft het onmiddellijke karakter de doorslag en zal betrouwbaarheid anders opgelost moeten worden. Aangeraden wordt echter om een andere proces-implementatie te kiezen[^22].
-
-[^22]: Vaak kan ontkoppeld worden door onmiddellijk lokaal te registreren en de service-requester uitgesteld in de achterliggende registratie te laten verwerken.
-
-Een typische toepassing voor deze vorm is een gebruiker die via een online web-applicatie informatie aanpast/toevoegt aan een achterliggende registratie en zekerheid moet hebben dat zijn input geaccepteerd wordt voordat hij verder kan[^23]. De koppeling tussen de web-applicatie en de achterliggende registratie verloopt via een `Digikoppeling bevraging`; de gebruiker zorgt voor de betrouwbaarheid door te bewaken dat er geen foutmelding optreedt en zonodig actie te nemen.
-
-[^23]: Vaak is deze afhankelijkheid van een achterliggende registratie ongewenst. Een andere vormgeving van het proces is mogelijk door invoer van gebruikers lokaal af te handelen en vervolgens off-line door te zetten naar een achterliggende registratie.
-
-**Uitgestelde transactie**
-`In deze situatie wordt Digikoppeling melding toegepast. Zowel de betrouwbaarheid als het uitgestelde karakter zijn hier bepalend.
-Een typische toepassing hiervoor is een batch-verwerkende applicatie die in een (andere) registratie veranderingen doorvoert.`
-
-**Samenvatting**
-Een `Digikoppeling bevraging` is vooral geschikt als de (business) applicatie een onmiddellijke reactie nodig heeft. Een `Digikoppeling melding` is vooral geschikt voor uitgestelde verwerking en transacties.`
-</span>
-</details>
-
-
-
 ### Synchrone uitwisseling
 
 Digikoppeling biedt twee mogelijkheden voor synchrone uitwisseling aan: bij synchrone uitwisseling wacht het vragende informatiesysteem (de requestor) op een antwoord. Dit wachten heeft een beperkte duur (time-out). Als een (tijdig) antwoord uitblijft moet de vrager besluiten of hij de vraag opnieuw stelt of niet. De snelheid van afleveren is hier vaak belangrijker dan een betrouwbare aflevering.
@@ -286,10 +201,7 @@ Digikoppeling Grote Berichten maakt verschillende vormen van uitwisseling op bus
 
 > `TODO`: nu de koppeling met bevraging en melding is losgelaten is het nodig om te beschrijven in welke situatie je Digikoppeling kan en moet gebruiken. Het gaat in dit hoofdstuk nog om de patronen. In het hoofdstuk usecases willen we graag praktijkvoorbeelden beschrijven.
 > Hiervoor is **alle input** welkom!
-
 </aside>
-
-<aside class="note">
 
 ### Synchrone bevraging
 
@@ -388,6 +300,8 @@ Figuur 6: Transparante intermediair
 <br>
 <aside class="note">
 
+> Bovenstaande patronen komen grotendeels uit de EDUkoppeling architectuur. 
+> 
 > EDUkoppeling beschrijft (in de *concept Architectuur 2.0*) de volgende patronen
 >
 > - **Request-response (bevraging)**

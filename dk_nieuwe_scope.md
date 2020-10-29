@@ -20,11 +20,29 @@ Met de toevoeging van het Digikoppeling Rest-API profiel komt de vergelijking me
 
 Envelop en bericht schuiven in elkaar, de metafoor van enveloppen en postverzending werkt niet meer. Echter, het basisprincipe blijft: Digikoppeling bemoeit zich niet met de inhoud, Digikoppeling heeft *'Geen boodschap aan de boodschap'*.
 
-## Open en Closed Data en Diensten
+<aside class="note">
+
+> We moeten ook aandacht besteden aan het begrip *servicegerichte architectuur* van de NORA waarvoor Digikoppeling ooit een essentieel onderdeel vormde.
+> 
+> De servicegerichte architectuur is inmiddels door NORA naar het archief geplaatst en er bestaat nog geen opvolger.
+
+</aside>
+
+## Open en Closed Data 
 
 Een belangrijke aanleiding voor het starten van de Commonground beweging van VNG was de ergernis over het op grote schaal rondpompen van gegevens binnen de digitale overheid. De ontsluiting van die gegevens en de noodzaak om die redundante bronnen synchroon te houden veroorzaakt een complex systeem van koppelingen. Een van de oplossingen voor het principe *Single Source of Truth* is om weer terug te gaan naar het concept van   'halen bij de bron', eigenlijk een van drijfveren van het ontstaan van het stelsel van basisregistraties.
 
 Een concept dat sinds begin 2000 een opmars maakt is het principe van *Open Data*. Open Data zijn gegevens die in een open formaat door iedereen voor alle doeleinden vrij gebruikt, hergebruikt en gedeeld kunnen worden. De nadruk voor Open data ligt met name bij de gegevens van de overheid. Gegevens die om reden van privacy, veiligheid, wettelijke verplichtingen en dergelijk niet onder de definitie vallen noemen we in dit document Close Data.
+
+## Open en Closed Diensten
+
+Naast het onderscheid tussen Open en closed data kan je ook onderscheid maken in publieke en afgeschermde diensten. Voor closed data zal een overheidsorganisatie afgeschermde, beperkt toegankelijke closed diensten aanbieden.
+
+Een overheidsorganisatie kan een bron van open data publiceert via een voor iedereen toegankelijke open dienst, en tegelijkertijd de dienst de toegang te  beschikbaar maken via een beperkt toegankelijke dienst, bijvoorbeeld met een uitgebreide beschikbaarheid, schaalbaarheid of functionaliteit.
+
+- Open Diensten: diensten zonder toegangsbeperking bijvoorbeeld open data.
+- Gesloten Diensten: diensten met toegangsbeperking bijvoorbeeld persoonsgegevens en vertrouwelijke gegevens of diensten voor specifieke partijen.
+
 
 ## Toepassingsgebied
 
