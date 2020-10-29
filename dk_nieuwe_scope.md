@@ -79,7 +79,11 @@ Digikoppeling moet worden toegepast voor geautomatiseerde gegevensuitwisseling t
 
 <aside class="note">
 
-**Digikoppeling moet worden toegepast wanneer niet-publieke gegevens - Closed Data -   worden uitgewisseld tussen overheden. `LET OP: Dit is voorstel voor een inperking van de huidige verplichting`**. Daarbuiten mag Digikoppeling worden toegepast, bestaande koppelvlakken die nu volgens de Digikoppeling standaard zijn ingericht blijven gewoon bestaan.
+**Digikoppeling moet worden toegepast wanneer niet-publieke gegevens - Closed Data -   worden uitgewisseld tussen overheden of wanneer gebruikt gemaakt wordt van Gesloten Diensten.**
+
+`LET OP: Dit is voorstel voor een inperking van de huidige verplichting`.
+
+Daarbuiten mag Digikoppeling worden toegepast, bestaande koppelvlakken die nu volgens de Digikoppeling standaard zijn ingericht blijven gewoon bestaan.
 
 </aside>
 

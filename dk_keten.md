@@ -293,9 +293,13 @@ Een transparante keten is alleen mogelijk als zowel de service-aanbieder als de 
 ![Transparante intermediair](media/DK_Transparant_intermediair.png "Transparante intermediair")
 Figuur 6: Transparante intermediair
 
+<span class="simple">
+
 |Koppelvlakspecificatie|Omschrijving|Praktijkvoorbeeld|
 |---|---|---|
 |Digikoppeling ...| [todo]| ... |
+
+</span>
 
 <br>
 <aside class="note">
