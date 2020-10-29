@@ -138,7 +138,7 @@
     } catch (e) {}
 
     try {
-      window.top.window.outerHeight = window.screen.height
+      window.top.window.outerHeight = 1126
     } catch (e) {}
 
     try {
@@ -396,7 +396,7 @@
       }
     }
   </style>
-  <link rel="stylesheet" href="https://publicatie.centrumvoorstandaarden.nl/respec-tools/media/DK-WV.css">
+  <link rel="stylesheet" href="http://publicatie.centrumvoorstandaarden.nl/respec-tools/media/DK-WV.css">
   <script id="initialUserConfig" type="application/json">
     {
       "specStatus": "DK-WV",
@@ -436,8 +436,7 @@
       "generatedSubtitle": "Werkversie 14 oktober 2020"
     }
   </script>
-  <meta name="description"
-    content="Digikoppeling (DK) is sinds 2007 in gebruik en steeds meer overheidsorganisaties zien het nut van het gebruik van deze standaard. Digikoppeling wordt daardoor steeds breder ingezet als logistieke standaard voor veilige berichtuitwisseling tussen organisaties in de (semi-)publieke sector in Nederland. Digikoppeling is een essentiële bouwsteen van de elektronische overheid en geeft invulling aan de servicegerichte architectuur zoals NORA die voorschrijft.">
+  <meta name="description" content="[todo]">
   <script type="application/ld+json">
     {
       "@context": [
@@ -474,7 +473,7 @@
       },
       "discussionUrl": "https://github.com/centrumvoorstandaarden/Architectuur2.0-metRestfulAPI/issues/",
       "alternativeHeadline": "",
-      "description": "Digikoppeling (DK) is sinds 2007 in gebruik en steeds meer overheidsorganisaties zien het nut van het gebruik van deze standaard. Digikoppeling wordt daardoor steeds breder ingezet als logistieke standaard voor veilige berichtuitwisseling tussen organisaties in de (semi-)publieke sector in Nederland. Digikoppeling is een essentiële bouwsteen van de elektronische overheid en geeft invulling aan de servicegerichte architectuur zoals NORA die voorschrijft.",
+      "description": "[todo]",
       "editor": [{
           "type": "Person",
           "name": "Pieter Hering",
@@ -511,7 +510,7 @@
           href="https://centrumvoorstandaarden.github.io/Architectuur2.0-metRestfulAPI/">https://centrumvoorstandaarden.github.io/Architectuur2.0-metRestfulAPI/</a>
       </dd>
       <dt>Laatst gepubliceerde versie:</dt>
-      <dd><a href="http://docs.centrumvoorstandaarden.nl//DK_ARCH/">http://docs.centrumvoorstandaarden.nl//DK_ARCH/</a>
+      <dd><a href="http://publicatie.centrumvoorstandaarden.nl//DK_ARCH/">http://publicatie.centrumvoorstandaarden.nl//DK_ARCH/</a>
       </dd>
 
 
@@ -565,30 +564,7 @@
   </div>
   <section id="abstract" data-format="markdown" class="introductory">
     <h2>Samenvatting</h2>
-    <h1>Managementsamenvatting</h1>
-    <p>Digikoppeling (DK) is sinds 2007 in gebruik en steeds meer overheidsorganisaties zien het nut van het gebruik van
-      deze standaard. Digikoppeling wordt daardoor steeds breder ingezet als logistieke standaard voor veilige
-      berichtuitwisseling tussen organisaties in de (semi-)publieke sector in Nederland. Digikoppeling is een essentiële
-      bouwsteen van de elektronische overheid en geeft invulling aan de servicegerichte architectuur zoals NORA die
-      voorschrijft.</p>
-    <p>Digikoppeling standaardiseert de uitwisseling van berichten (services) tussen overheidsorganisaties. Door
-      Digikoppeling kunnen zij eenvoudiger, veiliger, sneller en goedkoper elkaars gegevens gebruiken dan wanneer alle
-      organisaties bilateraal afspraken zouden maken. Het belang en de omvang van gegevensuitwisselingen in de
-      e-overheid neemt alleen maar toe. Digikoppeling is een onmisbare voorwaarde om die uitwisseling efficiënt uit te
-      voeren.</p>
-    <p>Het College Standaardisatie <span style="color:green"> (nu OBDO) </span> heeft Digikoppeling daarom op de ‘Pas
-      toe of leg uit’-lijst geplaatst. Deze lijst betreft onder meer de uitwisseling met wettelijke landelijke
-      basisadministraties en gegevensuitwisseling tussen sectoren (intersectoraal). Daarnaast wisselen organisaties
-      onderling of in samenwerkingsverbanden gegevens uit in de dienstverlening aan burgers en bedrijven op basis van
-      Digikoppeling.</p>
-    <p>De <em>Architectuur Digikoppeling</em> beschrijft de kaders, de principes en voorschriften, de
-      koppelvlakstandaarden, voorzieningen en de keten waarin via Digikoppeling gegevens worden uitgewisseld (de
-      Digikoppeling keten).</p>
-    <p>Digikoppeling is 'backwards compatible'. Partijen die Digikoppeling gebruiken, voldoen daardoor automatisch aan
-      de nieuwste versie van Digikoppeling. De nieuwe functionaliteiten en profielen zijn dan echter niet beschikbaar.
-    </p>
-    <p>(‘Backwards compatibiliteit’ geldt niet voor de security eisen, zie hiervoor de actuele versie van
-      ‘<em>Digikoppeling beveiligingsstandaarden en voorschriften’)</em></p>
+    <p>[todo]</p>
   </section>
   <section id="sotd" class="introductory">
     <h2>Status van dit document</h2>
@@ -596,7 +572,7 @@
       <em>Deze paragraaf beschrijft de status van dit document ten tijde van publicatie. Het is mogelijk dat er
         actuelere versies van dit document bestaan. Een lijst van Logius publicaties en de laatste gepubliceerde versie
         van dit document zijn te vinden op <a
-          href="http://docs.centrumvoorstandaarden.nl">docs.centrumvoorstandaarden.nl</a>.</em>
+          href="http://publicatie.centrumvoorstandaarden.nl">publicatie.centrumvoorstandaarden.nl</a>.</em>
     </p>
     <p>
 
@@ -636,21 +612,81 @@
               </span>Van berichten naar gegevensuitwisseling</a></li>
           <li class="tocline"><a class="tocxref" href="#open-en-closed-data"><span class="secno">1.3 </span>Open en
               Closed Data</a></li>
-          <li class="tocline"><a class="tocxref" href="#toepassingsgebied"><span class="secno">1.4
+          <li class="tocline"><a class="tocxref" href="#open-en-closed-diensten"><span class="secno">1.4 </span>Open en
+              Closed Diensten</a></li>
+          <li class="tocline"><a class="tocxref" href="#toepassingsgebied"><span class="secno">1.5
               </span>Toepassingsgebied</a>
             <ol class="toc">
-              <li class="tocline"><a class="tocxref" href="#intern-en-extern"><span class="secno">1.4.1 </span>Intern en
+              <li class="tocline"><a class="tocxref" href="#intern-en-extern"><span class="secno">1.5.1 </span>Intern en
                   Extern</a></li>
-              <li class="tocline"><a class="tocxref" href="#open-en-closed-data-0"><span class="secno">1.4.2 </span>Open
+              <li class="tocline"><a class="tocxref" href="#open-en-closed-data-0"><span class="secno">1.5.2 </span>Open
                   en Closed Data</a></li>
-              <li class="tocline"><a class="tocxref" href="#wie-communiceert-met-wie"><span class="secno">1.4.3
+              <li class="tocline"><a class="tocxref" href="#wie-communiceert-met-wie"><span class="secno">1.5.3
                   </span>Wie communiceert met wie</a></li>
-              <li class="tocline"><a class="tocxref" href="#scope-van-digikoppeling"><span class="secno">1.4.4
+              <li class="tocline"><a class="tocxref" href="#scope-van-digikoppeling"><span class="secno">1.5.4
                   </span>Scope van Digikoppeling</a></li>
-              <li class="tocline"><a class="tocxref" href="#grijs-gebied"><span class="secno">1.4.5 </span>Grijs
-                  gebied?</a></li>
+              <li class="tocline"><a class="tocxref" href="#grijs-gebied"><span class="secno">1.5.5 </span>Grijs
+                  gebied</a></li>
             </ol>
           </li>
+        </ol>
+      </li>
+      <li class="tocline"><a class="tocxref" href="#de-digikoppeling-keten"><span class="secno">2. </span>De
+          Digikoppeling-keten</a>
+        <ol class="toc">
+          <li class="tocline"><a class="tocxref" href="#digikoppeling-als-bouwsteen-van-de-digitale-overheid"><span
+                class="secno">2.1 </span>Digikoppeling als bouwsteen van de Digitale Overheid</a></li>
+          <li class="tocline"><a class="tocxref" href="#opbouw-van-de-digikoppeling-keten"><span class="secno">2.2
+              </span>Opbouw van de Digikoppeling-keten</a>
+            <ol class="toc">
+              <li class="tocline"><a class="tocxref" href="#partijen"><span class="secno">2.2.1 </span>Partijen</a></li>
+              <li class="tocline"><a class="tocxref" href="#intermediairs"><span class="secno">2.2.2
+                  </span>Intermediairs</a></li>
+            </ol>
+          </li>
+          <li class="tocline"><a class="tocxref"
+              href="#rollen-end-to-end-verwerker-intermediair-saas-dienstverlener"><span class="secno">2.3
+              </span>Rollen: End-to-end, verwerker, intermediair, SAAS dienstverlener</a></li>
+          <li class="tocline"><a class="tocxref" href="#componenten-in-de-logistieke-digikoppeling-keten"><span
+                class="secno">2.4 </span>Componenten in de logistieke Digikoppeling-keten</a></li>
+          <li class="tocline"><a class="tocxref" href="#uitwisselingsvormen"><span class="secno">2.5
+              </span>Uitwisselingsvormen</a>
+            <ol class="toc">
+              <li class="tocline"><a class="tocxref" href="#business-behoefte"><span class="secno">2.5.1
+                  </span>Business-behoefte</a></li>
+              <li class="tocline"><a class="tocxref" href="#digikoppeling-aanbod"><span class="secno">2.5.2
+                  </span>Digikoppeling-aanbod</a></li>
+              <li class="tocline"><a class="tocxref" href="#synchrone-uitwisseling"><span class="secno">2.5.3
+                  </span>Synchrone uitwisseling</a></li>
+              <li class="tocline"><a class="tocxref" href="#asynchrone-uitwisseling"><span class="secno">2.5.4
+                  </span>Asynchrone uitwisseling</a></li>
+              <li class="tocline"><a class="tocxref"
+                  href="#geen-onderscheid-meer-in-gebruik-wus-en-ebms2-voor-bevragingen-en-transacties"><span
+                    class="secno">2.5.5 </span>Geen onderscheid meer in gebruik WUS en ebMS2 voor bevragingen en
+                  transacties</a></li>
+              <li class="tocline"><a class="tocxref" href="#grote-berichten"><span class="secno">2.5.6 </span>Grote
+                  Berichten</a></li>
+            </ol>
+          </li>
+          <li class="tocline"><a class="tocxref" href="#overzicht-transactiepatronen-nieuw"><span class="secno">2.6
+              </span>Overzicht transactiepatronen (nieuw)</a>
+            <ol class="toc">
+              <li class="tocline"><a class="tocxref" href="#synchrone-bevraging"><span class="secno">2.6.1
+                  </span>Synchrone bevraging</a></li>
+              <li class="tocline"><a class="tocxref" href="#synchrone-melding-bevestiging"><span class="secno">2.6.2
+                  </span>Synchrone Melding-bevestiging</a></li>
+              <li class="tocline"><a class="tocxref" href="#asynchrone-melding-bevestiging"><span class="secno">2.6.3
+                  </span>Asynchrone Melding-bevestiging</a></li>
+              <li class="tocline"><a class="tocxref" href="#overdracht-van-verantwoordelijkheid"><span
+                    class="secno">2.6.4 </span>Overdracht van verantwoordelijkheid</a></li>
+              <li class="tocline"><a class="tocxref" href="#uitwisselen-grote-bestanden"><span class="secno">2.6.5
+                  </span>Uitwisselen grote bestanden</a></li>
+              <li class="tocline"><a class="tocxref" href="#abonneren-op-wijzigingen-middels-notificaties"><span
+                    class="secno">2.6.6 </span>Abonneren op wijzigingen middels notificaties</a></li>
+            </ol>
+          </li>
+          <li class="tocline"><a class="tocxref" href="#uitwisseling-via-een-transparante-intermediair"><span
+                class="secno">2.7 </span>uitwisseling via een transparante intermediair</a></li>
         </ol>
       </li>
     </ol>
@@ -658,7 +694,7 @@
   <section data-format="markdown" id="een-nieuwe-kijk-op-digikoppeling">
     <!--OddPage-->
     <h2 id="x1-een-nieuwe-kijk-op-digikoppeling"><span class="secno">1. </span>Een nieuwe kijk op Digikoppeling</h2>
-    <p>In dit hoofstuk opzet beschrijven we de belangrijkste facetten van de nieuwe Digikoppeling Architectuur.</p>
+    <p>In dit hoofdstuk opzet beschrijven we de belangrijkste facetten van de nieuwe Digikoppeling Architectuur.</p>
     <section id="doel-van-digikoppeling">
       <h3 id="x1-1-doel-van-digikoppeling"><span class="secno">1.1 </span>Doel van Digikoppeling</h3>
       <p>(Overheids)organisaties willen diensten klantgericht, efficiënt, flexibel en rechtmatig aanbieden aan burgers
@@ -683,32 +719,56 @@
       <p>Envelop en bericht schuiven in elkaar, de metafoor van enveloppen en postverzending werkt niet meer. Echter,
         het basisprincipe blijft: Digikoppeling bemoeit zich niet met de inhoud, Digikoppeling heeft <em>'Geen boodschap
           aan de boodschap'</em>.</p>
+      <div class="note" role="note" id="issue-container-generatedID">
+        <div role="heading" class="note-title marker" id="h-note" aria-level="4"><span>Noot</span></div>
+        <aside class="">
+          <blockquote>
+            <p>We moeten ook aandacht besteden aan het begrip <em>servicegerichte architectuur</em> van de NORA waarvoor
+              Digikoppeling ooit een essentieel onderdeel vormde.</p>
+            <p>De servicegerichte architectuur is inmiddels door NORA naar het archief geplaatst en er bestaat nog geen
+              opvolger.</p>
+          </blockquote>
+        </aside>
+      </div>
     </section>
     <section id="open-en-closed-data">
       <h3 id="x1-3-open-en-closed-data"><span class="secno">1.3 </span>Open en Closed Data</h3>
       <p>Een belangrijke aanleiding voor het starten van de Commonground beweging van VNG was de ergernis over het op
         grote schaal rondpompen van gegevens binnen de digitale overheid. De ontsluiting van die gegevens en de noodzaak
-        om die redundante bronnen synchroon te houden veroorzaakt een complex systeem van koppeling. Een van de
+        om die redundante bronnen synchroon te houden veroorzaakt een complex systeem van koppelingen. Een van de
         oplossingen voor het principe <em>Single Source of Truth</em> is om weer terug te gaan naar het concept van
         'halen bij de bron', eigenlijk een van drijfveren van het ontstaan van het stelsel van basisregistraties.</p>
-      <p>Een ander concept dat sinds begin 2000 een opmars maakt is het principe van <em>Open Data</em>. Open Data zijn
+      <p>Een concept dat sinds begin 2000 een opmars maakt is het principe van <em>Open Data</em>. Open Data zijn
         gegevens die in een open formaat door iedereen voor alle doeleinden vrij gebruikt, hergebruikt en gedeeld kunnen
         worden. De nadruk voor Open data ligt met name bij de gegevens van de overheid. Gegevens die om reden van
         privacy, veiligheid, wettelijke verplichtingen en dergelijk niet onder de definitie vallen noemen we in dit
         document Close Data.</p>
     </section>
+    <section id="open-en-closed-diensten">
+      <h3 id="x1-4-open-en-closed-diensten"><span class="secno">1.4 </span>Open en Closed Diensten</h3>
+      <p>Naast het onderscheid tussen Open en closed data kan je ook onderscheid maken in publieke en afgeschermde
+        diensten. Voor closed data zal een overheidsorganisatie afgeschermde, beperkt toegankelijke closed diensten
+        aanbieden.</p>
+      <p>Een overheidsorganisatie kan een bron van open data publiceert via een voor iedereen toegankelijke open dienst,
+        en tegelijkertijd de dienst de toegang te beschikbaar maken via een beperkt toegankelijke dienst, bijvoorbeeld
+        met een uitgebreide beschikbaarheid, schaalbaarheid of functionaliteit.</p>
+      <ul>
+        <li>Open Diensten: diensten zonder toegangsbeperking bijvoorbeeld open data.</li>
+        <li>Gesloten Diensten: diensten met toegangsbeperking bijvoorbeeld persoonsgegevens en vertrouwelijke gegevens
+          of diensten voor specifieke partijen.</li>
+      </ul>
+    </section>
     <section id="toepassingsgebied">
-      <h3 id="x1-4-toepassingsgebied"><span class="secno">1.4 </span>Toepassingsgebied</h3>
+      <h3 id="x1-5-toepassingsgebied"><span class="secno">1.5 </span>Toepassingsgebied</h3>
       <p>Digikoppeling staat op de lijst <em>verplichte standaarden</em> van het Forum Standaardisatie De lijst
-        beschrijft het toepassingsgebied van Digikoppeling als
-      </p>
+        beschrijft het toepassingsgebied van Digikoppeling als</p>
       <blockquote>
         <p>Digikoppeling moet worden toegepast op alle digitale gegevensuitwisseling met behulp van gestructureerde
           berichten die plaatsvindt met voorzieningen die onderdeel zijn van de GDI, waaronder de basisregistraties, of
           die sector-overstijgend is.</p>
       </blockquote>
       <section id="intern-en-extern">
-        <h4 id="x1-4-1-intern-en-extern"><span class="secno">1.4.1 </span>Intern en Extern</h4>
+        <h4 id="x1-5-1-intern-en-extern"><span class="secno">1.5.1 </span>Intern en Extern</h4>
         <p>Digikoppeling richt zich dus van oudsher primair op het uitwisselen van gegevens 'met behulp van
           gestructureerde berichten' en maakt (tot nu toe) geen duidelijk onderscheid tussen Open en Closed Data. Dit
           maakt het niet duidelijk wanneer Digikoppeling gebruikt moet worden. Reden om dit beter af te pellen en de
@@ -719,7 +779,7 @@
           onderdeel zijn van de GDI, waaronder de basisregistraties, of die sector-overstijgend is.</p>
       </section>
       <section id="open-en-closed-data-0">
-        <h4 id="x1-4-2-open-en-closed-data"><span class="secno">1.4.2 </span>Open en Closed Data</h4>
+        <h4 id="x1-5-2-open-en-closed-data"><span class="secno">1.5.2 </span>Open en Closed Data</h4>
         <p>Digikoppeling bestaat uit een set standaarden voor elektronisch verkeer tussen overheidsorganisaties.
           Digikoppeling gaat dus om overheidsgegevens. Openbare informatie van de Rijksoverheid mag worden hergebruikt,
           bijvoorbeeld op websites en in applicaties. Dit is Open Data.</p>
@@ -729,20 +789,19 @@
             title="Open en Closed OverheidsData" width="378" height="378"></p>
       </section>
       <section id="wie-communiceert-met-wie">
-        <h4 id="x1-4-3-wie-communiceert-met-wie"><span class="secno">1.4.3 </span>Wie communiceert met wie</h4>
+        <h4 id="x1-5-3-wie-communiceert-met-wie"><span class="secno">1.5.3 </span>Wie communiceert met wie</h4>
         <p>Digikoppeling gaat over communicatie tussen de overheden (G2G) en niet over uitwisseling met burgers (G2C).
           De communicatie tussen overheid en het bedrijfsleven (G2B) is niet gestandaardiseerd.</p>
         <p><img src="media/DK_segmentering.png" alt="segmentering" title="segmentering van de communicatie" width="378"
             height="385"></p>
       </section>
       <section id="scope-van-digikoppeling">
-        <h4 id="x1-4-4-scope-van-digikoppeling"><span class="secno">1.4.4 </span>Scope van Digikoppeling</h4>
+        <h4 id="x1-5-4-scope-van-digikoppeling"><span class="secno">1.5.4 </span>Scope van Digikoppeling</h4>
         <p>Digikoppeling moet worden toegepast voor geautomatiseerde gegevensuitwisseling tussen informatiesystemen en
-          is verplicht voor nederlandse overheden (Rijk, provincies, gemeenten en waterschappen) en instellingen uit de
-          (semi-)publieke sector.
-        </p>
-        <div class="note" role="note" id="issue-container-generatedID">
-          <div role="heading" class="note-title marker" id="h-note" aria-level="5"><span>Noot</span></div>
+          is verplicht voor Nederlandse overheden (Rijk, provincies, gemeenten en waterschappen) en instellingen uit de
+          (semi-)publieke sector.</p>
+        <div class="note" role="note" id="issue-container-generatedID-0">
+          <div role="heading" class="note-title marker" id="h-note-0" aria-level="5"><span>Noot</span></div>
           <aside class="">
             <p><strong>Digikoppeling moet worden toegepast wanneer niet-publieke gegevens - Closed Data - worden
                 uitgewisseld tussen overheden. <code>LET OP: Dit is voorstel voor een inperking van de huidige
@@ -754,15 +813,661 @@
             title="Digikoppeling voor closed data G2G uitwisseling" width="378" height="415"></p>
       </section>
       <section id="grijs-gebied">
-        <h4 id="x1-4-5-grijs-gebied"><span class="secno">1.4.5 </span>Grijs gebied?</h4>
+        <h4 id="x1-5-5-grijs-gebied"><span class="secno">1.5.5 </span>Grijs gebied</h4>
         <p>De verplichting voor Digikoppeling geldt dus voor communicatie tussen overheden. De praktijk is dat voor
           communicatie met bedrijven vaak verplichtingen gelden die hun oorsprong hebben in Digikoppeling, zoals het
-          gebruik van het OIN en PKIoverheidscertificaten, of zelfs geïnspireerd zoals het Koppelvlak WUS voor bedrijven
-          van Digipoort.
-        </p>
+          gebruik van het OIN en PKIoverheidscertificaten, of zelfs geïnspireerd zijn op Digikoppeling zoals het
+          Koppelvlak WUS voor bedrijven van Digipoort.</p>
         <p><img src="media/DK_closed_b2g.png" alt="Digikoppeling voor closed data G2B uitwisseling"
             title="Digikoppeling voor closed data G2B uitwisseling" width="378" height="400"></p>
       </section>
+    </section>
+  </section>
+  <section data-format="markdown" id="de-digikoppeling-keten">
+    <!--OddPage-->
+    <h2 id="x2-de-digikoppeling-keten"><span class="secno">2. </span>De Digikoppeling-keten</h2>
+    <p>Dit hoofdstuk beschrijft de Digikoppeling als bouwsteen van de Digitale Overheid. de keten van alle
+      Digikoppeling-gerelateerde componenten die gegevensuitwisseling voor de Digitale Overheid invullen duiden we in
+      dit document aan als de de Digikoppeling-keten. In dit hoofdstuk worden de vormen van gegevensuitwisseling op
+      procesniveau beschreven.</p>
+    <section id="digikoppeling-als-bouwsteen-van-de-digitale-overheid">
+      <h3 id="x2-1-digikoppeling-als-bouwsteen-van-de-digitale-overheid"><span class="secno">2.1 </span>Digikoppeling
+        als bouwsteen van de Digitale Overheid</h3>
+      <p>De Nederlandse overheid werkt aan betere dienstverlening aan burgers en bedrijven met een basisinfrastructuur
+        voor de Digitale Overheid die is gebaseerd op services zoals beschreven in de Nederlandse Overheids Referentie
+        Architectuur (NORA). Een reden voor het gebruik van services is dat ze herbruikbaar en daardoor efficiënt zijn.
+      </p>
+      <p>De basisinfrastructuur bestaat uit bouwstenen voor de dienstverlening aan burgers, aan bedrijven en de
+        inrichting van de informatiehuishouding van de overheid zelf. De bouwstenen beslaan drie pijlers:</p>
+      <ul>
+        <li>
+          <p>Loketten en voorzieningen voor burgers.</p>
+        </li>
+        <li>
+          <p>Loketten en voorzieningen voor bedrijven.</p>
+        </li>
+        <li>
+          <p>Registraties in algemene zin, waaronder het stelsel van basisregistraties, inclusief voorzieningen zoals
+            onder meer Digilevering (abonnementen services) en Digimelding (terugmelding van wijzigingen of fouten aan
+            basisregistraties).</p>
+        </li>
+      </ul>
+      <p>In dit document vatten we de loketten en voorzieningen voor burgers en bedrijven samen met het begrip
+        ‘landelijke voorzieningen”. Om deze pijlers als samenhangend geheel te laten functioneren is het nodig dat zij
+        informatie kunnen uitwisselen’.</p>
+      <p>Digikoppeling maakt het mogelijk om berichten uit te wisselen, databronnen te raadplegen en te bewerken en
+        services aan te roepen en is daarmee een essentiële bouwsteen van de basisinfrastructuur van de Digitale
+        Overheid. Organisaties kunnen via Digikoppeling rechtstreeks (bilateraal) gegevens met elkaar uitwisselen. Vaak
+        zijn er extra schakels betrokken, zoals een sectoraal knooppunt of een intermediair.</p>
+      <p>Digikoppeling biedt een standaard voor het veilig uitwisselen van berichten tussen systemen. Het is dus niet
+        bedoeld om gegevens aan een eindgebruiker te tonen; dat gebeurt via een applicatie bij de eindgebruiker zelf.
+        Digikoppeling standaardiseert de inrichting van het berichtenverkeer zodat verschillende partijen berichten
+        kunnen uitwisselen, ongeacht om welke gegevens het gaat.</p>
+    </section>
+    <section id="opbouw-van-de-digikoppeling-keten">
+      <h3 id="x2-2-opbouw-van-de-digikoppeling-keten"><span class="secno">2.2 </span>Opbouw van de Digikoppeling-keten
+      </h3>
+      <p>De Digikoppeling-keten bestaat uit:</p>
+      <ul>
+        <li>
+          <p>Deelnemende publieke organisaties die gegevens met elkaar uitwisselen (partijen). Een partij kan een
+            service of resource aanbieden – in de rol van serviceaanbieder – of een service afnemen – in de rol van
+            serviceafnemer.</p>
+        </li>
+        <li>
+          <p>Intermediairs: organisaties die voor deze deelnemende organisaties bemiddelen in de uitwisseling van
+            gegevens. Partijen maken onderling (of via een intermediair) afspraken over de inhoud en vorm van de
+            gegevensuitwisseling.</p>
+        </li>
+        <li>
+          <p>Componenten die de Digikoppeling-keten vormgeven.</p>
+        </li>
+      </ul>
+      <section id="partijen">
+        <h4 id="x2-2-1-partijen"><span class="secno">2.2.1 </span>Partijen</h4>
+        <p>Een partij is een (publieke) organisatie die gegevensdiensten via Digikoppeling aanbiedt aan andere
+          organisaties en/of afneemt van andere organisaties. Een partij (in de rol van serviceafnemer of
+          serviceaanbieder) is tevens het eindpunt van de Digikoppeling-keten. Partijen maken onderling of via een
+          intermediair afspraken over de samenwerking en over de gegevensuitwisseling.</p>
+        <p>De uitwisseling tussen een serviceaanbieder en een serviceafnemer moet altijd betrouwbaar/vertrouwd zijn,
+          ondanks of dankzij de betrokkenheid van intermediairs.</p>
+      </section>
+      <section id="intermediairs">
+        <h4 id="x2-2-2-intermediairs"><span class="secno">2.2.2 </span>Intermediairs</h4>
+        <p>Een intermediair is een organisatie die tussen twee (of meer) partijen berichten via Digikoppeling ontvangt
+          en routeert. Een intermediair kan dienen als sectoraal knooppunt, waarbij de intermediair meerdere partijen in
+          een samenwerkingsverband ontzorgt en ondersteunt.</p>
+        <p>Een intermediair vormt een schakel in de Digikoppeling-keten tussen serviceaanbieder en serviceafnemer:</p>
+        <ul>
+          <li>
+            <p>Een <em>transparante</em> intermediair stuurt berichten door naar het eindpunt (ontvanger) zonder de
+              berichten te bewerken. Een transparante intermediair is zelf dus geen eindpunt in Digikoppeling<sup><a
+                  href="#f18">18</a></sup>. Het versleutelen van berichtinhoud (berichtenniveau versleuteling) kan
+              worden toegepast indien de intermediair niet vertrouwd wordt.<sup><a href="#f19">19</a></sup></p>
+          </li>
+          <li>
+            <p>Een <em>niet-transparante</em> intermediair (b.v. een sectoraal knooppunt) bewerkt berichten en is dus
+              een eindpunt binnen Digikoppeling.</p>
+          </li>
+        </ul>
+        <p>Een intermediair zoals een sectoraal knooppunt of SAAS leverancier kan in opdracht van partijen inhoudelijke
+          bewerkingen op berichten uitvoeren zoals de integratie, conversie en distributie van gegevens. Een dergelijke
+          ondersteunende rol kan partijen ontzorgen bij de implementatie van standaarden, het beheer van
+          gedeelde/gezamenlijke voorzieningen en de afstemming tussen partijen op het gebied van gegevensuitwisseling.
+        </p>
+        <p><img src="media/DK_Positionering_intermediair_sectoraal_knppnt.png"
+            alt="Positionering intermediair/sectoraal knooppunt" title="Positionering intermediair/sectoraal knooppunt"
+            width="650" height="267"></p>
+        <p>Figuur 3: Positionering intermediair/sectoraal knooppunt</p>
+        <p><br><sup><a name="f18" href="#dfn-x18" class="internalDFN" data-link-type="dfn"><dfn data-dfn-type="dfn"
+                id="dfn-x18">18</dfn></a>: We beschouwen transparantie hier op de logistieke laag. Op technisch niveau
+            is de intermediair een eindpunt omdat de TLS verbinding tussen twee servers moet worden opgezet.</sup>
+          <br><sup><a name="f19" href="#dfn-x19" class="internalDFN" data-link-type="dfn"><dfn data-dfn-type="dfn"
+                id="dfn-x19">19</dfn></a>: Bericht-niveau versleuteling wordt op applicatieniveau toegepast tussen de
+            verzender en ontvanger; de berichtinhoud wordt versleuteld zodat de intermediair alleen de headers kan
+            lezen.</sup></p>
+      </section>
+    </section>
+    <section id="rollen-end-to-end-verwerker-intermediair-saas-dienstverlener">
+      <h3 id="x2-3-rollen-end-to-end-verwerker-intermediair-saas-dienstverlener"><span class="secno">2.3 </span>Rollen:
+        End-to-end, verwerker, intermediair, SAAS dienstverlener</h3>
+      <div class="note" role="note" id="issue-container-generatedID-1">
+        <div role="heading" class="note-title marker" id="h-note-1" aria-level="4"><span>Noot</span></div>
+        <aside class="">
+          <blockquote>
+            <p><code>TODO:</code> Er is grote behoefte om de rollen nader uit te werken. Dit kan in een aparte paragraaf
+              of als verdere aanvulling op de vorige paragraaf.</p>
+          </blockquote>
+        </aside>
+      </div>
+    </section>
+    <section id="componenten-in-de-logistieke-digikoppeling-keten">
+      <h3 id="x2-4-componenten-in-de-logistieke-digikoppeling-keten"><span class="secno">2.4 </span>Componenten in de
+        logistieke Digikoppeling-keten</h3>
+      <p>De volgende componenten maken onderdeel uit van de Digikoppeling-keten van berichtuitwisseling.</p><span
+        class="simple">
+
+        <table>
+          <thead>
+            <tr>
+              <th>Componenten</th>
+              <th>Toelichting</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Applicatie</td>
+              <td>Een systeem waarmee gegevens worden geproduceerd, vastgelegd en gebruikt.</td>
+            </tr>
+            <tr>
+              <td>Broker of Enterprise Service Bus (ESB)</td>
+              <td>Een component waarmee berichten worden gegenereerd, aangeboden, afgenomen, gemonitord en verwerkt. Dit
+                type systeem wordt gebruikt in de integratielaag. Een enterprise servicebus, broker of message handler
+                zijn voorbeelden van een dergelijke component.</td>
+            </tr>
+            <tr>
+              <td>Digikoppeling-adapter</td>
+              <td>Een software-adapter voor middleware systemen die door een ICT-leverancier wordt geleverd en die de
+                Digikoppeling-koppelvlakstandaarden implementeert. De Digikoppeling-adapter handelt alle aspecten van de
+                berichtverwerking af, inclusief de versleuteling/ontsleuteling, ondertekening etc. Een broker of ESB
+                bevat vaak een (configureerbare) Digikoppeling adapter.</td>
+            </tr>
+            <tr>
+              <td>Gegevens</td>
+              <td>Informatie die wordt beheerd en opgeslagen. Gegevens worden voor een specifieke uitwisseling in een
+                bericht geplaatst.</td>
+            </tr>
+            <tr>
+              <td>PKIoverheid certificaten</td>
+              <td>Identificatie en authenticatie vindt plaats op basis van het PKIoverheidscertificaat. Zie voor nadere
+                uitleg Digikoppeling Identificatie en Authenticatie en Digikoppeling Gebruik en Achtergrond
+                Certificaten.</td>
+            </tr>
+            <tr>
+              <td>Servicecontract</td>
+              <td>Een technisch formaat voor het vastleggen van afspraken over de inhoud van de gegevensuitwisseling
+                tussen partijen. Een servicecontract wordt vormgegeven d.m.v. een CPA (voor ebMS2 services), OAS voor
+                Restful APi's, en een WSDL (voor WUS services) en wordt ingelezen in de Digikoppeling-adapter. voor de
+                CPA stellen partijen samen een servicecontract op.</td>
+            </tr>
+          </tbody>
+        </table>
+      </span>
+      <p>Tabel 2: Componenten van de Digikoppeling-keten</p>
+      <p>N.B.: De Digikoppeling-voorzieningen (Het Digikoppeling portaal met de
+        Compliance Voorziening, het OIN register en het CPA register) vormen geen onderdeel van de Digikoppeling-keten
+        maar ondersteunen tijdens de ontwikkel- en testfasen en bij het uitgifte en raadpleegen van OIN's.</p>
+    </section>
+    <section id="uitwisselingsvormen">
+      <h3 id="x2-5-uitwisselingsvormen"><span class="secno">2.5 </span>Uitwisselingsvormen</h3>
+      <p>Uitwisselingsvormen onderscheiden we op alle niveaus van inhoud, logistiek en transport.</p>
+      <ol>
+        <li>
+          <p>De business heeft op inhoudelijk niveau behoefte aan specifieke uitwisselingsvormen. Dat zijn veel
+            verschillende vormen die we in de volgende subparagraaf aan de hand van een tweetal kenmerken terugbrengen
+            tot een viertal primitieve business-interacties.</p>
+        </li>
+        <li>
+          <p>op logistiek niveau biedt Digikoppeling een beperkt aantal patronen voor uitwisseling. De tweede
+            subparagraaf licht deze patronen toe en geeft aan voor welke business-interactie deze toegepast moeten
+            worden.</p>
+        </li>
+        <li>
+          <p>Op transport niveau is in Digikoppeling voorgeschreven welke vormen van uitwisseling (protocollen)
+            toegepast worden. Deze worden hier niet behandeld.</p>
+        </li>
+      </ol>
+      <section id="business-behoefte">
+        <h4 id="x2-5-1-business-behoefte"><span class="secno">2.5.1 </span>Business-behoefte</h4>
+        <p>Op business-niveau is er een veelheid aan uitwisselingsvormen waaraan behoefte bestaat. Deze zijn vaak
+          contextspecifiek. Soms zijn deze vormen ook specifiek voor een sector waardoor het loont om deze in een
+          sectorale berichtstandaard voor de inhoud van een bericht af te spreken (b.v. StUF, SuwiML en NEN3610)</p>
+        <div class="note" role="note" id="issue-container-generatedID-2">
+          <div role="heading" class="note-title marker" id="h-note-2" aria-level="5"><span>Noot</span></div>
+          <aside class="">
+            <blockquote>
+              <p><code>TODO</code>: is bovenstaande zin nog actueel?</p>
+            </blockquote>
+          </aside>
+        </div>
+        <p>. Een aantal proceskenmerken op business-niveau bepaalt welke door Digikoppeling geboden logistieke vormen
+          geschikt zijn. Zonder alle mogelijke behoeften uit te werken, behandelt deze sub-paragraaf wel de voor de
+          keuze van Digikoppeling belangrijke kenmerken:</p>
+        <ol>
+          <li>De impact op de serviceaanbieder is afhankelijk van de dienst die deze levert:</li>
+        </ol>
+        <ul>
+          <li>
+            <p>alleen informatie, die bevraagd kan worden; dat heeft geen impact op de aanbiedende organisatie;</p>
+          </li>
+          <li>
+            <p>het verwerken van een gevraagde transactie; dat heeft wel impact op de aanbiedende organisatie.</p>
+          </li>
+        </ul>
+        <ol start="2">
+          <li>Naast deze impact op de serviceverlenende organisatie kunnen we ook onderscheid maken naar de
+            procesinrichting:</li>
+        </ol>
+        <ul>
+          <li>
+            <p>(het proces en) de applicatie van de afnemer wacht op een 'onmiddellijk' antwoord (de vraagsteller,
+              applicatie/gebruiker houdt de context vast en weet dus direct waar het antwoord op slaat).</p>
+          </li>
+          <li>
+            <p>het resultaat is 'uitgesteld, komt enige tijd later (de applicatie moet dan het antwoord bij de vraag
+              zoeken) of wellicht helemaal niet. De applicatie of het business proces wachten niet.</p>
+          </li>
+        </ul>
+        <p>Op basis van deze twee verschillen komen we tot vier primitieve business-interacties, weergegeven in
+          onderstaande tabel.</p><span class="simple">
+
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th><strong>Onmiddellijk</strong></th>
+                <th><strong>Uitgesteld</strong></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Bevraging</strong></td>
+                <td>Onmiddellijke businessbevraging</td>
+                <td>Businessbevraging met uitstel</td>
+              </tr>
+              <tr>
+                <td><strong>Transactie</strong></td>
+                <td>Onmiddellijke businesstransactie</td>
+                <td>Businesstransactie met uitstel</td>
+              </tr>
+            </tbody>
+          </table>
+        </span>
+        <p>Deze businessafspraken worden geïmplementeerd in (bedrijfs)applicaties.
+          Combineren van deze primitieve interacties tot meerdere (eventueel over de tijd verspreide interacties) maken
+          complexe business-patronen mogelijk.</p>
+      </section>
+      <section id="digikoppeling-aanbod">
+        <h4 id="x2-5-2-digikoppeling-aanbod"><span class="secno">2.5.2 </span>Digikoppeling-aanbod</h4>
+        <p>Digikoppeling onderscheidt verschillende vormen van uitwisseling:</p>
+        <ul>
+          <li>
+            <p><em>synchrone</em> request-response voor bevraging en bewerking van objecten en in de context van het
+              gebruik van REST <em>resources</em>.</p>
+          </li>
+          <li>
+            <p><em>synchrone</em> request-response met gestructureerde berichtuitwsseling</p>
+          </li>
+          <li>
+            <p><em>asynchrone</em> request-response en reliable messaging</p>
+          </li>
+          <li>
+            <p>uitwisseling van grote data bestanden en hun metadata</p>
+          </li>
+        </ul>
+        <p>Bij synchrone request-response voor bevraging en bewerking van objecten <em>data-providers</em> bieden
+          providers databronnen - of resources- die <em>data-consumers</em> kunnen bevragen en bewerken. Een provider
+          vermeldt locatie van en randvoorwaarden voor toegang van de databron en via gestructureerde benadering kan een
+          consumer de resource bevragen of zelfs bewerken.</p>
+        <p>Bij een synchrone request-response met gestructureerde berichtuitwsseling stuurt de service-requester een
+          voorgedefinieerde vraag (request) aan de service-provider, die een antwoord (response) verstrekt. Het
+          initiatief ligt bij de service-requester. Gaat er in de uitwisseling iets mis dan zal de service-requester na
+          een bepaalde tijd de uitwisseling afbreken (time-out).</p>
+        <p>Bij een asynchrone request-response verstuurt de service-requester een bericht naar de ontvangende partij
+          (ontvanger) en wacht op een (technische) ontvangstbevestiging. De verzendende (business) applicatie vertrouwt
+          er op dat het bericht (betrouwbaar) afgeleverd wordt. De (business)applicatie zal niet wachten op het
+          antwoord: deze applicatie zal het eventuele 'antwoordbericht' op een ander moment ontvangen en moeten
+          correleren aan het oorspronkelijke vraag bericht.</p>
+      </section>
+      <section id="synchrone-uitwisseling">
+        <h4 id="x2-5-3-synchrone-uitwisseling"><span class="secno">2.5.3 </span>Synchrone uitwisseling</h4>
+        <p>Digikoppeling biedt twee mogelijkheden voor synchrone uitwisseling aan: bij synchrone uitwisseling wacht het
+          vragende informatiesysteem (de requestor) op een antwoord. Dit wachten heeft een beperkte duur (time-out). Als
+          een (tijdig) antwoord uitblijft moet de vrager besluiten of hij de vraag opnieuw stelt of niet. De snelheid
+          van afleveren is hier vaak belangrijker dan een betrouwbare aflevering.</p>
+        <p>Synchrone uitwisseling kunnen worden ingericht op basis van de Digikoppeling-koppelvlakstandaard WUS en het
+          Digikoppeling Restful API profiel.</p>
+      </section>
+      <section id="asynchrone-uitwisseling">
+        <h4 id="x2-5-4-asynchrone-uitwisseling"><span class="secno">2.5.4 </span>Asynchrone uitwisseling</h4>
+        <p>Een asynchroon verzoek is een enkelvoudig bericht waarop eventueel enige tijd later een retour-melding volgt.
+          Het gebruikte protocol regelt de betrouwbare ontvangst en de onweerlegbaarheid (non-repudiation) van een
+          bericht. Bij asynchrone uitwisseling is de betrouwbare aflevering van het bericht essentieel. Als een partij
+          het bericht niet direct kan aannemen, voorzien de protocollen erin dat het bericht nogmaals wordt aangeboden.
+        </p>
+        <p>Asynchrone uitwisseling kunnen worden ingericht op basis van de Digikoppeling-koppelvlakstandaard ebMS2.</p>
+      </section>
+      <section id="geen-onderscheid-meer-in-gebruik-wus-en-ebms2-voor-bevragingen-en-transacties">
+        <h4 id="x2-5-5-geen-onderscheid-meer-in-gebruik-wus-en-ebms2-voor-bevragingen-en-transacties"><span
+            class="secno">2.5.5 </span>Geen onderscheid meer in gebruik WUS en ebMS2 voor bevragingen en transacties
+        </h4>
+        <blockquote>
+          <p>Deze is al eerder besproken in het TO, naar aanleiding van de ingediende 'RFC WUS voor meldingen'.</p>
+        </blockquote>
+        <p>De Provider bepaalt welk koppelvlak - Restful API, WUS of ebMS- van toepassing is op de door haar geleverde
+          dienst.</p>
+        <p>Tot en met 2019 werd in de Digikoppeling Standaard onderscheid gemaakt tussen 'WUS voor bevragingen' en 'ebMS
+          voor meldingen'. In de praktijk bleek dit onderscheid niet altijd goed te werken. Er zijn usecases waarin WUS
+          beter geschikt is voor meldingen. In afwachting van een grondige herziening in de loop van 2020 van het
+          toepassingsgebied van Digikoppeling - door de komst van koppelvlakken gebaseerd van (RESTful)API's- wordt deze
+          aanpassing nu al doorgevoerd.</p>
+      </section>
+      <section id="grote-berichten">
+        <h4 id="x2-5-6-grote-berichten"><span class="secno">2.5.6 </span>Grote Berichten</h4>
+        <p>De situatie kan zich voordoen dat een bericht een omvang krijgt die niet meer efficiënt door de
+          Digikoppeling-adapters verwerkt kan worden bijvoorbeeld vanwege de overhead bij eventuele hertransmissies. Ook
+          kan het voorkomen dat er behoefte bestaat aan het sturen van aanvullende informatie naar systemen buiten de
+          normale procesgang ('out-of-band'). In die gevallen zal dit grote bestand op een andere wijze uitgewisseld
+          moeten worden: middels de Digikoppeling
+          Koppelvlakstandaard Grote Berichten.</p>
+        <p>Bij ‘grote berichten’ worden grotere bestanden uitgewisseld via een Digikoppeling uitwisseling in combinatie
+          met een (HTTPS-)down- of upload vanaf een beveiligde website. Grote berichten vormen een functionele
+          uitbreiding op Digikoppeling uitwisseling voor de veilige bestandsoverdracht van berichten groter dan 20
+          MiB<sup><a href="#f24">24</a></sup>.</p>
+        <p>Digikoppeling Grote Berichten maakt verschillende vormen van uitwisseling op business-niveau mogelijk. De
+          best-practice beschrijft de volgende vormen:</p>
+        <p>• Upload – grote hoeveelheid gegevens uploaden.</p>
+        <p>• Download – grote hoeveelheid gegevens downloaden.</p>
+        <p>• Selectie – een selectie van grote hoeveelheden gegevens verkrijgen.</p>
+        <p>• Verzending - grote hoeveelheid gegevens versturen.</p>
+        <p>• Multi-distributie - grote hoeveelheid gegevens aan meerdere ontvangers versturen.</p>
+        <p><br><sup><a name="f24" href="#dfn-x24" class="internalDFN" data-link-type="dfn"><dfn data-dfn-type="dfn"
+                id="dfn-x24">24</dfn></a>: <strong>1 MiB</strong>=1024^2 bytes : Voorheen stond hier 20MB. We gebruiken
+            de term MiB om geen enkele verwarring te scheppen over de drempelwaarde. Het verschil tussen 20Mb en 20Mib
+            is echter te verwaarlozen.</sup></p>
+      </section>
+    </section>
+    <section id="overzicht-transactiepatronen-nieuw">
+      <h3 id="x2-6-overzicht-transactiepatronen-nieuw"><span class="secno">2.6 </span>Overzicht transactiepatronen
+        (nieuw)</h3>
+      <div class="note" role="note" id="issue-container-generatedID-3">
+        <div role="heading" class="note-title marker" id="h-note-3" aria-level="4"><span>Noot</span></div>
+        <aside class="">
+          <blockquote>
+            <p><code>TODO</code>: nu de koppeling met bevraging en melding is losgelaten is het nodig om te beschrijven
+              in welke situatie je Digikoppeling kan en moet gebruiken. Het gaat in dit hoofdstuk nog om de patronen. In
+              het hoofdstuk usecases willen we graag praktijkvoorbeelden beschrijven.
+              Hiervoor is <strong>alle input</strong> welkom!</p>
+          </blockquote>
+        </aside>
+      </div>
+      <section id="synchrone-bevraging">
+        <h4 id="x2-6-1-synchrone-bevraging"><span class="secno">2.6.1 </span>Synchrone bevraging</h4>
+        <p>Bij een bevraging (vraag-antwoord) stuurt de service-requester een voorgedefinieerde vraag (request) aan de
+          service-provider, die een antwoord (response) verstrekt. Het initiatief ligt bij de service-requester. Gaat er
+          in de uitwisseling iets mis dan zal de service-requester na een bepaalde tijd de uitwisseling afbreken
+          (time-out).</p>
+        <p><img src="media/Synchroon_request.png" alt="synchroon request" title="synchroon request" width="326"
+            height="281"></p><span class="simple">
+
+          <table>
+            <thead>
+              <tr>
+                <th>Koppelvlakspecificatie</th>
+                <th>Omschrijving</th>
+                <th>Praktijkvoorbeeld</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Digikoppeling WUS</td>
+                <td>Digikoppeling WUS is geschikt als voor de bevraging gestructureerde berichten (in XML) nodig zijn.
+                  Digikoppeling heeft profielen voor signing en encryption.</td>
+                <td>...</td>
+              </tr>
+              <tr>
+                <td>Digikoppeling REST-API</td>
+                <td>Digikoppeling REST-API is eenvoudiger te configuren dan WUS</td>
+                <td>...</td>
+              </tr>
+            </tbody>
+          </table>
+        </span>
+      </section>
+      <section id="synchrone-melding-bevestiging">
+        <h4 id="x2-6-2-synchrone-melding-bevestiging"><span class="secno">2.6.2 </span>Synchrone Melding-bevestiging
+        </h4>
+        <p>Bij een melding-bevestiging stuurt een service-requester informatie naar de service-provider en de ontvangst
+          wordt synchroon door de service-provider bevestigd. Belangrijk is de schadelijke effecten te voorkomen als een
+          bericht twee keer wordt verzonden (door een time-out) of als meldingen in de verkeerde volgorde binnenkomen.
+        </p><span class="simple">
+
+          <table>
+            <thead>
+              <tr>
+                <th>Koppelvlakspecificatie</th>
+                <th>Omschrijving</th>
+                <th>Praktijkvoorbeeld</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Digikoppeling WUS</td>
+                <td>Digikoppeling WUS is geschikt als voor de melding een gestructureerde bericht (in XML) nodig is.
+                  Digikoppeling heeft profielen voor signing en encryption. Voorwaarde is dat de melding
+                  <em>idempotent</em> is</td>
+                <td>...</td>
+              </tr>
+              <tr>
+                <td>Digikoppeling REST-API</td>
+                <td>Digikoppeling REST-API is eenvoudiger te configuren dan WUS. Voorwaarde is dat de melding
+                  <em>idempotent</em> is</td>
+                <td>...</td>
+              </tr>
+            </tbody>
+          </table>
+        </span>
+      </section>
+      <section id="asynchrone-melding-bevestiging">
+        <h4 id="x2-6-3-asynchrone-melding-bevestiging"><span class="secno">2.6.3 </span>Asynchrone Melding-bevestiging
+        </h4>
+        <p>Bij een melding-bevestiging stuurt een service-requester informatie naar de service-provider en ontvangt
+          synchroon een bevestiging dat een bericht is ontvangen.
+        </p>
+        <p><img src="media/Asynchroon_request.png" alt="Asynchroon request" title="Asynchroon request" width="429"
+            height="531"></p><span class="simple">
+
+          <table>
+            <thead>
+              <tr>
+                <th>Koppelvlakspecificatie</th>
+                <th>Omschrijving</th>
+                <th>Praktijkvoorbeeld</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Digikoppeling ebMS2</td>
+                <td>Digikoppeling ebMS heeft reliable profiel (osb-rm) dat de bevestiging van ontvangst borgt</td>
+                <td>formele overdracht van OLO/DSO naar bevoegd gezag</td>
+              </tr>
+              <tr>
+                <td>Digikoppeling WUS</td>
+                <td>Digikoppeling WUS kent geen reliable profiel. Partijen in de keten moeten met elkaar afspraken hoe
+                  een melding wordt bevestigd in een antwoord door de ontvanger op een later tijdstip</td>
+                <td>...</td>
+              </tr>
+              <tr>
+                <td>Digikoppeling REST-API</td>
+                <td>Digikoppeling REST-API kent geen reliable profiel. Partijen in de keten moeten met elkaar afspraken
+                  hoe een melding wordt bevestigd in een antwoord door de ontvanger op een later tijdstip</td>
+                <td>...</td>
+              </tr>
+            </tbody>
+          </table>
+        </span>
+      </section>
+      <section id="overdracht-van-verantwoordelijkheid">
+        <h4 id="x2-6-4-overdracht-van-verantwoordelijkheid"><span class="secno">2.6.4 </span>Overdracht van
+          verantwoordelijkheid</h4>
+        <p>Bij dit patroon gaat het om een overdracht van verantwoordelijkheden, zoals het bevoegd gezag - nemen van
+          besluiten over een onderwerp - van een overheidsorganisatie naar een andere organsatie. Hierbij is het
+          essentieel dat beide partijen zekerheid over de de overdracht, zeker omdat er bepaalde wettelijke termijnen
+          kunnen bestaan waar besluiten genomen moeten worden.
+        </p><span class="simple">
+
+          <table>
+            <thead>
+              <tr>
+                <th>Koppelvlakspecificatie</th>
+                <th>Omschrijving</th>
+                <th>Praktijkvoorbeeld</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Digikoppeling ebMS2</td>
+                <td>Digikoppeling ebMS kent een betrouwbaar profiel (osb-rm) dat de bevestiging van ontvangst borgt</td>
+                <td>formele overdracht van OLO/DSO naar bevoegd gezag</td>
+              </tr>
+            </tbody>
+          </table>
+        </span>
+      </section>
+      <section id="uitwisselen-grote-bestanden">
+        <h4 id="x2-6-5-uitwisselen-grote-bestanden"><span class="secno">2.6.5 </span>Uitwisselen grote bestanden</h4>
+        <p>De situatie kan zich voordoen dat een bericht een omvang krijgt die niet meer efficiënt door de
+          Digikoppeling-adapters verwerkt kan worden bijvoorbeeld vanwege de overhead bij eventuele hertransmissies. Ook
+          kan het voorkomen dat er behoefte bestaat aan het sturen van aanvullende informatie naar systemen buiten de
+          normale procesgang ('out-of-band').</p><span class="simple">
+
+          <table>
+            <thead>
+              <tr>
+                <th>Koppelvlakspecificatie</th>
+                <th>Omschrijving</th>
+                <th>Praktijkvoorbeeld</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Digikoppeling Grote berichten</td>
+                <td>Bij ‘grote berichten’ worden grotere bestanden uitgewisseld via een van de Digikoppeling profielen
+                  WUS, ebMS en REST-API in combinatie met een (HTTPS-)download vanaf een beveiligde website. Grote
+                  berichten vormen een functionele uitbreiding op de Digikoppelvlakstandaarden voor de veilige
+                  bestandsoverdracht van berichten groter dan xxx MiB/GiB</td>
+                <td>...</td>
+              </tr>
+            </tbody>
+          </table>
+        </span>
+      </section>
+      <section id="abonneren-op-wijzigingen-middels-notificaties">
+        <h4 id="x2-6-6-abonneren-op-wijzigingen-middels-notificaties"><span class="secno">2.6.6 </span>Abonneren op
+          wijzigingen middels notificaties</h4>
+        <p>Dit patroon is bedoeld voor ketens die authentieke informatie willen 'halen bij de bron' in plaats van het
+          synchroniseren van registraties. Hiervoor is het essentieel dat organisaties worden genotificeerd bij
+          wijzigingen.</p>
+        <p><img src="media/Notification_request.png" alt="Notificatie request" title="Notificatie request" width="385"
+            height="443"></p><span class="simple">
+
+          <table>
+            <thead>
+              <tr>
+                <th>Koppelvlakspecificatie</th>
+                <th>Omschrijving</th>
+                <th>Praktijkvoorbeeld</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Digikoppeling REST-API</td>
+                <td>[todo]</td>
+                <td>...</td>
+              </tr>
+            </tbody>
+          </table>
+        </span>
+      </section>
+    </section>
+    <section id="uitwisseling-via-een-transparante-intermediair">
+      <h3 id="x2-7-uitwisseling-via-een-transparante-intermediair"><span class="secno">2.7 </span>uitwisseling via een
+        transparante intermediair</h3>
+      <p>Een transparante keten is alleen mogelijk als zowel de service-aanbieder als de serviceafnemer hetzelfde
+        protocol hanteren. De intermediair routeert berichten tussen de serviceaanbieder en de serviceafnemer waarbij
+        het bericht intact blijft (alleen de header wordt gelezen). De uitwisseling verloopt op dezelfde manier als bij
+        een bilaterale uitwisseling.</p>
+      <p><img src="media/DK_Transparant_intermediair.png" alt="Transparante intermediair"
+          title="Transparante intermediair" width="866" height="327">
+        Figuur 6: Transparante intermediair</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Koppelvlakspecificatie</th>
+            <th>Omschrijving</th>
+            <th>Praktijkvoorbeeld</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Digikoppeling ...</td>
+            <td>[todo]</td>
+            <td>...</td>
+          </tr>
+        </tbody>
+      </table><br>
+      <div class="note" role="note" id="issue-container-generatedID-4">
+        <div role="heading" class="note-title marker" id="h-note-4" aria-level="4"><span>Noot</span></div>
+        <aside class="">
+          <blockquote>
+            <p>EDUkoppeling beschrijft (in de <em>concept Architectuur 2.0</em>) de volgende patronen</p>
+            <ul>
+              <li><strong>Request-response (bevraging)</strong>
+                <ul>
+                  <li>een vraag waar direct een reactie op wordt verwacht</li>
+                </ul>
+              </li>
+              <li><strong>Melding-bevestiging</strong>
+                <ul>
+                  <li>De informatie wordt gestuurd door A en de ontvangst wordt synchroon door B bevestigd.</li>
+                  <li>(PH: Is dit een businesstransactie? Een patroon dat Digikoppeling niet kent (tot nu toe?)</li>
+                  <li>Belangrijk is de schadelijke effecten te voorkomen als een bericht twee keer wordt verzonden (door
+                    een time-out) of als meldingen in de verkeerde volgorde binnenkomen. Digikoppeling lost dat op met
+                    het patroon Gegarandeerde aflevering. Edukoppeling ondersteunt dat niet.</li>
+                </ul>
+              </li>
+              <li><strong>Asynchrone uitwisseling</strong>
+                <ul>
+                  <li>Een asynchrone uitwisseling is twee keer het patroon melding-bevestiging in verschillende
+                    richtingen.</li>
+                </ul>
+              </li>
+              <li><strong>Grote berichten</strong></li>
+              <li><strong>Abonneren op wijzigingen middels notificaties</strong>
+                <ul>
+                  <li>er is een verandering op gang van het synchroniseren van administraties naar het direct bevragen
+                    bij de bron.</li>
+                </ul>
+              </li>
+            </ul>
+            <p>EduKoppeling hanteert voor abonneren de volgende uitgangspunten:</p>
+            <ul>
+              <li>Elke resource, elk object (verderop: gegevens) kent een beheerder; de organisatie die het gegeven in
+                beheer heeft, en 1 of meer afnemers; de organisaties die deze resources gebruiken. In 1:n koppelvlakken
+                is de centrale dienstverlener de houder van de gegevens, en zijn de gekoppelde organisaties de afnemers.
+                In 1:1 situaties wordt een van beide partijen aangewezen als beheerder.</li>
+              <li>Updates op gegevens bij de beheerder worden geïnitieerd door de afnemer middels het patroon ‘Melding -
+                bevestiging’ of ‘ Asynchrone uitwisseling’.</li>
+              <li>Ophalen van de actuele stand van zaken wordt altijd middels het request -response patroon
+                gerealiseerd, niet door een melding vanuit de beheerder.</li>
+              <li>Wanneer een partij geïnteresseerd is in wijzigingen in een gegeven bij de beheerder kan hij dat
+                kenbaar maken middels een abonnementenservice. Dit is een service die de beheerder moet leveren aan zijn
+                afnemers.<ul>
+                  <li>Bij een wijziging op een gegeven worden alle abonnees hiervan in kennis gesteld middels een
+                    notificatiebericht. Dus is altijd een “Melding - Bevestiging” met daarin alleen het unieke
+                    resourceID waarmee de abonnee, op het moment dat het hem uitkomt, de actuele stand kan ophalen. De
+                    gegevens zelf worden niet direct teruggeleverd. Hiermee wordt een maximale ontkoppeling
+                    gegarandeerd, ook bij wijzigingen in de toekomst.</li>
+                </ul>
+              </li>
+            </ul>
+            <p>EDUkoppeling noemt ook een</p>
+            <ul>
+              <li>Antipatroon: <strong>Polling</strong></li>
+            </ul>
+          </blockquote>
+        </aside>
+      </div>
     </section>
   </section>
   <p role="navigation" id="back-to-top"><a href="#title"><abbr title="Naar begin">↑</abbr></a></p>
