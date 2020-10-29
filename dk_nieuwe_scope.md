@@ -1,6 +1,6 @@
 # Een nieuwe kijk op Digikoppeling
 
-In dit hoofstuk opzet beschrijven we de belangrijkste facetten van de nieuwe Digikoppeling Architectuur.
+In dit hoofdstuk opzet beschrijven we de belangrijkste facetten van de nieuwe Digikoppeling Architectuur.
 
 
 ## Doel van Digikoppeling
@@ -20,15 +20,15 @@ Met de toevoeging van het Digikoppeling Rest-API profiel komt de vergelijking me
 
 Envelop en bericht schuiven in elkaar, de metafoor van enveloppen en postverzending werkt niet meer. Echter, het basisprincipe blijft: Digikoppeling bemoeit zich niet met de inhoud, Digikoppeling heeft *'Geen boodschap aan de boodschap'*.
 
-## Open en Closed Data
+## Open en Closed Data en Diensten
 
-Een belangrijke aanleiding voor het starten van de Commonground beweging van VNG was de ergernis over het op grote schaal rondpompen van gegevens binnen de digitale overheid. De ontsluiting van die gegevens en de noodzaak om die redundante bronnen synchroon te houden veroorzaakt een complex systeem van koppeling. Een van de oplossingen voor het principe *Single Source of Truth* is om weer terug te gaan naar het concept van   'halen bij de bron', eigenlijk een van drijfveren van het ontstaan van het stelsel van basisregistraties.
+Een belangrijke aanleiding voor het starten van de Commonground beweging van VNG was de ergernis over het op grote schaal rondpompen van gegevens binnen de digitale overheid. De ontsluiting van die gegevens en de noodzaak om die redundante bronnen synchroon te houden veroorzaakt een complex systeem van koppelingen. Een van de oplossingen voor het principe *Single Source of Truth* is om weer terug te gaan naar het concept van   'halen bij de bron', eigenlijk een van drijfveren van het ontstaan van het stelsel van basisregistraties.
 
-Een ander concept dat sinds begin 2000 een opmars maakt is het principe van *Open Data*. Open Data zijn gegevens die in een open formaat door iedereen voor alle doeleinden vrij gebruikt, hergebruikt en gedeeld kunnen worden. De nadruk voor Open data ligt met name bij de gegevens van de overheid. Gegevens die om reden van privacy, veiligheid, wettelijke verplichtingen en dergelijk niet onder de definitie vallen noemen we in dit document Close Data.
+Een concept dat sinds begin 2000 een opmars maakt is het principe van *Open Data*. Open Data zijn gegevens die in een open formaat door iedereen voor alle doeleinden vrij gebruikt, hergebruikt en gedeeld kunnen worden. De nadruk voor Open data ligt met name bij de gegevens van de overheid. Gegevens die om reden van privacy, veiligheid, wettelijke verplichtingen en dergelijk niet onder de definitie vallen noemen we in dit document Close Data.
 
 ## Toepassingsgebied
 
-Digikoppeling staat op de lijst *verplichte standaarden* van het Forum Standaardisatie De lijst beschrijft het toepassingsgebied van Digikoppeling als 
+Digikoppeling staat op de lijst *verplichte standaarden* van het Forum Standaardisatie De lijst beschrijft het toepassingsgebied van Digikoppeling als
 
 > Digikoppeling moet worden toegepast op alle digitale gegevensuitwisseling met behulp van gestructureerde berichten die plaatsvindt met voorzieningen die onderdeel zijn van de GDI, waaronder de basisregistraties, of die sector-overstijgend is.
 
@@ -57,7 +57,7 @@ Digikoppeling gaat over communicatie tussen de overheden (G2G) en niet over uitw
 
 ### Scope van Digikoppeling
 
-Digikoppeling moet worden toegepast voor geautomatiseerde gegevensuitwisseling tussen informatiesystemen en is verplicht voor nederlandse overheden (Rijk, provincies, gemeenten en waterschappen) en instellingen uit de (semi-)publieke sector. 
+Digikoppeling moet worden toegepast voor geautomatiseerde gegevensuitwisseling tussen informatiesystemen en is verplicht voor Nederlandse overheden (Rijk, provincies, gemeenten en waterschappen) en instellingen uit de (semi-)publieke sector.
 
 <aside class="note">
 
@@ -67,8 +67,8 @@ Digikoppeling moet worden toegepast voor geautomatiseerde gegevensuitwisseling t
 
 ![Digikoppeling voor closed data G2G uitwisseling](media/DK_closed_g2g.png "Digikoppeling voor closed data G2G uitwisseling")
 
-### Grijs gebied?
+### Grijs gebied
 
-De verplichting voor Digikoppeling geldt dus voor communicatie tussen overheden. De praktijk is dat voor communicatie met bedrijven vaak verplichtingen gelden die hun oorsprong hebben in Digikoppeling, zoals het gebruik van het OIN en PKIoverheidscertificaten, of zelfs geïnspireerd  zoals het Koppelvlak WUS voor bedrijven van Digipoort. 
+De verplichting voor Digikoppeling geldt dus voor communicatie tussen overheden. De praktijk is dat voor communicatie met bedrijven vaak verplichtingen gelden die hun oorsprong hebben in Digikoppeling, zoals het gebruik van het OIN en PKIoverheidscertificaten, of zelfs geïnspireerd zijn op Digikoppeling zoals het Koppelvlak WUS voor bedrijven van Digipoort.
 
 ![Digikoppeling voor closed data G2B uitwisseling](media/DK_closed_b2g.png "Digikoppeling voor closed data G2B uitwisseling")

@@ -160,7 +160,7 @@ Bij een asynchrone request-response verstuurt de service-requester een bericht n
 
 > `TODO`: De oorspronkelijke paragraaf geskipt, nieuwe invulling is nodig:
 >
->In de oorspronkelijke paragraaf werd uitgebreid ingegaan op **bevragingen en meldingen** en de verschillen hiertussen. De begrippen *Digikoppeling Bevraging* en *Digikoppeling Melding* werden geintroduceerd. De paragraaf diende hierdoor als inleiding om het toepassen van WUS en ebMS op beide vormen in de verdere paragrafen in het hoofdstuk (voor) te (be)schrijven.
+>In de oorspronkelijke paragraaf werd uitgebreid ingegaan op **bevragingen en meldingen** en de verschillen hiertussen. De begrippen *Digikoppeling Bevraging* en *Digikoppeling Melding* werden geïntroduceerd. De paragraaf diende hierdoor als inleiding om het toepassen van WUS en ebMS op beide vormen in de verdere paragrafen in het hoofdstuk (voor) te (be)schrijven.
 >
 >Nu we deze koppeling bevragen en melden in de standaard hebben losgelaten is het de vraag of we deze vormen nog met zoveel nadruk moeten benoemen.
 >
@@ -291,6 +291,103 @@ Digikoppeling Grote Berichten maakt verschillende vormen van uitwisseling op bus
 
 <aside class="note">
 
+### Synchrone bevraging
+
+Bij een bevraging (vraag-antwoord) stuurt de service-requester een voorgedefinieerde vraag (request) aan de service-provider, die een antwoord (response) verstrekt. Het initiatief ligt bij de service-requester. Gaat er in de uitwisseling iets mis dan zal de service-requester na een bepaalde tijd de uitwisseling afbreken (time-out).
+
+![synchroon request](media/Synchroon_request.png "synchroon request")
+
+<span class="simple">
+
+|Koppelvlakspecificatie|Omschrijving|Praktijkvoorbeeld|
+|---|---|---|
+|Digikoppeling WUS| Digikoppeling WUS is geschikt als voor de bevraging gestructureerde  berichten (in XML) nodig zijn. Digikoppeling heeft profielen voor signing en encryption. |...|
+|Digikoppeling REST-API| Digikoppeling REST-API is eenvoudiger te configuren dan WUS| ... |
+
+</span>
+
+### Synchrone Melding-bevestiging
+
+Bij een melding-bevestiging stuurt een service-requester informatie naar de service-provider en de ontvangst wordt synchroon door de service-provider bevestigd. Belangrijk is de schadelijke effecten te voorkomen als een bericht twee keer wordt verzonden (door een time-out) of als meldingen in de verkeerde volgorde binnenkomen. 
+
+<span class="simple">
+
+|Koppelvlakspecificatie|Omschrijving|Praktijkvoorbeeld|
+|---|---|---|
+|Digikoppeling WUS| Digikoppeling WUS is geschikt als voor de melding een  gestructureerde  bericht (in XML) nodig is. Digikoppeling heeft profielen voor signing en encryption. Voorwaarde is dat de melding *idempotent* is |...|
+|Digikoppeling REST-API| Digikoppeling REST-API is eenvoudiger te configuren dan WUS. Voorwaarde is dat de melding *idempotent* is| ... |
+
+</span>
+
+
+### Asynchrone Melding-bevestiging
+
+Bij een melding-bevestiging stuurt een service-requester informatie naar de service-provider en ontvangt synchroon een bevestiging dat een bericht is ontvangen. 
+
+![Asynchroon request](media/Asynchroon_request.png "Asynchroon request")
+
+<span class="simple">
+
+|Koppelvlakspecificatie|Omschrijving|Praktijkvoorbeeld|
+|---|---|---|
+|Digikoppeling ebMS2| Digikoppeling ebMS heeft reliable profiel (osb-rm) dat de bevestiging van ontvangst borgt | formele overdracht van OLO/DSO naar bevoegd gezag |
+|Digikoppeling WUS| Digikoppeling WUS kent geen reliable profiel. Partijen in de keten moeten met elkaar afspraken hoe een melding wordt bevestigd in een antwoord door de ontvanger op een later tijdstip  |...|
+|Digikoppeling REST-API| Digikoppeling REST-API kent geen reliable profiel. Partijen in de keten moeten met elkaar afspraken hoe een melding wordt bevestigd in een antwoord door de ontvanger op een later tijdstip| ... |
+
+</span>
+
+### Overdracht van verantwoordelijkheid
+
+Bij dit patroon gaat het om een overdracht van verantwoordelijkheden, zoals het bevoegd gezag - nemen van besluiten over een onderwerp - van een overheidsorganisatie naar een andere organsatie. Hierbij is het essentieel dat beide partijen zekerheid over de de overdracht, zeker omdat er bepaalde wettelijke termijnen kunnen bestaan waar besluiten genomen moeten worden.  
+
+<span class="simple">
+
+|Koppelvlakspecificatie|Omschrijving|Praktijkvoorbeeld|
+|---|---|---|
+|Digikoppeling ebMS2| Digikoppeling ebMS kent een betrouwbaar profiel (osb-rm) dat de bevestiging van ontvangst borgt | formele overdracht van OLO/DSO naar bevoegd gezag |
+
+</span>
+
+### Uitwisselen grote bestanden
+
+De situatie kan zich voordoen dat een bericht een omvang krijgt die niet meer efficiënt door de Digikoppeling-adapters verwerkt kan worden bijvoorbeeld vanwege de overhead bij eventuele hertransmissies. Ook kan het voorkomen dat er behoefte bestaat aan het sturen van aanvullende informatie naar systemen buiten de normale procesgang ('out-of-band').
+
+<span class="simple">
+
+|Koppelvlakspecificatie|Omschrijving|Praktijkvoorbeeld|
+|---|---|---|
+|Digikoppeling Grote berichten| Bij ‘grote berichten’ worden grotere bestanden uitgewisseld via een van de Digikoppeling profielen WUS, ebMS en REST-API in combinatie met een (HTTPS-)download vanaf een beveiligde website. Grote berichten vormen een functionele uitbreiding op de Digikoppelvlakstandaarden voor de veilige bestandsoverdracht van berichten groter dan xxx MiB/GiB | ... |
+
+</span>
+
+### Abonneren op wijzigingen middels notificaties
+
+Dit patroon is bedoeld voor ketens die authentieke informatie willen 'halen bij de bron' in plaats van het synchroniseren van registraties. Hiervoor is het essentieel dat organisaties worden genotificeerd bij wijzigingen.
+
+![Notificatie request](media/Notification_request.png "Notificatie request")
+
+<span class="simple">
+
+|Koppelvlakspecificatie|Omschrijving|Praktijkvoorbeeld|
+|---|---|---|
+|Digikoppeling REST-API| [todo]| ... |
+
+</span>
+
+## uitwisseling via een transparante intermediair
+
+Een transparante keten is alleen mogelijk als zowel de service-aanbieder als de serviceafnemer hetzelfde protocol hanteren. De intermediair routeert berichten tussen de serviceaanbieder en de serviceafnemer waarbij het bericht intact blijft (alleen de header wordt gelezen). De uitwisseling verloopt op dezelfde manier als bij een bilaterale uitwisseling.
+
+![Transparante intermediair](media/DK_Transparant_intermediair.png "Transparante intermediair")
+Figuur 6: Transparante intermediair
+
+|Koppelvlakspecificatie|Omschrijving|Praktijkvoorbeeld|
+|---|---|---|
+|Digikoppeling ...| [todo]| ... |
+
+<br>
+<aside class="note">
+
 > EDUkoppeling beschrijft (in de *concept Architectuur 2.0*) de volgende patronen
 >
 > - **Request-response (bevraging)**
@@ -304,9 +401,9 @@ Digikoppeling Grote Berichten maakt verschillende vormen van uitwisseling op bus
 > - **Grote berichten**
 > - **Abonneren op wijzigingen middels notificaties**
 >   - er is een verandering op gang van het synchroniseren van administraties naar het direct bevragen bij de bron.
-
-EduKoppeling hanteert voor abonneren de volgende uitgangspunten:
-
+> 
+> EduKoppeling hanteert voor abonneren de volgende uitgangspunten:
+>
 > - Elke resource, elk object (verderop: gegevens) kent een beheerder; de organisatie die het gegeven in beheer heeft, en 1 of meer afnemers; de organisaties die deze resources gebruiken. In 1:n koppelvlakken is de centrale dienstverlener de houder van de gegevens, en zijn de gekoppelde organisaties de afnemers. In 1:1 situaties wordt een van beide partijen aangewezen als beheerder.
 > - Updates op gegevens bij de beheerder worden geïnitieerd door de afnemer middels het patroon ‘Melding - bevestiging’ of ‘ Asynchrone uitwisseling’.
 > - Ophalen van de actuele stand van zaken wordt altijd middels het request -response patroon gerealiseerd, niet door een melding vanuit de beheerder.
@@ -323,49 +420,3 @@ EduKoppeling hanteert voor abonneren de volgende uitgangspunten:
 
 
 
-## Scenario’s voor synchrone en asynchrone uitwisseling
-
-### Overzicht synchrone en asynchrone uitwisseling
-
-Bij synchrone uitwisseling hanteren partijen dezelfde koppelvlakstandaard<del> (WUS`<sup>[25](#f25)</sup>`) </del> en bevragen elkaar rechtstreeks. Voor een bevraging moet de service op het moment van `bevraging` beschikbaar zijn.
-
-![Digikoppeling-bevragingen en -meldingen](media/DK_Overzicht_bevraging_melding.png "Digikoppeling-bevragingen en -meldingen")
-
-Figuur 4: Digikoppeling-bevragingen en -meldingen
-
-<aside class="note">
-
-> `TODO:` Plaatje herzien
-
-</aside>
-
-Een asynchrone uitwisseling <del> (ebMS2) </del> wordt door de verzender verstuurd naar de ontvanger maar kan ook lopen via een transparante intermediair.`
-
-Er zijn dus de volgende mogelijkheden:
-
-- Bilaterale uitwisseling tussen partijen
-
-- Bilaterale uitwisseling via een transparante intermediair
-
-<br><del> <sup><a name="f25"><dfn>25</dfn></a></sup> ebMS best effort mag binnen een sector worden gebruikt voor bevragingen (met een uitgesteld antwoord) indien partijen dit onderling overeenkomen. </del>
-
-### Bilaterale uitwisseling tussen partijen
-
-In het eenvoudigste patroon gebruiken de serviceaanbieder en serviceafnemer Digikoppeling rechtstreeks voor synchrone en asynchrone uitwisseling, eventueel in combinatie met grote berichten. Aanbiedende partijen bieden een Service(WSDL) of (Restful)API beschrijving of stellen samen een (technisch) servicecontract (CPA in geval van ebMS) op dat ingelezen kan worden in de eigen Digikoppeling- ebMS adapter.
-
-![Bilaterale uitwisseling](media/DK_Bilaterale_uitwisseling.png  "Bilaterale uitwisseling")
-
-Figuur 5: Bilaterale uitwisseling
-<aside class="note">
-
-> `TODO` Plaatje moet mogelijk worden herzien omdat in de plaat de nadruk ligt op berichten
-
-</aside>
-
-### Bilaterale uitwisseling via een transparante intermediair
-
-Een transparante keten is alleen mogelijk als zowel de service-aanbieder als de serviceafnemer hetzelfde protocol hanteren. De intermediair routeert berichten tussen de serviceaanbieder en de serviceafnemer waarbij het bericht intact blijft (alleen de header wordt gelezen). De uitwisseling verloopt op dezelfde manier als bij een bilaterale uitwisseling.
-
-![Transparante intermediair](media/DK_Transparant_intermediair.png "Transparante intermediair")
-
-Figuur 6: Transparante intermediair
