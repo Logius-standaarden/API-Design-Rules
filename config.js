@@ -16,7 +16,7 @@ var respecConfig =
   specStatus: "GN-DEF",
   specType: "ST",
   pubDomain: "api",
-  publishDate: "2020-01-17",
+  publishDate: "2020-07-09",
 //  previousPublishDate: "2019-07-15",
 //  previousMaturity: "GN-VV",
   editors:
