@@ -45,7 +45,7 @@ var respecConfig =
       companyURL: "https://www.kadaster.nl",
     }
   ],
-  shortName: "API-Design-Rules",
+  shortName: "adr",
   github: "https://github.com/Logius-standaarden/API-Design-Rules",
   issueBase: "https://github.com/Logius-standaarden/API-Design-Rules/issues/",
   localBiblio: {
