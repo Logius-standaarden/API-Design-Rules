@@ -6,36 +6,17 @@ De volgende uitgangspunten vormen de basis voor de uitwerking van deze architect
 
 1. De Digikoppeling standaarden zijn openbaar, vindbaar, transparant, leveranciersonafhankelijk en interoperabel. Zie bijlage D voor uitleg.
 
-2. De Digikoppeling-standaarden ondersteunen veilige gegevensuitwisseling ~~op basis van meldingen (ebMS2) , bevragingen (WUS) of in combinatie met grote berichten (GB).~~ voor:
+2. De Digikoppeling-standaarden ondersteunen veilige gegevensuitwisseling voor:
    - synchrone en asynchrone uitwisseling;
-   - op berichten of op resources gebaseerde uitwisseling;
-   - best effort of reliable uitwisseling;
-   - uitwisselen van grote berichten;
+   - berichtverkeer of op resources gebaseerde uitwisseling;
+   - het uitwisselen van best effort of reliable overdracht;
+   - het uitwisselen van grote berichten;
 
+3. Partijen kunnen kiezen welk interactiepatroon nodig is voor gegevensuitwisseling.  afhankelijk van hun behoefte. Partijen bepalen in onderling overleg welke  Digikoppeling profiel ze gebruiken.
 
+4. Providers, zoals Basisregistraties en landelijke voorzieningen, bepalen welke koppelvlakstandaard gebruikt wordt voor een door hun geleverde dienst. Per dienst kunnen meerdere koppelvlakstandaarden aangeboden worden.
 
-<aside class="note">
-
-> `TODO`: is bovenstaande lijstje compleet? toe te voegen patronen kunnen bijvoorbeeld zijn: stateful/stateless, push/pull, enz.
-
-</aside>
-
-3. Partijen kunnen kiezen welk interactiepatroon nodig is voor gegevensuitwisseling. ~~meldingen en/of bevragingen~~, afhankelijk van hun behoefte. Partijen bepalen in onderling overleg welke ~~ WUS- of ebMS2-~~ Digikoppeling profiel ze gebruiken.
-
-4. Basisregistraties en landelijke voorzieningen bepalen welke koppelvlakstandaard gebruikt wordt door een door hun geleverde dienst. Per dienst kunnen meerdere koppelvlakstandaarden gebruikt worden.
-
-<aside class="note">
-
-> **let op** Principe 4 is vervangen door een gewijzigd principe 4. Er moet nog een check worden uitgevoerd op de NORA.
->
-> De vorige formulering was
->
-> 4. ~~Basisregistraties en landelijke voorzieningen moeten beide koppelvlakstandaarden ondersteunen<sup>[12](#f12)</sup>. Mochten de serviceafnemers voldoende hebben aan één van de koppelvlakstandaarden, dan kan de aanbieder zich tot deze koppelvlakstandaard beperken.~~
-> ~~<br><sup><a name="f12"><dfn>12</dfn></a> Serviceafnemers kunnen hierdoor ebMS gebruiken voor zowel bevragingen (binnen de sector), meldingen als grote berichten. ~~</sup>
-
-</aside>
-
-In vorige versies van de Digikoppeling Architectuur werden profielen gekoppeld aan bevragingen en meldingen. Dit voorschrift bleek in de praktijk niet meer goed bruikbaar. Vandaar dat met ingang van versie `xx` deze relatie is komen te vervallen.
+In vorige versies van de Digikoppeling Architectuur werden specifieke profielen gekoppeld aan bevragingen en meldingen. Dit voorschrift bleek in de praktijk niet meer goed bruikbaar. Vandaar dat met ingang van versie `xx` deze relatie is komen te vervallen.
 
 ## Architectuurprincipes
 
@@ -45,7 +26,7 @@ De architectuurprincipes geven richting aan de Digikoppeling-standaarden en Digi
 
 2. **Standaardoplossingen:** Het gebruik van standaardoplossingen is mogelijk, met een minimum aan ontwikkelinspanning of maatwerk.
 
-3. **Veiligheid en vertrouwelijkheid:** Gegevens worden veilig uitgewisseld conform de eisen van de toepasselijke wet en regelgeving. Wanneer berichten met persoonsgegevens verstuurd worden, moet de serviceafnemer nagaan of de uitwisseling voldoet aan de wet- en regelgeving (in het bijzonder de ~~WBP~~AVG ).
+3. **Veiligheid en vertrouwelijkheid:** Gegevens worden veilig uitgewisseld conform de eisen van de toepasselijke wet en regelgeving. Wanneer berichten met persoonsgegevens verstuurd worden, moet de serviceafnemer nagaan of de uitwisseling voldoet aan de wet- en regelgeving (in het bijzonder de AVG ).
 
 4. **Betrouwbaarheid:** Berichtuitwisseling is betrouwbaar indien nodig.
 
@@ -55,41 +36,12 @@ De architectuurprincipes geven richting aan de Digikoppeling-standaarden en Digi
 
 **Principe:** De interoperabiliteit van diensten is mogelijk door het gebruik van bewezen interoperabele internationale standaarden.
 
-**Rationale:** Door het gebruik van internationale open standaarden is het eenvoudiger en goedkoper om gegevens onderling uit te wisselen. Dit volgt uit de NORA en ~~het European Interoperability Framework (IDABC)~~.
+**Rationale:** Door het gebruik van internationale open standaarden is het eenvoudiger en goedkoper om gegevens onderling uit te wisselen. 
 
 **Invulling:**
 
-<aside class="note">
+**Gevolg:**
 
-> `TODO`: Zowel IEF 2.0 als het European Framwork 2.0 zijn verouderd en vervangen door de  'New' EIF en de de EIRA. Onderbouwing moet daarom worden vernieuwd  
-
-</aside>
-
-~~Het European Interoperability Framework 2. 0 maakt gebruik van een conceptueel model voor de levering van publieke diensten . In dit model is de *Secure Data Exchange/Management* laag verantwoordelijk voor de veilige uitwisseling van diensten en informatie. Deze laag regelt de veilige uitwisseling van gecontroleerde en betrouwbare berichten, documenten, formulieren en ander informatiedragers tussen verschillende systemen. Naast het transport van gegevens moet deze laag ook specifieke beveiligingsaspecten regelen zoals elektronische handtekeningen, certificaten, encryptie en tijdregistratie.<sup>[13](#f13)</sup>~~
-
-
-Deze laag wordt in de Nederlandse publieke sector ingevuld door Digikoppeling. Digikoppeling maakt hiervoor gebruik van twee internationale families van open standaarden voor webservices:<sup>[14](#f14)</sup> en REST-API's,een architectuurstijl gebaseerd op het gebruik van resources en de standaarden HTTP en JSON.  
-
-- ebXML en op de logistieke laag met name ebMS2;
-
-- WS-\*familie: WUS (WSDL, UDDI en SOAP), inclusief WS-Security, WS-Addressing enzovoort.
-
-<aside class="note">
-
-> `TODO`: hier iets over ADR (HTTP/JSON)?
-
-</aside>
-
-De ebMS2 standaard en de WUS profielen worden door OASIS ([www.oasis.org](https://www.oasis.org)) beheerd en de onderliggende WUS standaarden door W3c ([www.w3c.org](https://www.w3c.org)).<sup>[15](#f15)</sup>
-
-**Gevolg:** Digikoppeling schrijft ebMS2-, WUS-standaarden en de Nederlandse API Design Rules voor in de vorm van de Digikoppeling-koppelvlakstandaarden en profielen. Organisaties kunnen hiermee effectief, snel en veilig gegevens uitwisselen.
-
-<br>
-<br>~~<sup><a name="f13"><dfn>13</dfn></a> Annex II - EIF (European Interoperability Framework) of the Communication “Towards interoperability for European public services” on the 16th of December 2010.</sup>~~
-
-<br><sup><a name="f14"><dfn>14</dfn></a> EIF 1.0. Het begrip webservices is een algemeen concept dat gerelateerd is aan Service georiënteerde architectuur. Zowel WUS als ebMS werken volgens dit concept. Omdat de WS-\* familie voortbouwt op de basisstandaarden WSDL, UDDI en SOAP, wordt deze familie wel aangeduid met WUS.</sup>
-
-<br>~~<sup><a name="f15"><dfn>15</dfn></a> Voor de toepassing binnen Digikoppeling is in eerste instantie de beperking van die twee families overgenomen; de andere families hebben onvoldoende relevantie voor de Europese en Nederlandse overheid om afwijking van dit kader te rechtvaardigen.</sup>~~
 
 ## Gebruik standaardoplossingen (minimum aan maatwerk)
 
@@ -105,7 +57,7 @@ De ebMS2 standaard en de WUS profielen worden door OASIS ([www.oasis.org](https:
 
 **Principe:** Gegevens worden veilig uitgewisseld conform de eisen van de toepasselijke wet en regelgeving.
 
-**Rationale:** Er zijn diverse redenen om gegevens veilig en vertrouwelijk uit te wisselen. De  Algemene verordening gegevensbescherming (AVG) ~~Wet Bescherming Persoonsgegevens (WBP)~~ verplicht adequate maatregelen om de veiligheid en vertrouwelijkheid van (persoons)gegevens te bewaken. Partijen die onderling gegevens uitwisselen moeten hier afspraken over maken. De Wet Elektronische Handtekeningen bepaalt de rechtsgeldigheid van berichten die ondertekend zijn met een geldige digitale handtekening. Naast deze wetgeving zijn er ook andere wetten en beleidskaders die eisen stellen aan beveiliging en uitwisseling van gegevens.
+**Rationale:** Er zijn diverse redenen om gegevens veilig en vertrouwelijk uit te wisselen. De  Algemene verordening gegevensbescherming (AVG) verplicht adequate maatregelen om de veiligheid en vertrouwelijkheid van (persoons)gegevens te bewaken. Partijen die onderling gegevens uitwisselen moeten hier afspraken over maken. De Wet Elektronische Handtekeningen bepaalt de rechtsgeldigheid van berichten die ondertekend zijn met een geldige digitale handtekening. Naast deze wetgeving zijn er ook andere wetten en beleidskaders die eisen stellen aan beveiliging en uitwisseling van gegevens.
 
 Wanneer het gaat over veiligheid en vertrouwelijkheid zijn ook de Wet politiegegevens (informatiedeling met derden) en de Archiefwet van belang.
 
@@ -123,53 +75,23 @@ De belangrijkste beveiligingseisen zijn:
 
 - De vertrouwelijkheid, integriteit en onweerlegbaarheid van het bericht worden op protocolniveau geborgd (dus tussen systemen). Daarbuiten moeten partijen maatregelen treffen om deze aspecten te waarborgen.
 
-- Beveiliging van de transportlaag (point-to-point security) is randvoorwaardelijk: Beveiliging van het verkeer tussen twee (eind-)punten vindt plaats door middel van tweezijdig Transport Layer Security<sup>[16](#f16)</sup>.
+- Beveiliging van de transportlaag (point-to-point security) is randvoorwaardelijk: Beveiliging van het verkeer tussen twee (eind-)punten vindt plaats door middel van tweezijdig Transport Layer Security.
 
 
-Digikoppeling stelt het gebruik van het PKIoverheid certificaten verplicht voor de authenticatie van partijen en voor de versleuteling en ondertekening van berichten. Deze eisen gelden voor de Digikoppeling-keten en de Digikoppeling-standaarden. Dit onderwerp is nader uitgewerkt in het document ‘Digikoppeling Identificatie en Authenticatie’. Zie ook het *NORA Katern Informatiebeveiliging* (NORA 3.0) voor een nadere uitleg.
-
-<br><sup><a name="f16"><dfn>16</dfn></a> Dit is een randvoorwaarde die Digikoppeling stelt aan de transportlaag. Zie de Koppelvlak-standaarden voor de versienummers van de gebruikte protocollen.</sup>
-
+Digikoppeling stelt het gebruik van het PKIoverheid certificaten verplicht voor de authenticatie van partijen en voor de versleuteling en ondertekening van berichten. Deze eisen gelden voor de Digikoppeling-keten en de Digikoppeling-standaarden. 
 ## Betrouwbaarheid
 
-<aside class="note">
+**Principe:** De gegevenswisseling is betrouwbaar indien nodig.
 
-> `TODO:` opties tussen op betrouwbaarheid op transportprotocolniveau en in businesslaag verduidelijken
+**Rationale:** Betrouwbaarheid betekent een goede aflevering van berichten of requests. Zie ook NORA BP09.
 
-</aside>
+**Invulling:** Dit principe wordt ingevuld met het ebMS profiel, dat een reliable variant kent. De verzender is verantwoordelijk voor de goede aflevering van gegevens (d.m.v. berichten) en kan hiervoor een betrouwbaar Digikoppeling-profiel gebruiken.
 
-**Principe:** De berichtuitwisseling is betrouwbaar indien nodig.
+Betrouwbaarheid op Transportprotocol niveau kan ook worden ingevuld in de businesslaag door het uitwisselen van controleberichten.
 
-**Rationale:** Betrouwbaarheid betekent een goede aflevering van berichten. Zie ook NORA BP09.
-
-**Invulling:** Dit principe wordt ingevuld met ~~meldingen~~ het ebMS profiel, dat een reliable variant kent. De verzender is verantwoordelijk voor de goede aflevering van gegevens (d.m.v. berichten) en kan hiervoor een betrouwbaar Digikoppeling-profiel gebruiken.
-<aside class="note">
-
-> `TODO`: moet de volgende nieuwe zin - zie hieronder-, hier of als voetnoot worden vermeld?
-
-</aside>
-
-Naast betrouwbaarheid op Transportprotocol niveau, kan dit principe ook worden ingevuld in de businesslaag door het uitwisselen van controleberichten.
-
-**Gevolg:** Een betrouwbaar profiel garandeert dat een bericht met zekerheid (slechts één keer) wordt afgeleverd en dat berichten zo mogelijk in de juiste volgorde worden afgeleverd, ook als de partner tijdelijk niet beschikbaar is. Berichtuitwisseling is traceerbaar.
+**Gevolg:** 
 
 **Details:**
-
-- Een bericht is pas betrouwbaar afgeleverd als de verzender een ontvangstbevestiging heeft gehad van de ontvanger.
-
-- Een ontvangstbevestiging wordt pas gegeven als gegarandeerd kan worden dat het bericht niet meer verloren gaat. Dit stelt eisen aan de inrichting bij de ontvanger, bijvoorbeeld in de vorm van persistent storage en betrouwbare doorlevering ‘achter de voordeur’.
-
-- NB: zodra berichten buiten de Digikoppeling-keten komen, vervalt de betrouwbaarheid die de protocollen garanderen.
-
-- Betrouwbare ebMS2-profielen gebruiken een ‘reliability contract’ (CPA voor ebMS2) tussen verzender en ontvanger.
-
-- De berichtuitwisseling wordt bewaakt door middel van monitoring, foutafhandeling en vastgelegd via een audittrail.
-
-- In de audittrail worden berichten individueel geregistreerd op datum en tijdstip<sup>[17](#f17)</sup>/(sequence of message)id/ontvangstbevestiging en eventueel foutcodes. Tevens worden de verzendende en ontvangende services vastgelegd.
-
-- Het is mogelijk om berichtvolgorde op protocolniveau te regelen, maar dit is beperkt tot en met ontvangst door de adapter; daarna is de berichtvolgorde niet meer zichtbaar. Om die reden is het aan te raden om de berichtvolgorde aan te geven door middel van volgnummers in het bericht zelf of iets vergelijkbaars. Partijen kunnen dit onderling afspreken.
-
-<br><sup><a name="f17"><dfn>17</dfn></a> Om de tijd correct te registreren is de algemeen geaccepteerde best practice dat servers gebruikmaken van Netwerk Time Protocol (NTP). NTP is een protocol voor de synchronisatie van klokken van computers via een netwerk op basis van een gemeenschappelijke tijd (meestal UTC – gecoördineerde wereldtijd).</sup>
 
 ## Ontkoppeling
 

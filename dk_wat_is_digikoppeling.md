@@ -19,18 +19,6 @@ Digikoppeling is primair bedoeld voor gegevensuitwisseling tussen systemen van o
 
 </aside>
 
-## ~~Servicegerichte architectuur conform NORA~~
-
-<del>
-Digikoppeling sluit aan bij de servicegerichte architectuur die NORA (Nederlandse Overheids Referentie Architectuur)<sup>[1](#f1)</sup>: voorstaat. Deze vorm van informatie-uitwisseling verloopt via geautomatiseerde systemen van organisaties. Digikoppeling richt zich dus op de communicatie tussen ICT-systemen van verschillende organisaties, specifiek in de vorm van berichtenverkeer.</del>
-
-<del>NORA 3.0 bestaat uit basisprincipes, afgeleide principes en katernen. Bijlage C geeft aan hoe Digikoppeling aansluit op de NORA-principes en welke NORA-principes met Digikoppeling worden ingevuld. Digikoppeling sluit ook aan op het NORA Katern Verbinden<sup>[2](#f2)</sup> en het NORA Katern Informatiebeveiliging.</del>
-
-<del><br><sup><a name="f1"><dfn>1</dfn></a>: *Voor meer informatie over NORA zie [http://www.noraonline.nl](http://www.noraonline.nl)*</sup>
-
-<sup><a name="f2"><dfn>2</dfn></a>: In ontwikkeling.</sup>
-</del>
-
 ## Scope van Digikoppeling
 
 Om ~~digitale berichten~~ gegevens uit te wisselen moeten organisaties op verschillende niveaus afspraken maken:

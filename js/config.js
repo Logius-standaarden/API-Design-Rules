@@ -8,7 +8,7 @@ var respecConfig = {
   // TODO: emailComments: '...',
   // TODO: Voor pubDomain mogelijkheden zie https://github.com/Geonovum/respec/wiki/pubDomain
   // TODO: pubDomain: "...",
-  // splitMDsections: false,
+  splitMDsections: true,
  
   // Vul in om een korte extra uitleg te weergeven op de docs.centrumvoorstandaarden.nl website.
   subExplanation: "blabla", 

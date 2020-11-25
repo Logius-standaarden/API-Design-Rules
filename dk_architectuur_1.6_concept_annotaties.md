@@ -1,6 +1,6 @@
-<!-- markdownlint-disable MD033 MD024 MD041 MD038 -->
+# Digikoppeling
 
->**Deze conceptversie van het Digikoppeling Architectuur document bevat een aantal markeringen:**
+> **Deze conceptversie van het Digikoppeling Architectuur document bevat een aantal markeringen:**
 >
 > - Alle tekstdelen zijn `licht rood` gemarkeerd waarin de begrippen `bevraging` en/of `melding` in voorkomen;
 > - Toevoegingen, of aangepaste teksten zijn {+ groen en onderstreept +} gemarkeerd;
@@ -34,6 +34,7 @@
 
 Colofon
 
+<span class="simple">
 | Logius Servicecentrum: | Postbus 96810 2509 JE Den Haag t. 0900 555 4555 (10 ct p/m) e. [servicecentrum\@logius.nl](http://www.logius.nl) |
 |------------------------|------------------------------------------------------------------------------------------------------------------|
 |                        |                                                                                                                  |
@@ -52,106 +53,7 @@ Documentbeheer
 | {+ 01/03/2020 +} | {+ 1.6 +} | {+ Logius +} | {+ Richtlijnen aangepast van gebruik  ebMS2 of WUS voor meldingen en bevragingen aangepast +}                                                        |
 |            |        |        |                                                                                                                             |
 
-Inhoud
-
-[Managementsamenvatting 5](#managementsamenvatting)
-
-[1 Inleiding 6](#inleiding)
-
-[1.1 Doel 6](#doel)
-
-[1.2 Doelgroep 6](#doelgroep)
-
-[1.3 Verantwoording 6](#verantwoording)
-
-[1.4 Digikoppeling-standaarden 6](#digikoppeling-standaarden)
-
-[1.5 Begrippen 7](#begrippen)
-
-[1.6 Leeswijzer 7](#leeswijzer)
-
-[2 Wat is Digikoppeling? 8](#wat-is-digikoppeling)
-
-[2.1 Doel van Digikoppeling 8](#doel-van-digikoppeling)
-
-[2.2 Servicegerichte architectuur conform NORA
-8](#servicegerichte-architectuur-conform-nora)
-
-[2.3 Scope van Digikoppeling 9](#scope-van-digikoppeling)
-
-[2.4 De Digikoppeling-standaard 9](#de-digikoppeling-standaard)
-
-[2.5 Besparingen door Digikoppeling 9](#besparingen-door-digikoppeling)
-
-[2.6 Toepassing van Digikoppeling 10](#toepassing-van-digikoppeling)
-
-[2.7 Ontwikkeling van Digikoppeling 12](#ontwikkeling-van-digikoppeling)
-
-[2.8 Digikoppeling-beheeromgeving 12](#digikoppeling-beheeromgeving)
-
-[3 Digikoppeling-architectuurprincipes 15](#digikoppeling-architectuurprincipes)
-
-[3.1 Uitgangspunten 15](#uitgangspunten)
-
-[3.2 Architectuurprincipes 15](#architectuurprincipes)
-
-[3.3 Interoperabiliteit 15](#interoperabiliteit)
-
-[3.4 Gebruik standaardoplossingen (minimum aan maatwerk)16](#gebruik-standaardoplossingen-minimum-aan-maatwerk)
-
-[3.5 Veiligheid en vertrouwelijkheid 17](#veiligheid-en-vertrouwelijkheid)
-
-[3.6 Betrouwbaarheid 18](#betrouwbaarheid)
-
-[3.7 Ontkoppeling 19](#ontkoppeling)
-
-[4 De Digikoppeling-keten 20](#de-digikoppeling-keten)
-
-[4.1 Digikoppeling als bouwsteen van de eOverheid 20](#digikoppeling-als-bouwsteen-van-de-eoverheid)
-
-[4.2 De Digikoppeling-keten 20](#de-digikoppeling-keten-1)
-
-[4.3 Uitwisselingsvormen 22](#uitwisselingsvormen)
-
-[4.4 Scenario’s voor bevragingen en meldingen 26](#scenarios-voor-bevragingen-en-meldingen)
-
-[5 Digikoppeling-koppelvlakstandaarden en voorschriften 28](#digikoppeling-koppelvlakstandaarden-en-voorschriften)
-
-[5.1 Overzicht 28](#overzicht)
-
-[5.2 Digikoppeling-voorschriften 28](#digikoppeling-voorschriften)
-
-[5.3 WUS 30](#wus)
-
-[5.4 ebMS 30](#ebms)
-
-[5.5 Grote berichten 32](#grote-berichten-1)
-
-[6 Digikoppeling-voorzieningen 33](#digikoppeling-voorzieningen)
-
-[6.1 Inleiding 33](#inleiding-1)
-
-[6.2 Compliancevoorzieningen 34](#compliancevoorzieningen)
-
-[6.3 OIN Register 34](#oin-register)
-
-[6.4 CPA Register 34](#cpa-register)
-
-[7 Implementatie van Digikoppeling 35](#implementatie-van-digikoppeling)
-
-[7.1 Architectuuraspecten van de aansluiting op Digikoppeling 35](#architectuuraspecten-van-de-aansluiting-op-digikoppeling)
-
-[7.2 Relatie met de inhoudelijke laag 38](#relatie-met-de-inhoudelijke-laag)
-
-[7.3 Relatie met de transportlaag 39](#relatie-met-de-transportlaag)
-
-[Bijlage A: Bronnen 41](#bijlage-a-bronnen)
-
-[Bijlage B: Begrippenlijst 45](#bijlage-b-begrippenlijst)
-
-[Bijlage C: NORA Architectuurprincipes 51](#bijlage-c-nora-architectuurprincipes)
-
-[Bijlage D: Niet-functionele eisen 54](#bijlage-d-niet-functionele-eisen)
+</span>
 
 # Managementsamenvatting
 
@@ -179,12 +81,16 @@ De *Architectuur Digikoppeling* definieert de kaders – de gehanteerde principe
 
 De *Architectuur Digikoppeling* is bedoeld voor ICT-professionals in de publieke sector en voor ICT-leveranciers die Digikoppeling (willen gaan) gebruiken. Zie ook onderstaande tabel.
 
+<span class="simple">
+
 | Afkorting | Rol                             | Taak                                                                                                      | Doelgroep? |
 |-----------|---------------------------------|-----------------------------------------------------------------------------------------------------------|------------|
 | [M]       | Management                      | Bevoegdheid om namens organisatie (strategische) besluiten te nemen.                                      | **Nee**    |
 | [P]       | Projectleiding                  | Verzorgen van de aansturing van projecten.                                                                | **Nee**    |
 | [A&D]     | Analyseren & ontwerpen (design) | Analyseren en ontwerpen van oplossings-richtingen. Het verbinden van Business aan de IT.                  | **Ja**     |
 | [OT&B]    | Ontwikkelen, testen en beheer   | Ontwikkelt, bouwt en configureert de techniek conform specificaties. Zorgen voor beheer na ingebruikname. | **Ja**     |
+
+</span>
 
 ## Verantwoording
 
@@ -221,6 +127,8 @@ Belangrijke begrippen en afkortingen zijn opgenomen in *Bijlage B: Begrippen*.
 
 De Architectuur Digikoppeling is als volgt opgebouwd:
 
+<span class="simple">
+
 | Hoofdstuk   | Titel                                                    |
 |-------------|----------------------------------------------------------|
 | Hoofdstuk 2 | Wat is Digikoppeling?                                    |
@@ -233,6 +141,8 @@ De Architectuur Digikoppeling is als volgt opgebouwd:
 | Bijlage B   | Begrippenlijst                                           |
 | Bijlage C   | NORA-principes                                           |
 | Bijlage D   | Eisen aan de standaard                                   |
+
+</span>
 
 Tabel 1: Leeswijzer
 
@@ -631,6 +541,8 @@ Figuur 3: Positionering intermediair/sectoraal knooppunt
 
 De volgende componenten maken onderdeel uit van de Digikoppeling-keten van berichtuitwisseling.
 
+<span class="simple">
+
 | Componenten                            | Toelichting |
 |----------------------------------------|----|
 | Applicatie                             | Een systeem waarmee gegevens worden geproduceerd, vastgelegd en gebruikt.  |
@@ -639,6 +551,8 @@ De volgende componenten maken onderdeel uit van de Digikoppeling-keten van beric
 | Gegevens                               | Informatie die wordt beheerd en opgeslagen. Gegevens worden voor een specifieke uitwisseling in een bericht geplaatst.                                                                                                                                                                                                          |
 | PKIoverheid certificaten               | Identificatie en authenticatie vindt plaats op basis van het PKIoverheidscertificaat. Zie voor nadere uitleg Digikoppeling Identificatie en Authenticatie en Gebruik van Digikoppeling Certificaten.                                                                                                                            |
 | Servicecontract                        | Een technisch formaat voor het vastleggen van afspraken over de inhoud van de gegevensuitwisseling tussen partijen. Een servicecontract wordt vormgegeven d.m.v. een CPA (voor ebMS2 services) en een WSDL (voor WUS services) en wordt ingelezen in de Digikoppeling-adapter. Partijen stellen samen een servicecontract op.   |
+
+</span>
 
 Tabel 2: Componenten van de Digikoppeling-keten
 
@@ -672,11 +586,14 @@ Op business-niveau is er een veelheid aan uitwisselingsvormen waaraan behoefte b
 - het resultaat is 'uitgesteld, komt enige tijd later (de applicatie moet dan het antwoord bij de vraag zoeken) of wellicht helemaal niet. De applicatie of het business proces wachten niet.
 
 Op basis van deze twee verschillen komen we tot vier primitieve business-interacties, weergegeven in onderstaande tabel.
+<span class="simple">
 
 |                | **Onmiddellijk**                 | **Uitgesteld**                 |
 |----------------|----------------------------------|--------------------------------|
 | **Bevraging**  | Onmiddellijke businessbevraging  | Businessbevraging met uitstel  |
 | **Transactie** | Onmiddellijke businesstransactie | Businesstransactie met uitstel |
+
+</span>
 
 Deze businessafspraken worden geïmplementeerd in (bedrijfs)applicaties.
 Combineren van deze primitieve interacties tot meerdere (eventueel over de tijd verspreide interacties) maken complexe business-patronen mogelijk.
@@ -696,11 +613,14 @@ Bij een `melding` (betrouwbaar bericht) verstuurt de service-requester een betro
 ### Invulling van de behoefte met het aanbod
 
 Beide door Digikoppeling geboden uitwisselingsvormen moeten op de volgende wijze voor de eerder aangegeven vier primitieve business-interacties, toegepast worden.
+<span class="simple">
 
 |                | **Onmiddellijk**           | **Uitgesteld**        |
 |----------------|----------------------------|-----------------------|
 | **Bevraging**  | `Digikoppeling bevraging`    | Digikoppeling melding |
 | **Transactie** | `Digikoppeling melding`[^20] | Digikoppeling melding |
+
+</span>
 
 [^20]: Soms kan ook een Digikoppeling 'bevraging' toegepast worden. Zie toelichting.
 
@@ -850,6 +770,8 @@ Deze komen in de volgende varianten voor:
 
 Door het gebruik van deze profielen worden deze aspecten correct afgehandeld en kunnen partijen sneller een koppelvlakstandaard implementeren.
 
+<span class="simple">
+
 | Onderdeel | Toelichting|
 |---|---|
 | Koppelvlakstandaard WUS | het gebruik van WUS <del>{- voor bevragingen -}</del>{+ synchrone uitwisseling +} en de WUS profielen.|
@@ -860,6 +782,8 @@ Door het gebruik van deze profielen worden deze aspecten correct afgehandeld en 
 | Overzicht Actuele Documentatie en Compliance | Overzicht van de actuele versie van de  Digikopeling specifcaties (normatief en niet-normatief)  |
 | Gebruik en Achtergrond Digikoppeling Certificaten | Beschrijft de werking en gebruik van PKIoverheid Certificaten (niet-normatief) |
 
+</span>
+
 Tabel 3: Digikoppeling-standaarden
 
 ## Digikoppeling-voorschriften
@@ -868,12 +792,16 @@ Enkele afspraken over de functionaliteit van Digikoppeling hebben betrekking op 
 
 Onderstaande voorschriften gelden voor de hele Digikoppeling-keten. Partijen moeten er in hun eigen organisatie voor zorgen dat hun systemen, applicaties en toegang voor gebruikers aan de eisen voldoen.
 
+<span class="simple">
+
 | Aspect | Voorschrift | Toepassing en uitleg |
 |---|---|---|
 | Identiteit, authenticatie en autorisatie | Identificatie en authenticatie van partijen (ook intermediairs) vindt plaats in overeenstemming met het beleid hiervoor. Zowel service aanbieder als service afnemer moeten overeenkomstig afspraken autoriseren. De autorisatie gebeurt op organisatieniveau, niet op medewerkerniveau. | Beleid staat uitgewerkt in het document “Digikoppeling Identificatie en Authenticatie”. Een praktische werkwijze is uitgewerkt in het document “Gebruik en achtergrond Digikoppeling certificaten”. Autoriseren kan afhankelijk van noodzaak tweezijdig afgesproken worden. Immers bijvoorbeeld ook het stellen van een vraag kan al vertrouwelijk zijn.                                                                                                                             |
 | Betrouwbaarheid en beschikbaarheid (reliability)  | Alle componenten in de Digikoppeling-keten dienen de betrouwbaarheid en beschikbaarheid van het berichtenverkeer in de keten te handhaven, met name door het gebruik van een betrouwbaar profiel. Het gaat hier specifiek om de betrouwbare aflevering van berichten via reliable messaging (het gaat dus niet om de beschikbaarheid of betrouwbaarheid van de applicaties in de keten). | Een betrouwbaar profiel garandeert dat een bericht met zekerheid (precies één keer) wordt afgeleverd en dat berichten zo mogelijk in de juiste volgorde worden afgeleverd, ook als de ontvanger tijdelijk niet beschikbaar is. Tussenliggende intermediairs maar ook de Digikoppeling-adapters bij de partijen zullen deze garanties moeten handhaven om zinvol toegepast te kunnen worden. Dit stelt eisen aan de inrichting en eventueel intern transport. Dit geldt met name voor de betrouwbare profielen. |
 | Traceerbaarheid | De berichtenstroom is traceerbaar via elke schakel in de logistieke keten.  | Elke schakel in de Digikoppeling-keten moet inkomende en uitgaande berichten monitoren, loggen en moet voorzien in een audittrail.  Dit geldt met name voor de betrouwbare profielen.  |
 | Foutafhandeling  | Fouten worden correct en tijdig afgehandeld. Uitval van meldingen wordt zoveel mogelijk voorkomen, mede door het gebruik van een betrouwbaar profiel.  | Elke schakel in de Digikoppeling-keten moet foutafhandeling inrichten.  Dit geldt met name voor de betrouwbare profielen. |
+
+</span>
 
 Tabel 4: Digikoppeling-voorschriften
 
@@ -1026,7 +954,9 @@ De volgende Digikoppeling-voorzieningen ondersteunen het ontwikkel- en implement
 
 - Het OIN Register voor het raadplegen van organisatiegegevens.
 
-Digikoppeling adapters of applicaties kunnen worden getest op compliance met de koppelvlakstandaarden via de het Digikoppeling Portaal. Al deze voorzieningen zijn bereikbaar via <https://portaal.digikoppeling.nl.>
+Digikoppeling adapters of applicaties kunnen worden getest op compliance met de koppelvlakstandaarden via de het Digikoppeling Portaal. Al deze voorzieningen zijn bereikbaar via https://portaal.digikoppeling.nl.
+
+<span class="simple">
 
 | Functionaliteit  | Uitleg | Invulling |
 | --- |--- | --- |
@@ -1035,6 +965,8 @@ Digikoppeling adapters of applicaties kunnen worden getest op compliance met de 
 | Compliance Grote Berichten | Grote berichten kunnen in combinatie met WUS of ebMS2 services worden getest op compliance met de koppelvlakstandaarden | Digikoppeling Portaal-Compliancevoorziening WUS en ebMS2                                                  |
 | CPA Register | Een CPA-contract voor ebMS2 services tussen twee partijen kan via het CPA Register worden opgesteld en beheerd. | CPA Register |
 | OIN Register | Het OIN bevat alle uitgegeven Organisatie identificatienummers waarmee organisaties zich uniek identificeren bij het uitwisselen van berichten. | Digikoppeling Portaal – OIN Register (COR)                                   |
+
+</span>
 
 Tabel 5: Ondersteunende functionaliteiten van de Digikoppeling-voorzieningen
 
@@ -1156,6 +1088,8 @@ De aanduiding van de profielen kent de volgende systematiek:
 
 - osb= overheidsservicebus, de oude naam van Digikoppeling
 
+<span class="simple">
+
 | Invulling voorschriften      | WUS-profielen | ebMS2-profielen |
 |------------------------------|---------------|-----------------|
 | `Bevragingen`                 |               |                 |
@@ -1166,6 +1100,8 @@ De aanduiding van de profielen kent de volgende systematiek:
 | reliable                     |               | osb-rm          |
 | reliable signed              |               | osb-rm-s        |
 | reliable signed en encrypted |               | osb-rm-e        |
+
+</span>
 
 Tabel 6: Profielen in relatie tot Digikoppeling-voorschriften
 
@@ -1325,6 +1261,7 @@ De precieze verschillen tussen Diginetwerk en Internet vallen buiten de scope va
 Alle goedgekeurde Digikoppeling documenten zijn beschikbaar op <del>{-  <https://www.logius.nl/standaarden/digikoppeling/architectuur-en-koppelvlakstandaarden/> -}</del>  {+ <https://www.logius.nl/diensten/digikoppeling/documentatie> +}
 
 ### Digikoppeling-standaarden en gerelateerde documenten
+<span class="simple">
 
 | Documentnaam                                            | Auteur(s)              |
 |---------------------------------------------------------|------------------------|
@@ -1341,6 +1278,8 @@ Alle goedgekeurde Digikoppeling documenten zijn beschikbaar op <del>{-  <https:/
 | Best Practices ebMS Digikoppeling                       | Logius Centrum voor Standaarden |
 | Best Practice Grote Berichten                           | Logius Centrum voor Standaarden |
 
+</span>
+
 Tabel 6: Digikoppeling-standaarden en gerelateerde documenten
 
 ### Digikoppeling documentatie
@@ -1351,6 +1290,8 @@ Tabel 6: Digikoppeling-standaarden en gerelateerde documenten
 
 Overige Digikoppeling documentatie
 
+<span class="simple">
+
 | Documentnaam                                | Auteur(s)              | Status     |
 |---------------------------------------------|------------------------|------------|
 | Handleiding aansluiten                      | Logius                 | Definitief |
@@ -1359,9 +1300,12 @@ Overige Digikoppeling documentatie
 | Gebruikershandleiding Digikoppeling Portaal | Logius                 | Definitief |
 | Handleiding CPA Register                    | Logius                 | Definitief |
 
+</span>
+
 Tabel 7: Overige Digikoppeling documentatie
 
 ### Overige geraadpleegde bronnen
+<span class="simple">
 
 | Documentnaam  | Versie     | Datum      | Auteur(s)  | Status|
 |---------------|------------|------------|------------|-------|
@@ -1378,6 +1322,7 @@ Tabel 7: Overige Digikoppeling documentatie
 | NORA 3.0 vording Principes voor samenwerking en dienstverlening   | Ntb  | 29-9-2010  | Jasper van Lieshout | Definitief  |
 | NORA Beeldtaal | Ntb        | 13-11-2012 | ICTU  |                              |
 
+</span>
 Tabel 8: Overige geraadpleegde bronnen
 
 # Bijlage B: Begrippenlijst
@@ -1386,6 +1331,8 @@ Deze begrippenlijst is specifiek voor de *Architectuur Digikoppeling*.
 
 *Let op: dit zijn de definities op business niveau. Deze kunnen afwijken van de technische definities die in de protocollen en koppelvlakstandaarden zelf worden gehanteerd. Ook wordt een aantal vaktermen hier niet gedefinieerd zoals http,
 TCP/IP, netwerk, etc. Hiervoor kunt u andere bronnen via internet raadplegen.*
+
+<span class="simple">
 
 | Begrip                                   | Uitleg                                                                                                                                                                                                                                                                          |
 |------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1530,13 +1477,18 @@ TCP/IP, netwerk, etc. Hiervoor kunt u andere bronnen via internet raadplegen.*
 | XML                                      | eXtensible Markup Language. Een wereldwijde open standaard voor het beschrijven van gestructureerde gegevens in leesbare tekst.                    |
 | XSD schema definitie                     | XML technologie om het formaat van een XML bericht vast te leggen zodat ten alle tijd bepaald kan worden of een XML bericht correct is of niet.    |
 
+</span>
+
 Tabel 9: Gebruikte begrippen
 
 # Bijlage C: NORA Architectuurprincipes
 
 De NORA (Nederlandse Overheids Referentie Architectuur) is de bron voor de architectuur principes. NORA definieert 10 basisprincipes[^34]:
 
+
 [^34]: *Bron: <http://www.wikixl.nl/wiki/nora/index.php/Basisprincipes>*
+
+<span class="simple">
 
 | Principe      | Statement                                                                                      | ID   |
 |---------------|------------------------------------------------------------------------------------------------|------|
@@ -1551,7 +1503,11 @@ De NORA (Nederlandse Overheids Referentie Architectuur) is de bron voor de archi
 | BETROUWBAAR   | Afnemers kunnen erop vertrouwen dat de dienstverlener zich aan afspraken houdt.                | BP09 |
 | ONTVANKELIJK  | Afnemers kunnen input leveren over de dienstverlening.                                         | BP10 |
 
+</span>
+
 Tabel 10: NORA Basisprincipes
+
+<span class="simple">
 
 | NORA Afgeleide principes                   | ID   | Stelling                                                                                               | Cluster                         | Realiseert                           | DK principes                                                          |
 |--------------------------------------------|------|--------------------------------------------------------------------------------------------------------|---------------------------------|--------------------------------------|-----------------------------------------------------------------------|
@@ -1572,6 +1528,8 @@ Tabel 10: NORA Basisprincipes
 | Uitgangs-situatie herstellen               | AP36 | Wanneer de levering van een dienst mislukt wordt de uitgangssituatie hersteld                          | Betrouwbaarheid                 | Betrouwbaar                          | DK 4. Betrouwbaarheid                                                 |
 | Identificatie authenticatie en autorisatie | AP37 | Dienstverlener en afnemer zijn geauthenticeerd wanneer de dienst een vertrouwelijk karakter heeft      | Betrouwbaarheid                 | Vertrouwelijk                        | DK 3. Veiligheid en vertrouwelijkheid                                 |
 | Uitwisseling berichten onweerlegbaar       | AP40 | De berichtenuitwisseling is onweerlegbaar                                                              | Betrouwbaarheid                 | Betrouwbaar                          | DK 4. Betrouwbaarheid                                                 |
+
+</span>
 
 Tabel 11: Relevante afgeleide NORA principes en mapping naar Digikoppeling (DK) principes
 

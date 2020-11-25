@@ -2,23 +2,21 @@
 
 Dit hoofdstuk beschrijft de Digikoppeling als bouwsteen van de Digitale Overheid. de keten van alle Digikoppeling-gerelateerde componenten die gegevensuitwisseling voor de Digitale Overheid invullen duiden we in dit document aan als de de Digikoppeling-keten. In dit hoofdstuk worden de vormen van gegevensuitwisseling op procesniveau beschreven.
 
-## Digikoppeling als bouwsteen van de  Digitale Overheid
+## Digikoppeling als bouwsteen van de Digitale Overheid
 
 De Nederlandse overheid werkt aan betere dienstverlening aan burgers en bedrijven met een basisinfrastructuur voor de Digitale Overheid die is gebaseerd op services zoals beschreven in de Nederlandse Overheids Referentie Architectuur (NORA). Een reden voor het gebruik van services is dat ze herbruikbaar en daardoor efficiënt zijn.
 
 De basisinfrastructuur bestaat uit bouwstenen voor de dienstverlening aan burgers, aan bedrijven en de inrichting van de informatiehuishouding van de overheid zelf. De bouwstenen beslaan drie pijlers:
 
 - Loketten en voorzieningen voor burgers.
-
 - Loketten en voorzieningen voor bedrijven.
-
 - Registraties in algemene zin, waaronder het stelsel van basisregistraties, inclusief voorzieningen zoals onder meer Digilevering (abonnementen services) en Digimelding (terugmelding van wijzigingen of fouten aan basisregistraties).
 
 In dit document vatten we de loketten en voorzieningen voor burgers en bedrijven samen met het begrip ‘landelijke voorzieningen”. Om deze pijlers als samenhangend geheel te laten functioneren is het nodig dat zij informatie kunnen uitwisselen’.
 
 Digikoppeling maakt het mogelijk om berichten uit te wisselen, databronnen te raadplegen en te bewerken en services aan te roepen en is daarmee een essentiële bouwsteen van de basisinfrastructuur van de Digitale Overheid. Organisaties kunnen via Digikoppeling rechtstreeks (bilateraal) gegevens met elkaar uitwisselen. Vaak zijn er extra schakels betrokken, zoals een sectoraal knooppunt of een intermediair.
 
-Digikoppeling biedt een standaard voor het veilig uitwisselen van berichten tussen systemen. Het is dus niet bedoeld om gegevens aan een eindgebruiker te tonen; dat gebeurt via een applicatie bij de eindgebruiker zelf. Digikoppeling standaardiseert de inrichting van het berichtenverkeer zodat verschillende partijen berichten kunnen uitwisselen, ongeacht om welke gegevens het gaat.
+Digikoppeling biedt een standaard voor het veilig uitwisselen van berichten en gegevens tussen systemen. Het is dus niet bedoeld om gegevens aan een eindgebruiker te tonen; dat gebeurt via een applicatie bij de eindgebruiker zelf. Digikoppeling standaardiseert de inrichting van gegevensuitwisseling zodat verschillende partijen veilig gegevens kunnen uitwisselen,.
 
 ## Opbouw van de Digikoppeling-keten
 
@@ -30,7 +28,7 @@ De Digikoppeling-keten bestaat uit:
 
 - Componenten die de Digikoppeling-keten vormgeven.
 
-### Partijen
+### Partijen en Rollen
 
 Een partij is een (publieke) organisatie die gegevensdiensten via Digikoppeling aanbiedt aan andere organisaties en/of afneemt van andere organisaties. Een partij (in de rol van serviceafnemer of serviceaanbieder) is tevens het eindpunt van de Digikoppeling-keten. Partijen maken onderling of via een intermediair afspraken over de samenwerking en over de gegevensuitwisseling.
 
@@ -56,13 +54,12 @@ Figuur 3: Positionering intermediair/sectoraal knooppunt
 
 <br><sup><a name="f19"><dfn>19</dfn></a>: Bericht-niveau versleuteling wordt op applicatieniveau toegepast tussen de verzender en ontvanger; de berichtinhoud wordt versleuteld zodat de intermediair alleen de headers kan lezen.</sup>
 
-## Rollen: End-to-end, verwerker, intermediair, SAAS dienstverlener
+## End-to-end 
 
-<aside class="note">
+## Databewerker
 
-> `TODO:` Er is grote behoefte om de rollen nader uit te werken. Dit kan in een aparte paragraaf of als verdere aanvulling op de vorige paragraaf.
+## SAAS dienstverlener
 
-</aside>
 
 
 ## Componenten in de logistieke Digikoppeling-keten
@@ -86,7 +83,7 @@ De volgende componenten maken onderdeel uit van de Digikoppeling-keten van beric
 Tabel 2: Componenten van de Digikoppeling-keten
 
 N.B.: De Digikoppeling-voorzieningen (Het Digikoppeling portaal met de
-Compliance Voorziening, het OIN register en het CPA register) vormen geen onderdeel van de Digikoppeling-keten maar ondersteunen tijdens de ontwikkel- en testfasen en bij het uitgifte en raadpleegen van OIN's.
+Compliance Voorziening, het OIN register en het CPA register) vormen geen onderdeel van de Digikoppeling-keten maar ondersteunen tijdens de ontwikkel- en testfasen en bij het uitgifte en raadplegen van OIN's.
 
 ## Uitwisselingsvormen
 
@@ -100,13 +97,7 @@ Uitwisselingsvormen onderscheiden we op alle niveaus van inhoud, logistiek en tr
 
 ### Business-behoefte
 
-Op business-niveau is er een veelheid aan uitwisselingsvormen waaraan behoefte bestaat. Deze zijn vaak contextspecifiek. Soms zijn deze vormen ook specifiek voor een sector waardoor het loont om deze in een sectorale berichtstandaard voor de inhoud van een bericht af te spreken (b.v. StUF, SuwiML en NEN3610)
-
-<aside class="note">
-
-> `TODO`: is bovenstaande zin nog actueel?
-
-</aside>
+Op business-niveau is er een veelheid aan uitwisselingsvormen waaraan behoefte bestaat. Deze zijn vaak contextspecifiek. Soms zijn deze vormen ook specifiek voor een sector waardoor het loont om deze in een sectorale berichtstandaard voor de inhoud van een bericht af te spreken.
 
 . Een aantal proceskenmerken op business-niveau bepaalt welke door Digikoppeling geboden logistieke vormen geschikt zijn. Zonder alle mogelijke behoeften uit te werken, behandelt deze sub-paragraaf wel de voor de keuze van Digikoppeling belangrijke kenmerken:
 
@@ -140,7 +131,7 @@ Combineren van deze primitieve interacties tot meerdere (eventueel over de tijd 
 
 Digikoppeling onderscheidt verschillende vormen van uitwisseling:
 
-- *synchrone* request-response voor bevraging en bewerking van objecten en in de context van het gebruik van REST *resources*.
+- *synchrone* request-response voor bevraging en bewerking van objecten en in de context van het gebruik van *resources* op basis van het REST patroon.
 
 - *synchrone* request-response met gestructureerde berichtuitwsseling
 
@@ -168,16 +159,13 @@ Asynchrone uitwisseling kunnen worden ingericht op basis van de Digikoppeling-ko
 
 ### Geen onderscheid meer in gebruik WUS en ebMS2 voor bevragingen en transacties
 
-> Deze is al eerder besproken in het TO, naar aanleiding van de ingediende 'RFC WUS voor meldingen'.
-
 De Provider bepaalt welk koppelvlak - Restful API, WUS of ebMS- van toepassing is op de door haar geleverde dienst.
 
-Tot en met 2019 werd in de Digikoppeling Standaard onderscheid gemaakt tussen 'WUS voor bevragingen' en 'ebMS voor meldingen'. In de praktijk bleek dit onderscheid niet altijd goed te werken. Er zijn usecases waarin WUS beter geschikt is voor meldingen. In afwachting van een grondige herziening in de loop van 2020 van het toepassingsgebied van Digikoppeling -  door de komst van koppelvlakken gebaseerd van (RESTful)API's- wordt deze aanpassing nu al doorgevoerd.
+Tot en met 2019 werd in de Digikoppeling Standaard onderscheid gemaakt tussen 'WUS voor bevragingen' en 'ebMS voor meldingen'. In de praktijk bleek dit onderscheid niet altijd goed te werken. Er zijn bijvoorbeeld usecases waarin WUS beter geschikt is voor meldingen. Binnen de overheidsorganisaties heeft het gebruik van REST-API's voor het uitwisselen van gegevens tussen overheden een enorme vlucht genomen. 
 
 ### Grote Berichten
 
-De situatie kan zich voordoen dat een bericht een omvang krijgt die niet meer efficiënt door de Digikoppeling-adapters verwerkt kan worden bijvoorbeeld vanwege de overhead bij eventuele hertransmissies. Ook kan het voorkomen dat er behoefte bestaat aan het sturen van aanvullende informatie naar systemen buiten de normale procesgang ('out-of-band'). In die gevallen zal dit grote bestand op een andere wijze uitgewisseld moeten worden: middels de Digikoppeling
-Koppelvlakstandaard Grote Berichten.
+De situatie kan zich voordoen dat een bericht een omvang krijgt die niet meer efficiënt door de Digikoppeling-adapters verwerkt kan worden bijvoorbeeld vanwege de overhead bij eventuele hertransmissies. Ook kan het voorkomen dat er behoefte bestaat aan het sturen van aanvullende informatie naar systemen buiten de normale procesgang ('out-of-band'). In die gevallen zal dit grote bestand op een andere wijze uitgewisseld moeten worden: met de Digikoppeling Koppelvlakstandaard Grote Berichten.
 
 Bij ‘grote berichten’ worden grotere bestanden uitgewisseld via een Digikoppeling uitwisseling in combinatie met een (HTTPS-)down- of upload vanaf een beveiligde website. Grote berichten vormen een functionele uitbreiding op Digikoppeling uitwisseling voor de veilige bestandsoverdracht van berichten groter dan 20 MiB<sup>[24](#f24)</sup>.
 
@@ -197,24 +185,19 @@ Digikoppeling Grote Berichten maakt verschillende vormen van uitwisseling op bus
 
 ## Overzicht transactiepatronen (nieuw)
 
-<aside class="note">
-
-> `TODO`: nu de koppeling met bevraging en melding is losgelaten is het nodig om te beschrijven in welke situatie je Digikoppeling kan en moet gebruiken. Het gaat in dit hoofdstuk nog om de patronen. In het hoofdstuk usecases willen we graag praktijkvoorbeelden beschrijven.
-> Hiervoor is **alle input** welkom!
-</aside>
-
 ### Synchrone bevraging
 
-Bij een bevraging (vraag-antwoord) stuurt de service-requester een voorgedefinieerde vraag (request) aan de service-provider, die een antwoord (response) verstrekt. Het initiatief ligt bij de service-requester. Gaat er in de uitwisseling iets mis dan zal de service-requester na een bepaalde tijd de uitwisseling afbreken (time-out).
+Bij een bevraging (vraag-antwoord) stuurt de service-requester een voorgedefinieerde vraag (request) aan de service-provider, die een antwoord (response) verstrekt. Het initiatief ligt bij de service-requester. Gaat er in de uitwisseling iets mis dan zal de service-requester na een bepaalde tijd de uitwisseling afbreken (time-out). Een synchrone bevraging is in de regel *idempotent*, een request kan opnieuw verstuurd worden zonder gevolgen. 
 
 ![synchroon request](media/Synchroon_request.png "synchroon request")
+Figuur 4: Synchrone bevraging
 
 <span class="simple">
 
 |Koppelvlakspecificatie|Omschrijving|Praktijkvoorbeeld|
 |---|---|---|
 |Digikoppeling WUS| Digikoppeling WUS is geschikt als voor de bevraging gestructureerde  berichten (in XML) nodig zijn. Digikoppeling heeft profielen voor signing en encryption. |...|
-|Digikoppeling REST-API| Digikoppeling REST-API is eenvoudiger te configuren dan WUS| ... |
+|Digikoppeling REST-API| Digikoppeling REST-API heet een GET methode waarmee synchrone requests kunnen uitgevoerd. Digikoppeling REST-API kent nog geen gestandaardiseerde versies voor signing of encryptie| Bevragen OIN register via de COR API |
 
 </span>
 
@@ -227,16 +210,17 @@ Bij een melding-bevestiging stuurt een service-requester informatie naar de serv
 |Koppelvlakspecificatie|Omschrijving|Praktijkvoorbeeld|
 |---|---|---|
 |Digikoppeling WUS| Digikoppeling WUS is geschikt als voor de melding een  gestructureerde  bericht (in XML) nodig is. Digikoppeling heeft profielen voor signing en encryption. Voorwaarde is dat de melding *idempotent* is |...|
-|Digikoppeling REST-API| Digikoppeling REST-API is eenvoudiger te configuren dan WUS. Voorwaarde is dat de melding *idempotent* is| ... |
+|Digikoppeling REST-API| Digikoppeling REST-API heet een PUT methode waarmee synchrone requests kunnen uitgevoerd. Digikoppeling REST-API kent nog geen gestandaardiseerde versies voor signing of encryptie Het Digikoppeling REST-API profiel kent ook een POST methode maar deze is niet idempotent en kan dus niet herhaaldelijk worden verzonden| ... |
 
 </span>
 
 
 ### Asynchrone Melding-bevestiging
 
-Bij een melding-bevestiging stuurt een service-requester informatie naar de service-provider en ontvangt synchroon een bevestiging dat een bericht is ontvangen. 
+Bij een melding-bevestiging stuurt een service-requester informatie naar de service-provider en ontvangt synchroon een bevestiging dat een bericht is ontvangen. op een later moment kan de ontvanger een bericht sturen dat de melding is verwerkt  
 
 ![Asynchroon request](media/Asynchroon_request.png "Asynchroon request")
+Figuur 5: Asynchrone Melding-bevestiging
 
 <span class="simple">
 
@@ -244,13 +228,13 @@ Bij een melding-bevestiging stuurt een service-requester informatie naar de serv
 |---|---|---|
 |Digikoppeling ebMS2| Digikoppeling ebMS heeft reliable profiel (osb-rm) dat de bevestiging van ontvangst borgt | formele overdracht van OLO/DSO naar bevoegd gezag |
 |Digikoppeling WUS| Digikoppeling WUS kent geen reliable profiel. Partijen in de keten moeten met elkaar afspraken hoe een melding wordt bevestigd in een antwoord door de ontvanger op een later tijdstip  |...|
-|Digikoppeling REST-API| Digikoppeling REST-API kent geen reliable profiel. Partijen in de keten moeten met elkaar afspraken hoe een melding wordt bevestigd in een antwoord door de ontvanger op een later tijdstip| ... |
+|Digikoppeling REST-API| Digikoppeling REST-API heet een PUT en een POST methode waarmee synchrone requests kunnen uitgevoerd. Digikoppeling REST-API kent geen reliable profiel. Partijen in de keten moeten met elkaar afspraken hoe een melding wordt bevestigd in een antwoord door de ontvanger op een later tijdstip| ... |
 
 </span>
 
 ### Overdracht van verantwoordelijkheid
 
-Bij dit patroon gaat het om een overdracht van verantwoordelijkheden, zoals het bevoegd gezag - nemen van besluiten over een onderwerp - van een overheidsorganisatie naar een andere organsatie. Hierbij is het essentieel dat beide partijen zekerheid over de de overdracht, zeker omdat er bepaalde wettelijke termijnen kunnen bestaan waar besluiten genomen moeten worden.  
+Bij dit patroon gaat het om een overdracht van verantwoordelijkheden, zoals het bevoegd gezag -  bevoegd om besluiten te nemen over een onderwerp - van een overheidsorganisatie naar een andere organsatie. Hierbij is het essentieel dat beide partijen zekerheid over de de overdracht, omdat er bepaalde wettelijke termijnen kunnen bestaan waarin besluiten genomen moeten worden.  
 
 <span class="simple">
 
@@ -282,15 +266,16 @@ Dit patroon is bedoeld voor ketens die authentieke informatie willen 'halen bij 
 
 |Koppelvlakspecificatie|Omschrijving|Praktijkvoorbeeld|
 |---|---|---|
-|Digikoppeling REST-API| [todo]| ... |
+|Digikoppeling ebMS|Digikoppeling ebMS heeft reliable profiel (osb-rm) dat de bevestiging van ontvangst borgt. Hiermee heeft de aanbiedende partij de zekerheid dat een notificatie door de ontvanger is ontvanger| Digilevering ontvangt gebeurtenisberichten van basisregistraties en zendt deze door naar geabonneerde overheidsorganisaties |
+|Digikoppeling REST-API|  | VNG werkt afspraken voor decentrale notificatieservices |
 
 </span>
 
-## uitwisseling via een transparante intermediair
+## Uitwisseling via een transparante intermediair
 
 Een transparante keten is alleen mogelijk als zowel de service-aanbieder als de serviceafnemer hetzelfde protocol hanteren. De intermediair routeert berichten tussen de serviceaanbieder en de serviceafnemer waarbij het bericht intact blijft (alleen de header wordt gelezen). De uitwisseling verloopt op dezelfde manier als bij een bilaterale uitwisseling.
 
-![Transparante intermediair](media/DK_Transparant_intermediair.png "Transparante intermediair")
+![Transparante intermediair](media/transparante_intermediair.png "Transparante intermediair")
 Figuur 6: Transparante intermediair
 
 <span class="simple">
@@ -298,6 +283,21 @@ Figuur 6: Transparante intermediair
 |Koppelvlakspecificatie|Omschrijving|Praktijkvoorbeeld|
 |---|---|---|
 |Digikoppeling ...| [todo]| ... |
+
+</span>
+
+
+## Uitwisseling via een niet-transparante intermediair
+
+Een transparante keten is alleen mogelijk als zowel de service-aanbieder als de serviceafnemer hetzelfde protocol hanteren. De intermediair routeert berichten tussen de serviceaanbieder en de serviceafnemer waarbij het bericht bewerkt moet worden voor verdere verzending. 
+
+![Niet-Transparante intermediair](media/niet_transparante_intermediair.png "Transparante intermediair")
+Figuur 7: Niet-Transparante intermediair
+<span class="simple">
+
+|Koppelvlakspecificatie|Omschrijving|Praktijkvoorbeeld|
+|---|---|---|
+|Digikoppeling ebMS |[todo]| (Rinis) |
 
 </span>
 

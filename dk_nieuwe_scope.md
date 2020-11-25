@@ -1,4 +1,4 @@
-# Een nieuwe kijk op Digikoppeling
+# Wat is Digikoppeling
 
 In dit hoofdstuk opzet beschrijven we de belangrijkste facetten van de nieuwe Digikoppeling Architectuur.
 
@@ -20,15 +20,7 @@ Met de toevoeging van het Digikoppeling Rest-API profiel komt de vergelijking me
 
 Envelop en bericht schuiven in elkaar, de metafoor van enveloppen en postverzending werkt niet meer. Echter, het basisprincipe blijft: Digikoppeling bemoeit zich niet met de inhoud, Digikoppeling heeft *'Geen boodschap aan de boodschap'*.
 
-<aside class="note">
-
-> We moeten ook aandacht besteden aan het begrip *servicegerichte architectuur* van de NORA waarvoor Digikoppeling ooit een essentieel onderdeel vormde.
-> 
-> De servicegerichte architectuur is inmiddels door NORA naar het archief geplaatst en er bestaat nog geen opvolger.
-
-</aside>
-
-## Open en Closed Data 
+## Open en Closed Data
 
 Een belangrijke aanleiding voor het starten van de Commonground beweging van VNG was de ergernis over het op grote schaal rondpompen van gegevens binnen de digitale overheid. De ontsluiting van die gegevens en de noodzaak om die redundante bronnen synchroon te houden veroorzaakt een complex systeem van koppelingen. Een van de oplossingen voor het principe *Single Source of Truth* is om weer terug te gaan naar het concept van   'halen bij de bron', eigenlijk een van drijfveren van het ontstaan van het stelsel van basisregistraties.
 
@@ -36,21 +28,31 @@ Een concept dat sinds begin 2000 een opmars maakt is het principe van *Open Data
 
 ## Open en Closed Diensten
 
-Naast het onderscheid tussen Open en closed data kan je ook onderscheid maken in publieke en afgeschermde diensten. Voor closed data zal een overheidsorganisatie afgeschermde, beperkt toegankelijke closed diensten aanbieden.
+Naast het onderscheid tussen Open en closed data is het ook van belang om onderscheid te maken in publieke en afgeschermde diensten. Voor closed data biedt een overheidsorganisatie afgeschermde, beperkt toegankelijke closed diensten.
 
-Een overheidsorganisatie kan een bron van open data publiceert via een voor iedereen toegankelijke open dienst, en tegelijkertijd de dienst de toegang te  beschikbaar maken via een beperkt toegankelijke dienst, bijvoorbeeld met een uitgebreide beschikbaarheid, schaalbaarheid of functionaliteit.
+Een bron van open data kan een overheidsorganisatie aanbieden via een voor iedereen toegankelijke open dienst. Die bron kan echter essentieel zijn voor bepaalde publieke ketens. De aanbieder kan er voor kiezen om  naast een publieke dienst ook een beperkt toegankelijke dienst te aan te bieden, bijvoorbeeld met een uitgebreide beschikbaarheid, schaalbaarheid of functionaliteit.
 
 - Open Diensten: diensten zonder toegangsbeperking bijvoorbeeld open data.
 - Gesloten Diensten: diensten met toegangsbeperking bijvoorbeeld persoonsgegevens en vertrouwelijke gegevens of diensten voor specifieke partijen.
 
 
-## Toepassingsgebied
+## Wanneer moet Digikoppeling toegepast worden
 
 Digikoppeling staat op de lijst *verplichte standaarden* van het Forum Standaardisatie De lijst beschrijft het toepassingsgebied van Digikoppeling als
 
+## Functioneel toepassingsgebied
 > Digikoppeling moet worden toegepast op alle digitale gegevensuitwisseling met behulp van gestructureerde berichten die plaatsvindt met voorzieningen die onderdeel zijn van de GDI, waaronder de basisregistraties, of die sector-overstijgend is.
 
-### Intern en Extern
+## Organisatorisch werkingsgebied
+
+> - Nederlandse overheden (Rijk, provincies, gemeenten en waterschappen) en instellingen
+> - uit de (semi-) publieke sector.
+
+> Digikoppeling is van toepassing bij aanschaf of ontwikkeling van systemen bedoeld voor gestructureerde berichtenuitwisseling met voorzieningen die onderdeel zijn van de GDI (zoals de basisregistraties) en berichtverkeer dat sectoroverstijgend is.
+
+> Uitgezonderd zijn: de uitwisseling van Geo-informatie (daarvoor bestaat NEN3610) en de gevallen waarin de aanbieder van gegevens vaststelt dat geen noodzaak bestaat om de afnemer van de gegevens te authenticeren.- Nederlandse overheden (Rijk, provincies, gemeenten en waterschappen) en instellingen uit de (semi-) publieke sector.
+
+### Digikoppeling voor externe uitwisseling
 
 Digikoppeling richt zich dus van oudsher primair op het uitwisselen van gegevens 'met behulp van gestructureerde berichten' en maakt (tot nu toe) geen duidelijk onderscheid tussen Open en Closed Data. Dit maakt het niet duidelijk wanneer Digikoppeling gebruikt moet worden. Reden om dit beter af te pellen en de scope van Digikoppeling eens langs een andere lat te leggen.
 
@@ -58,7 +60,7 @@ Digikoppeling richt zich dus van oudsher primair op het uitwisselen van gegevens
 
 Digikoppeling is een standaard voor gegevensuitwisseling *tussen* organisaties, met voorzieningen die onderdeel zijn van de GDI, waaronder de basisregistraties, of die sector-overstijgend is.
 
-### Open en Closed Data
+### Digikoppeling voor Closed Data en Open Data via Closed diensten
 
 Digikoppeling bestaat uit een set standaarden voor elektronisch verkeer tussen overheidsorganisaties. Digikoppeling gaat dus om overheidsgegevens. Openbare informatie van de Rijksoverheid mag worden hergebruikt, bijvoorbeeld op websites en in applicaties. Dit is Open Data.
 
