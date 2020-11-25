@@ -99,27 +99,27 @@ input.task-list-item-checkbox {
                     } catch (e) {}
                     
             try {
-                window.screenY = 29
+                window.screenY = 1145
             } catch (e) { }
         
             try {
-                window.screenTop = 29
+                window.screenTop = 1145
             } catch (e) { }
         
             try {
-                window.top.window.outerHeight = 824
+                window.top.window.outerHeight = window.screen.height
             } catch (e) { }
         
             try {
-                window.screenX = 157
+                window.screenX = 2041
             } catch (e) { }
         
             try {
-                window.screenLeft = 157
+                window.screenLeft = 2041
             } catch (e) { }
         
             try {
-                window.top.window.outerWidth = 1706
+                window.top.window.outerWidth = window.screen.width
             } catch (e) { }
         </script>
     <!-- link rel="shortcut icon" type="image/x-icon" href="https://tools.geostandaarden.nl/respec/style/logos/Geonovum.ico" / -->
@@ -691,34 +691,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     <!-- vanaf hier per hoofdstuk een sectie of een div in het document ======================== -->
     <!-- Secties komen in de inhoudsopgave div"s niet ========================================== -->
     <!-- Secties hebben verplicht <h2> tags, div"s niet ======================================== -->
-    <section data-format="markdown" class="informative" aria-busy="false" id="introduction"><!--OddPage--><h2 id="x1-introduction"><span class="secno">1. </span>Introduction</h2><p><em>Dit onderdeel is niet normatief.</em></p><section id="goal"><h3 id="x1-1-goal"><span class="secno">1.1 </span>Goal</h3><p>More and more governmental organizations offer REST APIs (henceforth abbreviated as APIs), in addition to existing interfaces like SOAP and WFS. These APIs aim to be developer-friendly and easy to implement. While this is a commendable aim, it does not shield a developer from a steep learning curve getting to know every new API, in particular when every individual API is designed using different patterns and conventions.</p><p>This document aims to describe a widely applicable set of design rules for the unambiguous provisioning of REST APIs. The primary goal is to offer guidance for organizations designing new APIs, with the purpose of increasing developer experience (DX) and interoperability between APIs. Hopefully, many organizations will adopt these design rules in their corporate API strategies and provide feedback about exceptions and additions to subsequently improve these design rules.</p></section><section id="status"><h3 id="x1-2-status"><span class="secno">1.2 </span>Status</h3><p>This version of the design rules has been submitted to Forum Standaardisatie for inclusion on the Comply or Explain list of mandatory standards in the Dutch Public Sector. This document originates from the document <a href="https://docs.geostandaarden.nl/api/vv-hr-API-Strategie-20190715/">API Strategie voor de Nederlandse Overheid</a>, which was recently split into separate sub-documents.</p></section><section id="authors"><h3 id="x1-3-authors"><span class="secno">1.3 </span>Authors</h3><p>Despite the fact that two authors are mentioned in the list of authors, this document is the result of a collaborative effort by the members of the <em>API Design Rules Working Group</em>.</p></section><section id="reading-guide"><h3 id="x1-4-reading-guide"><span class="secno">1.4 </span>Reading Guide</h3><p>This document is part of the <em>Nederlandse API Strategie</em>.</p><table>
-<thead>
-<tr>
-<th>Part</th>
-<th>Description</th>
-<th>Status</th>
-<th>Link</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>I</td>
-<td>General description of the API Strategy</td>
-<td>Informative</td>
-<td><a href="https://www.geonovum.nl/themas/kennisplatform-apis">https://www.geonovum.nl/themas/kennisplatform-apis</a></td>
-</tr>
-<tr>
-<td><strong>IIa</strong></td>
-<td><strong>Standard for designing APIs</strong></td>
-<td><strong>Normative</strong></td>
-<td><a href="https://publicatie.centrumvoorstandaarden.nl/api/adr/">https://publicatie.centrumvoorstandaarden.nl/api/adr/</a></td>
-</tr>
-<tr>
-<td>IIb</td>
-<td>Extension on the Standard for designing APIs</td>
-<td>Informative</td>
-<td><a href="https://docs.geostandaarden.nl/api/API-Strategie-ext/">https://docs.geostandaarden.nl/api/API-Strategie-ext/</a></td>
-</tr>
-</tbody></table></section><section id="extensions"><h3 id="x1-5-extensions"><span class="secno">1.5 </span>Extensions</h3><p>In addition to this (normative) document, a separate document has been written providing a set of informative extensions. This extensions document exists in a <em>latest published version</em> (<em>Gepubliceerde versie</em> in Dutch) and a <em>latest editors draft</em> (<em>Werkversie</em> in Dutch). The <em>latest editor's draft</em>s is actively being worked on and can be found on GitHub. It contains the most recent changes.</p><p>The documents can be found here:</p><ul>
+    <section data-format="markdown" class="informative" aria-busy="false" id="introduction"><!--OddPage--><h2 id="x1-introduction"><span class="secno">1. </span>Introduction</h2><p><em>Dit onderdeel is niet normatief.</em></p><section id="goal"><h3 id="x1-1-goal"><span class="secno">1.1 </span>Goal</h3><p>More and more governmental organizations offer REST APIs (henceforth abbreviated as APIs), in addition to existing interfaces like SOAP and WFS. These APIs aim to be developer-friendly and easy to implement. While this is a commendable aim, it does not shield a developer from a steep learning curve getting to know every new API, in particular when every individual API is designed using different patterns and conventions.</p><p>This document aims to describe a widely applicable set of design rules for the unambiguous provisioning of REST APIs. The primary goal is to offer guidance for organizations designing new APIs, with the purpose of increasing developer experience (DX) and interoperability between APIs. Hopefully, many organizations will adopt these design rules in their corporate API strategies and provide feedback about exceptions and additions to subsequently improve these design rules.</p></section><section id="status"><h3 id="x1-2-status"><span class="secno">1.2 </span>Status</h3><p>This version of the design rules has been submitted to Forum Standaardisatie for inclusion on the Comply or Explain list of mandatory standards in the Dutch Public Sector. This document originates from the document <a href="https://docs.geostandaarden.nl/api/vv-hr-API-Strategie-20190715/">API Strategie voor de Nederlandse Overheid</a>, which was recently split into separate sub-documents.</p></section><section id="authors"><h3 id="x1-3-authors"><span class="secno">1.3 </span>Authors</h3><p>Despite the fact that two authors are mentioned in the list of authors, this document is the result of a collaborative effort by the members of the <em>API Design Rules Working Group</em>.</p></section><section id="reading-guide"><h3 id="x1-4-reading-guide"><span class="secno">1.4 </span>Reading Guide</h3><p>This document is part of the <em>Nederlandse API Strategie</em>.</p><p>The Nederlandse API Strategie consists of <a href="https://www.geonovum.nl/themas/kennisplatform-apis#APIStrategie">three distinct documents</a>.</p></section><section id="extensions"><h3 id="x1-5-extensions"><span class="secno">1.5 </span>Extensions</h3><p>In addition to this (normative) document, a separate document has been written providing a set of informative extensions. This extensions document exists in a <em>latest published version</em> (<em>Gepubliceerde versie</em> in Dutch) and a <em>latest editors draft</em> (<em>Werkversie</em> in Dutch). The <em>latest editor's draft</em>s is actively being worked on and can be found on GitHub. It contains the most recent changes.</p><p>The documents can be found here:</p><ul>
 <li><a href="https://docs.geostandaarden.nl/api/API-Strategie-ext/">Extensions Gepubliceerde versie</a></li>
 <li><a href="https://geonovum.github.io/KP-APIs/API-strategie-extensies/">Extensions Werkversie</a></li>
 </ul></section></section>
