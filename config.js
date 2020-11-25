@@ -47,7 +47,7 @@ var respecConfig =
   ],
   shortName: "adr",
   github: "https://github.com/Logius-standaarden/API-Design-Rules",
-  issueBase: "https://github.com/Logius-standaarden/API-Design-Rules/issues/",
+  issueBase: "https://github.com/Geonovum/KP-APIs/issues",
   localBiblio: {
     "SemVer": {
       href: "https://semver.org",
