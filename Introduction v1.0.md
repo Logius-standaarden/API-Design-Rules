@@ -20,8 +20,8 @@ This document is part of the *Nederlandse API Strategie*.
 
 | Part    | Description                                   | Status          | Link                                                        |
 |---------|-----------------------------------------------| ----------------|-------------------------------------------------------------|
-| I       | General description of the API Strategy       | Informative     | https://docs.geostandaarden.nl/api/API-Strategie/           |
-| **IIa** | **Standard for designing APIs**               | **Normative**   | https://docs.geostandaarden.nl/api/API-Designrules/         |
+| I       | General description of the API Strategy       | Informative     | https://www.geonovum.nl/themas/kennisplatform-apis           |
+| **IIa** | **Standard for designing APIs**               | **Normative**   | https://publicatie.centrumvoorstandaarden.nl/api/adr/         |
 | IIb     | Extension on the Standard for designing APIs  | Informative     | https://docs.geostandaarden.nl/api/API-Strategie-ext/       |
 
 ## Extensions
