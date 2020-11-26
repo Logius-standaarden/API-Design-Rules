@@ -34,11 +34,11 @@ Met de WUS compliancevoorziening kan een organisatie controleren of haar adapter
 
 De volgende compliancevoorzieningen zijn beschikbaar: <sup>[28](#f28)</sup>
 
-- Digikoppeling-WUS compliancevoorziening voor het testen van ~~{- bevragingen -}~~ synchroon berichtenverkeer op basis van WUS, inclusief grote berichten.
+- Digikoppeling-WUS compliancevoorziening voor het testen van synchroon berichtenverkeer op basis van WUS, inclusief grote berichten.
 
-- Digikoppeling-ebMS2 compliancevoorziening voor het testen van ~~{- meldingen -}~~  asynchroon berichtenverkeer  op basis van ebMS2, inclusief grote berichten.
+- Digikoppeling-ebMS2 compliancevoorziening voor het testen van asynchroon berichtenverkeer op basis van ebMS2, inclusief grote berichten.
 
-> Informatie over de compliancevoorzieningen staat op [https://portaal.digikoppeling.nl](https://portaal.digikoppeling.nl).
+>Informatie over de compliancevoorzieningen staat op [https://portaal.digikoppeling.nl](https://portaal.digikoppeling.nl).
 
 <sup><a name="f28"><dfn>28</dfn></a>: *Digikoppeling Koppelvlakstandaard WUS*</sup>
 
