@@ -31,8 +31,7 @@ Onderstaande indeling is concept. Dit kan nog op alle punten wijzigen.
 |#|Hoofdstuk| Opmerkingen | Todo/Doing |
 |-|---|---|---|
 |1|[Doel van het document en leeswijzer](dk_doel_document.md)|||
-|1a|[Nieuwe Opzet](dk_nieuwe_scope.md)|**NIEUWE OPZET**||
-|2|[Wat is Digikoppeling](dk_wat_is_digikoppeling.md)||**gestart**<br>vraag: Wat moeten we doen met de referentie naar de Nora Servicegerichte architectuur. De Nora is heeft de servicegerichte architectuur naar het archief verwezen en onderzoekt de rol van APi's |
+|2|[Wat is Digikoppeling](dk_nieuwe_scope.md)||**gestart**<br>vraag: Wat moeten we doen met de referentie naar de Nora Servicegerichte architectuur. De Nora is heeft de servicegerichte architectuur naar het archief verwezen en onderzoekt de rol van APi's |
 |3|[Digikoppeling Architectuurprincipes](dk_architectuurprincipes.md)| aanpassing ivm RFC bevragen en melden|**gestart**|
 |4|[Digikoppeling Keten](dk_keten.md)||**gestart** <br>toegevoegd transactiepatronen uit EDUkoppeling ter illustratie en verduidelijken rollen|
 |5|[Koppelvlakstandaarden en voorschriften](dk_koppelvlakstandaarden_en_voorschriften.md)||**gestart** <br>opnemen verwijzing naar het nieuwe Digikoppeling Restful API profiel|
