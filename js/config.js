@@ -17,7 +17,7 @@ var respecConfig = {
   // Als er geen publishDate is opgegeven, genereert ReSpec de dataum o.b.v. de laatste wijzigingen
   // Belangrijk: als publishDate niet opgegeven is, wordt bij de link "Laatst gepubliceerde versie" "geen" gezet. Anders wordt een link opgebouwd voor de laatste versie, met het formaat:
   // https://docs.centrumvoorstandaarden.nl/{pubDomain}/{shortName}
-  publishDate: "2020-10-14",
+  publishDate: "2020-11-26",
   // Als er een eerder gepubliceerde versie is, geef dan de datum daarvan op
   //previousPublishDate: "2017-05-31",
   // Zie https://github.com/w3c/respec/wiki/previousMaturity. Dit moet een
