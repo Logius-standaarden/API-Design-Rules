@@ -70,7 +70,7 @@ Overheidsgegevens zijn actief beschikbaar als open data voor hergebruik van derd
 
 ### Wie communiceert met wie
 
-Digikoppeling gaat over communicatie tussen de overheden (G2G) en niet over uitwisseling met burgers (G2C). De communicatie tussen overheid en het bedrijfsleven (G2B) is niet gestandaardiseerd.
+Digikoppeling gaat over communicatie tussen de overheden (G2G) en niet over uitwisseling met burgers (G2C). De communicatie tussen overheid en het bedrijfsleven (G2B) is niet gestandaardiseerd. [TODO: DK verplicht dat verzender en ontvanger elkaar kennen]
 
 ![segmentering](media/DK_segmentering.png "segmentering van de communicatie")
 

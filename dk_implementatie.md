@@ -80,24 +80,18 @@ De aanduiding van de profielen kent de volgende systematiek:
 
 - osb= overheidsservicebus, de oude naam van Digikoppeling
 
-<aside class="note">
-
-> `TODO:` Tabel met de verschillende API, WUS en ebMS profielen langslopen
-
-</aside>
-
 <span class="simple">
 
-| Invulling voorschriften | API profielen | WUS-profielen | ebMS2-profielen |
-|---|---|---|---|
-| `Bevragingen`                 |               |                 ||
-| best-effort                  | xxx-be |2W-be | osb-be |
-| best-effort signed           |  |2W-be-S | osb-be-s |
-| best-effort signed/encrypted |  |2W-be-SE | osb-be-e |
-| `Meldingen`                    |               |                 |
-| reliable                     ||               | osb-rm          |
-| reliable signed              ||               | osb-rm-s        |
-| reliable signed en encrypted ||               | osb-rm-e        |
+| Invulling | DK API profiel | DK WUS profiel | DK ebMS2 profiel |
+| --- | --- |---|---|
+| Bevragingen / Meldingen |  |  |  |
+| best-effort | 1.0 | 2W-be | osb-be |
+| best-effort signed |  | 2W-be-S | osb-be-s |
+| best-effort signed/encrypted |  | 2W-be-SE | osb-be-e |
+|  |  |  |  |
+| reliable |  |  | osb-rm |
+| reliable signed |  |  | osb-rm-s |
+| reliable signed en encrypted |  |  | osb-rm-e |
 
 </span>
 
