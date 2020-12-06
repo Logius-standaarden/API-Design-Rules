@@ -6,7 +6,7 @@ Dit hoofdstuk geeft een overzicht van wat Digikoppeling inhoudt en hoe deze stan
 
 (Overheids)organisaties willen diensten klantgericht, efficiënt, flexibel en rechtmatig aanbieden aan burgers en bedrijven. Daarvoor moeten zij gegevens en documenten op een generieke manier met elkaar kunnen uitwisselen.
 
-Digikoppeling voorziet hierin door de standaarden voor deze uitwisseling te definiëren. Met deze logistieke standaardisatie bevordert Digikoppeling de interoperabiliteit tussen (overheids)organisaties. Digikoppeling heeft zich vanaf het begin van haar ontstaan gericht zich op de 'envelop' van een bericht, niet op de inhoud. Daardoor kan iedere organisatie die Digikoppeling gebruikt, de postverzending onafhankelijk van de inhoud inrichten. Met de toevoeging van het Digikoppeling Rest-API profiel komt de metafoor met berichten in enveloppen wat in het gedrang, maar het basisprincipe blijft dat Digikoppeling zich niet met de inhoud bemoeit, *'Geen boodschap aan de boodschap'*.
+Digikoppeling voorziet hierin door de standaarden voor deze uitwisseling te definiëren. Met deze logistieke standaardisatie bevordert Digikoppeling de interoperabiliteit tussen (overheids)organisaties. Digikoppeling heeft zich vanaf het begin van haar ontstaan gericht zich op de 'envelop' van een bericht, niet op de inhoud. Daardoor kan iedere organisatie die Digikoppeling gebruikt, de postverzending onafhankelijk van de inhoud inrichten. Met de toevoeging van het Digikoppeling REST API profiel komt de metafoor met berichten in enveloppen wat in het gedrang, maar het basisprincipe blijft dat Digikoppeling zich niet met de inhoud bemoeit, *'Geen boodschap aan de boodschap'*.
 
 ![Verschil SOAP en REST](media/Upwork-Envelop-postcard.png "Soap vs. REST APIs (bron upwork.com")
 <br>bron: [https://www.upwork.com/resources/soap-vs-rest-a-look-at-two-different-api-styles](https://www.upwork.com/resources/soap-vs-rest-a-look-at-two-different-api-styles)
@@ -41,11 +41,11 @@ Digikoppeling is gebaseerd op internationale open standaarden van OASIS en W3C, 
 
 De Digikoppeling-standaard bestaat uit meerdere koppelvlakstandaarden. De koppelvlakstandaarden beschrijven de afspraken die nodig zijn om het berichtenverkeer tussen informatiesystemen mogelijk te maken.
 
-Digikoppeling beschrijft vier verschillende, maar aanvullende, soms overlappende  koppelvlakstandaarden: ebMS2<sup>[3](#f3)</sup>, WUS, REST-API<sup>[3a](#f3a)</sup> en Grote Berichten. In de Digikoppeling-documentatie zijn de koppelvlakstandaarden onafhankelijk van specifieke implementaties beschreven. Dat geeft organisaties de vrijheid om ICT-producten met een aansluiting op Digikoppeling te selecteren uit het aanbod van de markt of zelf iets te ontwikkelen.
+Digikoppeling beschrijft vier verschillende, maar aanvullende, soms overlappende  koppelvlakstandaarden: ebMS2<sup>[3](#f3)</sup>, WUS, REST API<sup>[3a](#f3a)</sup> en Grote Berichten. In de Digikoppeling-documentatie zijn de koppelvlakstandaarden onafhankelijk van specifieke implementaties beschreven. Dat geeft organisaties de vrijheid om ICT-producten met een aansluiting op Digikoppeling te selecteren uit het aanbod van de markt of zelf iets te ontwikkelen.
 
-<del>De keuze voor het gebruik van REST-API of de ebMS2 of WUS standaarden hangt onder meer af van het gewenste ~~berichtenverkeer~~~informatieuitwisseling ~~~bevragingen en/of meldingen)~~~, of er al gebruik wordt gemaakt van deze standaarden en welke standaarden door ketenpartners worden gebruikt.</del>
+<del>De keuze voor het gebruik van REST API of de ebMS2 of WUS standaarden hangt onder meer af van het gewenste ~~berichtenverkeer~~~informatieuitwisseling ~~~bevragingen en/of meldingen)~~~, of er al gebruik wordt gemaakt van deze standaarden en welke standaarden door ketenpartners worden gebruikt.</del>
 
-<br><sup><a name="f3"><dfn>3</dfn></a>: REST-API is geen standaard maar een Architectuurstijl. Eigenlijk had hier HTTP moeten staan.</sup>
+<br><sup><a name="f3"><dfn>3</dfn></a>: REST API is geen standaard maar een Architectuurstijl. Eigenlijk had hier HTTP moeten staan.</sup>
 
 <br><sup><a name="f3a"><dfn>3a</dfn></a>: ebMS2 verwijst naar de ebXML Message Service Specification 2.0, waarop het Digikoppeling ebMS profiel is gebaseerd. We hanteren in de Digikoppeling deze expliciete verwijzing naar versie 2 om elke verwarring met ebMS 3.0 en AS4 profielen te vermijden.</sup>
 

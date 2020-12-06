@@ -1,11 +1,99 @@
 # Overzicht Use Cases
 
-Dit is een nieuw hoofdstuk.
+Hierbij een beschrijving van een aantal usecases waarbij er een specifiek Digikoppeling Koppelvlak vaak een voorkeur heeft.
 
-<aside class="note">
+Voordat er een keuze wordt gemaakt voor een koppelvlak uit de opties die Digikoppeling biedt, is het belangrijkste dat goed geanalyseerd wordt wat eigenlijk de aard is van de uit te wisselen gegevens of bestanden is en de context waarin deze keuze gemaakt dient te worden. Een keuze voor het een of ander is bij voorbaat eigenlijk nooit goed of fout te noemen. Het gaan om welke implementatie het beste past bij de requirements van de betrokken organisatie(s) en de beschikbare capabiliteiten binnen de organisatie. 
 
-> `TODO:` Het voorstel is om hier succesvolle (of minder geslaagde) best practices te vermelden van werkende Digikoppeling Koppelvlakken.
->
-> Hiervoor is **input** nodig van gebruikers!
 
-</aside>
+## Hulpmiddel voor een keuze voor een Digikoppeling Koppelvlak
+
+Relevante vragen voor het maken van een keuze zijn:
+
+
+### Hoeveel partijen zijn er betrokken bij de koppeling en wat is hun rol?
+
+Voorbeelden:
+
+- 1 service provider, n service consumers
+- Many to many: Meerdere partijen die allemaal objecten kunnen versturen en ontvangen
+- 1-op-1: twee partijen die onderling objecten uitwisselen
+
+### Wat is de aard van de gegevens/objecten die uitgewisseld moeten worden?
+
+Voorbeelden:
+
+- Niet nader gespecificeerde Pdfs die van A naar B moeten, met metadata 
+- Hele grote Bestanden 
+
+Hier kan Digikoppeling Grote Berichten (via ebMS of WUS) gebruikt worden. 
+
+### Het uitwisselen/bevragen van relationele bedrijfsgegevens over objecten, ‘Bedrijfsdocumenten’. 
+
+Voorbeelden:
+
+- de volledige gegevens van een GBA inschrijving of de gegevens van een rechtszaak 
+
+Hier kan Digikoppeling WUS gebruikt worden, vanwege gebruik van gestructureerde berichtformaat in combinatie met WSDL en XSD. Digikoppeling REST API is hiervoor ook mogelijk.
+
+### Raadplegen of muteren van een bron
+
+Voorbeelden:
+
+- Een centrale website die een object opvraagt bij op een achterliggende bron. 
+- Het aanmaken, bewerken of verwijderen van een publicatie op de Staatscourant.
+
+Hier kan Digikoppeling REST API gebruikt worden. Digikoppeling WUS is hiervoor ook mogelijk.
+
+## Andere overwegingen voor een keuze van een koppelvlak  
+### Capabiliteit van een organisatie, bestaande infrastructuur
+
+Wat zijn de capabiliteiten van de organisaties die met elkeaar gegevensuitwisselen. Bijvoorbeeld wordt er al gebruik gemaakt van Digikoppeling WUS of ebMS, of juist niet. beschikt de organisatie over eigen ontwikkelteam, of maakthet gebruik van een partner of leverancier.
+
+- Zijn er al koppelingen in gebruik tussen partijen?.
+
+  - Zo ja welke; als hergebruik mogelijk is, kan dat vaak voordelen opleveren omdat men al bekend is met de technieken en de beheerprocessen reeds op volwassen wijze ingericht zijn.
+
+Dit kan een hele valide reden zijn om voor een bepaalde variant te kiezen, ook al zijn er technische argumenten te maken dat een ander type in theorie beter zou passen.
+
+## Overzicht Usecase
+
+### Overdracht van verantwoordelijkheid
+
+Bij deze case gaat het om een overdracht van verantwoordelijkheden, zoals het bevoegd gezag -  bevoegd om besluiten te nemen over een onderwerp - van een overheidsorganisatie naar een andere organsatie. Hierbij is het essentieel dat beide partijen zekerheid over de de overdracht, omdat er bepaalde wettelijke termijnen kunnen bestaan waarin besluiten genomen moeten worden.  
+
+<span class="simple">
+
+|Koppelvlakspecificatie|Omschrijving|Praktijkvoorbeeld|
+|---|---|---|
+|Digikoppeling ebMS2| Digikoppeling ebMS kent een betrouwbaar profiel (osb-rm) dat de bevestiging van ontvangst borgt | formele overdracht van OLO/DSO naar bevoegd gezag |
+
+</span>
+
+### Abonneren op wijzigingen middels notificaties
+
+Deze case is bedoeld voor ketens die authentieke informatie willen 'halen bij de bron' in plaats van het synchroniseren van registraties. Hiervoor is het essentieel dat organisaties worden genotificeerd bij wijzigingen.
+
+![Notificatie request](media/Notification_request.png "Notificatie request")
+
+Figuur 6: Notification request
+
+<span class="simple">
+
+|Koppelvlakspecificatie|Omschrijving|Praktijkvoorbeeld|
+|---|---|---|
+|Digikoppeling ebMS|Digikoppeling ebMS heeft reliable profiel (osb-rm) dat de bevestiging van ontvangst borgt. Hiermee heeft de aanbiedende partij de zekerheid dat een notificatie door de ontvanger is ontvanger| Digilevering ontvangt gebeurtenisberichten van basisregistraties en zendt deze door naar geabonneerde overheidsorganisaties |
+|Digikoppeling REST API| Een client abonneert zich met POST request op wijzingen in een bepaalde bron van een Provider (en kan muteren met PUT of DELETE request). Een bronhouder informeert een abonnee met een POST request bij een wijzingen. De afnemer haalt de wijzingen op via een GET reequest.| VNG werkt aan afspraken voor decentrale notificatieservices |
+
+</span>
+
+### end-to-end security
+
+Een bericht wordt beveiligd tussen de uiteindelijke consumer en de uiteindelijke provider, ook wanneer er zich intermediairs bevinden in het pad tussen die twee. Het betreft hier authenticatie van de consumerorganisatie, conform het Digikoppeling authenticatiemodel, waarbij alleen de identiteit van de consumerorganisatie relevant is(signing), en encryptie van het bericht (payload inclusief attachments) onderweg
+
+|Digikoppeling ebMS | Digikoppeling ebMS kent profielen voor signing en encryption | |
+|Digikoppeling WUS| | Digikoppeling WUS kent profielen voor signing en encryption ||
+### Betrouwbaar berichtenverkeer (reliable messaging)
+
+Bij Betrouwbaar berichtenverkeer verstuurt de service-requester een bericht naar de ontvangende partij (ontvanger) en wacht op een (technische) ontvangstbevestiging. De verzendende (business) applicatie vertrouwt er op dat het bericht (betrouwbaar) afgeleverd wordt. De (business)applicatie zal niet wachten op het antwoord: deze applicatie zal het eventuele 'antwoordbericht' op een ander moment ontvangen en moeten correleren aan het oorspronkelijke vraag bericht.`
+
+|Digikoppeling ebMS | Digikoppeling ebMS kent profielen voor signing en encryption. (reliability out of the box). Retry maakt bijvoorbeeld onderdeel uit van dit protocol | |

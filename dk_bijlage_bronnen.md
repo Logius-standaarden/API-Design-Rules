@@ -9,6 +9,7 @@ Alle goedgekeurde Digikoppeling documenten zijn beschikbaar op <https://www.logi
 | Documentnaam                                            | Auteur(s)              |
 |---------------------------------------------------------|------------------------|
 | Digikoppeling Architectuur                              | Logius Centrum voor Standaarden |
+| Koppelvlakstandaard REST API                            | Logius Centrum voor Standaarden |
 | Koppelvlakstandaard WUS                                 | Logius Centrum voor Standaarden |
 | Koppelvlakstandaard ebMS2                               | Logius Centrum voor Standaarden |
 | Koppelvlakstandaard Grote Berichten                     | Logius Centrum voor Standaarden |

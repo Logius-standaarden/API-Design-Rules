@@ -16,7 +16,7 @@ De volgende uitgangspunten vormen de basis voor de uitwerking van deze architect
 
 4. Providers, zoals Basisregistraties en landelijke voorzieningen, bepalen welke koppelvlakstandaard gebruikt wordt voor een door hun geleverde dienst. Per dienst kunnen meerdere koppelvlakstandaarden aangeboden worden.
 
-In vorige versies van de Digikoppeling Architectuur werden specifieke profielen gekoppeld aan bevragingen en meldingen. Dit voorschrift bleek in de praktijk niet meer goed bruikbaar. Vandaar dat met ingang van versie `xx` deze relatie is komen te vervallen.
+In vorige versies van de Digikoppeling Architectuur werden specifieke profielen gekoppeld aan bevragingen en meldingen. Dit voorschrift bleek in de praktijk niet meer goed bruikbaar. Vandaar dat met ingang van versie `2.0` deze relatie is komen te vervallen.
 
 ## Architectuurprincipes
 

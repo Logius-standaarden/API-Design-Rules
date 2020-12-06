@@ -14,7 +14,7 @@ Digikoppeling kent vier koppelvlakstandaarden
 
 - ebMS2 voor asynchrone uitwisseling voor betrouwbaar berichtenverkeer ;
 
-- Rest-API voor synchrone gegevensuitwisseling met resources;
+- REST API voor synchrone gegevensuitwisseling met resources;
 
 - Grote berichten voor het uitwisselen van grote bestanden;
 
@@ -43,7 +43,7 @@ Door het gebruik van deze profielen worden deze aspecten correct afgehandeld en 
 |---|---|
 | Koppelvlakstandaard WUS | het gebruik van WUS voor synchrone uitwisseling van gestructureerde berichten en de WUS profielen.|
 | Koppelvlakstandaard ebMS2 | Het gebruik van ebMS2 voor asynchrone uitwisseling en de ebMS2 profielen|
-|Koppelvlakstandaard Rest-API| Het gebruik van REST-APIs voor het synchroon raadplegen en bewerken van resources|
+|Koppelvlakstandaard REST API| Het gebruik van REST APIs voor het synchroon raadplegen en bewerken van resources|
 | Koppelvlakstandaard Grote Berichten | Voor de uitwisseling van grote berichten maakt gebruik van WUS met HTTPS bestandsoverdracht of ebMS2 met HTTPS bestandsoverdracht |
 | Beveiligingstandaarden en voorschriften  | Beschrijft de beveiligingstandaarden (TLS, signing en encryption) voor de Digikoppeling profielen WUS, ebMS2 en Grote berichten |
 | Identificatie en Authenticatie | Beschrijft de identificatie van partijen, het opzetten van een tweezijdige beveiligde TLS-verbinding en over het ondertekenen  en versleutelen van berichten en bijlagen. |
@@ -74,28 +74,23 @@ Onderstaande voorschriften gelden voor de hele Digikoppeling-keten. Partijen moe
 
 Tabel 4: Digikoppeling-voorschriften
 
-## REST-API's
+## REST API's
 
-Het Digikoppeling REST-API profiel is gebaseerd op de REST-API Design rules die in 2020 door het Kennisplatform API's is ontwikkeld.
+Het Digikoppeling REST API profiel is gebaseerd op de REST API Design rules die in 2020 door het Kennisplatform API's zijn ontwikkeld.
 
 Een application programming interface (API) is een gestructureerd en gedocumenteerd koppelvlak voor communicatie tussen applicaties. In de laatste 10 jaar heeft Representational state transfer (REST) zich ontwikkeld tot een bepalend principe voor het realiseren van API's.
 
-De standaard REST-API Design Rules geeft een verzameling basisregels voor structuur en naamgeving waarmee de overheid op een uniforme en eenduidige manier REST-API's aanbiedt. Dit maakt het voor ontwikkelaars gemakkelijker om betrouwbare applicaties met te ontwikkelen met API's van de overheid.
+De standaard REST API Design Rules geeft een verzameling basisregels voor structuur en naamgeving waarmee de overheid op een uniforme en eenduidige manier REST API's aanbiedt. Dit maakt het voor ontwikkelaars gemakkelijker om betrouwbare applicaties met te ontwikkelen met API's van de overheid.
 
-De KVS API biedt de volgende functionaliteiten:
-<aside class="note">
+### Digikoppeling REST API voor synchrone requests
 
-> `TODO:` wacht op input DK API Profiel
-
-</aside>
+De KVS REST API biedt de volgende functionaliteiten:
 
 - Identificatie en authenticatie van partijen
-
 - Foutmeldingen
 
-- ...
 
-## OAS: OpenAPI Specification
+### OAS: OpenAPI Specification
 
 Een OpenAPI Specification (OAS) beschrijft de eigenschappen van de data die een API als input accepteert en als output teruggeeft. OAS 3.0 specificeert alleen welke attributen de API verwerkt en hun datatypen, niet welke implementatie er achter de API schuilgaat.
 
@@ -115,22 +110,15 @@ Kenmerkend voor de WUS-standaarden die voortkomen uit de Internet-wereld is de 1
 
 De Digikoppeling-koppelvlakstandaard WUS (KVS WUS) ondersteunt het uitvoeren van synchrone requests tussen geautomatiseerde informatiesystemen.
 
-De KVS WUS biedt de volgende functionaliteiten: ~~voor bevragingen~~
+De KVS WUS biedt de volgende functionaliteiten: 
 
 - Identificatie en authenticatie van partijen
-
 - Versleutelen van transport
-
 - Adresseringsinformatie voor routering ‘achter de voordeur’
-
 - Routeren via message-handlers
-
 - Berichtuitwisseling vast leggen in standaard technisch contract formaat
-
 - Beveiligen van berichten d.m.v. technische handtekening
-
 - Beveiligen van berichten door de content te versleutelen
-
 - Foutmeldingen
 
 ### WSDL: Web Services Description Language
@@ -149,40 +137,26 @@ Kenmerkend voor de ebMS2-standaarden die voortkomen uit de EDIFACT-wereld is de 
 
 ### Digikoppeling ebMS2 voor betrouwbare, asynchone uitwisseling  
 
-De Digikoppeling-koppelvlakstandaard ebMS2 (KVS ebMS2) ondersteunt het uitvoeren van asynchrone berichten ~~meldingen~~ tussen geautomatiseerde informatiesystemen.
+De Digikoppeling-koppelvlakstandaard ebMS2 (KVS ebMS2) ondersteunt het uitvoeren van asynchrone berichten tussen geautomatiseerde informatiesystemen.
 
 Het protocol regelt de betrouwbare ontvangst van een bericht en eventueel de onweerlegbaarheid (non-repudiation) in de vorm van een ondertekende ontvangstbevestiging. Hoewel Digikoppeling-meldingen (op de logistieke laag) asynchroon zijn kan de business-laag wel synchroon werken als de verzender wacht op een retourmelding.`
 
-De KVS ebMS2 regelt de volgende functionaliteiten: ~~voor meldingen~~:
+De KVS ebMS2 regelt de volgende functionaliteiten: :
 
 - Identificatie en authenticatie van partijen
-
 - Versleutelen van transport
-
 - Adresseringsinformatie voor routering ‘achter de voordeur’
-
 - Routeren via message-handlers
-
 - Asynchroon berichten correleren d.m.v. message ID
-
 - Meerdere berichten logisch samenvoegen
-
 - Berichten voorzien van een beveiligde datum en tijdstempel (time-stamping)
-
 - Berichtuitwisseling vast leggen in standaard technisch contract formaat (servicecontract)
-
 - Beveiligen van berichten d.m.v. technische handtekening
-
 - Beveiligen van berichten door de content te versleutelen
-
 - Onweerlegbaarheid op protocolniveau (non-repudiation)
-
 - Betrouwbaar asynchroon berichten versturen met ontvangstbevestigingen
-
 - Ondersteuning voor foutafhandeling op asynchrone berichten
-
 - Volgorde van berichten zo mogelijk handhaven
-
 - Hertransmissies op protocolniveau totdat ontvangst is bevestigd
 
 ### CPA
@@ -195,29 +169,17 @@ De wijze waarop een CPA wordt toegepast staat beschreven in Digikoppeling Best P
 
 ### Werking grote berichten
 
-De situatie kan zich voordoen dat een WUS, REST-API, en/of ebMS2 bericht een grootte krijgt die niet meer efficiënt door de WUS / ebMS2 / REST-API adapters en services verwerkt kan worden. Ook kan er behoefte zijn aan het buiten de normale procesgang ('out-of-band') sturen van aanvullende informatie naar systemen. In die gevallen zal dit “grote bericht” op een andere wijze verstuurd moeten worden: middels de Digikoppeling koppelvlakstandaard Grote Berichten.
+De situatie kan zich voordoen dat een WUS, REST API, en/of ebMS2 bericht een grootte krijgt die niet meer efficiënt door de WUS / ebMS2 / REST API adapters en services verwerkt kan worden. Ook kan er behoefte zijn aan het buiten de normale procesgang ('out-of-band') sturen van aanvullende informatie naar systemen. In die gevallen zal dit “grote bericht” op een andere wijze verstuurd moeten worden: middels de Digikoppeling koppelvlakstandaard Grote Berichten.
 
 De volgende standaard aanpak wordt hierbij gehanteerd:
 
 - Met WUS of ebMS2 wordt referentie (link) verstuurd;
 
-<aside class="note">
-
-> `TODO`: hier ook REST-API vermelden?
-
-</aside>
-
-- de referentie verwijst naar de locatie van het grote bestand. Het hangt af van het  gebruikte Digikoppeling Grote berichten profiel of de ontvanger het bestand moet downloaden of dat de zender het grote bestand inmiddesl als naar de ontvanger heeft geupload.
+- de referentie verwijst naar de locatie van het grote bestand. Het hangt af van het  gebruikte Digikoppeling Grote berichten profiel of de ontvanger het bestand moet downloaden of dat de zender het grote bestand inmiddels als naar de ontvanger heeft geupload.
 
 Het grote bericht zelf zal vaak volledig in het grote bestand zijn opgenomen; het WUS of ebMS2 bericht bevat dan alleen metadata (waaronder de link naar het bestand). Maar het kan ook gebeuren dat een klein deel van het oorspronkelijk grote bericht al in het WUS-bericht is opgenomen en de rest (bijvoorbeeld bijlagen bij het bericht) in een of meerdere bestanden is opgenomen.
 
 Het principe dat Digikoppeling grote berichten toepast is het ‘claim-check’ principe. Dit betekent dat het bericht zelf (WUS of ebMS2)
-
-<aside class="note">
-
-> `TODO:`komt er ook een REST-API invulling van GB?
-
-</aside>
 
 alleen een referentie (claim-check) naar het grote bestand bevat. Deze referentie wordt vervolgens gebruikt om het bestand zelf op te halen.
 
@@ -228,22 +190,9 @@ De standaard doet geen uitspraak over gegevensstromen waarin kleine en grote ber
 ### Standaarden voor grote berichten
 
 De *Digikoppeling Koppelvlakstaard Grote Berichten* (KVS GB) maakt gebruik van WUS en ebMS2
-
-<aside class="note">
-
-> `TODO`: zie eerder opmerking over evt toevoegen van API voor GB
-
-</aside>
-
  voor het verzenden van metadata. Voor ophalen van het grote bestand maakt de standaard gebruik van HTTPS-downloads. Daardoor zijn reliability en security gelijkwaardig aan WUS en ebMS2. Ook is het gebruik van transparante intermediairs mogelijk.
 
-De KVS GB regelt de volgende functionaliteiten ~~voor meldingen of bevragingen~~, in aanvulling op WUS of ebMS2
-
-<aside class="note">
-
-> `TODO`: zie eerder opmerking over evt toevoegen API voor GB
-
-</aside>
+De KVS GB regelt de volgende functionaliteiten, in aanvulling op WUS of ebMS2
 
 - Identificatie en authenticatie van partijen (OIN)
 

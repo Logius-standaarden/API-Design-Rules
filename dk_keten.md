@@ -56,10 +56,14 @@ Figuur 3: Positionering intermediair/sectoraal knooppunt
 
 ## End-to-end 
 
+[todo]
 ## Databewerker
+
+[todo]
 
 ## SAAS dienstverlener
 
+[todo]
 
 
 ## Componenten in de logistieke Digikoppeling-keten
@@ -99,7 +103,7 @@ Uitwisselingsvormen onderscheiden we op alle niveaus van inhoud, logistiek en tr
 
 Op business-niveau is er een veelheid aan uitwisselingsvormen waaraan behoefte bestaat. Deze zijn vaak contextspecifiek. Soms zijn deze vormen ook specifiek voor een sector waardoor het loont om deze in een sectorale berichtstandaard voor de inhoud van een bericht af te spreken.
 
-. Een aantal proceskenmerken op business-niveau bepaalt welke door Digikoppeling geboden logistieke vormen geschikt zijn. Zonder alle mogelijke behoeften uit te werken, behandelt deze sub-paragraaf wel de voor de keuze van Digikoppeling belangrijke kenmerken:
+Een aantal proceskenmerken op business-niveau bepaalt welke door Digikoppeling geboden logistieke vormen geschikt zijn. Zonder alle mogelijke behoeften uit te werken, behandelt deze sub-paragraaf wel de voor de keuze van Digikoppeling belangrijke kenmerken:
 
 1. De impact op de serviceaanbieder is afhankelijk van de dienst die deze levert:
 
@@ -149,19 +153,13 @@ Bij een asynchrone request-response verstuurt de service-requester een bericht n
 
 Digikoppeling biedt twee mogelijkheden voor synchrone uitwisseling aan: bij synchrone uitwisseling wacht het vragende informatiesysteem (de requestor) op een antwoord. Dit wachten heeft een beperkte duur (time-out). Als een (tijdig) antwoord uitblijft moet de vrager besluiten of hij de vraag opnieuw stelt of niet. De snelheid van afleveren is hier vaak belangrijker dan een betrouwbare aflevering.
 
-Synchrone uitwisseling kunnen worden ingericht op basis van de Digikoppeling-koppelvlakstandaard WUS en het Digikoppeling Restful API profiel.
+Synchrone uitwisseling kunnen worden ingericht op basis van de Digikoppeling-koppelvlakstandaard WUS en het Digikoppeling REST API profiel.
 
 ### Asynchrone uitwisseling
 
 Een asynchroon verzoek is een enkelvoudig bericht waarop eventueel enige tijd later een retour-melding volgt. Het gebruikte protocol regelt de betrouwbare ontvangst en de onweerlegbaarheid (non-repudiation) van een bericht. Bij asynchrone uitwisseling is de betrouwbare aflevering van het bericht essentieel. Als een partij het bericht niet direct kan aannemen, voorzien de protocollen erin dat het bericht nogmaals wordt aangeboden.
 
 Asynchrone uitwisseling kunnen worden ingericht op basis van de Digikoppeling-koppelvlakstandaard ebMS2.
-
-### Geen onderscheid meer in gebruik WUS en ebMS2 voor bevragingen en transacties
-
-De Provider bepaalt welk koppelvlak - Restful API, WUS of ebMS- van toepassing is op de door haar geleverde dienst.
-
-Tot en met 2019 werd in de Digikoppeling Standaard onderscheid gemaakt tussen 'WUS voor bevragingen' en 'ebMS voor meldingen'. In de praktijk bleek dit onderscheid niet altijd goed te werken. Er zijn bijvoorbeeld usecases waarin WUS beter geschikt is voor meldingen. Binnen de overheidsorganisaties heeft het gebruik van REST-API's voor het uitwisselen van gegevens tussen overheden een enorme vlucht genomen. 
 
 ### Grote Berichten
 
@@ -183,13 +181,20 @@ Digikoppeling Grote Berichten maakt verschillende vormen van uitwisseling op bus
 
 <br><sup><a name="f24"><dfn>24</dfn></a>: **1 MiB**=1024\^2 bytes : Voorheen stond hier 20MB. We gebruiken de term MiB om geen enkele verwarring te scheppen over de drempelwaarde. Het verschil tussen 20Mb en 20Mib is echter te verwaarlozen.</sup>
 
-## Overzicht transactiepatronen (nieuw)
+
+## Geen onderscheid meer in gebruik WUS en ebMS2 voor bevragingen en transacties
+
+De Provider bepaalt welk koppelvlak - Restful API, WUS of ebMS- van toepassing is op de door haar geleverde dienst.
+
+Tot en met 2019 werd in de Digikoppeling Standaard onderscheid gemaakt tussen 'WUS voor bevragingen' en 'ebMS voor meldingen'. In de praktijk bleek dit onderscheid niet altijd goed te werken. Er zijn bijvoorbeeld usecases waarin WUS beter geschikt is voor meldingen. Binnen de overheidsorganisaties heeft het gebruik van REST API's voor het uitwisselen van gegevens tussen overheden een enorme vlucht genomen. 
+## Overzicht transactiepatronen
 
 ### Synchrone bevraging
 
 Bij een bevraging (vraag-antwoord) stuurt de service-requester een voorgedefinieerde vraag (request) aan de service-provider, die een antwoord (response) verstrekt. Het initiatief ligt bij de service-requester. Gaat er in de uitwisseling iets mis dan zal de service-requester na een bepaalde tijd de uitwisseling afbreken (time-out). Een synchrone bevraging is in de regel *idempotent*, een request kan opnieuw verstuurd worden zonder gevolgen. 
 
 ![synchroon request](media/Synchroon_request.png "synchroon request")
+
 Figuur 4: Synchrone bevraging
 
 <span class="simple">
@@ -197,7 +202,7 @@ Figuur 4: Synchrone bevraging
 |Koppelvlakspecificatie|Omschrijving|Praktijkvoorbeeld|
 |---|---|---|
 |Digikoppeling WUS| Digikoppeling WUS is geschikt als voor de bevraging gestructureerde  berichten (in XML) nodig zijn. Digikoppeling heeft profielen voor signing en encryption. |...|
-|Digikoppeling REST-API| Digikoppeling REST-API heet een GET methode waarmee synchrone requests kunnen uitgevoerd. Digikoppeling REST-API kent nog geen gestandaardiseerde versies voor signing of encryptie| Bevragen OIN register via de COR API |
+|Digikoppeling REST API| Digikoppeling REST API heet een GET methode waarmee synchrone requests kunnen uitgevoerd. Digikoppeling REST API kent nog geen gestandaardiseerde versies voor signing of encryptie| Bevragen OIN register via de COR API |
 
 </span>
 
@@ -210,7 +215,7 @@ Bij een melding-bevestiging stuurt een service-requester informatie naar de serv
 |Koppelvlakspecificatie|Omschrijving|Praktijkvoorbeeld|
 |---|---|---|
 |Digikoppeling WUS| Digikoppeling WUS is geschikt als voor de melding een  gestructureerde  bericht (in XML) nodig is. Digikoppeling heeft profielen voor signing en encryption. Voorwaarde is dat de melding *idempotent* is |...|
-|Digikoppeling REST-API| Digikoppeling REST-API heet een PUT methode waarmee synchrone requests kunnen uitgevoerd. Digikoppeling REST-API kent nog geen gestandaardiseerde versies voor signing of encryptie Het Digikoppeling REST-API profiel kent ook een POST methode maar deze is niet idempotent en kan dus niet herhaaldelijk worden verzonden| ... |
+|Digikoppeling REST API| Digikoppeling REST API heet een PUT methode waarmee synchrone requests kunnen uitgevoerd. Digikoppeling REST API kent nog geen gestandaardiseerde versies voor signing of encryptie Het Digikoppeling REST API profiel kent ook een POST methode. POST is niet idempotent en kan dus niet herhaaldelijk worden verzonden| ... |
 
 </span>
 
@@ -220,6 +225,7 @@ Bij een melding-bevestiging stuurt een service-requester informatie naar de serv
 Bij een melding-bevestiging stuurt een service-requester informatie naar de service-provider en ontvangt synchroon een bevestiging dat een bericht is ontvangen. op een later moment kan de ontvanger een bericht sturen dat de melding is verwerkt  
 
 ![Asynchroon request](media/Asynchroon_request.png "Asynchroon request")
+
 Figuur 5: Asynchrone Melding-bevestiging
 
 <span class="simple">
@@ -228,19 +234,7 @@ Figuur 5: Asynchrone Melding-bevestiging
 |---|---|---|
 |Digikoppeling ebMS2| Digikoppeling ebMS heeft reliable profiel (osb-rm) dat de bevestiging van ontvangst borgt | formele overdracht van OLO/DSO naar bevoegd gezag |
 |Digikoppeling WUS| Digikoppeling WUS kent geen reliable profiel. Partijen in de keten moeten met elkaar afspraken hoe een melding wordt bevestigd in een antwoord door de ontvanger op een later tijdstip  |...|
-|Digikoppeling REST-API| Digikoppeling REST-API heet een PUT en een POST methode waarmee synchrone requests kunnen uitgevoerd. Digikoppeling REST-API kent geen reliable profiel. Partijen in de keten moeten met elkaar afspraken hoe een melding wordt bevestigd in een antwoord door de ontvanger op een later tijdstip| ... |
-
-</span>
-
-### Overdracht van verantwoordelijkheid
-
-Bij dit patroon gaat het om een overdracht van verantwoordelijkheden, zoals het bevoegd gezag -  bevoegd om besluiten te nemen over een onderwerp - van een overheidsorganisatie naar een andere organsatie. Hierbij is het essentieel dat beide partijen zekerheid over de de overdracht, omdat er bepaalde wettelijke termijnen kunnen bestaan waarin besluiten genomen moeten worden.  
-
-<span class="simple">
-
-|Koppelvlakspecificatie|Omschrijving|Praktijkvoorbeeld|
-|---|---|---|
-|Digikoppeling ebMS2| Digikoppeling ebMS kent een betrouwbaar profiel (osb-rm) dat de bevestiging van ontvangst borgt | formele overdracht van OLO/DSO naar bevoegd gezag |
+|Digikoppeling REST API| Digikoppeling REST API heet een PUT en een POST methode waarmee synchrone requests kunnen uitgevoerd. Digikoppeling REST API kent geen reliable profiel. Partijen in de keten moeten met elkaar afspraken hoe een melding wordt bevestigd in een antwoord door de ontvanger op een later tijdstip| ... |
 
 </span>
 
@@ -252,89 +246,41 @@ De situatie kan zich voordoen dat een bericht een omvang krijgt die niet meer ef
 
 |Koppelvlakspecificatie|Omschrijving|Praktijkvoorbeeld|
 |---|---|---|
-|Digikoppeling Grote berichten| Bij ‘grote berichten’ worden grotere bestanden uitgewisseld via een van de Digikoppeling profielen WUS, ebMS en REST-API in combinatie met een (HTTPS-)download vanaf een beveiligde website. Grote berichten vormen een functionele uitbreiding op de Digikoppelvlakstandaarden voor de veilige bestandsoverdracht van berichten groter dan xxx MiB/GiB | ... |
+|Digikoppeling Grote berichten| Bij ‘grote berichten’ worden grotere bestanden uitgewisseld via een van de Digikoppeling profielen WUS, ebMS in combinatie met een (HTTPS-)download vanaf een beveiligde website. Grote berichten vormen een functionele uitbreiding op de Digikoppelvlakstandaarden voor de veilige bestandsoverdracht van berichten groter dan 20 MiB | ... |
 
 </span>
 
-### Abonneren op wijzigingen middels notificaties
-
-Dit patroon is bedoeld voor ketens die authentieke informatie willen 'halen bij de bron' in plaats van het synchroniseren van registraties. Hiervoor is het essentieel dat organisaties worden genotificeerd bij wijzigingen.
-
-![Notificatie request](media/Notification_request.png "Notificatie request")
-
-<span class="simple">
-
-|Koppelvlakspecificatie|Omschrijving|Praktijkvoorbeeld|
-|---|---|---|
-|Digikoppeling ebMS|Digikoppeling ebMS heeft reliable profiel (osb-rm) dat de bevestiging van ontvangst borgt. Hiermee heeft de aanbiedende partij de zekerheid dat een notificatie door de ontvanger is ontvanger| Digilevering ontvangt gebeurtenisberichten van basisregistraties en zendt deze door naar geabonneerde overheidsorganisaties |
-|Digikoppeling REST-API|  | VNG werkt afspraken voor decentrale notificatieservices |
-
-</span>
-
-## Uitwisseling via een transparante intermediair
+### Uitwisseling via een transparante intermediair
 
 Een transparante keten is alleen mogelijk als zowel de service-aanbieder als de serviceafnemer hetzelfde protocol hanteren. De intermediair routeert berichten tussen de serviceaanbieder en de serviceafnemer waarbij het bericht intact blijft (alleen de header wordt gelezen). De uitwisseling verloopt op dezelfde manier als bij een bilaterale uitwisseling.
 
 ![Transparante intermediair](media/transparante_intermediair.png "Transparante intermediair")
-Figuur 6: Transparante intermediair
+
+Figuur 7: Transparante intermediair
 
 <span class="simple">
 
 |Koppelvlakspecificatie|Omschrijving|Praktijkvoorbeeld|
 |---|---|---|
-|Digikoppeling ...| [todo]| ... |
+|Digikoppeling WUS | [todo] | ... |
+|Digikoppeling ebMS | [todo]| ... |
 
 </span>
 
 
-## Uitwisseling via een niet-transparante intermediair
+### Uitwisseling via een niet-transparante intermediair
 
 Een transparante keten is alleen mogelijk als zowel de service-aanbieder als de serviceafnemer hetzelfde protocol hanteren. De intermediair routeert berichten tussen de serviceaanbieder en de serviceafnemer waarbij het bericht bewerkt moet worden voor verdere verzending. 
 
 ![Niet-Transparante intermediair](media/niet_transparante_intermediair.png "Transparante intermediair")
-Figuur 7: Niet-Transparante intermediair
+
+Figuur 8: Niet-Transparante intermediair
+
 <span class="simple">
 
 |Koppelvlakspecificatie|Omschrijving|Praktijkvoorbeeld|
 |---|---|---|
-|Digikoppeling ebMS |[todo]| (Rinis) |
+|Digikoppeling WUS |[todo]| ... |
+|Digikoppeling ebMS |[todo]| ... |
 
 </span>
-
-<br>
-<aside class="note">
-
-> Bovenstaande patronen komen grotendeels uit de EDUkoppeling architectuur. 
-> 
-> EDUkoppeling beschrijft (in de *concept Architectuur 2.0*) de volgende patronen
->
-> - **Request-response (bevraging)**
->   - een vraag waar direct een reactie op wordt verwacht
-> - **Melding-bevestiging**
->   - De informatie wordt gestuurd door A en de ontvangst wordt synchroon door B bevestigd.
->   - (PH: Is dit een businesstransactie? Een patroon dat Digikoppeling niet kent (tot nu toe?)
->   - Belangrijk is de schadelijke effecten te voorkomen als een bericht twee keer wordt verzonden (door een time-out) of als meldingen in de verkeerde volgorde binnenkomen. Digikoppeling lost dat op met het patroon Gegarandeerde aflevering. Edukoppeling ondersteunt dat niet.
-> - **Asynchrone uitwisseling**
->   - Een asynchrone uitwisseling is twee keer het patroon melding-bevestiging in verschillende richtingen.
-> - **Grote berichten**
-> - **Abonneren op wijzigingen middels notificaties**
->   - er is een verandering op gang van het synchroniseren van administraties naar het direct bevragen bij de bron.
-> 
-> EduKoppeling hanteert voor abonneren de volgende uitgangspunten:
->
-> - Elke resource, elk object (verderop: gegevens) kent een beheerder; de organisatie die het gegeven in beheer heeft, en 1 of meer afnemers; de organisaties die deze resources gebruiken. In 1:n koppelvlakken is de centrale dienstverlener de houder van de gegevens, en zijn de gekoppelde organisaties de afnemers. In 1:1 situaties wordt een van beide partijen aangewezen als beheerder.
-> - Updates op gegevens bij de beheerder worden geïnitieerd door de afnemer middels het patroon ‘Melding - bevestiging’ of ‘ Asynchrone uitwisseling’.
-> - Ophalen van de actuele stand van zaken wordt altijd middels het request -response patroon gerealiseerd, niet door een melding vanuit de beheerder.
-> - Wanneer een partij geïnteresseerd is in wijzigingen in een gegeven bij de beheerder kan hij dat kenbaar maken middels een abonnementenservice. Dit is een service die de beheerder moet leveren aan zijn afnemers.
->   - Bij een wijziging op een gegeven worden alle abonnees hiervan in kennis gesteld middels een notificatiebericht. Dus is altijd een “Melding - Bevestiging” met daarin alleen het unieke resourceID waarmee de abonnee, op het moment dat het hem uitkomt, de actuele stand kan ophalen. De gegevens zelf worden niet direct teruggeleverd. Hiermee wordt een maximale ontkoppeling gegarandeerd, ook bij wijzigingen in de toekomst.
->
-> EDUkoppeling noemt ook een
->
-> - Antipatroon: **Polling**
-
-</aside>
-
-
-
-
-
