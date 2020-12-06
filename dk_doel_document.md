@@ -53,27 +53,3 @@ Figuur 1: Digikoppeling-standaard
 ## Begrippen
 
 Belangrijke begrippen en afkortingen zijn opgenomen in *Bijlage B: Begrippen*.
-
-## Leeswijzer
-
-De Architectuur Digikoppeling is als volgt opgebouwd:
-
-<span class="simple">
-
-| Hoofdstuk   | Titel                                                    |
-|-------------|----------------------------------------------------------|
-| Hoofdstuk 2 | Wat is Digikoppeling?                                    |
-| Hoofdstuk 3 | Digikoppeling architectuurprincipes                      |
-| Hoofdstuk 4 | De Digikoppeling-keten                                   |
-| Hoofdstuk 5 | Digikoppeling-standaarden en Digikoppeling-voorschriften |
-| Hoofdstuk 6 | Digikoppeling-voorzieningen                              |
-| Hoofdstuk 7 | Digikoppeling use cases                                  |
-| Hoofdstuk 8 | Implementatieaspecten                                    |
-| Bijlage A   | Bronnen                                                  |
-| Bijlage B   | Begrippenlijst                                           |
-| Bijlage C   | NORA-principes                                           |
-| Bijlage D   | Eisen aan de standaard                                   |
-
-</span>
-
-Tabel 1: Leeswijzer
