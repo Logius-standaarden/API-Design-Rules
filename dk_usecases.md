@@ -1,6 +1,6 @@
 # Overzicht Use Cases
 
-Hierbij een beschrijving van een aantal usecases waarbij er een specifiek Digikoppeling Koppelvlak vaak een voorkeur heeft.
+In dit hoofdstuk beschrijven  we een aantal usecases waarbij er een specifiek Digikoppeling Koppelvlak vaak een voorkeur heeft.
 
 Voordat er een keuze wordt gemaakt voor een koppelvlak uit de opties die Digikoppeling biedt, is het belangrijkste dat goed geanalyseerd wordt wat eigenlijk de aard is van de uit te wisselen gegevens of bestanden is en de context waarin deze keuze gemaakt dient te worden. Een keuze voor het een of ander is bij voorbaat eigenlijk nooit goed of fout te noemen. Het gaan om welke implementatie het beste past bij de requirements van de betrokken organisatie(s) en de beschikbare capabiliteiten binnen de organisatie. 
 
@@ -14,9 +14,9 @@ Relevante vragen voor het maken van een keuze zijn:
 
 Voorbeelden:
 
-- 1 service provider, n service consumers
-- Many to many: Meerdere partijen die allemaal objecten kunnen versturen en ontvangen
-- 1-op-1: twee partijen die onderling objecten uitwisselen
+- 1 service provider, n service consumers. Hier kan een service provider er voor kiezen meerdere koppelvlakstandaarden aan te beiden (bijvoorbeeld REST API en WUS). 
+- Many to many: Meerdere partijen die allemaal objecten kunnen versturen en ontvangen. Voor deze koppeling worden een REST API koppelvlak vaak gebruikt.  
+- 1-op-1: twee partijen die onderling objecten uitwisselen. Hierbij kunnen partijen om een specifiek contract af te spreken, zoals in een CPA bij ebMS.  
 
 ### Wat is de aard van de gegevens/objecten die uitgewisseld moeten worden?
 
@@ -27,13 +27,13 @@ Voorbeelden:
 
 Hier kan Digikoppeling Grote Berichten (via ebMS of WUS) gebruikt worden. 
 
-### Het uitwisselen/bevragen van relationele bedrijfsgegevens over objecten, ‘Bedrijfsdocumenten’. 
+### Het uitwisselen van relationele bedrijfsgegevens over objecten, ‘Bedrijfsdocumenten’ 
 
 Voorbeelden:
 
 - de volledige gegevens van een GBA inschrijving of de gegevens van een rechtszaak 
 
-Hier kan Digikoppeling WUS gebruikt worden, vanwege gebruik van gestructureerde berichtformaat in combinatie met WSDL en XSD. Digikoppeling REST API is hiervoor ook mogelijk.
+Hier kan voor Digikoppeling WUS gekozen worden, omdat in deze uitwisseling vaak een gestructureerde berichtformaat wordt gehanteerd in combinatie met WSDL en XSD. Digikoppeling REST API is hiervoor ook mogelijk.
 
 ### Raadplegen of muteren van een bron
 
@@ -86,14 +86,25 @@ Figuur 6: Notification request
 
 </span>
 
-### end-to-end security
+### End-to-End security
 
 Een bericht wordt beveiligd tussen de uiteindelijke consumer en de uiteindelijke provider, ook wanneer er zich intermediairs bevinden in het pad tussen die twee. Het betreft hier authenticatie van de consumerorganisatie, conform het Digikoppeling authenticatiemodel, waarbij alleen de identiteit van de consumerorganisatie relevant is(signing), en encryptie van het bericht (payload inclusief attachments) onderweg
 
+<span class="simple">
+
+|Koppelvlakspecificatie|Omschrijving|Praktijkvoorbeeld|
+|---|---|---|
 |Digikoppeling ebMS | Digikoppeling ebMS kent profielen voor signing en encryption | |
 |Digikoppeling WUS| | Digikoppeling WUS kent profielen voor signing en encryption ||
+
+</span>
+
 ### Betrouwbaar berichtenverkeer (reliable messaging)
 
 Bij Betrouwbaar berichtenverkeer verstuurt de service-requester een bericht naar de ontvangende partij (ontvanger) en wacht op een (technische) ontvangstbevestiging. De verzendende (business) applicatie vertrouwt er op dat het bericht (betrouwbaar) afgeleverd wordt. De (business)applicatie zal niet wachten op het antwoord: deze applicatie zal het eventuele 'antwoordbericht' op een ander moment ontvangen en moeten correleren aan het oorspronkelijke vraag bericht.`
 
+<span class="simple">
+
 |Digikoppeling ebMS | Digikoppeling ebMS kent profielen voor signing en encryption. (reliability out of the box). Retry maakt bijvoorbeeld onderdeel uit van dit protocol | |
+
+</span>

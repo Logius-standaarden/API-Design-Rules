@@ -58,9 +58,9 @@ Digikoppeling per koppelvlakstandaard een aantal standaardprofielen. Elk profiel
 
 De volgende kenmerken zijn onderkend:
 
-- Best effort – geschikt voor `bevragingen` <del>(WUS)</del>
+tiying-up- Best effort – geschikt voor bevragingen (WUS en REST API)
 
-- Betrouwbaar (reliable) – geschikt voor `meldingen`<del>(ebMS2)</del>
+- Betrouwbaar (reliable) – geschikt voor meldingen (ebMS)
 
 - Signed – geschikt voor de ondertekening van berichten (WUS en ebMS2)
 
