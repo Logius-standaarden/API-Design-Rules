@@ -94,8 +94,8 @@ Een bericht wordt beveiligd tussen de uiteindelijke consumer en de uiteindelijke
 
 |Koppelvlakspecificatie|Omschrijving|Praktijkvoorbeeld|
 |---|---|---|
-|Digikoppeling ebMS | Digikoppeling ebMS kent profielen voor signing en encryption | |
-|Digikoppeling WUS| | Digikoppeling WUS kent profielen voor signing en encryption ||
+| Digikoppeling ebMS | Digikoppeling ebMS kent profielen voor signing en encryption | |
+| Digikoppeling WUS | Digikoppeling WUS kent profielen voor signing en encryption ||
 
 </span>
 
@@ -105,6 +105,8 @@ Bij Betrouwbaar berichtenverkeer verstuurt de service-requester een bericht naar
 
 <span class="simple">
 
+|Koppelvlakspecificatie|Omschrijving|Praktijkvoorbeeld|
+|---|---|---|
 |Digikoppeling ebMS | Digikoppeling ebMS kent profielen voor signing en encryption. (reliability out of the box). Retry maakt bijvoorbeeld onderdeel uit van dit protocol | |
 
 </span>
