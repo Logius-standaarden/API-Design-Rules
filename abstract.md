@@ -12,9 +12,9 @@ De aanleiding van de vernieuwing van dit document is tweeledig: in 2019 is een R
 
 De belangrijkste wijzigingen in de nieuwe Digikoppeling Architectuur zijn: 
 
-- De Provider bepaalt welk koppelvlak - Restful API, WUS of ebMS- van toepassing is op de door haar geleverde dienst.
 - Geen onderscheid meer in 'WUS voor bevragingen' en 'ebMS voor meldingen'
-- Toevoegen van een Digikoppeling REST API profiel, gebaseerd dop de API Design Rules (uit de Nederlandse API Strategie)
+- Toevoegen van een Digikoppeling REST API profiel, gebaseerd op de API Design Rules (uit de Nederlandse API Strategie)
+- De Provider bepaalt welk koppelvlak - REST API, WUS of ebMS van toepassing is op de door haar geleverde dienst.
 
 
 (‘Backwards compatibiliteit’ geldt niet voor de security eisen, zie hiervoor de actuele versie van ‘*Digikoppeling beveiligingsstandaarden en voorschriften’)*
