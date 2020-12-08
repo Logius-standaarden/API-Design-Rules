@@ -2,6 +2,9 @@
 
 HTML versie: [Architectuur2.0-metRestfulAPI](https://centrumvoorstandaarden.github.io/Architectuur2.0-metRestfulAPI/)
 
+Indien u een oudere browser gebruikt kunt u onderstaande link volgen: 
+HTML-versie(static): [Architectuur2.0-metRestfulAPI](https://centrumvoorstandaarden.github.io/Architectuur2.0-metRestfulAPI/static.html)
+
 Digikoppeling Vragenboom: [Vragen Boom (concept)](https://github.com/centrumvoorstandaarden/Architectuur2.0-metRestfulAPI/blob/master/dk-vragenboom.pdf)
 
 In dit project wordt een nieuwe versie van het Digikoppeling Architectuur document ontwikkeld. De aanleiding van de vernieuwing is tweeledig: in 2019 is een RFC ingediend over relatie van de Digikoppeling profielen met *bevragen en melden*. Daarnaast wordt in 2020 een Rest API profiel uitgewerkt en opgenomen in de Digikoppeling Standaard.
