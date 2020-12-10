@@ -14,7 +14,7 @@ Relevante vragen voor het maken van een keuze zijn:
 
 Voorbeelden:
 
-- 1 service provider, n service consumers. Hier kan een service provider er voor kiezen meerdere koppelvlakstandaarden aan te beiden (bijvoorbeeld REST API en WUS). 
+- 1 service provider, n service consumers. Hier kan een service provider er voor kiezen meerdere koppelvlakstandaarden aan te bieden (bijvoorbeeld REST API en WUS).
 - Many to many: Meerdere partijen die allemaal objecten kunnen versturen en ontvangen. Voor deze koppeling worden een REST API koppelvlak vaak gebruikt.  
 - 1-op-1: twee partijen die onderling objecten uitwisselen. Hierbij kunnen partijen om een specifiek contract af te spreken, zoals in een CPA bij ebMS.  
 
@@ -65,7 +65,7 @@ Bij deze case gaat het om een overdracht van verantwoordelijkheden, zoals het be
 
 |Koppelvlakspecificatie|Omschrijving|Praktijkvoorbeeld|
 |---|---|---|
-|Digikoppeling ebMS2| Digikoppeling ebMS kent een betrouwbaar profiel (osb-rm) dat de bevestiging van ontvangst borgt | formele overdracht van OLO/DSO naar bevoegd gezag |
+|Digikoppeling ebMS2| Digikoppeling ebMS kent een betrouwbaar profiel (osb-rm) dat de bevestiging van ontvangst borgt. Digikoppeling ebMS ondersteunt ook de mogeijkheid van onweerlegbaarheid (non-repudiation) in de vorm van een ondertekende ontvangstbevestiging  | formele overdracht van OLO/DSO naar bevoegd gezag |
 
 </span>
 
@@ -94,7 +94,7 @@ Een bericht wordt beveiligd tussen de uiteindelijke consumer en de uiteindelijke
 
 |Koppelvlakspecificatie|Omschrijving|Praktijkvoorbeeld|
 |---|---|---|
-| Digikoppeling ebMS | Digikoppeling ebMS kent profielen voor signing en encryption | |
+| Digikoppeling ebMS | Digikoppeling ebMS kent profielen voor signing en encryption. Digikoppeling ebMS ondersteunt ook de mogeijkheid van onweerlegbaarheid (non-repudiation) in de vorm van een ondertekende ontvangstbevestiging | |
 | Digikoppeling WUS | Digikoppeling WUS kent profielen voor signing en encryption ||
 
 </span>

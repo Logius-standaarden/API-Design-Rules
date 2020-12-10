@@ -103,7 +103,7 @@ Een aantal proceskenmerken op business-niveau bepaalt welke door Digikoppeling g
 
    - (het proces en) de applicatie van de afnemer wacht op een 'onmiddellijk' antwoord (de vraagsteller, applicatie/gebruiker houdt de context vast en weet dus direct waar het antwoord op slaat).
 
-   - het resultaat is 'uitgesteld, komt enige tijd later (de applicatie moet dan het antwoord bij de vraag zoeken) of wellicht helemaal niet. De applicatie of het business proces wachten niet.
+   - het resultaat is 'uitgesteld, komt enige tijd later (de applicatie moet dan dit antwoord aan de oorspronkelijke vraag koppelen) of wellicht helemaal niet. De applicatie of het business proces wachten niet.
 
 Op basis van deze twee verschillen komen we tot vier primitieve business-interacties, weergegeven in onderstaande tabel.
 
@@ -141,13 +141,13 @@ Bij een asynchrone request-response verstuurt de service-requester een bericht n
 
 Digikoppeling biedt twee mogelijkheden voor synchrone uitwisseling aan: bij synchrone uitwisseling wacht het vragende informatiesysteem (de requestor) op een antwoord. Dit wachten heeft een beperkte duur (time-out). Als een (tijdig) antwoord uitblijft moet de vrager besluiten of hij de vraag opnieuw stelt of niet. De snelheid van afleveren is hier vaak belangrijker dan een betrouwbare aflevering.
 
-Synchrone uitwisseling kunnen worden ingericht op basis van de Digikoppeling-koppelvlakstandaard WUS en het Digikoppeling REST API profiel.
+Synchrone uitwisseling kan worden ingericht op basis van de Digikoppeling-koppelvlakstandaard WUS en het Digikoppeling REST API profiel.
 
 ### Asynchrone uitwisseling
 
-Een asynchroon verzoek is een enkelvoudig bericht waarop eventueel enige tijd later een retour-melding volgt. Het gebruikte protocol regelt de betrouwbare ontvangst en de onweerlegbaarheid (non-repudiation) van een bericht. Bij asynchrone uitwisseling is de betrouwbare aflevering van het bericht essentieel. Als een partij het bericht niet direct kan aannemen, voorzien de protocollen erin dat het bericht nogmaals wordt aangeboden.
+Een asynchroon verzoek is een enkelvoudig bericht waarop eventueel enige tijd later een retour-melding volgt. Het gebruikte protocol regelt de betrouwbare ontvangst. Bij asynchrone uitwisseling is de betrouwbare aflevering van het bericht essentieel. Als een partij het bericht niet direct kan aannemen, voorzien de protocollen erin dat het bericht nogmaals wordt aangeboden.
 
-Asynchrone uitwisseling kunnen worden ingericht op basis van de Digikoppeling-koppelvlakstandaard ebMS2.
+Asynchrone uitwisseling kan worden ingericht op basis van de Digikoppeling-koppelvlakstandaard ebMS2.
 
 ### Grote Berichten
 
