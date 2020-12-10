@@ -34,17 +34,18 @@ Onderstaande indeling is concept. Dit kan nog op alle punten wijzigen.
 |#|Hoofdstuk| Opmerkingen | Todo/Doing |
 |-|---|---|---|
 |1|[Doel van het document en leeswijzer](dk_doel_document.md)|||
-|2|[Wat is Digikoppeling](dk_nieuwe_scope.md)||**gestart**<br>vraag: Wat moeten we doen met de referentie naar de Nora Servicegerichte architectuur. De Nora is heeft de servicegerichte architectuur naar het archief verwezen en onderzoekt de rol van APi's |
-|3|[Digikoppeling Architectuurprincipes](dk_architectuurprincipes.md)| aanpassing ivm RFC bevragen en melden|**gestart**|
-|4|[Digikoppeling Keten](dk_keten.md)||**gestart** <br>toegevoegd transactiepatronen uit EDUkoppeling ter illustratie en verduidelijken rollen|
-|5|[Koppelvlakstandaarden en voorschriften](dk_koppelvlakstandaarden_en_voorschriften.md)||**gestart** <br>opnemen verwijzing naar het nieuwe Digikoppeling Restful API profiel|
-|6|[Digikoppeling voorzieningen](dk_voorzieningen.md)||**gestart**|
-|7|[Digikoppeling Use cases](dk_usecases.md)| dit is een nieuw hoofdstuk|input van gebruikers|
-|8|[Implementatie aspecten](dk_implementatie.md)||**gestart**|
-|B1|[Bijlage Bronnen](dk_bijlage_bronnen.md)|||
-|B2|[Bijlage begrippen](dk_bijlage_begrippen.md)|||
-|B3|[Bijlage Nora Architectuurprincipes](dk_bijlage_nora_architectuur_principes.md)|||
-|B4|[Bijlage Niet functionele eisen](dk_bijlage_niet_functionele_eisen.md)|||
+|2|[Wat is Digikoppeling](dk_nieuwe_scope.md)||**update**<br> ~~vraag: Wat moeten we doen met de referentie naar de Nora Servicegerichte architectuur.~~ De Nora is heeft de servicegerichte architectuur naar het archief verwezen en onderzoekt de rol van APi's. verwijzing naar de NORA voorlopig verwijderd. Scope beschrijving toegevoed.  |
+|3|[Digikoppeling Architectuurprincipes](dk_architectuurprincipes.md)| aanpassing ivm RFC bevragen en melden|**update** uitwerking principes verwijderd, omdat de verwijzingen verouderd waren.|
+|4|[Digikoppeling Keten](dk_keten.md)||**update** <br> paragraaf transactiepatronen verplaatst naar nieuw hoofdstuk |
+|5|[Transactiepatronen in Digikoppeling](dk_transactiepatronen.md)||**update** <br>toegevoegd transactiepatronen uit EDUkoppeling ter illustratie en verduidelijken rollen <br> sequencediagrammen toegvoegd aan transactiepatronen.  |
+|6|[Koppelvlakstandaarden en voorschriften](dk_koppelvlakstandaarden_en_voorschriften.md)||**update** <br>opnemen verwijzing naar het nieuwe Digikoppeling Restful API profiel|
+|7|[Digikoppeling Use cases](dk_usecases.md)|| **update** <br>dit is een nieuw hoofdstuk|input van gebruikers|
+|8|[Digikoppeling voorzieningen](dk_voorzieningen.md)||**update**|
+|9|[Implementatie aspecten](dk_implementatie.md)||**update**|
+|10/B1|[Bijlage Bronnen](dk_bijlage_bronnen.md)|||
+|11/B2|[Bijlage begrippen](dk_bijlage_begrippen.md)|||
+|12/B3|[Bijlage Nora Architectuurprincipes](dk_bijlage_nora_architectuur_principes.md)|||
+|13/B4|[Bijlage Niet functionele eisen](dk_bijlage_niet_functionele_eisen.md)|||
 
 ## TODO's
 |#|tekst| todo|
