@@ -1,7 +1,6 @@
-
 # Transactiepatronen in Digikoppeling
 
-In dit hoofdstuk beschrijven we de transactiepatronen in gegevensuitwisseling in algemen zin, met een suggestie welk Digikoppeling koppelvlakstandaard hier het best nij aansluit. 
+In dit hoofdstuk beschrijven we de transactiepatronen in gegevensuitwisseling in algemen zin, met een suggestie welk Digikoppeling koppelvlakstandaard hier het best nij aansluit.
 
 ### Synchrone bevraging
 
@@ -20,9 +19,9 @@ Figuur 4: Synchrone bevraging
 
 </span>
 
-### Synchrone Melding-bevestiging
+### Synchrone Melding
 
-Bij een melding-bevestiging stuurt een service-requester informatie naar de service-provider en de ontvangst wordt synchroon door de service-provider bevestigd. Belangrijk is de schadelijke effecten te voorkomen als een bericht twee keer wordt verzonden (door een time-out) of als meldingen in de verkeerde volgorde binnenkomen. 
+Bij een melding-bevestiging stuurt een service-requester informatie naar de service-provider en de ontvangst wordt synchroon door de service-provider bevestigd. Belangrijk is de schadelijke effecten te voorkomen als een bericht twee keer wordt verzonden (door een time-out) of als meldingen in de verkeerde volgorde binnenkomen.
 
 <span class="simple">
 
@@ -76,8 +75,8 @@ Figuur 7: Transparante intermediair
 
 |Koppelvlakspecificatie|Omschrijving|Praktijkvoorbeeld|
 |---|---|---|
-|Digikoppeling WUS | [todo] | ... |
-|Digikoppeling ebMS | [todo]| ... |
+|Digikoppeling WUS | Gebruik Digikoppeling WUS header voor routering  | ... |
+|Digikoppeling ebMS | Gebruik Digikoppeling ebMS header voor routering| ... |
 
 </span>
 
@@ -94,7 +93,7 @@ Figuur 8: Niet-Transparante intermediair
 
 |Koppelvlakspecificatie|Omschrijving|Praktijkvoorbeeld|
 |---|---|---|
-|Digikoppeling WUS |[todo]| ... |
-|Digikoppeling ebMS |[todo]| ... |
+|Digikoppeling WUS |Gebruik Digikoppeling WUS header voor routering| ... |
+|Digikoppeling ebMS |Gebruik Digikoppeling ebMS header voor routering| ... |
 
 </span>

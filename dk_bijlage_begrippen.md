@@ -117,7 +117,7 @@ TCP/IP, netwerk, etc. Hiervoor kunt u andere bronnen via internet raadplegen.*
 | Reliability                              | Zie: Betrouwbaarheid |
 | Reliable                                 | Zie: Betrouwbaar |
 | Reliable messaging-profiel               | Protocol waarmee SOAP-berichten betrouwbaar geleverd kunnen worden                                                   |
-|Resource | `todo`|
+|Resource | Oorspronkelijk in de context van het World Wide Web gedefinieerd als documenten of bestanden die met een URL worden geïdentificeerd. Tegenwoordig kan een resource alles zijn dat met een URL kan worden benaderd, zoals een applicatie of voorziening, een lijstje en nog steeds een document of een bestand. |
 | Sectoraal knooppunt                      | Intermediair die de gegevensuitwisseling faciliteert tussen partijen in een samenwerkingsverband.                    |
 | Service                                  | Een geautomatiseerde uitwisseling van informatie tussen twee systemen op basis van berichten.                        |
 | Serviceaanbieder                         | De partij die een service aanbiedt.                                                                                  |

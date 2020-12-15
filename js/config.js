@@ -1,6 +1,6 @@
 var respecConfig = {
   //voor specStatus mogelijkheden zie https://github.com/centrumvoorstandaarden/respec/wiki/specStatus
-  specStatus: "GN-WV",
+  specStatus: "DK-WV",
   //voor specType mogelijkheden zie https://github.com/centrumvoorstandaarden/respec/wiki/specType
   specType: "ST",
   // TODO: Standaard emailadres bij een consultatieversie: geo-standaarden@geonovum.nl
@@ -8,7 +8,7 @@ var respecConfig = {
   // TODO: emailComments: '...',
   // TODO: Voor pubDomain mogelijkheden zie https://github.com/Geonovum/respec/wiki/pubDomain
   // TODO: pubDomain: "...",
-  splitMDsections: true,
+  //splitMDsections: true,
  
   // Vul in om een korte extra uitleg te weergeven op de docs.centrumvoorstandaarden.nl website.
   // subExplanation: "", 
@@ -18,11 +18,24 @@ var respecConfig = {
   // Belangrijk: als publishDate niet opgegeven is, wordt bij de link "Laatst gepubliceerde versie" "geen" gezet. Anders wordt een link opgebouwd voor de laatste versie, met het formaat:
   // https://docs.centrumvoorstandaarden.nl/{pubDomain}/{shortName}
   publishDate: "2020-12-07",
+  addSectionLinks: true,
+  otherLinks: [
+    {
+      key: "Huidige versie",
+      data: [
+        {
+          value: "Digikoppeling Architectuur 1.5.1 (Logius.nl)",
+          href: "https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Standaarden/Digikoppeling-Architectuur.pdf",
+        },
+      ],
+    },
+  ],
+
   // Als er een eerder gepubliceerde versie is, geef dan de datum daarvan op
   //previousPublishDate: "2017-05-31",
   // Zie https://github.com/w3c/respec/wiki/previousMaturity. Dit moet een
   // Als previousMaturity niet opgegeven wprdt, maar previousPublishDate wel, dan wordt dezelfde status gebruikt als bij specStatus
-  previousMaturity: "GN-WV",
+  //previousMaturity: "DK-ST",
   // licentie. Kiezen uit:
   license: 'cc-by-nd',
   // logos: [], // Geef een lege array op als er geen Geonovum logo moet staan
@@ -40,7 +53,7 @@ var respecConfig = {
     },
   ],
   // shortName = korte naam voor in de url van het document, gebruik alleen letters, cijfers en eventueel '-'
-  shortName: "DK_ARCH",
+  //shortName: "DK_ARCH",
   // url van de github repository waar je in werkt
   github: "https://github.com/centrumvoorstandaarden/Architectuur2.0-metRestfulAPI",
   // url van de issue lijst in de github repository waar je in werkt

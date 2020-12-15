@@ -42,7 +42,7 @@ De documentatie is als volgt opgebouwd:
 
 ![Digikoppeling Standaard](media/DK_Specificatie_structuur.png "Digikoppeling standaard")
 
-Figuur 1: Digikoppeling-standaard
+Figuur 1.1: Digikoppeling-standaard
 
 - Alle groene documenten vallen onder het beheer zoals geformaliseerd in het Beheermodel en releasebeleid <span style="color:green">[Beheermodel]</span>.
 

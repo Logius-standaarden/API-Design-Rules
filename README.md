@@ -5,77 +5,47 @@ HTML versie: [Architectuur2.0-metRestfulAPI](https://centrumvoorstandaarden.gith
 Indien u een oudere browser gebruikt kunt u onderstaande link volgen: 
 HTML-versie(static): [Architectuur2.0-metRestfulAPI](https://centrumvoorstandaarden.github.io/Architectuur2.0-metRestfulAPI/static.html)
 
-Digikoppeling Vragenboom: [Vragen Boom (concept)](https://github.com/centrumvoorstandaarden/Architectuur2.0-metRestfulAPI/blob/master/dk-vragenboom.pdf)
+Een nieuwe versie van het Digikoppeling Architectuur document is ontwikkeld. De aanleiding van de vernieuwing is tweeledig: in 2019 is een RFC ingediend over relatie van de Digikoppeling profielen met *bevragen en melden*. Daarnaast wordt in 2020 een Rest API profiel uitgewerkt en opgenomen in de Digikoppeling Standaard.
 
-In dit project wordt een nieuwe versie van het Digikoppeling Architectuur document ontwikkeld. De aanleiding van de vernieuwing is tweeledig: in 2019 is een RFC ingediend over relatie van de Digikoppeling profielen met *bevragen en melden*. Daarnaast wordt in 2020 een Rest API profiel uitgewerkt en opgenomen in de Digikoppeling Standaard.
+De huidige versie van de Digikoppeling Architectuur dient als basis. Bij de bespreking van de RFC over melden en bevragen werd al geconcludeerd dat de impact van deze change op het bestaande architectuurdocument groot was. Omdat in 2020 op verzoek van het Technisch Overleg Digikoppeling een [*Rest API profiel*](https://centrumvoorstandaarden.github.io/DigikoppelingRestfulApiProfiel/) wordt opgenomen in de standaard is, is besloten om deze beide grote onderdelen in één keer in een nieuw document te verwerken.
 
-Als basis voor het nieuwe document wordt de huidige versie van de Digikoppeling Architectuur gebruikt. Bij  de bespreking van de RFC over melden en bevragen werd al geconcludeerd dat de impact van deze change op het bestaande architectuurdocument groot was. Omdat dit jaar (2020) op verzoek van het TO Digikoppeling een Restful APi profiel wordt opgenomen in de standaard is, is besloten om deze beide grote onderdelen in één keer in een nieuw document te verwerken.
+## Wat wijzigt in de Digikoppeling Architectuur
 
-## Wat wijzigt in de nieuwe architectuur
+- Koppelvlakstandaarden toevoegen Profiel voor RESTful API's
+- Digikoppeling Keten - onderscheid tussen tussen 'WUS voor bevragingen' en 'ebMS voor meldingen' verdwijnt
+- Diverse aanpassingen   
 
-- Overzicht profielen (toevoegen DK Profiel voor RESTful API's)
-- Overzicht transactiepatronen (nieuw)
-- Rollen: End-to-end, verwerker, intermediair, SAAS dienstverlener (herziening)
-- Overzicht use cases (nieuw)
-- Hoe gaan we om met de nadruk op Bevragingen en Meldingen in het huidge documen?
-    Moeten we deze begrippen handhaven of niet meer noemen? Of vervangen door:
-  - push/pull
-  - synchroon/asynchroon
-  - best effort/betrouwbaar
+## Wat is er nieuw in de Digikoppeling Architectuur
 
+- Overzicht transactiepatronen 
+- Overzicht use cases
 ## Integrale versie
 
 De gehele versie van het document staat hier :  [Architectuur2.0-metRestfulAPI](https://centrumvoorstandaarden.github.io/Architectuur2.0-metRestfulAPI/snapshot.html). Deze versie is  opgemaakt in [Respec](https://github.com/w3c/respec/wiki).
 
 ## Indeling in hoofdstukken
 
-Onderstaande indeling is concept. Dit kan nog op alle punten wijzigen.
-
-|#|Hoofdstuk| Opmerkingen | Todo/Doing |
+|#|Hoofdstuk| Opmerkingen | Nieuwe informatie nav Openbare Consultatie |
 |-|---|---|---|
-|1|[Doel van het document en leeswijzer](dk_doel_document.md)|||
-|2|[Wat is Digikoppeling](dk_nieuwe_scope.md)||**update**<br> ~~vraag: Wat moeten we doen met de referentie naar de Nora Servicegerichte architectuur.~~ De Nora is heeft de servicegerichte architectuur naar het archief verwezen en onderzoekt de rol van APi's. verwijzing naar de NORA voorlopig verwijderd. Scope beschrijving toegevoed.  |
-|3|[Digikoppeling Architectuurprincipes](dk_architectuurprincipes.md)| aanpassing ivm RFC bevragen en melden|**update** uitwerking principes verwijderd, omdat de verwijzingen verouderd waren.|
-|4|[Digikoppeling Keten](dk_keten.md)||**update** <br> paragraaf transactiepatronen verplaatst naar nieuw hoofdstuk |
-|5|[Transactiepatronen in Digikoppeling](dk_transactiepatronen.md)||**update** <br>toegevoegd transactiepatronen uit EDUkoppeling ter illustratie en verduidelijken rollen <br> sequencediagrammen toegvoegd aan transactiepatronen.  |
-|6|[Koppelvlakstandaarden en voorschriften](dk_koppelvlakstandaarden_en_voorschriften.md)||**update** <br>opnemen verwijzing naar het nieuwe Digikoppeling Restful API profiel|
-|7|[Digikoppeling Use cases](dk_usecases.md)|| **update** <br>dit is een nieuw hoofdstuk|input van gebruikers|
-|8|[Digikoppeling voorzieningen](dk_voorzieningen.md)||**update**|
-|9|[Implementatie aspecten](dk_implementatie.md)||**update**|
-|10/B1|[Bijlage Bronnen](dk_bijlage_bronnen.md)|||
-|11/B2|[Bijlage begrippen](dk_bijlage_begrippen.md)|||
-|12/B3|[Bijlage Nora Architectuurprincipes](dk_bijlage_nora_architectuur_principes.md)|||
-|13/B4|[Bijlage Niet functionele eisen](dk_bijlage_niet_functionele_eisen.md)|||
+|1|[Doel van het document en leeswijzer](dk_doel_document.md)|ongewijzigd||
+|2|[Wat is Digikoppeling](dk_nieuwe_scope.md)|Een nieuwe paragraaf over de scope van Digikoppeling is toegevoegd. Verwijzingen naar de NORA zijn aangepast. De Nora heeft de servicegerichte architectuur naar het archief verwezen en onderzoekt de rol van APi's.|    |
+|3|[Digikoppeling Architectuurprincipes](dk_architectuurprincipes.md)| Aanpassing in de principes vanwege de RFC op bevragen en melden. Uitwerking van de principes verwijderd, omdat een aantal verwijzingen verouderd waren.||
+|4|[Digikoppeling Keten](dk_keten.md)|In dit hoofdstuk is de koppeling tussen bevragen met WUS en Melden met ebMS verwijderd| |
+|5|[Transactiepatronen in Digikoppeling](dk_transactiepatronen.md)|Dit is een nieuw hoofdstuk, waarin dankbaar gebruik is gemaakt van de transactiepatronen uit EDUkoppeling. Ter illustratie en verduidelijken van de rollen zijn hier sequencediagrammen aan toegevoegd.|  |
+|6|[Koppelvlakstandaarden en voorschriften](dk_koppelvlakstandaarden_en_voorschriften.md)|Hierin is een verwijzing opgenomen naar het nieuwe Digikoppeling Restful API profiel||
+|7|[Digikoppeling Use cases](dk_usecases.md)| Dit is een nieuw hoofdstuk met verwijzing naar praktijkvoorbeelden. **oproep:** praktijkcases zijn welkom! |||
+|8|[Digikoppeling voorzieningen](dk_voorzieningen.md)|kleine aanpassingen||
+|9|[Implementatie aspecten](dk_implementatie.md)|kleine aanpassingen||
+|10/B1|[Bijlage Bronnen](dk_bijlage_bronnen.md)|ongewijzigd||
+|11/B2|[Bijlage begrippen](dk_bijlage_begrippen.md)|ongewijzigd||
+|12/B3|[Bijlage Nora Architectuurprincipes](dk_bijlage_nora_architectuur_principes.md)|ongewijzigd||
+|13/B4|[Bijlage Niet functionele eisen](dk_bijlage_niet_functionele_eisen.md)|ongewijzigd||
 
-## TODO's
-|#|tekst| todo|
-|-|---|---|
-|0|algemeen|aanname: een snelle versie is nodig, denken we: afstappen van bevragen en melden, inbedden REST API|
-|0|algemeen|aanname: focus op use cases en scenario's, minder op verplichtingen|
-|2|..met Digikoppeling kan een serviceaanbieder met één interface al zijn serviceafnemers bedienen...De implementatie van Digikoppeling (en de bijbehorende investering) is eenmalig.|is dit  nog het geval?|
-|2|referentie aan de NORA|De NORA richt zicht ook steeds meer op halen bij de bron en raadt het gebruik van API sterk aan.  Onderstaande alinea is aan vervanging toe|
-|3|De Digikoppeling-standaarden ondersteunen veilige gegevensuitwisseling voor...|is bovenstaande lijstje compleet? toe te voegen patronen kunnen bijvoorbeeld zijn: stateful/stateless, push/pull, enz.|
-|3|IEF,EIF |Zowel IEF 2.0 als het European Framwork 2.0 zijn verouderd en vervangen door de  'New' EIF en de de EIRA. Onderbouwing moet daarom worden vernieuwd |
-|3|principe betrouwbaarheid|opties tussen op betrouwbaarheid op transportprotocolniveau en in businesslaag verduidelijken|
-|3|betrouwbaarheid ... in de businesslaag|moet de volgende nieuwe zin - zie hieronder-, hier of als voetnoot worden vermeld? |
-|3|Digikoppeling maakt hiervoor gebruik van twee internationale families...|hier iets over ADR (HTTP/JSON)?|
-|4|rollen|Er is grote behoefte om de rollen nader uit te werken. Dit kan in een aparte paragraaf of als verdere aanvulling op de vorige paragraaf|
-|4|op business-niveau is er een veelheid aan uitwisselingsvormen...|s bovenstaande zin nog actueel?|
-|4|Invulling van de behoefte met het aanbod|De oorspronkelijke paragraaf geskipt, nieuwe invulling is nodig|
-|4|Overzicht transactiepatronen (nieuw)|nu de koppeling met bevraging en melding is losgelaten is het wel nodig om te beschrijven in welke situatie je Digikoppeling kan en moet gebruiken. Het gaat in dit hoofdstuk nog om de patronen. In het hoofdstuk usecases willen we graag praktijkvoorbeelden beschrijven.|
-|4|Digikoppeling-bevragingen en -meldingen|Plaatje herzien |
-|4|Bilaterale uitwisseling|Plaatje moet mogelijk worden herzien omdat in de plaat de nadruk ligt op berichten|
-|5|Digikoppeling-koppelvlakstandaarden en voorschriften|check consistentie met andere hoofdstukken|
-|5|Restful Api's|wacht op input DK API Profiel|
-|5|Werking grote berichten|hier ook Restful API vermelden?|
-|5|Werking grote berichten|komt er ook een Restful API invulling van GB?|
-|5|Standaarden voor grote berichten|zie eerder opmerking over evt toevoegen van API voor GB (2x)|
-|7|Overzicht Use Cases|Het voorstel is om hier succesvolle (of minder geslaagde) best practices te vermelden van werkende Digikoppeling Koppelvlakken.Hiervoor is **input** nodig van gebruikers!|
-|8|Selectie van profielen|Tabel met de verschillende API, WUS en ebMS profielen langslopen|
-|8|Selectie van profielen|aspecten keuze voor een profiel herzien|
-|8|Berichtinhoud en semantiek|hier nog een detailbeschrijving van een REST-API uitwisseling?|
+## Beslisboom: Geen onderdeel van de wijziging
 
+Het Digikoppeling beheerteam van Logius ontwikkelt een vragenboom die een provider kan helpen bij de keuze voor een Digikoppeling profiel voor een koppelvlak. Het is geen onderdeel van de Digikoppeling Architectuur, maar op- en aanmerkingen zijn zeer zeker welkom. 
 
+Digikoppeling Vragenboom: [Vragen Boom (concept)](https://github.com/centrumvoorstandaarden/Architectuur2.0-metRestfulAPI/blob/master/dk-vragenboom.pdf)
 
 
 

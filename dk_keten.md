@@ -147,7 +147,7 @@ Synchrone uitwisseling kan worden ingericht op basis van de Digikoppeling-koppel
 
 Een asynchroon verzoek is een enkelvoudig bericht waarop eventueel enige tijd later een retour-melding volgt. Het gebruikte protocol regelt de betrouwbare ontvangst. Bij asynchrone uitwisseling is de betrouwbare aflevering van het bericht essentieel. Als een partij het bericht niet direct kan aannemen, voorzien de protocollen erin dat het bericht nogmaals wordt aangeboden.
 
-Asynchrone uitwisseling kan worden ingericht op basis van de Digikoppeling-koppelvlakstandaard ebMS2.
+Digikoppeling Koppelvlakstandaard ebMS2 biedt specifieke ondersteuning voor asynchroon .
 
 ### Grote Berichten
 
