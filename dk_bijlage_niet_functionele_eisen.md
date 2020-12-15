@@ -28,7 +28,7 @@ Om de interoperabiliteit te kunnen waarborgen is het essentieel dat
 Digikoppeling en de koppelvlakstandaarden onafhankelijk zijn van
 ICT-leveranciers. Dit is nodig om een ‘vendor lock-in’ en maatwerk te voorkomen: de functionaliteit wordt zoveel mogelijk geïmplementeerd met op de markt beschikbare software. Daarom worden de open standaarden van OASIS en W3C gebruikt. Deze organisaties beheren wereldwijde open standaarden, waaronder ebMS en WUS. Zie [www.oasis-open.org](http://www.oasis-open.org) voor meer informatie.
 
-## Interoperabiliteit*
+## Interoperabiliteit
 
 De Digikoppeling-standaarden en de Digikoppeling-voorzieningen waarborgen interoperabiliteit op het logistieke niveau van gegevensuitwisseling. Dit houdt in dat organisaties die zich conformeren aan de standaard en hier correct gebruik van maken, onderling gegevens kunnen uitwisseling door de standaard toe te passen. Op deze laag bevinden zich de afspraken betreffende transportprotocollen (HTTP), messaging (SOAP), adressering, beveiliging
 (authenticatie en encryptie) en betrouwbaarheid. Digikoppeling maakt berichtenuitwisseling mogelijk op basis van de ebXML/ebMS en WUS-families van standaarden, inclusief bijbehorende andere standaarden. De voor Digikoppeling vereiste interoperabiliteit van de WUS standaarden van OASIS en W3C wordt gebaseerd op de profielen (en tests) van WUS, WS-RM, WS-Security etc.
@@ -43,6 +43,6 @@ Aangezien veranderingen tot nog toe bestonden uit uitbreidingen met nieuwe
 De standaard is vindbaar en toegankelijk op een laagdrempelige manier. De standaard en documentatie wordt gepubliceerd op de website van Logius: www.logius.nl/digikoppeling
 
 De standaard is tevens vindbaar via de ‘Pas toe of leg uit’-lijst van het Forum
-Standaardisatie: [https://www.forumstandaardisatie.nl/open-standaarden](https://www.forumstandaardisatie.nl/open-standaarden).
+Standaardisatie: [https://www.forumstandaardisatie.nl/open-standaarden/verplicht](https://www.forumstandaardisatie.nl/open-standaarden/verplicht).
 
 Wijzigingen op de standaard worden conform het Beheermodel in openbaarheid besproken en beheerd

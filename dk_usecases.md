@@ -69,13 +69,15 @@ Bij deze case gaat het om een overdracht van verantwoordelijkheden, zoals het be
 
 </span>
 
+Tabel 7.1: Overdracht van verantwoordelijkheid
+
 ### Abonneren op wijzigingen middels notificaties
 
 Deze case is bedoeld voor ketens die authentieke informatie willen 'halen bij de bron' in plaats van het synchroniseren van registraties. Hiervoor is het essentieel dat organisaties worden genotificeerd bij wijzigingen.
 
 ![Notificatie request](media/Notification_request.png "Notificatie request")
 
-Figuur 6: Notification request
+Figuur 7.1: Notification request
 
 <span class="simple">
 
@@ -85,6 +87,8 @@ Figuur 6: Notification request
 |Digikoppeling REST API| Een client abonneert zich met POST request op wijzingen in een bepaalde bron van een Provider (en kan muteren met PUT of DELETE request). Een bronhouder informeert een abonnee met een POST request bij een wijzingen. De afnemer haalt de wijzingen op via een GET reequest.| VNG werkt aan afspraken voor decentrale notificatieservices |
 
 </span>
+
+Tabel 7.2: Notification request
 
 ### End-to-End security
 
@@ -99,6 +103,8 @@ Een bericht wordt beveiligd tussen de uiteindelijke consumer en de uiteindelijke
 
 </span>
 
+Tabel 7.2: End-to-End security
+
 ### Betrouwbaar berichtenverkeer (reliable messaging)
 
 Bij Betrouwbaar berichtenverkeer verstuurt de service-requester een bericht naar de ontvangende partij (ontvanger) en wacht op een (technische) ontvangstbevestiging. De verzendende (business) applicatie vertrouwt er op dat het bericht (betrouwbaar) afgeleverd wordt. De (business)applicatie zal niet wachten op het antwoord: deze applicatie zal het eventuele 'antwoordbericht' op een ander moment ontvangen en moeten correleren aan het oorspronkelijke vraag bericht.`
@@ -110,3 +116,5 @@ Bij Betrouwbaar berichtenverkeer verstuurt de service-requester een bericht naar
 |Digikoppeling ebMS | Digikoppeling ebMS kent profielen voor signing en encryption. (reliability out of the box). Retry maakt bijvoorbeeld onderdeel uit van dit protocol | |
 
 </span>
+
+Tabel 7.3: Betrouwbaar berichtenverkeer (reliable messaging)

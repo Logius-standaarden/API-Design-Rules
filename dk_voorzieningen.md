@@ -26,7 +26,7 @@ Digikoppeling adapters of applicaties kunnen worden getest op compliance met de 
 
 </span>
 
-Tabel 5: Ondersteunende functionaliteiten van de Digikoppeling-voorzieningen
+Tabel 8.1: Ondersteunende functionaliteiten van de Digikoppeling-voorzieningen
 
 ## Compliancevoorzieningen
 

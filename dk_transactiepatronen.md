@@ -8,7 +8,7 @@ Bij een bevraging (vraag-antwoord) stuurt de service-requester een voorgedefinie
 
 ![synchroon request](media/Synchroon_request.png "synchroon request")
 
-Figuur 4: Synchrone bevraging
+Figuur 5.1: Synchrone bevraging
 
 <span class="simple">
 
@@ -18,6 +18,9 @@ Figuur 4: Synchrone bevraging
 |Digikoppeling REST API| Digikoppeling REST API heet een GET methode waarmee synchrone requests kunnen uitgevoerd. Digikoppeling REST API kent nog geen gestandaardiseerde versies voor signing of encryptie| Bevragen OIN register via de COR API |
 
 </span>
+
+
+Tabel 5.1: Synchrone bevraging
 
 ### Synchrone Melding
 
@@ -32,6 +35,7 @@ Bij een melding-bevestiging stuurt een service-requester informatie naar de serv
 
 </span>
 
+Tabel 5.2: Synchrone Melding
 
 ### Asynchrone Melding-bevestiging
 
@@ -39,7 +43,7 @@ Bij een melding-bevestiging stuurt een service-requester informatie naar de serv
 
 ![Asynchroon request](media/Asynchroon_request.png "Asynchroon request")
 
-Figuur 5: Asynchrone Melding-bevestiging
+Figuur 5.2: Asynchrone Melding-bevestiging
 
 <span class="simple">
 
@@ -50,6 +54,8 @@ Figuur 5: Asynchrone Melding-bevestiging
 |Digikoppeling REST API| Digikoppeling REST API heet een PUT en een POST methode waarmee synchrone requests kunnen uitgevoerd. Digikoppeling REST API kent geen reliable profiel. Partijen in de keten moeten met elkaar afspraken hoe een melding wordt bevestigd in een antwoord door de ontvanger op een later tijdstip| ... |
 
 </span>
+
+Tabel 5.3: Asynchrone Melding-bevestiging
 
 ### Uitwisselen grote bestanden
 
@@ -63,13 +69,15 @@ De situatie kan zich voordoen dat een bericht een omvang krijgt die niet meer ef
 
 </span>
 
+Tabel 5.4: Uitwisselen grote bestanden
+
 ### Uitwisseling via een transparante intermediair
 
 Een transparante keten is alleen mogelijk als zowel de service-aanbieder als de serviceafnemer hetzelfde protocol hanteren. De intermediair routeert berichten tussen de serviceaanbieder en de serviceafnemer waarbij het bericht intact blijft (alleen de header wordt gelezen). De uitwisseling verloopt op dezelfde manier als bij een bilaterale uitwisseling.
 
 ![Transparante intermediair](media/transparante_intermediair.png "Transparante intermediair")
 
-Figuur 7: Transparante intermediair
+Figuur 5.3: Transparante intermediair
 
 <span class="simple">
 
@@ -80,6 +88,7 @@ Figuur 7: Transparante intermediair
 
 </span>
 
+Tabel 5.5: Transparante intermediair
 
 ### Uitwisseling via een niet-transparante intermediair
 
@@ -87,7 +96,7 @@ Een transparante keten is alleen mogelijk als zowel de service-aanbieder als de 
 
 ![Niet-Transparante intermediair](media/niet_transparante_intermediair.png "Transparante intermediair")
 
-Figuur 8: Niet-Transparante intermediair
+Figuur 5.4: Niet-Transparante intermediair
 
 <span class="simple">
 
@@ -97,3 +106,5 @@ Figuur 8: Niet-Transparante intermediair
 |Digikoppeling ebMS |Gebruik Digikoppeling ebMS header voor routering| ... |
 
 </span>
+
+Tabel 5.5: Niet-Transparante intermediair

@@ -1,6 +1,6 @@
 # Bijlage A: Bronnen
 
-Alle goedgekeurde Digikoppeling documenten zijn beschikbaar op <https://www.logius.nl/diensten/digikoppeling/documentatie>
+Alle goedgekeurde Digikoppeling documenten zijn beschikbaar op https://www.logius.nl/diensten/digikoppeling/documentatie
 
 ## Digikoppeling-standaarden en gerelateerde documenten
 
@@ -24,13 +24,13 @@ Alle goedgekeurde Digikoppeling documenten zijn beschikbaar op <https://www.logi
 
 </span>
 
-Tabel 6: Digikoppeling-standaarden en gerelateerde documenten
+Tabel 10.1: Digikoppeling-standaarden en gerelateerde documenten
 
 ### Digikoppeling documentatie
 
 ![Digikoppeling Documentatie](media/DKDocumentatieOverzicht.png "Digikoppeling Documentatie")
 
-#### Figuur 7: Digikoppeling documentatie
+Figuur 10.1: Digikoppeling documentatie
 
 Overige Digikoppeling documentatie
 
@@ -46,7 +46,7 @@ Overige Digikoppeling documentatie
 
 </span>
 
-Tabel 7: Overige Digikoppeling documentatie
+Tabel 10.2: Overige Digikoppeling documentatie
 
 ### Overige geraadpleegde bronnen
 
@@ -69,4 +69,4 @@ Tabel 7: Overige Digikoppeling documentatie
 
 </span>
 
-Tabel 8: Overige geraadpleegde bronnen
+Tabel 10.3: Overige geraadpleegde bronnen

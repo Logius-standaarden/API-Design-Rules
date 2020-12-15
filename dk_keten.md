@@ -48,7 +48,7 @@ Een intermediair zoals een sectoraal knooppunt of SAAS leverancier kan in opdrac
 
 ![Positionering intermediair/sectoraal knooppunt](media/DK_Positionering_intermediair_sectoraal_knppnt.png "Positionering intermediair/sectoraal knooppunt")
 
-Figuur 3: Positionering intermediair/sectoraal knooppunt
+Figuur 3.1: Positionering intermediair/sectoraal knooppunt
 
 <br><sup><a name="f18"><dfn>18</dfn></a>: We beschouwen transparantie hier op de logistieke laag. Op technisch niveau is de intermediair een eindpunt omdat de TLS verbinding tussen twee servers moet worden opgezet.</sup>
 
@@ -72,7 +72,7 @@ De volgende componenten maken onderdeel uit van de Digikoppeling-keten van beric
 
 </span>
 
-Tabel 2: Componenten van de Digikoppeling-keten
+Tabel 4.1: Componenten van de Digikoppeling-keten
 
 N.B.: De Digikoppeling-voorzieningen (Het Digikoppeling portaal met de
 Compliance Voorziening, het OIN register en het CPA register) vormen geen onderdeel van de Digikoppeling-keten maar ondersteunen tijdens de ontwikkel- en testfasen en bij het uitgifte en raadplegen van OIN's.
@@ -109,12 +109,14 @@ Op basis van deze twee verschillen komen we tot vier primitieve business-interac
 
 <span class="simple">
 
-|                | **Onmiddellijk**                 | **Uitgesteld**                 |
+|                | **Synchroon**                 | **Asynchroon**                 |
 |----------------|----------------------------------|--------------------------------|
-| **Bevraging**  | Onmiddellijke businessbevraging  | Businessbevraging met uitstel  |
-| **Transactie** | Onmiddellijke businesstransactie | Businesstransactie met uitstel |
+| **Bevraging**  | Onmiddellijke bevraging  | bevraging met uitstel  |
+| **Transactie** | Onmiddellijke transactie | transactie met uitstel |
 
 </span>
+
+Tabel 4.2: primitieve business-interacties
 
 Deze businessafspraken worden geïmplementeerd in (bedrijfs)applicaties.
 Combineren van deze primitieve interacties tot meerdere (eventueel over de tijd verspreide interacties) maken complexe business-patronen mogelijk.
@@ -174,4 +176,4 @@ Digikoppeling Grote Berichten maakt verschillende vormen van uitwisseling op bus
 
 De Provider bepaalt welk koppelvlak - Restful API, WUS of ebMS- van toepassing is op de door haar geleverde dienst.
 
-Tot en met 2019 werd in de Digikoppeling Standaard onderscheid gemaakt tussen 'WUS voor bevragingen' en 'ebMS voor meldingen'. In de praktijk bleek dit onderscheid niet altijd goed te werken. Er zijn bijvoorbeeld usecases waarin WUS beter geschikt is voor meldingen. Binnen de overheidsorganisaties heeft het gebruik van REST API's voor het uitwisselen van gegevens tussen overheden een enorme vlucht genomen. 
+Tot en met 2019 werd in de Digikoppeling Standaard onderscheid gemaakt tussen 'WUS voor bevragingen' en 'ebMS voor meldingen'. In de praktijk bleek dit onderscheid niet altijd goed te werken. Er zijn bijvoorbeeld usecases waarin WUS beter geschikt is voor meldingen. Binnen de overheidsorganisaties heeft het gebruik van REST API's voor het uitwisselen van gegevens tussen overheden een enorme vlucht genomen.

@@ -18,7 +18,7 @@ Denk hierbij aan de volgende onderwerpen:
 
 - Hoe verloopt de gegevensuitwisseling? Worden gegevens bilateraal uitgewisseld of via een intermediair of knooppunt?
 
-- Welke vorm van interactie wordt gebruikt? `Meldingen, bevragingen` en/of grote berichten?
+- Welke vorm van interactie wordt gebruikt? Meldingen, bevragingen en/of grote berichten?
 
 - Zijn de service contracten tussen de partijen gedefinieerd?
 
@@ -95,7 +95,7 @@ De aanduiding van de profielen kent de volgende systematiek:
 
 </span>
 
-Tabel 6: Profielen in relatie tot Digikoppeling-voorschriften
+Tabel 9.1: Profielen in relatie tot Digikoppeling-voorschriften
 
 *NB: De profielnamen komen uit eerdere versies van de koppelvlakstandaarden. Zij moeten gehandhaafd blijven in verband met het feit dat deze standaarden reeds in gebruik zijn bij vele organisaties. Dit verklaart de verschillen in de gebruikte afkortingen tussen de WUS- en ebMS2-profielen.*
 

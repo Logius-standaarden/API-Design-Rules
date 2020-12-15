@@ -23,6 +23,8 @@ De *Architectuur Digikoppeling* is bedoeld voor ICT-professionals in de publieke
 
 </span>
 
+Tabel 1.1: Doelgroep Architectuur Digikoppeling
+
 ## Verantwoording
 
 De *Architectuur Digikoppeling* is tot stand gekomen in samenwerking met leden van het Technisch Overleg Digikoppeling en andere belanghebbenden.

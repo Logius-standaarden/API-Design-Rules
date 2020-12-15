@@ -23,7 +23,7 @@ Overzicht
 
 </span>
 
-Tabel 10: NORA Basisprincipes
+Tabel 12.1: NORA Basisprincipes
 
 <span class="simple">
 
@@ -49,4 +49,4 @@ Tabel 10: NORA Basisprincipes
 
 </span>
 
-Tabel 11: Relevante afgeleide NORA principes en mapping naar Digikoppeling (DK) principes
+Tabel 12.2: Relevante afgeleide NORA principes en mapping naar Digikoppeling (DK) principes

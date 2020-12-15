@@ -6,7 +6,7 @@ De Digikoppeling Architectuur legde in de eerdere versies grote nadruk op bevrag
 
 ![Overzicht Digikoppeling Koppelvlakken](media/fig-structuur.png)
 
-Figuur x: Overzicht Digikoppeling Koppelvlakken
+Figuur 6.1 Overzicht Digikoppeling Koppelvlakken
 
 Digikoppeling kent vier koppelvlakstandaarden
 
@@ -52,7 +52,7 @@ Door het gebruik van deze profielen worden deze aspecten correct afgehandeld en 
 
 </span>
 
-Tabel 3: Digikoppeling-standaarden
+Tabel 6.1: Digikoppeling-standaarden
 
 ## Digikoppeling-voorschriften
 
@@ -72,7 +72,7 @@ Onderstaande voorschriften gelden voor de hele Digikoppeling-keten. Partijen moe
 
 </span>
 
-Tabel 4: Digikoppeling-voorschriften
+Tabel 6.2: Digikoppeling-voorschriften
 
 ## REST API's
 

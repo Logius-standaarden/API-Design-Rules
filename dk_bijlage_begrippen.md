@@ -98,7 +98,7 @@ TCP/IP, netwerk, etc. Hiervoor kunt u andere bronnen via internet raadplegen.*
 | Onweerlegbaarheid                        | Achteraf kan niet ontkend worden dat een bericht is verstuurd of dat een bericht in goede orde is ontvangen.             |
 | Operation                                | Functie definitie binnen de webservice specificatie                                                                      |
 | Out-of-band                              | Het sturen van aanvullende informatie naar systemen buiten de normale procesgang ('out-of-band') via Grote Berichten.    |
-| Organisatieidentificatienummer (OIN)     | Een uniek identificerend nummer voor organisaties. <del>{- Dit is gelijk aan het RSIN uit het Handelsregister. -}</del>  |
+| Organisatieidentificatienummer (OIN)     | Een uniek identificerend nummer voor organisaties. |
 | Partij                                   | (Publieke) organisatie die gegevensdiensten in de vorm van berichten via Digikoppeling aanbiedt aan andere organisaties of afneemt van andere organisaties  |
 | Payload                                  | De inhoud van het bericht, bestaande uit XML elementen.                                                                                                     |
 | Persistent storage                       | Opslag van berichten                                                                                                                                        |
@@ -154,4 +154,4 @@ TCP/IP, netwerk, etc. Hiervoor kunt u andere bronnen via internet raadplegen.*
 </span>
 
 
-Tabel 9: Gebruikte begrippen
+Tabel 11.1: Gebruikte begrippen
