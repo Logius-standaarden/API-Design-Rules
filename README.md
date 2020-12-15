@@ -11,9 +11,10 @@ De huidige versie van de Digikoppeling Architectuur dient als basis. Bij de besp
 
 ## Wat wijzigt in de Digikoppeling Architectuur
 
-- opheffen onderscheid tussen tussen 'WUS voor bevragingen' en 'ebMS voor meldingen' 
-- toevoegen Profiel voor RESTful API's
-- verder zijn kleine verbeteringen en updates doorgevoerd 
+- opheffen onderscheid tussen 'WUS voor bevragingen' en 'ebMS voor meldingen' 
+- toevoegen profiel voor [Rest API](https://centrumvoorstandaarden.github.io/DigikoppelingRestfulApiProfiel/)
+
+verder zijn kleine verbeteringen en updates doorgevoerd 
 
 ## Wat is er nieuw in de Digikoppeling Architectuur
 
@@ -22,7 +23,8 @@ De huidige versie van de Digikoppeling Architectuur dient als basis. Bij de besp
 
 ## Integrale versie
 
-De gehele versie van het document staat hier :  [Architectuur2.0-metRestfulAPI](https://centrumvoorstandaarden.github.io/Architectuur2.0-metRestfulAPI/snapshot.html). Deze versie is  opgemaakt in [Respec](https://github.com/w3c/respec/wiki).
+De gehele versie van het document staat hier :  [Architectuur2.0-metRestfulAPI](https://centrumvoorstandaarden.github.io/Architectuur2.0-metRestfulAPI/). Deze versie is  opgemaakt in [Respec](https://github.com/w3c/respec/wiki). Indien u een oudere browser gebruikt kunt u onderstaande link volgen:
+HTML-versie(static): [Architectuur2.0-metRestfulAPI](https://centrumvoorstandaarden.github.io/Architectuur2.0-metRestfulAPI/static.html)
 
 ## Indeling in hoofdstukken
 
