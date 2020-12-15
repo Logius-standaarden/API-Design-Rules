@@ -13,7 +13,7 @@ De huidige versie van de Digikoppeling Architectuur dient als basis. Bij de besp
 
 - opheffen onderscheid tussen tussen 'WUS voor bevragingen' en 'ebMS voor meldingen' 
 - toevoegen Profiel voor RESTful API's
-- Diverse aanpassingen 
+- verder zijn kleine verbeteringen en updates doorgevoerd 
 
 ## Wat is er nieuw in de Digikoppeling Architectuur
 
