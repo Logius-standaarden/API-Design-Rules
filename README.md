@@ -9,16 +9,17 @@ Een nieuwe versie van het Digikoppeling Architectuur document is ontwikkeld. De 
 
 De huidige versie van de Digikoppeling Architectuur dient als basis. Bij de bespreking van de RFC over melden en bevragen werd al geconcludeerd dat de impact van deze change op het bestaande architectuurdocument groot was. Omdat in 2020 op verzoek van het Technisch Overleg Digikoppeling een [*Rest API profiel*](https://centrumvoorstandaarden.github.io/DigikoppelingRestfulApiProfiel/) wordt opgenomen in de standaard is, is besloten om deze beide grote onderdelen in één keer in een nieuw document te verwerken.
 
-## Wat wijzigt in de Digikoppeling Architectuur
+# Wat wijzigt in de Digikoppeling Architectuur
 
-- Koppelvlakstandaarden toevoegen Profiel voor RESTful API's
-- Digikoppeling Keten - onderscheid tussen tussen 'WUS voor bevragingen' en 'ebMS voor meldingen' verdwijnt
-- Diverse aanpassingen   
+- opheffen onderscheid tussen tussen 'WUS voor bevragingen' en 'ebMS voor meldingen' 
+- toevoegen Profiel voor RESTful API's
+- Diverse aanpassingen 
 
 ## Wat is er nieuw in de Digikoppeling Architectuur
 
 - Overzicht transactiepatronen 
 - Overzicht use cases
+
 ## Integrale versie
 
 De gehele versie van het document staat hier :  [Architectuur2.0-metRestfulAPI](https://centrumvoorstandaarden.github.io/Architectuur2.0-metRestfulAPI/snapshot.html). Deze versie is  opgemaakt in [Respec](https://github.com/w3c/respec/wiki).
