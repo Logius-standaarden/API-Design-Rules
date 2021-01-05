@@ -11,7 +11,7 @@ De huidige versie van de Digikoppeling Architectuur dient als basis. Bij de besp
 
 ## Commentaar is welkom!
 
-Maak een issue aan in deze repository. Eerste keer? Hoe een issue moet worden aangemaakt vind u [hier](https://github.com/Logius-standaarden/Openbare-Consultaties#issues-en-pull-requests-opmerkingen-maken-of-tekstvoorstellen-indienen).
+Maak een issue aan in deze repository. Eerste keer? Hoe een issue moet worden aangemaakt vindt u [hier](https://github.com/Logius-standaarden/Openbare-Consultaties#issues-en-pull-requests-opmerkingen-maken-of-tekstvoorstellen-indienen).
 
 ## Wat wijzigt in de Digikoppeling Architectuur
 
