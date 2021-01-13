@@ -92,7 +92,7 @@ function repair(config, document)
       // console.log(tags[i].href + " is gevonden");
       tags[i].href = config.pullsBase;
       // console.log(tags[i].href + " is aangepast");
-      bPulss = true;
+      bPulls = true;
     }
     if(!bGH_pages && tags[i].href.indexOf(srchGH_pages) > -1)
     {
