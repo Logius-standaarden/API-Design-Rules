@@ -14,17 +14,15 @@ De volgende Digikoppeling-voorzieningen ondersteunen het ontwikkel- en implement
 
 Digikoppeling adapters of applicaties kunnen worden getest op compliance met de koppelvlakstandaarden via de het Digikoppeling Portaal. Al deze voorzieningen zijn bereikbaar via [https://portaal.digikoppeling.nl](https://portaal.digikoppeling.nl).
 
-<span class="simple">
 
 | Functionaliteit  | Uitleg | Invulling |
 |--------------------------------------------|---|---|
 | Compliance WUS services | WUS services kunnen worden getest op compliance met de Digikoppeling-koppelvlakstandaard WUS.  | Digikoppeling Portaal -Compliancevoorziening WUS |
 | Compliance ebMS2 services  | ebMS2 services kunnen worden getest op compliance met de Digikoppeling-koppelvlakstandaard ebMS2. | Digikoppeling Portaal -Compliancevoorziening ebMS2 |
-| Compliance Grote Berichten | Grote berichten kunnen in combinatie met WUS of ebMS2 services worden getest op compliance met de koppelvlakstandaarden | Digikoppeling Portaal-Compliancevoorziening WUS en ebMS2                                                  |
+| Compliance Grote Berichten | Grote berichten kunnen in combinatie met WUS of ebMS2 services worden getest op compliance met de koppelvlakstandaarden | Digikoppeling Portaal-Compliancevoorziening WUS en ebMS2 |
 | CPA Register | Een CPA-contract voor ebMS2 services tussen twee partijen kan via het CPA Register worden opgesteld en beheerd. | CPA Register |
 | OIN Register | Het OIN bevat alle uitgegeven Organisatie identificatienummers waarmee organisaties zich uniek identificeren bij het uitwisselen van berichten. | Digikoppeling Portaal – OIN Register (COR)                                   |
 
-</span>
 
 Tabel 8.1: Ondersteunende functionaliteiten van de Digikoppeling-voorzieningen
 

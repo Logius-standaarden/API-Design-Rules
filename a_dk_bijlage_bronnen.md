@@ -4,7 +4,6 @@ Alle goedgekeurde Digikoppeling documenten zijn beschikbaar op https://www.logiu
 
 ## Digikoppeling-standaarden en gerelateerde documenten
 
-<span class="simple">
 
 | Documentnaam                                            | Auteur(s)              |
 |---------------------------------------------------------|------------------------|
@@ -22,7 +21,6 @@ Alle goedgekeurde Digikoppeling documenten zijn beschikbaar op https://www.logiu
 | Best Practices ebMS Digikoppeling                       | Logius Centrum voor Standaarden |
 | Best Practice Grote Berichten                           | Logius Centrum voor Standaarden |
 
-</span>
 
 Tabel 10.1: Digikoppeling-standaarden en gerelateerde documenten
 
@@ -30,11 +28,8 @@ Tabel 10.1: Digikoppeling-standaarden en gerelateerde documenten
 
 ![Digikoppeling Documentatie](media/DKDocumentatieOverzicht.png "Digikoppeling Documentatie")
 
-Figuur 10.1: Digikoppeling documentatie
-
 Overige Digikoppeling documentatie
 
-<span class="simple">
 
 | Documentnaam                                | Auteur(s)              | Status     |
 |---------------------------------------------|------------------------|------------|
@@ -44,13 +39,11 @@ Overige Digikoppeling documentatie
 | Gebruikershandleiding Digikoppeling Portaal | Logius                 | Definitief |
 | Handleiding CPA Register                    | Logius                 | Definitief |
 
-</span>
 
 Tabel 10.2: Overige Digikoppeling documentatie
 
 ### Overige geraadpleegde bronnen
 
-<span class="simple">
 
 | Documentnaam  | Versie     | Datum      | Auteur(s)  | Status|
 |---------------|------------|------------|------------|-------|
@@ -67,6 +60,5 @@ Tabel 10.2: Overige Digikoppeling documentatie
 | NORA 3.0 vording Principes voor samenwerking en dienstverlening   | Ntb  | 29-9-2010  | Jasper van Lieshout | Definitief  |
 | NORA Beeldtaal | Ntb        | 13-11-2012 | ICTU  |                              |
 
-</span>
 
 Tabel 10.3: Overige geraadpleegde bronnen

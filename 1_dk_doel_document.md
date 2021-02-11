@@ -2,17 +2,15 @@
 
 ## Inleiding
 
-Digikoppeling is een standaard voor berichtuitwisseling waarmee overheden op een veilige manier gegevens met elkaar kunnen uitwisselen.
+Digikoppeling is een standaard voor gestructureerde gegevensuitwisseling waarmee overheden op een veilige manier gegevens met elkaar kunnen uitwisselen.
 
 ## Doel
 
-De *Architectuur Digikoppeling* definieert de kaders – de gehanteerde principes en voorschriften - waarbinnen de berichtenuitwisseling op basis van Digikoppeling plaatsvindt en beschrijft de rol van intermediairs in de keten van berichtuitwisseling.
+De *Architectuur Digikoppeling* definieert de kaders – de gehanteerde principes en voorschriften - waarbinnen de berichtenuitwisseling op basis van Digikoppeling plaatsvindt en beschrijft de rol van intermediairs in de keten van gestructureerde gegevensuitwisseling.
 
 ## Doelgroep
 
 De *Architectuur Digikoppeling* is bedoeld voor ICT-professionals in de publieke sector en voor ICT-leveranciers die Digikoppeling (willen gaan) gebruiken. Zie ook onderstaande tabel.
-
-<span class="simple">
 
 | Afkorting | Rol | Taak  | Doelgroep? |
 | --------- | --- | --- | ------------ |
@@ -20,8 +18,6 @@ De *Architectuur Digikoppeling* is bedoeld voor ICT-professionals in de publieke
 | [P]       | Projectleiding                  | Verzorgen van de aansturing van projecten.                                                                | **Nee**    |
 | [A&D]     | Analyseren & ontwerpen (design) | Analyseren en ontwerpen van oplossings-richtingen. Het verbinden van Business aan de IT.                  | **Ja**     |
 | [OT&B]    | Ontwikkelen, testen en beheer   | Ontwikkelt, bouwt en configureert de techniek conform specificaties. Zorgen voor beheer na ingebruikname. | **Ja**     |
-
-</span>
 
 Tabel 1.1: Doelgroep Architectuur Digikoppeling
 
@@ -42,11 +38,9 @@ De architectuur van Digikoppeling wordt regelmatig geactualiseerd om goed te bli
 De *Architectuur Digikoppeling* is onderdeel van de Digikoppeling-standaarden.
 De documentatie is als volgt opgebouwd:
 
-![Digikoppeling Standaard](media/DK_Specificatie_structuur.png "Digikoppeling standaard")
+![Digikoppeling Standaard](media/DK_Specificatie_structuur.png "Digikoppeling Standaard")
 
-Figuur 1.1: Digikoppeling-standaard
-
-- Alle groene documenten vallen onder het beheer zoals geformaliseerd in het Beheermodel en releasebeleid <span style="color:green">[Beheermodel]</span>.
+- Alle groene documenten vallen onder het beheer zoals geformaliseerd in het [[?Beheermodel]].
 
 - Een overzicht van alle Digikoppeling documentatie is opgenomen in *Bijlage A: Bronnen.*
 

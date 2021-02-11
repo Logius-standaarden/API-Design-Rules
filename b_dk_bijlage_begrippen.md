@@ -5,7 +5,6 @@ Deze begrippenlijst is specifiek voor de *Architectuur Digikoppeling*.
 *Let op: dit zijn de definities op business niveau. Deze kunnen afwijken van de technische definities die in de protocollen en koppelvlakstandaarden zelf worden gehanteerd. Ook wordt een aantal vaktermen hier niet gedefinieerd zoals http,
 TCP/IP, netwerk, etc. Hiervoor kunt u andere bronnen via internet raadplegen.*
 
-<span class="simple">
 
 | Begrip                                   | Uitleg                                                                                                                                                                                                                                                                          |
 |------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -32,7 +31,7 @@ TCP/IP, netwerk, etc. Hiervoor kunt u andere bronnen via internet raadplegen.*
 | Conversation id                          | Specifieke element waarde in het ebMS bericht dat gebruikt wordt om meerdere berichten aan een conversatie te koppelen.                                                                                  |
 | CPA                                      | Collaboration Protocol Agreement: Servicecontract voor ebMS services.                                                                                                                                    |
 | ‘createSequence’ bericht                 | Protocol specifieke bericht van WS-RM om de initiële sequentie creatie uit te voeren.                                                                                                                    |
-| Dienst                                   | Een geautomatiseerde berichtuitwisseling tussen twee partijen in de vorm van een bevraging, melding of groot bericht.                                                                                    |
+| Dienst                                   | Een geautomatiseerde gegevensuitwisseling tussen twee partijen in de vorm van een bevraging, melding of groot bericht.                                                                                    |
 | Digikoppeling                            | Digikoppeling faciliteert gegevensuitwisselingen tussen overheidsorganisaties door standaardisatie van koppelvlakken (een overeengekomen set middelen en afspraken).                                     |
 | Digikoppeling Architectuur               | Het geheel aan principes, voorschriften, eisen en modellen die gezamenlijk Digikoppeling beschrijven.                                                                                                    |
 | Digikoppeling-keten                      | De uitwisseling van gegevens tussen systemen van partijen via de Digikoppeling-koppelvlakstandaarden.                                                                                                    |
@@ -67,7 +66,7 @@ TCP/IP, netwerk, etc. Hiervoor kunt u andere bronnen via internet raadplegen.*
 | Identiteit                               | Identiteit verwijst hier naar een gebruiker (partij) in de Digikoppeling-keten                                                                                                                  |
 | Inhoud (van een bericht)                 | Zie: Payload                                                                                                                                                                                    |
 | Integriteit                              | De inhoud van het bericht kan niet worden gewijzigd.                                                                                                                                            |
-| Interactiepatronen                       | Vormen van berichtuitwisseling tussen twee partijen. In Digikoppeling: meldingen, bevragingen en grote berichten.                                                                               |
+| Interactiepatronen                       | Vormen van gegevensuitwisseling tussen twee partijen. `todo` In Digikoppeling: meldingen, bevragingen en grote berichten.                                                                               |
 | Intermediair                             | Een partij in de keten die berichten doorstuurt naar de volgende schakel in de keten. Zie ook: transparante intermediair of niet-transparante intermediair.                                     |
 | Knooppunt                                | Een organisatie(onderdeel) waar verschillende functies zijn samengebracht.                                                                                                                      |
 | Koppelvlak                               | De externe interface van een dienst.                                                                                                                                                            |
@@ -117,7 +116,7 @@ TCP/IP, netwerk, etc. Hiervoor kunt u andere bronnen via internet raadplegen.*
 | Reliability                              | Zie: Betrouwbaarheid |
 | Reliable                                 | Zie: Betrouwbaar |
 | Reliable messaging-profiel               | Protocol waarmee SOAP-berichten betrouwbaar geleverd kunnen worden                                                   |
-|Resource | Oorspronkelijk in de context van het World Wide Web gedefinieerd als documenten of bestanden die met een URL worden geïdentificeerd. Tegenwoordig kan een resource alles zijn dat met een URL kan worden benaderd, zoals een applicatie of voorziening, een lijstje en nog steeds een document of een bestand. |
+|Resource | Oorspronkelijk in de context van het World Wide Web gedefinieerd als documenten of bestanden die met een URL worden geïdentificeerd. Tegenwoordig kan een resource alles zijn dat met een URL kan worden benaderd, zoals een applicatie of voorziening, een lijstje en nog steeds een document of een bestand.<br>*"The HTTP client and HTTP server exchange information about resources identified by URLs. We say that the request and response contain a representation of the resource. By representation, we mean information, in a certain format, about the state of the resource or how that state should be in the future. Both the header and the body are pieces of the representation."* (source:https://code.tutsplus.com/tutorials/a-beginners-guide-to-http-and-rest--net-16340)|
 | Sectoraal knooppunt                      | Intermediair die de gegevensuitwisseling faciliteert tussen partijen in een samenwerkingsverband.                    |
 | Service                                  | Een geautomatiseerde uitwisseling van informatie tussen twee systemen op basis van berichten.                        |
 | Serviceaanbieder                         | De partij die een service aanbiedt.                                                                                  |
@@ -151,7 +150,6 @@ TCP/IP, netwerk, etc. Hiervoor kunt u andere bronnen via internet raadplegen.*
 | XML                                      | eXtensible Markup Language. Een wereldwijde open standaard voor het beschrijven van gestructureerde gegevens in leesbare tekst.                    |
 | XSD schema definitie                     | XML technologie om het formaat van een XML bericht vast te leggen zodat te allen tijde bepaald kan worden of een XML bericht correct is of niet.    |
 
-</span>
 
 
 Tabel 11.1: Gebruikte begrippen

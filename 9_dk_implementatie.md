@@ -22,7 +22,7 @@ Denk hierbij aan de volgende onderwerpen:
 
 - Zijn de service contracten tussen de partijen gedefinieerd?
 
-- Zijn de berichten gedefinieerd?
+- Zijn de berichten, resources en/of interfaces gedefinieerd?
 
 - Is er sprake van grote berichten (bestanden groter dan 20 MiB)?
 
@@ -49,7 +49,7 @@ Organisaties die beschikken over eigen middleware (een enterprise servicebus, ee
 
 ICT-leveranciers leveren standaard producten en/of diensten voor Digikoppeling. Ook bestaan er open source-oplossingen. Meestal bieden deze producten een Digikoppeling-adapter die vaak automatisch kan worden geconfigureerd conform de eisen van de Digikoppeling-koppelvlakstandaarden en Digikoppeling-profielen.
 
-Per berichtuitwisseling moet worden bepaald welk profiel het meest geschikt is. Als het profiel is gekozen (meestal door de serviceaanbieder) kan de keuze in een servicebeschrijving worden vastgelegd. Deze servicebeschrijving kunnen serviceaanbieder en (meerdere) serviceafnemers gebruiken om hun Digikoppeling-adapter automatisch te configureren. De volgende paragrafen gaan verder in op profielen en servicebeschrijvingen.
+Per gegevensuitwisseling moet worden bepaald welk profiel het meest geschikt is. Als het profiel is gekozen (meestal door de serviceaanbieder) kan de keuze in een servicebeschrijving worden vastgelegd. Deze servicebeschrijving kunnen serviceaanbieder en (meerdere) serviceafnemers gebruiken om hun Digikoppeling-adapter automatisch te configureren. De volgende paragrafen gaan verder in op profielen en servicebeschrijvingen.
 
 ### Selectie van profielen
 
@@ -80,7 +80,6 @@ De aanduiding van de profielen kent de volgende systematiek:
 
 - osb= overheidsservicebus, de oude naam van Digikoppeling
 
-<span class="simple">
 
 | Invulling | DK REST API profiel | DK WUS profiel | DK ebMS2 profiel |
 | --- | --- |---|---|
@@ -93,7 +92,6 @@ De aanduiding van de profielen kent de volgende systematiek:
 | reliable signed |  |  | osb-rm-s |
 | reliable signed en encrypted |  |  | osb-rm-e |
 
-</span>
 
 Tabel 9.1: Profielen in relatie tot Digikoppeling-voorschriften
 
@@ -113,7 +111,7 @@ Neem de volgende aspecten mee bij de keuze van een profiel:
 
 ### Servicebeschrijvingen
 
-De berichtuitwisseling wordt vormgegeven door services. Een service bestaat uit een servicebeschrijving (een servicecontract) en berichtdefinitie waarmee de inhoud van een bericht is gespecificeerd. Deze worden op voorhand tussen partijen afgesproken en uitgewerkt.
+Gestructureerde gegevensuitwisseling wordt vormgegeven door services. Een service bestaat uit een servicebeschrijving (een servicecontract) en berichtdefinitie waarmee de inhoud van een bericht is gespecificeerd. Deze worden op voorhand tussen partijen afgesproken en uitgewerkt.
 
 De servicebeschrijving bevat de gemaakte afspraken over de kwaliteit en vorm van uitwisseling. De berichten of antwoorden van een service zelf zijn in een technisch formaat (XML bij WUS en ebMS, JSON bij RES-API) beschreven. Servicebeschrijvingen worden opgesteld door een serviceaanbieder (bijvoorbeeld een basisregistratie).
 
@@ -162,7 +160,7 @@ Het gebruik van gegevens uit andere bronnen wordt intern binnen een organisatie 
 
 Digikoppeling gaat over de uitwisseling van gegevens. Binnen Digikoppeling wordt een bericht dat uitgewisseld wordt met WUS of ebMS conform de SOAP<sup>[31](#f31)</sup> messaging protocol samengesteld.
 
-Bij het gebruik van het Digikoppeling REST API profiel is er geen sprake van berichtuitwisseling. In dit profiel wordt een een Application Programming Interface (API) op een resource aangeboden die door een gebruiker kan worden bevraagd of bewerkt, afhangend wat de API en de autorisatie eisen toelaat. De aanroep van een resource vindt plaats met HTTP-request. De HTTP-response bevat JSOn of XML.
+Bij het gebruik van het Digikoppeling REST API profiel is er geen sprake van  berichtuitwisseling. In dit profiel wordt een een Application Programming Interface (API) op een resource aangeboden die door een gebruiker kan worden bevraagd of bewerkt, afhangend wat de API en de autorisatie eisen toelaat. De aanroep van een resource vindt plaats met HTTP-request. De HTTP-response bevat JSOn of XML.
 
 Een bericht (WUS of ebMS) bestaat uit de volgende onderdelen:
 

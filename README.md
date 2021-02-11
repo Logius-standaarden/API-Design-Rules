@@ -34,19 +34,19 @@ HTML-versie(static): [Architectuur2.0-metRestfulAPI](https://centrumvoorstandaar
 
 |#|Hoofdstuk| Opmerkingen | Nieuwe informatie nav Openbare Consultatie |
 |-|---|---|---|
-|1|[Doel van het document en leeswijzer](dk_doel_document.md)|ongewijzigd||
-|2|[Wat is Digikoppeling](dk_nieuwe_scope.md)|Een nieuwe paragraaf over de scope van Digikoppeling is toegevoegd. Verwijzingen naar de NORA zijn aangepast. De Nora heeft de servicegerichte architectuur naar het archief verwezen en onderzoekt de rol van APi's.|    |
-|3|[Digikoppeling Architectuurprincipes](dk_architectuurprincipes.md)| Aanpassing in de principes vanwege de RFC op bevragen en melden. Uitwerking van de principes verwijderd, omdat een aantal verwijzingen verouderd waren.||
-|4|[Digikoppeling Keten](dk_keten.md)|In dit hoofdstuk is de koppeling tussen bevragen met WUS en Melden met ebMS verwijderd| |
-|5|[Transactiepatronen in Digikoppeling](dk_transactiepatronen.md)|Dit is een nieuw hoofdstuk, waarin dankbaar gebruik is gemaakt van de transactiepatronen uit EDUkoppeling. Ter illustratie en verduidelijken van de rollen zijn hier sequencediagrammen aan toegevoegd.|  |
-|6|[Koppelvlakstandaarden en voorschriften](dk_koppelvlakstandaarden_en_voorschriften.md)|Hierin is een verwijzing opgenomen naar het nieuwe Digikoppeling Restful API profiel||
-|7|[Digikoppeling Use cases](dk_usecases.md)| Dit is een nieuw hoofdstuk met verwijzing naar praktijkvoorbeelden. **oproep:** praktijkcases zijn welkom! |||
-|8|[Digikoppeling voorzieningen](dk_voorzieningen.md)|kleine aanpassingen||
-|9|[Implementatie aspecten](dk_implementatie.md)|kleine aanpassingen||
-|10/B1|[Bijlage Bronnen](dk_bijlage_bronnen.md)|ongewijzigd||
-|11/B2|[Bijlage begrippen](dk_bijlage_begrippen.md)|ongewijzigd||
-|12/B3|[Bijlage Nora Architectuurprincipes](dk_bijlage_nora_architectuur_principes.md)|ongewijzigd||
-|13/B4|[Bijlage Niet functionele eisen](dk_bijlage_niet_functionele_eisen.md)|ongewijzigd||
+|1|[Doel van het document en leeswijzer](1_dk_doel_document.md)|ongewijzigd||
+|2|[Wat is Digikoppeling](2_wat_is_digikoppeling.md)|Een nieuwe paragraaf over de scope van Digikoppeling is toegevoegd. Verwijzingen naar de NORA zijn aangepast. De Nora heeft de servicegerichte architectuur naar het archief verwezen en onderzoekt de rol van APi's.|    |
+|3|[Digikoppeling Architectuurprincipes](6_3_dk_architectuurprincipes.md)| Aanpassing in de principes vanwege de RFC op bevragen en melden. Uitwerking van de principes verwijderd, omdat een aantal verwijzingen verouderd waren.||
+|4|[Digikoppeling Keten](4_dk_keten.md)|In dit hoofdstuk is de koppeling tussen bevragen met WUS en Melden met ebMS verwijderd| |
+|5|[Transactiepatronen in Digikoppeling](5_dk_transactiepatronen.md)|Dit is een nieuw hoofdstuk, waarin dankbaar gebruik is gemaakt van de transactiepatronen uit EDUkoppeling. Ter illustratie en verduidelijken van de rollen zijn hier sequencediagrammen aan toegevoegd.|  |
+|6|[Koppelvlakstandaarden en voorschriften](6_dk_koppelvlakstandaarden_en_voorschriften.md)|Hierin is een verwijzing opgenomen naar het nieuwe Digikoppeling Restful API profiel||
+|7|[Digikoppeling Use cases](7_dk_usecases.md)| Dit is een nieuw hoofdstuk met verwijzing naar praktijkvoorbeelden. **oproep:** praktijkcases zijn welkom! |||
+|8|[Digikoppeling voorzieningen](8_dk_voorzieningen.md)|kleine aanpassingen||
+|9|[Implementatie aspecten](9_dk_implementatie.md)|kleine aanpassingen||
+|10/B1|[Bijlage Bronnen](a_dk_bijlage_bronnen.md)|ongewijzigd||
+|11/B2|[Bijlage begrippen](b_dk_bijlage_begrippen.md)|ongewijzigd||
+|12/B3|[Bijlage Nora Architectuurprincipes](c_dk_bijlage_nora_architectuur_principes.md)|ongewijzigd||
+|13/B4|[Bijlage Niet functionele eisen](d_dk_bijlage_niet_functionele_eisen.md)|ongewijzigd||
 
 ## Beslisboom: Geen onderdeel van de wijziging
 

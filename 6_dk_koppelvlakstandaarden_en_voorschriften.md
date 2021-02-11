@@ -4,9 +4,7 @@
 
 De Digikoppeling Architectuur legde in de eerdere versies grote nadruk op bevragingen en meldingen en legde een verband tussen deze iteractiepatronen en de onderliggende standaarden, ('WUS voor bevragingen, ebMS voor meldingen en kennisgevingen'). Dit verband bleek in de praktijk niet altijd werkbaar of wennselijk. In 2020 is daarom besloten om de richtlijnen voor het toepassen van de Digikoppeling standaarden te wijzigen.
 
-![Overzicht Digikoppeling Koppelvlakken](media/fig-structuur.png)
-
-Figuur 6.1 Overzicht Digikoppeling Koppelvlakken
+![Overzicht Digikoppeling Koppelvlakken](media/fig-structuurv2.png "Overzicht Digikoppeling Koppelvlakken")
 
 Digikoppeling kent vier koppelvlakstandaarden
 
@@ -37,7 +35,6 @@ Deze komen in de volgende varianten voor:
 
 Door het gebruik van deze profielen worden deze aspecten correct afgehandeld en kunnen partijen sneller een koppelvlakstandaard implementeren.
 
-<span class="simple">
 
 | Onderdeel | Toelichting|
 |---|---|
@@ -50,7 +47,6 @@ Door het gebruik van deze profielen worden deze aspecten correct afgehandeld en 
 | Overzicht Actuele Documentatie en Compliance | Overzicht van de actuele versie van de  Digikopeling specificaties (normatief en niet-normatief)  |
 | Gebruik en Achtergrond Digikoppeling Certificaten | Beschrijft de werking en gebruik van PKIoverheid Certificaten (niet-normatief) |
 
-</span>
 
 Tabel 6.1: Digikoppeling-standaarden
 
@@ -61,7 +57,6 @@ Enkele afspraken over de functionaliteit van Digikoppeling hebben betrekking op 
 Onderstaande voorschriften gelden voor de hele Digikoppeling-keten. Partijen moeten er in hun eigen organisatie voor zorgen dat hun systemen, applicaties en toegang voor gebruikers aan de eisen voldoen.
 
 
-<span class="simple">
 
 | Aspect | Voorschrift | Toepassing en uitleg |
 |---|---|---|
@@ -70,7 +65,6 @@ Onderstaande voorschriften gelden voor de hele Digikoppeling-keten. Partijen moe
 | Traceerbaarheid | De berichtenstroom is traceerbaar via elke schakel in de logistieke keten.  | Elke schakel in de Digikoppeling-keten moet inkomende en uitgaande berichten monitoren, loggen en moet voorzien in een audittrail.  Dit geldt met name voor de betrouwbare profielen.  |
 | Foutafhandeling  | Fouten worden correct en tijdig afgehandeld. Uitval van meldingen wordt zoveel mogelijk voorkomen, mede door het gebruik van een betrouwbaar profiel.  | Elke schakel in de Digikoppeling-keten moet foutafhandeling inrichten.  Dit geldt met name voor de betrouwbare profielen. |
 
-</span>
 
 Tabel 6.2: Digikoppeling-voorschriften
 
@@ -116,14 +110,14 @@ De KVS WUS biedt de volgende functionaliteiten:
 - Versleutelen van transport
 - Adresseringsinformatie voor routering ‘achter de voordeur’
 - Routeren via message-handlers
-- Berichtuitwisseling vast leggen in standaard technisch contract formaat
+- berichtuitwisseling vast leggen in standaard technisch contract formaat
 - Beveiligen van berichten d.m.v. technische handtekening
 - Beveiligen van berichten door de content te versleutelen
 - Foutmeldingen
 
 ### WSDL: Web Services Description Language
 
-Een WSDL is een formeel xml-document om de gebruikte functionele en technische eigenschappen van de berichtuitwisseling via WUS vast te leggen. Elke service heeft één WSDL, die door de serviceaanbieder wordt opgesteld. Deze is door alle afnemers te gebruiken. Door importeren van de WSDL in de Digikoppeling-adapter van een afnemer wordt de berichtuitwisseling geconfigureerd.
+Een WSDL is een formeel xml-document om de gebruikte functionele en technische eigenschappen van de (XML-)berichtuitwisseling via WUS vast te leggen. Elke service heeft één WSDL, die door de serviceaanbieder wordt opgesteld. Deze is door alle afnemers te gebruiken. Door importeren van de WSDL in de Digikoppeling-adapter van een afnemer wordt de berichtuitwisseling geconfigureerd.
 
 De wijze waarop een WSDL wordt toegepast staat beschreven in Digikoppeling Best Practices WUS.
 
@@ -150,7 +144,7 @@ De KVS ebMS2 regelt de volgende functionaliteiten: :
 - Asynchroon berichten correleren d.m.v. message ID
 - Meerdere berichten logisch samenvoegen
 - Berichten voorzien van een beveiligde datum en tijdstempel (time-stamping)
-- Berichtuitwisseling vast leggen in standaard technisch contract formaat (servicecontract)
+- berichtuitwisseling vast leggen in standaard technisch contract formaat (servicecontract)
 - Beveiligen van berichten d.m.v. technische handtekening
 - Beveiligen van berichten door de content te versleutelen
 - Onweerlegbaarheid op protocolniveau (non-repudiation)

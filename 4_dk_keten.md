@@ -46,20 +46,17 @@ Een intermediair vormt een schakel in de Digikoppeling-keten tussen serviceaanbi
 
 Een intermediair zoals een sectoraal knooppunt of SAAS leverancier kan in opdracht van partijen inhoudelijke bewerkingen op berichten uitvoeren zoals de integratie, conversie en distributie van gegevens. Een dergelijke ondersteunende rol kan partijen ontzorgen bij de implementatie van standaarden, het beheer van gedeelde/gezamenlijke voorzieningen en de afstemming tussen partijen op het gebied van gegevensuitwisseling.
 
-![Positionering intermediair/sectoraal knooppunt](media/DK_Positionering_intermediair_sectoraal_knppnt.png "Positionering intermediair/sectoraal knooppunt")
+![Positionering Intermediair/Sectoraal Knooppunt](media/DK_Positionering_intermediair_sectoraal_knppnt.png "Positionering Intermediair/Sectoraal Knooppunt")
 
-Figuur 3.1: Positionering intermediair/sectoraal knooppunt
+<sup><a name="f18"><dfn>18</dfn></a>: We beschouwen transparantie hier op de logistieke laag. Op technisch niveau is de intermediair een eindpunt omdat de TLS verbinding tussen twee servers moet worden opgezet.</sup>
 
-<br><sup><a name="f18"><dfn>18</dfn></a>: We beschouwen transparantie hier op de logistieke laag. Op technisch niveau is de intermediair een eindpunt omdat de TLS verbinding tussen twee servers moet worden opgezet.</sup>
-
-<br><sup><a name="f19"><dfn>19</dfn></a>: Bericht-niveau versleuteling wordt op applicatieniveau toegepast tussen de verzender en ontvanger; de berichtinhoud wordt versleuteld zodat de intermediair alleen de headers kan lezen.</sup>
+<sup><a name="f19"><dfn>19</dfn></a>: Bericht-niveau versleuteling wordt op applicatieniveau toegepast tussen de verzender en ontvanger; de berichtinhoud wordt versleuteld zodat de intermediair alleen de headers kan lezen.</sup>
 
 ## Componenten in de logistieke Digikoppeling-keten
 
-De volgende componenten maken onderdeel uit van de Digikoppeling-keten van berichtuitwisseling.
+De volgende componenten maken onderdeel uit van de Digikoppeling-keten van gegevensuitwisseling.
 
 
-<span class="simple">
 
 | Componenten                            | Toelichting |
 |----------------------------------------|----|
@@ -70,7 +67,6 @@ De volgende componenten maken onderdeel uit van de Digikoppeling-keten van beric
 | PKIoverheid certificaten               | Identificatie en authenticatie vindt plaats op basis van het PKIoverheidscertificaat. Zie voor nadere uitleg Digikoppeling Identificatie en Authenticatie en Digikoppeling Gebruik en Achtergrond Certificaten.                                                                                                                            |
 | Servicecontract                        | Een technisch formaat voor het vastleggen van afspraken over de inhoud van de gegevensuitwisseling tussen partijen. Een servicecontract wordt vormgegeven d.m.v. een CPA (voor ebMS2 services), OAS voor Restful APi's,   en een WSDL (voor WUS services) en wordt ingelezen in de Digikoppeling-adapter. voor de CPA stellen partijen samen een servicecontract op.|
 
-</span>
 
 Tabel 4.1: Componenten van de Digikoppeling-keten
 
@@ -107,14 +103,12 @@ Een aantal proceskenmerken op business-niveau bepaalt welke door Digikoppeling g
 
 Op basis van deze twee verschillen komen we tot vier primitieve business-interacties, weergegeven in onderstaande tabel.
 
-<span class="simple">
 
 |                | **Synchroon**                 | **Asynchroon**                 |
 |----------------|----------------------------------|--------------------------------|
 | **Bevraging**  | Onmiddellijke bevraging  | bevraging met uitstel  |
 | **Transactie** | Onmiddellijke transactie | transactie met uitstel |
 
-</span>
 
 Tabel 4.2: primitieve business-interacties
 
@@ -127,7 +121,7 @@ Digikoppeling onderscheidt verschillende vormen van uitwisseling:
 
 - *synchrone* request-response voor bevraging en bewerking van objecten en in de context van het gebruik van *resources* op basis van het REST patroon.
 
-- *synchrone* request-response met gestructureerde berichtuitwsseling
+- *synchrone* request-response met gestructureerde berichtuitwisseling
 
 - *asynchrone* request-response en reliable messaging
 
@@ -135,7 +129,7 @@ Digikoppeling onderscheidt verschillende vormen van uitwisseling:
 
 Bij synchrone request-response voor bevraging en bewerking van objecten *data-providers* bieden providers databronnen - of resources-  die *data-consumers* kunnen bevragen en bewerken. Een provider vermeldt locatie van en randvoorwaarden voor toegang van de databron en via gestructureerde benadering kan een consumer de resource bevragen of zelfs bewerken.
 
-Bij een synchrone request-response met gestructureerde berichtuitwsseling stuurt de service-requester een voorgedefinieerde vraag (request) aan de service-provider, die een antwoord (response) verstrekt. Het initiatief ligt bij de service-requester. Gaat er in de uitwisseling iets mis dan zal de service-requester na een bepaalde tijd de uitwisseling afbreken (time-out).
+Bij een synchrone request-response met gestructureerde berichtuitwisseling stuurt de service-requester een voorgedefinieerde vraag (request) aan de service-provider, die een antwoord (response) verstrekt. Het initiatief ligt bij de service-requester. Gaat er in de uitwisseling iets mis dan zal de service-requester na een bepaalde tijd de uitwisseling afbreken (time-out).
 
 Bij een asynchrone request-response verstuurt de service-requester een bericht naar de ontvangende partij (ontvanger) en wacht op een (technische) ontvangstbevestiging. De verzendende (business) applicatie vertrouwt er op dat het bericht (betrouwbaar) afgeleverd wordt. De (business)applicatie zal niet wachten op het antwoord: deze applicatie zal het eventuele 'antwoordbericht' op een ander moment ontvangen en moeten correleren aan het oorspronkelijke vraag bericht.
 
@@ -169,7 +163,7 @@ Digikoppeling Grote Berichten maakt verschillende vormen van uitwisseling op bus
 
 • Multi-distributie - grote hoeveelheid gegevens aan meerdere ontvangers versturen.
 
-<br><sup><a name="f24"><dfn>24</dfn></a>: **1 MiB**=1024\^2 bytes : Voorheen stond hier 20MB. We gebruiken de term MiB om geen enkele verwarring te scheppen over de drempelwaarde. Het verschil tussen 20Mb en 20Mib is echter te verwaarlozen.</sup>
+<br><sup><a name="f24"><dfn>24</dfn></a>: **1 MiB**=1024<sup>2</sup> bytes : Voorheen stond hier 20MB. We gebruiken de term MiB om geen enkele verwarring te scheppen over de drempelwaarde. Het verschil tussen 20Mb en 20Mib is echter te verwaarlozen.</sup>
 
 
 ## Geen onderscheid meer in gebruik WUS en ebMS2 voor bevragingen en transacties

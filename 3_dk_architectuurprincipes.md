@@ -18,7 +18,7 @@ De volgende uitgangspunten vormen de basis voor de uitwerking van deze architect
 
 In vorige versies van de Digikoppeling Architectuur werden specifieke profielen gekoppeld aan bevragingen en meldingen. Dit voorschrift bleek in de praktijk niet meer goed bruikbaar. Vandaar dat met ingang van versie `2.0` deze relatie is komen te vervallen.
 
-## Architectuurprincipes
+## Architectuurprincipes `todo check`
 
 De architectuurprincipes geven richting aan de Digikoppeling-standaarden en Digikoppeling-voorzieningen en zijn afgeleid van de NORA Principes (zie bijlage C):
 
@@ -28,6 +28,6 @@ De architectuurprincipes geven richting aan de Digikoppeling-standaarden en Digi
 
 3. **Veiligheid en vertrouwelijkheid:** Gegevens worden veilig uitgewisseld conform de eisen van de toepasselijke wet en regelgeving. Wanneer berichten met persoonsgegevens verstuurd worden, moet de serviceafnemer nagaan of de uitwisseling voldoet aan de wet- en regelgeving (in het bijzonder de AVG ).
 
-4. **Betrouwbaarheid:** Berichtuitwisseling is betrouwbaar indien nodig.
+4. **Betrouwbaarheid:**  berichtaflevering is betrouwbaar indien nodig.
 
 5. **Ontkoppeling:** De ontkoppeling van diensten wordt mogelijk door de verantwoordelijkheid van de logistieke laag, de transportlaag en de bedrijfsproceslaag strikt te scheiden.

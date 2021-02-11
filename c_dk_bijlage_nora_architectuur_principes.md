@@ -6,7 +6,6 @@ De NORA (Nederlandse Overheids Referentie Architectuur) is de bron voor de archi
 
 Overzicht
 
-<span class="simple">
 
 | Principe      | Statement                                                                                      | ID   |
 |---------------|------------------------------------------------------------------------------------------------|------|
@@ -21,32 +20,24 @@ Overzicht
 | BETROUWBAAR   | Afnemers kunnen erop vertrouwen dat de dienstverlener zich aan afspraken houdt.                | BP09 |
 | ONTVANKELIJK  | Afnemers kunnen input leveren over de dienstverlening.                                         | BP10 |
 
-</span>
 
 Tabel 12.1: NORA Basisprincipes
-
-<span class="simple">
 
 | NORA Afgeleide principes                   | ID   | Stelling                                                                                               | Cluster                         | Realiseert                           | DK principes                                                          |
 |--------------------------------------------|------|--------------------------------------------------------------------------------------------------------|---------------------------------|--------------------------------------|-----------------------------------------------------------------------|
 | Diensten zijn herbruikbaar                 | AP01 | De dienst is zodanig opgezet dat andere organisaties deze in eigen diensten kunnen hergebruiken.       | Diensten-aanbod                 | Standaard (Basisprincipe)            | DK 1. interoperabiliteit                                              |
 | Ontkoppelen met diensten                   | AP02 | De stappen uit het dienstverleningsproces zijn ontsloten als dienst.                                   | Diensten-aanbod                 | Noodzakelijk                         | DK 5: Digikoppeling maakt ontkoppeling mogelijk.                      |
-| Nauwkeurige dienst-beschrijving            | AP05 | De dienst is nauwkeurig beschreven.                                                                    | Diensten-aanbod                 | Transparant                          | DK is open en beschreven in de architectuur en koppelvlakstandaarden. |
-|                                            |      |                                                                                                        |                                 | Vindbaar                             |                                                                       |
+| Nauwkeurige dienst-beschrijving            | AP05 | De dienst is nauwkeurig beschreven.                                                                    | Diensten-aanbod                 | Transparant<br>Vindbaar                          | DK is open en beschreven in de architectuur en koppelvlakstandaarden. |
 | Gebruik standaard oplossingen              | AP06 | De dienst maakt gebruik van standaard oplossingen                                                      | Standaard oplossingen           | Standaard (Basisprincipe)            | DK 2. Standaard oplossingen                                           |
 | Gebruik de landelijke bouwstenen           | AP07 | De dienst maakt gebruik van de landelijke bouwstenen e-overheid                                        | Standaard oplossingen           | Standaard (Basisprincipe)            | DK 2. Standaard oplossingen                                           |
 | Gebruik open standaarden                   | AP08 | De dienst maakt gebruik van open standaarden                                                           | Standaard oplossingen           | Standaard (Basisprincipe)            | DK 1. interoperabiliteit                                              |
 | Voorkeurskanaal internet                   | AP09 | De dienst kan via internet worden aangevraagd                                                          | Kanalen                         | Toegankelijk                         | DK 1. interoperabiliteit                                              |
-| Identificatie informatie-objecten          | AP16 | Informatieobjecten zijn uniek geïdentificeerd                                                          | Informatie                      | Vertrouwelijk                        | DK 3. Veiligheid en vertrouwelijkheid                                 |
-|                                            |      |                                                                                                        |                                 | Vindbaar                             |                                                                       |
+| Identificatie informatie-objecten          | AP16 | Informatieobjecten zijn uniek geïdentificeerd                                                          | Informatie                      | Vertrouwelijk<br>Vindbaar                        | DK 3. Veiligheid en vertrouwelijkheid                                 |
 | Afspraken vastgelegd                       | AP28 | Dienstverlener en afnemer hebben afspraken vastgelegd over de levering van de dienst                   | Sturing en verantwoordelijkheid | Betrouwbaar                          | DK 4. Betrouwbaarheid                                                 |
-| De dienst-verlener voldoet aan de norm     | AP29 | De dienstverlener draagt zelf de consequenties wanneer de dienst afwijkt van afspraken en standaarden. | Sturing en verantwoordelijkheid | Standaard (Basisprincipe)            | DK 1. interoperabiliteit                                              |
-|                                            |      |                                                                                                        |                                 | Betrouwbaar                          |                                                                       |
-| Continuiteit van de dienst                 | AP35 | De levering van de dienst is continu gewaarborgd.                                                      | Betrouwbaarheid                 | Betrouwbaar                          | DK 4. Betrouwbaarheid                                                 |
+| De dienst-verlener voldoet aan de norm     | AP29 | De dienstverlener draagt zelf de consequenties wanneer de dienst afwijkt van afspraken en standaarden. | Sturing en verantwoordelijkheid | Standaard (Basisprincipe)<br>Betrouwbaar           | DK 1. interoperabiliteit                                              |
+| Continuïteit van de dienst                 | AP35 | De levering van de dienst is continu gewaarborgd.                                                      | Betrouwbaarheid                 | Betrouwbaar                          | DK 4. Betrouwbaarheid                                                 |
 | Uitgangs-situatie herstellen               | AP36 | Wanneer de levering van een dienst mislukt wordt de uitgangssituatie hersteld                          | Betrouwbaarheid                 | Betrouwbaar                          | DK 4. Betrouwbaarheid                                                 |
 | Identificatie authenticatie en autorisatie | AP37 | Dienstverlener en afnemer zijn geauthenticeerd wanneer de dienst een vertrouwelijk karakter heeft      | Betrouwbaarheid                 | Vertrouwelijk                        | DK 3. Veiligheid en vertrouwelijkheid                                 |
 | Uitwisseling berichten onweerlegbaar       | AP40 | De berichtenuitwisseling is onweerlegbaar                                                              | Betrouwbaarheid                 | Betrouwbaar                          | DK 4. Betrouwbaarheid                                                 |
-
-</span>
 
 Tabel 12.2: Relevante afgeleide NORA principes en mapping naar Digikoppeling (DK) principes
