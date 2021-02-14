@@ -70,7 +70,7 @@ Tabel 6.2: Digikoppeling-voorschriften
 
 ## REST API's
 
-Het Digikoppeling REST API profiel is gebaseerd op de REST API Design rules die in 2020 door het Kennisplatform API's zijn ontwikkeld.
+Het Digikoppeling REST API profiel [[Digikoppeling REST API]] is gebaseerd op de REST API Design rules die in 2020 door het Kennisplatform API's zijn ontwikkeld.
 
 Een application programming interface (API) is een gestructureerd en gedocumenteerd koppelvlak voor communicatie tussen applicaties. In de laatste 10 jaar heeft Representational state transfer (REST) zich ontwikkeld tot een bepalend principe voor het realiseren van API's.
 
@@ -78,15 +78,14 @@ De standaard REST API Design Rules geeft een verzameling basisregels voor struct
 
 ### Digikoppeling REST API voor synchrone requests
 
-De KVS REST API biedt de volgende functionaliteiten:
+[[Digikoppeling REST API]]  biedt de volgende functionaliteiten:
 
 - Identificatie en authenticatie van partijen
 - Foutmeldingen
 
-
 ### OAS: OpenAPI Specification
 
-Een OpenAPI Specification (OAS) beschrijft de eigenschappen van de data die een API als input accepteert en als output teruggeeft. OAS 3.0 specificeert alleen welke attributen de API verwerkt en hun datatypen, niet welke implementatie er achter de API schuilgaat.
+Een OpenAPI Specification [[openapi]] beschrijft de eigenschappen van de data die een API als input accepteert en als output teruggeeft. OAS 3.0 specificeert alleen welke attributen de API verwerkt en hun datatypen, niet welke implementatie er achter de API schuilgaat.
 
 Voor het beschrijven van DK-Rest API's is het gebruik van OAS veplicht. Op de Pas-toe-leg-uit lijst van het Forum Standaardisatie staat beschreven welke versie toegepast moet worden.
 
@@ -102,9 +101,9 @@ Kenmerkend voor de WUS-standaarden die voortkomen uit de Internet-wereld is de 1
 
 ### Digikoppeling WUS voor synchrone bevragingen
 
-De Digikoppeling-koppelvlakstandaard WUS (KVS WUS) ondersteunt het uitvoeren van synchrone requests tussen geautomatiseerde informatiesystemen.
+De *Digikoppeling-koppelvlakstandaard WUS* [[Digikoppeling Koppelvlakstandaard WUS]] ondersteunt het uitvoeren van synchrone requests tussen geautomatiseerde informatiesystemen.
 
-De KVS WUS biedt de volgende functionaliteiten: 
+[[Digikoppeling Koppelvlakstandaard WUS]] biedt de volgende functionaliteiten: 
 
 - Identificatie en authenticatie van partijen
 - Versleutelen van transport
@@ -131,7 +130,7 @@ Kenmerkend voor de ebMS2-standaarden die voortkomen uit de EDIFACT-wereld is de 
 
 ### Digikoppeling ebMS2 voor betrouwbare, asynchone uitwisseling  
 
-De Digikoppeling-koppelvlakstandaard ebMS2 (KVS ebMS2) ondersteunt het uitvoeren van asynchrone berichten tussen geautomatiseerde informatiesystemen.
+De *Digikoppeling-koppelvlakstandaard ebMS2* [[Digikoppeling Koppelvlakstandaard ebMS2]] ondersteunt het uitvoeren van asynchrone berichten tussen geautomatiseerde informatiesystemen.
 
 Het protocol regelt de betrouwbare ontvangst van een bericht en eventueel de onweerlegbaarheid (non-repudiation) in de vorm van een ondertekende ontvangstbevestiging. Hoewel Digikoppeling-meldingen (op de logistieke laag) asynchroon zijn kan de business-laag wel synchroon werken als de verzender wacht op een retourmelding.`
 
@@ -144,7 +143,7 @@ De KVS ebMS2 regelt de volgende functionaliteiten: :
 - Asynchroon berichten correleren d.m.v. message ID
 - Meerdere berichten logisch samenvoegen
 - Berichten voorzien van een beveiligde datum en tijdstempel (time-stamping)
-- berichtuitwisseling vast leggen in standaard technisch contract formaat (servicecontract)
+- Berichtuitwisseling vast leggen in standaard technisch contract formaat (servicecontract)
 - Beveiligen van berichten d.m.v. technische handtekening
 - Beveiligen van berichten door de content te versleutelen
 - Onweerlegbaarheid op protocolniveau (non-repudiation)
@@ -183,10 +182,10 @@ De standaard doet geen uitspraak over gegevensstromen waarin kleine en grote ber
 
 ### Standaarden voor grote berichten
 
-De *Digikoppeling Koppelvlakstaard Grote Berichten* (KVS GB) maakt gebruik van WUS en ebMS2
+De *Digikoppeling Koppelvlakstaard Grote Berichten* [[Digikoppeling Koppelvlakstandaard GB]] maakt gebruik van WUS en ebMS2
  voor het verzenden van metadata. Voor ophalen van het grote bestand maakt de standaard gebruik van HTTPS-downloads. Daardoor zijn reliability en security gelijkwaardig aan WUS en ebMS2. Ook is het gebruik van transparante intermediairs mogelijk.
 
-De KVS GB regelt de volgende functionaliteiten, in aanvulling op WUS of ebMS2
+[[Digikoppeling Koppelvlakstandaard GB]] regelt de volgende functionaliteiten, in aanvulling op WUS of ebMS2
 
 - Identificatie en authenticatie van partijen (OIN)
 

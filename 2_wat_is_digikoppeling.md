@@ -49,14 +49,15 @@ Met de toevoeging van het Digikoppeling REST API profiel komt de vergelijking me
 ![Verschil SOAP en REST](media/Upwork-Envelop-postcard.png "Soap vs. REST APIs bron upwork.com")
 <div style="font-size:10pt;text-align:center;">bron: <a href="https://www.upwork.com/resources/soap-vs-rest-a-look-at-two-different-api-styles">https://www.upwork.com/resources/soap-vs-rest-a-look-at-two-different-api-styles</a></div>
 
-Het Forum beschrijft dat Digikoppeling gaat over het uitwisselen van gestructureerde berichten. Voor het gebruik van REST API's moet het concept van berichten wel erg uitgerekt worden om in deze definitie te passen. Een synchrone JSON response kan als een bericht worden gezien, maar of ook de request die hieraan voorafging als een gestructureerde *bericht* kan worden gezien vergt enige creativiteit. De uitwisseling van gegevens via REST API's is daarentegen in ieder wel *gestructureerd*, bijvoorbeeld alleen al omdat elke interactie via een  API volgens een protocol, of standaard verloopt, zoals 
-> http [[?rfc7230]], https [[?rfc2818]], OpenAPI Specification [[?openapi]] of de (API Design Rules) [[?API Design Rules]] . 
+Het Forum beschrijft dat Digikoppeling gaat over het uitwisselen van gestructureerde berichten. Voor het gebruik van REST API's moet het concept van *berichten* wel erg uitgerekt worden om in deze definitie te passen. Een synchrone JSON response kan als een bericht worden gezien, maar of ook de request die hieraan voorafging als een gestructureerde *bericht* kan worden gezien vergt enige creativiteit. De uitwisseling van gegevens via REST API's is daarentegen in ieder geval wel *gestructureerd*, alleen al omdat elke interactie via een  API volgens een protocol, of standaard verloopt, zoals http [[?rfc7230]], https [[?rfc2818]], OpenAPI Specification [[?openapi]] of de (API Design Rules) [[?API Design Rules]].
 
-[`todo: hier moet nog iets`] Vandaar dat we in het vervolg in dit document zullen spreken over gestructeerde *gegevensuitwisseling*, in plaats gestructureerde berichtuitwisseling.
+Voor Digikoppeling verleggen we daarom de focus van berichtverkeer naar het uitwisselen van gegevens. Vandaar dat we in het vervolg in dit document zullen spreken over gestructeerde *gegevensuitwisseling*, in plaats van gestructureerde berichtuitwisseling.
 
+<!-- 
 - https://restfulapi.net/json-vs-xml/, 
 - https://www.datamation.com/big-data/structured-vs-unstructured-data/
-- https://www.slideshare.net/ewolff/rest-vs-messaging-for-microservices
+- https://www.slideshare.net/ewolff/rest-vs-messaging-for-microservices 
+-->
 
 ## Digikoppeling voor externe uitwisseling
 
@@ -77,7 +78,7 @@ Overheidsgegevens zijn actief beschikbaar als open data voor hergebruik van derd
 
 Digikoppeling verplicht dat verzender en ontvanger elkaar kennen. Digikoppeling gaat over communicatie tussen de overheden (G2G) en niet over uitwisseling met burgers (G2C). De communicatie tussen overheid en het bedrijfsleven (G2B) is niet gestandaardiseerd. 
 
-![segmentering](media/DK_segmentering.png "Segmentering van de communicatie")
+![Segmentering van de communicatie](media/DK_segmentering.png "Segmentering van de communicatie")
 
 ## Scope van Digikoppeling
 

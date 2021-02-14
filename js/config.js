@@ -9,7 +9,7 @@ var respecConfig = {
   // Als er geen publishDate is opgegeven, genereert ReSpec de datum o.b.v. de laatste wijzigingen
   // Belangrijk: als publishDate niet opgegeven is, wordt bij de link "Laatst gepubliceerde versie" "geen" gezet. Anders wordt een link opgebouwd voor de laatste versie, met het formaat:
   // https://docs.centrumvoorstandaarden.nl/{pubDomain}/{shortName}
-  publishDate: "2020-12-07",
+  publishDate: "2021-02-15",
   addSectionLinks: true,
   otherLinks: [
     {
@@ -130,11 +130,76 @@ var respecConfig = {
       date: "Juli 2020",
       publisher: "Logius",
     },
+    "Digikoppeling REST API":{
+        href: "https://centrumvoorstandaarden.github.io/DigikoppelingRestfulApiProfiel/",
+        title: "Digikoppeling Restful API Profiel (Concept)",
+        date: "februari 2021",
+        publisher: "Logius",
+    },
     Beheermodel:
     {
       href: "https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Standaarden/Digikoppeling-Beheermodel.pdf",
       title: "Beheermodel en releasebeleid Digikoppeling v1.5",
       date: "Oktober 2017",
+      publisher: "Logius",
+    },
+    "Digikoppeling Koppelvlakstandaard GB": {
+      href: "https://logius-standaarden.github.io/Digikoppeling-Koppelvlakstandaard-GB/",
+      title: "Digikoppeling Koppelvlakstandaard Grote Berichten",
+      date: "september 2020",
+      publisher: "Logius",
+    },
+    "Digikoppeling Koppelvlakstandaard WUS": {
+      href: "https://logius-standaarden.github.io/Digikoppeling-Koppelvlakstandaard-WUS/",
+      title: "Digikoppeling Koppelvlakstandaard ebMS2",
+      date: "oktober 2020",
+      publisher: "Logius",
+    },
+    "Digikoppeling Koppelvlakstandaard ebMS2": {
+      href: "https://logius-standaarden.github.io/Digikoppeling-Koppelvlakstandaard-ebMS2/",
+      title: "Digikoppeling Koppelvlakstandaard ebMS2",
+      date: "mei 2019",
+      publisher: "Logius",
+    },
+    "Digikoppeling Beveiligingsdocument": {
+      href: "https://www.logius.nl/sites/default/files/bestanden/website/Digikoppeling_Beveiligingsstandaarden_en_voorschriften_v1.3.pdf",
+      title: "Digikoppeling Beveiligingsstandaarden en voorschriften",
+      date: "2020",
+      publisher: "Logius",
+    },
+    "Digikoppeling Identificatie-Authenticatie":{
+      href: "http://www.logius.nl/digikoppeling",
+      title: "Digikoppeling Identificatie en Authenticatie",
+      publisher: "Logius",
+    },
+    "Digikoppeling-Cert": {
+      href: "http://www.logius.nl/digikoppeling",
+      title: "Gebruik en achtergrond van Digikoppeling certificaten",
+      publisher: "Logius",
+    },
+    "PKI Policy": {
+      href: "https://www.logius.nl/diensten/pkioverheid/aansluiten-als-tsp/pogramma-van-eisen",
+      title: "Programma van Eisen (PKIoverheid)",
+      publisher: "Logius",
+    },
+    "PKI CA": {
+      href: "https://www.logius.nl/diensten/pkioverheid/aansluiten-als-tsp/toegetreden-vertrouwensdienstverleners",
+      title: "Toegetreden vertrouwensdienstverleners",
+      publisher: "Logius",
+    },
+    "PKIoverheid Certificaten": {
+      href: "https://cert.pkioverheid.nl/",
+      title: "Pkioverheid certificaten",
+      publisher: "Logius"
+    },
+    "Logius website": {
+      href: "https://logius.nl/digikoppeling",
+      title: "Logius Digikoppeling",
+      publisher: "Logius",
+    },
+    "Digikoppeling Compliance Voorziening": {
+      href: "https://portaal.digikoppeling.nl",
+      title: "Digikoppeling Compliance Voorziening",
       publisher: "Logius",
     }
   },

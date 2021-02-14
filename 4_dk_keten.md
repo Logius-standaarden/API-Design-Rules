@@ -143,7 +143,11 @@ Synchrone uitwisseling kan worden ingericht op basis van de Digikoppeling-koppel
 
 Een asynchroon verzoek is een enkelvoudig bericht waarop eventueel enige tijd later een retour-melding volgt. Het gebruikte protocol regelt de betrouwbare ontvangst. Bij asynchrone uitwisseling is de betrouwbare aflevering van het bericht essentieel. Als een partij het bericht niet direct kan aannemen, voorzien de protocollen erin dat het bericht nogmaals wordt aangeboden.
 
-Digikoppeling Koppelvlakstandaard ebMS2 biedt specifieke ondersteuning voor asynchroon .
+Digikoppeling Koppelvlakstandaard ebMS2 biedt specifieke ondersteuning voor asynchrone uitwisseling.
+
+### Melding(Transactie)
+
+Een melding is een enkelvoudig bericht waarop eventueel enige tijd later een retour-melding volgt. Het gebruikte protocol kan de betrouwbare ontvangst en de onweerlegbaarheid (non-repudiation) regelen van een bericht. Bij meldingen is de betrouwbare aflevering van het bericht essentieel. Als een partij het bericht niet direct kan aannemen, kan een protocol erin voorzien dat het bericht nogmaals wordt aangeboden.
 
 ### Grote Berichten
 
@@ -170,4 +174,4 @@ Digikoppeling Grote Berichten maakt verschillende vormen van uitwisseling op bus
 
 De Provider bepaalt welk koppelvlak - Restful API, WUS of ebMS- van toepassing is op de door haar geleverde dienst.
 
-Tot en met 2019 werd in de Digikoppeling Standaard onderscheid gemaakt tussen 'WUS voor bevragingen' en 'ebMS voor meldingen'. In de praktijk bleek dit onderscheid niet altijd goed te werken. Er zijn bijvoorbeeld usecases waarin WUS beter geschikt is voor meldingen. Binnen de overheidsorganisaties heeft het gebruik van REST API's voor het uitwisselen van gegevens tussen overheden een enorme vlucht genomen.
+Tot en met 2019 werd in de Digikoppeling Standaard onderscheid gemaakt tussen 'WUS voor bevragingen' en 'ebMS voor meldingen'. In de praktijk bleek dit onderscheid niet altijd goed te werken. Er zijn bijvoorbeeld usecases waarin WUS beter geschikt is voor meldingen dan ebMS. In deze versie van de Digikoppeling Architectuur is dit onderscheid niet meer aanwezig. In plaats daarvan beschrijven welke Digikoppeling koppelvlakken het best passen bij transactiepatronen en use cases uit de praktijk.  
