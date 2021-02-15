@@ -52,6 +52,16 @@ var respecConfig = {
   issueBase: "https://github.com/centrumvoorstandaarden/Architectuur2.0-metRestfulAPI/issues/",
   // in localBiblio kun je bibliografische items opnemen. In de tekst kun je dan tussen blokhaken verwijzen naar de korte naam bv [NEN3610].
 
+  alternateFormats: [{
+    label: "(static) html",
+    uri: "https://centrumvoorstandaarden.github.io/Architectuur2.0-metRestfulAPI/snapshot.html",
+  },
+  {
+    label: "pdf",
+    uri: "https://centrumvoorstandaarden.github.io/Architectuur2.0-metRestfulAPI/Architectuur2.0-metRestfulAPI.pdf",
+  },
+],
+
 // The specification's publish domain, which is used to publish the specification
   // the url in the header thisVersion is generated like `<conf.nl_organisationPublishURL>/<conf.pubDomain>/<specStatus>-<specType.toLowerCase()>-<conf.shortName>}-conf.publishDate>/`
   pubDomain: "dk",

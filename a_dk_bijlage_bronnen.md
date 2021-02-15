@@ -56,7 +56,7 @@ Tabel 10.2: Overige Digikoppeling documentatie
 | European Interoperability Framework (IDABC)    | 2.0        | 16-12-2010 | IDABC  | Annex 2 COM (2010) 744 final |
 | NORA Principes en afgeleide principes          | Ntb        | Ntb        | Noraonline.nl   | Gepubliceerd  |
 | NORA 3.0 Katern Strategie                      | 1.0        | 19-8-2009  | Noraonline.nl   | Gepubliceerd  |
-| NORA 3.0 Knformatiebeveiliging, 2010           | 1.0        | 2010       | Noraonline.nl   | Gepubliceerd  |
+| NORA 3.0 Informatiebeveiliging, 2010           | 1.0        | 2010       | Noraonline.nl   | Gepubliceerd  |
 | NORA 3.0 vording Principes voor samenwerking en dienstverlening   | Ntb  | 29-9-2010  | Jasper van Lieshout | Definitief  |
 | NORA Beeldtaal | Ntb        | 13-11-2012 | ICTU  |                              |
 
