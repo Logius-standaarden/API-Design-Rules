@@ -130,20 +130,20 @@ var respecConfig = {
       date: "Juli 2020",
       publisher: "Logius",
     },
-    "Digikoppeling REST API":{
+    "Digikoppeling Koppelvlakstandaard REST API":{
         href: "https://centrumvoorstandaarden.github.io/DigikoppelingRestfulApiProfiel/",
         title: "Digikoppeling Restful API Profiel (Concept)",
         date: "februari 2021",
         publisher: "Logius",
     },
-    Beheermodel:
+    "Digikoppeling Beheermodel":
     {
       href: "https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Standaarden/Digikoppeling-Beheermodel.pdf",
       title: "Beheermodel en releasebeleid Digikoppeling v1.5",
       date: "Oktober 2017",
       publisher: "Logius",
     },
-    "Digikoppeling Koppelvlakstandaard GB": {
+    "Digikoppeling Koppelvlakstandaard Grote Berichten": {
       href: "https://logius-standaarden.github.io/Digikoppeling-Koppelvlakstandaard-GB/",
       title: "Digikoppeling Koppelvlakstandaard Grote Berichten",
       date: "september 2020",
@@ -167,9 +167,37 @@ var respecConfig = {
       date: "2020",
       publisher: "Logius",
     },
-    "Digikoppeling Identificatie-Authenticatie":{
-      href: "http://www.logius.nl/digikoppeling",
+    "Digikoppeling Best Practices ebMS2": {
+      href: "https://www.logius.nl/diensten/digikoppeling/documentatie",
+      title: "Digikoppeling Best Practices ebMS2",
+      date: "2019",
+      publisher: "Logius",
+    },
+    "Digikoppeling Best Practices WUS": {
+      href: "https://www.logius.nl/diensten/digikoppeling/documentatie",
+      title: "Digikoppeling Best Practices WUS",
+      date: "2019",
+      publisher: "Logius",
+    },
+    "Digikoppeling Best Practices Grote Berichten": {
+      href: "https://www.logius.nl/diensten/digikoppeling/documentatie",
+      title: "Digikoppeling Best Practices Grote Berichten",
+      date: "2019",
+      publisher: "Logius",
+    },
+    "Digikoppeling Identificatie-Authenticatie": {
+      href: "https://www.logius.nl/diensten/digikoppeling/documentatie",
       title: "Digikoppeling Identificatie en Authenticatie",
+      publisher: "Logius",
+    },
+    "Digikoppeling Actuele Documentatie": {
+      href: "http://www.logius.nl/digikoppeling",
+      title: "Digikoppeling Overzicht Actuele Documentatie en Compliance",
+      publisher: "Logius",
+    },
+    "Digikoppeling Gebruik Certificaten":{
+      href: "http://www.logius.nl/digikoppeling",
+      title: "Digikoppeling Gebruik en achtergrond certificaten",
       publisher: "Logius",
     },
     "Digikoppeling-Cert": {
@@ -201,6 +229,11 @@ var respecConfig = {
       href: "https://portaal.digikoppeling.nl",
       title: "Digikoppeling Compliance Voorziening",
       publisher: "Logius",
+    },
+    "Pas-toe-of-leg-uit": {
+      href: "https://www.forumstandaardisatie.nl/open-standaarden/verplicht",
+      title: "Lijst Verplichte standaarden",
+      publisher: "Forum Standaardisatie",
     }
   },
 

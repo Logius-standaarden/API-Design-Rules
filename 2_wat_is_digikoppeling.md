@@ -20,7 +20,7 @@ Een concept dat sinds begin 2000 een opmars maakt is het principe van *Open Data
 
 ### Open en Closed Diensten
 
-Naast het onderscheid tussen Open en closed data is het ook van belang om onderscheid te maken in publieke en afgeschermde diensten. Voor closed data biedt een overheidsorganisatie afgeschermde, beperkt toegankelijke closed diensten.
+Naast het onderscheid tussen Open en Closed data is het ook van belang om onderscheid te maken in publieke en afgeschermde diensten. Voor Closed Data biedt een overheidsorganisatie afgeschermde, beperkt toegankelijke closed diensten.
 
 Een bron van open data kan een overheidsorganisatie aanbieden via een voor iedereen toegankelijke open dienst. Die bron kan echter essentieel zijn voor bepaalde publieke ketens. De aanbieder kan er voor kiezen om  naast een publieke dienst ook een beperkt toegankelijke dienst te aan te bieden, bijvoorbeeld met een uitgebreide beschikbaarheid, schaalbaarheid of functionaliteit.
 
@@ -32,14 +32,20 @@ Een bron van open data kan een overheidsorganisatie aanbieden via een voor ieder
 Digikoppeling staat op de lijst *verplichte standaarden* van het Forum Standaardisatie. De lijst beschrijft het *Functioneel* toepassingsgebied en het *organisatorisch* werkingsgebied. Met het functioneel toepassingsgebied bedoelt het Forum de toepassing(en) waarvoor het gebruik van de standaard verplicht is of aanbevolen wordt.
 
 ## Functioneel toepassingsgebied
+
+Het Forum Standaardisatie definieert het *functioneel toepassingsgebied* van Digikoppeling als volgt:
+
 > Digikoppeling moet worden toegepast op alle digitale gegevensuitwisseling met behulp van gestructureerde berichten die plaatsvindt met voorzieningen die onderdeel zijn van de GDI, waaronder de basisregistraties, of die sector-overstijgend is. Geautomatiseerde gegevensuitwisseling tussen informatiesystemen op basis van NEN3610 is uitgesloten van het functioneel toepassingsgebied.
 
-Daarnaast benoemt het Forum de organisaties waarvoor de verplichting geldt. Het werkingsgebied is als volgt gedefinieerd:
+bron: [[Pas-toe-of-leg-uit]]
+
+Daarnaast benoemt het Forum de organisaties waarvoor de verplichting geldt. Dit wordt het *organisatorische werkinggebied* genoemd. Het werkingsgebied is als volgt gedefinieerd:
 ## Organisatorisch werkingsgebied
 
 > Nederlandse overheden (Rijk, provincies, gemeenten en waterschappen) en instellingen uit de (semi-) publieke sector.
 > Uitgezonderd zijn: de uitwisseling van Geo-informatie (daarvoor bestaat NEN3610) en de gevallen waarin de aanbieder van gegevens vaststelt dat geen noodzaak bestaat om de afnemer van de gegevens te authenticeren.- Nederlandse overheden (Rijk, provincies, gemeenten en waterschappen) en instellingen uit de (semi-) publieke sector.
 
+bron: [[Pas-toe-of-leg-uit]]
 ## Van *'uitwisseling van gestructureerde berichten'* naar *'gestructureerde gegevensuitwisseling'*
 
 Digikoppeling heeft zich vanaf het begin van haar ontstaan gericht op het uitwisselen van berichten, en dan specifiek op op de 'envelop' van een bericht en  niet op de inhoud. Iedere organisatie die Digikoppeling gebruikt kon daarmee de postverzending onafhankelijk van de inhoud inrichten.
@@ -76,7 +82,7 @@ Overheidsgegevens zijn actief beschikbaar als open data voor hergebruik van derd
 ![Open en Closed OverheidsData](media/DK_open_closed_data.png "Open en Closed OverheidsData")
 ## Wie communiceert met wie
 
-Digikoppeling verplicht dat verzender en ontvanger elkaar kennen. Digikoppeling gaat over communicatie tussen de overheden (G2G) en niet over uitwisseling met burgers (G2C). De communicatie tussen overheid en het bedrijfsleven (G2B) is niet gestandaardiseerd. 
+Digikoppeling verplicht dat verzender en ontvanger elkaar kennen ([[Pas-toe-of-leg-uit]] *zie Digikoppeling, paragraaf 'Overig/Waarvoor geldt de verplichting*). Digikoppeling gaat over communicatie tussen de overheden (G2G) en niet over uitwisseling met burgers (G2C). De communicatie tussen overheid en het bedrijfsleven (G2B) is niet gestandaardiseerd. 
 
 ![Segmentering van de communicatie](media/DK_segmentering.png "Segmentering van de communicatie")
 

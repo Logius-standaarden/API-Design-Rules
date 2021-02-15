@@ -1,6 +1,7 @@
 # Transactiepatronen in Digikoppeling
 
-In dit hoofdstuk beschrijven we de transactiepatronen in gegevensuitwisseling in algemen zin, met een suggestie welk Digikoppeling koppelvlakstandaard hier het best nij aansluit.
+In dit hoofdstuk beschrijven we de transactiepatronen in gegevensuitwisseling in algemen zin, met een suggestie welk Digikoppeling koppelvlakstandaard hier het best bij aansluit. Voor het opstellen van de volgende transactiepatronen is dankbaar gebruik gemaakt van de conceptversie van de *Edukoppeling Architectuur 2.0*.  
+
 
 ### Synchrone bevraging
 

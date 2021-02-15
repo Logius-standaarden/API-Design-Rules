@@ -36,7 +36,7 @@ De volgende compliancevoorzieningen zijn beschikbaar: <sup>[28](#f28)</sup>
 
 - Digikoppeling-ebMS2 compliancevoorziening voor het testen van asynchroon berichtenverkeer op basis van ebMS2, inclusief grote berichten.
 
->Informatie over de compliancevoorzieningen staat op [https://portaal.digikoppeling.nl](https://portaal.digikoppeling.nl).
+>Informatie over de compliancevoorzieningen staat op [[?Digikoppeling Compliance Voorziening]].
 
 <sup><a name="f28"><dfn>28</dfn></a>: *Digikoppeling Koppelvlakstandaard WUS*</sup>
 

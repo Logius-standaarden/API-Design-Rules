@@ -6,11 +6,11 @@ Digikoppeling is een standaard voor gestructureerde gegevensuitwisseling waarmee
 
 ## Doel
 
-De *Architectuur Digikoppeling* definieert de kaders – de gehanteerde principes en voorschriften - waarbinnen de berichtenuitwisseling op basis van Digikoppeling plaatsvindt en beschrijft de rol van intermediairs in de keten van gestructureerde gegevensuitwisseling.
+De *Digikoppeling Architectuur* definieert de kaders – de gehanteerde principes en voorschriften - waarbinnen de gegevensuitwisseling op basis van Digikoppeling plaatsvindt en beschrijft de rol van intermediairs in de keten van gestructureerde gegevensuitwisseling.
 
 ## Doelgroep
 
-De *Architectuur Digikoppeling* is bedoeld voor ICT-professionals in de publieke sector en voor ICT-leveranciers die Digikoppeling (willen gaan) gebruiken. Zie ook onderstaande tabel.
+De *Digikoppeling Architectuur* is bedoeld voor ICT-professionals in de publieke sector en voor ICT-leveranciers die Digikoppeling (willen gaan) gebruiken. Zie ook onderstaande tabel.
 
 | Afkorting | Rol | Taak  | Doelgroep? |
 | --------- | --- | --- | ------------ |
@@ -19,13 +19,13 @@ De *Architectuur Digikoppeling* is bedoeld voor ICT-professionals in de publieke
 | [A&D]     | Analyseren & ontwerpen (design) | Analyseren en ontwerpen van oplossings-richtingen. Het verbinden van Business aan de IT.                  | **Ja**     |
 | [OT&B]    | Ontwikkelen, testen en beheer   | Ontwikkelt, bouwt en configureert de techniek conform specificaties. Zorgen voor beheer na ingebruikname. | **Ja**     |
 
-Tabel 1.1: Doelgroep Architectuur Digikoppeling
+Tabel 1.1: Doelgroep Digikoppeling Architectuur 
 
 ## Verantwoording
 
-De *Architectuur Digikoppeling* is tot stand gekomen in samenwerking met leden van het Technisch Overleg Digikoppeling en andere belanghebbenden.
+De *Digikoppeling Architectuur* is tot stand gekomen in samenwerking met leden van het Technisch Overleg Digikoppeling en andere belanghebbenden.
 
-De *Architectuur Digikoppeling* is mede gebaseerd op:
+De *Digikoppeling Architectuur* is mede gebaseerd op:
 
 - De *Digikoppeling-koppelvlakstandaarden.* Onderdelen uit deze documenten zijn hier samengevat om voor de lezer duidelijk te maken.
 

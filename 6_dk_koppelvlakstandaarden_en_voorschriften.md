@@ -2,7 +2,7 @@
 
 ## Overzicht
 
-De Digikoppeling Architectuur legde in de eerdere versies grote nadruk op bevragingen en meldingen en legde een verband tussen deze iteractiepatronen en de onderliggende standaarden, ('WUS voor bevragingen, ebMS voor meldingen en kennisgevingen'). Dit verband bleek in de praktijk niet altijd werkbaar of wennselijk. In 2020 is daarom besloten om de richtlijnen voor het toepassen van de Digikoppeling standaarden te wijzigen.
+De Digikoppeling Architectuur legde in de eerdere versies grote nadruk op bevragingen en meldingen en legde een verband tussen deze interactiepatronen en de onderliggende standaarden, ('WUS voor bevragingen, ebMS voor meldingen en kennisgevingen'). Dit verband bleek in de praktijk niet altijd werkbaar of wenselijk. In 2020 is daarom besloten om de richtlijnen voor het toepassen van de Digikoppeling standaarden te wijzigen.
 
 ![Overzicht Digikoppeling Koppelvlakken](media/fig-structuurv2.png "Overzicht Digikoppeling Koppelvlakken")
 
@@ -70,24 +70,25 @@ Tabel 6.2: Digikoppeling-voorschriften
 
 ## REST API's
 
-Het Digikoppeling REST API profiel [[Digikoppeling REST API]] is gebaseerd op de REST API Design rules die in 2020 door het Kennisplatform API's zijn ontwikkeld.
+Het Digikoppeling REST API profiel [[Digikoppeling Koppelvlakstandaard REST API]] is gebaseerd op de REST API Design rules die in 2020 door het Kennisplatform API's zijn ontwikkeld.
 
-Een application programming interface (API) is een gestructureerd en gedocumenteerd koppelvlak voor communicatie tussen applicaties. In de laatste 10 jaar heeft Representational state transfer (REST) zich ontwikkeld tot een bepalend principe voor het realiseren van API's.
+Een application programming interface (API) is een gestructureerd en gedocumenteerd koppelvlak voor communicatie tussen applicaties. In de laatste 10 jaar heeft *REpresentational State Transfer* (REST) zich ontwikkeld tot een bepalend principe voor het realiseren van API's.
 
 De standaard REST API Design Rules geeft een verzameling basisregels voor structuur en naamgeving waarmee de overheid op een uniforme en eenduidige manier REST API's aanbiedt. Dit maakt het voor ontwikkelaars gemakkelijker om betrouwbare applicaties met te ontwikkelen met API's van de overheid.
 
 ### Digikoppeling REST API voor synchrone requests
 
-[[Digikoppeling REST API]]  biedt de volgende functionaliteiten:
+[[Digikoppeling Koppelvlakstandaard REST API]] biedt de volgende functionaliteiten:
 
+- Vertrouwelijkheid
 - Identificatie en authenticatie van partijen
-- Foutmeldingen
+- (Status)Responsecodes en Foutmeldingen
 
 ### OAS: OpenAPI Specification
 
 Een OpenAPI Specification [[openapi]] beschrijft de eigenschappen van de data die een API als input accepteert en als output teruggeeft. OAS 3.0 specificeert alleen welke attributen de API verwerkt en hun datatypen, niet welke implementatie er achter de API schuilgaat.
 
-Voor het beschrijven van DK-Rest API's is het gebruik van OAS veplicht. Op de Pas-toe-leg-uit lijst van het Forum Standaardisatie staat beschreven welke versie toegepast moet worden.
+Voor het beschrijven van DK-Rest API's is het gebruik van OAS verplicht. Op [[Pas-toe-of-leg-uit]] staat beschreven welke versie toegepast moet worden.
 
 ## WUS
 
@@ -182,10 +183,10 @@ De standaard doet geen uitspraak over gegevensstromen waarin kleine en grote ber
 
 ### Standaarden voor grote berichten
 
-De *Digikoppeling Koppelvlakstaard Grote Berichten* [[Digikoppeling Koppelvlakstandaard GB]] maakt gebruik van WUS en ebMS2
+De *Digikoppeling Koppelvlakstaard Grote Berichten* [[Digikoppeling Koppelvlakstandaard Grote Berichten]] maakt gebruik van WUS en ebMS2
  voor het verzenden van metadata. Voor ophalen van het grote bestand maakt de standaard gebruik van HTTPS-downloads. Daardoor zijn reliability en security gelijkwaardig aan WUS en ebMS2. Ook is het gebruik van transparante intermediairs mogelijk.
 
-[[Digikoppeling Koppelvlakstandaard GB]] regelt de volgende functionaliteiten, in aanvulling op WUS of ebMS2
+[[Digikoppeling Koppelvlakstandaard Grote Berichten]] regelt de volgende functionaliteiten, in aanvulling op WUS of ebMS2
 
 - Identificatie en authenticatie van partijen (OIN)
 

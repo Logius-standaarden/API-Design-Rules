@@ -113,7 +113,7 @@ Neem de volgende aspecten mee bij de keuze van een profiel:
 
 Gestructureerde gegevensuitwisseling wordt vormgegeven door services. Een service bestaat uit een servicebeschrijving (een servicecontract) en berichtdefinitie waarmee de inhoud van een bericht is gespecificeerd. Deze worden op voorhand tussen partijen afgesproken en uitgewerkt.
 
-De servicebeschrijving bevat de gemaakte afspraken over de kwaliteit en vorm van uitwisseling. De berichten of antwoorden van een service zelf zijn in een technisch formaat (XML bij WUS en ebMS, JSON bij RES-API) beschreven. Servicebeschrijvingen worden opgesteld door een serviceaanbieder (bijvoorbeeld een basisregistratie).
+De servicebeschrijving bevat de gemaakte afspraken over de kwaliteit en vorm van uitwisseling. De berichten of antwoorden van een service zelf zijn in een technisch formaat (XML bij WUS en ebMS, JSON bij REST API) beschreven. Servicebeschrijvingen worden opgesteld door een serviceaanbieder (bijvoorbeeld een basisregistratie).
 
 Een servicecontract voor een ebMS2 service heet een CPA. Dit contract wordt afgesloten tussen de serviceaanbieder en serviceafnemer. Een CPA moet worden gecreëerd via het CPA-Register en wordt daarna ingelezen in de systemen van de serviceaanbieder en serviceafnemer.
 
@@ -160,7 +160,7 @@ Het gebruik van gegevens uit andere bronnen wordt intern binnen een organisatie 
 
 Digikoppeling gaat over de uitwisseling van gegevens. Binnen Digikoppeling wordt een bericht dat uitgewisseld wordt met WUS of ebMS conform de SOAP<sup>[31](#f31)</sup> messaging protocol samengesteld.
 
-Bij het gebruik van het Digikoppeling REST API profiel is er geen sprake van  berichtuitwisseling. In dit profiel wordt een een Application Programming Interface (API) op een resource aangeboden die door een gebruiker kan worden bevraagd of bewerkt, afhangend wat de API en de autorisatie eisen toelaat. De aanroep van een resource vindt plaats met HTTP-request. De HTTP-response bevat JSOn of XML.
+Bij het gebruik van het Digikoppeling REST API profiel is er geen sprake van  berichtuitwisseling. In dit profiel wordt een service met een Application Programming Interface (API) een resource aangeboden die door een gebruiker kan worden bevraagd of bewerkt, afhangend wat de API en de autorisatie eisen toelaat. De aanroep van een resource vindt plaats met HTTP-request. De HTTP-response bevat JSON of XML.
 
 Een bericht (WUS of ebMS) bestaat uit de volgende onderdelen:
 
