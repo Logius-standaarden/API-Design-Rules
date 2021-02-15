@@ -5,21 +5,21 @@ Alle goedgekeurde Digikoppeling documenten zijn beschikbaar op https://www.logiu
 ## Digikoppeling-standaarden en gerelateerde documenten
 
 
-| Documentnaam                                            | Auteur(s)              |
-|---------------------------------------------------------|------------------------|
-| Digikoppeling Architectuur (dit document)                             | Logius Centrum voor Standaarden |
-| [[Digikoppeling Koppelvlakstandaard REST API]]                            | Logius Centrum voor Standaarden |
-| [[Digikoppeling Koppelvlakstandaard WUS]                                 | Logius Centrum voor Standaarden |
-| [[Digikoppeling Koppelvlakstandaard ebMS2]]                               | Logius Centrum voor Standaarden |
-| [[Digikoppeling Koppelvlakstandaard Grote Berichten]]                     | Logius Centrum voor Standaarden |
-| [[Digikoppeling Beheermodel]]              | Logius Centrum voor Standaarden |
-| [[Digikoppeling Beveiligingsdocument]]  | Logius Centrum voor Standaarden |
-| [[Digikoppeling Identificatie-Authenticatie]]           | Logius Centrum voor Standaarden |
-| [[Digikoppeling Actuele Documentatie]]        | Logius Centrum voor Standaarden |
-| [[?Digikoppeling Gebruik Certificaten]]       | Logius Centrum voor Standaarden |
-| [[?Digikoppeling Best Practices WUS]]                        | Logius Centrum voor Standaarden |
-| [[?Digikoppeling Best Practices ebMS2]]                       | Logius Centrum voor Standaarden |
-| [[?Digikoppeling Best Practices Grote Berichten]]                           | Logius Centrum voor Standaarden |
+| Documentnaam                                          | Auteur(s)                       |
+|-------------------------------------------------------|---------------------------------|
+| Digikoppeling Architectuur (dit document)             | Logius Centrum voor Standaarden |
+| [[Digikoppeling Koppelvlakstandaard REST API]]        | Logius Centrum voor Standaarden |
+| [[Digikoppeling Koppelvlakstandaard WUS]]             | Logius Centrum voor Standaarden |
+| [[Digikoppeling Koppelvlakstandaard ebMS2]]           | Logius Centrum voor Standaarden |
+| [[Digikoppeling Koppelvlakstandaard Grote Berichten]] | Logius Centrum voor Standaarden |
+| [[Digikoppeling Beheermodel]]                         | Logius Centrum voor Standaarden |
+| [[Digikoppeling Beveiligingsdocument]]                | Logius Centrum voor Standaarden |
+| [[Digikoppeling Identificatie-Authenticatie]]         | Logius Centrum voor Standaarden |
+| [[Digikoppeling Actuele Documentatie]]                | Logius Centrum voor Standaarden |
+| [[?Digikoppeling Gebruik Certificaten]]               | Logius Centrum voor Standaarden |
+| [[?Digikoppeling Best Practices WUS]]                 | Logius Centrum voor Standaarden |
+| [[?Digikoppeling Best Practices ebMS2]]               | Logius Centrum voor Standaarden |
+| [[?Digikoppeling Best Practices Grote Berichten]]     | Logius Centrum voor Standaarden |
 
 
 Tabel 10.1: Digikoppeling-standaarden en gerelateerde documenten
