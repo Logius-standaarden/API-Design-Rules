@@ -19,7 +19,7 @@ Alle goedgekeurde Digikoppeling documenten zijn beschikbaar op https://www.logiu
 | [[?Digikoppeling Gebruik Certificaten]]       | Logius Centrum voor Standaarden |
 | [[?Digikoppeling Best Practices WUS]]                        | Logius Centrum voor Standaarden |
 | [[?Digikoppeling Best Practices ebMS2]]                       | Logius Centrum voor Standaarden |
-| [[?Digikoppeling Best Practices GB]]                           | Logius Centrum voor Standaarden |
+| [[?Digikoppeling Best Practices Grote Berichten]]                           | Logius Centrum voor Standaarden |
 
 
 Tabel 10.1: Digikoppeling-standaarden en gerelateerde documenten

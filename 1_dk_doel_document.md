@@ -40,7 +40,7 @@ De documentatie is als volgt opgebouwd:
 
 ![Digikoppeling Standaard](media/DK_Specificatie_structuur.png "Digikoppeling Standaard")
 
-- Alle groene documenten vallen onder het beheer zoals geformaliseerd in het [[?Beheermodel]].
+- Alle groene documenten vallen onder het beheer zoals geformaliseerd in het [[?Digikoppeling Beheermodel]].
 
 - Een overzicht van alle Digikoppeling documentatie is opgenomen in *Bijlage A: Bronnen.*
 
