@@ -58,7 +58,7 @@ var respecConfig = {
   },
   {
     label: "pdf",
-    uri: "https://centrumvoorstandaarden.github.io/Architectuur2.0-metRestfulAPI/Architectuur2.0-metRestfulAPI.pdf",
+    uri: "https://github.com/centrumvoorstandaarden/Architectuur2.0-metRestfulAPI/Architectuur2.0-metRestfulAPI.pdf",
   },
 ],
 
