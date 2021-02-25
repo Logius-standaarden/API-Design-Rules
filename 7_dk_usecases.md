@@ -97,14 +97,16 @@ Een bericht wordt beveiligd tussen de uiteindelijke consumer en de uiteindelijke
 
 Tabel 7.2: End-to-End security
 
-### Betrouwbaar berichtenverkeer (reliable messaging)
+### Betrouwbaar berichtenverkeer op protocol niveau (reliable messaging)
 
 Bij Betrouwbaar berichtenverkeer verstuurt de service-requester een bericht naar de ontvangende partij (ontvanger) en wacht op een (technische) ontvangstbevestiging. De verzendende (business) applicatie vertrouwt er op dat het bericht (betrouwbaar) afgeleverd wordt. De (business)applicatie zal niet wachten op het antwoord: deze applicatie zal het eventuele 'antwoordbericht' op een ander moment ontvangen en moeten correleren aan het oorspronkelijke vraag bericht.`
+
+Voor betrouwbare uitwisseling op niet-protocol niveau, zie paragraaf [melding-transactie](#melding-transactie).
 
 
 |Koppelvlakspecificatie|Omschrijving|Praktijkvoorbeeld|
 |---|---|---|
-|Digikoppeling ebMS | Digikoppeling ebMS kent profielen voor signing en encryption. (reliability out of the box). Retry maakt bijvoorbeeld onderdeel uit van dit protocol | |
+| Digikoppeling ebMS | Digikoppeling ebMS kent profielen voor signing en encryption. (reliability out of the box). Retry maakt bijvoorbeeld onderdeel uit van dit protocol | |
 
 
 Tabel 7.3: Betrouwbaar berichtenverkeer (reliable messaging)

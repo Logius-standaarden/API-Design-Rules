@@ -4,7 +4,7 @@ var respecConfig = {
   //voor specType mogelijkheden zie https://github.com/centrumvoorstandaarden/respec/wiki/specType
   specType: "ST",
   shortName: "architectuur",
- 
+
   // Voor publishDate zie https://github.com/w3c/respec/wiki/publishDate
   // Als er geen publishDate is opgegeven, genereert ReSpec de datum o.b.v. de laatste wijzigingen
   // Belangrijk: als publishDate niet opgegeven is, wordt bij de link "Laatst gepubliceerde versie" "geen" gezet. Anders wordt een link opgebouwd voor de laatste versie, met het formaat:
@@ -52,17 +52,18 @@ var respecConfig = {
   issueBase: "https://github.com/centrumvoorstandaarden/Architectuur2.0-metRestfulAPI/issues/",
   // in localBiblio kun je bibliografische items opnemen. In de tekst kun je dan tussen blokhaken verwijzen naar de korte naam bv [NEN3610].
 
-  alternateFormats: [{
-    label: "(static) html",
-    uri: "https://centrumvoorstandaarden.github.io/Architectuur2.0-metRestfulAPI/snapshot.html",
-  },
-  {
-    label: "pdf",
-    uri: "https://github.com/centrumvoorstandaarden/Architectuur2.0-metRestfulAPI/blob/master/Architectuur2.0-metRestfulAPI.pdf",
-  },
-],
+  alternateFormats: [
+    {
+      label: "(static) html",
+      uri: "https://centrumvoorstandaarden.github.io/Architectuur2.0-metRestfulAPI/snapshot.html",
+    },
+    {
+      label: "pdf",
+      uri: "https://github.com/centrumvoorstandaarden/Architectuur2.0-metRestfulAPI/blob/master/Architectuur2.0-metRestfulAPI.pdf",
+    },
+  ],
 
-// The specification's publish domain, which is used to publish the specification
+  // The specification's publish domain, which is used to publish the specification
   // the url in the header thisVersion is generated like `<conf.nl_organisationPublishURL>/<conf.pubDomain>/<specStatus>-<specType.toLowerCase()>-<conf.shortName>}-conf.publishDate>/`
   pubDomain: "dk",
   pubSubDomain: "architectuur",
@@ -133,6 +134,13 @@ var respecConfig = {
       date: "Maart 2011",
       publisher: "Nederlands Normalisatie-instituut",
     },
+    "no-Reliable-messaging": {
+      href: "https://www.infoq.com/articles/no-reliable-messaging/",
+      title: "Nobody Needs Reliable Messaging",
+      authors: ["Marc de Graauw"],
+      date: "June 18, 2010",
+      publisher: "infoQ",
+    }, 
     "API Design Rules": {
       href: "https://publicatie.centrumvoorstandaarden.nl/api/adr/",
       title: "API Design Rules (Nederlandse API Strategie IIa)",
@@ -140,11 +148,11 @@ var respecConfig = {
       date: "Juli 2020",
       publisher: "Logius",
     },
-    "Digikoppeling Koppelvlakstandaard REST API":{
-        href: "https://centrumvoorstandaarden.github.io/DigikoppelingRestfulApiProfiel/",
-        title: "Digikoppeling Restful API Profiel (Concept)",
-        date: "februari 2021",
-        publisher: "Logius",
+    "Digikoppeling Koppelvlakstandaard REST API": {
+      href: "https://centrumvoorstandaarden.github.io/DigikoppelingRestfulApiProfiel/",
+      title: "Digikoppeling Restful API Profiel (Concept)",
+      date: "februari 2021",
+      publisher: "Logius",
     },
     "Digikoppeling Beheermodel":
     {
@@ -205,7 +213,7 @@ var respecConfig = {
       title: "Digikoppeling Overzicht Actuele Documentatie en Compliance",
       publisher: "Logius",
     },
-    "Digikoppeling Gebruik Certificaten":{
+    "Digikoppeling Gebruik Certificaten": {
       href: "http://www.logius.nl/digikoppeling",
       title: "Digikoppeling Gebruik en achtergrond certificaten",
       publisher: "Logius",
