@@ -1,21 +1,23 @@
 # Digikoppeling Architectuur 2.0
 
-- HTML-versie: [Architectuur2.0-metRestfulAPI](https://centrumvoorstandaarden.github.io/Architectuur2.0-metRestfulAPI/)
-- HTML-versie(static): [Architectuur2.0-metRestfulAPI](https://centrumvoorstandaarden.github.io/Architectuur2.0-metRestfulAPI/snapshot.html)
-- PDF-versie: [Architectuur2.0-metRestfulAPI](https://github.com/centrumvoorstandaarden/Architectuur2.0-metRestfulAPI/blob/master/Architectuur2.0-metRestfulAPI.pdf)
+- HTML-versie: [Architectuur2.0-metRestfulAPI](https://logius-standaarden.github.io/Digikoppeling-Architectuur/)
+- HTML-versie(static): [Architectuur2.0-metRestfulAPI](https://logius-standaarden.github.io/Digikoppeling-Architectuur/snapshot.html)
+- PDF-versie: [Architectuur2.0-metRestfulAPI](Digikoppeling-Architectuur.pdf)
 
 Een nieuwe versie van het Digikoppeling Architectuur document is ontwikkeld. De aanleiding van de vernieuwing is tweeledig: in 2019 is een RFC ingediend over relatie van de Digikoppeling profielen met *bevragen en melden*. Daarnaast wordt in 2020 een Rest API profiel uitgewerkt en opgenomen in de Digikoppeling Standaard.
 
-De huidige versie van de Digikoppeling Architectuur dient als basis. Bij de bespreking van de RFC over melden en bevragen werd al geconcludeerd dat de impact van deze change op het bestaande architectuurdocument groot was. Omdat in 2020 op verzoek van het Technisch Overleg Digikoppeling een [*Rest API profiel*](https://centrumvoorstandaarden.github.io/DigikoppelingRestfulApiProfiel/) wordt opgenomen in de standaard is, is besloten om deze beide grote onderdelen in één keer in een nieuw document te verwerken.
+De huidige versie van de Digikoppeling Architectuur dient als basis. Bij de bespreking van de RFC over melden en bevragen werd al geconcludeerd dat de impact van deze change op het bestaande architectuurdocument groot was. Omdat in 2020 op verzoek van het Technisch Overleg Digikoppeling een [*Rest API profiel*](https://logius-standaarden.github.io/Digikoppeling-Architectuur/) wordt opgenomen in de standaard is, is besloten om deze beide grote onderdelen in één keer in een nieuw document te verwerken.
 
-## Commentaar is welkom!
+## Versie is vastgesteld door het Technisch Overleg
 
-Maak een issue aan in deze repository. Eerste keer? Hoe een issue moet worden aangemaakt vindt u [hier](https://github.com/Logius-standaarden/Openbare-Consultaties#issues-en-pull-requests-opmerkingen-maken-of-tekstvoorstellen-indienen).
+Deze versie is in maart 2021 vastgesteld door het TO. Logius stemt af met het Bureau Forum Standaardisatie of deze versie tezamen met het Digikoppeling REST API profiel kan worden verheven tot de meest recente versie.
+
+Commentaar blijft overigens altijd welkom. Maak een issue aan in deze repository. Eerste keer? Hoe een issue moet worden aangemaakt vindt u [hier](https://github.com/Logius-standaarden/Openbare-Consultaties#issues-en-pull-requests-opmerkingen-maken-of-tekstvoorstellen-indienen).
 
 ## Wat wijzigt in de Digikoppeling Architectuur
 
 - opheffen onderscheid tussen 'WUS voor bevragingen' en 'ebMS voor meldingen' 
-- toevoegen profiel voor [Rest API](https://centrumvoorstandaarden.github.io/DigikoppelingRestfulApiProfiel/)
+- toevoegen profiel voor [Rest API](https://logius-standaarden.github.io/Digikoppeling-Architectuur/)
 
 verder zijn kleine verbeteringen en updates doorgevoerd 
 
@@ -23,11 +25,6 @@ verder zijn kleine verbeteringen en updates doorgevoerd
 
 - Overzicht transactiepatronen 
 - Overzicht use cases
-
-## Integrale versie
-
-De gehele versie van het document staat hier :  [Architectuur2.0-metRestfulAPI](https://centrumvoorstandaarden.github.io/Architectuur2.0-metRestfulAPI/). Deze versie is  opgemaakt in [Respec](https://github.com/w3c/respec/wiki). Indien u een oudere browser gebruikt kunt u onderstaande link volgen:
-HTML-versie(static): [Architectuur2.0-metRestfulAPI](https://centrumvoorstandaarden.github.io/Architectuur2.0-metRestfulAPI/static.html)
 
 ## Indeling in hoofdstukken
 
@@ -47,11 +44,7 @@ HTML-versie(static): [Architectuur2.0-metRestfulAPI](https://centrumvoorstandaar
 |12/B3|[Bijlage Nora Architectuurprincipes](c_dk_bijlage_nora_architectuur_principes.md)|ongewijzigd||
 |13/B4|[Bijlage Niet functionele eisen](d_dk_bijlage_niet_functionele_eisen.md)|ongewijzigd||
 
-## Beslisboom: Geen onderdeel van de wijziging
 
-Het Digikoppeling beheerteam van Logius ontwikkelt een vragenboom die een provider kan helpen bij de keuze voor een Digikoppeling profiel voor een koppelvlak. Het is geen onderdeel van de Digikoppeling Architectuur, maar op- en aanmerkingen zijn zeer zeker welkom. 
-
-Digikoppeling Vragenboom: [Vragen Boom (concept)](https://github.com/centrumvoorstandaarden/Architectuur2.0-metRestfulAPI/blob/master/dk-vragenboom.pdf)
 
 
 

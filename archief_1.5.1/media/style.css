@@ -1,0 +1,59 @@
+table.dkkvs {
+    border-collapse: collapse;
+    font-size: 10.5pt;
+    width: 100%;
+    /* --- dkcvs --- */
+    border-collapse: collapse;
+    border-bottom: 3px solid #005a9c;
+}
+
+.dkkvs th {
+    border: 1px solid white;
+    background-color:  #005a9c;
+    color: white;
+    text-align: left;
+    padding: 8px;
+    
+
+    /* --- dkcvs --- */
+
+    padding: 3px 5px;
+    text-align: left;
+
+}
+
+/* --- dkcvs --- */
+
+.dkkvs th a {
+    color: #fff;
+    padding: 3px 5px;
+    text-align: left;
+}
+
+.dkkvs th[scope="row"] {
+    background: inherit;
+    color: inherit;
+    border-top: 1px solid #ddd;
+}
+
+.dkkvs td {
+    border: 1px solid black;
+    padding: 3px 10px;
+    border-top: 1px solid #ddd;
+    vertical-align: top;
+}
+
+.dkkvs tr:nth-child(even) {
+    background: #f0f6ff;
+}
+
+/* --- dkcvs --- */
+
+table.dkkvsincell {
+    border: 1px;
+    border-collapse: separate;
+    width:100%;
+    font-size: 8pt;
+    border-bottom: 0px solid #005a9c;
+
+}
