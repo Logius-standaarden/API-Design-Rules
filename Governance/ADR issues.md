@@ -7,16 +7,16 @@ auteur:	Martin van der Plas
 
 Onderstaande lijst van Issue's is gegroepeerd op basis van de volgende tags:
 
-- adm > Administratieve / normatieve en beschrijvende zaken die vooral voor eenduidige api's moeten zorgen
-- arch > architectuur vraagstukken
-- geo > specifieke geo vraagstukken
-- sec > security vraagstukken
-- ux > user experience vraagsrtukken. hoe is de dialoog met de API
+- adm > Administratieve / normatieve en beschrijvende zaken die vooral voor eenduidige api's moeten zorgen (issue's voor Governance/Logius?)
+- arch > architectuur vraagstukken (issue's voor de werkgroep Architectuur?)
+- geo > specifieke geo vraagstukken (issue's voor de ADR subwerkgroep GEO?)
+- sec > security vraagstukken (issue's voor de werkgroep Security?)
+- ux > user experience vraagstukken. (hoe is de dialoog met de API's en de API/ADR documentatie?)
 - 
 
-De weight estimate is gebaseerd op de scrum weging in 1, 2, 3, 5, 8, 13, 20, 40, 100 punten om te duiden hoeveel impact en werk issue's ebben in relatie tot andere issue's.
+De weight estimate is gebaseerd op de scrum weging in 1, 2, 3, 5, 8, 13, 20, 40, 100 punten om te duiden hoeveel impact en werk issue's hebben in relatie tot andere issue's.
 
-De Prio is wat we als groep vast moeten stellen welke issue's we als eerste willen oppakken en daarbij kunnen we afwegen of we bepaalde groepen of estimates van issue's eerst willen oppakken .
+De Prio is wat we als groep vast moeten stellen. Kortom: welke issue's willen we als eerste oppakken  (daarbij kunnen we afwegen of we bepaalde groepen of estimates van issue's eerst willen oppakken ).
 
 
 
