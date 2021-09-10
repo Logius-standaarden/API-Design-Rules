@@ -1,5 +1,8 @@
 # 1. Inleiding
 
+> *CONCEPT 1.0*:  
+> Dit betreft de gerachiveerde concept versie die is besproken in de werkgroepbijeenkomst API Design Rules van hetKennisplatform op 08--9-2021
+
 ## leeswijzer
 
 Dit document beschrijft hoe Logius, afdeling Standaarden (hierna: Logius) de REST-API Design Rules standaard beheert en hoe de bijbehorende governance is ingericht. In dit document wordt verder ADR gebruikt als afkorting voor de (REST)-API Design Rules.
