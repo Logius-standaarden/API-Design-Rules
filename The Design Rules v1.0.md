@@ -62,12 +62,18 @@ A resource describing a single thing is called a [singular resource](#dfn-singul
 
 <div class="rule" id="api-53">
   <p class="rulelab"><strong>API-53</strong>: Hide irrelevant implementation details</p>
-  <p>An API should not expose implementation details of the underlying application. The primary motivation behind this design rule is that an API design must focus on usability for the client, regardless of the implementation details under the hood. The API, application and infrastructure need to be able to evolve independently to ease the task of maintaining backwards compatibility for APIs during an agile development process.</p>
-  <p>A few examples of implementation details:</p>
-  <ul>
-    <li>The API design should not necessarily be a 1-on-1 mapping of the underlying domain- or persistence model</li>
-    <li>The API should not expose information about the technical components being used, such as development platforms/frameworks or database systems</li>
-    <li>The API should offer client-friendly attribute names and values, while persisted data may contain abbreviated terms or serializations which might be cumbersome for consumption</li>
+  <p>Statement: An API should not expose implementation details of the underlying application, development platforms/frameworks or database systems/persistence models.</p>
+  <p>Rationale:</p>
+  <ul>    
+    <li>The primary motivation behind this design rule is that an API design must focus on usability for the client, regardless of the implementation details under the hood.</li>
+    <li>The API, application and infrastructure need to be able to evolve independently to ease the task of maintaining backwards compatibility for APIs during an agile development process.</li>
+    <li>The API design of Convenience,- and Process API types <a herf="https://docs.geostandaarden.nl/api/def-hr-API-Strategie-20200204/#aanbeveling-2-analyseer-welke-api-s-je-aan-moet-bieden-welke-informatievragen-wil-je-beantwoorden">(as descrived in "Aanbeveling 2" of the NL API Strategie)</a> should not be a 1-on-1 mapping of the underlying domain- or persistence model.</li>
+    <li>The API design of a System API type <a herf="https://docs.geostandaarden.nl/api/def-hr-API-Strategie-20200204/#aanbeveling-2-analyseer-welke-api-s-je-aan-moet-bieden-welke-informatievragen-wil-je-beantwoorden">(as descrived in "Aanbeveling 2" of the NL API Strategie)</a> may be a mapping of the underlying domain- or persistence model.</li>
+  </ul>
+  <p>Implications:</p>
+  <ul>    
+    <li>The API should not expose information about the technical components being used, such as development platforms/frameworks or database systems.</li>
+    <li>The API should offer client-friendly attribute names and values, while persisted data may contain abbreviated terms or serializations which might be cumbersome for consumption.</li>
   </ul>
 </div>
 
