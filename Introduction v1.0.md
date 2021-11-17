@@ -25,5 +25,6 @@ The Nederlandse API Strategie consists of [three distinct documents](https://www
 In addition to this (normative) document, a separate document has been written providing a set of informative extensions. This extensions document exists in a *latest published version* (*Gepubliceerde versie* in Dutch) and a *latest editors draft* (*Werkversie* in Dutch). The *latest editor's draft*s is actively being worked on and can be found on GitHub. It contains the most recent changes.
 
 The documents can be found here:
-* [Extensions Gepubliceerde versie](https://docs.geostandaarden.nl/api/API-Strategie-ext/)
+
+* [Extensions Gepubliceerde versie](https://docs.geostandaarden.nl/api/API-Strategie-ext/)  
 * [Extensions Werkversie](https://geonovum.github.io/KP-APIs/API-strategie-extensies/)
