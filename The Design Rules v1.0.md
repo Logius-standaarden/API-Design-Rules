@@ -205,6 +205,14 @@ Although the REST architectural style does not impose a specific protocol, REST 
   </table>
 </div>
 
+<div class="rule" id="api-XX">
+  <p class="rulelab"><strong>API-XX</strong>: Handle invalid or illegal parameters</p>
+  <p>The HTTP specification [[rfc7231]] specifies that a code 400 (bad request) must be sent as response to *something that is perceived to be a client error*. This applies to API requests for non-existing parameters too. A client requesting information using a non-existing parameter will assume that the response is filtered using that parameter.</p>
+  <p>For example, when a user user a non-existing parameter-value pair like *colour=red* the user will assume that only objects are returned with that colour. When a service ignores non-existing parameters it will return *all* objects, regardless of their colour.</>
+  <p>The server must return the 400 code as specified in the HTTP specification [[rfc7231]].
+  </p>
+</div>
+
 ## Statelessness
 
 One of the key constraints of the REST architectural style is stateless communication between client and server. It means that every request from client to server must contain all of the information necessary to understand the request. The server cannot take advantage of any stored session context on the server as it didn’t memorize previous requests. Session state must therefore reside entirely on the client.
