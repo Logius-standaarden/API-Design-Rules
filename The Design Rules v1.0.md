@@ -274,8 +274,8 @@ An API is as good as the accompanying documentation. The documentation has to be
 </div>
 
 <div class="rule" id="api-17">
-  <p class="rulelab"><strong>API-17</strong>: Publish documentation in Dutch unless there is existing documentation in English</p>
-  <p>In line with design rule <a href="#api-04">API-04</a>, the OAS document (e.g. descriptions and examples) should be written in Dutch. If relevant, you may refer to existing documentation written in English.</p>
+  <p class="rulelab"><strong>API-17</strong>: Publish documentation in Dutch unless there is existing documentation in English or an international audience</p>
+  <p>In line with design rule <a href="#api-04">API-04</a>, the OAS document (e.g. descriptions and examples) should be written in Dutch. If relevant, you may use or refer to existing documentation written in English. Publishing OAS documents for an international audience or commercial software development organisations might also be a reason to define documentation in English.</p>
 </div>
 
 <div class="rule" id="api-51">
