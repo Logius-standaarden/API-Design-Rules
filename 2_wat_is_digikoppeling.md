@@ -90,10 +90,10 @@ Digikoppeling verplicht dat verzender en ontvanger elkaar kennen ([[Pas-toe-of-l
 
 Digikoppeling moet worden toegepast voor geautomatiseerde gegevensuitwisseling tussen informatiesystemen en is verplicht voor Nederlandse overheden (Rijk, provincies, gemeenten en waterschappen) en instellingen uit de (semi-)publieke sector. Digikoppeling moet worden toegepast wanneer gebruikt gemaakt wordt van Gesloten Diensten. Dat wil zeggen diensten waarbij er noodzaak is om de afnemer te authenticeren.
 
-![Digikoppeling voor Closed Data G2G Uitwisseling](media/DK_closed_g2g.png "Digikoppeling voor Closed Data G2G Uitwisseling")
+![Digikoppeling is bedoeld voor Closed Data G2G Uitwisseling](media/DK_closed_g2g.png "Digikoppeling voor Closed Data G2G Uitwisseling")
 
 ### Grijs gebied
 
 De verplichting voor Digikoppeling geldt dus voor communicatie tussen overheden. De praktijk is dat voor communicatie met bedrijven vaak verplichtingen gelden die hun oorsprong hebben in Digikoppeling, zoals het gebruik van het OIN en PKIoverheidscertificaten, of zelfs geïnspireerd zijn op Digikoppeling zoals het Koppelvlak *WUS voor Bedrijven* van Digipoort.
 
-![Digikoppeling is bedoeld voor Closed Data G2B Uitwisseling](media/DK_closed_b2g.png "Digikoppeling voor Closed Data G2B Uitwisseling")
+![Digikoppeling kan ook gebruikt worden voor Closed Data G2B Uitwisseling ](media/DK_closed_b2g.png "Digikoppeling voor Closed Data G2B Uitwisseling")
