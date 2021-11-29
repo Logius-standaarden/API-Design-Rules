@@ -69,7 +69,7 @@ Voor Digikoppeling verleggen we daarom de focus van berichtverkeer naar het uitw
 
 Digikoppeling richt zich dus van oudsher primair op het uitwisselen van gegevens 'met behulp van gestructureerde berichten' en maakt (tot nu toe) geen duidelijk onderscheid tussen Open en Closed Data. Dit maakt het niet duidelijk wanneer Digikoppeling gebruikt moet worden. Reden om dit beter af te pellen en de scope van Digikoppeling eens langs een andere lat te leggen.
 
-![Interne en externe uitwisseling](media/DK_Intern-extern.png "Interne en Externe Gegevensuitwisseling")
+![Gegevensuitwisseling kan verdeeld worden in Interne en externe uitwisseling](media/DK_Intern-extern.png "Interne en Externe Gegevensuitwisseling")
 
 Digikoppeling is een standaard voor gegevensuitwisseling *tussen* organisaties, met voorzieningen die onderdeel zijn van de GDI, waaronder de basisregistraties, of die sector-overstijgend is.
 
@@ -79,12 +79,12 @@ Digikoppeling bestaat uit een verzameling standaarden voor elektronisch verkeer 
 
 Overheidsgegevens zijn actief beschikbaar als open data voor hergebruik van derden. Behalve als er goede redenen zijn om dat niet te doen. In dat geval noemen we dit Closed Data.
 
-![Open en Closed OverheidsData](media/DK_open_closed_data.png "Open en Closed OverheidsData")
+![Externe Gegevensuitwisseling kan verdeeld worden in open diensten en closed diensten](media/DK_open_closed_data.png "Open en Closed OverheidsData")
 ## Wie communiceert met wie
 
 Digikoppeling verplicht dat verzender en ontvanger elkaar kennen ([[Pas-toe-of-leg-uit]] *zie Digikoppeling, paragraaf 'Overig/Waarvoor geldt de verplichting*). Digikoppeling gaat over communicatie tussen de overheden (G2G) en niet over uitwisseling met burgers (G2C). De communicatie tussen overheid en het bedrijfsleven (G2B) is niet gestandaardiseerd. 
 
-![Segmentering van de communicatie](media/DK_segmentering.png "Segmentering van de communicatie")
+![Diensten kunnen onderverdeeld worden in G2G, G2B en G2C](media/DK_segmentering.png "Segmentering van de communicatie")
 
 ## Scope van Digikoppeling
 
@@ -96,4 +96,4 @@ Digikoppeling moet worden toegepast voor geautomatiseerde gegevensuitwisseling t
 
 De verplichting voor Digikoppeling geldt dus voor communicatie tussen overheden. De praktijk is dat voor communicatie met bedrijven vaak verplichtingen gelden die hun oorsprong hebben in Digikoppeling, zoals het gebruik van het OIN en PKIoverheidscertificaten, of zelfs geïnspireerd zijn op Digikoppeling zoals het Koppelvlak *WUS voor Bedrijven* van Digipoort.
 
-![Digikoppeling voor Closed Data G2B Uitwisseling](media/DK_closed_b2g.png "Digikoppeling voor Closed Data G2B Uitwisseling")
+![Digikoppeling is bedoeld voor Closed Data G2B Uitwisseling](media/DK_closed_b2g.png "Digikoppeling voor Closed Data G2B Uitwisseling")
