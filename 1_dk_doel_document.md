@@ -38,7 +38,7 @@ De architectuur van Digikoppeling wordt regelmatig geactualiseerd om goed te bli
 De *Architectuur Digikoppeling* is onderdeel van de Digikoppeling-standaarden.
 De documentatie is als volgt opgebouwd:
 
-![Digikoppeling Standaard](media/DK_Specificatie_structuur.png "Digikoppeling Standaard")
+![Overzicht van de onderdelen van de Digikoppeling Standaard ](media/DK_Specificatie_structuur.png "Digikoppeling Standaard")
 
 - Alle groene documenten vallen onder het beheer zoals geformaliseerd in het [[?Digikoppeling Beheermodel]].
 
