@@ -14,10 +14,10 @@ De *Digikoppeling Architectuur* is bedoeld voor ICT-professionals in de publieke
 
 | Afkorting | Rol | Taak  | Doelgroep? |
 | --------- | --- | --- | ------------ |
-| [M]       | Management                      | Bevoegdheid om namens organisatie (strategische) besluiten te nemen.                                      | **Nee**    |
-| [P]       | Projectleiding                  | Verzorgen van de aansturing van projecten.                                                                | **Nee**    |
-| [A&D]     | Analyseren & ontwerpen (design) | Analyseren en ontwerpen van oplossings-richtingen. Het verbinden van Business aan de IT.                  | **Ja**     |
-| [OT&B]    | Ontwikkelen, testen en beheer   | Ontwikkelt, bouwt en configureert de techniek conform specificaties. Zorgen voor beheer na ingebruikname. | **Ja**     |
+| [M]       | Management                      | Bevoegdheid om namens organisatie (strategische) besluiten te nemen.                                      | Nee    |
+| [P]       | Projectleiding                  | Verzorgen van de aansturing van projecten.                                                                | Nee    |
+| [A&D]     | Analyseren & ontwerpen (design) | Analyseren en ontwerpen van oplossings-richtingen. Het verbinden van Business aan de IT.                  | Ja     |
+| [OT&B]    | Ontwikkelen, testen en beheer   | Ontwikkelt, bouwt en configureert de techniek conform specificaties. Zorgen voor beheer na ingebruikname. | Ja     |
 
 Tabel 1.1: Doelgroep Digikoppeling Architectuur 
 
