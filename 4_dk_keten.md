@@ -104,10 +104,10 @@ Een aantal proceskenmerken op business-niveau bepaalt welke door Digikoppeling g
 Op basis van deze twee verschillen komen we tot vier primitieve business-interacties, weergegeven in onderstaande tabel.
 
 
-|                | **Synchroon**                 | **Asynchroon**                 |
+|                | Synchroon                 | Asynchroon                 |
 |----------------|----------------------------------|--------------------------------|
-| **Bevraging**  | Onmiddellijke bevraging  | bevraging met uitstel  |
-| **Transactie** | Onmiddellijke transactie | transactie met uitstel |
+| Bevraging  | Onmiddellijke bevraging  | bevraging met uitstel  |
+| Transactie | Onmiddellijke transactie | transactie met uitstel |
 
 
 Tabel 4.2: primitieve business-interacties
