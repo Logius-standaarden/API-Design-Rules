@@ -82,7 +82,7 @@ Overheidsgegevens zijn actief beschikbaar als open data voor hergebruik van derd
 ![Externe Gegevensuitwisseling kan verdeeld worden in open diensten en closed diensten](media/DK_open_closed_data.png "Open en Closed OverheidsData")
 ## Wie communiceert met wie
 
-Digikoppeling verplicht dat verzender en ontvanger elkaar kennen ([[Pas-toe-of-leg-uit]] *zie Digikoppeling, paragraaf 'Overig/Waarvoor geldt de verplichting*). Digikoppeling gaat over communicatie tussen de overheden (G2G) en niet over uitwisseling met burgers (G2C). De communicatie tussen overheid en het bedrijfsleven (G2B) is niet gestandaardiseerd. 
+Digikoppeling verplicht dat verzender en ontvanger elkaar kennen ([[Pas-toe-of-leg-uit]] _zie Digikoppeling, paragraaf 'Overig/Waarvoor geldt de verplichting_). Digikoppeling gaat over communicatie tussen de overheden (G2G) en niet over uitwisseling met burgers (G2C). De communicatie tussen overheid en het bedrijfsleven (G2B) is niet gestandaardiseerd. 
 
 ![Diensten kunnen onderverdeeld worden in G2G, G2B en G2C](media/DK_segmentering.png "Segmentering van de communicatie")
 
