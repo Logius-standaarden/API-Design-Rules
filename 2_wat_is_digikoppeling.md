@@ -69,7 +69,9 @@ Voor Digikoppeling verleggen we daarom de focus van berichtverkeer naar het uitw
 
 Digikoppeling richt zich dus van oudsher primair op het uitwisselen van gegevens 'met behulp van gestructureerde berichten' en maakt (tot nu toe) geen duidelijk onderscheid tussen Open en Closed Data. Dit maakt het niet duidelijk wanneer Digikoppeling gebruikt moet worden. Reden om dit beter af te pellen en de scope van Digikoppeling eens langs een andere lat te leggen.
 
-![Gegevensuitwisseling kan verdeeld worden in Interne en externe uitwisseling](media/DK_Intern-extern.svg "Interne en Externe Gegevensuitwisseling" ":size=70%")
+![Gegevensuitwisseling kan verdeeld worden in Interne en externe uitwisseling](media/DK_Intern-extern.svg "Interne en Externe Gegevensuitwisseling")
+
+<img src="https://your-image-url.type" width="70%" alt="Gegevensuitwisseling kan verdeeld worden in Interne en externe uitwisseling">
 
 Digikoppeling is een standaard voor gegevensuitwisseling *tussen* organisaties, met voorzieningen die onderdeel zijn van de GDI, waaronder de basisregistraties, of die sector-overstijgend is.
 
