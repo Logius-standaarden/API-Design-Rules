@@ -71,7 +71,7 @@ Digikoppeling richt zich dus van oudsher primair op het uitwisselen van gegevens
 
 ![Gegevensuitwisseling kan verdeeld worden in Interne en externe uitwisseling](media/DK_Intern-extern.svg "Interne en Externe Gegevensuitwisseling")
 
-<img src="media/DK_Intern-extern.svg" width="70%" alt="Gegevensuitwisseling kan verdeeld worden in Interne en externe uitwisseling">
+<img src="media/DK_Intern-extern.svg" style="width: 60%;"  alt="Gegevensuitwisseling kan verdeeld worden in Interne en externe uitwisseling">
 
 Digikoppeling is een standaard voor gegevensuitwisseling *tussen* organisaties, met voorzieningen die onderdeel zijn van de GDI, waaronder de basisregistraties, of die sector-overstijgend is.
 
