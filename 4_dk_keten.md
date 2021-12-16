@@ -46,7 +46,7 @@ Een intermediair vormt een schakel in de Digikoppeling-keten tussen serviceaanbi
 
 Een intermediair zoals een sectoraal knooppunt of SAAS leverancier kan in opdracht van partijen inhoudelijke bewerkingen op berichten uitvoeren zoals de integratie, conversie en distributie van gegevens. Een dergelijke ondersteunende rol kan partijen ontzorgen bij de implementatie van standaarden, het beheer van gedeelde/gezamenlijke voorzieningen en de afstemming tussen partijen op het gebied van gegevensuitwisseling.
 
-![Positionering Intermediair/Sectoraal Knooppunt](media/DK_Positionering_intermediair_sectoraal_knppnt.png "Positionering Intermediair/Sectoraal Knooppunt")
+![Positionering Intermediair/Sectoraal Knooppunt, de intermediair bevindt zich tussen dienstafnemers en dienstaanbieders](media/DK_Positionering_intermediair_sectoraal_knppnt.png "Positionering Intermediair/Sectoraal Knooppunt")
 
 <sup><a name="f18"><dfn>18</dfn></a>: We beschouwen transparantie hier op de logistieke laag. Op technisch niveau is de intermediair een eindpunt omdat de TLS verbinding tussen twee servers moet worden opgezet.</sup>
 
