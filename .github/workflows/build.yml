@@ -1,0 +1,40 @@
+on:
+  workflow_dispatch:
+jobs:
+  main:
+    name: HTML
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - run: npx respec --localhost --src index.html --out snapshot.html
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: static HTML
+  wcag:
+    needs: main
+    name: WCAG
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - run: git pull
+      - run: npm install -g pa11y
+      - run: pa11y ./snapshot.html
+  pdf:
+    needs: main
+    name: PDF
+    runs-on: ubuntu-20.04
+    steps:
+      - run: |
+         sudo apt-get install -y xfonts-base xfonts-75dpi
+         wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.focal_amd64.deb -O wkhtmltopdf.deb
+         sudo dpkg -i wkhtmltopdf.deb
+      - uses: actions/checkout@v2
+      - run: git pull
+      - run: wkhtmltopdf --enable-local-file-access snapshot.html doc.pdf
+      - run: |
+         wget https://raw.githubusercontent.com/Logius-standaarden/Digikoppeling-Algemeen/main/scripts/pdf-name.py
+         python pdf-name.py
+         rm pdf-name.py
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: PDF
