@@ -97,6 +97,12 @@ var respecConfig =
     width: 44,
     url: "https://www.logius.nl/standaarden",
   },
+  alternateFormats: [
+    {
+      label: "pdf",
+      uri: "API-Design-Rules.pdf",
+    },
+    ],
 
   localBiblio: {
     "SemVer": {
