@@ -40,6 +40,65 @@ De documentatie is als volgt opgebouwd:
 
 ![Overzicht van de onderdelen van de Digikoppeling Standaard, de standaard is onderverdeeld in normatieve en ondersteunende onderdelen](media/DK_Specificatie_structuur.svg "Digikoppeling Standaard")
 
+
+<details>
+    <summary> Tekstalternatief </summary>
+<h2>Digikoppeling</h2>
+<p>Logius beheert Digikoppeling. De standaard bestaat uit beheermodel, een overzicht van actuele documentatie en de Digikoppeling architectuur. De architectuur omvat documentatie over identificatie en authorisatie, beveiligingsstandaarden en de koppelvlak standaarden. De koppelvlak standaarden bestaat uit API, WUS (SOAP) en ebMS standaarden met daarnaast een standaard voor grote berichten. Onderstaande documenten vormen samen de Digikoppeling standaard.</p>
+<h3>Normatieve documenten</h3>
+<ul>
+  <li>
+    <a href="https://publicatie.centrumvoorstandaarden.nl/dk/actueel/">Digikoppeling Overzicht Actuele Documentatie en voorschriften</a>
+  </li>
+    <li>
+    <a href="https://publicatie.centrumvoorstandaarden.nl/dk/architectuur">Digikoppeling Architectuur</a> Dit is de huidige versie.
+  </li>
+  <ul>
+    <li>
+      <a href="https://publicatie.centrumvoorstandaarden.nl/dk/beveilig/">Digikoppeling Beveiligingsstandaarden en voorschriften</a>
+    </li>
+    <li>
+      <a href="https://publicatie.centrumvoorstandaarden.nl/dk/idauth/">Digikoppeling Identificatie en Authenticatie</a>
+    </li>
+    <li>Koppelvlakstandaarden:</li>
+    <ul>
+      <li>
+        <a href="https://publicatie.centrumvoorstandaarden.nl/dk/ebms/">Digikoppeling Koppelvlakstandaard ebMS2</a>
+      </li>
+      <li>
+        <a href="https://publicatie.centrumvoorstandaarden.nl/dk/wus/">Digikoppeling Koppelvlakstandaard WUS</a>
+      </li>
+      <li>
+        <a href="https://publicatie.centrumvoorstandaarden.nl/dk/gb/">Digikoppeling Koppelvlakstandaard Grote Berichten</a>
+      </li>
+    </ul>
+  </ul>
+  <li>
+    <a href="https://publicatie.centrumvoorstandaarden.nl/dk/beheer/">Digikoppeling Beheermodel</a>
+  </li>
+</ul>
+<h3>Ondersteunende documenten (niet normatief)</h3>
+<ul>
+  <li>
+    <a href="https://publicatie.centrumvoorstandaarden.nl/dk/watisdk/">Wat is Digikoppeling?</a>
+  </li>
+  <li>
+    <a href="https://publicatie.centrumvoorstandaarden.nl/dk/bpebms">Digikoppeling Best Practices ebMS2</a>
+  </li>
+  <li>
+    <a href="https://publicatie.centrumvoorstandaarden.nl/dk/bpwus">Digikoppeling Best Practices WUS</a>
+  </li>
+  <li>
+    <a href="https://publicatie.centrumvoorstandaarden.nl/dk/bpgb">Digikoppeling Best Practices Grote Berichten</a>
+  </li>
+  <li>
+    <a href="https://publicatie.centrumvoorstandaarden.nl/dk/gbachtcert/">Digikoppeling Gebruik en Achtergronden Certificaten</a>
+  </li>
+  </ul>
+
+</details>
+
+
 - Alle groene documenten vallen onder het beheer zoals geformaliseerd in het [[?Digikoppeling Beheermodel]].
 
 - Een overzicht van alle Digikoppeling documentatie is opgenomen in *Bijlage A: Bronnen.*
