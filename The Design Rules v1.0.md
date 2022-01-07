@@ -5,7 +5,7 @@
 The REST architectural style is centered around the concept of a [resource](#dfn-resource). A resource is the key abstraction of information, where every piece of information is named by assigning a globally unique [URI](#dfn-uri) (Uniform Resource Identifier). Resources describe *things*, which can vary between physical objects (e.g. a building or a person) and more abstract concepts (e.g. a permit or an event).
 
 <div class="rule" id="api-05">
-  <p class="rulelab"><strong>API-05</strong>: Use nouns to name resources</p>
+  <p class="rulelab"><b>API-05</b>: Use nouns to name resources</p>
   <p>Because resources describe things (and thus not actions), resources are referred to using nouns (instead of verbs) that are relevant from the perspective of the user of the API.</p>
   <div class="example">
     <p>A few correct examples of nouns as part of a URI:</p>
@@ -24,7 +24,7 @@ The REST architectural style is centered around the concept of a [resource](#dfn
 A resource describing a single thing is called a [singular resource](#dfn-singular-resource). Resources can also be grouped into collections, which are resources in their own right and can typically be paged, sorted and filtered. Most often all collection members have the same type, but this is not necessarily the case. A resource describing multiple things is called a [collection resource](#dfn-collection-resource). Collection resources typically contain references to the underlying singular resources.
 
 <div class="rule" id="api-54">
-  <p class="rulelab"><strong>API-54</strong>: Use plural nouns to name collection resources</p>
+  <p class="rulelab"><b>API-54</b>: Use plural nouns to name collection resources</p>
   <p>Because a collection resource represents multiple things, the path segment describing the name of the collection resource must be written in the plural form.</p>
   <div class="example">
     <p>Example collection resources, describing a list of things:</p>
@@ -43,13 +43,13 @@ A resource describing a single thing is called a [singular resource](#dfn-singul
 </div>
 
 <div class="rule" id="api-04">
-  <p class="rulelab"><strong>API-04</strong>: Define interfaces in Dutch unless there is an official English glossary available</p>
+  <p class="rulelab"><b>API-04</b>: Define interfaces in Dutch unless there is an official English glossary available</p>
   <p>Since the exact meaning of concepts is often lost in translation, resources and the underlying attributes should be defined in the Dutch language unless there is an official English glossary available. Publishing an API for an international audience might also be a reason to define interfaces in English.</p>
   <p>Note that glossaries exist that define useful sets of attributes which should preferably be reused. Examples can be found at <a href="http://schema.org/docs/schemas.html">schema.org</a>.</p>
 </div>
 
 <div class="rule" id="api-48">
-  <p class="rulelab"><strong>API-48</strong>: Leave off trailing slashes from URIs</p>
+  <p class="rulelab"><b>API-48</b>: Leave off trailing slashes from URIs</p>
   <p>According to the URI specification [[rfc3986]], URIs may contain a trailing slash. However, for REST APIs this is considered as a bad practice since a URI including or excluding a trailing slash might be interpreted as different resources (which is strictly speaking the correct interpretation).</p>
   <p>To avoid confusion and ambiguity, a URI must never contain a trailing slash. When requesting a resource including a trailing slash, this must result in a 404 (not found) error response and not a redirect. This enforces API consumers to use the correct URI.</p>
   <div class="example">
@@ -61,7 +61,7 @@ A resource describing a single thing is called a [singular resource](#dfn-singul
 </div>
 
 <div class="rule" id="api-53">
-  <p class="rulelab"><strong>API-53</strong>: Hide irrelevant implementation details</p>
+  <p class="rulelab"><b>API-53</b>: Hide irrelevant implementation details</p>
   <p>An API should not expose implementation details of the underlying application. The primary motivation behind this design rule is that an API design must focus on usability for the client, regardless of the implementation details under the hood. The API, application and infrastructure need to be able to evolve independently to ease the task of maintaining backwards compatibility for APIs during an agile development process.</p>
   <p>A few examples of implementation details:</p>
   <ul>
@@ -76,7 +76,7 @@ A resource describing a single thing is called a [singular resource](#dfn-singul
 Although the REST architectural style does not impose a specific protocol, REST APIs are typically implemented using HTTP [[rfc7231]].
 
 <div class="rule" id="api-03">
-  <p class="rulelab"><strong>API-03</strong>: Only apply standard HTTP methods</p>
+  <p class="rulelab"><b>API-03</b>: Only apply standard HTTP methods</p>
   <p>The HTTP specification [[rfc7231]] and the later introduced <code>PATCH</code> method specification [[rfc5789]] offer a set of standard methods, where every method is designed with explicit semantics. Adhering to the HTTP specification is crucial, since HTTP clients and middleware applications rely on standardized characteristics. Therefore, resources must be retrieved or manipulated using standard HTTP methods.</p>
   <table>
     <thead>
@@ -153,7 +153,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
 </div>
 
 <div class="rule" id="api-01">
-  <p class="rulelab"><strong>API-01</strong>: Adhere to HTTP safety and idempotency semantics for operations</p>
+  <p class="rulelab"><b>API-01</b>: Adhere to HTTP safety and idempotency semantics for operations</p>
   <p>The HTTP protocol [[rfc7231]] specifies whether an HTTP method should be considered safe and/or idempotent. These characteristics are important for clients and middleware applications, because they should be taken into account when implementing caching and fault tolerance strategies.</p>
   <p>Request methods are considered <i>safe</i> if their defined semantics are essentially read-only; i.e., the client does not request, and does not expect, any state change on the origin server as a result of applying a safe method to a target resource. A request method is considered <i>idempotent</i> if the intended effect on the server of multiple identical requests with that method is the same as the effect for a single such request.</p>
   <p>The following table describes which HTTP methods must behave as safe and/or idempotent:</p>
@@ -222,7 +222,7 @@ Stateless communication offers many advantages, including:
 * *Reliability* is improved because it eases the task of recovering from partial failures since the server doesn't have to maintain, update or communicate session state. One failing request does not influence other requests (depending on the nature of the failure of course).
 
 <div class="rule" id="api-02">
-  <p class="rulelab"><strong>API-02</strong>: Do not maintain session state on the server</p>
+  <p class="rulelab"><b>API-02</b>: Do not maintain session state on the server</p>
   <p>In the context of REST APIs, the server must not maintain or require any notion of the functionality of the client application and the corresponding end user interactions. To achieve full decoupling between client and server, and to benefit from the advantages mentioned above, no session state must reside on the server. Session state must therefore reside entirely on the client.</p>
   <p class="note">The client of a REST API could be a variety of applications such as a browser application, a mobile or desktop application and even another server serving as a backend component for another client. REST APIs should therefore be completely client-agnostic.</p>
 </div>
@@ -232,7 +232,7 @@ Stateless communication offers many advantages, including:
 Resources are often interconnected by relationships. Relationships can be modelled in different ways depending on the cardinality, semantics and more importantly, the use cases and access patterns the REST API needs to support.
 
 <div class="rule" id="api-06">
-  <p class="rulelab"><strong>API-06</strong>: Use nested URIs for child resources</p>
+  <p class="rulelab"><b>API-06</b>: Use nested URIs for child resources</p>
   <p>When having a child resource which can only exist in the context of a parent resource, the URI should be nested. In that case, the child resource does not necessarily have a top-level collection resource. The best way to explain this design rule is by example.</p>
   <div class="example">
     <p>When modelling resources for a news platform including the ability for users to write comments, it might be a good strategy to model the <a href="#dfn-collection-resource">collection resources</a> hierarchically:</p>
@@ -253,7 +253,7 @@ Resources are often interconnected by relationships. Relationships can be modell
 
 
 <div class="rule" id="api-10">
-  <p class="rulelab"><strong>API-10</strong>: Model resource operations as a sub-resource or dedicated resource</p>
+  <p class="rulelab"><b>API-10</b>: Model resource operations as a sub-resource or dedicated resource</p>
   <p>There are resource operations which might not seem to fit well in the CRUD interaction model. For example, approving of a submission or notifying a customer. Depending on the type of the operation, there are three possible approaches:</p>
   <ol>
     <li>Re-model the resource to incorporate extra fields supporting the particular operation. For example, an approval operation can be modelled in a boolean attribute <code>goedgekeurd</code> that can be modified by issuing a <code>PATCH</code> request against the resource. Drawback of this approach is that the resource does not contain any metadata about the operation (when and by whom was the approval given? Was the submission declined in an earlier stage?). Furthermore, this requires a fine-grained authorization model, since approval might require a specific role.</li>
@@ -268,18 +268,18 @@ Resources are often interconnected by relationships. Relationships can be modell
 An API is as good as the accompanying documentation. The documentation has to be easily findable, searchable and publicly accessible. Most developers will first read the documentation before they start implementing. Hiding the technical documentation in PDF documents and/or behind a login creates a barrier for both developers and search engines.
 
 <div class="rule" id="api-16">
-  <p class="rulelab"><strong>API-16</strong>: Use OpenAPI Specification for documentation</p>
+  <p class="rulelab"><b>API-16</b>: Use OpenAPI Specification for documentation</p>
   <p>The OpenAPI Specification (OAS) [[OPENAPIS]] defines a standard, language-agnostic interface to RESTful APIs which allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection. When properly defined, a consumer can understand and interact with the remote service with a minimal amount of implementation logic.</p>
   <p>API documentation must be provided in the form of an OpenAPI definition document which conforms to the OpenAPI Specification (from v3 onwards). As a result, a variety of tools can be used to render the documentation (e.g. Swagger UI or ReDoc) or automate tasks such as testing or code generation. The OAS document should provide clear descriptions and examples.</p>
 </div>
 
 <div class="rule" id="api-17">
-  <p class="rulelab"><strong>API-17</strong>: Publish documentation in Dutch unless there is existing documentation in English</p>
+  <p class="rulelab"><b>API-17</b>: Publish documentation in Dutch unless there is existing documentation in English</p>
   <p>In line with design rule <a href="#api-04">API-04</a>, the OAS document (e.g. descriptions and examples) should be written in Dutch. If relevant, you may refer to existing documentation written in English.</p>
 </div>
 
 <div class="rule" id="api-51">
-  <p class="rulelab"><strong>API-51</strong>: Publish OAS document at a standard location in JSON-format</p>
+  <p class="rulelab"><b>API-51</b>: Publish OAS document at a standard location in JSON-format</p>
   <p>To make the OAS document easy to find and to facilitate self-discovering clients, there should be one standard location where the OAS document is available for download. Clients (such as Swagger UI or ReDoc) must be able to retrieve the document without having to authenticate. Furthermore, the CORS policy for this URI must allow external domains to read the documentation from a browser environment.</p>
   <p>The standard location for the OAS document is a URI called <code>openapi.json</code> or <code>openapi.yaml</code> within the base path of the API. This can be convenient, because OAS document updates can easily  become part of the CI/CD process.</p>
   <p>At least the JSON format must be supported. When having multiple (major) versions of an API, every API should provide its own OAS document(s).</p>
@@ -296,21 +296,21 @@ An API is as good as the accompanying documentation. The documentation has to be
 Changes in APIs are inevitable. APIs should therefore always be versioned, facilitating the transition between changes.
 
 <div class="rule" id="api-56">
-  <p class="rulelab"><strong>API-56</strong>: Adhere to the Semantic Versioning model when releasing API changes</p>
+  <p class="rulelab"><b>API-56</b>: Adhere to the Semantic Versioning model when releasing API changes</p>
   <p>Version numbering must follow the Semantic Versioning [[SemVer]] model to prevent breaking changes when releasing new API versions. Versions are formatted using the <code>major.minor.patch</code> template. When releasing a new version which contains backwards-incompatible changes, a new major version must be released. Minor and patch releases may only contain backwards compatible changes (e.g. the addition of an endpoint or an optional attribute).</p>
 </div>
 
 <div class="rule" id="api-20">
-  <p class="rulelab"><strong>API-20</strong>: Include the major version number in the URI</p>
+  <p class="rulelab"><b>API-20</b>: Include the major version number in the URI</p>
   <p>The URI of an API (base path) must include the major version number, prefixed by the letter <code>v</code>. This allows the exploration of multiple versions of an API in the browser. The minor and patch version numbers are not part of the URI and may not have any impact on existing client implementations.</p>
   <div class="example">
-    <p>An example of a base path for an API with current version <code>1.0.2</code>:</p>
-    <code>https://api.example.org/v1/</code>
+    <p>An example of a base path for an API with current version 1.0.2:</p>
+    <pre>https://api.example.org/v1/</pre>
   </div>
 </div>
 
 <div class="rule" id="api-57">
-  <p class="rulelab"><strong>API-57</strong>: Return the full version number in a response header</p>
+  <p class="rulelab"><b>API-57</b>: Return the full version number in a response header</p>
   <p>Since the URI only contains the major version, it's useful to provide the full version number in the response headers for every API call. This information could then be used for logging, debugging or auditing purposes. In cases where an intermediate networking component returns an error response (e.g. a reverse proxy enforcing access policies), the version number may be omitted.</p>
   <p>The version number must be returned in an HTTP response header named <code>API-Version</code> (case-insensitive) and should not be prefixed.</p>
   <div class="example">
@@ -320,16 +320,16 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
 </div>
 
 <div class="rule" id="api-55">
-  <p class="rulelab"><strong>API-55</strong>: Publish a changelog for API changes between versions</p>
+  <p class="rulelab"><b>API-55</b>: Publish a changelog for API changes between versions</p>
   <p>When releasing new (major, minor or patch) versions, all API changes must be documented properly in a publicly available changelog.</p>
 </div>
 
 <div class="rule" id="api-18">
-  <p class="rulelab"><strong>API-18</strong>: Include a deprecation schedule when deprecating features or versions</p>
+  <p class="rulelab"><b>API-18</b>: Include a deprecation schedule when deprecating features or versions</p>
   <p>Managing change is important. In general, well documented and timely communicated deprecation schedules are the most important for API users. When deprecating features or versions, a deprecation schedule must be published. This document should be published on a public web page. Furthermore, active clients should be informed by e-mail once the schedule has been updated or when versions have reached end-of-life.</p>
 </div>
 
 <div class="rule" id="api-19">
-  <p class="rulelab"><strong>API-19</strong>: Schedule a fixed transition period for a new major API version</p>
+  <p class="rulelab"><b>API-19</b>: Schedule a fixed transition period for a new major API version</p>
   <p>When releasing a new major API version, the old version must remain available for a limited and fixed deprecation period. Offering a deprecation period allows clients to carefully plan and execute the migration from the old to the new API version, as long as they do this prior to the end of the deprecation period. A maximum of 2 major API versions may be published concurrently.</p>
 </div>
