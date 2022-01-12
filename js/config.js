@@ -149,7 +149,7 @@ var respecConfig = {
       publisher: "Logius",
     },
     "Digikoppeling Koppelvlakstandaard REST API": {
-      href: "https://centrumvoorstandaarden.github.io/DigikoppelingRestfulApiProfiel/",
+      href: "https://logius-standaarden.github.io/DigikoppelingRestfulApiProfiel/",
       title: "Digikoppeling Restful API Profiel (Concept)",
       date: "februari 2021",
       publisher: "Logius",
