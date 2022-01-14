@@ -184,7 +184,7 @@ Partijen maken onderling afspraken over de semantiek van de payload.
 
 Berichtdefinities worden door partijen in overleg opgesteld. De semantische interoperabiliteit (d.w.z. de betekenis van de inhoud) wordt door partijen geborgd door zoveel mogelijk gebruik te maken van (bestaande) gegevensregisters, woordenboeken of catalogi. De standaarden StUF, Suwi-ML en NEN3610 zijn veelgebruikt hiervoor.
 
-<br><sup><a name="f31"><dfn>31</dfn></a>: SOAP (Simple Object Access Protocol) is een [computerprotocol](http://nl.wikipedia.org/wiki/Protocol#computerprotocol) dat wordt gebruikt voor communicatie tussen verschillende componenten van systemen.</sup>
+<br><sup><a name="f31"><dfn>31</dfn></a>: SOAP (Simple Object Access Protocol) is een [computerprotocol](http://nl.wikipedia.org/wiki/Protocol#Computerprotocol) dat wordt gebruikt voor communicatie tussen verschillende componenten van systemen.</sup>
 
 <br><sup><a name="f32"><dfn>32</dfn></a>: Attachments mogen andere formaten hebben.</sup>
 
