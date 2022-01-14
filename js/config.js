@@ -180,9 +180,9 @@ var respecConfig = {
       publisher: "Logius",
     },
     "Digikoppeling Beveiligingsdocument": {
-      href: "https://www.logius.nl/sites/default/files/bestanden/website/Digikoppeling_Beveiligingsstandaarden_en_voorschriften_v1.3.pdf",
+      href: "https://publicatie.centrumvoorstandaarden.nl/dk/beveilig/1.4/",
       title: "Digikoppeling Beveiligingsstandaarden en voorschriften",
-      date: "2020",
+      date: "2021",
       publisher: "Logius",
     },
     "Digikoppeling Best Practices ebMS2": {
