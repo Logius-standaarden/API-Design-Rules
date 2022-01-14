@@ -156,7 +156,7 @@ var respecConfig = {
     },
     "Digikoppeling Beheermodel":
     {
-      href: "https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Standaarden/Digikoppeling-Beheermodel.pdf",
+      href: "https://publicatie.centrumvoorstandaarden.nl/dk/beheer/",
       title: "Beheermodel en releasebeleid Digikoppeling v1.5",
       date: "Oktober 2017",
       publisher: "Logius",
@@ -180,7 +180,7 @@ var respecConfig = {
       publisher: "Logius",
     },
     "Digikoppeling Beveiligingsdocument": {
-      href: "https://publicatie.centrumvoorstandaarden.nl/dk/beveilig/1.4/",
+      href: "https://publicatie.centrumvoorstandaarden.nl/dk/beveilig/",
       title: "Digikoppeling Beveiligingsstandaarden en voorschriften",
       date: "2021",
       publisher: "Logius",
