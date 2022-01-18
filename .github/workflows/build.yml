@@ -3,32 +3,5 @@ on:
   workflow_dispatch:
 jobs:
   main:
-    name: Build and check
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: ReSpec
-        run: |
-         npm install --global respec
-         respec --localhost --src index.html --out snapshot.html
-      - name: Links
-        run: |
-         python3 -m http.server 8080 &
-         brew install muffet         
-         muffet --one-page-only http://localhost:8080/snapshot.html
-      - name: WCAG
-        run: |
-         npm install -g pa11y
-         pa11y ./snapshot.html
-      - name: PDF
-        run: |
-         sudo apt-get install -y xfonts-base xfonts-75dpi
-         wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.focal_amd64.deb -O wkhtmltopdf.deb
-         sudo dpkg -i wkhtmltopdf.deb
-         wkhtmltopdf --enable-local-file-access snapshot.html doc.pdf
-         wget https://raw.githubusercontent.com/Logius-standaarden/Automatisering/main/scripts/pdf-name.py
-         python pdf-name.py
-         rm pdf-name.py
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: static HTML and PDF
+    name: ReSpec
+    uses: Logius-standaarden/Automatisering/.github/workflows/respec.yml@main
