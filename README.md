@@ -1,5 +1,3 @@
-[![build](https://github.com/Logius-standaarden/API-Design-Rules/actions/workflows/build.yml/badge.svg)](https://github.com/Logius-standaarden/API-Design-Rules/actions/workflows/build.yml)
-
 ## API Design Rules
 
 **API Design Rules** -- normative standard for the design of APIs for the Dutch Public Sector
