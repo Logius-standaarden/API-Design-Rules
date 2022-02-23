@@ -3,6 +3,42 @@ on:
   workflow_dispatch:
   pull_request:
 jobs:
-  main:
-    name: ReSpec
-    uses: Logius-standaarden/Automatisering/.github/workflows/respec.yml@main
+  build:
+    name: Build
+    uses: Logius-standaarden/Automatisering/.github/workflows/build.yml@main
+  check:
+    needs: build
+    name: Check
+    uses: Logius-standaarden/Automatisering/.github/workflows/check.yml@main
+    
+  preview:
+    needs: build
+    name: Preview
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'pull_request'}}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Recover HTML
+        uses: actions/cache@v2
+        with:
+          path: ~/static
+          key: ${{ github.run_id }}      
+      - name: Gather files
+        run: |
+         rm index.html
+         mv ~/static/snapshot.html index.html
+         rm -f *.md *.pdf *.js snapshot.html
+         mkdir ~/content
+         mv ./* ~/content
+         git clone https://user:${{ secrets.BEHEER }}@github.com/Logius-standaarden/Publicatie-Preview.git
+      - name: Commit preview
+        run: |
+         cd Publicatie-Preview
+         rm -f -r ${{ github.event.repository.name }}/${{ github.head_ref }}
+         mkdir -p ${{ github.event.repository.name }}/${{ github.head_ref }}
+         mv ~/content/* ${{ github.event.repository.name }}/${{ github.head_ref }}
+         git add -A
+         git config user.name "GitHub Action"
+         git config user.email "api@logius.nl"
+         git commit -m "new preview build"
+         git push
