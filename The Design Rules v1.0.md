@@ -5,107 +5,133 @@
 The REST architectural style is centered around the concept of a [resource](#dfn-resource). A resource is the key abstraction of information, where every piece of information is named by assigning a globally unique [URI](#dfn-uri) (Uniform Resource Identifier). Resources describe *things*, which can vary between physical objects (e.g. a building or a person) and more abstract concepts (e.g. a permit or an event).
 
 <div class="rule" id="api-05">
-  <p class="rulelab"><b>API-05</b>: Use nouns to name resources</p>  
-  <p>Statement:</p>
-<p>  Resources are referred to using nouns (instead of verbs) that are relevant from the perspective of the user of the API.</p>
-  <div class="example">
-    <p>A few correct examples of nouns as part of a URI:</p>
-    <ul>
-      <li>Gebouw</li>
-      <li>Vergunning</li>
-    </ul>
-    <p>This is different than RPC-style APIs, where verbs are often used to perform certain actions:</p>
-    <ul>
-      <li>Opvragen</li>
-      <li>Registreren</li>
-    </ul>
-  </div>
-<p>Rationale:</p>
-<p>Resources describe objects not actions.
-</p>
-<p>Runtime implications:</p>
-<p>None
-</p>  
-  
+   <p class="rulelab"><b>API-05</b>: Use nouns to name resources</p>
+   <dl>
+   <dt>Statement</dt>
+   <dd>
+   Resources are referred to using nouns (instead of verbs) that are relevant from the perspective of the user of the API.   
+   <div class="example">
+      A few correct examples of nouns as part of a URI:
+      <ul>
+         <li>Gebouw</li>
+         <li>Vergunning</li>
+      </ul>
+      <p>This is different than RPC-style APIs, where verbs are often used to perform certain actions:</p>
+      <ul>
+         <li>Opvragen</li>
+         <li>Registreren</li>
+      </ul>
+   </div>
+   </dd>
+   <dt>Rationale</dt>
+   <dd>
+   Resources describe objects not actions.
+   </dd>
+   <dt>Implications</dt>
+   <dd>
+   Adherance to this rule needs to be manually verified.
+   </dd>
+   </dl>
 </div>
 
 A resource describing a single thing is called a [singular resource](#dfn-singular-resource). Resources can also be grouped into collections, which are resources in their own right and can typically be paged, sorted and filtered. Most often all collection members have the same type, but this is not necessarily the case. A resource describing multiple things is called a [collection resource](#dfn-collection-resource). Collection resources typically contain references to the underlying singular resources.
 
 <div class="rule" id="api-54">
-  <p class="rulelab"><b>API-54</b>: Use plural nouns to name collection resources</p>
-  <p>Statement:</p>
-<p>The path segment describing the name of the collection resource must be written in the plural form.
-</p>
-<div class="example">
-    <p>Example collection resources, describing a list of things:</p>
-    <pre>https://api.example.org/v1/gebouwen<br/>https://api.example.org/v1/vergunningen</pre>
-  </div>
-  <p>Singular resources contained within a collection resource are generally named by appending a path segment for the identification of each individual resource.</p>
-  <div class="example">
-    <p>Example singular resource, contained within a collection resource:</p>
-    <pre>https://api.example.org/v1/gebouwen/3b9710c4-6614-467a-ab82-36822cf48db1<br/>https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pre>
-  </div>
-  <p>Singular resources that stand on their own, i.e. which are not contained within a collection resource, must be named with a path segment that is written in the singular form.</p>
-  <div class="example">
-    <p>Example singular resource describing the profile of the currently authenticated user:</p>
-    <pre>https://api.example.org/v1/gebruikersprofiel</pre>
-  </div>
-<p>Rationale:</p>
-<p>A collection resource represents multiple things.
-</p>
-<p>Runtime implications:</p>
-<p>None
-</p>
+   <p class="rulelab"><b>API-54</b>: Use plural nouns to name collection resources</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         The path segment describing the name of the collection resource must be written in the plural form.
+         <div class="example">
+            <p>Example collection resources, describing a list of things:</p>
+            <pre>https://api.example.org/v1/gebouwen<br/>https://api.example.org/v1/vergunningen</pre>
+         </div>
+         <p>Singular resources contained within a collection resource are generally named by appending a path segment for the identification of each individual resource.</p>
+         <div class="example">
+            <p>Example singular resource, contained within a collection resource:</p>
+            <pre>https://api.example.org/v1/gebouwen/3b9710c4-6614-467a-ab82-36822cf48db1<br/>https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pre>
+         </div>
+         <p>Singular resources that stand on their own, i.e. which are not contained within a collection resource, must be named with a path segment that is written in the singular form.</p>
+         <div class="example">
+            <p>Example singular resource describing the profile of the currently authenticated user:</p>
+            <pre>https://api.example.org/v1/gebruikersprofiel</pre>
+         </div>
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         A collection resource represents multiple things.
+      </dd>
+      <dt>Implications</dt>
+      <dd>
+         Adherance to this rule needs to be manually verified.
+      </dd>
+   </dl>
 </div>
-
 <div class="rule" id="api-04">
-  <p class="rulelab"><b>API-04</b>: Define interfaces in Dutch unless there is an official English glossary available</p>
-  <p>Statement:</p>
-<p>
-Resources and the underlying attributes should be defined in the Dutch language unless there is an official English glossary available. Publishing an API for an international audience might also be a reason to define interfaces in English.</p>
-  <p>Note that glossaries exist that define useful sets of attributes which should preferably be reused. Examples can be found at <a href="http://schema.org/docs/schemas.html">schema.org</a>.</p>
-</p>
-<p>Rationale:</p>
-<p>
-The exact meaning of concepts is often lost in translation.
-</p>
-<p>Runtime implications:</p>
-<p>
-None
-</p>
+   <p class="rulelab"><b>API-04</b>: Define interfaces in Dutch unless there is an official English glossary available</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         Resources and the underlying attributes should be defined in the Dutch language unless there is an official English glossary available. Publishing an API for an international audience might also be a reason to define interfaces in English.</p>
+         <p>Note that glossaries exist that define useful sets of attributes which should preferably be reused. Examples can be found at <a href="http://schema.org/docs/schemas.html">schema.org</a>.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         The exact meaning of concepts is often lost in translation.
+      </dd>
+      <dt>Implications</dt>
+      <dd>
+         Adherance to this rule needs to be manually verified.
+      </dd>
+   </dl>
 </div>
-
 <div class="rule" id="api-48">
-  <p class="rulelab"><b>API-48</b>: Leave off trailing slashes from URIs</p>
-  <p>Statement:</p>
-<p>
-A URI must never contain a trailing slash. When requesting a resource including a trailing slash, this must result in a 404 (not found) error response and not a redirect. This enforces API consumers to use the correct URI.
-</p>
-<p>Rationale:</p>
-<p>
-According to the URI specification [[rfc3986]], URIs may contain a trailing slash. However, for REST APIs this is considered as a bad practice since this can lead to ambiguity in interpretation.
-</p>
-<p>Runtime implications:</p>
-<p>
-A URI including or excluding a trailing slash might be interpreted as different resources (which is strictly speaking the correct interpretation).
-</p>
-  <div class="example">
-    <p>URI without a trailing slash (correct):</p>
-    <pre>https://api.example.org/v1/gebouwen</pre>
-    <p>URI with a trailing slash (incorrect):</p>
-    <pre>https://api.example.org/v1/gebouwen/</pre>
-  </div>
+   <p class="rulelab"><b>API-48</b>: Leave off trailing slashes from URIs</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         A URI must never contain a trailing slash. When requesting a resource including a trailing slash, this must result in a 404 (not found) error response and not a redirect. This enforces API consumers to use the correct URI.
+         <div class="example">
+            <p>URI without a trailing slash (correct):</p>
+            <pre>https://api.example.org/v1/gebouwen</pre>
+            <p>URI with a trailing slash (incorrect):</p>
+            <pre>https://api.example.org/v1/gebouwen/</pre>
+         </div>
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         To avoid confusion and ambiguity, a URI must never contain a trailing slash. When requesting a resource including a trailing slash, this must result in a `404` (not found) error response and not a redirect. This enforces API consumers to use the correct URI.
+      </dd>
+      <dt>Implications</dt>
+      <dd>
+         This rule is included in the automatic tests on <a href="developer.overheid.nl">developer.overheid.nl</a>. The source code can be found <a href="https://github.com/VNG-Realisatie/api-test-platform-code/blob/master/src/vng/design_rules/tasks/dr_20200709/api_48.py">here</a>.
+      </dd>
+   </dl>
 </div>
-
 <div class="rule" id="api-53">
-  <p class="rulelab"><b>API-53</b>: Hide irrelevant implementation details</p>
-  <p>An API should not expose implementation details of the underlying application. The primary motivation behind this design rule is that an API design must focus on usability for the client, regardless of the implementation details under the hood. The API, application and infrastructure need to be able to evolve independently to ease the task of maintaining backwards compatibility for APIs during an agile development process.</p>
-  <p>A few examples of implementation details:</p>
-  <ul>
-    <li>The API design should not necessarily be a 1-on-1 mapping of the underlying domain- or persistence model</li>
-    <li>The API should not expose information about the technical components being used, such as development platforms/frameworks or database systems</li>
-    <li>The API should offer client-friendly attribute names and values, while persisted data may contain abbreviated terms or serializations which might be cumbersome for consumption</li>
-  </ul>
+   <p class="rulelab"><b>API-53</b>: Hide irrelevant implementation details</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         An API should not expose implementation details of the underlying application, development platforms/frameworks or database systems/persistence models.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         <ul>
+            <li>The primary motivation behind this design rule is that an API design must focus on usability for the client, regardless of the implementation details under the hood.</li>
+            <li>The API, application and infrastructure need to be able to evolve independently to ease the task of maintaining backwards compatibility for APIs during an agile development process.</li>
+            <li>The API design of Convenience,- and Process API types (as described in <a href="https://docs.geostandaarden.nl/api/def-hr-API-Strategie-20200204/#aanbeveling-2-analyseer-welke-api-s-je-aan-moet-bieden-welke-informatievragen-wil-je-beantwoorden">Aanbeveling 2</a> of the NL API Strategie) should not be a 1-on-1 mapping of the underlying domain- or persistence model.</li>
+            <li>The API design of a System API type (as described in <a href="https://docs.geostandaarden.nl/api/def-hr-API-Strategie-20200204/#aanbeveling-2-analyseer-welke-api-s-je-aan-moet-bieden-welke-informatievragen-wil-je-beantwoorden">Aanbeveling 2</a> of the NL API Strategie) may be a mapping of the underlying domain- or persistence model.</li>
+         </ul>
+      </dd>
+      <dt>Implications</dt>
+      <dd>
+         <ul>
+            <li>The API should not expose information about the technical components being used, such as development platforms/frameworks or database systems.</li>
+            <li>The API should offer client-friendly attribute names and values, while persisted data may contain abbreviated terms or serializations which might be cumbersome for consumption.</li>
+         </ul>
+      </dd>
+   </dl>
 </div>
 
 ## HTTP methods
