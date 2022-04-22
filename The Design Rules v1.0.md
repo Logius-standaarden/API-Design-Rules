@@ -5,8 +5,9 @@
 The REST architectural style is centered around the concept of a [resource](#dfn-resource). A resource is the key abstraction of information, where every piece of information is named by assigning a globally unique [URI](#dfn-uri) (Uniform Resource Identifier). Resources describe *things*, which can vary between physical objects (e.g. a building or a person) and more abstract concepts (e.g. a permit or an event).
 
 <div class="rule" id="api-05">
-  <p class="rulelab"><b>API-05</b>: Use nouns to name resources</p>
-  <p>Because resources describe things (and thus not actions), resources are referred to using nouns (instead of verbs) that are relevant from the perspective of the user of the API.</p>
+  <p class="rulelab"><b>API-05</b>: Use nouns to name resources</p>  
+  <p>Statement:</p>
+<p>  Resources are referred to using nouns (instead of verbs) that are relevant from the perspective of the user of the API.</p>
   <div class="example">
     <p>A few correct examples of nouns as part of a URI:</p>
     <ul>
@@ -19,14 +20,23 @@ The REST architectural style is centered around the concept of a [resource](#dfn
       <li>Registreren</li>
     </ul>
   </div>
+<p>Rationale:</p>
+<p>Resources describe objects not actions.
+</p>
+<p>Runtime implications:</p>
+<p>None
+</p>  
+  
 </div>
 
 A resource describing a single thing is called a [singular resource](#dfn-singular-resource). Resources can also be grouped into collections, which are resources in their own right and can typically be paged, sorted and filtered. Most often all collection members have the same type, but this is not necessarily the case. A resource describing multiple things is called a [collection resource](#dfn-collection-resource). Collection resources typically contain references to the underlying singular resources.
 
 <div class="rule" id="api-54">
   <p class="rulelab"><b>API-54</b>: Use plural nouns to name collection resources</p>
-  <p>Because a collection resource represents multiple things, the path segment describing the name of the collection resource must be written in the plural form.</p>
-  <div class="example">
+  <p>Statement:</p>
+<p>The path segment describing the name of the collection resource must be written in the plural form.
+</p>
+<div class="example">
     <p>Example collection resources, describing a list of things:</p>
     <pre>https://api.example.org/v1/gebouwen<br/>https://api.example.org/v1/vergunningen</pre>
   </div>
@@ -40,18 +50,45 @@ A resource describing a single thing is called a [singular resource](#dfn-singul
     <p>Example singular resource describing the profile of the currently authenticated user:</p>
     <pre>https://api.example.org/v1/gebruikersprofiel</pre>
   </div>
+<p>Rationale:</p>
+<p>A collection resource represents multiple things.
+</p>
+<p>Runtime implications:</p>
+<p>None
+</p>
 </div>
 
 <div class="rule" id="api-04">
   <p class="rulelab"><b>API-04</b>: Define interfaces in Dutch unless there is an official English glossary available</p>
-  <p>Since the exact meaning of concepts is often lost in translation, resources and the underlying attributes should be defined in the Dutch language unless there is an official English glossary available. Publishing an API for an international audience might also be a reason to define interfaces in English.</p>
+  <p>Statement:</p>
+<p>
+Resources and the underlying attributes should be defined in the Dutch language unless there is an official English glossary available. Publishing an API for an international audience might also be a reason to define interfaces in English.</p>
   <p>Note that glossaries exist that define useful sets of attributes which should preferably be reused. Examples can be found at <a href="http://schema.org/docs/schemas.html">schema.org</a>.</p>
+</p>
+<p>Rationale:</p>
+<p>
+The exact meaning of concepts is often lost in translation.
+</p>
+<p>Runtime implications:</p>
+<p>
+None
+</p>
 </div>
 
 <div class="rule" id="api-48">
   <p class="rulelab"><b>API-48</b>: Leave off trailing slashes from URIs</p>
-  <p>According to the URI specification [[rfc3986]], URIs may contain a trailing slash. However, for REST APIs this is considered as a bad practice since a URI including or excluding a trailing slash might be interpreted as different resources (which is strictly speaking the correct interpretation).</p>
-  <p>To avoid confusion and ambiguity, a URI must never contain a trailing slash. When requesting a resource including a trailing slash, this must result in a 404 (not found) error response and not a redirect. This enforces API consumers to use the correct URI.</p>
+  <p>Statement:</p>
+<p>
+A URI must never contain a trailing slash. When requesting a resource including a trailing slash, this must result in a 404 (not found) error response and not a redirect. This enforces API consumers to use the correct URI.
+</p>
+<p>Rationale:</p>
+<p>
+According to the URI specification [[rfc3986]], URIs may contain a trailing slash. However, for REST APIs this is considered as a bad practice since this can lead to ambiguity in interpretation.
+</p>
+<p>Runtime implications:</p>
+<p>
+A URI including or excluding a trailing slash might be interpreted as different resources (which is strictly speaking the correct interpretation).
+</p>
   <div class="example">
     <p>URI without a trailing slash (correct):</p>
     <pre>https://api.example.org/v1/gebouwen</pre>
