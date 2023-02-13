@@ -71,13 +71,13 @@ thead
 tbody
 {
   border-color: darkolivegreen;
-  background-color: lightgrey
+  background-color: white
 }
 
 /*-- Definite van de tabel-rij (deze zorgt voor 2 kleuren in de rijen) -------------*/
 tr:nth-child(even)
 {
-  background-color:  darkgrey;
+  background-color:  lightgrey;
 }
 
 /*-- Definite van de tabel-cel (data) ----------------------------------------------*/

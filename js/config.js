@@ -9,16 +9,17 @@
 //-------------------------------------------------------------------------------------
 //-- Log . . . :  20180615 - FT  - Initiele versie
 //-- . . . . . :  20181106 - JvG - verplaatst naar root KP-APIs
+//-- . . . . . :  20220125 - MvdP - Nieuwe versie / opzet in lijn met de modulaire opbouw
 //-------------------------------------------------------------------------------------
 
 var respecConfig =
 {
-  specStatus: "DEF",
+  specStatus: "WV",
   specType: "ST",
   pubDomain: "api",
   shortName: "adr",
-  publishDate: "2020-07-09",
-  publishVersion: "1.0",
+  publishDate: "2022-01-25",
+  publishVersion: "1.1",
   // previousPublishVersion: "(none)",
 
   // postProcess: [repair],
@@ -35,6 +36,16 @@ var respecConfig =
         name: "Jan van Gelder",
         company: "Geonovum",
         companyURL: "https://www.geonovum.nl",
+      },
+      {
+        name: "Alexander Green",
+        company: "Logius",
+        companyURL: "https://www.logius.nl",
+      },
+      {
+        name: "Martin van der Plas",
+        company: "Logius",
+        companyURL: "https://www.logius.nl",
       }
     ],
   authors:
@@ -97,6 +108,12 @@ var respecConfig =
     width: 44,
     url: "https://www.logius.nl/standaarden",
   },
+  alternateFormats: [
+    {
+      label: "pdf",
+      uri: "API-Design-Rules.pdf",
+    },
+    ],
 
   localBiblio: {
     "SemVer": {
