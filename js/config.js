@@ -121,6 +121,13 @@ var respecConfig =
       title: "Semantic Versioning 2.0.0",
       authors: ["T. Preston-Werner"],
       date: "June 2013"
-    }
+    },
+    "ADR-Validator": {
+      href: "https://gitlab.com/commonground/don/adr-validator/-/blob/v0.1.0/pkg/adr/rules.go",
+      title: "Technical ADR Validation rule testset 0.1.0",
+      authors: ["H. Stijns"],
+      publisher: "Geonovum",
+      date: "December 2022"
+    },
   },
 };
