@@ -117,7 +117,7 @@ A resource describing a single thing is called a [singular resource](#dfn-singul
       </dd>
       <dt>Implications</dt>
       <dd>
-         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code can be found <a href="https://github.com/VNG-Realisatie/api-test-platform-code/blob/master/src/vng/design_rules/tasks/dr_20200709/api_48.py">here</a>.
+         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.1.0/pkg/adr/rules.go">here</a>.
       </dd>
       <dt>Rule types</dt>
       <dd>
@@ -209,7 +209,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
       </dd>
       <dt>Implications</dt>
       <dd>
-         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code can be found <a href="https://github.com/VNG-Realisatie/api-test-platform-code/blob/master/src/vng/design_rules/tasks/dr_20200709/api_03.py">here</a>.
+         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.1.0/pkg/adr/rules.go">here</a>.
       </dd>
       <dt>Rule types</dt>
       <dd>
@@ -455,7 +455,7 @@ An API is as good as the accompanying documentation. The documentation has to be
       </dd>
       <dt>Implications</dt>
       <dd>
-         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code can be found <a href="https://github.com/VNG-Realisatie/api-test-platform-code/blob/master/src/vng/design_rules/tasks/dr_20200709/api_16.py">here</a>.
+         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.1.0/pkg/adr/rules.go">here</a>.
       </dd>
       <dt>Rule types</dt>
       <dd>
@@ -507,7 +507,7 @@ An API is as good as the accompanying documentation. The documentation has to be
       </dd>
       <dt>Implications</dt>
       <dd>
-         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code can be found <a href="https://github.com/VNG-Realisatie/api-test-platform-code/blob/master/src/vng/design_rules/tasks/dr_20200709/api_51.py">here</a>.
+         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.1.0/pkg/adr/rules.go">here</a>.
       </dd>
       <dt>Rule types</dt>
       <dd>
@@ -582,7 +582,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       </dd>
       <dt>Implications</dt>
       <dd>
-         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code can be found <a href="https://github.com/VNG-Realisatie/api-test-platform-code/blob/master/src/vng/design_rules/tasks/dr_20200709/api_20.py">here</a>.
+         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.1.0/pkg/adr/rules.go">here</a>.
       </dd>
       <dt>Rule types</dt>
       <dd>
@@ -627,7 +627,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       </dd>
       <dt>Implications</dt>
       <dd>
-         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code can be found <a href="https://github.com/VNG-Realisatie/api-test-platform-code/blob/master/src/vng/design_rules/tasks/dr_20200709/api_56.py">here</a>.
+         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.1.0/pkg/adr/rules.go">here</a>.
       </dd>
       <dt>Rule types</dt>
       <dd>
@@ -654,7 +654,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       </dd>
       <dt>Implications</dt>
       <dd>
-         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code can be found <a href="https://github.com/VNG-Realisatie/api-test-platform-code/blob/master/src/vng/design_rules/tasks/dr_20200709/api_57.py">here</a>.
+         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.1.0/pkg/adr/rules.go">here</a>.
       </dd>
       <dt>Rule types</dt>
       <dd>
