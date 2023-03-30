@@ -41,6 +41,8 @@ var respecConfig = {
   pubDomain: "api",
   publishDate: "2022-01-25",
   publishVersion: "1.1",
+  previousPublishDate: "2020-07-09",
+  previousPublishVersion: "1.0",
   shortName: "adr",
   specStatus: "WV",
   specType: "ST"
