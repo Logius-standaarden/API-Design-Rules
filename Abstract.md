@@ -1,3 +1,3 @@
 This document contains a normative standard for designing APIs in the Dutch Public Sector.  
 [The Governance of this standard](https://publicatie.centrumvoorstandaarden.nl/api/adr-beheer/) is described in a [separate repository](https://github.com/Logius-standaarden/ADR-Beheermodel) and published by Logius.  
-This document is part of the *Nederlandse API Strategie*. The Nederlandse API Strategie consists of [three distinct documents](https://www.geonovum.nl/themas/kennisplatform-apis#APIStrategie).  
+This document is part of the *Nederlandse API Strategie*, which consists of [three distinct documents](https://www.geonovum.nl/themas/kennisplatform-apis#APIStrategie).  
