@@ -172,11 +172,11 @@ Although the REST architectural style does not impose a specific protocol, REST 
    <dl>
       <dt>Statement</dt>
       <dd>
-         Resources must be retrieved or manipulated using standard HTTP methods.
+         Resources MUST be retrieved or manipulated using standard HTTP methods (GET/POST/PUT/PATCH/DELETE).
       </dd>
       <dt>Rationale</dt>
       <dd>
-         The HTTP specification [[rfc7231]] and the later introduced <code>PATCH</code> method specification [[rfc5789]] offer a set of standard methods, where every method is designed with explicit semantics. Adhering to the HTTP specification is crucial, since HTTP clients and middleware applications rely on standardized characteristics.
+         The HTTP specifications offer a set of standard methods, where every method is designed with explicit semantics. Adhering to the HTTP specification is crucial, since HTTP clients and middleware applications rely on standardized characteristics.
          <table>
             <thead>
                <tr>
@@ -260,7 +260,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
       </tbody>
       </table>
    </div>
-   <p class="note">HTTP also defines other methods, e.g. <code>HEAD</code>, <code>OPTIONS</code> and <code>TRACE</code>. For the purpose of this design rule, these operations are left out of scope.</p>
+	<p class="note">The HTTP specification [[rfc7231]] and the later introduced <code>PATCH</code> method specification [[rfc5789]] offer a set of standard methods, where every method is designed with explicit semantics. HTTP also defines other methods, e.g. <code>HEAD</code>, <code>OPTIONS</code> and <code>TRACE</code>. For the purpose of this design rule, these operations are left out of scope.</p>
 </div>
 
 <a name="api-01"></a>
