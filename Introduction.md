@@ -18,7 +18,7 @@ Despite the fact that two authors are mentioned in the list of authors, this doc
 
 This document is part of the *Nederlandse API Strategie*.
 
-The Nederlandse API Strategie consists of [three distinct documents](https://www.geonovum.nl/themas/kennisplatform-apis#APIStrategie).
+The Nederlandse API Strategie consists of [three layers of distinct documents](https://www.geonovum.nl/themas/kennisplatform-apis#APIStrategie).
 
 | Part | Description                                  | Status      | Link                                                  |
 | :--- | :------------------------------------------- | :---------- | :---------------------------------------------------- |
@@ -27,6 +27,10 @@ The Nederlandse API Strategie consists of [three distinct documents](https://www
 | IIb  | Extension on the Standard for designing APIs | Informative | https://docs.geostandaarden.nl/api/API-Strategie-ext/ |
 
 Before reading this document it's adviced to gain knowledge of the three documents and more specific [the architecture section of part I](https://docs.geostandaarden.nl/api/API-Strategie/#architectuur).
+
+An actual overview of all current documents is available in this dutch infographic:
+![NL API Strategie Infographic](https://raw.githubusercontent.com/Geonovum/KP-APIs/a0ee2f718777eb333a4e625edb1e8ce1387b51d3/media/API_infographic.svg)
+
 
 ## Extensions
 <aside class="note">
