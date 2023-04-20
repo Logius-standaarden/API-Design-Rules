@@ -145,7 +145,7 @@ A resource describing a single thing is called a [singular resource](#dfn-singul
             <li>The primary motivation behind this design rule is that an API design must focus on usability for the client, regardless of the implementation details under the hood.</li>
             <li>The API, application and infrastructure need to be able to evolve independently to ease the task of maintaining backwards compatibility for APIs during an agile development process.</li>
             <li>The API design of Convenience,- and Process API types (as described in <a href="https://docs.geostandaarden.nl/api/def-hr-API-Strategie-20200204/#aanbeveling-2-analyseer-welke-api-s-je-aan-moet-bieden-welke-informatievragen-wil-je-beantwoorden">Aanbeveling 2</a> of the NL API Strategie) should not be a 1-on-1 mapping of the underlying domain- or persistence model.</li>
-            <li>The API design of a System API type (as described in <a href="https://docs.geostandaarden.nl/api/def-hr-API-Strategie-20200204/#aanbeveling-2-analyseer-welke-api-s-je-aan-moet-bieden-welke-informatievragen-wil-je-beantwoorden">Aanbeveling 2</a> of the NL API Strategie) may be a mapping of the underlying domain- or persistence model.</li>
+            <li>The API design of a System API type (as described in <a href="https://docs.geostandaarden.nl/api/def-hr-API-Strategie-20200204/#aanbeveling-2-analyseer-welke-api-s-je-aan-moet-bieden-welke-informatievragen-wil-je-beantwoorden">Aanbeveling 2</a> of the NL API Strategie) may be a mapping of the underlying  persistence model.</li>
          </ul>
       </dd>
       <dt>Implications</dt>
