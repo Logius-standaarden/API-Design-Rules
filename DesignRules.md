@@ -220,12 +220,14 @@ Although the REST architectural style does not impose a specific protocol, REST 
       </dd>
       <dt>How to test</dt>
       <dd>
-	      - Step1-Test: the API Should meet the prerequisets to be tested. The include that an OAS file is present, parsable and all $refs are resolvable.
-	      - Step1-Error: <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L49)">Error at line 49 - "Path '%s' has no methods"</a> 
-	      - Step2-test: loop over all paths in the OAS file to check if methods are allowed.
-	      - Step2-Error: tbd 
-	      - Step3-Test: Try non standard methods on the base url mentioned in the OAS file.
-	      - Step3-Error: <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L95)">Error at line 95 - "Server responds to non-standard methods: %s"</a> 
+	      <ol>
+		<li> Step1-Test: the API Should meet the prerequisets to be tested. The include that an OAS file is present, parsable and all $refs are resolvable. </li>
+	      <li> Step1-Error: <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L49)">Error at line 49 - "Path '%s' has no methods"</a>  </li>
+	      <li> Step2-test: loop over all paths in the OAS file to check if methods are allowed. </li>
+	      <li> Step2-Error: tbd  </li>
+	      <li> Step3-Test: Try non standard methods on the base url mentioned in the OAS file. </li>
+	      <li> Step3-Error: <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L95)">Error at line 95 - "Server responds to non-standard methods: %s"</a>  </li>
+	      </ol>	      
       </dd>
       <dt>Rule types</dt>
       <dd>
