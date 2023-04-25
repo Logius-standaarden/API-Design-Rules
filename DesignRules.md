@@ -220,14 +220,10 @@ Although the REST architectural style does not impose a specific protocol, REST 
       </dd>
       <dt>How to test</dt>
       <dd>
-	      <ol>
-		<li> Step1-Test: the API Should meet the prerequisets to be tested. The include that an OAS file is present, parsable and all $refs are resolvable. </li>
-	      <li> Step1-Error: <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L49)">Error at line 49 - "Path '%s' has no methods"</a>  </li>
-	      <li> Step2-test: loop over all paths in the OAS file to check if methods are allowed. </li>
-	      <li> Step2-Error: tbd  </li>
-	      <li> Step3-Test: Try non standard methods on the base url mentioned in the OAS file. </li>
-	      <li> Step3-Error: <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L95)">Error at line 95 - "Server responds to non-standard methods: %s"</a>  </li>
-	      </ol>	      
+	      <ul>
+		<li> Step1-Test: the API Should meet the prerequisets to be tested. These include that an OAS file is present, parsable, all $refs are resolvable and paths are defined. Step1-Error: <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L49)">Error at line 49 - "Path '%s' has no methods"</a>  </li>
+	      <li> Step2-Test: Try non standard methods on the base url mentioned in the OAS file. Step2-Error: <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L95)">Error at line 95 - "Server responds to non-standard methods: %s"</a>  </li>
+	      </ul>	      
       </dd>
       <dt>Rule types</dt>
       <dd>
@@ -478,6 +474,14 @@ An API is as good as the accompanying documentation. The documentation has to be
       <dd>
          This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/main/pkg/adr/rules.go">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
       </dd>
+	<dt>How to test</dt>
+      	<dd>
+	      <ul>
+		<li> Step1-Test: the API Should meet the prerequisets to be tested. These include that an OAS.YAML of OAS.JSON are resolvable and the correct OAS version is used. Step1-Error: <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L132">Error at line 132 - "Unknown specification type: "</a>  </li>
+	      <li> Step2-Test: Check the specification type. Step2-Error: <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L137">Error at line 137 - "specNotValid"</a>  </li>
+	      </ul>	      
+		<li> Step3-Test: all references must be resolvable. Step3-Error: Failed to parse OpenAPI Specification  https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L147 </li>
+      </dd>
       <dt>Rule types</dt>
       <dd>
          This is a technical design rule and hence should be tested automatically.
@@ -609,6 +613,14 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       <dd>
          This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/main/pkg/adr/rules.go">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
       </dd>
+	<dt>How to test</dt>
+      	<dd>
+	      <ul>
+		<li> Step1-Test: The Base path must contain a version number. Step1-Error: <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L167">Error at line 167 - "Base path does not contain version"</a>  </li>
+		</ul>
+		<li> Step2-Test: Each Server element of the OpenAPI Specification must include a version number. Step1-Error: <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L191">Error at line 191 - "OpenAPI Specification server property contains invalid URL's"</a>  </li>
+		</ul>
+	    </dd>
       <dt>Rule types</dt>
       <dd>
          This is a technical design rule and hence should be tested automatically.
