@@ -124,22 +124,18 @@ A resource describing a single thing is called a [singular resource](#dfn-singul
       <dd>
          This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/main/pkg/adr/rules.go#L213">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
       </dd>
-      <dt>How to test</dt>
-      <dd>
-         <ul>
-            <li> Step 1: the API Should meet the prerequisets to be tested. These include that an OAS file is present, parsable, all $refs are resolvable and paths are defined.</br>
-                 Error: <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L215">Error at line 215 - "OpenAPI Specification is required"</a></li>
-            <li> Step 2: check if paths are present.</br>
-                 Error: <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L220">Error at line 220 - "No paths found in the OpenAPI Specification"</a></li>
-            <li> Step 3: Loop al paths and check if it ends with a "/".</br>
-                 Error: <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L228">Error at line 228 - "Path ... ends with a slash"</a></li>
-            <li> Step 4: all paths with a get request without parameters should resolve in HTTP 404.</br>
-                 Error: <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L257">Error at line 257 - "Request for path ... returns ..."</a></li>
-         </ul>
-      </dd>
       <dt>Rule types</dt>
       <dd>
          This is a technical design rule and hence should be tested automatically.
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         <ul>
+            <li> Step 1: The API MUST meet the prerequisets to be tested. These include that an OAS file is publicly available, parsable, all $refs are resolvable and paths are defined.</li>
+            <li> Step 2: Check if paths are present in the OpenAPI Specification.</li>
+            <li> Step 3: Loop al paths and check if it ends with a slash ("/").</li>
+            <li> Step 4: Check all paths with a get request and without parameters. They should resolve in HTTP 404.</li>
+         </ul>
       </dd>
    </dl>
 </div>
@@ -229,22 +225,8 @@ Although the REST architectural style does not impose a specific protocol, REST 
       </dd>
       <dt>Implications</dt>
       <dd>
-         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L43">at line 43 in the rules.go testscript</a>. The specific testscripts are published in the [[ADR-Validator]] repository.
+         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L43">here</a>. The specific testscripts are published in the [[ADR-Validator]] repository.
       </dd>
-      <dt>How to test</dt>
-      <dd>
-         <ul>
-            <li> Step 1: The API Should meet the prerequisets to be tested. These include that an OAS file is present, parsable, all $refs are resolvable and paths are defined.</br>
-                 Error: <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L49">Error at line 49 - "Path ... has no methods"</a>  </li>
-            <li> Step 2: Try non standard methods on the base url mentioned in the OAS file.</br>
-                 Error: <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L95">Error at line 95 - "Server responds to non-standard methods: ..."</a>  </li>
-	      </ul>	      
-      </dd>
-      <dt>Rule types</dt>
-      <dd>
-         This is a technical design rule and hence should be tested automatically.
-      </dd>
-   </dl>
    <div class="example">The following table shows some examples of the use of standard HTTP methods:
       <table>
       <thead>
@@ -283,6 +265,18 @@ Although the REST architectural style does not impose a specific protocol, REST 
       </table>
    </div>
 	<p class="note">The HTTP specification [[rfc7231]] and the later introduced <code>PATCH</code> method specification [[rfc5789]] offer a set of standard methods, where every method is designed with explicit semantics. HTTP also defines other methods, e.g. <code>HEAD</code>, <code>OPTIONS</code> and <code>TRACE</code>. For the purpose of this design rule, these operations are left out of scope.</p>
+        <dt>How to test</dt>
+      <dd>
+         <ul>
+            <li> Step 1: The API MUST meet the prerequisets to be tested. These include that an OAS file is publicly available, parsable, all $refs are resolvable and paths are defined.</li>
+            <li> Step 2: Try non standard methods on the base url mentioned in the OAS file. The server MUST not respond to non-standard methods.</li>
+      </ul>
+      </dd>
+      <dt>Rule types</dt>
+      <dd>
+         This is a technical design rule and hence should be tested automatically.
+      </dd>
+   </dl>
 </div>
 
 <a name="api-01"></a>
@@ -489,20 +483,17 @@ An API is as good as the accompanying documentation. The documentation has to be
       <dd>
          This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/main/pkg/adr/rules.go#L119">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
       </dd>
-      <dt>How to test</dt>
-      <dd>
-         <ul>
-            <li> Step 1: The API Should meet the prerequisets to be tested. These include that an OAS.YAML of OAS.JSON are resolvable and the correct OAS version is used.</br>
-                 Error: <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L132">Error at line 132 - "Unknown specification type: ..."</a></li>
-            <li> Step 2: Check the specification type.</br>
-                 Error: <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L137">Error at line 137 - "OpenAPI Specification is not valid"</a></li>
-            <li> Step 3: All references must be resolvable.</br>
-                 Error: <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L147">Error at line 147 - "Failed to parse OpenAPI Specification"</a></li>
-         </ul>
-      </dd>
       <dt>Rule types</dt>
       <dd>
          This is a technical design rule and hence should be tested automatically.
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         <ul>
+            <li> Step 1: The API MUST meet the prerequisets to be tested. These include that an OAS file is publicly available, parsable, all $refs are resolvable and paths are defined.</li>
+            <li> Step 2: Check the specification type.</li>
+            <li> Step 3: All references MUST be publicly resolvable, including the external references.</li>
+         </ul>
       </dd>
    </dl>
 </div>
@@ -554,22 +545,18 @@ An API is as good as the accompanying documentation. The documentation has to be
       <dd>
          This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/main/pkg/adr/rules.go#L282">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
       </dd>
-      <dt>How to test</dt>
-      <dd>
-         <ul>
-            <li> Step 1: The openapi.json MUST be available, readable and parsable.</br>
-                 Error: <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L295">Error at line 295 - "OpenAPI Specification in JSON format is not valid"</a>  </li>
-            <li> Step 2: The openapi.yaml MAY be available. If available it MUST be readable and parsable.</br>
-                 Error: <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L301">Error at line 301 - "OpenAPI Specification in YAML format is not valid"</a>  </li>
-            <li> Step 3: The openapi.yaml MUST describe the same API as the openapi.json.</br>
-                 Error: <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L310">Error at line 310 - "OpenAPI Specification in YAML format is not the same as the JSON format"</a>  </li>
-            <li> Step 4: The CORS header Access-Control-Allow-Origin MUST allow all origins.</br>
-                 Error: <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L337">Error at line 337 - "CORS policy is invalid"</a>  </li>
-         </ul>
-      </dd>
       <dt>Rule types</dt>
       <dd>
          This is a technical design rule and hence should be tested automatically.
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         <ul>
+            <li> Step 1: The API MUST meet the prerequisets to be tested. These include that an OAS file (openapi.json) is publicly available, parsable, all $refs are resolvable and paths are defined.</li>
+            <li> Step 2: The openapi.yaml MAY be available. If available it MUST contain yaml, be readable and parsable.</li>
+            <li> Step 3: The openapi.yaml MUST describe the same API as the openapi.json.</li>
+            <li> Step 4: The CORS header Access-Control-Allow-Origin MUST allow all origins.</li>
+         </ul>
       </dd>
    </dl>
 </div>
@@ -638,24 +625,30 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       <div class="example">
          <p>An example of a base path for an API with current version 1.0.2:</p>
          <pre>https://api.example.org/v1/</pre>
+         <pre>version: '1.0.2'</pre>
+         <pre>servers:
+                  - description: test environment  
+                  url: https://api.test.example.org/v1/  
+                  - description: production environment  
+                  url: https://api.example.org/v1/  
+         </pre>
       </div>
       </dd>
       <dt>Implications</dt>
       <dd>
          This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/main/pkg/adr/rules.go#L165">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
       </dd>
-      <dt>How to test</dt>
-      <dd>
-         <ul>
-            <li> Step 1: The Base path must contain a version number.</br>
-                 Error: <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L167">Error at line 167 - "Base path does not contain version"</a>  </li>
-            <li> Step 2: Each Server element of the OpenAPI Specification must include a version number.</br>
-                 Error: <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L191">Error at line 191 - "OpenAPI Specification server property contains invalid URL's"</a>  </li>
-         </ul>
-      </dd>
       <dt>Rule types</dt>
       <dd>
          This is a technical design rule and hence should be tested automatically.
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         <ul>
+            <li> Step 1: The base path MUST contain a version number.</li>
+            <li> Step 2: Each url of the server object of the OpenAPI Specification must include a version number.</li>
+            <li> Step 3: The version in the OAS file must be the same as the version in the base path.</li>
+         </ul>
       </dd>
    </dl>
 </div>
@@ -699,21 +692,18 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       <dd>
          This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/main/pkg/adr/rules.go#L354">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
       </dd>
-      <dt>How to test</dt>
-      <dd>
-         <ul>
-            <li> Step 1: The openapi.json MUST be available, readable and parsable.</br>
-                 Error: <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L356">Error at line 356 - "OpenAPI Specification is required"</a>  </li>
-            <li> Step 2: In the open api specification the info and version fields MUST be available.</br>
-                 Error: <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L368">Error at line 368 - "No version found"</a>  </li>
-            <li> Step 3: The version MUST comply with Semantic Versioning.</br>
-                 Error: <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L373">Error at line 373 - "Version ... is not in SemVer format"</a>  </li>
-         </ul>
-      </dd>
       <dt>Rule types</dt>
       <dd>
          This is a technical design rule and hence should be tested automatically.
       </dd>
+      <dt>How to test</dt>
+      <dd>
+         <ul>
+            <li> Step 1: The API MUST meet the prerequisets to be tested. These include that an OAS file (openapi.json) is publicly available, parsable, all $refs are resolvable and paths are defined.</li>
+            <li> Step 2: In the open api specification the info and version object MUST be available.</li>
+            <li> Step 3: The version MUST comply with Semantic Versioning.</li>
+         </ul>
+      </dd> 
    </dl>
 </div>
 
@@ -738,18 +728,16 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       <dd>
          This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/main/pkg/adr/rules.go#L393">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
       </dd>
-      <dt>How to test</dt>
-      <dd>
-         <ul>
-            <li> Step 1: A request to the base url MUST give a response and include the header "API-Version".</br>
-                 Error: <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L405">Error at line 405 - "API-Version header not found"</a>  </li>
-            <li> Step 2: The response of the header MUST have a valid Semantic Versioning number.</br>
-                 Error: <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L411">Error at line 411 - "Version ... is not in SemVer format"</a>  </li>
-         </ul>
-      </dd>
       <dt>Rule types</dt>
       <dd>
          This is a technical design rule and hence should be tested automatically.
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         <ul>
+            <li> Step 1: A request to the base url MUST give a response and include the header "API-Version".</li>
+            <li> Step 2: The response of the header MUST have a valid Semantic Versioning number.</li>
+         </ul>
       </dd>
    </dl>
 </div>
