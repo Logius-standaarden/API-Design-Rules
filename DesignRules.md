@@ -264,18 +264,33 @@ Although the REST architectural style does not impose a specific protocol, REST 
       </tbody>
       </table>
    </div>
-	<p class="note">The HTTP specification [[rfc7231]] and the later introduced <code>PATCH</code> method specification [[rfc5789]] offer a set of standard methods, where every method is designed with explicit semantics. HTTP also defines other methods, e.g. <code>HEAD</code>, <code>OPTIONS</code> and <code>TRACE</code>. For the purpose of this design rule, these operations are left out of scope.</p>
-        <dt>How to test</dt>
+	<p class="note">The HTTP specification [[rfc7231]] and the later introduced <code>PATCH</code> method specification [[rfc5789]] offer a set of standard methods, where every method is designed with explicit semantics. HTTP also defines other methods, e.g. <code>HEAD</code>, <code>OPTIONS</code>, <code>TRACE</code> and <code>CONNECT</code>.<br>
+  According to <a href="https://datatracker.ietf.org/doc/html/rfc7231#section-4.1">RFC 7231 4.1</a> the <code>GET</code> and <code>HEAD</code> HTTP methods MUST be supported by the server, all other methods are optional.<br>
+  In additon to the standard HTTP methods, a server may support other optional methods as well, e.g. <code>PROPFIND</code>, <code>COPY</code>, <code>PURGE</code>, <code>VIEW</code>, <code>LINK</code>, <code>UNLINK</code>, <code>LOCK</code>, <code>UNLOCK</code> etc.<br>
+  If an optional HTTP request method is send to a server and the server does not support that HTTP method, a HTTP status code <code>405 Method Not Allowed</code> shall be returned and a list of allowed methods for the target resource shall be provided in the <code>Allowed</code> header in the response as stated in <a href="https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.5">RFC 7231 6.5.5</a>.</p>
+      <dt>How to test</dt>
+      <p>Test case 1:</p>
       <dd>
          <ul>
-            <li> Step 1: The API MUST meet the prerequisets to be tested. These include that an OAS file is publicly available, parsable, all $refs are resolvable and paths are defined.</li>
-            <li> Step 2: Try non standard methods on the base url mentioned in the OAS file. The server MUST not respond to non-standard methods.</li>
-      </ul>
+            <li> Step 1: The API MUST meet the prerequisites to be tested. These include that an OAS file is publicly available, parsable, all $refs are resolvable and paths are defined.</li>
+            <li> Step 2: Send a HTTP GET or HEAD request to any of the endpoints mentioned in the OAS file. tandard methods on the base url mentioned in the OAS file. The server return a 200 OK response.</li>
+        </ul>
       </dd>
       <dt>Rule types</dt>
       <dd>
          This is a technical design rule and hence should be tested automatically.
       </dd>
+     <p>Test case 2:</p>
+      <dd>
+         <ul>
+            <li> Step 1: The API MUST meet the prerequisites to be tested. These include that an OAS file is publicly available, parsable, all $refs are resolvable and paths are defined.</li>
+            <li> Step 2: Send a request to the API with an optional HTTP method that is not supported by the API. The server MUST respond with a HTTP status code <code>405 Method Not Allowed</code>. The response MUST contain an <code>Allowed</code> header with a list of supported methods for the target resource.</li>
+      </ul>
+      </dd>
+      <dt>Rule types</dt>
+      <dd>
+         This is a technical design rule and hence should be tested automatically.
+      </dd>      
    </dl>
 </div>
 
