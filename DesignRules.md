@@ -280,7 +280,18 @@ Although the REST architectural style does not impose a specific protocol, REST 
       <dd>
          This is a technical design rule and hence should be tested automatically.
       </dd>
-     <p>Test case 2:</p>
+      <p>Test case 2:</p>
+      <dd>
+         <ul>
+            <li> Step 1: The API MUST meet the prerequisites to be tested. These include that an OAS file is publicly available, parsable, all $refs are resolvable and paths are defined.</li>
+            <li> Step 2: Send a request to the API with an optional HTTP method that is supported by the API. The server MUST respond with a HTTP status code other than <code>405 Method Not Allowed</code>.</li>
+      </ul>
+      </dd>
+      <dt>Rule types</dt>
+      <dd>
+         This is a technical design rule and hence should be tested automatically.
+      </dd>
+     <p>Test case 3:</p>
       <dd>
          <ul>
             <li> Step 1: The API MUST meet the prerequisites to be tested. These include that an OAS file is publicly available, parsable, all $refs are resolvable and paths are defined.</li>
