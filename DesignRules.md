@@ -4,7 +4,7 @@
 
 The REST architectural style is centered around the concept of a [resource](#dfn-resource). A resource is the key abstraction of information, where every piece of information is named by assigning a globally unique [URI](#dfn-uri) (Uniform Resource Identifier). Resources describe *things*, which can vary between physical objects (e.g. a building or a person) and more abstract concepts (e.g. a permit or an event).
 
-<a name="api-05"></a>
+<span id="api-05"></span>
 <div class="rule" id="/core/naming-resources">
    <p class="rulelab"><b>/core/naming-resources</b>: Use nouns to name resources</p>
    <dl>
@@ -41,7 +41,7 @@ The REST architectural style is centered around the concept of a [resource](#dfn
 
 A resource describing a single thing is called a [singular resource](#dfn-singular-resource). Resources can also be grouped into collections, which are resources in their own right and can typically be paged, sorted and filtered. Most often all collection members have the same type, but this is not necessarily the case. A resource describing multiple things is called a [collection resource](#dfn-collection-resource). Collection resources typically contain references to the underlying singular resources.
 
-<a name="api-54"></a>
+<span id="api-54"></span>
 <div class="rule" id="/core/naming-collections">
    <p class="rulelab"><b>/core/naming-collections</b>: Use plural nouns to name collection resources</p>
    <dl>
@@ -78,7 +78,7 @@ A resource describing a single thing is called a [singular resource](#dfn-singul
    </dl>
 </div>
 
-<a name="api-04"></a>
+<span id="api-04"></span>
 <div class="rule" id="/core/interface-language">
    <p class="rulelab"><b>/core/interface-language</b>: Define interfaces in Dutch unless there is an official English glossary available</p>
    <dl>
@@ -102,7 +102,7 @@ A resource describing a single thing is called a [singular resource](#dfn-singul
    </dl>
 </div>
 
-<a name="api-48"></a>
+<span id="api-48"></span>
 <div class="rule" id="/core/no-trailing-slash">
    <p class="rulelab"><b>/core/no-trailing-slash</b>: Leave off trailing slashes from URIs</p>
    <dl>
@@ -131,7 +131,7 @@ A resource describing a single thing is called a [singular resource](#dfn-singul
    </dl>
 </div>
 
-<a name="api-53"></a>
+<span id="api-53"></span>
 <div class="rule" id="/core/hide-implementation">
    <p class="rulelab"><b>/core/hide-implementation</b>: Hide irrelevant implementation details</p>
    <dl>
@@ -166,7 +166,7 @@ A resource describing a single thing is called a [singular resource](#dfn-singul
 
 Although the REST architectural style does not impose a specific protocol, REST APIs are typically implemented using HTTP [[rfc7231]].
 
-<a name="api-03"></a>
+<span id="api-03"></span>
 <div class="rule" id="/core/http-methods">
    <p class="rulelab"><b>/core/http-methods</b>: Only apply standard HTTP methods</p>
    <dl>
@@ -263,7 +263,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
 	<p class="note">The HTTP specification [[rfc7231]] and the later introduced <code>PATCH</code> method specification [[rfc5789]] offer a set of standard methods, where every method is designed with explicit semantics. HTTP also defines other methods, e.g. <code>HEAD</code>, <code>OPTIONS</code> and <code>TRACE</code>. For the purpose of this design rule, these operations are left out of scope.</p>
 </div>
 
-<a name="api-01"></a>
+<span id="api-01"></span>
 <div class="rule" id="/core/http-safety">
    <p class="rulelab"><b>/core/http-safety</b>: Adhere to HTTP safety and idempotency semantics for operations</p>
    <dl>
@@ -349,7 +349,7 @@ Stateless communication offers many advantages, including:
 * *Observability* is improved since every request can be monitored or analyzed in isolation without having to incorporate session context from other requests
 * *Reliability* is improved because it eases the task of recovering from partial failures since the server doesn't have to maintain, update or communicate session state. One failing request does not influence other requests (depending on the nature of the failure of course).
 
-<a name="api-02"></a>
+<span id="api-02"></span>
 <div class="rule" id="/core/stateless">
    <p class="rulelab"><b>/core/stateless</b>: Do not maintain session state on the server</p>
    <dl>
@@ -377,7 +377,7 @@ Stateless communication offers many advantages, including:
 
 Resources are often interconnected by relationships. Relationships can be modelled in different ways depending on the cardinality, semantics and more importantly, the use cases and access patterns the REST API needs to support.
 
-<a name="api-06"></a>
+<span id="api-06"></span>
 <div class="rule" id="/core/nested-child">
   <p class="rulelab"><b>/core/nested-child</b>: Use nested URIs for child resources</p>
   <dl>
@@ -414,7 +414,7 @@ Resources are often interconnected by relationships. Relationships can be modell
 
 ## Operations
 
-<a name="api-10"></a>
+<span id="api-10"></span>
 <div class="rule" id="/core/resource-operations">
   <p class="rulelab"><b>/core/resource-operations</b>: Model resource operations as a sub-resource or dedicated resource</p>
   <dl>
@@ -450,7 +450,7 @@ Resources are often interconnected by relationships. Relationships can be modell
 
 An API is as good as the accompanying documentation. The documentation has to be easily findable, searchable and publicly accessible. Most developers will first read the documentation before they start implementing. Hiding the technical documentation in PDF documents and/or behind a login creates a barrier for both developers and search engines.
 
-<a name="api-16"></a>
+<span id="api-16"></span>
 <div class="rule" id="/core/doc-openapi">
   <p class="rulelab"><b>/core/doc-openapi</b>: Use OpenAPI Specification for documentation</p>
   <dl>
@@ -474,7 +474,7 @@ An API is as good as the accompanying documentation. The documentation has to be
    </dl>
 </div>
 
-<a name="api-17"></a>
+<span id="api-17"></span>
 <div class="rule" id="/core/doc-language">
   <p class="rulelab"><b>/core/doc-language</b>: Publish documentation in Dutch unless there is existing documentation in English</p>
   <dl>
@@ -497,7 +497,7 @@ An API is as good as the accompanying documentation. The documentation has to be
    </dl>
 </div>
 
-<a name="api-51"></a>
+<span id="api-51"></span>
 <div class="rule" id="/core/publish-openapi">
   <p class="rulelab"><b>/core/publish-openapi</b>: Publish OAS document at a standard location in JSON-format</p>
    <dl>
@@ -532,7 +532,7 @@ An API is as good as the accompanying documentation. The documentation has to be
 
 Changes in APIs are inevitable. APIs should therefore always be versioned, facilitating the transition between changes.
 
-<a name="api-18"></a>
+<span id="api-18"></span>
 <div class="rule" id="/core/deprecation-schedule">
   <p class="rulelab"><b>/core/deprecation-schedule</b>: Include a deprecation schedule when deprecating features or versions</p>
    <dl>
@@ -555,7 +555,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
    </dl>
 </div>
 
-<a name="api-19"></a>
+<span id="api-19"></span>
 <div class="rule" id="/core/transition-period">
   <p class="rulelab"><b>/core/transition-period</b>: Schedule a fixed transition period for a new major API version</p>
    <dl>
@@ -578,7 +578,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
    </dl>
 </div>
 
-<a name="api-20"></a>
+<span id="api-20"></span>
 <div class="rule" id="/core/uri-version">
   <p class="rulelab"><b>/core/uri-version</b>: Include the major version number in the URI</p>
     <dl>
@@ -605,7 +605,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
    </dl>
 </div>
 
-<a name="api-55"></a>
+<span id="api-55"></span>
 <div class="rule" id="/core/changelog">
   <p class="rulelab"><b>/core/changelog</b>: Publish a changelog for API changes between versions</p>
    <dl>
@@ -628,7 +628,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
    </dl>
 </div>
 
-<a name="api-56"></a>
+<span id="api-56"></span>
 <div class="rule" id="/core/semver">
   <p class="rulelab"><b>/core/semver</b>: Adhere to the Semantic Versioning model when releasing API changes</p>
   <dl>
@@ -651,7 +651,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
    </dl>
 </div>
 
-<a name="api-57"></a>
+<span id="api-57"></span>
 <div class="rule" id="/core/version-header">
   <p class="rulelab"><b>/core/version-header</b>: Return the full version number in a response header</p>
    <dl>
