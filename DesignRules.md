@@ -461,6 +461,8 @@ An API is as good as the accompanying documentation. The documentation has to be
       <dt>Rationale</dt>
       <dd>
          The OpenAPI Specification (OAS) [[OPENAPIS]] defines a standard, language-agnostic interface to RESTful APIs which allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection. When properly defined, a consumer can understand and interact with the remote service with a minimal amount of implementation logic.
+      </dd>
+      <dd>
          API documentation must be provided in the form of an OpenAPI definition document which conforms to the OpenAPI Specification (from v3 onwards). As a result, a variety of tools can be used to render the documentation (e.g. Swagger UI or ReDoc) or automate tasks such as testing or code generation. The OAS document should provide clear descriptions and examples.
       </dd>
       <dt>Implications</dt>
@@ -542,8 +544,37 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       </dd>
       <dt>Rationale</dt>
       <dd>
-         Managing change is important. In general, well documented and timely communicated deprecation schedules are the most important for API users. When deprecating features or versions, a deprecation schedule must be published. This document should be published on a public web page. Furthermore, active clients should be informed by e-mail once the schedule has been updated or when versions have reached end-of-life.
+         Managing change is important. In general, well documented and timely communicated deprecation schedules are the most important for API users. When deprecating features or versions, a deprecation schedule MUST be published in the OpenAPI document. 
+      </dt>
+      <dd>   
+         Furthermore, active clients should be informed by e-mail once the schedule has been updated or when versions have reached end-of-life. Because the OpenAPI specification hasn't decided on the <code>info.lifecycle</code> object <a href="https://github.com/OAI/OpenAPI-Specification/issues/1973">(see issue #1973 for more information)</a> the OpenAPI document MUST contain the <code>info.x-edelivery.lifecycle</code> object following the structure below:
       </dd>
+      <table>
+      <tr>
+         <th>Field Name</th>
+         <th>Type</th>
+         <th>Description</th>
+         <th>Optionality</th>
+      </tr>
+      <tr>
+         <td>maturity</td>
+         <td>string</td>
+         <td>The maturity level of the API. <br/>It MUST contain one of the following values:<br/>- development<br/>- supported<br/>- deprecated</td>
+         <td>Mandatory</td>
+      </tr>
+      <tr>
+         <td>deprecatedAt</td>
+         <td>string</td>
+         <td>The date when the API has been deprecated. The date format MUST follow [[RFC3339]]</td>
+         <td>Optional</td>
+      </tr>
+         <tr>
+         <td>sunsetAt</td>
+         <td>string</td>
+         <td>The date when the API will be sunset. The date format MUST follow [[RFC3339]]</td>
+         <td>Optional</td>
+      </tr>
+      </table>
       <dt>Implications</dt>
       <dd>
          Adherance to this rule needs to be manually verified.
@@ -552,6 +583,9 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       <dd>
          This is a functional design rule and hence can't be tested automatically.
       </dd>
+      <div class="note">
+         <p>This rule follows the [[eDelivery API4IPS]] specification.</p>
+      </div>
    </dl>
 </div>
 
@@ -565,7 +599,35 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       </dd>
       <dt>Rationale</dt>
       <dd>
-         When releasing a new major API version, the old version must remain available for a limited and fixed deprecation period. Offering a deprecation period allows clients to carefully plan and execute the migration from the old to the new API version, as long as they do this prior to the end of the deprecation period. A maximum of 2 major API versions may be published concurrently.
+         When releasing a new major API version, the old version must remain available for a limited and fixed deprecation period. A maximum of 2 major API versions may be published concurrently.
+      </dd>
+      <dd>   
+         Deprecation of resources and operations is considered a mechanism for a smooth transition between major versions. Resources and operations affected by backward-incompatible changes MUST be marked as deprecated before being removed or otherwise changed in a new major version of the API. Deprecation of the API could be applied at the operation level (resource + HTTP verb) or for the API as a whole.
+      </dd>
+      <dd>
+         When deprecating individual operations, the use of the <code>deprecated</code> attribute for the concerned operation(s) MUST be set to <code>true</code> in the OpenAPI Document of the API. Furthermore, the Deprecation HTTP Response Header for the specific operation MUST be set to true, according to the <a href="https://datatracker.ietf.org/doc/html/draft-ietf-httpapi-deprecation-header">Deprecation Response Header Internet-Draft</a>.
+      </dd>
+      <dd>
+         When deprecating the API as a whole, the OpenAPI Document of the API must contain in the <code>info.x-edelivery.lifecycle</code> property the following declared attributes:<br/>
+            - The <code>info.x-edelivery.lifecycle.maturity</code> attribute MUST be set to <code>depricated</code>.<br/>
+            - The <code>info.x-edelivery.lifecycle.deprecatedAt</code> attribute MUST be set to the date the API was deprecated.<br/>
+      </dd>
+      <div class="example">
+         <p>An example of a depricated API</p>
+         <pre>
+            OpenAPI:
+               ...
+               info: 
+                  ...
+                  x-edelivery:
+                     lifecycle:
+                        maturity: deprecated
+                        deprecatedAt: 2020-12-31
+                  ...
+         </pre>
+      </div>
+      <dd>
+         Furthermore, when the API is deprecated as a whole, the Deprecation HTTP Response Header for every operation MUST also be set to true, according to the Deprecation Response Header Internet-Draft.
       </dd>
       <dt>Implications</dt>
       <dd>
@@ -575,6 +637,9 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       <dd>
          This is a functional design rule and hence can't be tested automatically.
       </dd>
+      <div class="note">
+         <p>This rule follows the [[eDelivery API4IPS]] specification.</p>
+      </div>
    </dl>
 </div>
 
@@ -602,6 +667,9 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       <dd>
          This is a technical design rule and hence should be tested automatically.
       </dd>
+      <div class="note">
+         <p>This rule is in line with the [[eDelivery API4IPS]] specification.</p>
+      </div>
    </dl>
 </div>
 
@@ -648,6 +716,9 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       <dd>
          This is a technical design rule and hence should be tested automatically.
       </dd>
+      <div class="note">
+         <p>This rule is in line with the [[eDelivery API4IPS]] specification.</p>
+      </div>
    </dl>
 </div>
 
