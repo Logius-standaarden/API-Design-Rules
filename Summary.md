@@ -22,6 +22,7 @@ Design rules can be technical rules, which should be tested automatically and fu
 * <a href="#/core/hide-implementation">/core/hide-implementation</a>: Hide irrelevant implementation details.
 * <a href="#/core/naming-collections">/core/naming-collections</a>: Use plural nouns to name collection resources.
 * <a href="#/core/changelog">/core/changelog</a>: Publish a changelog for API changes between versions.
+* <a href="/core/geo">/core/geo</a>: Use the GEO module for geospatial content.
 
 #### List of technical rules
 

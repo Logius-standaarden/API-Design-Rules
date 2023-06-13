@@ -25,4 +25,10 @@
   <dd>
     <p>A URI [[rfc3986]] (Uniform Resource Identifier) is a globally unique identifier for a resource.</p>
   </dd>
+  <dt>
+    <dfn id="dfn-ogc" data-dfn-type="dfn">OGC</dfn>
+  </dt>
+  <dd>
+    <p><a href="https://www.ogc.org/">OGC</a> is a consortium of experts committed to improving access to geospatial, or location information.</p>
+  </dd>
 </dl>

@@ -108,11 +108,11 @@ A resource describing a single thing is called a [singular resource](#dfn-singul
    <dl>
       <dt>Statement</dt>
       <dd>
-         A URI must never contain a trailing slash. When requesting a resource including a trailing slash, this must result in a 404 (not found) error response and not a redirect. This enforces API consumers to use the correct URI.
+         A [URI](#dfn-uri) must never contain a trailing slash. When requesting a resource including a trailing slash, this must result in a 404 (not found) error response and not a redirect. This enforces API consumers to use the correct [URI](#dfn-uri).
       </dd>
       <dt>Rationale</dt>
       <dd>
-         To avoid confusion and ambiguity, a URI must never contain a trailing slash. When requesting a resource including a trailing slash, this must result in a `404` (not found) error response and not a redirect. This enforces API consumers to use the correct URI.
+         To avoid confusion and ambiguity, a [URI](#dfn-uri) must never contain a trailing slash. When requesting a resource including a trailing slash, this must result in a `404` (not found) error response and not a redirect. This enforces API consumers to use the correct [URI](#dfn-uri).
          <div class="example">
             <p>URI without a trailing slash (correct):</p>
             <pre>https://api.example.org/v1/gebouwen</pre>
@@ -189,7 +189,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
                <tr>
                   <td><code>GET</code></td>
                   <td>Read</td>
-                  <td>Retrieve a resource representation for the given URI. Data is only retrieved and never modified.</td>
+                  <td>Retrieve a resource representation for the given [URI](#dfn-uri). Data is only retrieved and never modified.</td>
                </tr>
                <tr>
                   <td><code>POST</code></td>
@@ -199,7 +199,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
                <tr>
                   <td><code>PUT</code></td>
                   <td>Create/update</td>
-                  <td>Create a resource with the given URI or replace (full update) a resource when the resource already exists.</td>
+                  <td>Create a resource with the given [URI](#dfn-uri) or replace (full update) a resource when the resource already exists.</td>
                </tr>
                <tr>
                   <td><code>PATCH</code></td>
@@ -209,7 +209,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
                <tr>
                   <td><code>DELETE</code></td>
                   <td>Delete</td>
-                  <td>Remove a resource with the given URI.</td>
+                  <td>Remove a resource with the given [URI](#dfn-uri).</td>
                </tr>
             </tbody>
          </table>
@@ -383,7 +383,7 @@ Resources are often interconnected by relationships. Relationships can be modell
   <dl>
       <dt>Statement</dt>
       <dd>
-         When having a child resource which can only exist in the context of a parent resource, the URI should be nested.
+         When having a child resource which can only exist in the context of a parent resource, the [URI](#dfn-uri) should be nested.
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -507,7 +507,7 @@ An API is as good as the accompanying documentation. The documentation has to be
       </dd>
       <dt>Rationale</dt>
       <dd>
-         <p> Clients (such as Swagger UI or ReDoc) must be able to retrieve the document without having to authenticate. Furthermore, the CORS policy for this URI must allow external domains to read the documentation from a browser environment.</p>
+         <p> Clients (such as Swagger UI or ReDoc) must be able to retrieve the document without having to authenticate. Furthermore, the CORS policy for this [URI](#dfn-uri) must allow external domains to read the documentation from a browser environment.</p>
          <p>The standard location for the OAS document is a URI called <code>openapi.json</code> or <code>openapi.yaml</code> within the base path of the API. This can be convenient, because OAS document updates can easily  become part of the CI/CD process.</p>
          <p>At least the JSON format must be supported. When having multiple (major) versions of an API, every API should provide its own OAS document(s).</p>
          <div class="example">
@@ -584,11 +584,11 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
     <dl>
       <dt>Statement</dt>
       <dd>
-         The URI of an API must include the major version number.
+         The [URI](#dfn-uri) of an API must include the major version number.
       </dd>
       <dt>Rationale</dt>
       <dd>
-         The URI of an API (base path) must include the major version number, prefixed by the letter <code>v</code>. This allows the exploration of multiple versions of an API in the browser. The minor and patch version numbers are not part of the URI and may not have any impact on existing client implementations.
+         The [URI](#dfn-uri) of an API (base path) must include the major version number, prefixed by the letter <code>v</code>. This allows the exploration of multiple versions of an API in the browser. The minor and patch version numbers are not part of the [URI](#dfn-uri) and may not have any impact on existing client implementations.
       <div class="example">
          <p>An example of a base path for an API with current version 1.0.2:</p>
          <pre>https://api.example.org/v1/</pre>
@@ -679,5 +679,32 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
    </dl>
 </div>
 
+## Geospatial
 
+Geospatial content is becomming more common in every modern API. APIs containing [OGC](#dfn-ogc) compliant features should therefore be compliant with geospatial specific rules.
+  
+<div class="rule" id="/core/geo">
+  <p class="rulelab"><b>/core/geo</b>: Use the GEO module for geospatial content</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         Use the specific GEO module when designing an API for geospatial content and functions.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         <p>The NL API Strategy [[Geospatial Module]] provides rules for publishing geospatial data using Web APIs. Spatial data is data that describes anything with spatial extent (i.e. size, shape or position). Spatial data is also known as location information. [[sdw-bp]] </p>
+         <p>Geospatial data is more specific in that it is explicitly located relative to the Earth.</p>
+         <p>The [[Geospatial Module]] rules MUST be applied for the structuring of geospatial payloads and for functions in APIs to handle geospatial data in line with <a href="https://ogcapi.ogc.org/features/">the Open Geospatial Consortium (OGC) API Features.</a></p>
+         <p>Aplying these rules on APIs for Geographic Information System (GIS) and Administrative functions is OPTIONAL.</p>
+      </dd>
+      <dt>Implications</dt>
+      <dd>
+         Adherance to this rule needs to be manually verified.
+      </dd>
+      <dt>Rule types</dt>
+      <dd>
+         This is a functional design rule and hence can't be tested automatically.
+      </dd>
+   </dl>
+</div>
 
