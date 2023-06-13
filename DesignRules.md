@@ -693,7 +693,6 @@ Geospatial content is becomming more common in every modern API. APIs containing
       <dt>Rationale</dt>
       <dd>
          <p>The NL API Strategy [[Geospatial Module]] provides rules for publishing geospatial data using Web APIs. Spatial data is data that describes anything with spatial extent (i.e. size, shape or position). Spatial data is also known as location information. [[sdw-bp]] </p>
-         <p>Geospatial data is more specific in that it is explicitly located relative to the Earth.</p>
          <p>The [[Geospatial Module]] rules MUST be applied for the structuring of geospatial payloads and for functions in APIs to handle geospatial data in line with <a href="https://ogcapi.ogc.org/features/">the Open Geospatial Consortium (OGC) API Features.</a></p>
          <p>Aplying these rules on APIs for Geographic Information System (GIS) and Administrative functions is OPTIONAL.</p>
       </dd>
