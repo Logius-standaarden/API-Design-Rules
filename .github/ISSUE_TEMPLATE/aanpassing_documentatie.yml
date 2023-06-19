@@ -1,0 +1,43 @@
+name: Aanpassing op documentatie
+description: Stel een (tekstueele) wijziging voor in de documentatie van de Digikoppeling standaard
+title: "RFC ..."
+labels: ["digikoppeling", "documentatie"]
+body:
+  - type: checkboxes
+    id: standaard
+    attributes:
+      label: Soort
+      description: Om wat voor wijziging gaat het?
+      options:
+        - label: Tekstuele fout
+        - label: Verbetersuggestie
+        - label: Onduidelijke tekst
+  - type: textarea
+    id: omschrijving
+    attributes:
+      label: Omschrijving
+      description: Wat is de voorgestelde wijziging? Op welke pagina of sectie staat het?
+      placeholder: Tik hier uw voorgestelde wijziging
+    validations:
+      required: true
+  - type: input
+    id: contact
+    attributes:
+      label: Naam
+      description: Naam. Uw naam wordt online getoond in het issue. U kunt ook anoniem invullem.
+    validations:
+      required: false
+  - type: input
+    id: email
+    attributes:
+      label: Email
+      description: E-mail adres. Uw e-mail adres wordt online getoond in het issue. U kunt ook anoniem invullem.
+    validations:
+      required: false
+  - type: input
+    id: organisatie
+    attributes:
+      label: Organisatie
+      description: Naam van uw organisatie. Dit veld is verplicht omdat we deze in het overzicht opnemen.
+    validations:
+      required: true
