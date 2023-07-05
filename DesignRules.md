@@ -679,5 +679,103 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
    </dl>
 </div>
 
+<div class="rule" id="/core/backward-compatibility">
+  <p class="rulelab"><b>/core/backward-compatibility</b>: The API designer should strive for backward-compatible changes</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         The API designer should strive for API evolution and backward-compatible changes rather than backward-incompatible changes with existing client code.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         Backward-compatible changes that do not affect any of the clients include the addition of new operations and schemas. Also, depending on the client's expectations, the addition of optional fields into pre-existing schemas MAY be considered a backward-compatible change.
+      </dd>
+      <dd>   
+         The API designer might require to introduce a backward-incompatible change with existing client code. The following changes are considered backward-incompatible:<br/>
+         <ul>
+            <li>Removing, renaming, or moving API entities such as:</li>
+            <ul>
+               <li>operation endpoints</li>
+               <li>HTTP methods associated with endpoints</li>
+               <li>operation query, body, or header parameters</li>
+               <li>schema properties</li>
+               <li>security schemes</li>
+            </ul>
+               <li>Changing the way how existing features need to be used, e.g. by introducing new preconditions to be fulfilled</li>
+               <li>Changing an already present workflow</li>
+               <li>Making optional parameters or schema properties mandatory</li>
+               <li>Changing documented functional or non-functional behaviour in significant ways</li>
+         </ul>
+      </dd>
+      <dd>
+         Furthermore, the REST API designer may consider any other changes that are not strictly breaking as backward-incompatible, and thus warranting a major version upgrade, if there is a potential impact of the current client base that requires a proper migration period.
+      </dd>
+      <dd>
+         Also, depending on the client's expectations, the addition of optional fields into pre-existing schemas SHOULD be considered a backward-incompatible change.
+      </dd>
+      <dt>Implications</dt>
+      <dd>
+         Adherance to this rule needs to be manually verified.
+      </dd>
+      <dt>Rule types</dt>
+      <dd>
+         This is a functional design rule and hence can't be tested automatically.
+      </dd>
+      <div class="note">
+         <p>This rule follows the [[eDelivery API4IPS]] specification.</p>
+      </div>
+   </dl>
+</div>
 
-
+<div class="rule" id="/core/sunset">
+  <p class="rulelab"><b>/core/sunset</b>: Sunsetting of operations is done with the use of semantic versioning</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         Sunsetting of operations is done with the use of semantic versioning.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         When releasing a new major API version, the old version must remain available for a limited and fixed deprecation period. Afterwards the API version MUST be sunset.
+      </dd>
+      <dd>   
+         New major versions of the API MUST have all the deprecated operations of the previous major versions removed. It is recommended practice to announce deprecation sufficiently in advance to allow clients to upgrade.
+      </dd>
+      <dd>
+         For sunsetting the API, the OpenAPI Document of the API must contain in the <code>info.x- edelivery.lifecycle</code> property the following declared attributes:
+         <ul>
+            <li>The <code>info.x-edelivery.lifecycle.deprecatedAt</code> attribute MUST be set to <code>depricated</code>.
+            <li>The <code>info.x-edelivery.lifecycle.deprecatedAt</code> attribute MUST be set to the <code>date</code> the API was deprecated.
+            <li>The <code>info.x-edelivery.lifecycle.sunsetAt</code> attribute MUST be set to the <code>date</code> the API will be withdrawn and not accessible any more.
+      </dd>
+      <div class="example">
+         <p>An example of a sunset API</p>
+         <pre>
+            OpenAPI:
+               ...
+               info: 
+                  ...
+                  x-edelivery:
+                     lifecycle:
+                        maturity: deprecated
+                        deprecatedAt: 2020-12-31
+                        sunsetAt: 2021-02-28
+                  ...
+         </pre>
+      </div>
+      <dd>
+         Furthermore, when the API is marked as sunset, the Deprecation HTTP Response Header for every operation MUST also be set to true, according to the Deprecation Response Header Internet-Draft and the Sunset HTTP Response Header [[RFC8594]] for every operation must be set to the date the API is to be sunset.
+      </dd>
+      <dt>Implications</dt>
+      <dd>
+         Adherance to this rule needs to be manually verified.
+      </dd>
+      <dt>Rule types</dt>
+      <dd>
+         This is a functional design rule and hence can't be tested automatically.
+      </dd>
+      <div class="note">
+         <p>This rule follows the [[eDelivery API4IPS]] specification.</p>
+      </div>
+   </dl>
+</div>

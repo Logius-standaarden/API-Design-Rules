@@ -9,7 +9,7 @@ Design rules have unique and permanent numbers. In the event of design rules bei
 Design rules can be technical rules, which should be tested automatically and functional rules which should be considerd when designing and building the api.
 
 #### List of functional rules
-
+Origional version 1.0.0 ruleset:
 * <a href="#/core/http-safety">/core/http-safety</a>: Adhere to HTTP safety and idempotency semantics for operations.
 * <a href="#/core/stateless">/core/stateless</a>: Do not maintain session state on the server.
 * <a href="#/core/interface-language">/core/interface-language</a>: Define interfaces in Dutch unless there is an official English glossary available.
@@ -23,8 +23,12 @@ Design rules can be technical rules, which should be tested automatically and fu
 * <a href="#/core/naming-collections">/core/naming-collections</a>: Use plural nouns to name collection resources.
 * <a href="#/core/changelog">/core/changelog</a>: Publish a changelog for API changes between versions.
 
-#### List of technical rules
+Additional eDelivery compliant rules:  
+* <a href="#/core/backward-compatibility">/core/backward-compatibility</a>: The API designer should strive for backward-compatible changes.
+* <a href="#/core/sunset">/core/sunset</a>: Sunsetting of operations is done with the use of semantic versioning.
 
+#### List of technical rules
+Origional version 1.0.0 ruleset:
 * <a href="#/core/http-methods">/core/http-methods</a>: Only apply standard HTTP methods.
 * <a href="#/core/doc-openapi">/core/doc-openapi</a>: Use OpenAPI Specification for documentation.
 * <a href="#/core/uri-version">/core/uri-version</a>: Include the major version number in the URI.
