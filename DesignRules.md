@@ -1,4 +1,4 @@
-# The Design Rules
+# The core set of Design Rules
 
 ## Resources
 
@@ -444,6 +444,39 @@ Resources are often interconnected by relationships. Relationships can be modell
   
   <p>
   <p></p>
+</div>
+
+## Conditional Modules
+
+As described in <a href="#extensions">the Extensions paragraph</a> the NL API Strategy is composed of a set of modules that are extentions on <a href="#the-core-set-of-design-rules">the Core set of Design Rules</a>. The modules are optional or conditional. Optional rules can be found in the infographic. All conditional modules are referenced in this document and the 'conditional usage' is formalized as a unique designrule.
+
+<span id="api-tls"></span>
+<div class="rule" id="/core/conditional/transport-security">
+  <p class="rulelab"><b>/core/conditional/transport-security</b>: Apply transport security conform the module</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         When handling government data the transport security module MUST be applied.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         The transport security module as described and published on <a href="https://github.com/Geonovum/KP-APIs">Github</a> formalizes three simple rules to apply to API's:
+         <ol>
+         <li>Secure connections using TLS</li>
+         <li>No sensitive information in URIs</li>
+         <li>Use CORS to control access</li>
+         </ol>
+         Furthermore the module describes best practices for security headers, browser-based applications, and other HTTP configurations. These best practices Must be considerd and the considerations SHOULD be published in the API documentation. Hence the transport security is the baseline for REST API resources and the data concerned is a vital asset of the government the rules and best practices are condiderd the minimal security principles, concepts and technologies to apply.
+      </dd>
+      <dt>Implications</dt>
+      <dd>
+         Adherance to this rule needs to be manually verified. Some rules of the module COULD be tested automatically and will be shown on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of these technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/main/pkg/adr/rules.go">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
+      </dd>
+      <dt>Rule types</dt>
+      <dd>
+         This is a functional design rule and hence can't be tested automatically.
+      </dd>
+   </dl>
 </div>
 
 ## Documentation
