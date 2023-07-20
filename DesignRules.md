@@ -2,7 +2,7 @@
 
 ## Resources
 
-The REST architectural style is centered around the concept of a [resource](#dfn-resource). A resource is the key abstraction of information, where every piece of information is named by assigning a globally unique [URI](#dfn-uri) (Uniform Resource Identifier). Resources describe *things*, which can vary between physical objects (e.g. a building or a person) and more abstract concepts (e.g. a permit or an event).
+The REST architectural style is centered around the concept of a [=resource=]. A resource is the key abstraction of information, where every piece of information is named by assigning a globally unique [=URI=] (Uniform Resource Identifier). Resources describe *things*, which can vary between physical objects (e.g. a building or a person) and more abstract concepts (e.g. a permit or an event).
 
 <span id="api-05"></span>
 <div class="rule" id="/core/naming-resources">
@@ -39,7 +39,7 @@ The REST architectural style is centered around the concept of a [resource](#dfn
 </dl>
 </div>
 
-A resource describing a single thing is called a [singular resource](#dfn-singular-resource). Resources can also be grouped into collections, which are resources in their own right and can typically be paged, sorted and filtered. Most often all collection members have the same type, but this is not necessarily the case. A resource describing multiple things is called a [collection resource](#dfn-collection-resource). Collection resources typically contain references to the underlying singular resources.
+A resource describing a single thing is called a [=singular resource=]. Resources can also be grouped into collections, which are resources in their own right and can typically be paged, sorted and filtered. Most often all collection members have the same type, but this is not necessarily the case. A resource describing multiple things is called a [=collection resource=]. Collection resources typically contain references to the underlying singular resources.
 
 <span id="api-54"></span>
 <div class="rule" id="/core/naming-collections">
@@ -108,11 +108,11 @@ A resource describing a single thing is called a [singular resource](#dfn-singul
    <dl>
       <dt>Statement</dt>
       <dd>
-         A URI must never contain a trailing slash. When requesting a resource including a trailing slash, this must result in a 404 (not found) error response and not a redirect. This enforces API consumers to use the correct URI.
+         A [=URI=] must never contain a trailing slash. When requesting a resource including a trailing slash, this must result in a 404 (not found) error response and not a redirect. This enforces API consumers to use the correct [=URI=].
       </dd>
       <dt>Rationale</dt>
       <dd>
-         To avoid confusion and ambiguity, a URI must never contain a trailing slash. When requesting a resource including a trailing slash, this must result in a `404` (not found) error response and not a redirect. This enforces API consumers to use the correct URI.
+         To avoid confusion and ambiguity, a [=URI=] must never contain a trailing slash. When requesting a resource including a trailing slash, this must result in a `404` (not found) error response and not a redirect. This enforces API consumers to use the correct [=URI=].
          <div class="example">
             <p>URI without a trailing slash (correct):</p>
             <pre>https://api.example.org/v1/gebouwen</pre>
@@ -189,7 +189,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
                <tr>
                   <td><code>GET</code></td>
                   <td>Read</td>
-                  <td>Retrieve a resource representation for the given URI. Data is only retrieved and never modified.</td>
+                  <td>Retrieve a resource representation for the given [=URI=]. Data is only retrieved and never modified.</td>
                </tr>
                <tr>
                   <td><code>POST</code></td>
@@ -199,7 +199,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
                <tr>
                   <td><code>PUT</code></td>
                   <td>Create/update</td>
-                  <td>Create a resource with the given URI or replace (full update) a resource when the resource already exists.</td>
+                  <td>Create a resource with the given [=URI=] or replace (full update) a resource when the resource already exists.</td>
                </tr>
                <tr>
                   <td><code>PATCH</code></td>
@@ -209,7 +209,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
                <tr>
                   <td><code>DELETE</code></td>
                   <td>Delete</td>
-                  <td>Remove a resource with the given URI.</td>
+                  <td>Remove a resource with the given [=URI=].</td>
                </tr>
             </tbody>
          </table>
@@ -383,14 +383,14 @@ Resources are often interconnected by relationships. Relationships can be modell
   <dl>
       <dt>Statement</dt>
       <dd>
-         When having a child resource which can only exist in the context of a parent resource, the URI should be nested.
+         When having a child resource which can only exist in the context of a parent resource, the [=URI=] should be nested.
       </dd>
       <dt>Rationale</dt>
       <dd>
          In this use case, the child resource does not necessarily have a top-level collection resource. The best way to explain this design rule is by example.
       </dd>
     <div class="example">
-    <p>When modelling resources for a news platform including the ability for users to write comments, it might be a good strategy to model the <a href="#dfn-collection-resource">collection resources</a> hierarchically:</p>
+    <p>When modelling resources for a news platform including the ability for users to write comments, it might be a good strategy to model the [=collection resources=] hierarchically:</p>
     <pre>https://api.example.org/v1/articles/123/comments</pre>
     <p>The platform might also offer a photo section, where the same commenting functionality is offered. In the same way as for articles, the corresponding sub-collection resource might be published at:</p>
     <pre>https://api.example.org/v1/photos/456/comments</pre>
@@ -398,7 +398,7 @@ Resources are often interconnected by relationships. Relationships can be modell
     <p>From the consumer's perspective, this approach makes logical sense, because the most obvious use case is to show comments below the parent article or photo (e.g. on the same web page) including the possibility to paginate through the comments. The process of posting a comment is separate from the process of publishing a new article. Another client use case might also be to show a global <em>latest comments</em> section in the sidebar. For this use case, an additional resource could be provided:</p>
     <pre>https://api.example.org/v1/comments</pre>
     <p>If this would have not been a meaningful use case, this resource should not exist at all. Because it doesn't make sense to post a new comment from a global context, this resource would be read-only (only <code>GET</code> method is supported) and may possibly provide a more compact representation than the parent-specific sub-collections.</p>
-    <p>The <a href="#dfn-singular-resource">singular resources</a> for comments, referenced from all 3 collections, could still be modelled on a higher level to avoid deep nesting of URIs (which might increase complexity or problems due to the URI length):</p>
+    <p>The [=singular resources=] for comments, referenced from all 3 collections, could still be modelled on a higher level to avoid deep nesting of URIs (which might increase complexity or problems due to the URI length):</p>
     <pre>https://api.example.org/v1/comments/123<br />https://api.example.org/v1/comments/456</pre>
     <p>Although this approach might seem counterintuitive from a technical perspective (we simply could have modelled a single <code>/comments</code> resource with optional filters for article and photo) and might introduce partially redundant functionality, it makes perfect sense from the perspective of the consumer, which increases developer experience.</p>
   </div>
@@ -507,7 +507,7 @@ An API is as good as the accompanying documentation. The documentation has to be
       </dd>
       <dt>Rationale</dt>
       <dd>
-         <p> Clients (such as Swagger UI or ReDoc) must be able to retrieve the document without having to authenticate. Furthermore, the CORS policy for this URI must allow external domains to read the documentation from a browser environment.</p>
+         <p> Clients (such as Swagger UI or ReDoc) must be able to retrieve the document without having to authenticate. Furthermore, the CORS policy for this [=URI=] must allow external domains to read the documentation from a browser environment.</p>
          <p>The standard location for the OAS document is a URI called <code>openapi.json</code> or <code>openapi.yaml</code> within the base path of the API. This can be convenient, because OAS document updates can easily  become part of the CI/CD process.</p>
          <p>At least the JSON format must be supported. When having multiple (major) versions of an API, every API should provide its own OAS document(s).</p>
          <div class="example">
@@ -584,11 +584,11 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
     <dl>
       <dt>Statement</dt>
       <dd>
-         The URI of an API must include the major version number.
+         The [=URI=] of an API must include the major version number.
       </dd>
       <dt>Rationale</dt>
       <dd>
-         The URI of an API (base path) must include the major version number, prefixed by the letter <code>v</code>. This allows the exploration of multiple versions of an API in the browser. The minor and patch version numbers are not part of the URI and may not have any impact on existing client implementations.
+         The [=URI=] of an API (base path) must include the major version number, prefixed by the letter <code>v</code>. This allows the exploration of multiple versions of an API in the browser. The minor and patch version numbers are not part of the [=URI=] and may not have any impact on existing client implementations.
       <div class="example">
          <p>An example of a base path for an API with current version 1.0.2:</p>
          <pre>https://api.example.org/v1/</pre>
@@ -679,5 +679,30 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
    </dl>
 </div>
 
+## Geospatial
 
+Geospatial content is becoming more common in every modern API. APIs containing [=OGC=] compliant features should therefore be compliant with geospatial specific rules.
+  
+<div class="rule" id="/core/geo">
+  <p class="rulelab"><b>/core/geo</b>: Use the GEO module for geospatial content</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         Use the specific GEO module when designing an API for geospatial content and functions.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         <p>The NL API Strategy [[Geospatial Module]] provides rules for publishing geospatial data using Web APIs. Spatial data is data that describes anything with spatial extent (i.e. size, shape or position). Spatial data is also known as location information. [[sdw-bp]] </p>
+         <p>The [[Geospatial Module]] rules MUST be applied for the structuring of geospatial payloads and for functions in APIs to handle geospatial data in line with <a href="https://ogcapi.ogc.org/features/">the Open Geospatial Consortium (OGC) API Features.</a></p>
+      </dd>
+      <dt>Implications</dt>
+      <dd>
+         Adherance to this rule needs to be manually verified.
+      </dd>
+      <dt>Rule types</dt>
+      <dd>
+         This is a functional design rule and hence can't be tested automatically.
+      </dd>
+   </dl>
+</div>
 
