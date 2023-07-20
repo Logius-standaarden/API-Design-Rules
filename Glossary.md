@@ -29,6 +29,6 @@
     <dfn>OGC</dfn>
   </dt>
   <dd>
-    <a href="https://www.ogc.org/">OGC</a> is a consortium of experts committed to improving access to geospatial, or location information.
+    The <a href="https://www.ogc.org/">Open Geospatial Consortium</a> (OGC) is a consortium of experts committed to improving access to geospatial, or location information.
   </dd>
 </dl>
