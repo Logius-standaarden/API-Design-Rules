@@ -681,7 +681,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
 
 ## Geospatial
 
-Geospatial content is becomming more common in every modern API. APIs containing [=OGC=] compliant features should therefore be compliant with geospatial specific rules.
+Geospatial content is becoming more common in every modern API. APIs containing [=OGC=] compliant features should therefore be compliant with geospatial specific rules.
   
 <div class="rule" id="/core/geo">
   <p class="rulelab"><b>/core/geo</b>: Use the GEO module for geospatial content</p>
