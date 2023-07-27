@@ -108,11 +108,11 @@ A resource describing a single thing is called a [=singular resource=]. Resource
    <dl>
       <dt>Statement</dt>
       <dd>
-         A [=URI=] must never contain a trailing slash. When requesting a resource including a trailing slash, this must result in a 404 (not found) error response and not a redirect. This enforces API consumers to use the correct [=URI=].
+         A [=URI=] must never contain a trailing slash. When requesting a resource including a trailing slash, this must result in a `404` (not found) error response and not a redirect. This enforces API consumers to use the correct [=URI=].
       </dd>
       <dt>Rationale</dt>
       <dd>
-         To avoid confusion and ambiguity, a [=URI=] must never contain a trailing slash. When requesting a resource including a trailing slash, this must result in a `404` (not found) error response and not a redirect. This enforces API consumers to use the correct [=URI=].
+         Leaving off trailing slashes, and not implementing a redirect, enforces API consumers to use the correct URI. This avoids confusion and ambiguity.
          <div class="example">
             <p>URI without a trailing slash (correct):</p>
             <pre>https://api.example.org/v1/gebouwen</pre>

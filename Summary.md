@@ -1,9 +1,5 @@
 ## Summary
 
-<aside class="note">
-Design rules have unique and permanent numbers. In the event of design rules being deprecated or restructured, they are removed from the list. Therefore, gaps in the sequence can occur. New design rules will always get a new and higher number.
-</aside>
-
 ### Normative Design Rules
 
 Design rules can be technical rules, which should be tested automatically and functional rules which should be considerd when designing and building the api.

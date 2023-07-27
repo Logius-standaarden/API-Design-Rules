@@ -28,7 +28,7 @@ The Nederlandse API Strategie consists of [three layers of distinct documents](h
 
 Before reading this document it is advised to gain knowledge of the three documents, in particular [the architecture section of part I](https://docs.geostandaarden.nl/api/API-Strategie/#architectuur).
 
-An actual overview of all current documents is available in this Dutch infographic:
+An overview of all current documents is available in this Dutch infographic:
 ![NL API Strategie Infographic](https://raw.githubusercontent.com/Geonovum/KP-APIs/a0ee2f718777eb333a4e625edb1e8ce1387b51d3/media/API_infographic.svg)
 
 
