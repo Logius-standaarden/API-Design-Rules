@@ -30,7 +30,7 @@ Before reading this document it is advised to gain knowledge of the three docume
 
 An actual overview of all current documents is available in this Dutch infographic:
 <figure>
-  <object data="https://geonovum.github.io/KP-APIs/media/API_infographic.svg" type="image/svg+xml">
+  <object data="https://geonovum.github.io/KP-APIs/media/API_infographic.svg" type="image/svg+xml"></object>
   <figcaption>NL API Strategie Infographic</figcaption>
 </figure>
 
