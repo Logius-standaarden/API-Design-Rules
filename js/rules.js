@@ -1,9 +1,14 @@
-$(window).bind('load', function(){
-  rules = document.getElementsByClassName("rule");
-console.log(rules.length);
-for (let r of rules) {
-console.log(r.id);
-let type = r.getAttribute("data-type");
-console.log(type);
-}
+$(window).bind('load', function() {
+    console.log($(".rule").length);
+
+    function rules() {
+        $(".rule").each(function() {
+            console.log(this.id);
+        });
+    };
+    if ($(".rule").length > 0) {
+        rules();
+    } else {
+        window.setTimeout(rules, 500);
+    }
 });
