@@ -29,20 +29,14 @@ The REST architectural style is centered around the concept of a [resource](#dfn
    Resources describe objects not actions.
    </dd>
    <dt>Implications</dt>
-   <dd>
-   Adherance to this rule needs to be manually verified.
-   </dd>
-   <dt>Rule types</dt>
-   <dd>
-   This is a functional design rule and hence can't be tested automatically.
-   </dd>
-</dl>
+   <dd id="implications"></dd>
+   </dl>
 </div>
 
 A resource describing a single thing is called a [singular resource](#dfn-singular-resource). Resources can also be grouped into collections, which are resources in their own right and can typically be paged, sorted and filtered. Most often all collection members have the same type, but this is not necessarily the case. A resource describing multiple things is called a [collection resource](#dfn-collection-resource). Collection resources typically contain references to the underlying singular resources.
 
 <span id="api-54"></span>
-<div class="rule" id="/core/naming-collections">
+<div class="rule" id="/core/naming-collections"  data-type="functional">
    <p class="rulelab"><b>/core/naming-collections</b>: Use plural nouns to name collection resources</p>
    <dl>
       <dt>Statement</dt>
@@ -67,19 +61,13 @@ A resource describing a single thing is called a [singular resource](#dfn-singul
             <pre>https://api.example.org/v1/gebruikersprofiel</pre>
          </div>
       </dd>
-      <dt>Implications</dt>
-      <dd>
-         Adherance to this rule needs to be manually verified.
-      </dd>
-     	<dt>Rule types</dt>
-      <dd>
-      This is a functional design rule and hence can't be tested automatically.
-      </dd>
+	  <dt>Implications</dt>
+      <dd id="implications"></dd>
    </dl>
 </div>
 
 <span id="api-04"></span>
-<div class="rule" id="/core/interface-language">
+<div class="rule" id="/core/interface-language" data-type="functional">
    <p class="rulelab"><b>/core/interface-language</b>: Define interfaces in Dutch unless there is an official English glossary available</p>
    <dl>
       <dt>Statement</dt>
@@ -91,19 +79,13 @@ A resource describing a single thing is called a [singular resource](#dfn-singul
          The exact meaning of concepts is often lost in translation. Publishing an API for an international audience might also be a reason to define interfaces in English.
          Note that glossaries exist that define useful sets of attributes which should preferably be reused. Examples can be found at <a href="http://schema.org/docs/schemas.html">schema.org</a>.
       </dd>
-      <dt>Implications</dt>
-      <dd>
-         Adherance to this rule needs to be manually verified.
-      </dd>
-      <dt>Rule types</dt>
-      <dd>
-      This is a functional design rule and hence can't be tested automatically.
-      </dd>
+	  <dt>Implications</dt>
+      <dd id="implications"></dd>
    </dl>
 </div>
 
 <span id="api-48"></span>
-<div class="rule" id="/core/no-trailing-slash">
+<div class="rule" id="/core/no-trailing-slash" data-type="technical">
    <p class="rulelab"><b>/core/no-trailing-slash</b>: Leave off trailing slashes from URIs</p>
    <dl>
       <dt>Statement</dt>
@@ -120,14 +102,8 @@ A resource describing a single thing is called a [singular resource](#dfn-singul
             <pre>https://api.example.org/v1/gebouwen/</pre>
          </div>
       </dd>
-      <dt>Implications</dt>
-      <dd>
-         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/main/pkg/adr/rules.go">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
-      </dd>
-      <dt>Rule types</dt>
-      <dd>
-         This is a technical design rule and hence should be tested automatically.
-      </dd>
+	  <dt>Implications</dt>
+      <dd id="implications"></dd>
    </dl>
 </div>
 
