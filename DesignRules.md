@@ -5,7 +5,7 @@
 The REST architectural style is centered around the concept of a [resource](#dfn-resource). A resource is the key abstraction of information, where every piece of information is named by assigning a globally unique [URI](#dfn-uri) (Uniform Resource Identifier). Resources describe *things*, which can vary between physical objects (e.g. a building or a person) and more abstract concepts (e.g. a permit or an event).
 
 <span id="api-05"></span>
-<div class="rule" id="/core/naming-resources">
+<div class="rule" id="/core/naming-resources" data-type="functional">
    <p class="rulelab"><b>/core/naming-resources</b>: Use nouns to name resources</p>
    <dl>
    <dt>Statement</dt>
