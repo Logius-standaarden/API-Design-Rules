@@ -30,7 +30,7 @@ The REST architectural style is centered around the concept of a [resource](#dfn
    </dd>
    <dt>Implications</dt>
    <dd id="implications"></dd>
-   </dl>
+   </dl>   
 </div>
 
 A resource describing a single thing is called a [singular resource](#dfn-singular-resource). Resources can also be grouped into collections, which are resources in their own right and can typically be paged, sorted and filtered. Most often all collection members have the same type, but this is not necessarily the case. A resource describing multiple things is called a [collection resource](#dfn-collection-resource). Collection resources typically contain references to the underlying singular resources.

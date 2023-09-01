@@ -132,3 +132,9 @@ redactie
   font-weight: normal;
   text-decoration: underline;
 }
+
+.flag {
+  float: right;
+  text-decoration: underline dotted;
+  text-transform: capitalize;
+}
