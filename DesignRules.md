@@ -122,7 +122,7 @@ A resource describing a single thing is called a [singular resource](#dfn-singul
       </dd>
       <dt>Implications</dt>
       <dd>
-         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/main/pkg/adr/rules.go#L213">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
+         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L213">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
       </dd>
       <dt>Rule types</dt>
       <dd>
@@ -500,7 +500,7 @@ An API is as good as the accompanying documentation. The documentation has to be
       </dd>
       <dt>Implications</dt>
       <dd>
-         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/main/pkg/adr/rules.go#L119">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
+         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L119">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
       </dd>
       <dt>Rule types</dt>
       <dd>
@@ -562,7 +562,7 @@ An API is as good as the accompanying documentation. The documentation has to be
       </dd>
       <dt>Implications</dt>
       <dd>
-         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/main/pkg/adr/rules.go#L282">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
+         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L282">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
       </dd>
       <dt>Rule types</dt>
       <dd>
@@ -573,7 +573,7 @@ An API is as good as the accompanying documentation. The documentation has to be
          <ul>
             <li> Step 1: The API MUST meet the prerequisets to be tested. These include that an OAS file (openapi.json) is publicly available, parsable, all $refs are resolvable and paths are defined.</li>
             <li> Step 2: The openapi.yaml MAY be available. If available it MUST contain yaml, be readable and parsable.</li>
-            <li> Step 3: The openapi.yaml MUST describe the same API as the openapi.json.</li>
+            <li> Step 3: The openapi.yaml MUST contain the same OpenAPI Specification as the openapi.json.</li>
             <li> Step 4: The CORS header Access-Control-Allow-Origin MUST allow all origins.</li>
          </ul>
       </dd>
@@ -655,7 +655,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       </dd>
       <dt>Implications</dt>
       <dd>
-         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/main/pkg/adr/rules.go#L165">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
+         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L165">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
       </dd>
       <dt>Rule types</dt>
       <dd>
@@ -709,7 +709,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       </dd>
       <dt>Implications</dt>
       <dd>
-         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/main/pkg/adr/rules.go#L354">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
+         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L354">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
       </dd>
       <dt>Rule types</dt>
       <dd>
@@ -745,7 +745,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       </dd>
       <dt>Implications</dt>
       <dd>
-         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/main/pkg/adr/rules.go#L393">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
+         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L393">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
       </dd>
       <dt>Rule types</dt>
       <dd>
@@ -755,7 +755,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       <dd>
          <ul>
             <li> Step 1: A request to the base url MUST give a response and include the header "API-Version".</li>
-            <li> Step 2: The response of the header MUST have a valid Semantic Versioning number.</li>
+            <li> Step 2: The value of the header "API-Version" MUST have a valid Semantic Versioning number.</li>
          </ul>
       </dd>
    </dl>
