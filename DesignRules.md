@@ -122,11 +122,20 @@ A resource describing a single thing is called a [=singular resource=]. Resource
       </dd>
       <dt>Implications</dt>
       <dd>
-         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/main/pkg/adr/rules.go">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
+         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L213">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
       </dd>
       <dt>Rule types</dt>
       <dd>
          This is a technical design rule and hence should be tested automatically.
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         <ul>
+            <li> Step 1: The API MUST meet the prerequisets to be tested. These include that an OAS file is publicly available, parsable, all $refs are resolvable and paths are defined.</li>
+            <li> Step 2: Check if paths are present in the OpenAPI Specification.</li>
+            <li> Step 3: Loop al paths and check if it ends with a slash ("/").</li>
+            <li> Step 4: Check all paths with a get request and without parameters. They should resolve in HTTP 404.</li>
+         </ul>
       </dd>
    </dl>
 </div>
@@ -216,13 +225,8 @@ Although the REST architectural style does not impose a specific protocol, REST 
       </dd>
       <dt>Implications</dt>
       <dd>
-         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/main/pkg/adr/rules.go">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
+         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L43">here</a>. The specific testscripts are published in the [[ADR-Validator]] repository.
       </dd>
-      <dt>Rule types</dt>
-      <dd>
-         This is a technical design rule and hence should be tested automatically.
-      </dd>
-   </dl>
    <div class="example">The following table shows some examples of the use of standard HTTP methods:
       <table>
       <thead>
@@ -260,7 +264,38 @@ Although the REST architectural style does not impose a specific protocol, REST 
       </tbody>
       </table>
    </div>
-	<p class="note">The HTTP specification [[rfc7231]] and the later introduced <code>PATCH</code> method specification [[rfc5789]] offer a set of standard methods, where every method is designed with explicit semantics. HTTP also defines other methods, e.g. <code>HEAD</code>, <code>OPTIONS</code> and <code>TRACE</code>. For the purpose of this design rule, these operations are left out of scope.</p>
+	<p class="note">The HTTP specification [[rfc7231]] and the later introduced <code>PATCH</code> method specification [[rfc5789]] offer a set of standard methods, where every method is designed with explicit semantics. HTTP also defines other methods, e.g. <code>HEAD</code>, <code>OPTIONS</code>, <code>TRACE</code>, and <code>CONNECT</code>.<br>
+	The OpenAPI Specification 3.x <a href="https://spec.openapis.org/oas/v3.0.3#path-item-object">Path Item Object</a> also supports these methods, except for <code>CONNECT</code>.<br>
+  According to <a href="https://datatracker.ietf.org/doc/html/rfc7231#section-4.1">RFC 7231 4.1</a> the <code>GET</code> and <code>HEAD</code> HTTP methods MUST be supported by the server, all other methods are optional.<br>
+  In addition to the standard HTTP methods, a server may support other optional methods as well, e.g. <code>PROPFIND</code>, <code>COPY</code>, <code>PURGE</code>, <code>VIEW</code>, <code>LINK</code>, <code>UNLINK</code>, <code>LOCK</code>, <code>UNLOCK</code>, etc.<br>
+  If an optional HTTP request method is sent to a server and the server does not support that HTTP method for the target resource, an HTTP status code <code>405 Method Not Allowed</code> shall be returned and a list of allowed methods for the target resource shall be provided in the <code>Allow</code> header in the response as stated in <a href="https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.5">RFC 7231 6.5.5</a>.</p>
+      <dt>How to test</dt>
+      <p>Test case 1:</p>
+      <dd>
+         <ul>
+            <li> Step 1: The API MUST meet the prerequisites to be tested. These include that an OAS file is publicly available, parsable, all $refs are resolvable and paths are defined.</li>
+            <li> Step 2: Send an HTTP GET or HEAD request to any of the endpoints with a definition of a GET operation mentioned in the OAS file. The server MUST respond with a HTTP status code other than <code>405 Method Not Allowed</code>.</li>
+        </ul>
+      </dd>
+      <p>Test case 2:</p>
+      <dd>
+         <ul>
+            <li> Step 1: The API MUST meet the prerequisites to be tested. These include that an OAS file is publicly available, parsable, all $refs are resolvable, and paths are defined.</li>
+            <li> Step 2: Send a request to the API with an optional HTTP method that is supported by the API. The server MUST respond with an HTTP status code other than <code>405 Method Not Allowed</code>.</li>
+      </ul>
+      </dd>
+     <p>Test case 3:</p>
+      <dd>
+         <ul>
+            <li> Step 1: The API MUST meet the prerequisites to be tested. These include that an OAS file is publicly available, parsable, all $refs are resolvable, and paths are defined.</li>
+            <li> Step 2: Send a request to the API with an optional HTTP method that is not supported by the API. The server MUST respond with an HTTP status code <code>405 Method Not Allowed</code>. The response MUST contain an <code>Allow</code> header with a list of supported methods for the target resource.</li>
+      </ul>
+      </dd>
+      <dt>Rule types</dt>
+      <dd>
+         This is a technical design rule and hence should be tested automatically.
+      </dd>      
+   </dl>
 </div>
 
 <span id="api-01"></span>
@@ -338,7 +373,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
 One of the key constraints of the REST architectural style is stateless communication between client and server. It means that every request from client to server must contain all of the information necessary to understand the request. The server cannot take advantage of any stored session context on the server as it didn’t memorize previous requests. Session state must therefore reside entirely on the client.
 
 To properly understand this constraint, it's important to make a distinction between two different kinds of state:
-* *Session state*: information about the interactions of an end user with a particular client application within the same user session, such as the last page being viewed, the login state or form data in a multi-step registration process. Session state must reside entirely on the client (e.g. in the user's browser).
+* *Session state*: information about the interactions of an end user with a particular client application within the same user session, such as the last page being viewed, the login state or form data in a multi-Step registration process. Session state must reside entirely on the client (e.g. in the user's browser).
 * *Resource state*: information that is permanently stored on the server beyond the scope of a single user session, such as the user's profile, a product purchase or information about a building. Resource state is persisted on the server and must be exchanged between client and server (in both directions) using  representations as part of the request or response payload. This is actually where the term *REpresentational State Transfer (REST)* originates from.
 
 <p class="note">It's a misconception that there should be no state at all. The stateless communication constraint should be seen from the server's point of view and states that the server should not be aware of any <em>session state</em>.</p>
@@ -465,11 +500,19 @@ An API is as good as the accompanying documentation. The documentation has to be
       </dd>
       <dt>Implications</dt>
       <dd>
-         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/main/pkg/adr/rules.go">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
+         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L119">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
       </dd>
       <dt>Rule types</dt>
       <dd>
          This is a technical design rule and hence should be tested automatically.
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         <ul>
+            <li> Step 1: The API MUST meet the prerequisets to be tested. These include that an OAS file is publicly available, parsable, all $refs are resolvable and paths are defined.</li>
+            <li> Step 2: Check the specification type.</li>
+            <li> Step 3: All references MUST be publicly resolvable, including the external references.</li>
+         </ul>
       </dd>
    </dl>
 </div>
@@ -519,11 +562,20 @@ An API is as good as the accompanying documentation. The documentation has to be
       </dd>
       <dt>Implications</dt>
       <dd>
-         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/main/pkg/adr/rules.go">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
+         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L282">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
       </dd>
       <dt>Rule types</dt>
       <dd>
          This is a technical design rule and hence should be tested automatically.
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         <ul>
+            <li> Step 1: The API MUST meet the prerequisets to be tested. These include that an OAS file (openapi.json) is publicly available, parsable, all $refs are resolvable and paths are defined.</li>
+            <li> Step 2: The openapi.yaml MAY be available. If available it MUST contain yaml, be readable and parsable.</li>
+            <li> Step 3: The openapi.yaml MUST contain the same OpenAPI Specification as the openapi.json.</li>
+            <li> Step 4: The CORS header Access-Control-Allow-Origin MUST allow all origins.</li>
+         </ul>
       </dd>
    </dl>
 </div>
@@ -592,15 +644,30 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       <div class="example">
          <p>An example of a base path for an API with current version 1.0.2:</p>
          <pre>https://api.example.org/v1/</pre>
+         <pre>version: '1.0.2'</pre>
+         <pre>servers:
+                  - description: test environment  
+                  url: https://api.test.example.org/v1/  
+                  - description: production environment  
+                  url: https://api.example.org/v1/  
+         </pre>
       </div>
       </dd>
       <dt>Implications</dt>
       <dd>
-         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/main/pkg/adr/rules.go">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
+         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L165">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
       </dd>
       <dt>Rule types</dt>
       <dd>
          This is a technical design rule and hence should be tested automatically.
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         <ul>
+            <li> Step 1: The base path MUST contain a version number.</li>
+            <li> Step 2: Each url of the server object of the OpenAPI Specification must include a version number.</li>
+            <li> Step 3: The version in the OAS file must be the same as the version in the base path.</li>
+         </ul>
       </dd>
    </dl>
 </div>
@@ -642,12 +709,20 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       </dd>
       <dt>Implications</dt>
       <dd>
-         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/main/pkg/adr/rules.go">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
+         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L354">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
       </dd>
       <dt>Rule types</dt>
       <dd>
          This is a technical design rule and hence should be tested automatically.
       </dd>
+      <dt>How to test</dt>
+      <dd>
+         <ul>
+            <li> Step 1: The API MUST meet the prerequisets to be tested. These include that an OAS file (openapi.json) is publicly available, parsable, all $refs are resolvable and paths are defined.</li>
+            <li> Step 2: In the open api specification the info and version object MUST be available.</li>
+            <li> Step 3: The version MUST comply with Semantic Versioning.</li>
+         </ul>
+      </dd> 
    </dl>
 </div>
 
@@ -670,11 +745,18 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       </dd>
       <dt>Implications</dt>
       <dd>
-         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/main/pkg/adr/rules.go">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
+         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L393">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
       </dd>
       <dt>Rule types</dt>
       <dd>
          This is a technical design rule and hence should be tested automatically.
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         <ul>
+            <li> Step 1: A request to the base url MUST give a response and include the header "API-Version".</li>
+            <li> Step 2: The value of the header "API-Version" MUST have a valid Semantic Versioning number.</li>
+         </ul>
       </dd>
    </dl>
 </div>
