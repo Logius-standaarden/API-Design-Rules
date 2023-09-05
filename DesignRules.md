@@ -744,9 +744,9 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       <dd>
          For sunsetting the API, the OpenAPI Document of the API must contain in the <code>info.x- edelivery.lifecycle</code> property the following declared attributes:
          <ul>
-            <li>The <code>info.x-edelivery.lifecycle.deprecatedAt</code> attribute MUST be set to <code>depricated</code>.
-            <li>The <code>info.x-edelivery.lifecycle.deprecatedAt</code> attribute MUST be set to the <code>date</code> the API was deprecated.
-            <li>The <code>info.x-edelivery.lifecycle.sunsetAt</code> attribute MUST be set to the <code>date</code> the API will be withdrawn and not accessible any more.
+            <li>The <code>info.nlgov.lifecycle.deprecatedAt</code> attribute MUST be set to <code>depricated</code>.
+            <li>The <code>info.nlgov.lifecycle.deprecatedAt</code> attribute MUST be set to the <code>date</code> the API was deprecated.
+            <li>The <code>info.nlgov.lifecycle.sunsetAt</code> attribute MUST be set to the <code>date</code> the API will be withdrawn and not accessible any more.
       </dd>
       <div class="example">
          <p>An example of a sunset API</p>
@@ -755,7 +755,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
                ...
                info: 
                   ...
-                  x-edelivery:
+                  nlgov:
                      lifecycle:
                         maturity: deprecated
                         deprecatedAt: 2020-12-31
