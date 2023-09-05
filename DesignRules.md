@@ -274,7 +274,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
       <dd>
          <ul>
             <li> Step 1: The API MUST meet the prerequisites to be tested. These include that an OAS file is publicly available, parsable, all $refs are resolvable and paths are defined.</li>
-            <li> Step 2: Send an HTTP GET or HEAD request to any of the endpoints mentioned in the OAS file. The server MUST respond with a HTTP status code other than <code>405 Method Not Allowed</code>.</li>
+            <li> Step 2: Send an HTTP GET or HEAD request to any of the endpoints with a definition of a GET operation mentioned in the OAS file. The server MUST respond with a HTTP status code other than <code>405 Method Not Allowed</code>.</li>
         </ul>
       </dd>
       <p>Test case 2:</p>
