@@ -547,7 +547,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
          Managing change is important. In general, well documented and timely communicated deprecation schedules are the most important for API users. When deprecating features or versions, a deprecation schedule MUST be published in the OpenAPI document. 
       </dt>
       <dd>   
-         Furthermore, active clients should be informed by e-mail once the schedule has been updated or when versions have reached end-of-life. Because the OpenAPI specification hasn't decided on the <code>info.lifecycle</code> object <a href="https://github.com/OAI/OpenAPI-Specification/issues/1973">(see issue #1973 for more information)</a> the OpenAPI document MUST contain the <code>info.x-edelivery.lifecycle</code> object following the structure below:
+         Furthermore, active clients should be informed by e-mail once the schedule has been updated or when versions have reached end-of-life. Because the OpenAPI specification hasn't decided on the <code>info.lifecycle</code> object <a href="https://github.com/OAI/OpenAPI-Specification/issues/1973">(see issue #1973 for more information)</a> the OpenAPI document MUST contain the <code>info.nlgov.lifecycle</code> object following the structure below:
       </dd>
       <table>
       <tr>
@@ -608,9 +608,9 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
          When deprecating individual operations, the use of the <code>deprecated</code> attribute for the concerned operation(s) MUST be set to <code>true</code> in the OpenAPI Document of the API. Furthermore, the Deprecation HTTP Response Header for the specific operation MUST be set to true, according to the <a href="https://datatracker.ietf.org/doc/html/draft-ietf-httpapi-deprecation-header">Deprecation Response Header Internet-Draft</a>.
       </dd>
       <dd>
-         When deprecating the API as a whole, the OpenAPI Document of the API must contain in the <code>info.x-edelivery.lifecycle</code> property the following declared attributes:<br/>
-            - The <code>info.x-edelivery.lifecycle.maturity</code> attribute MUST be set to <code>depricated</code>.<br/>
-            - The <code>info.x-edelivery.lifecycle.deprecatedAt</code> attribute MUST be set to the date the API was deprecated.<br/>
+         When deprecating the API as a whole, the OpenAPI Document of the API must contain in the <code>info.nlgov.lifecycle</code> property the following declared attributes:<br/>
+            - The <code>info.nlgov.lifecycle.maturity</code> attribute MUST be set to <code>depricated</code>.<br/>
+            - The <code>info.nlgov.lifecycle.deprecatedAt</code> attribute MUST be set to the date the API was deprecated.<br/>
       </dd>
       <div class="example">
          <p>An example of a depricated API</p>
@@ -619,7 +619,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
                ...
                info: 
                   ...
-                  x-edelivery:
+                  nlgov:
                      lifecycle:
                         maturity: deprecated
                         deprecatedAt: 2020-12-31
