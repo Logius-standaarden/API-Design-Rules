@@ -3,7 +3,9 @@ $(window).bind('load', function() {
 
     function rules() {
         $(".rule").each(function() {
+			id = this.id;
             console.log(this.id);
+			$(this).find(".rulelab").prepend('<a href="#'+id+'">'+id+'</a>: ');
 			let implications = "Unknown rule type in " + this.id;
 			let flag = implications;
 			let type = $(this).data("type");
@@ -13,6 +15,7 @@ $(window).bind('load', function() {
 			}
 			else if (type == "technical"){
 				implications = "This rule is included in the automatic tests on <a href=\"https://developer.overheid.nl/\">developer.overheid.nl</a>. The source code of the technical test can be found <a href=\"https://gitlab.com/commonground/don/adr-validator/-/blob/main/pkg/adr/rules.go\">here</a>.";
+				flag = "<div title=\"This is a technical design rule and hence should be tested automatically.\" class=\"flag\">technical</div>"
 			}
 			else {				
 				//throw new Error(implications);

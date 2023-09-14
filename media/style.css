@@ -128,9 +128,8 @@ redactie
   color: #005A9C;
 }
 
-.rulelab strong {
-  font-weight: normal;
-  text-decoration: underline;
+.rulelab a {
+  font-weight: bold;
 }
 
 .flag {

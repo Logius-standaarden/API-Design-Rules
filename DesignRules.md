@@ -6,7 +6,7 @@ The REST architectural style is centered around the concept of a [resource](#dfn
 
 <span id="api-05"></span>
 <div class="rule" id="/core/naming-resources" data-type="functional">
-   <p class="rulelab"><b>/core/naming-resources</b>: Use nouns to name resources</p>
+   <p class="rulelab">Use nouns to name resources</p>
    <dl>
    <dt>Statement</dt>
    <dd>
@@ -36,8 +36,8 @@ The REST architectural style is centered around the concept of a [resource](#dfn
 A resource describing a single thing is called a [singular resource](#dfn-singular-resource). Resources can also be grouped into collections, which are resources in their own right and can typically be paged, sorted and filtered. Most often all collection members have the same type, but this is not necessarily the case. A resource describing multiple things is called a [collection resource](#dfn-collection-resource). Collection resources typically contain references to the underlying singular resources.
 
 <span id="api-54"></span>
-<div class="rule" id="/core/naming-collections"  data-type="functional">
-   <p class="rulelab"><b>/core/naming-collections</b>: Use plural nouns to name collection resources</p>
+<div class="rule" id="/core/naming-collections" data-type="functional">
+   <p class="rulelab">Use plural nouns to name collection resources</p>
    <dl>
       <dt>Statement</dt>
       <dd>
@@ -68,7 +68,7 @@ A resource describing a single thing is called a [singular resource](#dfn-singul
 
 <span id="api-04"></span>
 <div class="rule" id="/core/interface-language" data-type="functional">
-   <p class="rulelab"><b>/core/interface-language</b>: Define interfaces in Dutch unless there is an official English glossary available</p>
+   <p class="rulelab">Define interfaces in Dutch unless there is an official English glossary available</p>
    <dl>
       <dt>Statement</dt>
       <dd>
@@ -86,7 +86,7 @@ A resource describing a single thing is called a [singular resource](#dfn-singul
 
 <span id="api-48"></span>
 <div class="rule" id="/core/no-trailing-slash" data-type="technical">
-   <p class="rulelab"><b>/core/no-trailing-slash</b>: Leave off trailing slashes from URIs</p>
+   <p class="rulelab">Leave off trailing slashes from URIs</p>
    <dl>
       <dt>Statement</dt>
       <dd>
