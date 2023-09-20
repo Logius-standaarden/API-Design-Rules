@@ -470,7 +470,7 @@ As described in <a href="#extensions">the Extensions paragraph</a> the NL API St
       </dd>
       <dt>Implications</dt>
       <dd>
-         Adherance to this rule needs to be manually verified. Some rules of the module COULD be tested automatically and will be shown on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of these technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/main/pkg/adr/rules.go">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
+         Adherence to this rule needs to be manually verified. Some rules of the module COULD be tested automatically and will be shown on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of these technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/main/pkg/adr/rules.go">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
       </dd>
       <dt>Rule types</dt>
       <dd>
