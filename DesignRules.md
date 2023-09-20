@@ -1,4 +1,4 @@
-# The Design Rules
+# The core set of Design Rules
 
 ## Resources
 
@@ -30,7 +30,7 @@ The REST architectural style is centered around the concept of a [=resource=]. A
    </dd>
    <dt>Implications</dt>
    <dd>
-   Adherance to this rule needs to be manually verified.
+   Adherence to this rule needs to be manually verified.
    </dd>
    <dt>Rule types</dt>
    <dd>
@@ -69,7 +69,7 @@ A resource describing a single thing is called a [=singular resource=]. Resource
       </dd>
       <dt>Implications</dt>
       <dd>
-         Adherance to this rule needs to be manually verified.
+         Adherence to this rule needs to be manually verified.
       </dd>
      	<dt>Rule types</dt>
       <dd>
@@ -93,7 +93,7 @@ A resource describing a single thing is called a [=singular resource=]. Resource
       </dd>
       <dt>Implications</dt>
       <dd>
-         Adherance to this rule needs to be manually verified.
+         Adherence to this rule needs to be manually verified.
       </dd>
       <dt>Rule types</dt>
       <dd>
@@ -398,7 +398,7 @@ Stateless communication offers many advantages, including:
       </dd>
       <dt>Implications</dt>
       <dd>
-         Adherance to this rule needs to be manually verified.
+         Adherence to this rule needs to be manually verified.
       </dd>
       <dt>Rule types</dt>
       <dd>
@@ -439,7 +439,7 @@ Resources are often interconnected by relationships. Relationships can be modell
   </div>
   <dt>Implications</dt>
       <dd>
-         Adherance to this rule needs to be manually verified.
+         Adherence to this rule needs to be manually verified.
       </dd>
       <dt>Rule types</dt>
       <dd>
@@ -469,7 +469,7 @@ Resources are often interconnected by relationships. Relationships can be modell
       <dt>Implications</dt>
       <dd>
          In this design rule, approach 2 and 3 are preferred.
-         Adherance to this rule needs to be manually verified.
+         Adherence to this rule needs to be manually verified.
       </dd>
       <dt>Rule types</dt>
       <dd>
@@ -479,6 +479,39 @@ Resources are often interconnected by relationships. Relationships can be modell
   
   <p>
   <p></p>
+</div>
+
+## Conditional Modules
+
+As described in <a href="#extensions">the Extensions paragraph</a> the NL API Strategy is composed of a set of modules that are extensions on <a href="#the-core-set-of-design-rules">the Core set of Design Rules</a>. The modules are optional or conditional. Optional modules can be found in the infographic. All conditional modules are referenced in this document and the 'conditional usage' is formalized as a unique design rule.
+
+<span id="api-tls"></span>
+<div class="rule" id="/core/conditional/transport-security">
+  <p class="rulelab"><b>/core/conditional/transport-security</b>: Apply the transport security module</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         When handling government data the transport security module MUST be applied.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         The transport security module as described and published on <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/transport-security/">Github</a> formalizes three rules to apply to APIs:
+         <ol>
+         <li>Secure connections using TLS</li>
+         <li>No sensitive information in URIs</li>
+         <li>Use CORS to control access</li>
+         </ol>
+         Furthermore the module describes best practices for security headers, browser-based applications, and other HTTP configurations. These best practices MUST be considered and the considerations SHOULD be published in the API documentation. Hence the transport security is the baseline for REST API resources and the data concerned is a vital asset of the government the rules and best practices are condidered the minimal security principles, concepts and technologies to apply.
+      </dd>
+      <dt>Implications</dt>
+      <dd>
+         Adherence to this rule needs to be manually verified. Some rules of the module COULD be tested automatically and will be shown on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/main/pkg/adr/rules.go">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
+      </dd>
+      <dt>Rule types</dt>
+      <dd>
+         This is a functional design rule and hence can't be tested automatically.
+      </dd>
+   </dl>
 </div>
 
 ## Documentation
@@ -531,7 +564,7 @@ An API is as good as the accompanying documentation. The documentation has to be
       </dd>
       <dt>Implications</dt>
       <dd>
-         Adherance to this rule needs to be manually verified.
+         Adherence to this rule needs to be manually verified.
       </dd>
       <dt>Rule types</dt>
       <dd>
@@ -598,7 +631,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       </dd>
       <dt>Implications</dt>
       <dd>
-         Adherance to this rule needs to be manually verified.
+         Adherence to this rule needs to be manually verified.
       </dd>
       <dt>Rule types</dt>
       <dd>
@@ -621,7 +654,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       </dd>
       <dt>Implications</dt>
       <dd>
-         Adherance to this rule needs to be manually verified.
+         Adherence to this rule needs to be manually verified.
       </dd>
       <dt>Rule types</dt>
       <dd>
@@ -686,7 +719,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       </dd>
       <dt>Implications</dt>
       <dd>
-         Adherance to this rule needs to be manually verified.
+         Adherence to this rule needs to be manually verified.
       </dd>
       <dt>Rule types</dt>
       <dd>
