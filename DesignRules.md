@@ -2,7 +2,7 @@
 
 ## Resources
 
-The REST architectural style is centered around the concept of a [resource](#dfn-resource). A resource is the key abstraction of information, where every piece of information is named by assigning a globally unique [URI](#dfn-uri) (Uniform Resource Identifier). Resources describe *things*, which can vary between physical objects (e.g. a building or a person) and more abstract concepts (e.g. a permit or an event).
+The REST architectural style is centered around the concept of a [=resource=]. A resource is the key abstraction of information, where every piece of information is named by assigning a globally unique [=URI=] (Uniform Resource Identifier). Resources describe *things*, which can vary between physical objects (e.g. a building or a person) and more abstract concepts (e.g. a permit or an event).
 
 <span id="api-05"></span>
 <div class="rule" id="/core/naming-resources">
@@ -39,7 +39,7 @@ The REST architectural style is centered around the concept of a [resource](#dfn
 </dl>
 </div>
 
-A resource describing a single thing is called a [singular resource](#dfn-singular-resource). Resources can also be grouped into collections, which are resources in their own right and can typically be paged, sorted and filtered. Most often all collection members have the same type, but this is not necessarily the case. A resource describing multiple things is called a [collection resource](#dfn-collection-resource). Collection resources typically contain references to the underlying singular resources.
+A resource describing a single thing is called a [=singular resource=]. Resources can also be grouped into collections, which are resources in their own right and can typically be paged, sorted and filtered. Most often all collection members have the same type, but this is not necessarily the case. A resource describing multiple things is called a [=collection resource=]. Collection resources typically contain references to the underlying singular resources.
 
 <span id="api-54"></span>
 <div class="rule" id="/core/naming-collections">
@@ -108,11 +108,11 @@ A resource describing a single thing is called a [singular resource](#dfn-singul
    <dl>
       <dt>Statement</dt>
       <dd>
-         A URI must never contain a trailing slash. When requesting a resource including a trailing slash, this must result in a 404 (not found) error response and not a redirect. This enforces API consumers to use the correct URI.
+         A [=URI=] must never contain a trailing slash. When requesting a resource including a trailing slash, this must result in a `404` (not found) error response and not a redirect. This enforces API consumers to use the correct [=URI=].
       </dd>
       <dt>Rationale</dt>
       <dd>
-         To avoid confusion and ambiguity, a URI must never contain a trailing slash. When requesting a resource including a trailing slash, this must result in a `404` (not found) error response and not a redirect. This enforces API consumers to use the correct URI.
+         Leaving off trailing slashes, and not implementing a redirect, enforces API consumers to use the correct URI. This avoids confusion and ambiguity.
          <div class="example">
             <p>URI without a trailing slash (correct):</p>
             <pre>https://api.example.org/v1/gebouwen</pre>
@@ -122,11 +122,20 @@ A resource describing a single thing is called a [singular resource](#dfn-singul
       </dd>
       <dt>Implications</dt>
       <dd>
-         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/main/pkg/adr/rules.go">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
+         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L213">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
       </dd>
       <dt>Rule types</dt>
       <dd>
          This is a technical design rule and hence should be tested automatically.
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         <ul>
+            <li> Step 1: The API MUST meet the prerequisets to be tested. These include that an OAS file is publicly available, parsable, all $refs are resolvable and paths are defined.</li>
+            <li> Step 2: Check if paths are present in the OpenAPI Specification.</li>
+            <li> Step 3: Loop al paths and check if it ends with a slash ("/").</li>
+            <li> Step 4: Check all paths with a get request and without parameters. They should resolve in HTTP 404.</li>
+         </ul>
       </dd>
    </dl>
 </div>
@@ -189,7 +198,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
                <tr>
                   <td><code>GET</code></td>
                   <td>Read</td>
-                  <td>Retrieve a resource representation for the given URI. Data is only retrieved and never modified.</td>
+                  <td>Retrieve a resource representation for the given [=URI=]. Data is only retrieved and never modified.</td>
                </tr>
                <tr>
                   <td><code>POST</code></td>
@@ -199,7 +208,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
                <tr>
                   <td><code>PUT</code></td>
                   <td>Create/update</td>
-                  <td>Create a resource with the given URI or replace (full update) a resource when the resource already exists.</td>
+                  <td>Create a resource with the given [=URI=] or replace (full update) a resource when the resource already exists.</td>
                </tr>
                <tr>
                   <td><code>PATCH</code></td>
@@ -209,20 +218,15 @@ Although the REST architectural style does not impose a specific protocol, REST 
                <tr>
                   <td><code>DELETE</code></td>
                   <td>Delete</td>
-                  <td>Remove a resource with the given URI.</td>
+                  <td>Remove a resource with the given [=URI=].</td>
                </tr>
             </tbody>
          </table>
       </dd>
       <dt>Implications</dt>
       <dd>
-         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/main/pkg/adr/rules.go">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
+         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L43">here</a>. The specific testscripts are published in the [[ADR-Validator]] repository.
       </dd>
-      <dt>Rule types</dt>
-      <dd>
-         This is a technical design rule and hence should be tested automatically.
-      </dd>
-   </dl>
    <div class="example">The following table shows some examples of the use of standard HTTP methods:
       <table>
       <thead>
@@ -260,7 +264,38 @@ Although the REST architectural style does not impose a specific protocol, REST 
       </tbody>
       </table>
    </div>
-	<p class="note">The HTTP specification [[rfc7231]] and the later introduced <code>PATCH</code> method specification [[rfc5789]] offer a set of standard methods, where every method is designed with explicit semantics. HTTP also defines other methods, e.g. <code>HEAD</code>, <code>OPTIONS</code> and <code>TRACE</code>. For the purpose of this design rule, these operations are left out of scope.</p>
+	<p class="note">The HTTP specification [[rfc7231]] and the later introduced <code>PATCH</code> method specification [[rfc5789]] offer a set of standard methods, where every method is designed with explicit semantics. HTTP also defines other methods, e.g. <code>HEAD</code>, <code>OPTIONS</code>, <code>TRACE</code>, and <code>CONNECT</code>.<br>
+	The OpenAPI Specification 3.x <a href="https://spec.openapis.org/oas/v3.0.3#path-item-object">Path Item Object</a> also supports these methods, except for <code>CONNECT</code>.<br>
+  According to <a href="https://datatracker.ietf.org/doc/html/rfc7231#section-4.1">RFC 7231 4.1</a> the <code>GET</code> and <code>HEAD</code> HTTP methods MUST be supported by the server, all other methods are optional.<br>
+  In addition to the standard HTTP methods, a server may support other optional methods as well, e.g. <code>PROPFIND</code>, <code>COPY</code>, <code>PURGE</code>, <code>VIEW</code>, <code>LINK</code>, <code>UNLINK</code>, <code>LOCK</code>, <code>UNLOCK</code>, etc.<br>
+  If an optional HTTP request method is sent to a server and the server does not support that HTTP method for the target resource, an HTTP status code <code>405 Method Not Allowed</code> shall be returned and a list of allowed methods for the target resource shall be provided in the <code>Allow</code> header in the response as stated in <a href="https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.5">RFC 7231 6.5.5</a>.</p>
+      <dt>How to test</dt>
+      <p>Test case 1:</p>
+      <dd>
+         <ul>
+            <li> Step 1: The API MUST meet the prerequisites to be tested. These include that an OAS file is publicly available, parsable, all $refs are resolvable and paths are defined.</li>
+            <li> Step 2: Send an HTTP GET or HEAD request to any of the endpoints with a definition of a GET operation mentioned in the OAS file. The server MUST respond with a HTTP status code other than <code>405 Method Not Allowed</code>.</li>
+        </ul>
+      </dd>
+      <p>Test case 2:</p>
+      <dd>
+         <ul>
+            <li> Step 1: The API MUST meet the prerequisites to be tested. These include that an OAS file is publicly available, parsable, all $refs are resolvable, and paths are defined.</li>
+            <li> Step 2: Send a request to the API with an optional HTTP method that is supported by the API. The server MUST respond with an HTTP status code other than <code>405 Method Not Allowed</code>.</li>
+      </ul>
+      </dd>
+     <p>Test case 3:</p>
+      <dd>
+         <ul>
+            <li> Step 1: The API MUST meet the prerequisites to be tested. These include that an OAS file is publicly available, parsable, all $refs are resolvable, and paths are defined.</li>
+            <li> Step 2: Send a request to the API with an optional HTTP method that is not supported by the API. The server MUST respond with an HTTP status code <code>405 Method Not Allowed</code>. The response MUST contain an <code>Allow</code> header with a list of supported methods for the target resource.</li>
+      </ul>
+      </dd>
+      <dt>Rule types</dt>
+      <dd>
+         This is a technical design rule and hence should be tested automatically.
+      </dd>      
+   </dl>
 </div>
 
 <span id="api-01"></span>
@@ -338,7 +373,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
 One of the key constraints of the REST architectural style is stateless communication between client and server. It means that every request from client to server must contain all of the information necessary to understand the request. The server cannot take advantage of any stored session context on the server as it didn’t memorize previous requests. Session state must therefore reside entirely on the client.
 
 To properly understand this constraint, it's important to make a distinction between two different kinds of state:
-* *Session state*: information about the interactions of an end user with a particular client application within the same user session, such as the last page being viewed, the login state or form data in a multi-step registration process. Session state must reside entirely on the client (e.g. in the user's browser).
+* *Session state*: information about the interactions of an end user with a particular client application within the same user session, such as the last page being viewed, the login state or form data in a multi-Step registration process. Session state must reside entirely on the client (e.g. in the user's browser).
 * *Resource state*: information that is permanently stored on the server beyond the scope of a single user session, such as the user's profile, a product purchase or information about a building. Resource state is persisted on the server and must be exchanged between client and server (in both directions) using  representations as part of the request or response payload. This is actually where the term *REpresentational State Transfer (REST)* originates from.
 
 <p class="note">It's a misconception that there should be no state at all. The stateless communication constraint should be seen from the server's point of view and states that the server should not be aware of any <em>session state</em>.</p>
@@ -383,14 +418,14 @@ Resources are often interconnected by relationships. Relationships can be modell
   <dl>
       <dt>Statement</dt>
       <dd>
-         When having a child resource which can only exist in the context of a parent resource, the URI should be nested.
+         When having a child resource which can only exist in the context of a parent resource, the [=URI=] should be nested.
       </dd>
       <dt>Rationale</dt>
       <dd>
          In this use case, the child resource does not necessarily have a top-level collection resource. The best way to explain this design rule is by example.
       </dd>
     <div class="example">
-    <p>When modelling resources for a news platform including the ability for users to write comments, it might be a good strategy to model the <a href="#dfn-collection-resource">collection resources</a> hierarchically:</p>
+    <p>When modelling resources for a news platform including the ability for users to write comments, it might be a good strategy to model the [=collection resources=] hierarchically:</p>
     <pre>https://api.example.org/v1/articles/123/comments</pre>
     <p>The platform might also offer a photo section, where the same commenting functionality is offered. In the same way as for articles, the corresponding sub-collection resource might be published at:</p>
     <pre>https://api.example.org/v1/photos/456/comments</pre>
@@ -398,7 +433,7 @@ Resources are often interconnected by relationships. Relationships can be modell
     <p>From the consumer's perspective, this approach makes logical sense, because the most obvious use case is to show comments below the parent article or photo (e.g. on the same web page) including the possibility to paginate through the comments. The process of posting a comment is separate from the process of publishing a new article. Another client use case might also be to show a global <em>latest comments</em> section in the sidebar. For this use case, an additional resource could be provided:</p>
     <pre>https://api.example.org/v1/comments</pre>
     <p>If this would have not been a meaningful use case, this resource should not exist at all. Because it doesn't make sense to post a new comment from a global context, this resource would be read-only (only <code>GET</code> method is supported) and may possibly provide a more compact representation than the parent-specific sub-collections.</p>
-    <p>The <a href="#dfn-singular-resource">singular resources</a> for comments, referenced from all 3 collections, could still be modelled on a higher level to avoid deep nesting of URIs (which might increase complexity or problems due to the URI length):</p>
+    <p>The [=singular resources=] for comments, referenced from all 3 collections, could still be modelled on a higher level to avoid deep nesting of URIs (which might increase complexity or problems due to the URI length):</p>
     <pre>https://api.example.org/v1/comments/123<br />https://api.example.org/v1/comments/456</pre>
     <p>Although this approach might seem counterintuitive from a technical perspective (we simply could have modelled a single <code>/comments</code> resource with optional filters for article and photo) and might introduce partially redundant functionality, it makes perfect sense from the perspective of the consumer, which increases developer experience.</p>
   </div>
@@ -498,11 +533,19 @@ An API is as good as the accompanying documentation. The documentation has to be
       </dd>
       <dt>Implications</dt>
       <dd>
-         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/main/pkg/adr/rules.go">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
+         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L119">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
       </dd>
       <dt>Rule types</dt>
       <dd>
          This is a technical design rule and hence should be tested automatically.
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         <ul>
+            <li> Step 1: The API MUST meet the prerequisets to be tested. These include that an OAS file is publicly available, parsable, all $refs are resolvable and paths are defined.</li>
+            <li> Step 2: Check the specification type.</li>
+            <li> Step 3: All references MUST be publicly resolvable, including the external references.</li>
+         </ul>
       </dd>
    </dl>
 </div>
@@ -540,7 +583,7 @@ An API is as good as the accompanying documentation. The documentation has to be
       </dd>
       <dt>Rationale</dt>
       <dd>
-         <p> Clients (such as Swagger UI or ReDoc) must be able to retrieve the document without having to authenticate. Furthermore, the CORS policy for this URI must allow external domains to read the documentation from a browser environment.</p>
+         <p> Clients (such as Swagger UI or ReDoc) must be able to retrieve the document without having to authenticate. Furthermore, the CORS policy for this [=URI=] must allow external domains to read the documentation from a browser environment.</p>
          <p>The standard location for the OAS document is a URI called <code>openapi.json</code> or <code>openapi.yaml</code> within the base path of the API. This can be convenient, because OAS document updates can easily  become part of the CI/CD process.</p>
          <p>At least the JSON format must be supported. When having multiple (major) versions of an API, every API should provide its own OAS document(s).</p>
          <div class="example">
@@ -552,11 +595,20 @@ An API is as good as the accompanying documentation. The documentation has to be
       </dd>
       <dt>Implications</dt>
       <dd>
-         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/main/pkg/adr/rules.go">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
+         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L282">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
       </dd>
       <dt>Rule types</dt>
       <dd>
          This is a technical design rule and hence should be tested automatically.
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         <ul>
+            <li> Step 1: The API MUST meet the prerequisets to be tested. These include that an OAS file (openapi.json) is publicly available, parsable, all $refs are resolvable and paths are defined.</li>
+            <li> Step 2: The openapi.yaml MAY be available. If available it MUST contain yaml, be readable and parsable.</li>
+            <li> Step 3: The openapi.yaml MUST contain the same OpenAPI Specification as the openapi.json.</li>
+            <li> Step 4: The CORS header Access-Control-Allow-Origin MUST allow all origins.</li>
+         </ul>
       </dd>
    </dl>
 </div>
@@ -617,23 +669,38 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
     <dl>
       <dt>Statement</dt>
       <dd>
-         The URI of an API must include the major version number.
+         The [=URI=] of an API must include the major version number.
       </dd>
       <dt>Rationale</dt>
       <dd>
-         The URI of an API (base path) must include the major version number, prefixed by the letter <code>v</code>. This allows the exploration of multiple versions of an API in the browser. The minor and patch version numbers are not part of the URI and may not have any impact on existing client implementations.
+         The [=URI=] of an API (base path) must include the major version number, prefixed by the letter <code>v</code>. This allows the exploration of multiple versions of an API in the browser. The minor and patch version numbers are not part of the [=URI=] and may not have any impact on existing client implementations.
       <div class="example">
          <p>An example of a base path for an API with current version 1.0.2:</p>
          <pre>https://api.example.org/v1/</pre>
+         <pre>version: '1.0.2'</pre>
+         <pre>servers:
+                  - description: test environment  
+                  url: https://api.test.example.org/v1/  
+                  - description: production environment  
+                  url: https://api.example.org/v1/  
+         </pre>
       </div>
       </dd>
       <dt>Implications</dt>
       <dd>
-         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/main/pkg/adr/rules.go">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
+         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L165">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
       </dd>
       <dt>Rule types</dt>
       <dd>
          This is a technical design rule and hence should be tested automatically.
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         <ul>
+            <li> Step 1: The base path MUST contain a version number.</li>
+            <li> Step 2: Each url of the server object of the OpenAPI Specification must include a version number.</li>
+            <li> Step 3: The version in the OAS file must be the same as the version in the base path.</li>
+         </ul>
       </dd>
    </dl>
 </div>
@@ -675,12 +742,20 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       </dd>
       <dt>Implications</dt>
       <dd>
-         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/main/pkg/adr/rules.go">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
+         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L354">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
       </dd>
       <dt>Rule types</dt>
       <dd>
          This is a technical design rule and hence should be tested automatically.
       </dd>
+      <dt>How to test</dt>
+      <dd>
+         <ul>
+            <li> Step 1: The API MUST meet the prerequisets to be tested. These include that an OAS file (openapi.json) is publicly available, parsable, all $refs are resolvable and paths are defined.</li>
+            <li> Step 2: In the open api specification the info and version object MUST be available.</li>
+            <li> Step 3: The version MUST comply with Semantic Versioning.</li>
+         </ul>
+      </dd> 
    </dl>
 </div>
 
@@ -703,14 +778,46 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       </dd>
       <dt>Implications</dt>
       <dd>
-         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/main/pkg/adr/rules.go">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
+         This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L393">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
       </dd>
       <dt>Rule types</dt>
       <dd>
          This is a technical design rule and hence should be tested automatically.
       </dd>
+      <dt>How to test</dt>
+      <dd>
+         <ul>
+            <li> Step 1: A request to the base url MUST give a response and include the header "API-Version".</li>
+            <li> Step 2: The value of the header "API-Version" MUST have a valid Semantic Versioning number.</li>
+         </ul>
+      </dd>
    </dl>
 </div>
 
+## Geospatial
 
+Geospatial content is becoming more common in every modern API. APIs containing [=OGC=] compliant features should therefore be compliant with geospatial specific rules.
+  
+<div class="rule" id="/core/geo">
+  <p class="rulelab"><b>/core/geo</b>: Use the GEO module for geospatial content</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         Use the specific GEO module when designing an API for geospatial content and functions.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         <p>The NL API Strategy [[Geospatial Module]] provides rules for publishing geospatial data using Web APIs. Spatial data is data that describes anything with spatial extent (i.e. size, shape or position). Spatial data is also known as location information. [[sdw-bp]] </p>
+         <p>The [[Geospatial Module]] rules MUST be applied for the structuring of geospatial payloads and for functions in APIs to handle geospatial data in line with <a href="https://ogcapi.ogc.org/features/">the Open Geospatial Consortium (OGC) API Features.</a></p>
+      </dd>
+      <dt>Implications</dt>
+      <dd>
+         Adherance to this rule needs to be manually verified.
+      </dd>
+      <dt>Rule types</dt>
+      <dd>
+         This is a functional design rule and hence can't be tested automatically.
+      </dd>
+   </dl>
+</div>
 

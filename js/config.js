@@ -45,5 +45,6 @@ var respecConfig = {
   previousPublishVersion: "1.0",
   shortName: "adr",
   specStatus: "WV",
-  specType: "ST"
+  specType: "ST",
+  pluralize: true,
 };
