@@ -448,7 +448,7 @@ Resources are often interconnected by relationships. Relationships can be modell
 
 ## Conditional Modules
 
-As described in <a href="#extensions">the Extensions paragraph</a> the NL API Strategy is composed of a set of modules that are extentions on <a href="#the-core-set-of-design-rules">the Core set of Design Rules</a>. The modules are optional or conditional. Optional rules can be found in the infographic. All conditional modules are referenced in this document and the 'conditional usage' is formalized as a unique designrule.
+As described in <a href="#extensions">the Extensions paragraph</a> the NL API Strategy is composed of a set of modules that are extensions on <a href="#the-core-set-of-design-rules">the Core set of Design Rules</a>. The modules are optional or conditional. Optional modules can be found in the infographic. All conditional modules are referenced in this document and the 'conditional usage' is formalized as a unique design rule.
 
 <span id="api-tls"></span>
 <div class="rule" id="/core/conditional/transport-security">
