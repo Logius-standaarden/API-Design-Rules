@@ -460,7 +460,7 @@ As described in <a href="#extensions">the Extensions paragraph</a> the NL API St
       </dd>
       <dt>Rationale</dt>
       <dd>
-         The transport security module as described and published on <a href="https://github.com/Geonovum/KP-APIs">Github</a> formalizes three simple rules to apply to API's:
+         The transport security module as described and published on <a href="https://github.com/Geonovum/KP-APIs">Github</a> formalizes three rules to apply to APIs:
          <ol>
          <li>Secure connections using TLS</li>
          <li>No sensitive information in URIs</li>
