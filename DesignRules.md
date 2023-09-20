@@ -30,7 +30,7 @@ The REST architectural style is centered around the concept of a [resource](#dfn
    </dd>
    <dt>Implications</dt>
    <dd>
-   Adherance to this rule needs to be manually verified.
+   Adherence to this rule needs to be manually verified.
    </dd>
    <dt>Rule types</dt>
    <dd>
@@ -69,7 +69,7 @@ A resource describing a single thing is called a [singular resource](#dfn-singul
       </dd>
       <dt>Implications</dt>
       <dd>
-         Adherance to this rule needs to be manually verified.
+         Adherence to this rule needs to be manually verified.
       </dd>
      	<dt>Rule types</dt>
       <dd>
@@ -93,7 +93,7 @@ A resource describing a single thing is called a [singular resource](#dfn-singul
       </dd>
       <dt>Implications</dt>
       <dd>
-         Adherance to this rule needs to be manually verified.
+         Adherence to this rule needs to be manually verified.
       </dd>
       <dt>Rule types</dt>
       <dd>
@@ -363,7 +363,7 @@ Stateless communication offers many advantages, including:
       </dd>
       <dt>Implications</dt>
       <dd>
-         Adherance to this rule needs to be manually verified.
+         Adherence to this rule needs to be manually verified.
       </dd>
       <dt>Rule types</dt>
       <dd>
@@ -404,7 +404,7 @@ Resources are often interconnected by relationships. Relationships can be modell
   </div>
   <dt>Implications</dt>
       <dd>
-         Adherance to this rule needs to be manually verified.
+         Adherence to this rule needs to be manually verified.
       </dd>
       <dt>Rule types</dt>
       <dd>
@@ -434,7 +434,7 @@ Resources are often interconnected by relationships. Relationships can be modell
       <dt>Implications</dt>
       <dd>
          In this design rule, approach 2 and 3 are preferred.
-         Adherance to this rule needs to be manually verified.
+         Adherence to this rule needs to be manually verified.
       </dd>
       <dt>Rule types</dt>
       <dd>
@@ -521,7 +521,7 @@ An API is as good as the accompanying documentation. The documentation has to be
       </dd>
       <dt>Implications</dt>
       <dd>
-         Adherance to this rule needs to be manually verified.
+         Adherence to this rule needs to be manually verified.
       </dd>
       <dt>Rule types</dt>
       <dd>
@@ -579,7 +579,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       </dd>
       <dt>Implications</dt>
       <dd>
-         Adherance to this rule needs to be manually verified.
+         Adherence to this rule needs to be manually verified.
       </dd>
       <dt>Rule types</dt>
       <dd>
@@ -602,7 +602,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       </dd>
       <dt>Implications</dt>
       <dd>
-         Adherance to this rule needs to be manually verified.
+         Adherence to this rule needs to be manually verified.
       </dd>
       <dt>Rule types</dt>
       <dd>
@@ -652,7 +652,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       </dd>
       <dt>Implications</dt>
       <dd>
-         Adherance to this rule needs to be manually verified.
+         Adherence to this rule needs to be manually verified.
       </dd>
       <dt>Rule types</dt>
       <dd>
