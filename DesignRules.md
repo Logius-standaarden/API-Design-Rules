@@ -452,7 +452,7 @@ As described in <a href="#extensions">the Extensions paragraph</a> the NL API St
 
 <span id="api-tls"></span>
 <div class="rule" id="/core/conditional/transport-security">
-  <p class="rulelab"><b>/core/conditional/transport-security</b>: Apply transport security conform the module</p>
+  <p class="rulelab"><b>/core/conditional/transport-security</b>: Apply the transport security module</p>
    <dl>
       <dt>Statement</dt>
       <dd>
@@ -460,7 +460,7 @@ As described in <a href="#extensions">the Extensions paragraph</a> the NL API St
       </dd>
       <dt>Rationale</dt>
       <dd>
-         The transport security module as described and published on <a href="https://github.com/Geonovum/KP-APIs">Github</a> formalizes three rules to apply to APIs:
+         The transport security module as described and published on <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/transport-security/">Github</a> formalizes three rules to apply to APIs:
          <ol>
          <li>Secure connections using TLS</li>
          <li>No sensitive information in URIs</li>
