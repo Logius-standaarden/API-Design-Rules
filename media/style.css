@@ -128,7 +128,12 @@ redactie
   color: #005A9C;
 }
 
-.rulelab strong {
-  font-weight: normal;
-  text-decoration: underline;
+.rulelab a {
+  font-weight: bold;
+}
+
+.flag {
+  float: right;
+  text-decoration: underline dotted;
+  text-transform: capitalize;
 }

@@ -24,7 +24,7 @@ $(window).bind('load', function() {
                 //throw new Error(implications);
             }
             $(this).prepend(flag);
-            $(this).find("#implications").append(implications);
+            $(this).find("#implications").append(implications).removeAttr('id');
         });
         compileList(functionalList, "#functionalList");
         compileList(technicalList, "#technicalList");
