@@ -81,7 +81,6 @@ A resource describing a single thing is called a [=singular resource=]. Resource
       </dd>
       <dt>Implications</dt>
       <dd id="implications"></dd>
-      <dt>Rule types</dt>
    </dl>
 </div>
 
