@@ -37,7 +37,7 @@ A resource describing a single thing is called a [=singular resource=]. Resource
 
 <span id="api-54"></span>
 <div class="rule" id="/core/naming-collections" data-type="functional">
-   <p class="rulelab"><b>/core/naming-collections</b>: Use plural nouns to name collection resources</p>
+   <p class="rulelab">Use plural nouns to name collection resources</p>
    <dl>
       <dt>Statement</dt>
       <dd>
@@ -120,7 +120,7 @@ A resource describing a single thing is called a [=singular resource=]. Resource
 </div>
 
 <span id="api-53"></span>
-<div class="rule" id="/core/hide-implementation" data-type="technical">
+<div class="rule" id="/core/hide-implementation" data-type="functional">
    <p class="rulelab">Hide irrelevant implementation details</p>
    <dl>
       <dt>Statement</dt>
@@ -477,7 +477,7 @@ An API is as good as the accompanying documentation. The documentation has to be
 
 <span id="api-51"></span>
 <div class="rule" id="/core/publish-openapi" data-type="technical">
-  <p class="rulelab"><b>/core/publish-openapi</b>: Publish OAS document at a standard location in JSON-format</p>
+  <p class="rulelab">Publish OAS document at a standard location in JSON-format</p>
    <dl>
       <dt>Statement</dt>
       <dd>
@@ -534,7 +534,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
 
 <span id="api-19"></span>
 <div class="rule" id="/core/transition-period" data-type="functional">
-  <p class="rulelab"><b>/core/transition-period</b>: Schedule a fixed transition period for a new major API version</p>
+  <p class="rulelab">Schedule a fixed transition period for a new major API version</p>
    <dl>
       <dt>Statement</dt>
       <dd>
