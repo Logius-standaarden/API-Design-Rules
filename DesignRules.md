@@ -5,8 +5,8 @@
 The REST architectural style is centered around the concept of a [=resource=]. A resource is the key abstraction of information, where every piece of information is named by assigning a globally unique [=URI=] (Uniform Resource Identifier). Resources describe *things*, which can vary between physical objects (e.g. a building or a person) and more abstract concepts (e.g. a permit or an event).
 
 <span id="api-05"></span>
-<div class="rule" id="/core/naming-resources">
-   <p class="rulelab"><b>/core/naming-resources</b>: Use nouns to name resources</p>
+<div class="rule" id="/core/naming-resources" data-type="functional">
+   <p class="rulelab">Use nouns to name resources</p>
    <dl>
    <dt>Statement</dt>
    <dd>
@@ -29,20 +29,14 @@ The REST architectural style is centered around the concept of a [=resource=]. A
    Resources describe objects not actions.
    </dd>
    <dt>Implications</dt>
-   <dd>
-   Adherance to this rule needs to be manually verified.
-   </dd>
-   <dt>Rule types</dt>
-   <dd>
-   This is a functional design rule and hence can't be tested automatically.
-   </dd>
+   <dd id="implications"></dd>
 </dl>
 </div>
 
 A resource describing a single thing is called a [=singular resource=]. Resources can also be grouped into collections, which are resources in their own right and can typically be paged, sorted and filtered. Most often all collection members have the same type, but this is not necessarily the case. A resource describing multiple things is called a [=collection resource=]. Collection resources typically contain references to the underlying singular resources.
 
 <span id="api-54"></span>
-<div class="rule" id="/core/naming-collections">
+<div class="rule" id="/core/naming-collections" data-type="functional">
    <p class="rulelab"><b>/core/naming-collections</b>: Use plural nouns to name collection resources</p>
    <dl>
       <dt>Statement</dt>
@@ -68,19 +62,13 @@ A resource describing a single thing is called a [=singular resource=]. Resource
          </div>
       </dd>
       <dt>Implications</dt>
-      <dd>
-         Adherance to this rule needs to be manually verified.
-      </dd>
-     	<dt>Rule types</dt>
-      <dd>
-      This is a functional design rule and hence can't be tested automatically.
-      </dd>
+      <dd id="implications"></dd>
    </dl>
 </div>
 
 <span id="api-04"></span>
-<div class="rule" id="/core/interface-language">
-   <p class="rulelab"><b>/core/interface-language</b>: Define interfaces in Dutch unless there is an official English glossary available</p>
+<div class="rule" id="/core/interface-language" data-type="functional">
+   <p class="rulelab">Define interfaces in Dutch unless there is an official English glossary available</p>
    <dl>
       <dt>Statement</dt>
       <dd>
@@ -92,19 +80,14 @@ A resource describing a single thing is called a [=singular resource=]. Resource
          Note that glossaries exist that define useful sets of attributes which should preferably be reused. Examples can be found at <a href="http://schema.org/docs/schemas.html">schema.org</a>.
       </dd>
       <dt>Implications</dt>
-      <dd>
-         Adherance to this rule needs to be manually verified.
-      </dd>
+      <dd id="implications"></dd>
       <dt>Rule types</dt>
-      <dd>
-      This is a functional design rule and hence can't be tested automatically.
-      </dd>
    </dl>
 </div>
 
 <span id="api-48"></span>
-<div class="rule" id="/core/no-trailing-slash">
-   <p class="rulelab"><b>/core/no-trailing-slash</b>: Leave off trailing slashes from URIs</p>
+<div class="rule" id="/core/no-trailing-slash" data-type="technical">
+   <p class="rulelab">Leave off trailing slashes from URIs</p>
    <dl>
       <dt>Statement</dt>
       <dd>
@@ -123,11 +106,7 @@ A resource describing a single thing is called a [=singular resource=]. Resource
       <dt>Implications</dt>
       <dd>
          This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L213">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
-      </dd>
-      <dt>Rule types</dt>
-      <dd>
-         This is a technical design rule and hence should be tested automatically.
-      </dd>
+      </dd>      
       <dt>How to test</dt>
       <dd>
          <ul>
@@ -141,8 +120,8 @@ A resource describing a single thing is called a [=singular resource=]. Resource
 </div>
 
 <span id="api-53"></span>
-<div class="rule" id="/core/hide-implementation">
-   <p class="rulelab"><b>/core/hide-implementation</b>: Hide irrelevant implementation details</p>
+<div class="rule" id="/core/hide-implementation" data-type="technical">
+   <p class="rulelab">Hide irrelevant implementation details</p>
    <dl>
       <dt>Statement</dt>
       <dd>
@@ -164,10 +143,6 @@ A resource describing a single thing is called a [=singular resource=]. Resource
             <li>The API should offer client-friendly attribute names and values, while persisted data may contain abbreviated terms or serializations which might be cumbersome for consumption.</li>
          </ul>
       </dd>
-      <dt>Rule types</dt>
-      <dd>
-      This is a functional design rule and hence can't be tested automatically.
-      </dd>
    </dl>
 </div>
 
@@ -176,8 +151,8 @@ A resource describing a single thing is called a [=singular resource=]. Resource
 Although the REST architectural style does not impose a specific protocol, REST APIs are typically implemented using HTTP [[rfc7231]].
 
 <span id="api-03"></span>
-<div class="rule" id="/core/http-methods">
-   <p class="rulelab"><b>/core/http-methods</b>: Only apply standard HTTP methods</p>
+<div class="rule" id="/core/http-methods" data-type="technical">
+   <p class="rulelab">Only apply standard HTTP methods</p>
    <dl>
       <dt>Statement</dt>
       <dd>
@@ -290,17 +265,13 @@ Although the REST architectural style does not impose a specific protocol, REST 
             <li> Step 1: The API MUST meet the prerequisites to be tested. These include that an OAS file is publicly available, parsable, all $refs are resolvable, and paths are defined.</li>
             <li> Step 2: Send a request to the API with an optional HTTP method that is not supported by the API. The server MUST respond with an HTTP status code <code>405 Method Not Allowed</code>. The response MUST contain an <code>Allow</code> header with a list of supported methods for the target resource.</li>
       </ul>
-      </dd>
-      <dt>Rule types</dt>
-      <dd>
-         This is a technical design rule and hence should be tested automatically.
-      </dd>      
+      </dd>   
    </dl>
 </div>
 
 <span id="api-01"></span>
-<div class="rule" id="/core/http-safety">
-   <p class="rulelab"><b>/core/http-safety</b>: Adhere to HTTP safety and idempotency semantics for operations</p>
+<div class="rule" id="/core/http-safety" data-type="functional">
+   <p class="rulelab">Adhere to HTTP safety and idempotency semantics for operations</p>
    <dl>
       <dt>Statement</dt>
       <dd>
@@ -360,10 +331,6 @@ Although the REST architectural style does not impose a specific protocol, REST 
       <dd>
          Request methods are considered <i>safe</i> if their defined semantics are essentially read-only; i.e., the client does not request, and does not expect, any state change on the origin server as a result of applying a safe method to a target resource. A request method is considered <i>idempotent</i> if the intended effect on the server of multiple identical requests with that method is the same as the effect for a single such request.
       </dd>
-			<dt>Rule types</dt>
-      <dd>
-      This is a functional design rule and hence can't be tested automatically.
-      </dd>
    </dl>
 </div>
 
@@ -385,8 +352,8 @@ Stateless communication offers many advantages, including:
 * *Reliability* is improved because it eases the task of recovering from partial failures since the server doesn't have to maintain, update or communicate session state. One failing request does not influence other requests (depending on the nature of the failure of course).
 
 <span id="api-02"></span>
-<div class="rule" id="/core/stateless">
-   <p class="rulelab"><b>/core/stateless</b>: Do not maintain session state on the server</p>
+<div class="rule" id="/core/stateless" data-type="functional">
+   <p class="rulelab">Do not maintain session state on the server</p>
    <dl>
       <dt>Statement</dt>
       <dd>
@@ -397,13 +364,7 @@ Stateless communication offers many advantages, including:
          To achieve full decoupling between client and server, and to benefit from the advantages mentioned above, no session state must reside on the server. Session state must therefore reside entirely on the client.
       </dd>
       <dt>Implications</dt>
-      <dd>
-         Adherance to this rule needs to be manually verified.
-      </dd>
-      <dt>Rule types</dt>
-      <dd>
-      This is a functional design rule and hence can't be tested automatically.
-      </dd>
+      <dd id="implications"></dd>
    </dl>
    <p class="note">The client of a REST API could be a variety of applications such as a browser application, a mobile or desktop application and even another server serving as a backend component for another client. REST APIs should therefore be completely client-agnostic.</p>
 </div>
@@ -413,8 +374,8 @@ Stateless communication offers many advantages, including:
 Resources are often interconnected by relationships. Relationships can be modelled in different ways depending on the cardinality, semantics and more importantly, the use cases and access patterns the REST API needs to support.
 
 <span id="api-06"></span>
-<div class="rule" id="/core/nested-child">
-  <p class="rulelab"><b>/core/nested-child</b>: Use nested URIs for child resources</p>
+<div class="rule" id="/core/nested-child" data-type="functional">
+  <p class="rulelab">Use nested URIs for child resources</p>
   <dl>
       <dt>Statement</dt>
       <dd>
@@ -438,20 +399,14 @@ Resources are often interconnected by relationships. Relationships can be modell
     <p>Although this approach might seem counterintuitive from a technical perspective (we simply could have modelled a single <code>/comments</code> resource with optional filters for article and photo) and might introduce partially redundant functionality, it makes perfect sense from the perspective of the consumer, which increases developer experience.</p>
   </div>
   <dt>Implications</dt>
-      <dd>
-         Adherance to this rule needs to be manually verified.
-      </dd>
-      <dt>Rule types</dt>
-      <dd>
-      This is a functional design rule and hence can't be tested automatically.
-      </dd>
+  <dd id="implications"></dd>
 </div>
 
 ## Operations
 
 <span id="api-10"></span>
-<div class="rule" id="/core/resource-operations">
-  <p class="rulelab"><b>/core/resource-operations</b>: Model resource operations as a sub-resource or dedicated resource</p>
+<div class="rule" id="/core/resource-operations" data-type="functional">
+  <p class="rulelab">Model resource operations as a sub-resource or dedicated resource</p>
   <dl>
       <dt>Statement</dt>
       <dd>
@@ -467,18 +422,8 @@ Resources are often interconnected by relationships. Relationships can be modell
       </ol>
       </dd>
       <dt>Implications</dt>
-      <dd>
-         In this design rule, approach 2 and 3 are preferred.
-         Adherance to this rule needs to be manually verified.
-      </dd>
-      <dt>Rule types</dt>
-      <dd>
-         This is a functional design rule and hence can't be tested automatically.
-      </dd>
-   </dl>
-  
-  <p>
-  <p></p>
+      <dd id="implications"></dd>
+   </dl> 
 </div>
 
 ## Documentation
@@ -486,8 +431,8 @@ Resources are often interconnected by relationships. Relationships can be modell
 An API is as good as the accompanying documentation. The documentation has to be easily findable, searchable and publicly accessible. Most developers will first read the documentation before they start implementing. Hiding the technical documentation in PDF documents and/or behind a login creates a barrier for both developers and search engines.
 
 <span id="api-16"></span>
-<div class="rule" id="/core/doc-openapi">
-  <p class="rulelab"><b>/core/doc-openapi</b>: Use OpenAPI Specification for documentation</p>
+<div class="rule" id="/core/doc-openapi" data-type="technical">
+  <p class="rulelab">Use OpenAPI Specification for documentation</p>
   <dl>
       <dt>Statement</dt>
       <dd>
@@ -502,10 +447,6 @@ An API is as good as the accompanying documentation. The documentation has to be
       <dd>
          This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L119">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
       </dd>
-      <dt>Rule types</dt>
-      <dd>
-         This is a technical design rule and hence should be tested automatically.
-      </dd>
       <dt>How to test</dt>
       <dd>
          <ul>
@@ -518,8 +459,8 @@ An API is as good as the accompanying documentation. The documentation has to be
 </div>
 
 <span id="api-17"></span>
-<div class="rule" id="/core/doc-language">
-  <p class="rulelab"><b>/core/doc-language</b>: Publish documentation in Dutch unless there is existing documentation in English</p>
+<div class="rule" id="/core/doc-language" data-type="functional">
+  <p class="rulelab">Publish documentation in Dutch unless there is existing documentation in English</p>
   <dl>
       <dt>Statement</dt>
       <dd>
@@ -530,18 +471,12 @@ An API is as good as the accompanying documentation. The documentation has to be
          In line with design rule <a href="#/core/interface-language">/core/interface-language</a>, the OAS document (e.g. descriptions and examples) should be written in Dutch. If relevant, you may refer to existing documentation written in English.
       </dd>
       <dt>Implications</dt>
-      <dd>
-         Adherance to this rule needs to be manually verified.
-      </dd>
-      <dt>Rule types</dt>
-      <dd>
-      This is a functional design rule and hence can't be tested automatically.
-      </dd>
+      <dd id="implications"></dd>
    </dl>
 </div>
 
 <span id="api-51"></span>
-<div class="rule" id="/core/publish-openapi">
+<div class="rule" id="/core/publish-openapi" data-type="technical">
   <p class="rulelab"><b>/core/publish-openapi</b>: Publish OAS document at a standard location in JSON-format</p>
    <dl>
       <dt>Statement</dt>
@@ -564,10 +499,6 @@ An API is as good as the accompanying documentation. The documentation has to be
       <dd>
          This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L282">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
       </dd>
-      <dt>Rule types</dt>
-      <dd>
-         This is a technical design rule and hence should be tested automatically.
-      </dd>
       <dt>How to test</dt>
       <dd>
          <ul>
@@ -585,8 +516,8 @@ An API is as good as the accompanying documentation. The documentation has to be
 Changes in APIs are inevitable. APIs should therefore always be versioned, facilitating the transition between changes.
 
 <span id="api-18"></span>
-<div class="rule" id="/core/deprecation-schedule">
-  <p class="rulelab"><b>/core/deprecation-schedule</b>: Include a deprecation schedule when deprecating features or versions</p>
+<div class="rule" id="/core/deprecation-schedule" data-type="functional">
+  <p class="rulelab">Include a deprecation schedule when deprecating features or versions</p>
    <dl>
       <dt>Statement</dt>
       <dd>
@@ -597,18 +528,12 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
          Managing change is important. In general, well documented and timely communicated deprecation schedules are the most important for API users. When deprecating features or versions, a deprecation schedule must be published. This document should be published on a public web page. Furthermore, active clients should be informed by e-mail once the schedule has been updated or when versions have reached end-of-life.
       </dd>
       <dt>Implications</dt>
-      <dd>
-         Adherance to this rule needs to be manually verified.
-      </dd>
-      <dt>Rule types</dt>
-      <dd>
-         This is a functional design rule and hence can't be tested automatically.
-      </dd>
+	  <dd id="implications"></dd>
    </dl>
 </div>
 
 <span id="api-19"></span>
-<div class="rule" id="/core/transition-period">
+<div class="rule" id="/core/transition-period" data-type="functional">
   <p class="rulelab"><b>/core/transition-period</b>: Schedule a fixed transition period for a new major API version</p>
    <dl>
       <dt>Statement</dt>
@@ -620,19 +545,13 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
          When releasing a new major API version, the old version must remain available for a limited and fixed deprecation period. Offering a deprecation period allows clients to carefully plan and execute the migration from the old to the new API version, as long as they do this prior to the end of the deprecation period. A maximum of 2 major API versions may be published concurrently.
       </dd>
       <dt>Implications</dt>
-      <dd>
-         Adherance to this rule needs to be manually verified.
-      </dd>
-      <dt>Rule types</dt>
-      <dd>
-         This is a functional design rule and hence can't be tested automatically.
-      </dd>
+	  <dd id="implications"></dd>
    </dl>
 </div>
 
 <span id="api-20"></span>
-<div class="rule" id="/core/uri-version">
-  <p class="rulelab"><b>/core/uri-version</b>: Include the major version number in the URI</p>
+<div class="rule" id="/core/uri-version" data-type="technical">
+  <p class="rulelab">Include the major version number in the URI</p>
     <dl>
       <dt>Statement</dt>
       <dd>
@@ -657,10 +576,6 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       <dd>
          This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L165">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
       </dd>
-      <dt>Rule types</dt>
-      <dd>
-         This is a technical design rule and hence should be tested automatically.
-      </dd>
       <dt>How to test</dt>
       <dd>
          <ul>
@@ -673,8 +588,8 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
 </div>
 
 <span id="api-55"></span>
-<div class="rule" id="/core/changelog">
-  <p class="rulelab"><b>/core/changelog</b>: Publish a changelog for API changes between versions</p>
+<div class="rule" id="/core/changelog" data-type="functional">
+  <p class="rulelab">Publish a changelog for API changes between versions</p>
    <dl>
       <dt>Statement</dt>
       <dd>
@@ -685,19 +600,13 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
          <p>When releasing new (major, minor or patch) versions, all API changes must be documented properly in a publicly available changelog.</p>
       </dd>
       <dt>Implications</dt>
-      <dd>
-         Adherance to this rule needs to be manually verified.
-      </dd>
-      <dt>Rule types</dt>
-      <dd>
-      This is a functional design rule and hence can't be tested automatically.
-      </dd>
+	  <dd id="implications"></dd>
    </dl>
 </div>
 
 <span id="api-56"></span>
-<div class="rule" id="/core/semver">
-  <p class="rulelab"><b>/core/semver</b>: Adhere to the Semantic Versioning model when releasing API changes</p>
+<div class="rule" id="/core/semver" data-type="technical">
+  <p class="rulelab">Adhere to the Semantic Versioning model when releasing API changes</p>
   <dl>
       <dt>Statement</dt>
       <dd>
@@ -711,10 +620,6 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       <dd>
          This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L354">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
       </dd>
-      <dt>Rule types</dt>
-      <dd>
-         This is a technical design rule and hence should be tested automatically.
-      </dd>
       <dt>How to test</dt>
       <dd>
          <ul>
@@ -727,8 +632,8 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
 </div>
 
 <span id="api-57"></span>
-<div class="rule" id="/core/version-header">
-  <p class="rulelab"><b>/core/version-header</b>: Return the full version number in a response header</p>
+<div class="rule" id="/core/version-header" data-type="technical">
+  <p class="rulelab">Return the full version number in a response header</p>
    <dl>
       <dt>Statement</dt>
       <dd>
@@ -747,10 +652,6 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       <dd>
          This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/v0.3.0/pkg/adr/rules.go#L393">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
       </dd>
-      <dt>Rule types</dt>
-      <dd>
-         This is a technical design rule and hence should be tested automatically.
-      </dd>
       <dt>How to test</dt>
       <dd>
          <ul>
@@ -765,8 +666,8 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
 
 Geospatial content is becoming more common in every modern API. APIs containing [=OGC=] compliant features should therefore be compliant with geospatial specific rules.
   
-<div class="rule" id="/core/geo">
-  <p class="rulelab"><b>/core/geo</b>: Use the GEO module for geospatial content</p>
+<div class="rule" id="/core/geo" data-type="functional">
+  <p class="rulelab">Use the GEO module for geospatial content</p>
    <dl>
       <dt>Statement</dt>
       <dd>
@@ -778,13 +679,7 @@ Geospatial content is becoming more common in every modern API. APIs containing 
          <p>The [[Geospatial Module]] rules MUST be applied for the structuring of geospatial payloads and for functions in APIs to handle geospatial data in line with <a href="https://ogcapi.ogc.org/features/">the Open Geospatial Consortium (OGC) API Features.</a></p>
       </dd>
       <dt>Implications</dt>
-      <dd>
-         Adherance to this rule needs to be manually verified.
-      </dd>
-      <dt>Rule types</dt>
-      <dd>
-         This is a functional design rule and hence can't be tested automatically.
-      </dd>
+	  <dd id="implications"></dd>
    </dl>
 </div>
 
