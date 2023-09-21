@@ -1,9 +1,5 @@
 ## Summary
 
-<aside class="note">
-Design rules have unique and permanent numbers. In the event of design rules being deprecated or restructured, they are removed from the list. Therefore, gaps in the sequence can occur. New design rules will always get a new and higher number.
-</aside>
-
 ### Normative Design Rules
 
 Design rules can be technical rules, which should be tested automatically and functional rules which should be considerd when designing and building the api.
@@ -22,6 +18,7 @@ Design rules can be technical rules, which should be tested automatically and fu
 * <a href="#/core/hide-implementation">/core/hide-implementation</a>: Hide irrelevant implementation details.
 * <a href="#/core/naming-collections">/core/naming-collections</a>: Use plural nouns to name collection resources.
 * <a href="#/core/changelog">/core/changelog</a>: Publish a changelog for API changes between versions.
+* <a href="#/core/geo">/core/geo</a>: Use the GEO module for geospatial content.
 
 #### List of technical rules
 
