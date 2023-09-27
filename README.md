@@ -1,22 +1,28 @@
 ## API Design Rules
 
+### NEWS!! - 6 oktober 2023 start de openbare consultatie van de API Design Rules v2 - !!NEWS
+
+- De consultatie versie 2.0.0-rc.1 is beschikbaar op: https://logius-standaarden.github.io/API-Design-Rules/
+
+### Links
+
 **API Design Rules** -- normative standard for the design of APIs for the Dutch Public Sector
 
 Bekijk hier de **laatste vastgestelde versie** van de standaard:  
 
-https://publicatie.centrumvoorstandaarden.nl/api/adr/
+- [NLGov API Design Rules v1](https://gitdocumentatie.logius.nl/publicatie/api/adr/)
 
 Bekijk hier **de laatste werkversie** van de standaard:  
 
-https://Logius-standaarden.github.io/API-Design-Rules/
+- https://Logius-standaarden.github.io/API-Design-Rules/
 
 Het **Beheermodel** voor deze standaard is gepubliceerd op:  
 
-https://publicatie.centrumvoorstandaarden.nl/api/adr-beheer/
+- https://publicatie.centrumvoorstandaarden.nl/api/adr-beheer/
 
 ### Versie 2.0.0 (juli 2023)
  
-Versie 2.0 van de API designrules is in concept gereed. Onderdeel van het besluitvormingsproces om deze versie als de nieuwe standaard vast te stellen is dat we deze versie eerst met de werkgroep API-designrules bespreken. Bij een positief advies vanuit de werkgroep kan het vaststellingsproces verder in gang gezet worden. Op 5 september organiseren we een digitale werkgroepbijeenkomst waarin we de nieuwe versie van de designrules bespreken en besluiten welke wijzigingen akkoord zijn. Bij deze onze oproep de nieuwe versie goed door te nemen en je aan te melden voor deze bijeenkomst. Eventuele feedback kun je ook voor de bijeenkomst al doorgeven via een issue op [de github van het Kennisplatform.](https://github.com/Geonovum/KP-APIs/issues)
+Versie 2 van de API designrules is  gereed. Onderdeel van het besluitvormingsproces om deze versie als de nieuwe standaard vast te stellen is dat we deze versie eerst met de werkgroep API-designrules bespreken. Bij een positief advies vanuit de werkgroep kan het vaststellingsproces verder in gang gezet worden. Op 5 september is tijdens de digitale werkgroepbijeenkomst de nieuwe versie van de designrules besproken en is besloten welke wijzigingen akkoord zijn. Eventuele feedback kun je ook voor de bijeenkomst al doorgeven via een issue op [de github van het Kennisplatform.](https://github.com/Geonovum/KP-APIs/issues)
  
 Een overzicht van de nog te bespreken wijzigingen is te vinden op:
 - https://github.com/Logius-standaarden/API-Design-Rules/pulls?q=is%3Apr+is%3Aopen+label%3A%22Status%3A+In+review%22
