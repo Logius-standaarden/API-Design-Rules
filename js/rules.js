@@ -13,7 +13,7 @@ $(window).bind('load', function() {
             let flag = implications;
             let type = $(this).data("type");
             if (type == "functional") {
-                implications = "Adherance to this rule needs to be manually";
+                implications = "Adherence to this rule needs to be manually verified.";
                 flag = "<div title=\"This is a functional design rule and hence cannot be tested automatically.\" class=\"flag\">functional</div>"
                 functionalList.push(titel.html())
             } else if (type == "technical") {
