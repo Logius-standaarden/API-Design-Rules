@@ -44,7 +44,7 @@ var respecConfig = {
   previousPublishDate: "2020-07-09",
   previousPublishVersion: "1.0",
   shortName: "adr",
-  specStatus: "VV",
+  specStatus: "CV",
   specType: "ST",
   pluralize: true,
 };
