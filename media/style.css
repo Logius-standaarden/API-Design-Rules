@@ -71,13 +71,13 @@ thead
 tbody
 {
   border-color: darkolivegreen;
-  background-color: lightgrey
+  background-color: white
 }
 
 /*-- Definite van de tabel-rij (deze zorgt voor 2 kleuren in de rijen) -------------*/
 tr:nth-child(even)
 {
-  background-color:  darkgrey;
+  background-color:  lightgrey;
 }
 
 /*-- Definite van de tabel-cel (data) ----------------------------------------------*/
@@ -128,7 +128,12 @@ redactie
   color: #005A9C;
 }
 
-.rulelab strong {
-  font-weight: normal;
-  text-decoration: underline;
+.rulelab a {
+  font-weight: bold;
+}
+
+.flag {
+  float: right;
+  text-decoration: underline dotted;
+  text-transform: capitalize;
 }

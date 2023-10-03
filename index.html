@@ -1,47 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- HTML-Header ============================================================================== -->
-
-<head>
-  <meta content="text/html; charset=utf-8" http-equiv="content-type">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ <!-- HTML-Header ============================================================================== -->
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
   <!-- Invullen: de titel van de standaard of het document ==================================== -->
-  <title>API Design Rules (Nederlandse API Strategie IIa)</title>
+  <title>
+   NLGov API Design Rules
+  </title>
   <!-- Invullen: de naam van de lokale CSS file =============================================== -->
-  <link rel="stylesheet" type="text/css" href="./media/style.css">
-  <script src="js/config.js" class="remove"></script>
-  <link rel="shortcut icon" type="image/x-icon" href="https://publicatie.centrumvoorstandaarden.nl/respec/style/logos/logius.ico" />
-  <script src="https://publicatie.centrumvoorstandaarden.nl/respec/builds/respec-logius.js" class="remove" async></script>
-
-  <!-- ============================================================================================ -->
-  <!-- File. . . :  index.html                                                                      -->
-  <!-- Bevat . . :  Template voor de index.html die verplicht is voor respec                        -->
-  <!--              Gebaseerd op https://github.com/Geonovum/respec/wiki                            -->
-  <!--              Deze file moet worden neergezet in de root-directory van de                     -->
-  <!--              betreffende standaard.                                                          -->
-  <!-- Door. . . :  Jan van Gelder                                                                  -->
-  <!-- ============================================================================================ -->
-  <!-- ============================================================================================ -->
-  <!-- Log . . . :  20181015 - JvG - Initiele versie                                                -->
-  <!--
+  <link href="./media/style.css" rel="stylesheet" type="text/css"/>
+  <script class="remove" src="https://logius-standaarden.github.io/publicatie/respec/organisation-config.js">
+  </script>
+  <script class="remove" src="js/config.js">
+  </script>
+  <script>
+   respecConfig = {...organisationConfig, ...respecConfig};
+  </script>
+  <link href="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/logius.ico" rel="shortcut icon" type="image/x-icon"></link>
+   <script async="" class="remove" src="https://gitdocumentatie.logius.nl/publicatie/respec/builds/respec-nlgov.js">
+   </script>
+   <script class="remove" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+   <script class="remove" src="js/rules.js" defer></script>
+   <!-- ============================================================================================ -->
+   <!-- File. . . :  index.html                                                                      -->
+   <!-- Bevat . . :  Template voor de index.html die verplicht is voor respec                        -->
+   <!--              Gebaseerd op https://github.com/Geonovum/respec/wiki                            -->
+   <!--              Deze file moet worden neergezet in de root-directory van de                     -->
+   <!--              betreffende standaard.                                                          -->
+   <!-- Door. . . :  Jan van Gelder                                                                  -->
+   <!-- ============================================================================================ -->
+   <!-- ============================================================================================ -->
+   <!-- Log . . . :  20181015 - JvG - Initiele versie                                                -->
+   <!--
 ====================================================================================================
 0        1         2         3         4         5         6         7         8         9         0
 1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890
 ================================================================================================= -->
-
-</head>
-<!-- HTML-Body ================================================================================ -->
-
-<body>
-  <section id="abstract" data-format="markdown" data-include="Abstract v1.0.md"></section>
-  <section id="sotd"></section>
+  
+ </head>
+ <!-- HTML-Body ================================================================================ -->
+ <body>
+  <section data-include="Abstract.md" data-include-format="markdown" id="abstract">
+  </section>
+  <section id="sotd">
+  </section>
   <!-- vanaf hier per hoofdstuk een sectie of een div in het document ======================== -->
   <!-- Secties komen in de inhoudsopgave div"s niet ========================================== -->
   <!-- Secties hebben verplicht <h2> tags, div"s niet ======================================== -->
-  <section data-format="markdown" class="informative" data-include="Introduction v1.0.md"></section>
-  <section data-format="markdown" data-include="Summary v1.0.md"></section>
-  <section data-format="markdown" data-include="The Design Rules v1.0.md"></section>
-  <section data-format="markdown" data-include="Glossary v1.0.md"></section>
-</body>
-
+  <section class="informative" data-include="Introduction.md" data-include-format="markdown">
+  </section>
+  <section data-include="Summary.md" data-include-format="markdown">
+  </section>
+  <section data-include="DesignRules.md" data-include-format="markdown">
+  </section>
+  <section data-include="Glossary.md" data-include-format="markdown">
+  </section>
+  <section id="conformance" class="remove notoc">
+  </section>
+ </body>
 </html>
