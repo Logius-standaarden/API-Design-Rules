@@ -680,7 +680,7 @@ Transport security is essential to safeguard the confidentiality, integrity, and
         <li>No sensitive information in URIs</li>
         <li>Use CORS to control access</li>
       </ol>
-      Furthermore, the module describes best practices for security headers, browser-based applications, and other HTTP configurations. These best practices MUST be considered and the considerations SHOULD be published in the API documentation. Transport security is the baseline for REST API resources and the data concerned is a vital asset of the government. The rules and best practices are condidered the minimal security principles, concepts and technologies to apply.
+      Furthermore, the module describes best practices for security headers, browser-based applications, and other HTTP configurations. These best practices MUST be considered and the considerations SHOULD be published in the API documentation. Transport security is the baseline for REST API resources and the data concerned is a vital asset of the government. The rules and best practices are considered the minimal security principles, concepts and technologies to apply.
     </dd>
     <dt>Implications</dt>
     <dd id="implications"></dd>
