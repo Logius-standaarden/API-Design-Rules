@@ -425,39 +425,6 @@ Resources are often interconnected by relationships. Relationships can be modell
    </dl> 
 </div>
 
-## Conditional Modules
-
-As described in <a href="#extensions">the Extensions paragraph</a> the NL API Strategy is composed of a set of modules that are extensions on <a href="#the-core-set-of-design-rules">the Core set of Design Rules</a>. The modules are optional or conditional. Optional modules can be found in the infographic. All conditional modules are referenced in this document and the 'conditional usage' is formalized as a unique design rule.
-
-<span id="api-tls"></span>
-<div class="rule" id="/core/conditional/transport-security">
-  <p class="rulelab"><b>/core/conditional/transport-security</b>: Apply the transport security module</p>
-   <dl>
-      <dt>Statement</dt>
-      <dd>
-         When handling government data the transport security module MUST be applied.
-      </dd>
-      <dt>Rationale</dt>
-      <dd>
-         The transport security module as described and published on <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/transport-security/">Github</a> formalizes three rules to apply to APIs:
-         <ol>
-         <li>Secure connections using TLS</li>
-         <li>No sensitive information in URIs</li>
-         <li>Use CORS to control access</li>
-         </ol>
-         Furthermore the module describes best practices for security headers, browser-based applications, and other HTTP configurations. These best practices MUST be considered and the considerations SHOULD be published in the API documentation. Hence the transport security is the baseline for REST API resources and the data concerned is a vital asset of the government the rules and best practices are condidered the minimal security principles, concepts and technologies to apply.
-      </dd>
-      <dt>Implications</dt>
-      <dd>
-         Adherence to this rule needs to be manually verified. Some rules of the module COULD be tested automatically and will be shown on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/main/pkg/adr/rules.go">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
-      </dd>
-      <dt>Rule types</dt>
-      <dd>
-         This is a functional design rule and hence can't be tested automatically.
-      </dd>
-   </dl>
-</div>
-
 ## Documentation
 
 An API is as good as the accompanying documentation. The documentation has to be easily findable, searchable and publicly accessible. Most developers will first read the documentation before they start implementing. Hiding the technical documentation in PDF documents and/or behind a login creates a barrier for both developers and search engines.
@@ -694,23 +661,53 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
    </dl>
 </div>
 
+## Transport Security
+
+Transport security is essential to safeguard the confidentiality, integrity, and authenticity of data during its transmission.
+
+<div class="rule" id="/core/transport-security" data-type="technical">
+  <p class="rulelab">Apply the transport security module</p>
+  <dl>
+    <dt>Statement</dt>
+    <dd>
+      The [[Transport Security Module]] MUST be applied.
+    </dd>
+    <dt>Rationale</dt>
+    <dd>
+      The [[Transport Security Module]] formalizes three rules to apply to APIs:
+      <ol>
+        <li>Secure connections using TLS</li>
+        <li>No sensitive information in URIs</li>
+        <li>Use CORS to control access</li>
+      </ol>
+      Furthermore, the module describes best practices for security headers, browser-based applications, and other HTTP configurations. These best practices MUST be considered and the considerations SHOULD be published in the API documentation. Transport security is the baseline for REST API resources and the data concerned is a vital asset of the government. The rules and best practices are condidered the minimal security principles, concepts and technologies to apply.
+    </dd>
+    <dt>Implications</dt>
+    <dd id="implications"></dd>
+  </dl>
+</div>
+
 ## Geospatial
 
-Geospatial content is becoming more common in every modern API. APIs containing [=OGC=] compliant features should therefore be compliant with geospatial specific rules.
-  
-<div class="rule" id="/core/geo" data-type="functional">
-  <p class="rulelab">Use the GEO module for geospatial content</p>
-   <dl>
-      <dt>Statement</dt>
-      <dd>
-         Use the specific GEO module when designing an API for geospatial content and functions.
-      </dd>
-      <dt>Rationale</dt>
-      <dd>
-         <p>The NL API Strategy [[Geospatial Module]] provides rules for publishing geospatial data using Web APIs. Spatial data is data that describes anything with spatial extent (i.e. size, shape or position). Spatial data is also known as location information. [[sdw-bp]] </p>
-         <p>The [[Geospatial Module]] rules MUST be applied for the structuring of geospatial payloads and for functions in APIs to handle geospatial data in line with <a href="https://ogcapi.ogc.org/features/">the Open Geospatial Consortium (OGC) API Features.</a></p>
-      </dd>
-      <dt>Implications</dt>
-	  <dd id="implications"></dd>
-   </dl>
+Geospatial data refers to information that is associated with a physical location on Earth, often expressed by its 2D/3D coordinates. 
+
+<div class="rule" id="/core/geospatial" data-type="functional">
+  <p class="rulelab">Apply the geospatial module for geospatial data</p>
+  <dl>
+    <dt>Statement</dt>
+    <dd>
+       The [[Geospatial Module]] MUST be applied when providing geospatial data or functionality.
+    </dd>
+    <dt>Rationale</dt>
+    <dd>
+      The [[Geospatial Module]] formalizes as set of rules regarding:
+      <ol>
+         <li>How to encode geospatial data in request and response payloads.</li>
+         <li>How resource collections can be filtered by a given bounding box.</li>
+         <li>How to deal with different coordinate systems (CRS).</li>
+      </ol>
+    </dd>
+    <dt>Implications</dt>
+    <dd id="implications"></dd>
+  </dl>
 </div>
