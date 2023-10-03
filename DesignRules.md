@@ -431,7 +431,7 @@ As described in <a href="#extensions">the Extensions paragraph</a> the NL API St
 
 <span id="api-tls"></span>
 <div class="rule" id="/core/conditional/transport-security">
-  <p class="rulelab"><b>/core/conditional/transport-security</b>: Apply the transport security module</p>
+  <p class="rulelab">Apply the transport security module</p>
    <dl>
       <dt>Statement</dt>
       <dd>
