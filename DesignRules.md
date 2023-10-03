@@ -430,7 +430,7 @@ Resources are often interconnected by relationships. Relationships can be modell
 As described in <a href="#extensions">the Extensions paragraph</a> the NL API Strategy is composed of a set of modules that are extensions on <a href="#the-core-set-of-design-rules">the Core set of Design Rules</a>. The modules are optional or conditional. Optional modules can be found in the infographic. All conditional modules are referenced in this document and the 'conditional usage' is formalized as a unique design rule.
 
 <span id="api-tls"></span>
-<div class="rule" id="/core/conditional/transport-security">
+<div class="rule" id="/core/conditional/transport-security" data-type="functional">
   <p class="rulelab">Apply the transport security module</p>
    <dl>
       <dt>Statement</dt>
@@ -450,10 +450,6 @@ As described in <a href="#extensions">the Extensions paragraph</a> the NL API St
       <dt>Implications</dt>
       <dd>
          Adherence to this rule needs to be manually verified. Some rules of the module COULD be tested automatically and will be shown on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The source code of the technical test can be found <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/main/pkg/adr/rules.go">here</a>. The specific tests are published in the [[ADR-Validator]] repository.
-      </dd>
-      <dt>Rule types</dt>
-      <dd>
-         This is a functional design rule and hence can't be tested automatically.
       </dd>
    </dl>
 </div>
