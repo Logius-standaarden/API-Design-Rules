@@ -2,7 +2,7 @@
 
 ### NEWS!! - 6 oktober 2023 start de openbare consultatie van de API Design Rules v2 - !!NEWS
 
-- De consultatie versie 2.0.0-rc.1 is beschikbaar op: https://logius-standaarden.github.io/API-Design-Rules/
+- De consultatie versie 2.0.0-rc.1 is beschikbaar op: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.0.0-rc.1
 
 ### Links
 
@@ -10,7 +10,7 @@
 
 Bekijk hier de **laatste vastgestelde versie** van de standaard:  
 
-- [NLGov API Design Rules v1](https://gitdocumentatie.logius.nl/publicatie/api/adr/)
+- https://gitdocumentatie.logius.nl/publicatie/api/adr/1.0/
 
 Bekijk hier **de laatste werkversie** van de standaard:  
 
