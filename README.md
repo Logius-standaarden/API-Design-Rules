@@ -1,22 +1,16 @@
-## API Design Rules
+## API Design Rules versie 2
 
-- De consultatie versie 2.0.0-rc.2 is beschikbaar op: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.0.0-rc.2
+De consultatie versie 2.0.0-rc.2 is beschikbaar op: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.0.0-rc.2
 
 ### Links
 
-**API Design Rules** -- normative standard for the design of APIs for the Dutch Public Sector
+| Formele standaard                                            | Gepubliceerde versie                                         | Werk versie                                                  | Repository                                                   |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 🏛️[NLGov API Design Rules (ADR)](https://forumstandaardisatie.nl/open-standaarden/rest-api-design-rules) | 🍿 [ADR v1 (definitief)](https://gitdocumentatie.logius.nl/publicatie/api/adr/) | ✍️ [ADR v2.0.0-rc.2 (versie ter vaststelling)](https://logius-standaarden.github.io/API-Design-Rules/) | 🤓 [API-Design-Rules](https://github.com/Logius-standaarden/API-Design-Rules) |
+| 🏛️[NLGov OAuth 2.0 profile (OAuth)](https://forumstandaardisatie.nl/open-standaarden/nl-gov-assurance-profile-oauth-20) | 🍿[OAuth v1 (definitief)](https://gitdocumentatie.logius.nl/publicatie/api/oauth/) | ✍️[OAuth v1.1.0 (werkversie)](https://logius-standaarden.github.io/OAuth-NL-profiel/) | 🤓[OAuth-NL-profiel](https://github.com/Logius-standaarden/OAuth-NL-profiel) |
+| 🏛️[NLGov OpenID Connect profile (OIDC)](https://forumstandaardisatie.nl/open-standaarden/nl-gov-assurance-profile-oidc) | 🍿[OIDC v1.0.1 (definitief)](https://gitdocumentatie.logius.nl/publicatie/api/oidc/) | ✍️[OIDC v1.0.1 (werkversie)](https://logius-standaarden.github.io/OIDC-NLGOV/) | 🤓[OIDC-NLGOV](https://github.com/Logius-standaarden/OIDC-NLGOV) |
 
-Bekijk hier de **laatste vastgestelde versie** van de standaard:  
-
-- https://gitdocumentatie.logius.nl/publicatie/api/adr/1.0/
-
-Bekijk hier **de laatste werkversie** van de standaard:  
-
-- https://Logius-standaarden.github.io/API-Design-Rules/
-
-Het **Beheermodel** voor deze standaard is gepubliceerd op:  
-
-- https://publicatie.centrumvoorstandaarden.nl/api/adr-beheer/
+Het **Beheermodel** voor deze standaard is gepubliceerd op: https://publicatie.centrumvoorstandaarden.nl/api/adr-beheer/
 
 ### Versie 2.0.0 (dec 2023)
  
@@ -28,7 +22,3 @@ Vervolgstappen zijn nu het aanmelden van de standaard voor goedkeuring door het 
 
 Een overzicht van de releasenotes is beschikbaar waarin alle wijzigingen zijn opgesomd. zie hiervoor:
 - https://github.com/Geonovum/KP-APIs/blob/master/overleggen/Werkgroep%20API%20design%20rules/Verslagen/20230905/Releasenotes_ADR2.md
-
-### Deze repository:  
-
-https://github.com/Logius-standaarden/API-Design-Rules/
