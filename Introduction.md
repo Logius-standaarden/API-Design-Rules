@@ -23,7 +23,7 @@ The Nederlandse API Strategie consists of [three layers of distinct documents](h
 | Part | Description                                  | Status      | Link                                                  |
 | ---- | -------------------------------------------- | ----------- | ----------------------------------------------------- |
 | I    | General description of the API Strategy      | Informative | https://docs.geostandaarden.nl/api/API-Strategie/     |
-| IIa  | Standard for designing APIs                  | Normative   | https://publicatie.centrumvoorstandaarden.nl/api/adr/ |
+| IIa  | Standard for designing APIs                  | Normative   | https://gitdocumentatie.logius.nl/publicatie/api/adr/ |
 | IIb  | Extension on the Standard for designing APIs | Informative | https://docs.geostandaarden.nl/api/API-Strategie-ext/ |
 
 Before reading this document it is advised to gain knowledge of the three documents, in particular [the architecture section of part I](https://docs.geostandaarden.nl/api/API-Strategie/#architectuur).

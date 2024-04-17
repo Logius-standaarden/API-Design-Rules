@@ -10,7 +10,7 @@ De consultatie versie 2.0.0-rc.2 is beschikbaar op: https://gitdocumentatie.logi
 | 🏛️[NLGov OAuth 2.0 profile (OAuth)](https://forumstandaardisatie.nl/open-standaarden/nl-gov-assurance-profile-oauth-20) | 🍿[OAuth v1 (definitief)](https://gitdocumentatie.logius.nl/publicatie/api/oauth/) | ✍️[OAuth v1.1.0 (werkversie)](https://logius-standaarden.github.io/OAuth-NL-profiel/) | 🤓[OAuth-NL-profiel](https://github.com/Logius-standaarden/OAuth-NL-profiel) |
 | 🏛️[NLGov OpenID Connect profile (OIDC)](https://forumstandaardisatie.nl/open-standaarden/nl-gov-assurance-profile-oidc) | 🍿[OIDC v1.0.1 (definitief)](https://gitdocumentatie.logius.nl/publicatie/api/oidc/) | ✍️[OIDC v1.0.1 (werkversie)](https://logius-standaarden.github.io/OIDC-NLGOV/) | 🤓[OIDC-NLGOV](https://github.com/Logius-standaarden/OIDC-NLGOV) |
 
-Het **Beheermodel** voor deze standaard is gepubliceerd op: https://publicatie.centrumvoorstandaarden.nl/api/adr-beheer/
+Het **Beheermodel** voor deze standaard is gepubliceerd op: https://gitdocumentatie.logius.nl/publicatie/api/adr-beheer/
 
 ### Versie 2.0.0 (dec 2023)
  
