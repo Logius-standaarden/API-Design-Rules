@@ -7,7 +7,7 @@ Op 09-07-2020 is besloten om versie 1.0 van de API Design Rules "Verplicht" te s
 
 In samenwerking met het Kennisplatform APIs is in 2022 & 2023 gewerkt om de designrules modulair op te zetten, nauw te verbinden met de tests op developer.overheid.nl en verschillende kleine verbeteringen door te voeren. Deze werkzaamheden hebben geleid tot deze nieuwe versie 2.  
 Voor ADR2 heeft reeds een publieke consultatie plaatsgevonden van 06-10-2023 tot 06-11-2023.  
-ADR2 is door het PGDI goedgekeurd op 07-03-2024 en vastgelegd als [besluit 83](https://pgdi.nl/file/download/e3bd0ba3-a117-42f2-b4e1-d56105b88f96/20240418-pgdi-02-verslagen-voorraadagenda-actie-en-besluitenlijst.pdf).
+ADR2 is door het PGDI goedgekeurd op 07-03-2024 en vastgelegd als [besluit 83](https://pgdi.nl/groups/view/fa975d80-05e2-4f9e-89d6-6a053295c97b/programmeringsraad-gdi/files).
 ADR2 is op 25-01-2024 aangemeld bij het Forum Standaardisatie voor opname op de lijst als nieuwe versie.
 
 ## Samenvatting wijzigingen
