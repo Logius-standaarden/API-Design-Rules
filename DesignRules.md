@@ -45,7 +45,7 @@ A resource describing a single thing is called a [=singular resource=]. Resource
       </dd>
       <dt>Rationale</dt>
       <dd>
-         The path segment describing the name of the collection resource must be written in the plural form.
+         The path segment describing the name of the collection resource MUST be written in the plural form.
          <div class="example">
             <p>Example collection resources, describing a list of things:</p>
             <pre>https://api.example.org/v1/gebouwen<br/>https://api.example.org/v1/vergunningen</pre>
@@ -55,7 +55,7 @@ A resource describing a single thing is called a [=singular resource=]. Resource
             <p>Example singular resource, contained within a collection resource:</p>
             <pre>https://api.example.org/v1/gebouwen/3b9710c4-6614-467a-ab82-36822cf48db1<br/>https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pre>
          </div>
-         <p>Singular resources that stand on their own, i.e. which are not contained within a collection resource, must be named with a path segment that is written in the singular form.</p>
+         <p>Singular resources that stand on their own, i.e. which are not contained within a collection resource, MUST be named with a path segment that is written in the singular form.</p>
          <div class="example">
             <p>Example singular resource describing the profile of the currently authenticated user:</p>
             <pre>https://api.example.org/v1/gebruikersprofiel</pre>
@@ -72,12 +72,12 @@ A resource describing a single thing is called a [=singular resource=]. Resource
    <dl>
       <dt>Statement</dt>
       <dd>
-         Resources and the underlying attributes should be defined in the Dutch language unless there is an official English glossary available.
+         Resources and the underlying attributes SHOULD be defined in the Dutch language unless there is an official English glossary available.
       </dd>
       <dt>Rationale</dt>
       <dd>
          The exact meaning of concepts is often lost in translation. Publishing an API for an international audience might also be a reason to define interfaces in English.
-         Note that glossaries exist that define useful sets of attributes which should preferably be reused. Examples can be found at <a href="http://schema.org/docs/schemas.html">schema.org</a>.
+         Note that glossaries exist that define useful sets of attributes which SHOULD preferably be reused. Examples can be found at <a href="http://schema.org/docs/schemas.html">schema.org</a>.
       </dd>
       <dt>Implications</dt>
       <dd id="implications"></dd>
@@ -90,7 +90,7 @@ A resource describing a single thing is called a [=singular resource=]. Resource
    <dl>
       <dt>Statement</dt>
       <dd>
-         A [=URI=] must never contain a trailing slash. When requesting a resource including a trailing slash, this must result in a `404` (not found) error response and not a redirect. This enforces API consumers to use the correct [=URI=].
+         A [=URI=] MUST never contain a trailing slash. When requesting a resource including a trailing slash, this MUST result in a `404` (not found) error response and not a redirect. This enforces API consumers to use the correct [=URI=].
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -112,7 +112,7 @@ A resource describing a single thing is called a [=singular resource=]. Resource
             <li> Step 1: The API MUST meet the prerequisets to be tested. These include that an OAS file is publicly available, parsable, all $refs are resolvable and paths are defined.</li>
             <li> Step 2: Check if paths are present in the OpenAPI Specification.</li>
             <li> Step 3: Loop al paths and check if it ends with a slash ("/").</li>
-            <li> Step 4: Check all paths with a get request and without parameters. They should resolve in HTTP 404.</li>
+            <li> Step 4: Check all paths with a get request and without parameters. They SHOULD resolve in HTTP 404.</li>
          </ul>
       </dd>
    </dl>
@@ -124,22 +124,22 @@ A resource describing a single thing is called a [=singular resource=]. Resource
    <dl>
       <dt>Statement</dt>
       <dd>
-         An API should not expose implementation details of the underlying application, development platforms/frameworks or database systems/persistence models.
+         An API SHOULD not expose implementation details of the underlying application, development platforms/frameworks or database systems/persistence models.
       </dd>
       <dt>Rationale</dt>
       <dd>
          <ul>
-            <li>The primary motivation behind this design rule is that an API design must focus on usability for the client, regardless of the implementation details under the hood.</li>
+            <li>The primary motivation behind this design rule is that an API design MUST focus on usability for the client, regardless of the implementation details under the hood.</li>
             <li>The API, application and infrastructure need to be able to evolve independently to ease the task of maintaining backwards compatibility for APIs during an agile development process.</li>
-            <li>The API design of Convenience,- and Process API types (as described in <a href="https://docs.geostandaarden.nl/api/def-hr-API-Strategie-20200204/#aanbeveling-2-analyseer-welke-api-s-je-aan-moet-bieden-welke-informatievragen-wil-je-beantwoorden">Aanbeveling 2</a> of the NL API Strategie) should not be a 1-on-1 mapping of the underlying domain- or persistence model.</li>
-            <li>The API design of a System API type (as described in <a href="https://docs.geostandaarden.nl/api/def-hr-API-Strategie-20200204/#aanbeveling-2-analyseer-welke-api-s-je-aan-moet-bieden-welke-informatievragen-wil-je-beantwoorden">Aanbeveling 2</a> of the NL API Strategie) may be a mapping of the underlying  persistence model.</li>
+            <li>The API design of Convenience,- and Process API types (as described in <a href="https://docs.geostandaarden.nl/api/def-hr-API-Strategie-20200204/#aanbeveling-2-analyseer-welke-api-s-je-aan-moet-bieden-welke-informatievragen-wil-je-beantwoorden">Aanbeveling 2</a> of the NL API Strategie) SHOULD not be a 1-on-1 mapping of the underlying domain- or persistence model.</li>
+            <li>The API design of a System API type (as described in <a href="https://docs.geostandaarden.nl/api/def-hr-API-Strategie-20200204/#aanbeveling-2-analyseer-welke-api-s-je-aan-moet-bieden-welke-informatievragen-wil-je-beantwoorden">Aanbeveling 2</a> of the NL API Strategie) MAY be a mapping of the underlying  persistence model.</li>
          </ul>
       </dd>
       <dt>Implications</dt>
       <dd>
          <ul>
-            <li>The API should not expose information about the technical components being used, such as development platforms/frameworks or database systems.</li>
-            <li>The API should offer client-friendly attribute names and values, while persisted data may contain abbreviated terms or serializations which might be cumbersome for consumption.</li>
+            <li>The API SHOULD not expose information about the technical components being used, such as development platforms/frameworks or database systems.</li>
+            <li>The API SHOULD offer client-friendly attribute names and values, while persisted data may contain abbreviated terms or serializations which might be cumbersome for consumption.</li>
          </ul>
       </dd>
    </dl>
@@ -274,7 +274,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
    <dl>
       <dt>Statement</dt>
       <dd>
-         The following table describes which HTTP methods must behave as safe and/or idempotent:</p>
+         The following table describes which HTTP methods MUST behave as safe and/or idempotent:</p>
          <table>
             <thead>
                <tr>
@@ -324,7 +324,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
       </dd>
       <dt>Rationale</dt>
       <dd>
-         The HTTP protocol [[rfc7231]] specifies whether an HTTP method should be considered safe and/or idempotent. These characteristics are important for clients and middleware applications, because they should be taken into account when implementing caching and fault tolerance strategies.
+         The HTTP protocol [[rfc7231]] specifies whether an HTTP method SHOULD be considered safe and/or idempotent. These characteristics are important for clients and middleware applications, because they SHOULD be taken into account when implementing caching and fault tolerance strategies.
       </dd>
       <dt>Implications</dt>
       <dd>
@@ -356,11 +356,11 @@ Stateless communication offers many advantages, including:
    <dl>
       <dt>Statement</dt>
       <dd>
-         In the context of REST APIs, the server must not maintain or require any notion of the functionality of the client application and the corresponding end user interactions.
+         In the context of REST APIs, the server MUST not maintain or require any notion of the functionality of the client application and the corresponding end user interactions.
       </dd>
       <dt>Rationale</dt>
       <dd>
-         To achieve full decoupling between client and server, and to benefit from the advantages mentioned above, no session state must reside on the server. Session state must therefore reside entirely on the client.
+         To achieve full decoupling between client and server, and to benefit from the advantages mentioned above, no session state MUST reside on the server. Session state MUST therefore reside entirely on the client.
       </dd>
       <dt>Implications</dt>
       <dd id="implications"></dd>
@@ -378,7 +378,7 @@ Resources are often interconnected by relationships. Relationships can be modell
   <dl>
       <dt>Statement</dt>
       <dd>
-         When having a child resource which can only exist in the context of a parent resource, the [=URI=] should be nested.
+         When having a child resource which can only exist in the context of a parent resource, the [=URI=] SHOULD be nested.
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -416,8 +416,8 @@ Resources are often interconnected by relationships. Relationships can be modell
          There are resource operations which might not seem to fit well in the CRUD interaction model. For example, approving of a submission or notifying a customer. Depending on the type of the operation, there are three possible approaches:
       <ol>
          <li>Re-model the resource to incorporate extra fields supporting the particular operation. For example, an approval operation can be modelled in a boolean attribute <code>goedgekeurd</code> that can be modified by issuing a <code>PATCH</code> request against the resource. Drawback of this approach is that the resource does not contain any metadata about the operation (when and by whom was the approval given? Was the submission declined in an earlier stage?). Furthermore, this requires a fine-grained authorization model, since approval might require a specific role.</li>
-         <li>Treat the operation as a sub-resource. For example, model a sub-collection resource <code>/inzendingen/12/beoordelingen</code> and add an approval or declination by issuing a <code>POST</code> request. To be able to retrieve the review history (and to consistently adhere to the REST principles), also support the <code>GET</code> method for this resource. The <code>/inzendingen/12</code> resource might still provide a <code>goedgekeurd</code> boolean attribute (same as approach 1) which gets automatically updated on the background after adding a review. This attribute should however be read-only.</li>
-         <li>In exceptional cases, the approaches above still don't offer an appropriate solution. An example of such an operation is a global search across multiple resources. In this case, the creation of a dedicated resource, possibly nested under an existing resource, is the most obvious solution. Use the imperative mood of a verb, maybe even prefix it with a underscore to distinguish these resources from regular resources. For example: <code>/search</code> or <code>/_search</code>. Depending on the operation characteristics, <code>GET</code> and/or <code>POST</code> method may be supported for such a resource.</li>
+         <li>Treat the operation as a sub-resource. For example, model a sub-collection resource <code>/inzendingen/12/beoordelingen</code> and add an approval or declination by issuing a <code>POST</code> request. To be able to retrieve the review history (and to consistently adhere to the REST principles), also support the <code>GET</code> method for this resource. The <code>/inzendingen/12</code> resource might still provide a <code>goedgekeurd</code> boolean attribute (same as approach 1) which gets automatically updated on the background after adding a review. This attribute SHOULD however be read-only.</li>
+         <li>In exceptional cases, the approaches above still don't offer an appropriate solution. An example of such an operation is a global search across multiple resources. In this case, the creation of a dedicated resource, possibly nested under an existing resource, is the most obvious solution. Use the imperative mood of a verb, maybe even prefix it with a underscore to distinguish these resources from regular resources. For example: <code>/search</code> or <code>/_search</code>. Depending on the operation characteristics, <code>GET</code> and/or <code>POST</code> method MAY be supported for such a resource.</li>
       </ol>
       </dd>
       <dt>Implications</dt>
@@ -435,12 +435,12 @@ An API is as good as the accompanying documentation. The documentation has to be
   <dl>
       <dt>Statement</dt>
       <dd>
-         API documentation must be provided in the form of an OpenAPI definition document which conforms to the OpenAPI Specification (from v3 onwards).
+         API documentation MUST be provided in the form of an OpenAPI definition document which conforms to the OpenAPI Specification (from v3 onwards).
       </dd>
       <dt>Rationale</dt>
       <dd>
          The OpenAPI Specification (OAS) [[OPENAPIS]] defines a standard, language-agnostic interface to RESTful APIs which allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection. When properly defined, a consumer can understand and interact with the remote service with a minimal amount of implementation logic.
-         API documentation must be provided in the form of an OpenAPI definition document which conforms to the OpenAPI Specification (from v3 onwards). As a result, a variety of tools can be used to render the documentation (e.g. Swagger UI or ReDoc) or automate tasks such as testing or code generation. The OAS document should provide clear descriptions and examples.
+         API documentation MUST be provided in the form of an OpenAPI definition document which conforms to the OpenAPI Specification (from v3 onwards). As a result, a variety of tools can be used to render the documentation (e.g. Swagger UI or ReDoc) or automate tasks such as testing or code generation. The OAS document SHOULD provide clear descriptions and examples.
       </dd>
       <dt>Implications</dt>
       <dd>
@@ -463,11 +463,11 @@ An API is as good as the accompanying documentation. The documentation has to be
   <dl>
       <dt>Statement</dt>
       <dd>
-         You should write the OAS document in Dutch.
+         You SHOULD write the OAS document in Dutch.
       </dd>
       <dt>Rationale</dt>
       <dd>
-         In line with design rule <a href="#/core/interface-language">/core/interface-language</a>, the OAS document (e.g. descriptions and examples) should be written in Dutch. If relevant, you may refer to existing documentation written in English.
+         In line with design rule <a href="#/core/interface-language">/core/interface-language</a>, the OAS document (e.g. descriptions and examples) SHOULD be written in Dutch. If relevant, you MAY refer to existing documentation written in English.
       </dd>
       <dt>Implications</dt>
       <dd id="implications"></dd>
@@ -480,17 +480,17 @@ An API is as good as the accompanying documentation. The documentation has to be
    <dl>
       <dt>Statement</dt>
       <dd>
-         To make the OAS document easy to find and to facilitate self-discovering clients, there should be one standard location where the OAS document is available for download.
+         To make the OAS document easy to find and to facilitate self-discovering clients, there SHOULD be one standard location where the OAS document is available for download.
       </dd>
       <dt>Rationale</dt>
       <dd>
-         <p> Clients (such as Swagger UI or ReDoc) must be able to retrieve the document without having to authenticate. Furthermore, the CORS policy for this [=URI=] must allow external domains to read the documentation from a browser environment.</p>
+         <p> Clients (such as Swagger UI or ReDoc) MUST be able to retrieve the document without having to authenticate. Furthermore, the CORS policy for this [=URI=] MUST allow external domains to read the documentation from a browser environment.</p>
          <p>The standard location for the OAS document is a URI called <code>openapi.json</code> or <code>openapi.yaml</code> within the base path of the API. This can be convenient, because OAS document updates can easily  become part of the CI/CD process.</p>
-         <p>At least the JSON format must be supported. When having multiple (major) versions of an API, every API should provide its own OAS document(s).</p>
+         <p>At least the JSON format MUST be supported. When having multiple (major) versions of an API, every API SHOULD provide its own OAS document(s).</p>
          <div class="example">
-            <p>An API having base path <code>https://api.example.org/v1/</code> must publish the OAS document at:</p>
+            <p>An API having base path <code>https://api.example.org/v1/</code> MUST publish the OAS document at:</p>
             <pre>https://api.example.org/v1/openapi.json</pre>
-            <p>Optionally, the same OAS document may be provided in YAML format:</p>
+            <p>Optionally, the same OAS document MAY be provided in YAML format:</p>
             <pre>https://api.example.org/v1/openapi.yaml</pre>
          </div>
       </dd>
@@ -524,7 +524,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       </dd>
       <dt>Rationale</dt>
       <dd>
-         Managing change is important. In general, well documented and timely communicated deprecation schedules are the most important for API users. When deprecating features or versions, a deprecation schedule must be published. This document should be published on a public web page. Furthermore, active clients should be informed by e-mail once the schedule has been updated or when versions have reached end-of-life.
+         Managing change is important. In general, well documented and timely communicated deprecation schedules are the most important for API users. When deprecating features or versions, a deprecation schedule MUST be published. This document SHOULD be published on a public web page. Furthermore, active clients SHOULD be informed by e-mail once the schedule has been updated or when versions have reached end-of-life.
       </dd>
       <dt>Implications</dt>
 	  <dd id="implications"></dd>
@@ -537,11 +537,11 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
    <dl>
       <dt>Statement</dt>
       <dd>
-         Old versions must remain available for a limited and fixed deprecation period.
+         Old versions MUST remain available for a limited and fixed deprecation period.
       </dd>
       <dt>Rationale</dt>
       <dd>
-         When releasing a new major API version, the old version must remain available for a limited and fixed deprecation period. Offering a deprecation period allows clients to carefully plan and execute the migration from the old to the new API version, as long as they do this prior to the end of the deprecation period. A maximum of 2 major API versions may be published concurrently.
+         When releasing a new major API version, the old version MUST remain available for a limited and fixed deprecation period. Offering a deprecation period allows clients to carefully plan and execute the migration from the old to the new API version, as long as they do this prior to the end of the deprecation period. A maximum of 2 major API versions MAY be published concurrently.
       </dd>
       <dt>Implications</dt>
 	  <dd id="implications"></dd>
@@ -554,11 +554,11 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
     <dl>
       <dt>Statement</dt>
       <dd>
-         The [=URI=] of an API must include the major version number.
+         The [=URI=] of an API MUST include the major version number.
       </dd>
       <dt>Rationale</dt>
       <dd>
-         The [=URI=] of an API (base path) must include the major version number, prefixed by the letter <code>v</code>. This allows the exploration of multiple versions of an API in the browser. The minor and patch version numbers are not part of the [=URI=] and may not have any impact on existing client implementations.
+         The [=URI=] of an API (base path) MUST include the major version number, prefixed by the letter <code>v</code>. This allows the exploration of multiple versions of an API in the browser. The minor and patch version numbers are not part of the [=URI=] and MAY not have any impact on existing client implementations.
       <div class="example">
          <p>An example of a base path for an API with current version 1.0.2:</p>
          <pre>https://api.example.org/v1/</pre>
@@ -579,8 +579,8 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       <dd>
          <ul>
             <li> Step 1: The base path MUST contain a version number.</li>
-            <li> Step 2: Each url of the server object of the OpenAPI Specification must include a version number.</li>
-            <li> Step 3: The version in the OAS file must be the same as the version in the base path.</li>
+            <li> Step 2: Each url of the server object of the OpenAPI Specification MUST include a version number.</li>
+            <li> Step 3: The version in the OAS file MUST be the same as the version in the base path.</li>
          </ul>
       </dd>
    </dl>
@@ -596,7 +596,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       </dd>
       <dt>Rationale</dt>
       <dd>
-         <p>When releasing new (major, minor or patch) versions, all API changes must be documented properly in a publicly available changelog.</p>
+         <p>When releasing new (major, minor or patch) versions, all API changes MUST be documented properly in a publicly available changelog.</p>
       </dd>
       <dt>Implications</dt>
 	  <dd id="implications"></dd>
@@ -613,7 +613,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       </dd>
       <dt>Rationale</dt>
       <dd>
-         Version numbering must follow the Semantic Versioning [[SemVer]] model to prevent breaking changes when releasing new API versions. Release versions are formatted using the <code>major.minor.patch</code> template (examples: 1.0.2, 1.11.0). Pre-release versions may be denoted by appending a hyphen and a series of dot separated identifiers (examples: 1.0.2-rc.1, 2.0.0-beta.3). When releasing a new version which contains backwards-incompatible changes, a new major version must be released. Minor and patch releases may only contain backwards compatible changes (e.g. the addition of an endpoint or an optional attribute).
+         Version numbering MUST follow the Semantic Versioning [[SemVer]] model to prevent breaking changes when releasing new API versions. Release versions are formatted using the <code>major.minor.patch</code> template (examples: 1.0.2, 1.11.0). Pre-release versions MAY be denoted by appending a hyphen and a series of dot separated identifiers (examples: 1.0.2-rc.1, 2.0.0-beta.3). When releasing a new version which contains backwards-incompatible changes, a new major version MUST be released. Minor and patch releases MAY only contain backwards compatible changes (e.g. the addition of an endpoint or an optional attribute).
       </dd>
       <dt>Implications</dt>
       <dd>
@@ -640,8 +640,8 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       </dd>
       <dt>Rationale</dt>
       <dd>
-         <p>Since the URI only contains the major version, it's useful to provide the full version number in the response headers for every API call. This information could then be used for logging, debugging or auditing purposes. In cases where an intermediate networking component returns an error response (e.g. a reverse proxy enforcing access policies), the version number may be omitted.</p>
-         <p>The version number must be returned in an HTTP response header named <code>API-Version</code> (case-insensitive) and should not be prefixed.</p>
+         <p>Since the URI only contains the major version, it's useful to provide the full version number in the response headers for every API call. This information could then be used for logging, debugging or auditing purposes. In cases where an intermediate networking component returns an error response (e.g. a reverse proxy enforcing access policies), the version number MAY be omitted.</p>
+         <p>The version number MUST be returned in an HTTP response header named <code>API-Version</code> (case-insensitive) and SHOULD not be prefixed.</p>
          <div class="example">
             <p>An example of an API version response header:</p>
             <pre>API-Version: 1.0.2</pre>
