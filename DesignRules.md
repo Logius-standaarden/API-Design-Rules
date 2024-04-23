@@ -670,11 +670,11 @@ Transport security is essential to safeguard the confidentiality, integrity, and
   <dl>
     <dt>Statement</dt>
     <dd>
-      The [[Transport Security Module]] MUST be applied.
+      The [[[ADR-TS]]] MUST be applied.
     </dd>
     <dt>Rationale</dt>
     <dd>
-      The [[Transport Security Module]] formalizes three rules to apply to APIs:
+      The [[[ADR-TS]]] formalizes three rules to apply to APIs:
       <ol>
         <li>Secure connections using TLS</li>
         <li>No sensitive information in URIs</li>
@@ -696,11 +696,11 @@ Geospatial data refers to information that is associated with a physical locatio
   <dl>
     <dt>Statement</dt>
     <dd>
-       The [[Geospatial Module]] MUST be applied when providing geospatial data or functionality.
+       The [[[ADR-GEO]]] MUST be applied when providing geospatial data or functionality.
     </dd>
     <dt>Rationale</dt>
     <dd>
-      The [[Geospatial Module]] formalizes as set of rules regarding:
+      The [[[ADR-GEO]]] formalizes as set of rules regarding:
       <ol>
          <li>How to encode geospatial data in request and response payloads.</li>
          <li>How resource collections can be filtered by a given bounding box.</li>
