@@ -111,7 +111,7 @@ A resource describing a single thing is called a [=singular resource=]. Resource
          <ul>
             <li> Step 1: The API MUST meet the prerequisets to be tested. These include that an OAS file is publicly available, parsable, all $refs are resolvable and paths are defined.</li>
             <li> Step 2: Check if paths are present in the OpenAPI Specification.</li>
-            <li> Step 3: Loop all paths and check if it ends with a forward slash (`/`).</li>
+            <li> Step 3: Loop all paths and check if it ends with a forward slash (<code>/</code>).</li>
             <li> Step 4: Check all paths with a get request and without parameters. They SHOULD resolve in HTTP 404.</li>
          </ul>
       </dd>
