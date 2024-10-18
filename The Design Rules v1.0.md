@@ -44,8 +44,8 @@ A resource describing a single thing is called a [singular resource](#dfn-singul
 
 <div class="rule" id="api-04">
   <p class="rulelab"><strong>API-04</strong>: Define interfaces in Dutch unless there is an official English glossary or an international audience</p>
-  <p>Since the exact meaning of concepts is often lost in translation, resources and the underlying attributes should be defined in the Dutch language unless there is an official English glossary being developed or already available. Publishing an API for an international audience or commercial software development organisations might also be a reason to define interfaces in English.</p>
-  <p class="note">Note that glossaries exist that define useful sets of attributes which should preferably be reused. Examples can be found at <a href="http://schema.org/docs/schemas.html">schema.org</a>.</p>
+  <p>Since the exact meaning of concepts is often lost in translation, resources and the underlying attributes should be defined in the Dutch language unless there is an official English glossary being developed or already available. Publishing an API for an international audience or commercial software development organisations might also be a reason to define interfaces in English and adhere to English naming conventions.</p>
+  <p class="note">Note that existing glossaries that define useful sets of attributes should preferably be reused. Examples can be found at <a href="http://schema.org/docs/schemas.html">schema.org</a>.</p>
   <p class="note">Note that commercial software development organisations are usually internationally oriented and use English as the main language to develop and document software.</p>
 </div>
 
