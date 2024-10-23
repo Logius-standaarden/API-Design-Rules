@@ -680,8 +680,8 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
 </div>
 
 <div class="rule" id="/core/backward-compatibility">
-  <p class="rulelab"><b>/core/backward-compatibility</b>: The API designer should strive for backward-compatible changes</p>
-   <dl>
+  <p class="rulelab"><b>/core/semver</b>: Adhere to the Semantic Versioning model when releasing API changes</p>
+
       <dt>Statement</dt>
       <dd>
          The API designer should strive for API evolution and backward-compatible changes rather than backward-incompatible changes with existing client code.

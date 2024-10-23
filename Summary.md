@@ -24,7 +24,7 @@ Original version 1.0.0 ruleset:
 * <a href="#/core/changelog">/core/changelog</a>: Publish a changelog for API changes between versions.
 
 Additional eDelivery compliant rules:  
-* <a href="#/core/backward-compatibility">/core/backward-compatibility</a>: The API designer should strive for backward-compatible changes.
+* <a href="#/core/backward-compatibility">/core/backward-compatibility</a>: The API should be designed with backward-compatibility in mind, in line with [[[SemVer]]].
 * <a href="#/core/sunset">/core/sunset</a>: Sunsetting of operations is done with the use of semantic versioning.
 
 #### List of technical rules
