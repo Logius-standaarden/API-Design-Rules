@@ -688,7 +688,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       </dd>
       <dt>Rationale</dt>
       <dd>
-         Backward-compatible changes that do not affect any of the clients include the addition of new operations and schemas. Also, depending on the client's expectations, the addition of optional fields into pre-existing schemas MAY be considered a backward-compatible change.
+         Backward-compatible changes are preferred as they reduce the burden and the cost for the clients to upgrade their processes to the new version of the API. They also preserve trust and reliability of the API, so the client can expect the service to work as intended. Also, depending on the client's expectations, the addition of optional fields into pre-existing schemas MAY be considered a backward-compatible change.
       </dd>
       <dd>   
          The API designer might require to introduce a backward-incompatible change with existing client code. The following changes are considered backward-incompatible:<br/>
