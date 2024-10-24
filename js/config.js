@@ -39,11 +39,12 @@ var respecConfig = {
     ],
   github: "https://github.com/Logius-standaarden/API-Design-Rules",
   pubDomain: "api",
-  publishDate: "2022-01-25",
-  publishVersion: "1.1",
+  publishDate: "2024-03-07",
+  publishVersion: "2.0.0",
   previousPublishDate: "2020-07-09",
   previousPublishVersion: "1.0",
   shortName: "adr",
-  specStatus: "WV",
-  specType: "ST"
+  specStatus: "def",
+  specType: "ST",
+  pluralize: true,
 };

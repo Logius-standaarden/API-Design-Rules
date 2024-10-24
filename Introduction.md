@@ -18,19 +18,27 @@ Despite the fact that two authors are mentioned in the list of authors, this doc
 
 This document is part of the *Nederlandse API Strategie*.
 
-The Nederlandse API Strategie consists of [three layers of distinct documents](https://www.geonovum.nl/themas/kennisplatform-apis#APIStrategie).
+The Nederlandse API Strategie consists of [a set of distinct documents](https://www.geonovum.nl/themas/kennisplatform-apis#APIStrategie).
 
-| Part | Description                                  | Status      | Link                                                  |
-| ---- | -------------------------------------------- | ----------- | ----------------------------------------------------- |
-| I    | General description of the API Strategy      | Informative | https://docs.geostandaarden.nl/api/API-Strategie/     |
-| IIa  | Standard for designing APIs                  | Normative   | https://publicatie.centrumvoorstandaarden.nl/api/adr/ |
-| IIb  | Extension on the Standard for designing APIs | Informative | https://docs.geostandaarden.nl/api/API-Strategie-ext/ |
+| Status           | Description & Link                                           |
+| ---------------- | ------------------------------------------------------------ |
+| Informative      | [Inleiding NL API Strategie](https://geonovum.github.io/KP-APIs/API-strategie-algemeen/Inleiding/) |
+| Informative      | [Architectuur NL API Strategie](https://geonovum.github.io/KP-APIs/API-strategie-algemeen/Architectuur/) |
+| Informative      | [Gebruikerswensen NL API Strategie](https://geonovum.github.io/KP-APIs/API-strategie-algemeen/Gebruikerswensen/) |
+| Normative        | [API Design Rules (ADR)](https://publicatie.centrumvoorstandaarden.nl/api/adr/) |
+| Normative        | [Open API Specification (OAS)](https://forumstandaardisatie.nl/open-standaarden/openapi-specification) |
+| Normative        | [NL GOV OAuth profiel](https://publicatie.centrumvoorstandaarden.nl/api/oauth/) |
+| Normative        | [Digikoppeling REST API koppelvlak specificatie](https://publicatie.centrumvoorstandaarden.nl/dk/restapi/) |
+| Normative module | [GEO module](https://docs.geostandaarden.nl/api/API-Strategie-mod-geo/) |
+| Normative module | [Transport Security module](https://geonovum.github.io/KP-APIs/API-strategie-modules/transport-security/) |
 
-Before reading this document it is advised to gain knowledge of the three documents, in particular [the architecture section of part I](https://docs.geostandaarden.nl/api/API-Strategie/#architectuur).
+Before reading this document it is advised to gain knowledge of the informative documents, in particular the [Architecture](https://geonovum.github.io/KP-APIs/API-strategie-algemeen/Architectuur/).
 
-An actual overview of all current documents is available in this Dutch infographic:
-![NL API Strategie Infographic](https://raw.githubusercontent.com/Geonovum/KP-APIs/a0ee2f718777eb333a4e625edb1e8ce1387b51d3/media/API_infographic.svg)
-
+An overview of all current documents is available in this Dutch infographic:
+<figure>
+  <object data="https://geonovum.github.io/KP-APIs/media/API_infographic.svg" type="image/svg+xml" id="infographic">NL API Strategie Infographic</object>
+  <figcaption>NL API Strategie Infographic</figcaption>
+</figure>
 
 ## Extensions
 <aside class="note">

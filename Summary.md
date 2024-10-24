@@ -1,14 +1,11 @@
 ## Summary
 
-<aside class="note">
-Design rules have unique and permanent numbers. In the event of design rules being deprecated or restructured, they are removed from the list. Therefore, gaps in the sequence can occur. New design rules will always get a new and higher number.
-</aside>
-
 ### Normative Design Rules
 
 Design rules can be technical rules, which should be tested automatically and functional rules which should be considerd when designing and building the api.
 
 #### List of functional rules
+
 Original version 1.0.0 ruleset:
 * <a href="#/core/http-safety">/core/http-safety</a>: Adhere to HTTP safety and idempotency semantics for operations.
 * <a href="#/core/stateless">/core/stateless</a>: Do not maintain session state on the server.
@@ -23,9 +20,11 @@ Original version 1.0.0 ruleset:
 * <a href="#/core/naming-collections">/core/naming-collections</a>: Use plural nouns to name collection resources.
 * <a href="#/core/changelog">/core/changelog</a>: Publish a changelog for API changes between versions.
 
+
 Additional eDelivery compliant rules:  
 * <a href="#/core/backward-compatibility">/core/backward-compatibility</a>: The API should be designed with backward-compatibility in mind, in line with [[[SemVer]]].
 * <a href="#/core/sunset">/core/sunset</a>: Sunsetting of operations is done with the use of semantic versioning.
+
 
 #### List of technical rules
 Original version 1.0.0 ruleset:
@@ -36,3 +35,4 @@ Original version 1.0.0 ruleset:
 * <a href="#/core/publish-openapi">/core/publish-openapi</a>: Publish OAS document at a standard location in JSON-format.
 * <a href="#/core/semver">/core/semver</a>: Adhere to the Semantic Versioning model when releasing API changes.
 * <a href="#/core/version-header">/core/version-header</a>: Return the full version number in a response header.
+
