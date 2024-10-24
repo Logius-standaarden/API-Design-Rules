@@ -7,6 +7,7 @@ Design rules can be technical rules, which should be tested automatically and fu
 #### List of functional rules
 
 Original version 1.0.0 ruleset:
+* [[[#/core/http-safety]]]
 * <a href="#/core/http-safety">/core/http-safety</a>: Adhere to HTTP safety and idempotency semantics for operations.
 * <a href="#/core/stateless">/core/stateless</a>: Do not maintain session state on the server.
 * <a href="#/core/interface-language">/core/interface-language</a>: Define interfaces in Dutch unless there is an official English glossary available.
