@@ -68,11 +68,11 @@ A resource describing a single thing is called a [=singular resource=]. Resource
 
 <span id="api-04"></span>
 <div class="rule" id="/core/interface-language" data-type="functional">
-   <p class="rulelab">Define interfaces in Dutch unless there is an official English glossary available</p>
+   <p class="rulelab">Resources and underlying attributes should reuse definitions from English Glossaries and fall back on Dutch if none are available</p>
    <dl>
       <dt>Statement</dt>
       <dd>
-         Resources and the underlying attributes SHOULD be defined in the Dutch language unless there is an official English glossary available.
+         Resources and the underlying attributes SHOULD reuse English definitions from existing glossaries (widely availible on the web). In case no relevant glossary exists, the resources and attributes SHOULD be defined in the Dutch language.
       </dd>
       <dt>Rationale</dt>
       <dd>
