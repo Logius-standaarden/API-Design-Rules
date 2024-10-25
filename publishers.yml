@@ -1,0 +1,20 @@
+# publishers.yml This is a list of organizations and repositories to crawl.
+
+---
+
+- name: "Logius"
+  id: "Logius"
+  kvk: "27381312"
+  oin: "00000004003214345001" 
+  orgs:
+    - "https://github.com/Logius-standaarden"
+    - "https://gitlab.com/logius"
+  repos:
+    - "https://github.com/Logius-standaarden/API-Design-Rules"
+    - "https://github.com/Logius-standaarden/OAuth-NL-profiel"
+    - "https://github.com/Logius-standaarden/Digikoppeling-Algemeen"
+    - "https://gitlab.com/logius/digikoppeling-compliance"
+    
+  apis:
+    - "https://portaal.digikoppeling.nl/registers/api/v1/"
+    - "https://cparegister.nl/api/v1"

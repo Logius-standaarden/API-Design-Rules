@@ -1,3 +1,0 @@
-
-This document contains a normative standard for designing APIs in the Dutch Public Sector.
-[The Governance of this standard](https://publicatie.centrumvoorstandaarden.nl/api/adr-beheer/) is described in a [separate repository](https://github.com/Logius-standaarden/ADR-Beheermodel) and published by Logius.
