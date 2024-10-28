@@ -67,7 +67,7 @@ A resource describing a single thing is called a [=singular resource=]. Resource
 </div>
 
 <span id="api-04"></span>
-<div class="rule" id="/core/interface-language" data-type="functional">
+<div class="rule" id="/core/resource-language" data-type="functional">
    <p class="rulelab">Resources and underlying attributes should reuse definitions from English Glossaries and fall back on Dutch if none are available</p>
    <dl>
       <dt>Statement</dt>
@@ -76,8 +76,8 @@ A resource describing a single thing is called a [=singular resource=]. Resource
       </dd>
       <dt>Rationale</dt>
       <dd>
-         The exact meaning of concepts is often lost in translation. Publishing an API for an international audience might also be a reason to define interfaces in English.
-         Note that glossaries exist that define useful sets of attributes which SHOULD preferably be reused. Examples can be found at <a href="http://schema.org/docs/schemas.html">schema.org</a>.
+         The exact meaning of concepts is often lost in translation. Publishing an API for an international audience might also be a reason to use English definitions and naming conventions.
+         Note that glossaries exist that define useful sets of attributes which SHOULD preferably be reused. Examples can be found at <a href="http://schema.org/docs/schemas.html">schema.org</a>. For Dutch glossaries, one could consult <a href="https://data.overheid.nl/">data.overheid.nl</a> and <a href=https://www.stelselcatalogus.nl/">stelselcatalogus.nl</a>
       </dd>
       <dt>Implications</dt>
       <dd id="implications"></dd>
@@ -467,7 +467,7 @@ An API is as good as the accompanying documentation. The documentation has to be
       </dd>
       <dt>Rationale</dt>
       <dd>
-         In line with design rule <a href="#/core/interface-language">/core/interface-language</a>, the OAS document (e.g. descriptions and examples) SHOULD be written in Dutch. If relevant, you MAY refer to existing documentation written in English.
+         In line with design rule <a href="#/core/resource-language">/core/resource-language</a>, the OAS document (e.g. descriptions and examples) SHOULD be written in Dutch. If relevant, you MAY refer to existing documentation written in English.
       </dd>
       <dt>Implications</dt>
       <dd id="implications"></dd>
