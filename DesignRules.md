@@ -244,27 +244,9 @@ Although the REST architectural style does not impose a specific protocol, REST 
   In addition to the standard HTTP methods, a server may support other optional methods as well, e.g. <code>PROPFIND</code>, <code>COPY</code>, <code>PURGE</code>, <code>VIEW</code>, <code>LINK</code>, <code>UNLINK</code>, <code>LOCK</code>, <code>UNLOCK</code>, etc.<br>
   If an optional HTTP request method is sent to a server and the server does not support that HTTP method for the target resource, an HTTP status code <code>405 Method Not Allowed</code> shall be returned and a list of allowed methods for the target resource shall be provided in the <code>Allow</code> header in the response as stated in <a href="https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.5">RFC 7231 6.5.5</a>.</p>
       <dt>How to test</dt>
-      <p>Test case 1:</p>
       <dd>
-         <ul>
-            <li> Step 1: The API MUST meet the prerequisites to be tested. These include that an OAS file is publicly available, parsable, all $refs are resolvable and paths are defined.</li>
-            <li> Step 2: Send an HTTP GET or HEAD request to any of the endpoints with a definition of a GET operation mentioned in the OAS file. The server MUST respond with a HTTP status code other than <code>405 Method Not Allowed</code>.</li>
-        </ul>
+         The open api specification MUST NOT include non standard HTTP methods for retrieving or manipulating resources.
       </dd>
-      <p>Test case 2:</p>
-      <dd>
-         <ul>
-            <li> Step 1: The API MUST meet the prerequisites to be tested. These include that an OAS file is publicly available, parsable, all $refs are resolvable, and paths are defined.</li>
-            <li> Step 2: Send a request to the API with an optional HTTP method that is supported by the API. The server MUST respond with an HTTP status code other than <code>405 Method Not Allowed</code>.</li>
-      </ul>
-      </dd>
-     <p>Test case 3:</p>
-      <dd>
-         <ul>
-            <li> Step 1: The API MUST meet the prerequisites to be tested. These include that an OAS file is publicly available, parsable, all $refs are resolvable, and paths are defined.</li>
-            <li> Step 2: Send a request to the API with an optional HTTP method that is not supported by the API. The server MUST respond with an HTTP status code <code>405 Method Not Allowed</code>. The response MUST contain an <code>Allow</code> header with a list of supported methods for the target resource.</li>
-      </ul>
-      </dd>   
    </dl>
 </div>
 
