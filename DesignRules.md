@@ -621,12 +621,8 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       </dd>
       <dt>How to test</dt>
       <dd>
-         <ul>
-            <li> Step 1: The API MUST meet the prerequisets to be tested. These include that an OAS file (openapi.json) is publicly available, parsable, all $refs are resolvable and paths are defined.</li>
-            <li> Step 2: In the open api specification the info and version object MUST be available.</li>
-            <li> Step 3: The version MUST comply with Semantic Versioning.</li>
-         </ul>
-      </dd> 
+         The "API-Version" response header MUST comply with Semantic Versioning.
+      </dd>
    </dl>
 </div>
 
@@ -653,10 +649,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       </dd>
       <dt>How to test</dt>
       <dd>
-         <ul>
-            <li> Step 1: A request to the base url MUST give a response and include the header "API-Version".</li>
-            <li> Step 2: The value of the header "API-Version" MUST have a valid Semantic Versioning number.</li>
-         </ul>
+         A response MUST include the header "API-Version".
       </dd>
    </dl>
 </div>
