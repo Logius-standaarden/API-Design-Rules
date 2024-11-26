@@ -105,15 +105,10 @@ A resource describing a single thing is called a [=singular resource=]. Resource
       <dt>Implications</dt>
       <dd>
          This rule is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific tests are published in the [[ADR-Validator]] repository.
-      </dd>      
+      </dd>
       <dt>How to test</dt>
       <dd>
-         <ul>
-            <li> Step 1: The API MUST meet the prerequisets to be tested. These include that an OAS file is publicly available, parsable, all $refs are resolvable and paths are defined.</li>
-            <li> Step 2: Check if paths are present in the OpenAPI Specification.</li>
-            <li> Step 3: Loop all paths and check if it ends with a forward slash (<code>/</code>).</li>
-            <li> Step 4: Check all paths with a get request and without parameters. They SHOULD resolve in HTTP 404.</li>
-         </ul>
+         Loop all resource paths in the OpenAPI Specification and check that no resources paths end with a forward slash (<code>/</code>).
       </dd>
    </dl>
 </div>
