@@ -25,12 +25,12 @@ The Nederlandse API Strategie consists of [a set of distinct documents](https://
 | Informative      | [Inleiding NL API Strategie](https://geonovum.github.io/KP-APIs/API-strategie-algemeen/Inleiding/) |
 | Informative      | [Architectuur NL API Strategie](https://geonovum.github.io/KP-APIs/API-strategie-algemeen/Architectuur/) |
 | Informative      | [Gebruikerswensen NL API Strategie](https://geonovum.github.io/KP-APIs/API-strategie-algemeen/Gebruikerswensen/) |
-| Normative        | [API Design Rules (ADR)](https://publicatie.centrumvoorstandaarden.nl/api/adr/) |
-| Normative        | [Open API Specification (OAS)](https://forumstandaardisatie.nl/open-standaarden/openapi-specification) |
-| Normative        | [NL GOV OAuth profiel](https://publicatie.centrumvoorstandaarden.nl/api/oauth/) |
-| Normative        | [Digikoppeling REST API koppelvlak specificatie](https://publicatie.centrumvoorstandaarden.nl/dk/restapi/) |
-| Normative module | [GEO module](https://docs.geostandaarden.nl/api/API-Strategie-mod-geo/) |
-| Normative module | [Transport Security module](https://geonovum.github.io/KP-APIs/API-strategie-modules/transport-security/) |
+| Normative        | [API Design Rules (ADR v2.0.x)](https://gitdocumentatie.logius.nl/publicatie/api/adr/2.0.0/) |
+| Normative        | [Open API Specification (OAS 3.0.1)](https://spec.openapis.org/oas/v3.0.1.html) |
+| Normative        | [NL GOV OAuth profiel](https://gitdocumentatie.logius.nl/publicatie/api/oauth/) |
+| Normative        | [Digikoppeling REST API koppelvlak specificatie](https://gitdocumentatie.logius.nl/publicatie/dk/restapi/) |
+| Normative module | [GEO module v1.0.x](https://gitdocumentatie.logius.nl/publicatie/api/mod-geo/1.0.2/) |
+| Normative module | [Transport Security module v1.0.x](https://gitdocumentatie.logius.nl/publicatie/api/mod-ts/1.0.2/) |
 
 Before reading this document it is advised to gain knowledge of the informative documents, in particular the [Architecture](https://geonovum.github.io/KP-APIs/API-strategie-algemeen/Architectuur/).
 
