@@ -670,7 +670,7 @@ Transport security is essential to safeguard the confidentiality, integrity, and
   <dl>
     <dt>Statement</dt>
     <dd>
-      The [[[ADR-TS]]] MUST be applied.
+      The [[[ADR-TS]]] version 1.0.x MUST be applied.
     </dd>
     <dt>Rationale</dt>
     <dd>
@@ -696,7 +696,7 @@ Geospatial data refers to information that is associated with a physical locatio
   <dl>
     <dt>Statement</dt>
     <dd>
-       The [[[ADR-GEO]]] MUST be applied when providing geospatial data or functionality.
+       The [[[ADR-GEO]]] version 1.0.x MUST be applied when providing geospatial data or functionality.
     </dd>
     <dt>Rationale</dt>
     <dd>
