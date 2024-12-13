@@ -108,7 +108,7 @@ A resource describing a single thing is called a [=singular resource=]. Resource
       </dd>
       <dt>How to test</dt>
       <dd>
-         Loop all resource paths in the OpenAPI Specification and check that no resources paths end with a forward slash (<code>/</code>).
+         Loop all resource paths in the OpenAPI Description and check that no resources paths end with a forward slash (<code>/</code>).
       </dd>
    </dl>
 </div>
@@ -480,7 +480,7 @@ An API is as good as the accompanying documentation. The documentation has to be
          <ul>
             <li> Step 1: The API MUST meet the prerequisets to be tested. These include that an OAS file (openapi.json) is publicly available, parsable, all $refs are resolvable and paths are defined.</li>
             <li> Step 2: The openapi.yaml MAY be available. If available it MUST contain yaml, be readable and parsable.</li>
-            <li> Step 3: The openapi.yaml MUST contain the same OpenAPI Specification as the openapi.json.</li>
+            <li> Step 3: The openapi.yaml MUST contain the same OpenAPI Description as the openapi.json.</li>
             <li> Step 4: The CORS header Access-Control-Allow-Origin MUST allow all origins.</li>
          </ul>
       </dd>
@@ -556,7 +556,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       <dd>
          <ul>
             <li> Step 1: The base path MUST contain a version number.</li>
-            <li> Step 2: Each url of the server object of the OpenAPI Specification MUST include a version number.</li>
+            <li> Step 2: Each url of the server object of the OpenAPI Description MUST include a version number.</li>
             <li> Step 3: The version in the OAS file MUST be the same as the version in the base path.</li>
          </ul>
       </dd>
