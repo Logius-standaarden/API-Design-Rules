@@ -240,7 +240,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
   If an optional HTTP request method is sent to a server and the server does not support that HTTP method for the target resource, an HTTP status code <code>405 Method Not Allowed</code> shall be returned and a list of allowed methods for the target resource shall be provided in the <code>Allow</code> header in the response as stated in <a href="https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.5">RFC 7231 6.5.5</a>.</p>
       <dt>How to test</dt>
       <dd>
-         The open api specification MUST NOT include non standard HTTP methods for retrieving or manipulating resources.
+         The OpenAPI Description MUST NOT include non standard HTTP methods for retrieving or manipulating resources.
       </dd>
    </dl>
 </div>
