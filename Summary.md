@@ -6,8 +6,7 @@ Design rules can be technical rules, which should be tested automatically and fu
 
 #### List of functional rules
 
-<ul id="functionalList"></ul>
+Original version 1.0.0 ruleset:
+* [[[#/core/http-safety]]]
 
-#### List of technical rules
 
-<ul id="technicalList"></ul>
