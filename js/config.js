@@ -44,7 +44,7 @@ var respecConfig = {
   previousPublishDate: "2024-03-07",
   previousPublishVersion: "2.0.0",
   shortName: "adr",
-  specStatus: "WV",
+  specStatus: "def",
   specType: "ST",
   pluralize: true,
 };
