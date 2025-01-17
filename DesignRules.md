@@ -98,9 +98,7 @@ A resource describing a single thing is called a [=singular resource=]. Resource
          </div>
       </dd>
       <dt>Implications</dt>
-      <dd id="implications">
-         Adherence to this rule needs to be manually verified.
-      </dd>
+      <dd id="implications"></dd>
    </dl>
 </div>
 
@@ -151,7 +149,7 @@ A resource describing a single thing is called a [=singular resource=]. Resource
    </dl>
 </div>
 
-<div class="rule" id="/core/only-word-characters" data-type="technical">
+<div class="rule" id="/core/path-segments-kebab-case" data-type="technical">
    <p class="rulelab">Use kebab-case in path segments</p>
    <dl>
       <dt>Statement</dt>
