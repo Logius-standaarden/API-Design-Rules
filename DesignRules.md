@@ -66,6 +66,44 @@ A resource describing a single thing is called a [=singular resource=]. Resource
    </dl>
 </div>
 
+<div class="rule" id="/core/no-abbreviations-in-resources" data-type="functional">
+   <p class="rulelab">Do not use abbreviations (except standarized) in a resource name</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         A resource MUST NOT use abbreviations, except standardized abbreviations as defined by the API or organisation itself.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         <p>Abbreviations can have multiple definitions depending on the context. Improve understanding by not using these abbreviations.
+         <div class="example">
+            <p>URI including abbreviations (incorrect):</p>
+            <pre>https://api.example.org/v1/gebouwen/19/coords</pre>
+            <p>URI avoiding abbreviations (correct):</p>
+            <pre>https://api.example.org/v1/gebouwen/19/coordinates</pre>
+         </div>
+         <p>The exception to this rule are abbreviations solely related to the API itself or the organisation. In the example below, the Kadaster API includes the abbrevation <code>BAG</code> which is a standardized definition for "Basisregistratie Adressen en Gebouwen" used in all Kadaster contexts.
+         <div class="example">
+            <p>URI including standardized abbreviations (correct):</p>
+            <pre>https://api.bag.kadaster.nl/contractloos/v2/bag</pre>
+         </div>
+         <p>This rule does not apply to variables used in API documentation. Authors are advised to avoid abbreviations in documentation (examples) to improve understanding to readers unfamiliar with the context. The abbreviation <code>Id</code> MAY be used instead of <code>Identificatie</code> or <code>IdentificatieNummer</code>
+         <div class="example">
+            <p>Documentation including a URI with abbreviations in variable (discouraged):</p>
+            <pre>https://api.example.org/v1/gebouwen/{gbId}</pre>
+            <p>Documentation including a URI without abbreviations in variable (advised):</p>
+            <pre>https://api.example.org/v1/gebouwen/{gebouwId}</pre>
+            <p>Documentation including a URI with standardized abbreviations in variable (advised):</p>
+            <pre>https://api.bag.kadaster.nl/contractloos/v2/bag/{bagId}</pre>
+         </div>
+      </dd>
+      <dt>Implications</dt>
+      <dd id="implications">
+         Adherence to this rule needs to be manually verified.
+      </dd>
+   </dl>
+</div>
+
 <span id="api-04"></span>
 <div class="rule" id="/core/interface-language" data-type="functional">
    <p class="rulelab">Define interfaces in Dutch unless there is an official English glossary available</p>
@@ -109,6 +147,85 @@ A resource describing a single thing is called a [=singular resource=]. Resource
       <dt>How to test</dt>
       <dd>
          Loop all resource paths in the OpenAPI Description and check that no resources paths end with a forward slash (<code>/</code>).
+      </dd>
+   </dl>
+</div>
+
+<div class="rule" id="/core/only-word-characters" data-type="technical">
+   <p class="rulelab">Use kebab-case in path segments</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         <div>
+            <p>Path segments of a [=URI=] MUST only contain lowercase letters, digits or hyphens. This is also known as <a href="https://developer.mozilla.org/en-US/docs/Glossary/Kebab_case">kebab-case</a>. Hyphens MUST only be used to deliniate distinct words. This also implies that diacritics MUST be normalized and special characters MUST be omitted.
+            <p>Another implication of this rule is that file extensions MUST NOT be used. Resources SHOULD use the <code>Accept</code> header for content negotation.
+         </div>
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         <p>Some web servers and frameworks do not handle case sensitivity or special characters of URI's well. The use of kebab-case path segments ensures compatibility with a broad range of systems. It is a more common implementation choice for path segments than camelCase or snake_case.
+         <div class="example">
+            <p>URI path segment using kebab-case (correct):</p>
+            <pre>https://api.example.org/v1/organisatie-codes</pre>
+            <p>URI path segment not using hyphens to delineate words (incorrect):</p>
+            <pre>https://api.example.org/v1/organisatie_codes</pre>
+            <p>URI path segment ending with a hyphen (incorrect):</p>
+            <pre>https://api.example.org/v1/organisatie-</pre>
+            <p>URI path segment starting with a hyphen (incorrect):</p>
+            <pre>https://api.example.org/v1/-organisatie</pre>
+            <p>URI path segment using normalized diacritics (correct):</p>
+            <pre>https://api.example.org/v1/scenes</pre>
+            <p>URI path segment using diacritics (incorrect):</p>
+            <pre>https://api.example.org/v1/scènes</pre>
+            <p>URI path segment omitting special characters (correct):</p>
+            <pre>https://api.example.org/v1/schemas</pre>
+            <p>URI path segment using special characters (incorrect):</p>
+            <pre>https://api.example.org/v1/schema's</pre>
+         </div>
+      </dd>
+      <dt>Implications</dt>
+      <dd>
+         This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific tests are published in the [[ADR-Validator]] repository.
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         Loop all resource paths in the OpenAPI Description and check that all resource path segments use lowercase letters, digits or hyphens (<code>-</code>). You can use the following regex to check each path segment:
+         <div class="example">
+            <pre><code>^[a-z0-9]+(\-[a-z0-9]+)*$</code></pre>
+         </div>
+      </dd>
+   </dl>
+</div>
+
+<div class="rule" id="/core/query-keys-camel-case" data-type="technical">
+   <p class="rulelab">Use camelCase in query keys</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         <div>
+            <p>Query keys [=URI=] MUST only contain letters, digits in camelCase. This also implies that diacritics MUST be normalized and special characters MUST be omitted.
+         </div>
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         <p>Query keys are often converted to JSON object keys, where camelCase is the naming convention to avoid compatibility issues with JavaScript when deserializing objects.
+         <div class="example">
+            <p>URI query key using camelCase (correct):</p>
+            <pre>https://api.example.org/v1/gebouwen?typeGebouw=woning</pre>
+            <p>URI query key not using camelCase (incorrect):</p>
+            <pre>https://api.example.org/v1/gebouwen?type-gebouw=woning</pre>
+         </div>
+      </dd>
+      <dt>Implications</dt>
+      <dd>
+         This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific tests are published in the [[ADR-Validator]] repository.
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         Loop all resource paths in the OpenAPI Description and check that all query keys use letters, digits in camelCase. You can use the following regex for each query key:
+         <div class="example">
+            <pre><code>^[a-z0-9]+([A-Z][a-z0-9]+)*$</code></pre>
+         </div>
       </dd>
    </dl>
 </div>
