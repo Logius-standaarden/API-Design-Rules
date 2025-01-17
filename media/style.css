@@ -1,5 +1,7 @@
 ﻿:root {
   --logius-rule-background: rgb(241, 246, 253);
+  --logius-rule-example-correct: green;
+  --logius-rule-example-incorrect: #e10000;
 }
 
 /*-- Design rule block ------------------------------------------------------------*/
@@ -12,6 +14,14 @@
   border-bottom-style: solid;
   border-color: #8CCBF2;
   background: var(--logius-rule-background);
+}
+
+.rule .example-correct {
+  color: var(--logius-rule-example-correct);
+}
+
+.rule .example-incorrect {
+  color: var(--logius-rule-example-incorrect);
 }
 
 .rulelab {

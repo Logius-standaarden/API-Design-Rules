@@ -91,14 +91,92 @@ A resource describing a single thing is called a [=singular resource=]. Resource
          Leaving off trailing slashes, and not implementing a redirect, enforces API consumers to use the correct URI. This avoids confusion and ambiguity.
          <div class="example">
             <p>URI without a trailing slash (correct):</p>
-            <pre class="nohighlight">https://api.example.org/v1/gebouwen</pre>
+            <pre class="nohighlight example-correct">https://api.example.org/v1/gebouwen</pre>
             <p>URI with a trailing slash (incorrect):</p>
-            <pre class="nohighlight">https://api.example.org/v1/gebouwen/</pre>
+            <pre class="nohighlight example-incorrect">https://api.example.org/v1/gebouwen/</pre>
          </div>
       </dd>
       <dt>How to test</dt>
       <dd>
          Analyse all resource paths in the OpenAPI Description to confirm no resource paths end with a forward slash (<code>/</code>).
+      </dd>
+   </dl>
+</div>
+
+<div class="rule" id="/core/path-segments-kebab-case" data-type="technical">
+   <p class="rulelab">Use kebab-case in path segments</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         <div>
+            <p>Path segments of a [=URI=] MUST only contain lowercase letters, digits or hyphens. This is also known as <a href="https://developer.mozilla.org/en-US/docs/Glossary/Kebab_case">kebab-case</a>. Hyphens MUST only be used to deliniate distinct words. This also implies that diacritics MUST be normalized and special characters MUST be omitted.
+            <p>Another implication of this rule is that file extensions MUST NOT be used. Resources SHOULD use the <code>Accept</code> header for content negotation.
+            <p>The last path segment MAY start with `_`, which is used as a convention to implement search API's
+         </div>
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         <p>Some web servers and frameworks do not handle case sensitivity or special characters of URIs well. The use of kebab-case path segments ensures compatibility with a broad range of systems. It is a more common implementation choice for path segments than camelCase or snake_case. Information (such as names of objects) that requires special characters can be part of the request body instead of being in the URI.
+         <div class="example">
+            <p>URI path segment using kebab-case (correct):</p>
+            <pre class="nohighlight example-correct">https://api.example.org/v1/financiele-claims</pre>
+            <p>URI path segment not using hyphens to delineate words (incorrect):</p>
+            <pre class="nohighlight example-incorrect">https://api.example.org/v1/financiele_claims</pre>
+            <p>URI path segment not lowercase characters (incorrect):</p>
+            <pre class="nohighlight example-incorrect">https://api.example.org/v1/financieleClaims</pre>
+            <p>URI path segment ending with a hyphen (incorrect):</p>
+            <pre class="nohighlight example-incorrect">https://api.example.org/v1/organisatie-</pre>
+            <p>URI path segment starting with a hyphen (incorrect):</p>
+            <pre class="nohighlight example-incorrect">https://api.example.org/v1/-organisatie</pre>
+            <p>URI path segment using normalized diacritics (correct):</p>
+            <pre class="nohighlight example-correct">https://api.example.org/v1/scenes</pre>
+            <p>URI path segment using diacritics (incorrect):</p>
+            <pre class="nohighlight example-incorrect">https://api.example.org/v1/scènes</pre>
+            <p>URI path segment omitting special characters (correct):</p>
+            <pre class="nohighlight example-correct">https://api.example.org/v1/schemas</pre>
+            <p>URI path segment using special characters (incorrect):</p>
+            <pre class="nohighlight example-incorrect">https://api.example.org/v1/schema's</pre>
+            <p>URI path segment using file extensions (incorrect):</p>
+            <pre class="nohighlight example-incorrect">https://api.example.org/v1/schema.txt</pre>
+            <p>Last URI path segment starting with <code>_</code> (correct):</p>
+            <pre class="nohighlight example-correct">https://api.example.org/v1/organisaties/_zoek</pre>
+         </div>
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         Loop all resource paths in the OpenAPI Description and check that all resource path segments use lowercase letters, digits or hyphens (<code>-</code>). The last path segment is allowed to start with a <code>_</code>. You can use the following regex for each resource path:
+         <div class="example">
+            <pre><code>^(\/|(\/_[a-z0-9]+|\/(([a-z0-9\-]+|{[^}]+})(\/([a-z0-9\-\.]+|{[^}]+}))*)(\/_[a-z]+)?)\/?)$</code></pre>
+         </div>
+      </dd>
+   </dl>
+</div>
+
+<div class="rule" id="/core/query-keys-camel-case" data-type="technical">
+   <p class="rulelab">Use camelCase in query keys</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         <div>
+            <p>Query keys in a [=URI=] MUST only contain letters and digits, where the first letter of each word is capitalized, except for the first letter of the entire compound word. This is also known as <a href="https://developer.mozilla.org/en-US/docs/Glossary/Camel_case">lower camelCase</a>. This also implies that diacritics MUST be normalized and special characters MUST be omitted.
+         </div>
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         <p>Query keys are often converted to JSON object keys, where camelCase is the naming convention to avoid compatibility issues with JavaScript when deserializing objects.
+         <div class="example">
+            <p>URI query key using camelCase (correct):</p>
+            <pre class="nohighlight example-correct">https://api.example.org/v1/gebouwen?typeGebouw=woning</pre>
+            <p>URI query key not using camelCase (incorrect):</p>
+            <pre class="nohighlight example-incorrect">https://api.example.org/v1/gebouwen?type-gebouw=woning</pre>
+         </div>
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         Loop all resource paths in the OpenAPI Description and check that all query keys use letters, digits in camelCase. You can use the following regex for each query key:
+         <div class="example">
+            <pre><code>^[a-z0-9]+[a-zA-Z0-9]*$</code></pre>
+         </div>
       </dd>
    </dl>
 </div>
