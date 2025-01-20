@@ -540,7 +540,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
          <p>An example of a base path for an API with current version 1.0.2:</p>
          <pre>https://api.example.org/v1/</pre>
          <pre>version: '1.0.2'</pre>
-         <pre><code class="language-yaml">servers:
+         <pre><code class="yaml">servers:
    - description: test environment  
    url: https://api.test.example.org/v1/  
    - description: production environment  
