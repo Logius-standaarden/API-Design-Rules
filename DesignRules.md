@@ -82,12 +82,12 @@ A resource describing a single thing is called a [=singular resource=]. Resource
             <p>URI avoiding abbreviations (correct):</p>
             <pre>https://api.example.org/v1/gebouwen/19/coordinates</pre>
          </div>
-         <p>The exception to this rule are abbreviations solely related to the API itself or the organisation. In the example below, the Kadaster API includes the abbrevation <code>BAG</code> which is a standardized definition for "Basisregistratie Adressen en Gebouwen" used in all Kadaster contexts.
+         <p>The exception to this rule are abbreviations solely related to the API itself or the organisation. When you exempt an abbreviation from this rule, there MUST be a glossary entry in the API documentation. The glossary entry SHOULD link to an external definition of the abbreviation. In the example below, the Kadaster API includes the abbrevation <code>BAG</code> which is a standardized definition for "Basisregistratie Adressen en Gebouwen" used in all Kadaster contexts.
          <div class="example">
             <p>URI including standardized abbreviations (correct):</p>
             <pre>https://api.bag.kadaster.nl/contractloos/v2/bag</pre>
          </div>
-         <p>This rule does not apply to variables used in API documentation. Authors are advised to avoid abbreviations in documentation (examples) to improve understanding to readers unfamiliar with the context. The abbreviation <code>Id</code> MAY be used instead of <code>Identificatie</code> or <code>IdentificatieNummer</code>
+         <p>This rule does not apply to variables used in API documentation. Authors MAY avoid abbreviations in documentation (examples) to improve understanding to readers unfamiliar with the context. The abbreviation <code>Id</code> MAY be used instead of <code>Identificatie</code> or <code>IdentificatieNummer</code>
          <div class="example">
             <p>Documentation including a URI with abbreviations in variable (discouraged):</p>
             <pre>https://api.example.org/v1/gebouwen/{gbId}</pre>
