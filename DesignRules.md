@@ -465,7 +465,7 @@ An API is as good as the accompanying documentation. The documentation has to be
          <p>The standard location for the OAS document is a URI called <code>openapi.json</code> or <code>openapi.yaml</code> within the base path of the API. This can be convenient, because OAS document updates can easily  become part of the CI/CD process.</p>
          <p>At least the JSON format MUST be supported. When having multiple (major) versions of an API, every API SHOULD provide its own OAS document(s).</p>
          <div class="example">
-            <p>An API having base path <code>https://api.example.org/v1/</code> MUST publish the OAS document at:</p>
+            <p>An API having base path <code>https://api.example.org/v1</code> MUST publish the OAS document at:</p>
             <pre class="nohighlight">https://api.example.org/v1/openapi.json</pre>
             <p>Optionally, the same OAS document MAY be provided in YAML format:</p>
             <pre class="nohighlight">https://api.example.org/v1/openapi.yaml</pre>
@@ -538,13 +538,13 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
          The [=URI=] of an API (base path) MUST include the major version number, prefixed by the letter <code>v</code>. This allows the exploration of multiple versions of an API in the browser. The minor and patch version numbers are not part of the [=URI=] and MAY not have any impact on existing client implementations.
       <div class="example">
          <p>An example of a base path for an API with current version 1.0.2:</p>
-         <pre class="nohighlight">https://api.example.org/v1/</pre>
+         <pre class="nohighlight">https://api.example.org/v1</pre>
          <pre class="nohighlight">version: '1.0.2'</pre>
          <pre><code class="yaml">servers:
    - description: test environment  
-   url: https://api.test.example.org/v1/  
+   url: https://api.test.example.org/v1/ 
    - description: production environment  
-   url: https://api.example.org/v1/</code></pre>
+   url: https://api.example.org/v1</code></pre>
       </div>
       </dd>
       <dt>Implications</dt>
