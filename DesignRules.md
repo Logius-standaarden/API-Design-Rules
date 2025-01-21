@@ -78,23 +78,23 @@ A resource describing a single thing is called a [=singular resource=]. Resource
          <p>Abbreviations can have multiple definitions depending on the context. Improve understanding by not using these abbreviations.
          <div class="example">
             <p>URI including abbreviations (incorrect):</p>
-            <pre>https://api.example.org/v1/gebouwen/19/coords</pre>
+            <pre class="nohighlight">https://api.example.org/v1/gebouwen/19/coords</pre>
             <p>URI avoiding abbreviations (correct):</p>
-            <pre>https://api.example.org/v1/gebouwen/19/coordinates</pre>
+            <pre class="nohighlight">https://api.example.org/v1/gebouwen/19/coordinates</pre>
          </div>
          <p>The exception to this rule are abbreviations solely related to the API itself or the organisation. When you exempt an abbreviation from this rule, there MUST be a glossary entry in the API documentation. The glossary entry SHOULD link to an external definition of the abbreviation. In the example below, the Kadaster API includes the abbrevation <code>BAG</code> which is a standardized definition for "Basisregistratie Adressen en Gebouwen" used in all Kadaster contexts.
          <div class="example">
             <p>URI including standardized abbreviations (correct):</p>
-            <pre>https://api.bag.kadaster.nl/contractloos/v2/bag</pre>
+            <pre class="nohighlight">https://api.bag.kadaster.nl/contractloos/v2/bag</pre>
          </div>
          <p>This rule does not apply to variables used in API documentation. Authors MAY avoid abbreviations in documentation (examples) to improve understanding to readers unfamiliar with the context. The abbreviation <code>Id</code> MAY be used instead of <code>Identificatie</code> or <code>IdentificatieNummer</code>
          <div class="example">
             <p>Documentation including a URI with abbreviations in variable (discouraged):</p>
-            <pre>https://api.example.org/v1/gebouwen/{gbId}</pre>
+            <pre class="nohighlight">https://api.example.org/v1/gebouwen/{gbId}</pre>
             <p>Documentation including a URI without abbreviations in variable (advised):</p>
-            <pre>https://api.example.org/v1/gebouwen/{gebouwId}</pre>
+            <pre class="nohighlight">https://api.example.org/v1/gebouwen/{gebouwId}</pre>
             <p>Documentation including a URI with standardized abbreviations in variable (advised):</p>
-            <pre>https://api.bag.kadaster.nl/contractloos/v2/bag/{bagId}</pre>
+            <pre class="nohighlight">https://api.bag.kadaster.nl/contractloos/v2/bag/{bagId}</pre>
          </div>
       </dd>
       <dt>Implications</dt>
@@ -164,21 +164,21 @@ A resource describing a single thing is called a [=singular resource=]. Resource
          <p>Some web servers and frameworks do not handle case sensitivity or special characters of URI's well. The use of kebab-case path segments ensures compatibility with a broad range of systems. It is a more common implementation choice for path segments than camelCase or snake_case.
          <div class="example">
             <p>URI path segment using kebab-case (correct):</p>
-            <pre>https://api.example.org/v1/organisatie-codes</pre>
+            <pre class="nohighlight">https://api.example.org/v1/organisatie-codes</pre>
             <p>URI path segment not using hyphens to delineate words (incorrect):</p>
-            <pre>https://api.example.org/v1/organisatie_codes</pre>
+            <pre class="nohighlight">https://api.example.org/v1/organisatie_codes</pre>
             <p>URI path segment ending with a hyphen (incorrect):</p>
-            <pre>https://api.example.org/v1/organisatie-</pre>
+            <pre class="nohighlight">https://api.example.org/v1/organisatie-</pre>
             <p>URI path segment starting with a hyphen (incorrect):</p>
-            <pre>https://api.example.org/v1/-organisatie</pre>
+            <pre class="nohighlight">https://api.example.org/v1/-organisatie</pre>
             <p>URI path segment using normalized diacritics (correct):</p>
-            <pre>https://api.example.org/v1/scenes</pre>
+            <pre class="nohighlight">https://api.example.org/v1/scenes</pre>
             <p>URI path segment using diacritics (incorrect):</p>
-            <pre>https://api.example.org/v1/scènes</pre>
+            <pre class="nohighlight">https://api.example.org/v1/scènes</pre>
             <p>URI path segment omitting special characters (correct):</p>
-            <pre>https://api.example.org/v1/schemas</pre>
+            <pre class="nohighlight">https://api.example.org/v1/schemas</pre>
             <p>URI path segment using special characters (incorrect):</p>
-            <pre>https://api.example.org/v1/schema's</pre>
+            <pre class="nohighlight">https://api.example.org/v1/schema's</pre>
          </div>
       </dd>
       <dt>Implications</dt>
@@ -209,9 +209,9 @@ A resource describing a single thing is called a [=singular resource=]. Resource
          <p>Query keys are often converted to JSON object keys, where camelCase is the naming convention to avoid compatibility issues with JavaScript when deserializing objects.
          <div class="example">
             <p>URI query key using camelCase (correct):</p>
-            <pre>https://api.example.org/v1/gebouwen?typeGebouw=woning</pre>
+            <pre class="nohighlight">https://api.example.org/v1/gebouwen?typeGebouw=woning</pre>
             <p>URI query key not using camelCase (incorrect):</p>
-            <pre>https://api.example.org/v1/gebouwen?type-gebouw=woning</pre>
+            <pre class="nohighlight">https://api.example.org/v1/gebouwen?type-gebouw=woning</pre>
          </div>
       </dd>
       <dt>Implications</dt>
