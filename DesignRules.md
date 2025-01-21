@@ -222,7 +222,7 @@ A resource describing a single thing is called a [=singular resource=]. Resource
       <dd>
          Loop all resource paths in the OpenAPI Description and check that all query keys use letters, digits in camelCase. You can use the following regex for each query key:
          <div class="example">
-            <pre><code>^[a-z0-9]+([A-Z][a-z0-9]+)*$</code></pre>
+            <pre><code>^[a-z0-9]+([A-Z][a-z0-9]+)*([A-Z])?$</code></pre>
          </div>
       </dd>
    </dl>
