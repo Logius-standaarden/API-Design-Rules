@@ -541,9 +541,9 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
          <pre class="nohighlight">https://api.example.org/v1</pre>
          <pre class="nohighlight">version: '1.0.2'</pre>
          <pre><code class="yaml">servers:
-   - description: test environment  
-   url: https://api.test.example.org/v1/ 
-   - description: production environment  
+   - description: test environment
+   url: https://api.test.example.org/v1
+   - description: production environment
    url: https://api.example.org/v1</code></pre>
       </div>
       </dd>
