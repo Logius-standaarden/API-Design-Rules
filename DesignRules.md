@@ -434,6 +434,27 @@ An API is as good as the accompanying documentation. The documentation has to be
    </dl>
 </div>
 
+<div class="rule" id="/core/doc-openapi-contact" data-type="functional">
+  <p class="rulelab">Document contact information for publicly available APIs</p>
+  <dl>
+      <dt>Statement</dt>
+      <dd>
+         OpenAPI definition document SHOULD include the <a href="https://spec.openapis.org/oas/v3.0.1.html#contact-object"><code>info.contact</code></a> object for publicly available APIs.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         The OpenAPI Specification (OAS) [[OPENAPIS]] can include contact information to make clear how to reach out to API owners in case of issues or questions. This is relevant for publicly available APIs (such as OData) where no pre-existing communication channel exists between provider and consumer of the API. For internal APIs (where communication channels such as chat or issue trackers can suffice), the <code>info.contact</code> MAY be provided.
+      </dd>
+      <dt>Implications</dt>
+      <dd>
+         This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific tests are published in the [[ADR-Validator]] repository.
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+      </dd>
+   </dl>
+</div>
+
 <span id="api-17"></span>
 <div class="rule" id="/core/doc-language" data-type="functional">
   <p class="rulelab">Publish documentation in Dutch unless there is existing documentation in English</p>
