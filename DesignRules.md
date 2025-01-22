@@ -48,17 +48,17 @@ A resource describing a single thing is called a [=singular resource=]. Resource
          The path segment describing the name of the collection resource MUST be written in the plural form.
          <div class="example">
             <p>Example collection resources, describing a list of things:</p>
-            <pre>https://api.example.org/v1/gebouwen<br/>https://api.example.org/v1/vergunningen</pre>
+            <pre class="nohighlight">https://api.example.org/v1/gebouwen<br/>https://api.example.org/v1/vergunningen</pre>
          </div>
          <p>Singular resources contained within a collection resource are generally named by appending a path segment for the identification of each individual resource.</p>
          <div class="example">
             <p>Example singular resource, contained within a collection resource:</p>
-            <pre>https://api.example.org/v1/gebouwen/3b9710c4-6614-467a-ab82-36822cf48db1<br/>https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pre>
+            <pre class="nohighlight">https://api.example.org/v1/gebouwen/3b9710c4-6614-467a-ab82-36822cf48db1<br/>https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pre>
          </div>
          <p>Singular resources that stand on their own, i.e. which are not contained within a collection resource, MUST be named with a path segment that is written in the singular form.</p>
          <div class="example">
             <p>Example singular resource describing the profile of the currently authenticated user:</p>
-            <pre>https://api.example.org/v1/gebruikersprofiel</pre>
+            <pre class="nohighlight">https://api.example.org/v1/gebruikersprofiel</pre>
          </div>
       </dd>
       <dt>Implications</dt>
@@ -97,9 +97,9 @@ A resource describing a single thing is called a [=singular resource=]. Resource
          Leaving off trailing slashes, and not implementing a redirect, enforces API consumers to use the correct URI. This avoids confusion and ambiguity.
          <div class="example">
             <p>URI without a trailing slash (correct):</p>
-            <pre>https://api.example.org/v1/gebouwen</pre>
+            <pre class="nohighlight">https://api.example.org/v1/gebouwen</pre>
             <p>URI with a trailing slash (incorrect):</p>
-            <pre>https://api.example.org/v1/gebouwen/</pre>
+            <pre class="nohighlight">https://api.example.org/v1/gebouwen/</pre>
          </div>
       </dd>
       <dt>Implications</dt>
@@ -363,15 +363,15 @@ Resources are often interconnected by relationships. Relationships can be modell
       </dd>
     <div class="example">
     <p>When modelling resources for a news platform including the ability for users to write comments, it might be a good strategy to model the [=collection resources=] hierarchically:</p>
-    <pre>https://api.example.org/v1/articles/123/comments</pre>
+    <pre class="nohighlight">https://api.example.org/v1/articles/123/comments</pre>
     <p>The platform might also offer a photo section, where the same commenting functionality is offered. In the same way as for articles, the corresponding sub-collection resource might be published at:</p>
-    <pre>https://api.example.org/v1/photos/456/comments</pre>
+    <pre class="nohighlight">https://api.example.org/v1/photos/456/comments</pre>
     <p>These nested sub-collection resources can be used to post a new comment (<code>POST</code> method) and to retrieve a list of comments (<code>GET</code> method) belonging to the parent resource, i.e. the article or photo. An important consideration is that these comments could never have existed without the existence of the parent resource.</p>
     <p>From the consumer's perspective, this approach makes logical sense, because the most obvious use case is to show comments below the parent article or photo (e.g. on the same web page) including the possibility to paginate through the comments. The process of posting a comment is separate from the process of publishing a new article. Another client use case might also be to show a global <em>latest comments</em> section in the sidebar. For this use case, an additional resource could be provided:</p>
-    <pre>https://api.example.org/v1/comments</pre>
+    <pre class="nohighlight">https://api.example.org/v1/comments</pre>
     <p>If this would have not been a meaningful use case, this resource should not exist at all. Because it doesn't make sense to post a new comment from a global context, this resource would be read-only (only <code>GET</code> method is supported) and may possibly provide a more compact representation than the parent-specific sub-collections.</p>
     <p>The [=singular resources=] for comments, referenced from all 3 collections, could still be modelled on a higher level to avoid deep nesting of URIs (which might increase complexity or problems due to the URI length):</p>
-    <pre>https://api.example.org/v1/comments/123<br />https://api.example.org/v1/comments/456</pre>
+    <pre class="nohighlight">https://api.example.org/v1/comments/123<br />https://api.example.org/v1/comments/456</pre>
     <p>Although this approach might seem counterintuitive from a technical perspective (we simply could have modelled a single <code>/comments</code> resource with optional filters for article and photo) and might introduce partially redundant functionality, it makes perfect sense from the perspective of the consumer, which increases developer experience.</p>
   </div>
   <dt>Implications</dt>
@@ -465,10 +465,10 @@ An API is as good as the accompanying documentation. The documentation has to be
          <p>The standard location for the OAS document is a URI called <code>openapi.json</code> or <code>openapi.yaml</code> within the base path of the API. This can be convenient, because OAS document updates can easily  become part of the CI/CD process.</p>
          <p>At least the JSON format MUST be supported. When having multiple (major) versions of an API, every API SHOULD provide its own OAS document(s).</p>
          <div class="example">
-            <p>An API having base path <code>https://api.example.org/v1/</code> MUST publish the OAS document at:</p>
-            <pre>https://api.example.org/v1/openapi.json</pre>
+            <p>An API having base path <code>https://api.example.org/v1</code> MUST publish the OAS document at:</p>
+            <pre class="nohighlight">https://api.example.org/v1/openapi.json</pre>
             <p>Optionally, the same OAS document MAY be provided in YAML format:</p>
-            <pre>https://api.example.org/v1/openapi.yaml</pre>
+            <pre class="nohighlight">https://api.example.org/v1/openapi.yaml</pre>
          </div>
       </dd>
       <dt>Implications</dt>
@@ -538,14 +538,13 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
          The [=URI=] of an API (base path) MUST include the major version number, prefixed by the letter <code>v</code>. This allows the exploration of multiple versions of an API in the browser. The minor and patch version numbers are not part of the [=URI=] and MAY not have any impact on existing client implementations.
       <div class="example">
          <p>An example of a base path for an API with current version 1.0.2:</p>
-         <pre>https://api.example.org/v1/</pre>
-         <pre>version: '1.0.2'</pre>
-         <pre>servers:
-                  - description: test environment  
-                  url: https://api.test.example.org/v1/  
-                  - description: production environment  
-                  url: https://api.example.org/v1/  
-         </pre>
+         <pre class="nohighlight">https://api.example.org/v1</pre>
+         <pre class="nohighlight">version: '1.0.2'</pre>
+         <pre><code class="yaml">servers:
+   - description: test environment
+   url: https://api.test.example.org/v1
+   - description: production environment
+   url: https://api.example.org/v1</code></pre>
       </div>
       </dd>
       <dt>Implications</dt>
@@ -617,7 +616,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
          <p>The version number MUST be returned in an HTTP response header named <code>API-Version</code> (case-insensitive) and SHOULD not be prefixed.</p>
          <div class="example">
             <p>An example of an API version response header:</p>
-            <pre>API-Version: 1.0.2</pre>
+            <pre class="nohighlight">API-Version: 1.0.2</pre>
          </div>
       </dd>
       <dt>Implications</dt>
