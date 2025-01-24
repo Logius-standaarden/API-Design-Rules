@@ -632,9 +632,6 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
 
 ## Transport Security
 
-Transport security is essential to safeguard the confidentiality, integrity, and authenticity of data during its transmission.
-
-### Introduction
 This section describes security principles, concepts and technologies to apply when working with APIs.
 Controls need to be applied for the security objectives of integrity, confidentiality and availability of the API and services and data provided thereby.
 The [architecture section of the API strategy](https://docs.geostandaarden.nl/api/API-Strategie-architectuur/) contains architecture patterns for implementing Transport security.
@@ -661,6 +658,7 @@ Note: security controls for signing and encrypting of application level messages
       </dd>
       <dt>Implications</dt>
       <dd>
+         This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific tests are published in the [[ADR-Validator]] repository.
       </dd>
       <dt>How to test</dt>
       <dd>
@@ -708,12 +706,10 @@ This section contains elements that apply to the generic classes of clients list
 Although not every client implementation has a need for all the specifications referenced below, a client agnostic API SHOULD provide these to facilitate any client to implement relevant security controls.
 
 Most specifications referenced in this section are applicable to the first three classes of clients listed above.
-Security considerations for native applications are provided in [OAUth2 for Native Apps]](https://tools.ietf.org/html/rfc8252), much of which can help non-OAuth2 based implementations as well.
+Security considerations for native applications are provided in [OAUth2 for Native Apps](https://tools.ietf.org/html/rfc8252), much of which can help non-OAuth2 based implementations as well.
 For browser-based applications a subsection is included with additional details and information.
 System-to-system (sometimes called machine-to-machine) may have a need for the listed specifications as well.
 Note that different usage patterns may be applicable in contexts with system-to-system clients, see above under Client Authentication.
-
-### Security Headers
 
 <div class="rule" id="/core/transport/security-headers" data-type="technical">
   <p class="rulelab">Use mandatory security headers in API all responses</p>
@@ -790,10 +786,11 @@ Note that different usage patterns may be applicable in contexts with system-to-
                </tr>
             </tbody>
          </table>
-         <p>In addition to the above listed HTTP security headers, web- and browser-based applications SHOULD apply Subresource Integrity [SRI](https://www.w3.org/TR/SRI/). When using third-party hosted contents, e.g. using a Content Delivery Network, this is even more relevant. While this is primarily a client implementation concern, it may affect the API when it is not strictly segregated or for example when shared supporting libraries are offered.
+         <p>In addition to the above listed HTTP security headers, web- and browser-based applications SHOULD apply Subresource Integrity <a href="https://www.w3.org/TR/SRI/">SRI</a>. When using third-party hosted contents, e.g. using a Content Delivery Network, this is even more relevant. While this is primarily a client implementation concern, it may affect the API when it is not strictly segregated or for example when shared supporting libraries are offered.
       </dd>
       <dt>Implications</dt>
       <dd>
+         This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific tests are published in the [[ADR-Validator]] repository.
       </dd>
       <dt>How to test</dt>
       <dd>
@@ -801,8 +798,6 @@ Note that different usage patterns may be applicable in contexts with system-to-
       </dd>
    </dl>
 </div>
-
-### CORS-policy
 
 <span id="api-50"></span>
 <div class="rule" id="/core/transport/cors" data-type="technical">
@@ -819,6 +814,7 @@ Note that different usage patterns may be applicable in contexts with system-to-
       </dd>
       <dt>Implications</dt>
       <dd>
+         This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific tests are published in the [[ADR-Validator]] repository.
       </dd>
       <dt>How to test</dt>
       <dd>
@@ -831,14 +827,13 @@ Note that different usage patterns may be applicable in contexts with system-to-
 
 A specific subclass of clients are browser-based applications, that require the presence of particular security controls to facilitate secure implementation.
 Clients in this class are also known as _user-agent-based_ or _single-page-applications_ (SPA).
-As with the (draft) [OAuth 2.0 for Browser-Based Apps](https://tools.ietf.org/html/draft-ietf-oauth-browser-based-apps-07), browser-based application can be split into three architectural patterns:
+All browser-based application SHOULD follow the best practices specified in [OAuth 2.0 for Browser-Based Apps](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-browser-based-apps-22).
+These applications can be split into three architectural patterns:
 - JavaScript applications with a Backend; with this class of applications, the Backend is the confidential client and should intermediate any interaction, with tokens never ending up in the browser.
 Effectively, these are not different from regular web-application for this security facet, even though they leverage JavaScript for implementation.
 - JavaScript applications that share a domain with the API (resource server); these can leverage cookies marked as HTTP-Only, Secure and SameSite.
 - JavaScript applications without a Backend; these clients are considered public clients, are potentially more suspect to several types of attacks, including Cross-Site Scripting (XSS), Cross Site Request Forgery (CSRF) and OAuth token theft.
 In order to support these clients, the Cross-Origin Resource Sharing (CORS) policy mentioned above is critical and MUST be supported.
-
-All browser-based application SHOULD follow the best practices specified in [OAuth 2.0 for Browser-Based Apps](https://tools.ietf.org/html/draft-ietf-oauth-browser-based-apps-07).
 
 ### Validate content types
 A REST request or response body SHOULD match the intended content type in the header.
