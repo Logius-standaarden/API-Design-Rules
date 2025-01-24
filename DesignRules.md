@@ -310,7 +310,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
    </dl>
 </div>
 
-<div class="rule" id="/core/http-response-types" data-type="functional">
+<div class="rule" id="/core/http-response-code" data-type="functional">
    <p class="rulelab">Adhere to HTTP status codes to convey appropriate errors</p>
    <dl>
       <dt>Statement</dt>
