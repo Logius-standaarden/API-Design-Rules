@@ -711,6 +711,15 @@ For browser-based applications a subsection is included with additional details 
 System-to-system (sometimes called machine-to-machine) may have a need for the listed specifications as well.
 Note that different usage patterns may be applicable in contexts with system-to-system clients, see above under Client Authentication.
 
+Realizations may rely on internal usage of HTTP-Headers.
+Information for processing requests and responses can be passed between components, that can have security implications.
+For instance, this is commonly practices between a reverse proxy or TLS-offloader and an application server.
+Additional HTTP headers are used in such example to pass an original IP-address or client certificate.
+
+Implementations MUST consider filtering both inbound and outbound traffic for HTTP-headers used internally.
+Primary focus for inbound filtering is to prevent injection of malicious headers on requests.
+For outbound filtering, the main concern is leaking of information.
+
 <div class="rule" id="/core/transport/security-headers" data-type="technical">
   <p class="rulelab">Use mandatory security headers in API all responses</p>
    <dl>
@@ -763,7 +772,7 @@ Note that different usage patterns may be applicable in contexts with system-to-
                </tr>
             </tbody>
          </table>
-         <p>The headers below are only intended to provide additional security when responses are rendered as HTML. As such, if the API will never return HTML in responses, then these headers may not be necessary. However, if there is any uncertainty about the function of the headers, or the types of information that the API returns (or may return in future), then it is RECOMMENDED to include them as part of a defense-in-depth approach.
+         <p>The headers below are only intended to provide additional security when responses are rendered as HTML. As such, if the API will never return HTML in responses, then these headers may not be necessary. You SHOULD include the headers as part of a defense-in-depth approach if there is any uncertainty about the function of the headers, the types of information that the API returns or information it may return in the future.
          <table>
             <thead>
                <tr>
@@ -809,7 +818,7 @@ Note that different usage patterns may be applicable in contexts with system-to-
       </dd>
       <dt>Rationale</dt>
       <dd>
-         <p>Modern web browsers use Cross-Origin Resource Sharing (CORS) to minimize the risk associated with cross-site HTTP-requests. By default browsers only allow 'same origin' access to resources. This means that responses on requests to another `[scheme]://[hostname]:[port]` than the `Origin` request header of the initial request will not be processed by the browser. To enable cross-site requests API's can return a `Access-Control-Allow-Origin` response header.It is RECOMMENDED to use a whitelist to determine the validity of different cross-site request. To do this check the `Origin` header of the incoming request and check if the domain in this header is on the whitelist. If this is the case, set the incoming `Origin` header in the `Access-Control-Allow-Origin` response header.
+         <p>Modern web browsers use Cross-Origin Resource Sharing (CORS) to minimize the risk associated with cross-site HTTP-requests. By default browsers only allow 'same origin' access to resources. This means that responses on requests to another `[scheme]://[hostname]:[port]` than the `Origin` request header of the initial request will not be processed by the browser. To enable cross-site requests API's can return a `Access-Control-Allow-Origin` response header. An allowlist SHOULD be used to determine the validity of different cross-site request. To do this check the `Origin` header of the incoming request and check if the domain in this header is on the whitelist. If this is the case, set the incoming `Origin` header in the `Access-Control-Allow-Origin` response header.
          <p>Using a wildcard `*` in the `Access-Control-Allow-Origin` response header is NOT RECOMMENDED, because it disables CORS-security measures. Only for an open API which has to be accessed by numerous other websites this is appropriate.
       </dd>
       <dt>Implications</dt>
@@ -854,16 +863,6 @@ Services (potentially) including script code (e.g. JavaScript) in their response
 HTTP defines status codes.
 When designing a REST API, don't just use `200` for success or `404` for error.
 Always use the semantically appropriate [status code](https://tools.ietf.org/html/rfc7231#section-6) for the response.
-
-### HTTP header filtering
-Realizations may rely on internal usage of HTTP-Headers.
-Information for processing requests and responses can be passed between components, that can have security implications.
-For instance, this is commonly practices between a reverse proxy or TLS-offloader and an application server.
-Additional HTTP headers are used in such example to pass an original IP-address or client certificate.
-
-Implementations MUST consider filtering both inbound and outbound traffic for HTTP-headers used internally.
-Primary focus for inbound filtering is to prevent injection of malicious headers on requests.
-For outbound filtering, the main concern is leaking of information.
 
 ### Error handling
 - Respond with generic error messages - avoid revealing details of the failure unnecessarily.
