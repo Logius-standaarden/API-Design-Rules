@@ -670,7 +670,7 @@ Note: security controls for signing and encrypting of application level messages
 </div>
 
 <span id="api-58"></span>
-<div class="rule" id="/core/transport/no-sensitive-uris" data-type="technical">
+<div class="rule" id="/core/transport/no-sensitive-uris" data-type="functional">
   <p class="rulelab">No sensitive information in URIs</p>
    <dl>
       <dt>Statement</dt>
@@ -726,57 +726,69 @@ Note that different usage patterns may be applicable in contexts with system-to-
       <dd>
          <p>There are a number of security related headers that can be returned in the HTTP responses to instruct browsers to act in specific ways. However, some of these headers are intended to be used with HTML responses, and as such may provide little or no security benefits on an API that does not return HTML. The following headers SHOULD be included in all API responses:
          <table>
-            <tr>
-               <td>Header</td>
-               <td>Rationale</td>
-            </tr>
-            <tr>
-               <td>`Cache-Control: no-store`</td>
-               <td>Prevent sensitive information from being cached.</td>
-            </tr>
-            <tr>
-               <td>`Content-Security-Policy: frame-ancestors &#39;none&#39;`</td>
-               <td>To protect against drag-and-drop style clickjacking attacks.</td>
-            </tr>
-            <tr>
-               <td>`Content-Type`</td>
-               <td>To specify the content type of the response. This SHOULD be `application/json` for JSON responses.</td>
-            </tr>
-            <tr>
-               <td>`Strict-Transport-Security`</td>
-               <td>To require connections over HTTPS and to protect against spoofed certificates.</td>
-            </tr>
-            <tr>
-               <td>`X-Content-Type-Options: nosniff`</td>
-               <td>To prevent browsers from performing MIME sniffing, and inappropriately interpreting responses as HTML.</td>
-            </tr>
-            <tr>
-               <td>`X-Frame-Options: DENY`</td>
-               <td>To protect against drag-and-drop style clickjacking attacks.</td>
-            </tr>
-            <tr>
-               <td>`Access-Control-Allow-Origin`</td>
-               <td>To relax the &#39;same origin&#39; policy and allow cross-origin access. See CORS-policy below</td>
-            </tr>
+            <thead>
+               <tr>
+                  <th scope="col">Header</th>
+                  <th scope="col">Rationale</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td>Header</td>
+                  <td>Rationale</td>
+               </tr>
+               <tr>
+                  <td>`Cache-Control: no-store`</td>
+                  <td>Prevent sensitive information from being cached.</td>
+               </tr>
+               <tr>
+                  <td>`Content-Security-Policy: frame-ancestors &#39;none&#39;`</td>
+                  <td>To protect against drag-and-drop style clickjacking attacks.</td>
+               </tr>
+               <tr>
+                  <td>`Content-Type`</td>
+                  <td>To specify the content type of the response. This SHOULD be `application/json` for JSON responses.</td>
+               </tr>
+               <tr>
+                  <td>`Strict-Transport-Security`</td>
+                  <td>To require connections over HTTPS and to protect against spoofed certificates.</td>
+               </tr>
+               <tr>
+                  <td>`X-Content-Type-Options: nosniff`</td>
+                  <td>To prevent browsers from performing MIME sniffing, and inappropriately interpreting responses as HTML.</td>
+               </tr>
+               <tr>
+                  <td>`X-Frame-Options: DENY`</td>
+                  <td>To protect against drag-and-drop style clickjacking attacks.</td>
+               </tr>
+               <tr>
+                  <td>`Access-Control-Allow-Origin`</td>
+                  <td>To relax the &#39;same origin&#39; policy and allow cross-origin access. See CORS-policy below</td>
+               </tr>
+            </tbody>
          </table>
          <p>The headers below are only intended to provide additional security when responses are rendered as HTML. As such, if the API will never return HTML in responses, then these headers may not be necessary. However, if there is any uncertainty about the function of the headers, or the types of information that the API returns (or may return in future), then it is RECOMMENDED to include them as part of a defense-in-depth approach.
          <table>
-            <tr>
-               <td>Header</td>
-               <td>Rationale</td>
-            </tr>
-            <tr>
-               <td>`Content-Security-Policy: default-src &#39;none&#39;`</td>
-               <td>The majority of CSP functionality only affects pages rendered as HTML.</td>
-            </tr>
-            <tr>
-               <td>`Feature-Policy: &#39;none&#39;`</td>
-               <td>Feature policies only affect pages rendered as HTML.</td>
-            </tr>
-            <tr>
-               <td>`Referrer-Policy: no-referrer`</td>
-               <td>Non-HTML responses SHOULD not trigger additional requests.</td>
-            </tr>
+            <thead>
+               <tr>
+                  <th scope="col">Header</th>
+                  <th scope="col">Rationale</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td>`Content-Security-Policy: default-src &#39;none&#39;`</td>
+                  <td>The majority of CSP functionality only affects pages rendered as HTML.</td>
+               </tr>
+               <tr>
+                  <td>`Feature-Policy: &#39;none&#39;`</td>
+                  <td>Feature policies only affect pages rendered as HTML.</td>
+               </tr>
+               <tr>
+                  <td>`Referrer-Policy: no-referrer`</td>
+                  <td>Non-HTML responses SHOULD not trigger additional requests.</td>
+               </tr>
+            </tbody>
          </table>
          <p>In addition to the above listed HTTP security headers, web- and browser-based applications SHOULD apply Subresource Integrity [SRI](https://www.w3.org/TR/SRI/). When using third-party hosted contents, e.g. using a Content Delivery Network, this is even more relevant. While this is primarily a client implementation concern, it may affect the API when it is not strictly segregated or for example when shared supporting libraries are offered.
       </dd>
