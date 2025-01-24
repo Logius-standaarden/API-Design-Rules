@@ -26,7 +26,7 @@ The Nederlandse API Strategie consists of [a set of distinct documents](https://
 | Informative      | [Architectuur NL API Strategie](https://geonovum.github.io/KP-APIs/API-strategie-algemeen/Architectuur/) |
 | Informative      | [Gebruikerswensen NL API Strategie](https://geonovum.github.io/KP-APIs/API-strategie-algemeen/Gebruikerswensen/) |
 | Normative        | [API Design Rules (ADR v2.0.x)](https://gitdocumentatie.logius.nl/publicatie/api/adr/2.0.0/) |
-| Normative        | [Open API Specification (OAS 3.0.1)](https://spec.openapis.org/oas/v3.0.1.html) |
+| Normative        | [Open API Specification (OAS 3.0)](https://spec.openapis.org/oas/v3.0.1.html) |
 | Normative        | [NL GOV OAuth profiel](https://gitdocumentatie.logius.nl/publicatie/api/oauth/) |
 | Normative        | [Digikoppeling REST API koppelvlak specificatie](https://gitdocumentatie.logius.nl/publicatie/dk/restapi/) |
 | Normative module | [GEO module v1.0.x](https://gitdocumentatie.logius.nl/publicatie/api/mod-geo/1.0.2/) |
