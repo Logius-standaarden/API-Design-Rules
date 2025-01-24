@@ -310,6 +310,22 @@ Although the REST architectural style does not impose a specific protocol, REST 
    </dl>
 </div>
 
+<div class="rule" id="/core/http-response-types" data-type="functional">
+   <p class="rulelab">Adhere to HTTP status codes to convey appropriate errors</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         Always use the semantically appropriate HTTP <a href="https://tools.ietf.org/html/rfc7231#section-6">status code</a> [[rfc7231]] for the response.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         <p>The server SHOULD NOT only use `200` for success and `404` for error states. Use the semantically appropriate status code for success or failure.
+         <p>In case of an error, the server SHOULD NOT pass technical details (e.g. call stacks or other internal hints) to the client. The error message SHOULD be generic to avoid revealing additional details and expose internal information which can be used with malicious intent.
+      </dd>
+      <dt>Implications</dt>
+      <dd id="implications"></dd>
+   </dl>
+</div>
 
 ## Statelessness
 
@@ -858,15 +874,6 @@ It is common for REST services to allow multiple response types (e.g. `applicati
 
 Services (potentially) including script code (e.g. JavaScript) in their responses MUST be especially careful to defend against header injection attack.
 - Ensure sending intended content type headers in your response matching your body content e.g. `application/json` and not `application/javascript`.
-
-### HTTP Return Code
-HTTP defines status codes.
-When designing a REST API, don't just use `200` for success or `404` for error.
-Always use the semantically appropriate [status code](https://tools.ietf.org/html/rfc7231#section-6) for the response.
-
-### Error handling
-- Respond with generic error messages - avoid revealing details of the failure unnecessarily.
-- Do not pass technical details (e.g. call stacks or other internal hints) to the client.
 
 ## Geospatial
 
