@@ -840,10 +840,6 @@ In order to support these clients, the Cross-Origin Resource Sharing (CORS) poli
 
 All browser-based application SHOULD follow the best practices specified in [OAuth 2.0 for Browser-Based Apps](https://tools.ietf.org/html/draft-ietf-oauth-browser-based-apps-07).
 
-### Restrict HTTP methods
-Apply an allowlist of permitted HTTP Methods e.g. `GET`, `POST`, `PUT`.
-Reject all requests not matching the whitelist with HTTP response code `405 Method not allowed`.
-
 ### Validate content types
 A REST request or response body SHOULD match the intended content type in the header.
 Otherwise this could cause misinterpretation at the consumer/producer side and lead to code injection/execution.
