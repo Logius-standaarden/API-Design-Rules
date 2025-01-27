@@ -142,7 +142,7 @@ A resource describing a single thing is called a [=singular resource=]. Resource
 
 ## HTTP methods
 
-Although the REST architectural style does not impose a specific protocol, REST APIs are typically implemented using HTTP [[rfc7231]].
+Although the REST architectural style does not impose a specific protocol, REST APIs are typically implemented using HTTP [[rfc9110]].
 
 <span id="api-03"></span>
 <div class="rule" id="/core/http-methods" data-type="technical">
@@ -233,11 +233,11 @@ Although the REST architectural style does not impose a specific protocol, REST 
       </tbody>
       </table>
    </div>
-	<p class="note">The HTTP specification [[rfc7231]] and the later introduced <code>PATCH</code> method specification [[rfc5789]] offer a set of standard methods, where every method is designed with explicit semantics. HTTP also defines other methods, e.g. <code>HEAD</code>, <code>OPTIONS</code>, <code>TRACE</code>, and <code>CONNECT</code>.<br>
+	<p class="note">The HTTP specification [[rfc9110]] and the later introduced <code>PATCH</code> method specification [[rfc5789]] offer a set of standard methods, where every method is designed with explicit semantics. HTTP also defines other methods, e.g. <code>HEAD</code>, <code>OPTIONS</code>, <code>TRACE</code>, and <code>CONNECT</code>.<br>
 	The OpenAPI Specification 3.x <a href="https://spec.openapis.org/oas/v3.0.3#path-item-object">Path Item Object</a> also supports these methods, except for <code>CONNECT</code>.<br>
-  According to <a href="https://datatracker.ietf.org/doc/html/rfc7231#section-4.1">RFC 7231 4.1</a> the <code>GET</code> and <code>HEAD</code> HTTP methods MUST be supported by the server, all other methods are optional.<br>
+  According to <a href="https://datatracker.ietf.org/doc/html/rfc9110#name-overview">RFC 9110 9.1</a> the <code>GET</code> and <code>HEAD</code> HTTP methods MUST be supported by the server, all other methods are optional.<br>
   In addition to the standard HTTP methods, a server may support other optional methods as well, e.g. <code>PROPFIND</code>, <code>COPY</code>, <code>PURGE</code>, <code>VIEW</code>, <code>LINK</code>, <code>UNLINK</code>, <code>LOCK</code>, <code>UNLOCK</code>, etc.<br>
-  If an optional HTTP request method is sent to a server and the server does not support that HTTP method for the target resource, an HTTP status code <code>405 Method Not Allowed</code> shall be returned and a list of allowed methods for the target resource shall be provided in the <code>Allow</code> header in the response as stated in <a href="https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.5">RFC 7231 6.5.5</a>.</p>
+  If an optional HTTP request method is sent to a server and the server does not support that HTTP method for the target resource, an HTTP status code <code>405 Method Not Allowed</code> shall be returned and a list of allowed methods for the target resource shall be provided in the <code>Allow</code> header in the response as stated in <a href="https://datatracker.ietf.org/doc/html/rfc9110#name-405-method-not-allowed">RFC 9110 15.5.6</a>.</p>
       <dt>How to test</dt>
       <dd>
          The OpenAPI Description MUST NOT include non standard HTTP methods for retrieving or manipulating resources.
@@ -301,7 +301,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
       </dd>
       <dt>Rationale</dt>
       <dd>
-         The HTTP protocol [[rfc7231]] specifies whether an HTTP method SHOULD be considered safe and/or idempotent. These characteristics are important for clients and middleware applications, because they SHOULD be taken into account when implementing caching and fault tolerance strategies.
+         The HTTP protocol [[rfc9110]] specifies whether an HTTP method SHOULD be considered safe and/or idempotent. These characteristics are important for clients and middleware applications, because they SHOULD be taken into account when implementing caching and fault tolerance strategies.
       </dd>
       <dt>Implications</dt>
       <dd>
@@ -315,7 +315,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
    <dl>
       <dt>Statement</dt>
       <dd>
-         Always use the semantically appropriate HTTP <a href="https://tools.ietf.org/html/rfc7231#section-6">status code</a> [[rfc7231]] for the response.
+         Always use the semantically appropriate HTTP <a href="https://datatracker.ietf.org/doc/html/rfc9110#name-status-codes">status code</a> [[rfc9110]] for the response.
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -666,7 +666,7 @@ Note: security controls for signing and encrypting of application level messages
       <dt>Statement</dt>
       <dd>
          <p>One should secure all APIs assuming they can be accessed from any location on the internet. Information MUST be exchanged over TLS-based secured connections. No exceptions, so everywhere and always. This is <a href="https://wetten.overheid.nl/BWBR0048156/2023-07-01">required by law</a>.
-         <p>One SHOULD follow the latest NCSC guidelines [[NCSC.TLS]]
+         <p>One MUST follow the latest NCSC guidelines [[NCSC 2021]]
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -678,7 +678,7 @@ Note: security controls for signing and encrypting of application level messages
       </dd>
       <dt>How to test</dt>
       <dd>
-         <p>The usage of TLS is machine testable. The test is designed for maximum automation. To test, adherence to NCSC recommendations should be tested. The serverside is what will be tested, only control over the server is assumed for testing. A testing client will be employed to test adherence of the server. Supporting any protocols, algorithms, key sizes, options or ciphers dat are deemed insufficient or phase out by NCSC will lead to failure on the automated test. Both positive and negative scenario's are part of the test. Testing that a subset of good and sufficient recommendations are supported and testing that phase out and insufficient recommendations are not. A manual exception to the automated test results can be made when phase out recommendations are supported. The API provider will have to provide clear documentation for the phase out schedule.  
+         <p>The usage of TLS is machine testable. Follow the latest NCSC guidelines on what is required to test. The serverside is what will be tested, only control over the server is assumed for testing. A testing client will be employed to test adherence of the server. Supporting any protocols, algorithms, key sizes, options or ciphers dat are deemed insufficient or phase out by NCSC will lead to failure on the automated test. Both positive and negative scenario's are part of the test. Testing that a subset of good and sufficient recommendations are supported and testing that phase out and insufficient recommendations are not. A manual exception to the automated test results can be made when phase out recommendations are supported. The API provider will have to provide clear documentation for the phase out schedule.  
       </dd>
    </dl>
 </div>
@@ -722,7 +722,7 @@ This section contains elements that apply to the generic classes of clients list
 Although not every client implementation has a need for all the specifications referenced below, a client agnostic API SHOULD provide these to facilitate any client to implement relevant security controls.
 
 Most specifications referenced in this section are applicable to the first three classes of clients listed above.
-Security considerations for native applications are provided in [OAUth2 for Native Apps](https://tools.ietf.org/html/rfc8252), much of which can help non-OAuth2 based implementations as well.
+Security considerations for native applications are provided in OAUth2 for Native Apps [[[rfc8252]]], much of which can help non-OAuth2 based implementations as well.
 For browser-based applications a subsection is included with additional details and information.
 System-to-system (sometimes called machine-to-machine) may have a need for the listed specifications as well.
 Note that different usage patterns may be applicable in contexts with system-to-system clients, see above under Client Authentication.
@@ -811,7 +811,7 @@ For outbound filtering, the main concern is leaking of information.
                </tr>
             </tbody>
          </table>
-         <p>In addition to the above listed HTTP security headers, web- and browser-based applications SHOULD apply Subresource Integrity <a href="https://www.w3.org/TR/SRI/">SRI</a>. When using third-party hosted contents, e.g. using a Content Delivery Network, this is even more relevant. While this is primarily a client implementation concern, it may affect the API when it is not strictly segregated or for example when shared supporting libraries are offered.
+         <p>In addition to the above listed HTTP security headers, web- and browser-based applications SHOULD apply Subresource Integrity [[[SRI]]]. When using third-party hosted contents, e.g. using a Content Delivery Network, this is even more relevant. While this is primarily a client implementation concern, it may affect the API when it is not strictly segregated or for example when shared supporting libraries are offered.
       </dd>
       <dt>Implications</dt>
       <dd>
