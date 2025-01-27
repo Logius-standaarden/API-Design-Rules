@@ -30,7 +30,6 @@ The Nederlandse API Strategie consists of [a set of distinct documents](https://
 | Normative        | [NL GOV OAuth profiel](https://publicatie.centrumvoorstandaarden.nl/api/oauth/) |
 | Normative        | [Digikoppeling REST API koppelvlak specificatie](https://publicatie.centrumvoorstandaarden.nl/dk/restapi/) |
 | Normative module | [GEO module](https://docs.geostandaarden.nl/api/API-Strategie-mod-geo/) |
-| Normative module | [Transport Security module](https://geonovum.github.io/KP-APIs/API-strategie-modules/transport-security/) |
 
 Before reading this document it is advised to gain knowledge of the informative documents, in particular the [Architecture](https://geonovum.github.io/KP-APIs/API-strategie-algemeen/Architectuur/).
 
