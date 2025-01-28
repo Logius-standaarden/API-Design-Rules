@@ -47,12 +47,4 @@ var respecConfig = {
   specStatus: "WV",
   specType: "ST",
   pluralize: true,
-  localBiblio: {
-    "NCSC.TLS": {
-        href: "https://www.ncsc.nl/documenten/publicaties/2021/januari/19/ict-beveiligingsrichtlijnen-voor-transport-layer-security-2.1",
-        title: "ICT-beveiligingsrichtlijnen voor Transport Layer Security (TLS)",
-        authors: ["NCSC"],
-        date: "Januari 2021"
-    }
-  }
 };
