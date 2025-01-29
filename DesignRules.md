@@ -233,11 +233,11 @@ Although the REST architectural style does not impose a specific protocol, REST 
       </tbody>
       </table>
    </div>
-	<p class="note">The HTTP specification [[rfc7231]] and the later introduced <code>PATCH</code> method specification [[rfc5789]] offer a set of standard methods, where every method is designed with explicit semantics. HTTP also defines other methods, e.g. <code>HEAD</code>, <code>OPTIONS</code>, <code>TRACE</code>, and <code>CONNECT</code>.<br>
+	<p class="note">The HTTP specification [[rfc9110]] offers a set of standard methods, where every method is designed with explicit semantics. HTTP also defines other methods, e.g. <code>HEAD</code>, <code>OPTIONS</code>, <code>TRACE</code>, and <code>CONNECT</code>.<br>
 	The OpenAPI Specification 3.0 <a href="https://spec.openapis.org/oas/v3.0.1#path-item-object">Path Item Object</a> also supports these methods, except for <code>CONNECT</code>.<br>
-  According to <a href="https://datatracker.ietf.org/doc/html/rfc7231#section-4.1">RFC 7231 4.1</a> the <code>GET</code> and <code>HEAD</code> HTTP methods MUST be supported by the server, all other methods are optional.<br>
+  According to <a href="https://www.rfc-editor.org/rfc/rfc9110#name-overview">RFC 9110 9.1</a> the <code>GET</code> and <code>HEAD</code> HTTP methods MUST be supported by the server, all other methods are optional.<br>
   In addition to the standard HTTP methods, a server may support other optional methods as well, e.g. <code>PROPFIND</code>, <code>COPY</code>, <code>PURGE</code>, <code>VIEW</code>, <code>LINK</code>, <code>UNLINK</code>, <code>LOCK</code>, <code>UNLOCK</code>, etc.<br>
-  If an optional HTTP request method is sent to a server and the server does not support that HTTP method for the target resource, an HTTP status code <code>405 Method Not Allowed</code> shall be returned and a list of allowed methods for the target resource shall be provided in the <code>Allow</code> header in the response as stated in <a href="https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.5">RFC 7231 6.5.5</a>.</p>
+  If an optional HTTP request method is sent to a server and the server does not support that HTTP method for the target resource, an HTTP status code <code>405 Method Not Allowed</code> shall be returned and a list of allowed methods for the target resource shall be provided in the <code>Allow</code> header in the response as stated in <a href="https://www.rfc-editor.org/rfc/rfc9110#name-405-method-not-allowed">RFC 9110 15.5.6</a>.</p>
       <dt>How to test</dt>
       <dd>
          The OpenAPI Description MUST NOT include non standard HTTP methods for retrieving or manipulating resources.
@@ -315,7 +315,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
    <dl>
       <dt>Statement</dt>
       <dd>
-         Always use the semantically appropriate HTTP <a href="https://datatracker.ietf.org/doc/html/rfc9110#name-status-codes">status code</a> [[rfc9110]] for the response.
+         Always use the semantically appropriate HTTP <a href="https://www.rfc-editor.org/rfc/rfc9110#name-status-codes">status code</a> [[rfc9110]] for the response.
       </dd>
       <dt>Rationale</dt>
       <dd>
