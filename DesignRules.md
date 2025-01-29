@@ -315,7 +315,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
    <dl>
       <dt>Statement</dt>
       <dd>
-         Always use the semantically appropriate HTTP <a href="https://www.rfc-editor.org/rfc/rfc9110#name-status-codes">status code</a> [[rfc9110]] for the response.
+         Always use the semantically appropriate HTTP <a href="https://www.rfc-editor.org/rfc/rfc9110#name-status-codes">status code</a> ([[rfc9110]]) for the response.
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -666,7 +666,7 @@ Note: security controls for signing and encrypting of application level messages
     <dt>Statement</dt>
     <dd>
       <p>One should secure all APIs assuming they can be accessed from any location on the internet. Information MUST be exchanged over TLS-based secured connections. No exceptions, so everywhere and always. This is <a href="https://wetten.overheid.nl/BWBR0048156/2023-07-01">required by law</a>.
-      <p>One MUST follow the latest NCSC guidelines [[NCSC 2021]]
+      <p>One MUST follow the latest NCSC guidelines [[NCSC 2021]].
     </dd>
     <dt>Rationale</dt>
     <dd>
@@ -708,7 +708,7 @@ Note: security controls for signing and encrypting of application level messages
 The guidelines and principles defined in this extension are client agnostic.
 When implementing a client agnostic API, one SHOULD at least facilitate that multi-purpose generic HTTP-clients like browsers are able to securely interact with the API.
 When implementing an API for a specific client it may be possible to limit measures as long as it ensures secure access for this specific client.
-Nevertheless it is advised to review the following security measures, which are mostly inspired by the [OWASP REST Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html)
+Nevertheless it is advised to review the following security measures, which are mostly inspired by the [OWASP REST Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html).
 
 Even while remaining client agnostic, clients can be classified in four major groups.
 This is in line with common practice in OAuth2.
@@ -722,7 +722,7 @@ This section contains elements that apply to the generic classes of clients list
 Although not every client implementation has a need for all the specifications referenced below, a client agnostic API SHOULD provide these to facilitate any client to implement relevant security controls.
 
 Most specifications referenced in this section are applicable to the first three classes of clients listed above.
-Security considerations for native applications are provided in OAUth2 for Native Apps [[[rfc8252]]], much of which can help non-OAuth2 based implementations as well.
+Security considerations for native applications are provided in [[[rfc8252]]], much of which can help non-OAuth2 based implementations as well.
 For browser-based applications a subsection is included with additional details and information.
 System-to-system (sometimes called machine-to-machine) may have a need for the listed specifications as well.
 Note that different usage patterns may be applicable in contexts with system-to-system clients, see above under Client Authentication.
@@ -811,7 +811,7 @@ For outbound filtering, the main concern is leaking of information.
                </tr>
             </tbody>
          </table>
-         <p>In addition to the above listed HTTP security headers, web- and browser-based applications SHOULD apply Subresource Integrity [[[SRI]]]. When using third-party hosted contents, e.g. using a Content Delivery Network, this is even more relevant. While this is primarily a client implementation concern, it may affect the API when it is not strictly segregated or for example when shared supporting libraries are offered.
+         <p>In addition to the above listed HTTP security headers, web- and browser-based applications SHOULD apply [[[SRI]]]. When using third-party hosted contents, e.g. using a Content Delivery Network, this is even more relevant. While this is primarily a client implementation concern, it may affect the API when it is not strictly segregated or for example when shared supporting libraries are offered.
       </dd>
       <dt>Implications</dt>
       <dd>
