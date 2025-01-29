@@ -636,13 +636,13 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
          </div>
       </dd>
       <dt>Implications</dt>
-  <dl>
-    <dt>Statement</dt>
-    <dd>
-      The [[[ADR-TS]]] version 1.0.x MUST be applied.
-    </dd>
-    <dt>Rationale</dt>
-    <dd>
+      <dd>
+         This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific tests are published in the [[ADR-Validator]] repository.
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         A response MUST include the header "API-Version".
+      </dd>
    </dl>
 </div>
 
@@ -665,22 +665,22 @@ Note: security controls for signing and encrypting of application level messages
   <dl>
     <dt>Statement</dt>
     <dd>
-       The [[[ADR-GEO]]] version 1.0.x MUST be applied when providing geospatial data or functionality.
+      <p>One should secure all APIs assuming they can be accessed from any location on the internet. Information MUST be exchanged over TLS-based secured connections. No exceptions, so everywhere and always. This is <a href="https://wetten.overheid.nl/BWBR0048156/2023-07-01">required by law</a>.
+      <p>One MUST follow the latest NCSC guidelines [[NCSC 2021]]
     </dd>
     <dt>Rationale</dt>
     <dd>
-      <dd>
-         <p>Since the connection is always secured, the access method can be straightforward. This allows the application of basic access tokens instead of encrypted access tokens.
-      </dd>
-      <dt>Implications</dt>
-      <dd>
-         This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific tests are published in the [[ADR-Validator]] repository.
-      </dd>
-      <dt>How to test</dt>
-      <dd>
-         <p>The usage of TLS is machine testable. Follow the latest NCSC guidelines on what is required to test. The serverside is what will be tested, only control over the server is assumed for testing. A testing client will be employed to test adherence of the server. Supporting any protocols, algorithms, key sizes, options or ciphers dat are deemed insufficient or phase out by NCSC will lead to failure on the automated test. Both positive and negative scenario's are part of the test. Testing that a subset of good and sufficient recommendations are supported and testing that phase out and insufficient recommendations are not. A manual exception to the automated test results can be made when phase out recommendations are supported. The API provider will have to provide clear documentation for the phase out schedule.  
-      </dd>
-   </dl>
+        <p>Since the connection is always secured, the access method can be straightforward. This allows the application of basic access tokens instead of encrypted access tokens.
+    </dd>
+    <dt>Implications</dt>
+    <dd>
+        This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific tests are published in the [[ADR-Validator]] repository.
+    </dd>
+    <dt>How to test</dt>
+    <dd>
+        <p>The usage of TLS is machine testable. Follow the latest NCSC guidelines on what is required to test. The serverside is what will be tested, only control over the server is assumed for testing. A testing client will be employed to test adherence of the server. Supporting any protocols, algorithms, key sizes, options or ciphers dat are deemed insufficient or phase out by NCSC will lead to failure on the automated test. Both positive and negative scenario's are part of the test. Testing that a subset of good and sufficient recommendations are supported and testing that phase out and insufficient recommendations are not. A manual exception to the automated test results can be made when phase out recommendations are supported. The API provider will have to provide clear documentation for the phase out schedule.  
+    </dd>
+  </dl>
 </div>
 
 <span id="api-58"></span>
@@ -884,7 +884,7 @@ Geospatial data refers to information that is associated with a physical locatio
   <dl>
     <dt>Statement</dt>
     <dd>
-       The [[[ADR-GEO]]] MUST be applied when providing geospatial data or functionality.
+       The [[[ADR-GEO]]] version 1.0.x MUST be applied when providing geospatial data or functionality.
     </dd>
     <dt>Rationale</dt>
     <dd>
