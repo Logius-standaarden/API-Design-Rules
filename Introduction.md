@@ -34,6 +34,7 @@ The Nederlandse API Strategie consists of [a set of distinct documents](https://
 
 Before reading this document it is advised to gain knowledge of the informative documents, in particular the [Architecture](https://geonovum.github.io/KP-APIs/API-strategie-algemeen/Architectuur/).
 
+An overview of all current documents is available in this Dutch infographic:
 <figure>
   <object data="https://geonovum.github.io/KP-APIs/media/API_infographic.svg" type="image/svg+xml" id="infographic">NL API Strategie Infographic</object>
   <figcaption>NL API Strategie Infographic</figcaption>
