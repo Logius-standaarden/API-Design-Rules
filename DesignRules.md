@@ -649,7 +649,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
 ## Transport Security
 
 This section describes security principles, concepts and technologies to apply when working with APIs.
-Controls need to be applied for the security objectives of integrity, confidentiality and availability of the API and services and data provided thereby.
+Controls need to be applied for the security objectives of integrity, confidentiality and availability of the API (which includes the services and data provided thereby).
 The [architecture section of the API strategy](https://docs.geostandaarden.nl/api/API-Strategie-architectuur/) contains architecture patterns for implementing Transport security.
 
 The scope of this section is limited to generic security controls that directly influence the visible parts of an API.
@@ -678,7 +678,7 @@ Note: security controls for signing and encrypting of application level messages
     </dd>
     <dt>How to test</dt>
     <dd>
-        <p>The usage of TLS is machine testable. Follow the latest NCSC guidelines on what is required to test. The serverside is what will be tested, only control over the server is assumed for testing. A testing client will be employed to test adherence of the server. Supporting any protocols, algorithms, key sizes, options or ciphers dat are deemed insufficient or phase out by NCSC will lead to failure on the automated test. Both positive and negative scenario's are part of the test. Testing that a subset of good and sufficient recommendations are supported and testing that phase out and insufficient recommendations are not. A manual exception to the automated test results can be made when phase out recommendations are supported. The API provider will have to provide clear documentation for the phase out schedule.  
+        <p>The usage of TLS is machine testable. Follow the latest NCSC guidelines on what is required to test. The serverside is what will be tested, only control over the server is assumed for testing. A testing client will be employed to test adherence of the server. Supporting any protocols, algorithms, key sizes, options or ciphers that are deemed insufficient or phased out by NCSC will lead to failure on the automated test. Both positive and negative scenario's are part of the test. Testing that a subset of good and sufficient recommendations are supported and testing that phase out and insufficient recommendations are not. A manual exception to the automated test results can be made when phase out recommendations are supported. The API provider will have to provide clear documentation for the phase out schedule.  
     </dd>
   </dl>
 </div>
@@ -693,7 +693,7 @@ Note: security controls for signing and encrypting of application level messages
       </dd>
       <dt>Rationale</dt>
       <dd>
-         <p>Even when using TLS-based secured connections information in URIs is not secured. URIs can be cached and logged outside of the servers controlled by clients and servers. Any information contained in them should therefore be considered readable by anyone with access to the netwerk (in case of the internet the whole world) and MUST NOT contain any sensitive information. This includes client secrets used for authentication, privacy sensitive informations suchs as BSNs nor any other information which should not be shared. 
+         <p>Even when using TLS-based secured connections information in URIs is not secured. URIs can be cached and logged outside of the servers controlled by clients and servers. Any information contained in them should therefore be considered readable by anyone with access to the network (in case of the internet the whole world) and MUST NOT contain any sensitive information. This includes client secrets used for authentication, privacy sensitive information suchs as BSNs or any other information which should not be shared. 
          <p>Be aware that queries (anything after the '?' in a URI) are also part of an URI.
       </dd>
       <dt>Implications</dt>
@@ -711,7 +711,7 @@ When implementing an API for a specific client it may be possible to limit measu
 Nevertheless it is advised to review the following security measures, which are mostly inspired by the [OWASP REST Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html).
 
 Even while remaining client agnostic, clients can be classified in four major groups.
-This is in line with common practice in OAuth2.
+This is in line with common practice in [[[?OAuth2]]].
 The groups are:
 1. Web applications.
 2. Native applications.
