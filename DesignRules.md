@@ -657,7 +657,7 @@ Effectively, only security standards directly applicable to interactions are dis
 
 In order to meet the complete security objectives, every implementer MUST also apply a range of controls not mentioned in this section.
 
-Note: security controls for signing and encrypting of application level messages will be part of a separate extension, [Signing and Encryption](https://geonovum.github.io/KP-APIs/API-strategie-modules/encryption/).
+Note: security controls for signing and encrypting of application level messages are part of separate extensions: [Signing](https://geonovum.github.io/KP-APIs/API-strategie-modules/signing-jades/) and [Encryption](https://geonovum.github.io/KP-APIs/API-strategie-modules/encryption/).
 
 <span id="api-11"></span>
 <div class="rule" id="/core/transport/tls" data-type="technical">
