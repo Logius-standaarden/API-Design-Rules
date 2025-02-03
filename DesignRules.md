@@ -678,7 +678,7 @@ Note: security controls for signing and encrypting of application level messages
     </dd>
     <dt>How to test</dt>
     <dd>
-        <p>The usage of TLS is machine testable. Follow the latest NCSC guidelines on what is required to test. The serverside is what will be tested, only control over the server is assumed for testing. A testing client will be employed to test adherence of the server. Supporting any protocols, algorithms, key sizes, options or ciphers that are deemed insufficient or phased out by NCSC will lead to failure on the automated test. Both positive and negative scenario's are part of the test. Testing that a subset of good and sufficient recommendations are supported and testing that phase out and insufficient recommendations are not. A manual exception to the automated test results can be made when phase out recommendations are supported. The API provider will have to provide clear documentation for the phase out schedule.  
+        <p>The usage of TLS is machine testable. Follow the latest NCSC guidelines on what is required to test. The serverside is what will be tested, only control over the server is assumed for testing. A testing client will be employed to test adherence of the server. Supporting any protocols, algorithms, key sizes, options or ciphers that are deemed insufficient or phased out by NCSC will lead to failure on the automated test. Both positive and negative scenarios are part of the test: testing that a subset of *Good* and *Sufficient* configurations are supported and configurations deemed  *Insufficient* or marked for *Phase out*. A manual exception to the automated test results can be made when configurations designated for *Phase out* are supported; The API provider will have to provide clear documentation regarding the phase out schedule.  
     </dd>
   </dl>
 </div>
@@ -693,7 +693,7 @@ Note: security controls for signing and encrypting of application level messages
       </dd>
       <dt>Rationale</dt>
       <dd>
-         <p>Even when using TLS-based secured connections information in URIs is not secured. URIs can be cached and logged outside of the servers controlled by clients and servers. Any information contained in them should therefore be considered readable by anyone with access to the network (in case of the internet the whole world) and MUST NOT contain any sensitive information. This includes client secrets used for authentication, privacy sensitive information suchs as BSNs or any other information which should not be shared. 
+         <p>Even when using TLS connections, information in URIs is not secured. URIs can be cached and logged outside of the servers controlled by clients and servers. Any information contained in them should therefore be considered readable by anyone with access to the network (in the case of the internet, the whole world) and MUST NOT contain any sensitive information. This includes client secrets used for authentication, privacy sensitive information suchs as BSNs or any other information which should not be shared. 
          <p>Be aware that queries (anything after the '?' in a URI) are also part of an URI.
       </dd>
       <dt>Implications</dt>
@@ -705,7 +705,7 @@ Note: security controls for signing and encrypting of application level messages
 
 ### HTTP-level Security
 
-The guidelines and principles defined in this extension are client agnostic.
+The guidelines and principles defined in this section are client agnostic.
 When implementing a client agnostic API, one SHOULD at least facilitate that multi-purpose generic HTTP-clients like browsers are able to securely interact with the API.
 When implementing an API for a specific client it may be possible to limit measures as long as it ensures secure access for this specific client.
 Nevertheless it is advised to review the following security measures, which are mostly inspired by the [OWASP REST Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html).
@@ -729,12 +729,12 @@ Note that different usage patterns may be applicable in contexts with system-to-
 
 Realizations may rely on internal usage of HTTP-Headers.
 Information for processing requests and responses can be passed between components, that can have security implications.
-For instance, this is commonly practices between a reverse proxy or TLS-offloader and an application server.
+For instance, this is common practice between a reverse proxy or TLS-offloader and an application server.
 Additional HTTP headers are used in such example to pass an original IP-address or client certificate.
 
 Implementations MUST consider filtering both inbound and outbound traffic for HTTP-headers used internally.
-Primary focus for inbound filtering is to prevent injection of malicious headers on requests.
-For outbound filtering, the main concern is leaking of information.
+Primary focus of inbound filtering is to prevent injection of malicious headers on requests.
+As for outbound filtering, the main concern is leaking of information.
 
 <div class="rule" id="/core/transport/security-headers" data-type="technical">
   <p class="rulelab">Use mandatory security headers in API all responses</p>
@@ -864,7 +864,7 @@ In order to support these clients, the Cross-Origin Resource Sharing (CORS) poli
 A REST request or response body SHOULD match the intended content type in the header.
 Otherwise this could cause misinterpretation at the consumer/producer side and lead to code injection/execution.
 
-- Reject requests containing unexpected or missing content type headers with HTTP response status `406 Unacceptable` or `415 Unsupported Media Type`.
+- Reject requests containing unexpected or missing content type headers with HTTP response status `406 Not Acceptable` or `415 Unsupported Media Type`.
 - Avoid accidentally exposing unintended content types by explicitly defining content types e.g. Jersey (Java) `@consumes("application/json"); @produces("application/json")`.
 This avoids XXE-attack vectors for example.
 
