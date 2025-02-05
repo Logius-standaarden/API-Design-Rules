@@ -443,7 +443,15 @@ An API is as good as the accompanying documentation. The documentation has to be
       </dd>
       <dt>Rationale</dt>
       <dd>
-         The OpenAPI Specification (OAS) [[OPENAPIS]] can include contact information to make clear how to reach out to API owners in case of issues or questions. This is relevant for publicly available APIs (such as OData) where no pre-existing communication channel exists between provider and consumer of the API. For internal APIs (where communication channels such as chat or issue trackers can suffice), the <code>info.contact</code> MAY be provided.
+         The OpenAPI Specification (OAS) [[OPENAPIS]] can include contact information to make clear how to reach out to API owners in case of issues or questions. This is relevant for publicly available APIs (such as OData) where no pre-existing communication channel exists between provider and consumer of the API. For internal APIs (where communication channels such as chat or issue trackers are likely already known), the <code>info.contact</code> MAY be provided.
+         <div class="example">
+            <p>Relevant contact information can include an email address and issue tracker.</p>
+            <pre><code class="json">{
+  "name": "Gebouwen API beheerder",
+  "url": "https://www.github.com/ministerie/gebouwen/issues",
+  "email": "teamgebouwen@ministerie.nl"
+}</code></pre>
+         </div>
       </dd>
       <dt>Implications</dt>
       <dd>
