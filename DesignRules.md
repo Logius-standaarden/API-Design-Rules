@@ -142,7 +142,7 @@ A resource describing a single thing is called a [=singular resource=]. Resource
 
 ## HTTP methods
 
-Although the REST architectural style does not impose a specific protocol, REST APIs are typically implemented using HTTP [[rfc7231]].
+Although the REST architectural style does not impose a specific protocol, REST APIs are typically implemented using HTTP [[rfc9110]].
 
 <span id="api-03"></span>
 <div class="rule" id="/core/http-methods" data-type="technical">
@@ -233,11 +233,11 @@ Although the REST architectural style does not impose a specific protocol, REST 
       </tbody>
       </table>
    </div>
-	<p class="note">The HTTP specification [[rfc7231]] and the later introduced <code>PATCH</code> method specification [[rfc5789]] offer a set of standard methods, where every method is designed with explicit semantics. HTTP also defines other methods, e.g. <code>HEAD</code>, <code>OPTIONS</code>, <code>TRACE</code>, and <code>CONNECT</code>.<br>
+	<p class="note">The HTTP specification [[rfc9110]] offers a set of standard methods, where every method is designed with explicit semantics. HTTP also defines other methods, e.g. <code>HEAD</code>, <code>OPTIONS</code>, <code>TRACE</code>, and <code>CONNECT</code>.<br>
 	The OpenAPI Specification 3.0 <a href="https://spec.openapis.org/oas/v3.0.1#path-item-object">Path Item Object</a> also supports these methods, except for <code>CONNECT</code>.<br>
-  According to <a href="https://datatracker.ietf.org/doc/html/rfc7231#section-4.1">RFC 7231 4.1</a> the <code>GET</code> and <code>HEAD</code> HTTP methods MUST be supported by the server, all other methods are optional.<br>
+  According to <a href="https://www.rfc-editor.org/rfc/rfc9110#name-overview">RFC 9110 9.1</a> the <code>GET</code> and <code>HEAD</code> HTTP methods MUST be supported by the server, all other methods are optional.<br>
   In addition to the standard HTTP methods, a server may support other optional methods as well, e.g. <code>PROPFIND</code>, <code>COPY</code>, <code>PURGE</code>, <code>VIEW</code>, <code>LINK</code>, <code>UNLINK</code>, <code>LOCK</code>, <code>UNLOCK</code>, etc.<br>
-  If an optional HTTP request method is sent to a server and the server does not support that HTTP method for the target resource, an HTTP status code <code>405 Method Not Allowed</code> shall be returned and a list of allowed methods for the target resource shall be provided in the <code>Allow</code> header in the response as stated in <a href="https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.5">RFC 7231 6.5.5</a>.</p>
+  If an optional HTTP request method is sent to a server and the server does not support that HTTP method for the target resource, an HTTP status code <code>405 Method Not Allowed</code> shall be returned and a list of allowed methods for the target resource shall be provided in the <code>Allow</code> header in the response as stated in <a href="https://www.rfc-editor.org/rfc/rfc9110#name-405-method-not-allowed">RFC 9110 15.5.6</a>.</p>
       <dt>How to test</dt>
       <dd>
          The OpenAPI Description MUST NOT include non standard HTTP methods for retrieving or manipulating resources.
@@ -301,7 +301,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
       </dd>
       <dt>Rationale</dt>
       <dd>
-         The HTTP protocol [[rfc7231]] specifies whether an HTTP method SHOULD be considered safe and/or idempotent. These characteristics are important for clients and middleware applications, because they SHOULD be taken into account when implementing caching and fault tolerance strategies.
+         The HTTP protocol [[rfc9110]] specifies whether an HTTP method SHOULD be considered safe and/or idempotent. These characteristics are important for clients and middleware applications, because they SHOULD be taken into account when implementing caching and fault tolerance strategies.
       </dd>
       <dt>Implications</dt>
       <dd>
@@ -310,6 +310,22 @@ Although the REST architectural style does not impose a specific protocol, REST 
    </dl>
 </div>
 
+<div class="rule" id="/core/http-response-code" data-type="functional">
+   <p class="rulelab">Adhere to HTTP status codes to convey appropriate errors</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         Always use the semantically appropriate HTTP <a href="https://www.rfc-editor.org/rfc/rfc9110#name-status-codes">status code</a> ([[rfc9110]]) for the response.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         <p>The server SHOULD NOT only use `200` for success and `404` for error states. Use the semantically appropriate status code for success or failure.
+         <p>In case of an error, the server SHOULD NOT pass technical details (e.g. call stacks or other internal hints) to the client. The error message SHOULD be generic to avoid revealing additional details and expose internal information which can be used with malicious intent.
+      </dd>
+      <dt>Implications</dt>
+      <dd id="implications"></dd>
+   </dl>
+</div>
 
 ## Statelessness
 
@@ -632,29 +648,232 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
 
 ## Transport Security
 
-Transport security is essential to safeguard the confidentiality, integrity, and authenticity of data during its transmission.
+This section describes security principles, concepts and technologies to apply when working with APIs.
+Controls need to be applied for the security objectives of integrity, confidentiality and availability of the API (which includes the services and data provided thereby).
+The [architecture section of the API strategy](https://docs.geostandaarden.nl/api/API-Strategie-architectuur/) contains architecture patterns for implementing Transport security.
 
-<div class="rule" id="/core/transport-security" data-type="technical">
-  <p class="rulelab">Apply the transport security module</p>
+The scope of this section is limited to generic security controls that directly influence the visible parts of an API.
+Effectively, only security standards directly applicable to interactions are discussed here.
+
+In order to meet the complete security objectives, every implementer MUST also apply a range of controls not mentioned in this section.
+
+Note: security controls for signing and encrypting of application level messages are part of separate extensions: [Signing](https://geonovum.github.io/KP-APIs/API-strategie-modules/signing-jades/) and [Encryption](https://geonovum.github.io/KP-APIs/API-strategie-modules/encryption/).
+
+<span id="api-11"></span>
+<div class="rule" id="/core/transport/tls" data-type="technical">
+  <p class="rulelab">Secure connections using TLS</p>
   <dl>
     <dt>Statement</dt>
     <dd>
-      The [[[ADR-TS]]] version 1.0.x MUST be applied.
+      <p>One should secure all APIs assuming they can be accessed from any location on the internet. Information MUST be exchanged over TLS-based secured connections. No exceptions, so everywhere and always. This is <a href="https://wetten.overheid.nl/BWBR0048156/2023-07-01">required by law</a>.
+      <p>One MUST follow the latest NCSC guidelines [[NCSC 2021]].
     </dd>
     <dt>Rationale</dt>
     <dd>
-      The [[[ADR-TS]]] formalizes three rules to apply to APIs:
-      <ol>
-        <li>Secure connections using TLS</li>
-        <li>No sensitive information in URIs</li>
-        <li>Use CORS to control access</li>
-      </ol>
-      Furthermore, the module describes best practices for security headers, browser-based applications, and other HTTP configurations. These best practices MUST be considered and the considerations SHOULD be published in the API documentation. Transport security is the baseline for REST API resources and the data concerned is a vital asset of the government. The rules and best practices are considered the minimal security principles, concepts and technologies to apply.
+        <p>Since the connection is always secured, the access method can be straightforward. This allows the application of basic access tokens instead of encrypted access tokens.
     </dd>
     <dt>Implications</dt>
-    <dd id="implications"></dd>
+    <dd>
+        This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific tests are published in the [[ADR-Validator]] repository.
+    </dd>
+    <dt>How to test</dt>
+    <dd>
+        <p>The usage of TLS is machine testable. Follow the latest NCSC guidelines on what is required to test. The serverside is what will be tested, only control over the server is assumed for testing. A testing client will be employed to test adherence of the server. Supporting any protocols, algorithms, key sizes, options or ciphers that are deemed insufficient or phased out by NCSC will lead to failure on the automated test. Both positive and negative scenarios are part of the test: testing that a subset of *Good* and *Sufficient* configurations are supported and configurations deemed  *Insufficient* or marked for *Phase out*. A manual exception to the automated test results can be made when configurations designated for *Phase out* are supported; The API provider will have to provide clear documentation regarding the phase out schedule.  
+    </dd>
   </dl>
 </div>
+
+<span id="api-58"></span>
+<div class="rule" id="/core/transport/no-sensitive-uris" data-type="functional">
+  <p class="rulelab">No sensitive information in URIs</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         Do not put any sensitive information in URIs
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         <p>Even when using TLS connections, information in URIs is not secured. URIs can be cached and logged outside of the servers controlled by clients and servers. Any information contained in them should therefore be considered readable by anyone with access to the network (in the case of the internet, the whole world) and MUST NOT contain any sensitive information. This includes client secrets used for authentication, privacy sensitive information suchs as BSNs or any other information which should not be shared. 
+         <p>Be aware that queries (anything after the '?' in a URI) are also part of an URI.
+      </dd>
+      <dt>Implications</dt>
+      <dd>
+         Adherence to this rule needs to be manually verified.
+      </dd>
+   </dl>
+</div>
+
+### HTTP-level Security
+
+The guidelines and principles defined in this section are client agnostic.
+When implementing a client agnostic API, one SHOULD at least facilitate that multi-purpose generic HTTP-clients like browsers are able to securely interact with the API.
+When implementing an API for a specific client it may be possible to limit measures as long as it ensures secure access for this specific client.
+Nevertheless it is advised to review the following security measures, which are mostly inspired by the [OWASP REST Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html).
+
+Even while remaining client agnostic, clients can be classified in four major groups.
+This is in line with common practice in [[[?OAuth2]]].
+The groups are:
+1. Web applications.
+2. Native applications.
+3. Browser-based applications.
+4. System-to-system applications.
+
+This section contains elements that apply to the generic classes of clients listed above.
+Although not every client implementation has a need for all the specifications referenced below, a client agnostic API SHOULD provide these to facilitate any client to implement relevant security controls.
+
+Most specifications referenced in this section are applicable to the first three classes of clients listed above.
+Security considerations for native applications are provided in [[[rfc8252]]], much of which can help non-OAuth2 based implementations as well.
+For browser-based applications a subsection is included with additional details and information.
+System-to-system (sometimes called machine-to-machine) may have a need for the listed specifications as well.
+Note that different usage patterns may be applicable in contexts with system-to-system clients, see above under Client Authentication.
+
+Realizations may rely on internal usage of HTTP-Headers.
+Information for processing requests and responses can be passed between components, that can have security implications.
+For instance, this is common practice between a reverse proxy or TLS-offloader and an application server.
+Additional HTTP headers are used in such example to pass an original IP-address or client certificate.
+
+Implementations MUST consider filtering both inbound and outbound traffic for HTTP-headers used internally.
+Primary focus of inbound filtering is to prevent injection of malicious headers on requests.
+As for outbound filtering, the main concern is leaking of information.
+
+<div class="rule" id="/core/transport/security-headers" data-type="technical">
+  <p class="rulelab">Use mandatory security headers in API all responses</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         Return API security headers in all server responses to instruct the client to act in a secure manner
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         <p>There are a number of security related headers that can be returned in the HTTP responses to instruct browsers to act in specific ways. However, some of these headers are intended to be used with HTML responses, and as such may provide little or no security benefits on an API that does not return HTML. The following headers SHOULD be included in all API responses:
+         <table>
+            <thead>
+               <tr>
+                  <th scope="col">Header</th>
+                  <th scope="col">Rationale</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td>Header</td>
+                  <td>Rationale</td>
+               </tr>
+               <tr>
+                  <td>`Cache-Control: no-store`</td>
+                  <td>Prevent sensitive information from being cached.</td>
+               </tr>
+               <tr>
+                  <td>`Content-Security-Policy: frame-ancestors &#39;none&#39;`</td>
+                  <td>To protect against drag-and-drop style clickjacking attacks.</td>
+               </tr>
+               <tr>
+                  <td>`Content-Type`</td>
+                  <td>To specify the content type of the response. This SHOULD be `application/json` for JSON responses.</td>
+               </tr>
+               <tr>
+                  <td>`Strict-Transport-Security`</td>
+                  <td>To require connections over HTTPS and to protect against spoofed certificates.</td>
+               </tr>
+               <tr>
+                  <td>`X-Content-Type-Options: nosniff`</td>
+                  <td>To prevent browsers from performing MIME sniffing, and inappropriately interpreting responses as HTML.</td>
+               </tr>
+               <tr>
+                  <td>`X-Frame-Options: DENY`</td>
+                  <td>To protect against drag-and-drop style clickjacking attacks.</td>
+               </tr>
+               <tr>
+                  <td>`Access-Control-Allow-Origin`</td>
+                  <td>To relax the &#39;same origin&#39; policy and allow cross-origin access. See CORS-policy below</td>
+               </tr>
+            </tbody>
+         </table>
+         <p>The headers below are only intended to provide additional security when responses are rendered as HTML. As such, if the API will never return HTML in responses, then these headers may not be necessary. You SHOULD include the headers as part of a defense-in-depth approach if there is any uncertainty about the function of the headers, the types of information that the API returns or information it may return in the future.
+         <table>
+            <thead>
+               <tr>
+                  <th scope="col">Header</th>
+                  <th scope="col">Rationale</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td>`Content-Security-Policy: default-src &#39;none&#39;`</td>
+                  <td>The majority of CSP functionality only affects pages rendered as HTML.</td>
+               </tr>
+               <tr>
+                  <td>`Feature-Policy: &#39;none&#39;`</td>
+                  <td>Feature policies only affect pages rendered as HTML.</td>
+               </tr>
+               <tr>
+                  <td>`Referrer-Policy: no-referrer`</td>
+                  <td>Non-HTML responses SHOULD not trigger additional requests.</td>
+               </tr>
+            </tbody>
+         </table>
+         <p>In addition to the above listed HTTP security headers, web- and browser-based applications SHOULD apply [[[SRI]]]. When using third-party hosted contents, e.g. using a Content Delivery Network, this is even more relevant. While this is primarily a client implementation concern, it may affect the API when it is not strictly segregated or for example when shared supporting libraries are offered.
+      </dd>
+      <dt>Implications</dt>
+      <dd>
+         This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific tests are published in the [[ADR-Validator]] repository.
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         <p>The precense of the mandatory security headers can be tested in an automated way. A test client makes a call to the API root. The response is tested for the precense of mandatory headers.
+      </dd>
+   </dl>
+</div>
+
+<span id="api-50"></span>
+<div class="rule" id="/core/transport/cors" data-type="technical">
+  <p class="rulelab">Use CORS to control access</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         Use CORS to restrict access from other domains (if applicable).
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         <p>Modern web browsers use Cross-Origin Resource Sharing (CORS) to minimize the risk associated with cross-site HTTP-requests. By default browsers only allow 'same origin' access to resources. This means that responses on requests to another `[scheme]://[hostname]:[port]` than the `Origin` request header of the initial request will not be processed by the browser. To enable cross-site requests API's can return a `Access-Control-Allow-Origin` response header. An allowlist SHOULD be used to determine the validity of different cross-site request. To do this check the `Origin` header of the incoming request and check if the domain in this header is on the whitelist. If this is the case, set the incoming `Origin` header in the `Access-Control-Allow-Origin` response header.
+         <p>Using a wildcard `*` in the `Access-Control-Allow-Origin` response header is NOT RECOMMENDED, because it disables CORS-security measures. Only for an open API which has to be accessed by numerous other websites this is appropriate.
+      </dd>
+      <dt>Implications</dt>
+      <dd>
+         This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific tests are published in the [[ADR-Validator]] repository.
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         <p>Tests of this design rule can only be performed when the intended client is known to the tester. A test can be performed when this information is provided by the API provider. Otherwise no conclusive test result can be reached.
+      </dd>
+   </dl>
+</div>
+
+### Browser-based applications
+
+A specific subclass of clients are browser-based applications, that require the presence of particular security controls to facilitate secure implementation.
+Clients in this class are also known as _user-agent-based_ or _single-page-applications_ (SPA).
+All browser-based application SHOULD follow the best practices specified in [OAuth 2.0 for Browser-Based Apps](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-browser-based-apps-22).
+These applications can be split into three architectural patterns:
+- JavaScript applications with a Backend; with this class of applications, the Backend is the confidential client and should intermediate any interaction, with tokens never ending up in the browser.
+Effectively, these are not different from regular web-application for this security facet, even though they leverage JavaScript for implementation.
+- JavaScript applications that share a domain with the API (resource server); these can leverage cookies marked as HTTP-Only, Secure and SameSite.
+- JavaScript applications without a Backend; these clients are considered public clients, are potentially more suspect to several types of attacks, including Cross-Site Scripting (XSS), Cross Site Request Forgery (CSRF) and OAuth token theft.
+In order to support these clients, the Cross-Origin Resource Sharing (CORS) policy mentioned above is critical and MUST be supported.
+
+### Validate content types
+A REST request or response body SHOULD match the intended content type in the header.
+Otherwise this could cause misinterpretation at the consumer/producer side and lead to code injection/execution.
+
+- Reject requests containing unexpected or missing content type headers with HTTP response status `406 Not Acceptable` or `415 Unsupported Media Type`.
+- Avoid accidentally exposing unintended content types by explicitly defining content types e.g. Jersey (Java) `@consumes("application/json"); @produces("application/json")`.
+This avoids XXE-attack vectors for example.
+
+It is common for REST services to allow multiple response types (e.g. `application/xml` or `application/json`, and the client specifies the preferred order of response types by the Accept header in the request.
+- Do NOT simply copy the `Accept` header to the `Content-type` header of the response.
+- Reject the request (ideally with a `406 Not Acceptable` response) if the Accept header does not specifically contain one of the allowable types.
+
+Services (potentially) including script code (e.g. JavaScript) in their responses MUST be especially careful to defend against header injection attack.
+- Ensure sending intended content type headers in your response matching your body content e.g. `application/json` and not `application/javascript`.
 
 ## Geospatial
 

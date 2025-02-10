@@ -14,24 +14,28 @@
   </script>
   <script class="remove" src="js/config.js">
   </script>
-  <script>
+  <script class="remove">
    respecConfig = {...organisationConfig, ...respecConfig};
+   respecConfig.localBiblio = {...organisationConfig.localBiblio, ...respecConfig.localBiblio};
   </script>
-  <link href="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/logius.ico" rel="shortcut icon" type="image/x-icon"></link>
-   <script async="" class="remove" src="https://gitdocumentatie.logius.nl/publicatie/respec/builds/respec-nlgov.js">
-   </script>
-   <script class="remove" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-   <script class="remove" src="js/rules.js" defer></script>
+  <link href="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/logius.ico" rel="shortcut icon" type="image/x-icon"/>
+  <script async="" class="remove" src="https://gitdocumentatie.logius.nl/publicatie/respec/builds/respec-nlgov.js">
+  </script>
+  <script class="remove" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js">
+  </script>
+  <script class="remove" defer="" src="js/rules.js">
+  </script>
  </head>
  <!-- HTML-Body ================================================================================ -->
  <body>
   <section data-include="Abstract.md" data-include-format="markdown" id="abstract">
   </section>
-  <section id="conformance" class="notoc">
+  <section class="notoc" id="conformance">
   </section>
   <section id="sotd">
   </section>
-  <div data-include="SOTD.md" data-include-format="markdown"></div>
+  <div data-include="SOTD.md" data-include-format="markdown">
+  </div>
   <!-- vanaf hier per hoofdstuk een sectie of een div in het document ======================== -->
   <!-- Secties komen in de inhoudsopgave div"s niet ========================================== -->
   <!-- Secties hebben verplicht <h2> tags, div"s niet ======================================== -->
