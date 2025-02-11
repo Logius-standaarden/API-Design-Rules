@@ -16,5 +16,5 @@ jobs:
   publish:
     needs: build
     name: Publish (Logius)
-    uses: Logius-standaarden/Automatisering/.github/workflows/publish.yml@main
+    uses: Logius-standaarden/Automatisering/.github/workflows/publish.yml@pr-timvdlippe-fix-publiceren-naar-github-pages
     secrets: inherit
