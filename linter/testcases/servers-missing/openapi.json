@@ -19,6 +19,9 @@
     "tags": [
         {
             "name": "openapi"
+        },
+        {
+            "name": "Landingpage"
         }
     ],
     "paths": {
@@ -43,6 +46,33 @@
                             },
                             "access-control-allow-origin": {
                                 "description": "Alle origins mogen bij deze resource",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            }
+        },
+        "/": {
+            "get": {
+                "tags": ["Landingpage"],
+                "summary": "Landingpage",
+                "description": "Landingpage with a description",
+                "operationId": "getLandingpage",
+                "responses": {
+                    "200": {
+                        "description": "Landingpage content",
+                        "headers": {
+                            "API-Version": {
+                                "description": "Current version",
+                                "style": "simple",
                                 "schema": {
                                     "type": "string"
                                 }

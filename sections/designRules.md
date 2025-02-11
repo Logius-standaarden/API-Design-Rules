@@ -469,7 +469,7 @@ An API is as good as the accompanying documentation. The documentation has to be
       </dd>
       <dt>Rationale</dt>
       <dd>
-         <p> Clients (such as Swagger UI or ReDoc) MUST be able to retrieve the document without having to authenticate. Furthermore, the CORS policy for this [=URI=] MUST allow external domains to read the documentation from a browser environment.</p>
+         <p>Clients (such as Swagger UI or ReDoc) MUST be able to retrieve the document without having to authenticate. Furthermore, the CORS policy for this [=URI=] MUST allow external domains to read the documentation from a browser environment.</p>
          <p>The standard location for the OAS document is a URI called <code>openapi.json</code> or <code>openapi.yaml</code> within the base path of the API. This can be convenient, because OAS document updates can easily  become part of the CI/CD process.</p>
          <p>At least the JSON format MUST be supported. When having multiple (major) versions of an API, every API SHOULD provide its own OAS document(s).</p>
          <div class="example">
@@ -487,6 +487,35 @@ An API is as good as the accompanying documentation. The documentation has to be
             <li> Step 3: The openapi.yaml MUST contain the same OpenAPI Description as the openapi.json.</li>
             <li> Step 4: The CORS header Access-Control-Allow-Origin MUST allow all origins.</li>
          </ul>
+      </dd>
+   </dl>
+</div>
+
+<div class="rule" id="/core/doc-landing-page" data-type="technical">
+  <p class="rulelab">Publish root resource as landing page</p>
+  <dl>
+      <dt>Statement</dt>
+      <dd>
+         The root resource of an API (<code>/</code>) MUST have a GET endpoint which returns a response with a 200 or 30X status.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         <p>Consumers of an API need to know that the API exists. A landing page at the root resource (append <code>/</code> to the service root URL) MUST have a GET endpoint that returns a response with a 200 or 30X status. Furthermore, the CORS policy for this [=URI=] MUST allow external domains to read the documentation from a browser environment. Depending on your API, you SHOULD include one of the following options:
+         <ul>
+            <li>The root resource shows a landing page with documentation about the API</li>
+            <li>The root resource redirects to a landing page</li>
+            <li>The root resource returns data as part of your API contract</li>
+         </ul>
+         <p class="note">If this API implements the [[?OData]] specification, the landing page MUST show the OpenAPI specification document</li>
+         <div class="example">
+            <p>The root resource for an API published at <code>https://api.example.org/v1</code>:</p>
+            <pre class="nohighlight">https://api.example.org/v1/</pre>
+         </div>
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         <li>A GET request to the server root URL appended with a <code>/</code> MUST result in a HTTP 200 or 30X status</li>
+         <li>The CORS header Access-Control-Allow-Origin for this endpoint MUST allow all origins.</li>
       </dd>
    </dl>
 </div>

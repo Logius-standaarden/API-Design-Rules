@@ -1,5 +1,5 @@
 
 /testcases/paths-kebab-zoek-uitzondering/openapi.json
- 125:19  warning  path-keys-no-trailing-slash  Path must not end with slash.  paths./_zoek/
+ 155:19  error  path-keys-no-trailing-slash  Path must not end with slash.  paths./_zoek/
 
-✖ 1 problem (0 errors, 1 warning, 0 infos, 0 hints)
+✖ 1 problem (1 error, 0 warnings, 0 infos, 0 hints)

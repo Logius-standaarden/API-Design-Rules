@@ -23,9 +23,39 @@
     "tags": [
         {
             "name": "openapi"
+        },
+        {
+            "name": "Landingpage"
         }
     ],
     "paths": {
+        "/": {
+            "get": {
+                "tags": ["Landingpage"],
+                "summary": "Landingpage",
+                "description": "Landingpage with a description",
+                "operationId": "getLandingpage",
+                "responses": {
+                    "200": {
+                        "description": "Landingpage content",
+                        "headers": {
+                            "API-Version": {
+                                "description": "Current version",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            }
+        }
     },
     "components": {
         "schemas": {

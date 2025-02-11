@@ -22,6 +22,9 @@ extends: spectral:oas
 rules:
   oas3-api-servers: error
 
+  #/core/no-trailing-slash
+  path-keys-no-trailing-slash: error
+
   #/core/doc-openapi
   openapi3:
     severity: error
@@ -67,18 +70,6 @@ rules:
         match: "\\/v[\\d+]"
       field: url
     message: "/core/uri-version: Include the major version number in the URI: https://logius-standaarden.github.io/API-Design-Rules/#/core/uri-version"
-
-  #/core/no-trailing-slash
-  paths-no-trailing-slash:
-    severity: error
-    given:
-      - "$.paths"
-    then:
-      function: pattern
-      functionOptions:
-        notMatch: ".+ \\/$"
-      field: "@key"
-    message: "/core/no-trailing-slash: Leave off trailing slashes from URIs: https://logius-standaarden.github.io/API-Design-Rules/#/core/no-trailing-slash"
 
   #/core/publish-openapi
   paths-open-api-json-resource-exists:
@@ -127,6 +118,25 @@ rules:
             - name
             - url
     message: "Missing fields in `info.contact` field. Must specify email, name and url."
+
+  #/core/doc-landing-page
+  missing-landing-page:
+    severity: error
+    given:
+      - "$.paths"
+    then:
+      field: "/"
+      function: truthy
+    message: "There does not exist a resource `/` that should resolve to the landing-page"
+
+  landing-page-no-get-response:
+    severity: error
+    given:
+      - "$.paths[/]"
+    then:
+      field: "get"
+      function: truthy
+    message: "There should be a GET endpoint for the `/` resource"
 
   #/core/http-methods
   http-methods:
