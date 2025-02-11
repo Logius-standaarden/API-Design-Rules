@@ -532,6 +532,37 @@ An API is as good as the accompanying documentation. The documentation has to be
    </dl>
 </div>
 
+<div class="rule" id="/core/doc-home-page" data-type="technical">
+  <p class="rulelab">Publish root resource as landing page</p>
+  <dl>
+      <dt>Statement</dt>
+      <dd>
+         The root resource of an API (<code>/</code>) MUST result in a 200 OK status.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         <p>Consumers of an API need to know that the API exists. A landing page at the root resource (append <code>/</code> to the service root URL) MUST return a 200 OK status. Depending on your API, you SHOULD include one of the following options:
+         <ul>
+            <li>The root resource shows a landing page with a link to the canonical documentation of the API</li>
+            <li>The root resource returns data as part of your API contract</li>
+            <li>If this API implements the [[?OData]] specification, the landing page MUST show the OpenAPI specification document</li>
+         </ul>
+         <div class="example">
+            <p>The root resource for an API published at <code>https://api.example.org/v1</code>:</p>
+            <pre class="nohighlight">https://api.example.org/v1/</pre>
+         </div>
+      </dd>
+      <dt>Implications</dt>
+      <dd>
+         This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific tests are published in the [[ADR-Validator]] repository.
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         The server root URL appended with a <code>/</code> MUST result in a HTTP 200 status</li>
+      </dd>
+   </dl>
+</div>
+
 ## Versioning
 
 Changes in APIs are inevitable. APIs should therefore always be versioned, facilitating the transition between changes.
