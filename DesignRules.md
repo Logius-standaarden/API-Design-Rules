@@ -582,10 +582,11 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       <dd>
          The [=URI=] of an API (base path) MUST include the major version number, prefixed by the letter <code>v</code>. This allows the exploration of multiple versions of an API in the browser. The minor and patch version numbers are not part of the [=URI=] and MAY not have any impact on existing client implementations.
       <div class="example">
-         <p>An example of a base path for an API with current version 1.0.2:</p>
-         <pre class="nohighlight">https://api.example.org/v1</pre>
-         <pre class="nohighlight">version: '1.0.2'</pre>
-         <pre><code class="yaml">servers:
+         <p>An example of an <code class="nohighlight">openapi.yaml</code> base path <pre class="nohighlight">https://api.example.org/v1</pre> for an API with current version 1.0.2:</p>
+         <pre><code class="yaml">openapi: 3.0.0
+info:
+   version: '1.0.2'
+servers:
    - description: test environment
    url: https://api.test.example.org/v1
    - description: production environment
@@ -601,7 +602,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
          <ul>
             <li> Step 1: The base path MUST contain a version number.</li>
             <li> Step 2: Each url of the server object of the OpenAPI Description MUST include a version number.</li>
-            <li> Step 3: The version in the OAS file MUST be the same as the version in the base path.</li>
+            <li> Step 3: The major number of the version in the OAS file MUST be the same as the version in the base path.</li>
          </ul>
       </dd>
    </dl>
