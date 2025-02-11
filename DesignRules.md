@@ -582,7 +582,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       <dd>
          The [=URI=] of an API (base path) MUST include the major version number, prefixed by the letter <code>v</code>. This allows the exploration of multiple versions of an API in the browser. The minor and patch version numbers are not part of the [=URI=] and MAY not have any impact on existing client implementations.
       <div class="example">
-         <p>An example of an <code class="nohighlight">openapi.yaml</code> base path <pre class="nohighlight">https://api.example.org/v1</pre> for an API with current version 1.0.2:</p>
+         <p>An example of an <code class="nohighlight">openapi.yaml</code> for an API with a base path <pre class="nohighlight">https://api.example.org/v1</pre> and current version 1.0.2:</p>
          <pre><code class="yaml">openapi: 3.0.0
 info:
    version: '1.0.2'
