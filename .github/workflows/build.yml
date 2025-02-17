@@ -13,7 +13,7 @@ jobs:
   check:
     needs: build
     name: Check
-    uses: Logius-standaarden/Automatisering/.github/workflows/check.yml@main    
+    uses: Logius-standaarden/Automatisering/.github/workflows/check.yml@pr-timvdlippe-action-voor-serving    
   publish:
     needs: build
     name: Publish (Logius)
