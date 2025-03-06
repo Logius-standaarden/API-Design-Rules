@@ -108,7 +108,7 @@ A resource describing a single thing is called a [=singular resource=]. Resource
       </dd>
       <dt>How to test</dt>
       <dd>
-         Loop all resource paths in the OpenAPI Description and check that no resources paths end with a forward slash (<code>/</code>).
+         Analyse all resource paths in the OpenAPI Description to confirm no resource paths end with a forward slash (<code>/</code>).
       </dd>
    </dl>
 </div>
@@ -240,7 +240,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
   If an optional HTTP request method is sent to a server and the server does not support that HTTP method for the target resource, an HTTP status code <code>405 Method Not Allowed</code> shall be returned and a list of allowed methods for the target resource shall be provided in the <code>Allow</code> header in the response as stated in <a href="https://www.rfc-editor.org/rfc/rfc9110#name-405-method-not-allowed">RFC 9110 15.5.6</a>.</p>
       <dt>How to test</dt>
       <dd>
-         The OpenAPI Description MUST NOT include non standard HTTP methods for retrieving or manipulating resources.
+		Analyse the OpenAPI Description to confirm all supported methods are either `post`, `put`, `get`, `delete`, or `patch`.
       </dd>
    </dl>
 </div>
@@ -441,16 +441,12 @@ An API is as good as the accompanying documentation. The documentation has to be
       </dd>
       <dt>How to test</dt>
       <dd>
-         <ul>
-            <li> Step 1: The API MUST meet the prerequisets to be tested. These include that an OAS file is publicly available, parsable, all $refs are resolvable and paths are defined.</li>
-            <li> Step 2: Check the specification type.</li>
-            <li> Step 3: All references MUST be publicly resolvable, including the external references.</li>
-         </ul>
+         Parse the resource at the provided location as an OpenAPI Description and confirm all $refs are resolvable and paths are defined.
       </dd>
    </dl>
 </div>
 
-<div class="rule" id="/core/doc-openapi-contact" data-type="functional">
+<div class="rule" id="/core/doc-openapi-contact" data-type="technical">
   <p class="rulelab">Document contact information for publicly available APIs</p>
   <dl>
       <dt>Statement</dt>
@@ -475,6 +471,7 @@ An API is as good as the accompanying documentation. The documentation has to be
       </dd>
       <dt>How to test</dt>
       <dd>
+		Parse the OpenAPI Description to confirm the <code>info.contact</code> object is present.
       </dd>
    </dl>
 </div>
@@ -599,11 +596,7 @@ servers:
       </dd>
       <dt>How to test</dt>
       <dd>
-         <ul>
-            <li> Step 1: The base path MUST contain a version number.</li>
-            <li> Step 2: Each url of the server object of the OpenAPI Description MUST include a version number.</li>
-            <li> Step 3: The major number of the version in the OAS file MUST be the same as the version in the base path.</li>
-         </ul>
+		Parse the `url` field in the `servers` mentioned in the OpenAPI Description to confirm the a version number is present with prefix <code>v</code> and only contains the *major* version number.
       </dd>
    </dl>
 </div>
@@ -643,7 +636,7 @@ servers:
       </dd>
       <dt>How to test</dt>
       <dd>
-         The "API-Version" response header MUST comply with Semantic Versioning.
+         Parse the `info.version` field in the OpenAPI Description to confirm it adheres to the Semantic Versioning format.
       </dd>
    </dl>
 </div>
@@ -671,7 +664,7 @@ servers:
       </dd>
       <dt>How to test</dt>
       <dd>
-         A response MUST include the header "API-Version".
+         A response MUST include the header "API-Version" with a number matching the version number set in the `info.version` field of the OpenAPI Description.
       </dd>
    </dl>
 </div>
