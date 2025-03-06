@@ -161,7 +161,7 @@ A resource describing a single thing is called a [=singular resource=]. Resource
       </dd>
       <dt>Rationale</dt>
       <dd>
-         <p>Some web servers and frameworks do not handle case sensitivity or special characters of URI's well. The use of kebab-case path segments ensures compatibility with a broad range of systems. It is a more common implementation choice for path segments than camelCase or snake_case. Information (such as names of objects) require special characters, they can be part of the request body instead of encoded in the URI.
+         <p>Some web servers and frameworks do not handle case sensitivity or special characters of URIs well. The use of kebab-case path segments ensures compatibility with a broad range of systems. It is a more common implementation choice for path segments than camelCase or snake_case. Information (such as names of objects) that requires special characters can be part of the request body instead of being in the URI.
          <div class="example">
             <p>URI path segment using kebab-case (correct):</p>
             <pre class="nohighlight">https://api.example.org/v1/organisatie-codes</pre>
