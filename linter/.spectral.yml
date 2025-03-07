@@ -53,9 +53,27 @@ rules:
     then:
       function: pattern
       functionOptions:
-        notMatch: "\\/$"
+        notMatch: ".+\\/$"
       field: "@key"
     message: "/core/no-trailing-slash: Leave off trailing slashes from URIs: https://logius-standaarden.github.io/API-Design-Rules/#/core/no-trailing-slash"
+
+  missing-home-page:
+    severity: error
+    given:
+      - "$.paths"
+    then:
+      field: "/"
+      function: truthy
+    message: "There does not exist a resource `/` that should resolve to the homepage"
+
+  home-page-no-get-response:
+    severity: error
+    given:
+      - "$.paths[/]"
+    then:
+      field: "get"
+      function: truthy
+    message: "There should be a GET endpoint for the `/` resource"
 
   #/core/http-methods
   http-methods:
@@ -76,7 +94,7 @@ rules:
     then:
       function: pattern
       functionOptions:
-        match: "^(\/[a-z0-9-.]+|\/{[a-zA-Z0-9_]+})+$"
+        match: /^(\/|[a-z0-9\-\.]+|{[a-zA-Z0-9]+})+$/
 
   schema-camel-case:
     severity: warn
