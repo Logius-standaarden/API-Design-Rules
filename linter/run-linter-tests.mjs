@@ -8,7 +8,7 @@ const execute = utils.promisify(exec);
 const readFile = utils.promisify(fs.readFile);
 const readdir = utils.promisify(fs.readdir);
 
-const SPECTRAL_RULESET_LOCATION = path.join(__dirname, '.spectral.yml');
+const SPECTRAL_RULESET_LOCATION = path.join(__dirname, 'spectral.yml');
 
 function computeTestCommand(apiLocation) {
     return `spectral lint -r ${SPECTRAL_RULESET_LOCATION} ${apiLocation}/openapi.json`
