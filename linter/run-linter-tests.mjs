@@ -11,7 +11,7 @@ const readdir = utils.promisify(fs.readdir);
 const SPECTRAL_RULESET_LOCATION = path.join(__dirname, '.spectral.yml');
 
 function computeTestCommand(apiLocation) {
-    return `spectral lint -r ${SPECTRAL_RULESET_LOCATION} ${apiLocation}/openapi.json`
+    return `spectral lint -r ${SPECTRAL_RULESET_LOCATION} ${apiLocation}/openapi.json || true`
 }
 
 function removeProcessDir(output) {

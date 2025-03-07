@@ -1,0 +1,57 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "COR API Services",
+        "description": "Deze Logius REST API's bieden de openbare informatie voor organisaties",
+        "contact": {
+            "name": "Logius",
+            "url": "https://www.logius.nl/diensten/digikoppeling/",
+            "email": "servicecentrum@logius.nl"
+        },
+        "version": "1.2.9-SNAPSHOT"
+    },
+    "servers": [
+        {
+            "url": "https://oinregister.logius.nl/api/v1"
+        }
+    ],
+    "security": [
+        {
+            "default": []
+        }
+    ],
+    "tags": [{"name": "Homepage"}],
+    "paths": {
+        "/": {
+            "get": {
+                "tags": ["Homepage"],
+                "summary": "Homepage",
+                "description": "Homepage with a description",
+                "operationId": "getHomepage",
+                "responses": {
+                    "403": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "default": {
+                "type": "oauth2",
+                "flows": {
+                    "implicit": {
+                        "authorizationUrl": "https://test.com",
+                        "scopes": {}
+                    }
+                }
+            }
+        }
+    }
+}

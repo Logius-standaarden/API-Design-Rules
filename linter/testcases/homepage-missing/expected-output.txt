@@ -1,0 +1,5 @@
+
+/testcases/homepage-missing/openapi.json
+ 24:13  error  missing-home-page  There does not exist a resource `/` that should resolve to the homepage  paths
+
+✖ 1 problem (1 error, 0 warnings, 0 infos, 0 hints)
