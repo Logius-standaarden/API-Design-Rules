@@ -6,7 +6,7 @@ function highlightSpectralYaml(config, document) {
   // yamlConfiguration.src = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/yaml.min.js';
   // document.head.appendChild(yamlConfiguration);
   // window.hljs.highlightElement(document.querySelector('.spectral-yaml'));
-  console.log(document.querySelector('.spectral-yaml'));
+  console.log(window.hljs);
 }
 
 var respecConfig = {
