@@ -1,4 +1,4 @@
-function highlightSpectralYaml() {
+function highlightSpectralYaml(config, document) {
   window.hljs.highlightElement(document.querySelector('.spectral-yaml'));
 }
 
