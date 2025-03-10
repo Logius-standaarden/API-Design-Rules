@@ -2,9 +2,9 @@ function highlightSpectralYaml(config, document) {
   // const highlightScript = document.createElement('script');
   // highlightScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js';
   // document.head.appendChild(highlightScript);
-  // const yamlConfiguration = document.createElement('script');
-  // yamlConfiguration.src = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/yaml.min.js';
-  // document.head.appendChild(yamlConfiguration);
+  const yamlConfiguration = document.createElement('script');
+  yamlConfiguration.src = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/yaml.min.js';
+  document.head.appendChild(yamlConfiguration);
   // window.hljs.highlightElement(document.querySelector('.spectral-yaml'));
   console.log(window.hljs);
 }
