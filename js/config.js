@@ -1,3 +1,7 @@
+function highlightSpectralYaml() {
+  window.hljs.highlightElement(document.querySelector('.spectral-yaml'));
+}
+
 var respecConfig = {
   alternateFormats: [ { 
         "label" : "pdf",
@@ -47,4 +51,6 @@ var respecConfig = {
   specStatus: "WV",
   specType: "ST",
   pluralize: true,
+
+  postProcess: [highlightSpectralYaml],
 };
