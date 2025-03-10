@@ -1,4 +1,7 @@
 function highlightSpectralYaml(config, document) {
+  const yamlConfiguration = document.createElement('script');
+  yamlConfiguration.src = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/yaml.min.js';
+  document.head.appendChild(yamlConfiguration);
   window.hljs.highlightElement(document.querySelector('.spectral-yaml'));
 }
 
