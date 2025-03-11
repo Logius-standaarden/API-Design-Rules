@@ -1,12 +1,20 @@
-function highlightSpectralYaml(config, document) {
-  // const highlightScript = document.createElement('script');
-  // highlightScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js';
-  // document.head.appendChild(highlightScript);
-  const yamlConfiguration = document.createElement('script');
-  yamlConfiguration.src = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/yaml.min.js';
-  document.head.appendChild(yamlConfiguration);
-  // window.hljs.highlightElement(document.querySelector('.spectral-yaml'));
-  console.log(window.hljs);
+async function highlightSpectralYaml(config, document) {
+  //this is the function you call in 'preProcess', to load the highlighter
+  const worker = await new Promise(resolve => {
+    require(["core/worker"], ({ worker }) => resolve(worker));
+  });
+  const action = "highlight-load-lang-self-registration";
+  const langURL = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/yaml.min.js";
+  worker.postMessage({ action, langURL, propName, lang });
+  return new Promise(resolve => {
+    worker.addEventListener("message", function listener({ data }) {
+      const { action: responseAction, lang: responseLang } = data;
+      if (responseAction === action && responseLang === lang) {
+        worker.removeEventListener("message", listener);
+        resolve();
+      }
+    });
+  });
 }
 
 var respecConfig = {
@@ -59,5 +67,5 @@ var respecConfig = {
   specType: "ST",
   pluralize: true,
 
-  postProcess: [highlightSpectralYaml],
+  preProcess: [highlightSpectralYaml],
 };
