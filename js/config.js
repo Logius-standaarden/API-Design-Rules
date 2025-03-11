@@ -5,7 +5,8 @@ async function highlightSpectralYaml(config, document) {
   });
   const action = "highlight-load-lang-self-registration";
   const langURL = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/yaml.min.js";
-  worker.postMessage({ action, langURL, propName, lang });
+  const lang = "yaml";
+  worker.postMessage({ action, langURL, lang });
   return new Promise(resolve => {
     worker.addEventListener("message", function listener({ data }) {
       const { action: responseAction, lang: responseLang } = data;
