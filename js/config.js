@@ -18,6 +18,12 @@ async function highlightSpectralYaml(config, document) {
   });
 }
 
+async function inlineSpectralCode(config, document) {
+  const response = await fetch('linter/spectral.yml');
+  const spectralConfiguration = await response.text();
+  document.querySelector('.spectral-yaml').innerText = spectralConfiguration;
+}
+
 var respecConfig = {
   alternateFormats: [ { 
         "label" : "pdf",
@@ -68,5 +74,5 @@ var respecConfig = {
   specType: "ST",
   pluralize: true,
 
-  preProcess: [highlightSpectralYaml],
+  preProcess: [highlightSpectralYaml, inlineSpectralCode],
 };
