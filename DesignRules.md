@@ -104,7 +104,7 @@ A resource describing a single thing is called a [=singular resource=]. Resource
       </dd>
       <dt>Implications</dt>
       <dd>
-         This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific test used for this rule can be found in the [linter](#:~:text=core/uri%2Dversion%22-,%23/core/no%2Dtrailing%2Dslash,-paths%2Dno%2Dtrailing).
+         This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific test used for this rule can be found in the <a href="#:~:text=core/uri%2Dversion%22-,%23/core/no%2Dtrailing%2Dslash,-paths%2Dno%2Dtrailing">linter</a>.
       </dd>
       <dt>How to test</dt>
       <dd>
@@ -194,7 +194,8 @@ Although the REST architectural style does not impose a specific protocol, REST 
       </dd>
       <dt>Implications</dt>
       <dd>
-         This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific test used for this rule can be found in the [linter](#:~:text=no%2Dtrailing%2Dslash%22-,%23/core/http%2Dmethods,-http%2Dmethods%3A).
+         This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>.
+         The specific test used for this rule can be found in the <a href="#:~:text=core/uri%2Dversion%22-,%23/core/no%2Dtrailing%2Dslash,-paths%2Dno%2Dtrailing">linter</a>.
       </dd>
    <div class="example">The following table shows some examples of the use of standard HTTP methods:
       <table>
