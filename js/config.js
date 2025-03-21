@@ -1,3 +1,49 @@
+async function initializeHighlightJSYaml(config, document) {
+  //this is the function you call in 'preProcess', to load the highlighter
+  const worker = await new Promise(resolve => {
+    require(["core/worker"], ({ worker }) => resolve(worker));
+  });
+  const action = "highlight-load-lang-self-registration";
+  const langURL = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/yaml.min.js";
+  const lang = "yaml";
+  worker.postMessage({ action, langURL, lang });
+  return new Promise(resolve => {
+    worker.addEventListener("message", function listener({ data }) {
+      const { action: responseAction, lang: responseLang } = data;
+      if (responseAction === action && responseLang === lang) {
+        worker.removeEventListener("message", listener);
+        resolve();
+      }
+    });
+  });
+}
+
+async function highlightSpectralCode(config, document) {
+  //this is the function you call in 'postProcess', to load the highlighter
+  const worker = await new Promise(resolve => {
+    require(["core/worker"], ({ worker }) => resolve(worker));
+  });
+
+  const response = await fetch('linter/spectral.yml');
+  const spectralConfiguration = await response.text();
+  const action = "highlight";
+  const code = spectralConfiguration;
+  const lang = "yaml";
+  worker.postMessage({ action, code, languages: [lang] });
+  return new Promise(resolve => {
+    worker.addEventListener("message", function listener({ data }) {
+      const { action: responseAction, language: responseLang } = data;
+      if (responseAction === action && responseLang === lang) {
+        worker.removeEventListener("message", listener);
+
+        const codeElement = document.querySelector('.spectral-yaml code');
+        codeElement.innerHTML = data.value;
+        resolve();
+      }
+    });
+  });
+}
+
 var respecConfig = {
   alternateFormats: [ { 
         "label" : "pdf",
@@ -47,4 +93,7 @@ var respecConfig = {
   specStatus: "WV",
   specType: "ST",
   pluralize: true,
+
+  preProcess: [initializeHighlightJSYaml],
+  postProcess: [highlightSpectralCode],
 };
