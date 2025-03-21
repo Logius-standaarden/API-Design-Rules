@@ -1,4 +1,4 @@
-async function initializeHighlightJSYaml(config, document) {
+async function initializeHighlightJSYaml() {
   //this is the function you call in 'preProcess', to load the highlighter
   const worker = await new Promise(resolve => {
     require(["core/worker"], ({ worker }) => resolve(worker));
@@ -18,8 +18,11 @@ async function initializeHighlightJSYaml(config, document) {
   });
 }
 
-const spectralResponse = await fetch('linter/spectral.yml');
-const spectralConfiguration = await spectralResponse.text();
+let spectralConfiguration;
+async function fetchSpectralConfiguration() {
+  const spectralResponse = await fetch('linter/spectral.yml');
+  spectralConfiguration = await spectralResponse.text();
+}
 
 async function highlightSpectralCode(config, document) {
   //this is the function you call in 'postProcess', to load the highlighter
@@ -150,6 +153,6 @@ var respecConfig = {
   specType: "ST",
   pluralize: true,
 
-  preProcess: [initializeHighlightJSYaml],
+  preProcess: [initializeHighlightJSYaml, fetchSpectralConfiguration],
   postProcess: [highlightSpectralCode, processRuleBlocks],
 };
