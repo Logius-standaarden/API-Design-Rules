@@ -18,14 +18,15 @@ async function initializeHighlightJSYaml(config, document) {
   });
 }
 
+const spectralResponse = await fetch('linter/spectral.yml');
+const spectralConfiguration = await spectralResponse.text();
+
 async function highlightSpectralCode(config, document) {
   //this is the function you call in 'postProcess', to load the highlighter
   const worker = await new Promise(resolve => {
     require(["core/worker"], ({ worker }) => resolve(worker));
   });
 
-  const response = await fetch('linter/spectral.yml');
-  const spectralConfiguration = await response.text();
   const action = "highlight";
   const code = spectralConfiguration;
   const lang = "yaml";
@@ -42,6 +43,61 @@ async function highlightSpectralCode(config, document) {
       }
     });
   });
+}
+
+function processRuleBlocks(config, document) {
+  const functionalRules = [];
+  const technicalRules = [];
+  for (const rule of document.querySelectorAll('.rule')) {
+    if (!rule.id) {
+      throw new Error(`Missing id for rule: ${rule.outerHTML}`);
+    }
+    const ruleId = rule.id;
+
+    const ruleLabElement = rule.querySelector('.rulelab');
+    ruleLabElement.innerText = `: ${ruleLabElement.innerText}`;
+    const ruleLinkElement = document.createElement('a');
+    ruleLinkElement.href = `#${ruleId}`;
+    ruleLinkElement.innerText = ruleId;
+    ruleLabElement.prepend(ruleLinkElement);
+
+    let flagTitle;
+    const flagType = rule.dataset.type;
+    if (flagType === 'technical') {
+      flagTitle = 'This is a technical design rule and hence should be tested automatically.';
+      technicalRules.push(ruleLabElement);
+
+      if (spectralConfiguration.includes(`#${ruleId}`)) {
+        const lastDataListItem = rule.querySelector('dt:last-of-type');
+        if (lastDataListItem.textContent !== 'How to test') {
+          throw new Error(`Last element should be the "How to test" section. Found ${lastDataListItem.outerHTML}`);
+        }
+        const howToTest = rule.querySelector('dd:last-of-type');
+        howToTest.innerHTML += `This rule can be automatically checked and an example test is shown in the <a href="#:~:text=${encodeURIComponent(ruleId).replaceAll('-', '%2D')}">linter configuration</a>.`;
+      }
+    } else if (flagType === 'functional') {
+      flagTitle = 'This is a functional design rule and hence cannot be tested automatically.';
+      functionalRules.push(ruleLabElement);
+    } else {
+      throw new Error(`Missing type for rule: ${rule.outerHTML}`);
+    }
+
+    const flagElement = document.createElement('div');
+    flagElement.title = flagTitle;
+    flagElement.innerText = flagType;
+    flagElement.classList.add('flag');
+    rule.prepend(flagElement);
+  }
+
+  for (const [list, elementId] of [[functionalRules, '#functionalList'], [technicalRules, '#technicalList']]) {
+    const listElement = document.querySelector(elementId);
+
+    for (const ruleLabElement of list) {
+      const listItem = document.createElement('li');
+      listItem.innerHTML = ruleLabElement.innerHTML;
+      listElement.append(listItem);
+    }
+  }
 }
 
 var respecConfig = {
@@ -95,5 +151,5 @@ var respecConfig = {
   pluralize: true,
 
   preProcess: [initializeHighlightJSYaml],
-  postProcess: [highlightSpectralCode],
+  postProcess: [highlightSpectralCode, processRuleBlocks],
 };
