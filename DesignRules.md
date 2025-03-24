@@ -102,10 +102,6 @@ A resource describing a single thing is called a [=singular resource=]. Resource
             <pre class="nohighlight">https://api.example.org/v1/gebouwen/</pre>
          </div>
       </dd>
-      <dt>Implications</dt>
-      <dd>
-         This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific test used for this rule can be found in the <a href="#:~:text=core/uri%2Dversion%22-,%23/core/no%2Dtrailing%2Dslash,-paths%2Dno%2Dtrailing">linter</a>.
-      </dd>
       <dt>How to test</dt>
       <dd>
          Analyse all resource paths in the OpenAPI Description to confirm no resource paths end with a forward slash (<code>/</code>).
@@ -192,12 +188,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
             </tbody>
          </table>
       </dd>
-      <dt>Implications</dt>
-      <dd>
-         This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>.
-         The specific test used for this rule can be found in the <a href="#:~:text=core/uri%2Dversion%22-,%23/core/no%2Dtrailing%2Dslash,-paths%2Dno%2Dtrailing">linter</a>.
-      </dd>
-   <div class="example">The following table shows some examples of the use of standard HTTP methods:
+      <div class="example">The following table shows some examples of the use of standard HTTP methods:
       <table>
       <thead>
       <tr>
@@ -436,10 +427,6 @@ An API is as good as the accompanying documentation. The documentation has to be
          The OpenAPI Specification (OAS) [[OPENAPIS]] defines a standard, language-agnostic interface to RESTful APIs which allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection. When properly defined, a consumer can understand and interact with the remote service with a minimal amount of implementation logic.
          API documentation MUST be provided in the form of an OpenAPI definition document which conforms to the OpenAPI Specification (from v3 onwards). As a result, a variety of tools can be used to render the documentation (e.g. Swagger UI or ReDoc) or automate tasks such as testing or code generation. The OAS document SHOULD provide clear descriptions and examples.
       </dd>
-      <dt>Implications</dt>
-      <dd>
-         This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific tests are published in the [[?ADR-Validator]] repository.
-      </dd>
       <dt>How to test</dt>
       <dd>
          Parse the resource at the provided location as an OpenAPI Description and confirm all $refs are resolvable and paths are defined.
@@ -465,10 +452,6 @@ An API is as good as the accompanying documentation. The documentation has to be
   "email": "teamgebouwen@ministerie.nl"
 }</code></pre>
          </div>
-      </dd>
-      <dt>Implications</dt>
-      <dd>
-         This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific tests are published in the [[?ADR-Validator]] repository.
       </dd>
       <dt>How to test</dt>
       <dd>
@@ -513,10 +496,6 @@ An API is as good as the accompanying documentation. The documentation has to be
             <p>Optionally, the same OAS document MAY be provided in YAML format:</p>
             <pre class="nohighlight">https://api.example.org/v1/openapi.yaml</pre>
          </div>
-      </dd>
-      <dt>Implications</dt>
-      <dd>
-         This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific tests are published in the [[?ADR-Validator]] repository.
       </dd>
       <dt>How to test</dt>
       <dd>
@@ -591,10 +570,6 @@ servers:
    url: https://api.example.org/v1</code></pre>
       </div>
       </dd>
-      <dt>Implications</dt>
-      <dd>
-         This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific tests are published in the [[?ADR-Validator]] repository.
-      </dd>
       <dt>How to test</dt>
       <dd>
 		Parse the `url` field in the `servers` mentioned in the OpenAPI Description to confirm the a version number is present with prefix <code>v</code> and only contains the *major* version number.
@@ -630,10 +605,6 @@ servers:
       <dt>Rationale</dt>
       <dd>
          Version numbering MUST follow the Semantic Versioning [[SemVer]] model to prevent breaking changes when releasing new API versions. Release versions are formatted using the <code>major.minor.patch</code> template (examples: 1.0.2, 1.11.0). Pre-release versions MAY be denoted by appending a hyphen and a series of dot separated identifiers (examples: 1.0.2-rc.1, 2.0.0-beta.3). When releasing a new version which contains backwards-incompatible changes, a new major version MUST be released. Minor and patch releases MAY only contain backwards compatible changes (e.g. the addition of an endpoint or an optional attribute).
-      </dd>
-      <dt>Implications</dt>
-      <dd>
-         This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific tests are published in the [[?ADR-Validator]] repository.
       </dd>
       <dt>How to test</dt>
       <dd>
@@ -695,10 +666,6 @@ Note: security controls for signing and encrypting of application level messages
     <dt>Rationale</dt>
     <dd>
         <p>Since the connection is always secured, the access method can be straightforward. This allows the application of basic access tokens instead of encrypted access tokens.
-    </dd>
-    <dt>Implications</dt>
-    <dd>
-        This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific tests are published in the [[?ADR-Validator]] repository.
     </dd>
     <dt>How to test</dt>
     <dd>
@@ -837,10 +804,6 @@ As for outbound filtering, the main concern is leaking of information.
          </table>
          <p>In addition to the above listed HTTP security headers, web- and browser-based applications SHOULD apply [[[SRI]]]. When using third-party hosted contents, e.g. using a Content Delivery Network, this is even more relevant. While this is primarily a client implementation concern, it may affect the API when it is not strictly segregated or for example when shared supporting libraries are offered.
       </dd>
-      <dt>Implications</dt>
-      <dd>
-         This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific tests are published in the [[?ADR-Validator]] repository.
-      </dd>
       <dt>How to test</dt>
       <dd>
          <p>The precense of the mandatory security headers can be tested in an automated way. A test client makes a call to the API root. The response is tested for the precense of mandatory headers.
@@ -860,10 +823,6 @@ As for outbound filtering, the main concern is leaking of information.
       <dd>
          <p>Modern web browsers use Cross-Origin Resource Sharing (CORS) to minimize the risk associated with cross-site HTTP-requests. By default browsers only allow 'same origin' access to resources. This means that responses on requests to another `[scheme]://[hostname]:[port]` than the `Origin` request header of the initial request will not be processed by the browser. To enable cross-site requests API's can return a `Access-Control-Allow-Origin` response header. An allowlist SHOULD be used to determine the validity of different cross-site request. To do this check the `Origin` header of the incoming request and check if the domain in this header is on the whitelist. If this is the case, set the incoming `Origin` header in the `Access-Control-Allow-Origin` response header.
          <p>Using a wildcard `*` in the `Access-Control-Allow-Origin` response header is NOT RECOMMENDED, because it disables CORS-security measures. Only for an open API which has to be accessed by numerous other websites this is appropriate.
-      </dd>
-      <dt>Implications</dt>
-      <dd>
-         This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific tests are published in the [[?ADR-Validator]] repository.
       </dd>
       <dt>How to test</dt>
       <dd>
