@@ -148,6 +148,7 @@ var respecConfig = {
   specStatus: "WV",
   specType: "ST",
   pluralize: true,
+  lint: true,
 
   preProcess: [initializeHighlightJSYaml, fetchSpectralConfiguration],
   postProcess: [highlightSpectralCode, processRuleBlocks],
