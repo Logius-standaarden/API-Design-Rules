@@ -28,8 +28,6 @@ The REST architectural style is centered around the concept of a [=resource=]. A
    <dd>
    Resources describe objects not actions.
    </dd>
-   <dt>Implications</dt>
-   <dd id="implications"></dd>
 </dl>
 </div>
 
@@ -61,8 +59,6 @@ A resource describing a single thing is called a [=singular resource=]. Resource
             <pre class="nohighlight">https://api.example.org/v1/gebruikersprofiel</pre>
          </div>
       </dd>
-      <dt>Implications</dt>
-      <dd id="implications"></dd>
    </dl>
 </div>
 
@@ -79,8 +75,6 @@ A resource describing a single thing is called a [=singular resource=]. Resource
          The exact meaning of concepts is often lost in translation. Publishing an API for an international audience might also be a reason to define interfaces in English.
          Note that glossaries exist that define useful sets of attributes which SHOULD preferably be reused. Examples can be found at <a href="http://schema.org/docs/schemas.html">schema.org</a>.
       </dd>
-      <dt>Implications</dt>
-      <dd id="implications"></dd>
    </dl>
 </div>
 
@@ -314,8 +308,6 @@ Although the REST architectural style does not impose a specific protocol, REST 
          <p>The server SHOULD NOT only use `200` for success and `404` for error states. Use the semantically appropriate status code for success or failure.
          <p>In case of an error, the server SHOULD NOT pass technical details (e.g. call stacks or other internal hints) to the client. The error message SHOULD be generic to avoid revealing additional details and expose internal information which can be used with malicious intent.
       </dd>
-      <dt>Implications</dt>
-      <dd id="implications"></dd>
    </dl>
 </div>
 
@@ -347,8 +339,6 @@ Stateless communication offers many advantages, including:
       <dd>
          To achieve full decoupling between client and server, and to benefit from the advantages mentioned above, no session state MUST reside on the server. Session state MUST therefore reside entirely on the client.
       </dd>
-      <dt>Implications</dt>
-      <dd id="implications"></dd>
    </dl>
    <p class="note">The client of a REST API could be a variety of applications such as a browser application, a mobile or desktop application and even another server serving as a backend component for another client. REST APIs should therefore be completely client-agnostic.</p>
 </div>
@@ -382,8 +372,6 @@ Resources are often interconnected by relationships. Relationships can be modell
     <pre class="nohighlight">https://api.example.org/v1/comments/123<br />https://api.example.org/v1/comments/456</pre>
     <p>Although this approach might seem counterintuitive from a technical perspective (we simply could have modelled a single <code>/comments</code> resource with optional filters for article and photo) and might introduce partially redundant functionality, it makes perfect sense from the perspective of the consumer, which increases developer experience.</p>
   </div>
-  <dt>Implications</dt>
-  <dd id="implications"></dd>
 </div>
 
 ## Operations
@@ -405,8 +393,6 @@ Resources are often interconnected by relationships. Relationships can be modell
          <li>In exceptional cases, the approaches above still don't offer an appropriate solution. An example of such an operation is a global search across multiple resources. In this case, the creation of a dedicated resource, possibly nested under an existing resource, is the most obvious solution. Use the imperative mood of a verb, maybe even prefix it with a underscore to distinguish these resources from regular resources. For example: <code>/search</code> or <code>/_search</code>. Depending on the operation characteristics, <code>GET</code> and/or <code>POST</code> method MAY be supported for such a resource.</li>
       </ol>
       </dd>
-      <dt>Implications</dt>
-      <dd id="implications"></dd>
    </dl> 
 </div>
 
@@ -472,8 +458,6 @@ An API is as good as the accompanying documentation. The documentation has to be
       <dd>
          In line with design rule <a href="#/core/interface-language">/core/interface-language</a>, the OAS document (e.g. descriptions and examples) SHOULD be written in Dutch. If relevant, you MAY refer to existing documentation written in English.
       </dd>
-      <dt>Implications</dt>
-      <dd id="implications"></dd>
    </dl>
 </div>
 
@@ -525,8 +509,6 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       <dd>
          Managing change is important. In general, well documented and timely communicated deprecation schedules are the most important for API users. When deprecating features or versions, a deprecation schedule MUST be published. This document SHOULD be published on a public web page. Furthermore, active clients SHOULD be informed by e-mail once the schedule has been updated or when versions have reached end-of-life.
       </dd>
-      <dt>Implications</dt>
-	  <dd id="implications"></dd>
    </dl>
 </div>
 
@@ -542,8 +524,6 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       <dd>
          When releasing a new major API version, the old version MUST remain available for a limited and fixed deprecation period. Offering a deprecation period allows clients to carefully plan and execute the migration from the old to the new API version, as long as they do this prior to the end of the deprecation period. A maximum of 2 major API versions MAY be published concurrently.
       </dd>
-      <dt>Implications</dt>
-	  <dd id="implications"></dd>
    </dl>
 </div>
 
@@ -589,8 +569,6 @@ servers:
       <dd>
          <p>When releasing new (major, minor or patch) versions, all API changes MUST be documented properly in a publicly available changelog.</p>
       </dd>
-      <dt>Implications</dt>
-	  <dd id="implications"></dd>
    </dl>
 </div>
 
@@ -629,10 +607,6 @@ servers:
             <p>An example of an API version response header:</p>
             <pre class="nohighlight">API-Version: 1.0.2</pre>
          </div>
-      </dd>
-      <dt>Implications</dt>
-      <dd>
-         This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific tests are published in the [[?ADR-Validator]] repository.
       </dd>
       <dt>How to test</dt>
       <dd>
@@ -686,10 +660,6 @@ Note: security controls for signing and encrypting of application level messages
       <dd>
          <p>Even when using TLS connections, information in URIs is not secured. URIs can be cached and logged outside of the servers controlled by clients and servers. Any information contained in them should therefore be considered readable by anyone with access to the network (in the case of the internet, the whole world) and MUST NOT contain any sensitive information. This includes client secrets used for authentication, privacy sensitive information suchs as BSNs or any other information which should not be shared. 
          <p>Be aware that queries (anything after the '?' in a URI) are also part of an URI.
-      </dd>
-      <dt>Implications</dt>
-      <dd>
-         Adherence to this rule needs to be manually verified.
       </dd>
    </dl>
 </div>
@@ -878,7 +848,5 @@ Geospatial data refers to information that is associated with a physical locatio
          <li>How to deal with different coordinate systems (CRS).</li>
       </ol>
     </dd>
-    <dt>Implications</dt>
-    <dd id="implications"></dd>
   </dl>
 </div>
