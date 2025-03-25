@@ -81,6 +81,11 @@ var respecConfig = {
         "company" : "Logius",
         "companyURL" : "https://www.logius.nl",
         "name" : "Martin van der Plas"
+      },
+      { 
+        "company" : "Logius",
+        "companyURL" : "https://www.logius.nl",
+        "name" : "Tim van der Lippe"
       }
     ],
   github: "https://github.com/Logius-standaarden/API-Design-Rules",
