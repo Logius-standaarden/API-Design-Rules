@@ -118,11 +118,6 @@ A resource describing a single thing is called a [=singular resource=]. Resource
             <li>The API, application and infrastructure need to be able to evolve independently to ease the task of maintaining backwards compatibility for APIs during an agile development process.</li>
             <li>The API design of Convenience,- and Process API types (as described in <a href="https://docs.geostandaarden.nl/api/def-hr-API-Strategie-20200204/#aanbeveling-2-analyseer-welke-api-s-je-aan-moet-bieden-welke-informatievragen-wil-je-beantwoorden">Aanbeveling 2</a> of the NL API Strategie) SHOULD not be a 1-on-1 mapping of the underlying domain- or persistence model.</li>
             <li>The API design of a System API type (as described in <a href="https://docs.geostandaarden.nl/api/def-hr-API-Strategie-20200204/#aanbeveling-2-analyseer-welke-api-s-je-aan-moet-bieden-welke-informatievragen-wil-je-beantwoorden">Aanbeveling 2</a> of the NL API Strategie) MAY be a mapping of the underlying  persistence model.</li>
-         </ul>
-      </dd>
-      <dt>Implications</dt>
-      <dd>
-         <ul>
             <li>The API SHOULD not expose information about the technical components being used, such as development platforms/frameworks or database systems.</li>
             <li>The API SHOULD offer client-friendly attribute names and values, while persisted data may contain abbreviated terms or serializations which might be cumbersome for consumption.</li>
          </ul>
@@ -287,11 +282,12 @@ Although the REST architectural style does not impose a specific protocol, REST 
       </dd>
       <dt>Rationale</dt>
       <dd>
-         The HTTP protocol [[rfc9110]] specifies whether an HTTP method SHOULD be considered safe and/or idempotent. These characteristics are important for clients and middleware applications, because they SHOULD be taken into account when implementing caching and fault tolerance strategies.
-      </dd>
-      <dt>Implications</dt>
-      <dd>
-         Request methods are considered <i>safe</i> if their defined semantics are essentially read-only; i.e., the client does not request, and does not expect, any state change on the origin server as a result of applying a safe method to a target resource. A request method is considered <i>idempotent</i> if the intended effect on the server of multiple identical requests with that method is the same as the effect for a single such request.
+         <p>
+            The HTTP protocol [[rfc9110]] specifies whether an HTTP method SHOULD be considered safe and/or idempotent. These characteristics are important for clients and middleware applications, because they SHOULD be taken into account when implementing caching and fault tolerance strategies.
+         </p>
+         <p>
+            Request methods are considered <i>safe</i> if their defined semantics are essentially read-only; i.e., the client does not request, and does not expect, any state change on the origin server as a result of applying a safe method to a target resource. A request method is considered <i>idempotent</i> if the intended effect on the server of multiple identical requests with that method is the same as the effect for a single such request.
+         </p>
       </dd>
    </dl>
 </div>
