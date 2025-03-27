@@ -610,7 +610,7 @@ servers:
       </dd>
       <dt>How to test</dt>
       <dd>
-         A response MUST include the header "API-Version" with a number matching the version number set in the `info.version` field of the OpenAPI Description.
+         A response includes a header "API-Version" with a number matching the version number set in the `info.version` field of the OpenAPI Description.
       </dd>
    </dl>
 </div>
