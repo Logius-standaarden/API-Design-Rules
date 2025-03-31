@@ -27,7 +27,3 @@
   text-decoration: underline dotted;
   text-transform: capitalize;
 }
-
-#toc-nav > a {
-  color: black !important;
-}

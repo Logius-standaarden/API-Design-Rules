@@ -21,7 +21,7 @@
    respecConfig.localBiblio = {...organisationConfig.localBiblio, ...respecConfig.localBiblio};
   </script>
   <link href="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/logius.ico" rel="shortcut icon" type="image/x-icon"/>
-  <script async="" class="remove" src="js/respec-nlgov.js">
+  <script async="" class="remove" src="https://gitdocumentatie.logius.nl/publicatie/respec/builds/respec-nlgov.js">
   </script>
   <script class="remove" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js">
   </script>
@@ -30,30 +30,32 @@
  </head>
  <!-- HTML-Body ================================================================================ -->
  <body>
-  <section data-include="Abstract.md" data-include-format="markdown" id="abstract">
-  </section>
-  <section class="notoc" id="conformance">
-  </section>
-  <section id="sotd">
-  </section>
-  <div data-include="SOTD.md" data-include-format="markdown">
-  </div>
-  <!-- vanaf hier per hoofdstuk een sectie of een div in het document ======================== -->
-  <!-- Secties komen in de inhoudsopgave div"s niet ========================================== -->
-  <!-- Secties hebben verplicht <h2> tags, div"s niet ======================================== -->
-  <section class="informative" data-include="Introduction.md" data-include-format="markdown">
-  </section>
-  <section data-include="Summary.md" data-include-format="markdown">
-  </section>
-  <section data-include="DesignRules.md" data-include-format="markdown">
-  </section>
-  <section data-include="Glossary.md" data-include-format="markdown">
-  </section>
-  <section class="appendix informative">
-    <h2>Spectral linter configuration</h2>
-    <details class="spectral-yaml">
-      <pre><code></code></pre>
-    </details>
-  </section>
+  <main role="main">
+    <section data-include="Abstract.md" data-include-format="markdown" id="abstract">
+    </section>
+    <section class="notoc" id="conformance">
+    </section>
+    <section id="sotd">
+    </section>
+    <div data-include="SOTD.md" data-include-format="markdown">
+    </div>
+    <!-- vanaf hier per hoofdstuk een sectie of een div in het document ======================== -->
+    <!-- Secties komen in de inhoudsopgave div"s niet ========================================== -->
+    <!-- Secties hebben verplicht <h2> tags, div"s niet ======================================== -->
+    <section class="informative" data-include="Introduction.md" data-include-format="markdown">
+    </section>
+    <section data-include="Summary.md" data-include-format="markdown">
+    </section>
+    <section data-include="DesignRules.md" data-include-format="markdown">
+    </section>
+    <section data-include="Glossary.md" data-include-format="markdown">
+    </section>
+    <section class="appendix informative">
+      <h2>Spectral linter configuration</h2>
+      <details class="spectral-yaml">
+        <pre><code></code></pre>
+      </details>
+    </section>
+  </main>
  </body>
 </html>
