@@ -176,8 +176,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
                </tr>
             </tbody>
          </table>
-      </dd>
-      <div class="example">The following table shows some examples of the use of standard HTTP methods:
+         <div class="example">The following table shows some examples of the use of standard HTTP methods:
       <table>
       <thead>
       <tr>
@@ -219,6 +218,11 @@ Although the REST architectural style does not impose a specific protocol, REST 
   According to <a href="https://www.rfc-editor.org/rfc/rfc9110#name-overview">RFC 9110 9.1</a> the <code>GET</code> and <code>HEAD</code> HTTP methods MUST be supported by the server, all other methods are optional.<br>
   In addition to the standard HTTP methods, a server may support other optional methods as well, e.g. <code>PROPFIND</code>, <code>COPY</code>, <code>PURGE</code>, <code>VIEW</code>, <code>LINK</code>, <code>UNLINK</code>, <code>LOCK</code>, <code>UNLOCK</code>, etc.<br>
   If an optional HTTP request method is sent to a server and the server does not support that HTTP method for the target resource, an HTTP status code <code>405 Method Not Allowed</code> shall be returned and a list of allowed methods for the target resource shall be provided in the <code>Allow</code> header in the response as stated in <a href="https://www.rfc-editor.org/rfc/rfc9110#name-405-method-not-allowed">RFC 9110 15.5.6</a>.</p>
+      </dd>
+      <dt>Implications</dt>
+      <dd>
+         This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific testscripts are published in the [[ADR-Validator]] repository.
+      </dd>
       <dt>How to test</dt>
       <dd>
 		Analyse the OpenAPI Description to confirm all supported methods are either `post`, `put`, `get`, `delete`, or `patch`.
@@ -354,8 +358,7 @@ Resources are often interconnected by relationships. Relationships can be modell
       <dt>Rationale</dt>
       <dd>
          In this use case, the child resource does not necessarily have a top-level collection resource. The best way to explain this design rule is by example.
-      </dd>
-    <div class="example">
+         <div class="example">
     <p>When modelling resources for a news platform including the ability for users to write comments, it might be a good strategy to model the [=collection resources=] hierarchically:</p>
     <pre class="nohighlight">https://api.example.org/v1/articles/123/comments</pre>
     <p>The platform might also offer a photo section, where the same commenting functionality is offered. In the same way as for articles, the corresponding sub-collection resource might be published at:</p>
@@ -367,7 +370,8 @@ Resources are often interconnected by relationships. Relationships can be modell
     <p>The [=singular resources=] for comments, referenced from all 3 collections, could still be modelled on a higher level to avoid deep nesting of URIs (which might increase complexity or problems due to the URI length):</p>
     <pre class="nohighlight">https://api.example.org/v1/comments/123<br />https://api.example.org/v1/comments/456</pre>
     <p>Although this approach might seem counterintuitive from a technical perspective (we simply could have modelled a single <code>/comments</code> resource with optional filters for article and photo) and might introduce partially redundant functionality, it makes perfect sense from the perspective of the consumer, which increases developer experience.</p>
-  </div>
+         </div>
+      </dd>
 </div>
 
 ## Operations
