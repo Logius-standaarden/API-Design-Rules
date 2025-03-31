@@ -28,8 +28,6 @@ The REST architectural style is centered around the concept of a [=resource=]. A
    <dd>
    Resources describe objects not actions.
    </dd>
-   <dt>Implications</dt>
-   <dd id="implications"></dd>
 </dl>
 </div>
 
@@ -61,8 +59,6 @@ A resource describing a single thing is called a [=singular resource=]. Resource
             <pre class="nohighlight">https://api.example.org/v1/gebruikersprofiel</pre>
          </div>
       </dd>
-      <dt>Implications</dt>
-      <dd id="implications"></dd>
    </dl>
 </div>
 
@@ -79,8 +75,6 @@ A resource describing a single thing is called a [=singular resource=]. Resource
          The exact meaning of concepts is often lost in translation. Publishing an API for an international audience might also be a reason to define interfaces in English.
          Note that glossaries exist that define useful sets of attributes which SHOULD preferably be reused. Examples can be found at <a href="http://schema.org/docs/schemas.html">schema.org</a>.
       </dd>
-      <dt>Implications</dt>
-      <dd id="implications"></dd>
    </dl>
 </div>
 
@@ -102,13 +96,9 @@ A resource describing a single thing is called a [=singular resource=]. Resource
             <pre class="nohighlight">https://api.example.org/v1/gebouwen/</pre>
          </div>
       </dd>
-      <dt>Implications</dt>
-      <dd>
-         This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific tests are published in the [[ADR-Validator]] repository.
-      </dd>
       <dt>How to test</dt>
       <dd>
-         Loop all resource paths in the OpenAPI Description and check that no resources paths end with a forward slash (<code>/</code>).
+         Analyse all resource paths in the OpenAPI Description to confirm no resource paths end with a forward slash (<code>/</code>).
       </dd>
    </dl>
 </div>
@@ -128,11 +118,6 @@ A resource describing a single thing is called a [=singular resource=]. Resource
             <li>The API, application and infrastructure need to be able to evolve independently to ease the task of maintaining backwards compatibility for APIs during an agile development process.</li>
             <li>The API design of Convenience,- and Process API types (as described in <a href="https://docs.geostandaarden.nl/api/def-hr-API-Strategie-20200204/#aanbeveling-2-analyseer-welke-api-s-je-aan-moet-bieden-welke-informatievragen-wil-je-beantwoorden">Aanbeveling 2</a> of the NL API Strategie) SHOULD not be a 1-on-1 mapping of the underlying domain- or persistence model.</li>
             <li>The API design of a System API type (as described in <a href="https://docs.geostandaarden.nl/api/def-hr-API-Strategie-20200204/#aanbeveling-2-analyseer-welke-api-s-je-aan-moet-bieden-welke-informatievragen-wil-je-beantwoorden">Aanbeveling 2</a> of the NL API Strategie) MAY be a mapping of the underlying  persistence model.</li>
-         </ul>
-      </dd>
-      <dt>Implications</dt>
-      <dd>
-         <ul>
             <li>The API SHOULD not expose information about the technical components being used, such as development platforms/frameworks or database systems.</li>
             <li>The API SHOULD offer client-friendly attribute names and values, while persisted data may contain abbreviated terms or serializations which might be cumbersome for consumption.</li>
          </ul>
@@ -234,13 +219,9 @@ Although the REST architectural style does not impose a specific protocol, REST 
   In addition to the standard HTTP methods, a server may support other optional methods as well, e.g. <code>PROPFIND</code>, <code>COPY</code>, <code>PURGE</code>, <code>VIEW</code>, <code>LINK</code>, <code>UNLINK</code>, <code>LOCK</code>, <code>UNLOCK</code>, etc.<br>
   If an optional HTTP request method is sent to a server and the server does not support that HTTP method for the target resource, an HTTP status code <code>405 Method Not Allowed</code> shall be returned and a list of allowed methods for the target resource shall be provided in the <code>Allow</code> header in the response as stated in <a href="https://www.rfc-editor.org/rfc/rfc9110#name-405-method-not-allowed">RFC 9110 15.5.6</a>.</p>
       </dd>
-      <dt>Implications</dt>
-      <dd>
-         This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific testscripts are published in the [[ADR-Validator]] repository.
-      </dd>
       <dt>How to test</dt>
       <dd>
-         The OpenAPI Description MUST NOT include non standard HTTP methods for retrieving or manipulating resources.
+		Analyse the OpenAPI Description to confirm all supported methods are either `post`, `put`, `get`, `delete`, or `patch`.
       </dd>
    </dl>
 </div>
@@ -301,11 +282,12 @@ Although the REST architectural style does not impose a specific protocol, REST 
       </dd>
       <dt>Rationale</dt>
       <dd>
-         The HTTP protocol [[rfc9110]] specifies whether an HTTP method SHOULD be considered safe and/or idempotent. These characteristics are important for clients and middleware applications, because they SHOULD be taken into account when implementing caching and fault tolerance strategies.
-      </dd>
-      <dt>Implications</dt>
-      <dd>
-         Request methods are considered <i>safe</i> if their defined semantics are essentially read-only; i.e., the client does not request, and does not expect, any state change on the origin server as a result of applying a safe method to a target resource. A request method is considered <i>idempotent</i> if the intended effect on the server of multiple identical requests with that method is the same as the effect for a single such request.
+         <p>
+            The HTTP protocol [[rfc9110]] specifies whether an HTTP method SHOULD be considered safe and/or idempotent. These characteristics are important for clients and middleware applications, because they SHOULD be taken into account when implementing caching and fault tolerance strategies.
+         </p>
+         <p>
+            Request methods are considered <i>safe</i> if their defined semantics are essentially read-only; i.e., the client does not request, and does not expect, any state change on the origin server as a result of applying a safe method to a target resource. A request method is considered <i>idempotent</i> if the intended effect on the server of multiple identical requests with that method is the same as the effect for a single such request.
+         </p>
       </dd>
    </dl>
 </div>
@@ -322,8 +304,6 @@ Although the REST architectural style does not impose a specific protocol, REST 
          <p>The server SHOULD NOT only use `200` for success and `404` for error states. Use the semantically appropriate status code for success or failure.
          <p>In case of an error, the server SHOULD NOT pass technical details (e.g. call stacks or other internal hints) to the client. The error message SHOULD be generic to avoid revealing additional details and expose internal information which can be used with malicious intent.
       </dd>
-      <dt>Implications</dt>
-      <dd id="implications"></dd>
    </dl>
 </div>
 
@@ -355,8 +335,6 @@ Stateless communication offers many advantages, including:
       <dd>
          To achieve full decoupling between client and server, and to benefit from the advantages mentioned above, no session state MUST reside on the server. Session state MUST therefore reside entirely on the client.
       </dd>
-      <dt>Implications</dt>
-      <dd id="implications"></dd>
    </dl>
    <p class="note">The client of a REST API could be a variety of applications such as a browser application, a mobile or desktop application and even another server serving as a backend component for another client. REST APIs should therefore be completely client-agnostic.</p>
 </div>
@@ -390,8 +368,6 @@ Resources are often interconnected by relationships. Relationships can be modell
     <p>Although this approach might seem counterintuitive from a technical perspective (we simply could have modelled a single <code>/comments</code> resource with optional filters for article and photo) and might introduce partially redundant functionality, it makes perfect sense from the perspective of the consumer, which increases developer experience.</p>
          </div>
       </dd>
-      <dt>Implications</dt>
-      <dd id="implications"></dd>
 </div>
 
 ## Operations
@@ -413,8 +389,6 @@ Resources are often interconnected by relationships. Relationships can be modell
          <li>In exceptional cases, the approaches above still don't offer an appropriate solution. An example of such an operation is a global search across multiple resources. In this case, the creation of a dedicated resource, possibly nested under an existing resource, is the most obvious solution. Use the imperative mood of a verb, maybe even prefix it with a underscore to distinguish these resources from regular resources. For example: <code>/search</code> or <code>/_search</code>. Depending on the operation characteristics, <code>GET</code> and/or <code>POST</code> method MAY be supported for such a resource.</li>
       </ol>
       </dd>
-      <dt>Implications</dt>
-      <dd id="implications"></dd>
    </dl> 
 </div>
 
@@ -435,22 +409,14 @@ An API is as good as the accompanying documentation. The documentation has to be
          The OpenAPI Specification (OAS) [[OPENAPIS]] defines a standard, language-agnostic interface to RESTful APIs which allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection. When properly defined, a consumer can understand and interact with the remote service with a minimal amount of implementation logic.
          API documentation MUST be provided in the form of an OpenAPI definition document which conforms to the OpenAPI Specification (from v3 onwards). As a result, a variety of tools can be used to render the documentation (e.g. Swagger UI or ReDoc) or automate tasks such as testing or code generation. The OAS document SHOULD provide clear descriptions and examples.
       </dd>
-      <dt>Implications</dt>
-      <dd>
-         This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific tests are published in the [[ADR-Validator]] repository.
-      </dd>
       <dt>How to test</dt>
       <dd>
-         <ul>
-            <li> Step 1: The API MUST meet the prerequisets to be tested. These include that an OAS file is publicly available, parsable, all $refs are resolvable and paths are defined.</li>
-            <li> Step 2: Check the specification type.</li>
-            <li> Step 3: All references MUST be publicly resolvable, including the external references.</li>
-         </ul>
+         Parse the resource at the provided location as an OpenAPI Description and confirm all $refs are resolvable and paths are defined.
       </dd>
    </dl>
 </div>
 
-<div class="rule" id="/core/doc-openapi-contact" data-type="functional">
+<div class="rule" id="/core/doc-openapi-contact" data-type="technical">
   <p class="rulelab">Document contact information for publicly available APIs</p>
   <dl>
       <dt>Statement</dt>
@@ -469,12 +435,9 @@ An API is as good as the accompanying documentation. The documentation has to be
 }</code></pre>
          </div>
       </dd>
-      <dt>Implications</dt>
-      <dd>
-         This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific tests are published in the [[ADR-Validator]] repository.
-      </dd>
       <dt>How to test</dt>
       <dd>
+		Parse the OpenAPI Description to confirm the <code>info.contact</code> object is present.
       </dd>
    </dl>
 </div>
@@ -491,8 +454,6 @@ An API is as good as the accompanying documentation. The documentation has to be
       <dd>
          In line with design rule <a href="#/core/interface-language">/core/interface-language</a>, the OAS document (e.g. descriptions and examples) SHOULD be written in Dutch. If relevant, you MAY refer to existing documentation written in English.
       </dd>
-      <dt>Implications</dt>
-      <dd id="implications"></dd>
    </dl>
 </div>
 
@@ -515,10 +476,6 @@ An API is as good as the accompanying documentation. The documentation has to be
             <p>Optionally, the same OAS document MAY be provided in YAML format:</p>
             <pre class="nohighlight">https://api.example.org/v1/openapi.yaml</pre>
          </div>
-      </dd>
-      <dt>Implications</dt>
-      <dd>
-         This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific tests are published in the [[ADR-Validator]] repository.
       </dd>
       <dt>How to test</dt>
       <dd>
@@ -548,8 +505,6 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       <dd>
          Managing change is important. In general, well documented and timely communicated deprecation schedules are the most important for API users. When deprecating features or versions, a deprecation schedule MUST be published. This document SHOULD be published on a public web page. Furthermore, active clients SHOULD be informed by e-mail once the schedule has been updated or when versions have reached end-of-life.
       </dd>
-      <dt>Implications</dt>
-	  <dd id="implications"></dd>
    </dl>
 </div>
 
@@ -565,8 +520,6 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       <dd>
          When releasing a new major API version, the old version MUST remain available for a limited and fixed deprecation period. Offering a deprecation period allows clients to carefully plan and execute the migration from the old to the new API version, as long as they do this prior to the end of the deprecation period. A maximum of 2 major API versions MAY be published concurrently.
       </dd>
-      <dt>Implications</dt>
-	  <dd id="implications"></dd>
    </dl>
 </div>
 
@@ -593,17 +546,9 @@ servers:
    url: https://api.example.org/v1</code></pre>
       </div>
       </dd>
-      <dt>Implications</dt>
-      <dd>
-         This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific tests are published in the [[ADR-Validator]] repository.
-      </dd>
       <dt>How to test</dt>
       <dd>
-         <ul>
-            <li> Step 1: The base path MUST contain a version number.</li>
-            <li> Step 2: Each url of the server object of the OpenAPI Description MUST include a version number.</li>
-            <li> Step 3: The major number of the version in the OAS file MUST be the same as the version in the base path.</li>
-         </ul>
+		Parse the `url` field in the `servers` mentioned in the OpenAPI Description to confirm the a version number is present with prefix <code>v</code> and only contains the *major* version number.
       </dd>
    </dl>
 </div>
@@ -620,8 +565,6 @@ servers:
       <dd>
          <p>When releasing new (major, minor or patch) versions, all API changes MUST be documented properly in a publicly available changelog.</p>
       </dd>
-      <dt>Implications</dt>
-	  <dd id="implications"></dd>
    </dl>
 </div>
 
@@ -637,13 +580,9 @@ servers:
       <dd>
          Version numbering MUST follow the Semantic Versioning [[SemVer]] model to prevent breaking changes when releasing new API versions. Release versions are formatted using the <code>major.minor.patch</code> template (examples: 1.0.2, 1.11.0). Pre-release versions MAY be denoted by appending a hyphen and a series of dot separated identifiers (examples: 1.0.2-rc.1, 2.0.0-beta.3). When releasing a new version which contains backwards-incompatible changes, a new major version MUST be released. Minor and patch releases MAY only contain backwards compatible changes (e.g. the addition of an endpoint or an optional attribute).
       </dd>
-      <dt>Implications</dt>
-      <dd>
-         This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific tests are published in the [[ADR-Validator]] repository.
-      </dd>
       <dt>How to test</dt>
       <dd>
-         The "API-Version" response header MUST comply with Semantic Versioning.
+         Parse the `info.version` field in the OpenAPI Description to confirm it adheres to the Semantic Versioning format.
       </dd>
    </dl>
 </div>
@@ -665,13 +604,9 @@ servers:
             <pre class="nohighlight">API-Version: 1.0.2</pre>
          </div>
       </dd>
-      <dt>Implications</dt>
-      <dd>
-         This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific tests are published in the [[ADR-Validator]] repository.
-      </dd>
       <dt>How to test</dt>
       <dd>
-         A response MUST include the header "API-Version".
+         A response includes a header "API-Version" with a number matching the version number set in the `info.version` field of the OpenAPI Description.
       </dd>
    </dl>
 </div>
@@ -702,10 +637,6 @@ Note: security controls for signing and encrypting of application level messages
     <dd>
         <p>Since the connection is always secured, the access method can be straightforward. This allows the application of basic access tokens instead of encrypted access tokens.
     </dd>
-    <dt>Implications</dt>
-    <dd>
-        This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific tests are published in the [[ADR-Validator]] repository.
-    </dd>
     <dt>How to test</dt>
     <dd>
         <p>The usage of TLS is machine testable. Follow the latest NCSC guidelines on what is required to test. The serverside is what will be tested, only control over the server is assumed for testing. A testing client will be employed to test adherence of the server. Supporting any protocols, algorithms, key sizes, options or ciphers that are deemed insufficient or phased out by NCSC will lead to failure on the automated test. Both positive and negative scenarios are part of the test: testing that a subset of *Good* and *Sufficient* configurations are supported and configurations deemed  *Insufficient* or marked for *Phase out*. A manual exception to the automated test results can be made when configurations designated for *Phase out* are supported; The API provider will have to provide clear documentation regarding the phase out schedule.  
@@ -725,10 +656,6 @@ Note: security controls for signing and encrypting of application level messages
       <dd>
          <p>Even when using TLS connections, information in URIs is not secured. URIs can be cached and logged outside of the servers controlled by clients and servers. Any information contained in them should therefore be considered readable by anyone with access to the network (in the case of the internet, the whole world) and MUST NOT contain any sensitive information. This includes client secrets used for authentication, privacy sensitive information suchs as BSNs or any other information which should not be shared. 
          <p>Be aware that queries (anything after the '?' in a URI) are also part of an URI.
-      </dd>
-      <dt>Implications</dt>
-      <dd>
-         Adherence to this rule needs to be manually verified.
       </dd>
    </dl>
 </div>
@@ -843,10 +770,6 @@ As for outbound filtering, the main concern is leaking of information.
          </table>
          <p>In addition to the above listed HTTP security headers, web- and browser-based applications SHOULD apply [[[SRI]]]. When using third-party hosted contents, e.g. using a Content Delivery Network, this is even more relevant. While this is primarily a client implementation concern, it may affect the API when it is not strictly segregated or for example when shared supporting libraries are offered.
       </dd>
-      <dt>Implications</dt>
-      <dd>
-         This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific tests are published in the [[ADR-Validator]] repository.
-      </dd>
       <dt>How to test</dt>
       <dd>
          <p>The precense of the mandatory security headers can be tested in an automated way. A test client makes a call to the API root. The response is tested for the precense of mandatory headers.
@@ -866,10 +789,6 @@ As for outbound filtering, the main concern is leaking of information.
       <dd>
          <p>Modern web browsers use Cross-Origin Resource Sharing (CORS) to minimize the risk associated with cross-site HTTP-requests. By default browsers only allow 'same origin' access to resources. This means that responses on requests to another `[scheme]://[hostname]:[port]` than the `Origin` request header of the initial request will not be processed by the browser. To enable cross-site requests API's can return a `Access-Control-Allow-Origin` response header. An allowlist SHOULD be used to determine the validity of different cross-site request. To do this check the `Origin` header of the incoming request and check if the domain in this header is on the whitelist. If this is the case, set the incoming `Origin` header in the `Access-Control-Allow-Origin` response header.
          <p>Using a wildcard `*` in the `Access-Control-Allow-Origin` response header is NOT RECOMMENDED, because it disables CORS-security measures. Only for an open API which has to be accessed by numerous other websites this is appropriate.
-      </dd>
-      <dt>Implications</dt>
-      <dd>
-         This rule can be tested automatically and an example of the test is included in the automatic tests on <a href="https://developer.overheid.nl/">developer.overheid.nl</a>. The specific tests are published in the [[ADR-Validator]] repository.
       </dd>
       <dt>How to test</dt>
       <dd>
@@ -925,7 +844,5 @@ Geospatial data refers to information that is associated with a physical locatio
          <li>How to deal with different coordinate systems (CRS).</li>
       </ol>
     </dd>
-    <dt>Implications</dt>
-    <dd id="implications"></dd>
   </dl>
 </div>

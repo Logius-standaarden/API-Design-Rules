@@ -69,6 +69,15 @@ function processRuleBlocks(config, document) {
     if (flagType === 'technical') {
       flagTitle = 'This is a technical design rule and hence should be tested automatically.';
       technicalRules.push(ruleLabElement);
+
+      if (spectralConfiguration.includes(`#${ruleId}`)) {
+        const lastDataListItem = rule.querySelector('dt:last-of-type');
+        if (lastDataListItem.textContent !== 'How to test') {
+          throw new Error(`Last element should be the "How to test" section. Found ${lastDataListItem.outerHTML}`);
+        }
+        const howToTest = rule.querySelector('dd:last-of-type');
+        howToTest.innerHTML += `This rule can be automatically checked and an example test is shown in the <a href="#:~:text=${encodeURIComponent(`#${ruleId}`).replaceAll('-', '%2D')}">linter configuration</a>.`;
+      }
     } else if (flagType === 'functional') {
       flagTitle = 'This is a functional design rule and hence cannot be tested automatically.';
       functionalRules.push(ruleLabElement);
