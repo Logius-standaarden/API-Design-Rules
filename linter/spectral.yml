@@ -1,5 +1,21 @@
-# spectral lint -r https://developer.overheid.nl/static/adr/ruleset.yaml $OAS_URL_OR_FILE
-# curl https://developer.overheid.nl/static/adr/ruleset.yaml > .spectral.yml
+# Deze linter configuratie is geschreven voor Spectral. Voor meer informatie over
+# die tool, zie https://stoplight.io/open-source/spectral
+#
+# De linter configuratie wordt tevens gehost op https://developer.overheid.nl (DON).
+# Deze kan worden gebruikt in onder andere CI systemen voor live updates van de
+# configuratie.
+#
+# Voor meer informatie hierover, zie de kennisbank van DON:
+# https://developer.overheid.nl/kennisbank/apis/tools/api-design-rules-linter
+#
+# Hierbij ook de ingevoegde instructies die kunnen worden gekopieerd om de linter
+# te draaien:
+#
+# ```
+# npm install -g @stoplight/spectral-cli
+# curl -L https://static.developer.overheid.nl/adr/ruleset.yaml > .spectral.yml
+# spectral lint -r .spectral.yml $OAS_URL_OR_FILE
+# ```
 
 extends: spectral:oas
 
