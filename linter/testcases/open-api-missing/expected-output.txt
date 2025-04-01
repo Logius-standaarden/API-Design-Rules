@@ -1,0 +1,5 @@
+
+/testcases/open-api-missing/openapi.json
+ 28:13  error  paths-open-api-json-resource-exists  There does not exist a resource `/openapi.json` that returns the OpenAPI specification document  paths
+
+✖ 1 problem (1 error, 0 warnings, 0 infos, 0 hints)
