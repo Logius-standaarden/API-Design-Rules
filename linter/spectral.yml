@@ -4,6 +4,7 @@
 extends: spectral:oas
 
 rules:
+  oas3-api-servers: error
 
   #/core/doc-openapi
   openapi3:
