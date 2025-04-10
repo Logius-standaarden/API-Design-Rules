@@ -1,6 +1,7 @@
 
 /testcases/cor-api/openapi.json
- 181:29  warning  paths-kebab-case    /laatsteWijziging is not kebab-case.                                                                                   paths./laatsteWijziging
- 774:30  warning  use-problem-schema  Your schema doesn't seem to match RFC7807. Are you sure it is ok? #/components/schemas/HealthCheckResponse/properties  components.schemas.HealthCheckResponse.properties
+ 154:35    error  paths-open-api-json-specify-cors-header  The response of the `/openapi.json` resource should set the `access-control-allow-origin` header with value `*`        paths./openapi.json.get.responses[200].headers
+ 181:29  warning  paths-kebab-case                         /laatsteWijziging is not kebab-case.                                                                                   paths./laatsteWijziging
+ 774:30  warning  use-problem-schema                       Your schema doesn't seem to match RFC7807. Are you sure it is ok? #/components/schemas/HealthCheckResponse/properties  components.schemas.HealthCheckResponse.properties
 
-✖ 2 problems (0 errors, 2 warnings, 0 infos, 0 hints)
+✖ 3 problems (1 error, 2 warnings, 0 infos, 0 hints)

@@ -74,6 +74,36 @@ rules:
       field: "@key"
     message: "/core/no-trailing-slash: Leave off trailing slashes from URIs: https://logius-standaarden.github.io/API-Design-Rules/#/core/no-trailing-slash"
 
+  #/core/publish-openapi
+  paths-open-api-json-resource-exists:
+    severity: error
+    given:
+      - "$.paths"
+    then:
+      function: truthy
+      field: "/openapi.json"
+    message: "There does not exist a resource `/openapi.json` that returns the OpenAPI specification document"
+
+  paths-open-api-json-resource-has-get:
+    severity: error
+    given:
+      - "$.paths[/openapi.json]"
+    then:
+      function: pattern
+      functionOptions:
+        match: "get"
+      field: "@key"
+    message: "There does not exist a GET method (and no other methods) for the `/openapi.json` resource"
+
+  paths-open-api-json-specify-cors-header:
+    severity: error
+    given:
+      - $.paths[/openapi.json].get.responses[?(@property && @property.match(/(2|3)\d\d/))].headers
+    then:
+      function: truthy
+      field: "access-control-allow-origin"
+    message: "The response of the `/openapi.json` resource should set the `access-control-allow-origin` header with value `*`"
+
   #/core/http-methods
   http-methods:
     severity: error

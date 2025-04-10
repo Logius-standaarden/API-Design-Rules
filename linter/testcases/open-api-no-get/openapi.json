@@ -27,12 +27,12 @@
     ],
     "paths": {
         "/openapi.json": {
-            "get": {
+            "post": {
                 "tags": [
                     "openapi"
                 ],
                 "description": "OpenAPI document",
-                "operationId": "getOpenapiJSON",
+                "operationId": "pushOpenapiJSON",
                 "parameters": [],
                 "responses": {
                     "200": {

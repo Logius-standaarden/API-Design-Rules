@@ -44,12 +44,6 @@
                                 "schema": {
                                     "type": "string"
                                 }
-                            },
-                            "access-control-allow-origin": {
-                                "description": "Alle origins mogen bij deze resource",
-                                "schema": {
-                                    "type": "string"
-                                }
                             }
                         }
                     }
