@@ -155,11 +155,11 @@ rules:
     given: $..[responses][?(@property && @property.match(/^(4|5|default)/))].content
     then:
       function: schema
-            functionOptions:
-              schema:
-                anyOf:
-                  - required: ["application/problem+json"]
-                  - required: ["application/problem+xml"]
+      functionOptions:
+        schema:
+          anyOf:
+            - required: ["application/problem+json"]
+            - required: ["application/problem+xml"]
 
   property-casing:
     severity: warn
