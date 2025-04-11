@@ -154,8 +154,12 @@ rules:
     message: Your schema doesn't seem to match RFC 9457. Are you sure it is ok? {{path}}
     given: $..[responses][?(@property && @property.match(/^(4|5|default)/))].content
     then:
-      field: "application/problem+json"
-      function: truthy
+      function: schema
+            functionOptions:
+              schema:
+                anyOf:
+                  - required: ["application/problem+json"]
+                  - required: ["application/problem+xml"]
 
   property-casing:
     severity: warn
