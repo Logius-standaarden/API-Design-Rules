@@ -151,8 +151,8 @@ rules:
 
   use-problem-schema:
     severity: warn
-    message: Your schema doesn't seem to match RFC 9457. Are you sure it is ok? {{path}}
-    given: $..[responses][?(@property && @property.match(/^(4|5|default)/))].content
+    message: "The content type of an error response should be application/problem+json or application/problem+xml to match RFC 9457."
+    given: $..[responses][?(@property && @property.match(/(4|5)\d\d/))].content
     then:
       function: schema
       functionOptions:
