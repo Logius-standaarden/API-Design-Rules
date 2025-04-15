@@ -1,7 +1,29 @@
 
 /testcases/cor-api/openapi.json
- 154:35    error  paths-open-api-json-specify-cors-header  The response of the `/openapi.json` resource should set the `access-control-allow-origin` header with value `*`        paths./openapi.json.get.responses[200].headers
- 181:29  warning  paths-kebab-case                         /laatsteWijziging is not kebab-case.                                                                                   paths./laatsteWijziging
- 774:30  warning  use-problem-schema                       Your schema doesn't seem to match RFC7807. Are you sure it is ok? #/components/schemas/HealthCheckResponse/properties  components.schemas.HealthCheckResponse.properties
+  70:35  warning  use-problem-schema                       Your schema doesn't seem to match RFC 9457. Are you sure it is ok? #/paths/~1heartbeat/get/responses/429/content                paths./heartbeat.get.responses[429].content
+  80:35  warning  use-problem-schema                       Your schema doesn't seem to match RFC 9457. Are you sure it is ok? #/paths/~1heartbeat/get/responses/503/content                paths./heartbeat.get.responses[503].content
+ 154:35    error  paths-open-api-json-specify-cors-header  The response of the `/openapi.json` resource should set the `access-control-allow-origin` header with value `*`                 paths./openapi.json.get.responses[200].headers
+ 181:29  warning  paths-kebab-case                         /laatsteWijziging is not kebab-case.                                                                                            paths./laatsteWijziging
+ 211:35  warning  use-problem-schema                       Your schema doesn't seem to match RFC 9457. Are you sure it is ok? #/paths/~1laatsteWijziging/get/responses/400/content         paths./laatsteWijziging.get.responses[400].content
+ 221:35  warning  use-problem-schema                       Your schema doesn't seem to match RFC 9457. Are you sure it is ok? #/paths/~1laatsteWijziging/get/responses/404/content         paths./laatsteWijziging.get.responses[404].content
+ 231:35  warning  use-problem-schema                       Your schema doesn't seem to match RFC 9457. Are you sure it is ok? #/paths/~1laatsteWijziging/get/responses/405/content         paths./laatsteWijziging.get.responses[405].content
+ 241:35  warning  use-problem-schema                       Your schema doesn't seem to match RFC 9457. Are you sure it is ok? #/paths/~1laatsteWijziging/get/responses/406/content         paths./laatsteWijziging.get.responses[406].content
+ 251:35  warning  use-problem-schema                       Your schema doesn't seem to match RFC 9457. Are you sure it is ok? #/paths/~1laatsteWijziging/get/responses/429/content         paths./laatsteWijziging.get.responses[429].content
+ 261:35  warning  use-problem-schema                       Your schema doesn't seem to match RFC 9457. Are you sure it is ok? #/paths/~1laatsteWijziging/get/responses/500/content         paths./laatsteWijziging.get.responses[500].content
+ 271:35  warning  use-problem-schema                       Your schema doesn't seem to match RFC 9457. Are you sure it is ok? #/paths/~1laatsteWijziging/get/responses/503/content         paths./laatsteWijziging.get.responses[503].content
+ 506:35  warning  use-problem-schema                       Your schema doesn't seem to match RFC 9457. Are you sure it is ok? #/paths/~1organisaties/get/responses/400/content             paths./organisaties.get.responses[400].content
+ 516:35  warning  use-problem-schema                       Your schema doesn't seem to match RFC 9457. Are you sure it is ok? #/paths/~1organisaties/get/responses/404/content             paths./organisaties.get.responses[404].content
+ 526:35  warning  use-problem-schema                       Your schema doesn't seem to match RFC 9457. Are you sure it is ok? #/paths/~1organisaties/get/responses/405/content             paths./organisaties.get.responses[405].content
+ 536:35  warning  use-problem-schema                       Your schema doesn't seem to match RFC 9457. Are you sure it is ok? #/paths/~1organisaties/get/responses/406/content             paths./organisaties.get.responses[406].content
+ 546:35  warning  use-problem-schema                       Your schema doesn't seem to match RFC 9457. Are you sure it is ok? #/paths/~1organisaties/get/responses/429/content             paths./organisaties.get.responses[429].content
+ 556:35  warning  use-problem-schema                       Your schema doesn't seem to match RFC 9457. Are you sure it is ok? #/paths/~1organisaties/get/responses/500/content             paths./organisaties.get.responses[500].content
+ 566:35  warning  use-problem-schema                       Your schema doesn't seem to match RFC 9457. Are you sure it is ok? #/paths/~1organisaties/get/responses/503/content             paths./organisaties.get.responses[503].content
+ 684:35  warning  use-problem-schema                       Your schema doesn't seem to match RFC 9457. Are you sure it is ok? #/paths/~1organisaties~1%7Boin%7D/get/responses/400/content  paths./organisaties/{oin}.get.responses[400].content
+ 694:35  warning  use-problem-schema                       Your schema doesn't seem to match RFC 9457. Are you sure it is ok? #/paths/~1organisaties~1%7Boin%7D/get/responses/404/content  paths./organisaties/{oin}.get.responses[404].content
+ 704:35  warning  use-problem-schema                       Your schema doesn't seem to match RFC 9457. Are you sure it is ok? #/paths/~1organisaties~1%7Boin%7D/get/responses/405/content  paths./organisaties/{oin}.get.responses[405].content
+ 714:35  warning  use-problem-schema                       Your schema doesn't seem to match RFC 9457. Are you sure it is ok? #/paths/~1organisaties~1%7Boin%7D/get/responses/406/content  paths./organisaties/{oin}.get.responses[406].content
+ 724:35  warning  use-problem-schema                       Your schema doesn't seem to match RFC 9457. Are you sure it is ok? #/paths/~1organisaties~1%7Boin%7D/get/responses/429/content  paths./organisaties/{oin}.get.responses[429].content
+ 734:35  warning  use-problem-schema                       Your schema doesn't seem to match RFC 9457. Are you sure it is ok? #/paths/~1organisaties~1%7Boin%7D/get/responses/500/content  paths./organisaties/{oin}.get.responses[500].content
+ 744:35  warning  use-problem-schema                       Your schema doesn't seem to match RFC 9457. Are you sure it is ok? #/paths/~1organisaties~1%7Boin%7D/get/responses/503/content  paths./organisaties/{oin}.get.responses[503].content
 
-✖ 3 problems (1 error, 2 warnings, 0 infos, 0 hints)
+✖ 25 problems (1 error, 24 warnings, 0 infos, 0 hints)
