@@ -39,9 +39,12 @@ public class OpenAPIJsonFilter implements OASFilter {
         Content jsonContent =
                 OASFactory.createContent()
                         .addMediaType(MediaType.APPLICATION_JSON, OASFactory.createMediaType());
-        Header apiVersionsHeader =
+        Schema stringSchema = OASFactory.createSchema().addType(Schema.SchemaType.STRING);
+        Header apiVersionsHeader = OASFactory.createHeader().schema(stringSchema);
+        Header corsHeader =
                 OASFactory.createHeader()
-                        .schema(OASFactory.createSchema().addType(Schema.SchemaType.STRING));
+                        .description("Available to all origins")
+                        .schema(stringSchema);
         return OASFactory.createAPIResponses()
                 .addAPIResponse(
                         "200",
@@ -49,6 +52,7 @@ public class OpenAPIJsonFilter implements OASFilter {
                                 .description("Open API specification")
                                 .addHeader(
                                         OpenApiConstants.API_VERSION_HEADER_NAME, apiVersionsHeader)
+                                .addHeader("access-control-allow-origin", corsHeader)
                                 .content(jsonContent));
     }
 }

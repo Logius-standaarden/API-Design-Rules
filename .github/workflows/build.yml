@@ -32,3 +32,24 @@ jobs:
         run: |
           npm install -g @stoplight/spectral-cli
           node linter/run-linter-tests.mjs
+  examples_linter:
+    needs: spectral_linter
+    name: Examples linter tests
+    runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        # Minimum supported and maximum available.
+        example: [ quarkus ]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: 21
+      - name: Install Spectral
+        run: npm install -g @stoplight/spectral-cli
+      - name: Run linter on ${{ matrix.example }} example
+        run: ./examples/${{ matrix.example }}/build-and-check-project.sh
