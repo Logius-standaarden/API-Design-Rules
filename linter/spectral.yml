@@ -70,7 +70,7 @@ rules:
     then:
       function: pattern
       functionOptions:
-        notMatch: "\\/$"
+        notMatch: ".+ \\/$"
       field: "@key"
     message: "/core/no-trailing-slash: Leave off trailing slashes from URIs: https://logius-standaarden.github.io/API-Design-Rules/#/core/no-trailing-slash"
 
@@ -123,7 +123,7 @@ rules:
     then:
       function: pattern
       functionOptions:
-        match: "^(\/[a-z0-9-.]+|\/{[a-zA-Z0-9_]+})+$"
+        match: /^(\/|[a-z0-9\-\.]+|{[a-zA-Z0-9]+})+$/
 
   schema-camel-case:
     severity: warn
