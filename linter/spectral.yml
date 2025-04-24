@@ -31,16 +31,22 @@ rules:
       function: pattern
       functionOptions:
         match: "^3.0.*$"
-    message: "/core/doc-openapi: Use OpenAPI Specification for documentation: https://logius-standaarden.github.io/API-Design-Rules/#/core/doc-openapi"
+    message: "Use OpenAPI Specification for documentation"
 
   #/core/version-header
   missing-version-header:
     severity: error
     given: $..[responses][?(@property && @property.match(/(2|3)\d\d/))][headers]
     then:
-      field: API-Version
-      function: truthy
-    message: "/core/version-header: Return the full version number in a response header: https://logius-standaarden.github.io/API-Design-Rules/#/core/version-header"
+      function: or
+      functionOptions:
+        properties:
+          - API-Version
+          - Api-Version
+          - Api-version
+          - api-version
+          - API-version
+    message: "Return the full version number in a response header"
 
   missing-header:
     severity: error
