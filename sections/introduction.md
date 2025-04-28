@@ -41,6 +41,7 @@ An overview of all current documents is available in this Dutch infographic:
 </figure>
 
 ## Extensions
+
 <aside class="note">
 In addition to this (normative) document, separate modules are being written to provide a set of extensions. These modules are all separate documents and exists in a <a href="https://geonovum.github.io/KP-APIs/">latest editor's draft</a> (<i>Werkversie</i> in Dutch). The latest editor's draft is actively being worked on and can be found on <a href="https://github.com/Geonovum/KP-APIs">GitHub</a>. It contains the most recent changes.
 </aside>

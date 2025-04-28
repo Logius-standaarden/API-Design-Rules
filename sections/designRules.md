@@ -10,7 +10,7 @@ The REST architectural style is centered around the concept of a [=resource=]. A
    <dl>
    <dt>Statement</dt>
    <dd>
-   Resources are referred to using nouns (instead of verbs) that are relevant from the perspective of the user of the API.   
+   Resources are referred to using nouns (instead of verbs) that are relevant from the perspective of the user of the API.
    <div class="example">
       A few correct examples of nouns as part of a URI:
       <ul>
@@ -213,15 +213,15 @@ Although the REST architectural style does not impose a specific protocol, REST 
       </tbody>
       </table>
    </div>
-	<p class="note">The HTTP specification [[rfc9110]] offers a set of standard methods, where every method is designed with explicit semantics. HTTP also defines other methods, e.g. <code>HEAD</code>, <code>OPTIONS</code>, <code>TRACE</code>, and <code>CONNECT</code>.<br>
-	The OpenAPI Specification 3.0 <a href="https://spec.openapis.org/oas/v3.0.1#path-item-object">Path Item Object</a> also supports these methods, except for <code>CONNECT</code>.<br>
+   <p class="note">The HTTP specification [[rfc9110]] offers a set of standard methods, where every method is designed with explicit semantics. HTTP also defines other methods, e.g. <code>HEAD</code>, <code>OPTIONS</code>, <code>TRACE</code>, and <code>CONNECT</code>.<br>
+   The OpenAPI Specification 3.0 <a href="https://spec.openapis.org/oas/v3.0.1#path-item-object">Path Item Object</a> also supports these methods, except for <code>CONNECT</code>.<br>
   According to <a href="https://www.rfc-editor.org/rfc/rfc9110#name-overview">RFC 9110 9.1</a> the <code>GET</code> and <code>HEAD</code> HTTP methods MUST be supported by the server, all other methods are optional.<br>
   In addition to the standard HTTP methods, a server may support other optional methods as well, e.g. <code>PROPFIND</code>, <code>COPY</code>, <code>PURGE</code>, <code>VIEW</code>, <code>LINK</code>, <code>UNLINK</code>, <code>LOCK</code>, <code>UNLOCK</code>, etc.<br>
   If an optional HTTP request method is sent to a server and the server does not support that HTTP method for the target resource, an HTTP status code <code>405 Method Not Allowed</code> shall be returned and a list of allowed methods for the target resource shall be provided in the <code>Allow</code> header in the response as stated in <a href="https://www.rfc-editor.org/rfc/rfc9110#name-405-method-not-allowed">RFC 9110 15.5.6</a>.</p>
       </dd>
       <dt>How to test</dt>
       <dd>
-		Analyse the OpenAPI Description to confirm all supported methods are either `post`, `put`, `get`, `delete`, or `patch`.
+         Analyse the OpenAPI Description to confirm all supported methods are either `post`, `put`, `get`, `delete`, or `patch`.
       </dd>
    </dl>
 </div>
@@ -312,12 +312,14 @@ Although the REST architectural style does not impose a specific protocol, REST 
 One of the key constraints of the REST architectural style is stateless communication between client and server. It means that every request from client to server must contain all of the information necessary to understand the request. The server cannot take advantage of any stored session context on the server as it didn’t memorize previous requests. Session state must therefore reside entirely on the client.
 
 To properly understand this constraint, it's important to make a distinction between two different kinds of state:
+
 * *Session state*: information about the interactions of an end user with a particular client application within the same user session, such as the last page being viewed, the login state or form data in a multi-Step registration process. Session state must reside entirely on the client (e.g. in the user's browser).
 * *Resource state*: information that is permanently stored on the server beyond the scope of a single user session, such as the user's profile, a product purchase or information about a building. Resource state is persisted on the server and must be exchanged between client and server (in both directions) using  representations as part of the request or response payload. This is actually where the term *REpresentational State Transfer (REST)* originates from.
 
 <p class="note">It's a misconception that there should be no state at all. The stateless communication constraint should be seen from the server's point of view and states that the server should not be aware of any <em>session state</em>.</p>
 
 Stateless communication offers many advantages, including:
+
 * *Simplicity* is increased because the server doesn't have to memorize or retrieve session state while processing requests
 * *Scalability* is improved because not having to incorporate session state across multiple requests enables higher concurrency and performance
 * *Observability* is improved since every request can be monitored or analyzed in isolation without having to incorporate session context from other requests
@@ -389,7 +391,7 @@ Resources are often interconnected by relationships. Relationships can be modell
          <li>In exceptional cases, the approaches above still don't offer an appropriate solution. An example of such an operation is a global search across multiple resources. In this case, the creation of a dedicated resource, possibly nested under an existing resource, is the most obvious solution. Use the imperative mood of a verb, maybe even prefix it with a underscore to distinguish these resources from regular resources. For example: <code>/search</code> or <code>/_search</code>. Depending on the operation characteristics, <code>GET</code> and/or <code>POST</code> method MAY be supported for such a resource.</li>
       </ol>
       </dd>
-   </dl> 
+   </dl>
 </div>
 
 ## Documentation
@@ -437,7 +439,7 @@ An API is as good as the accompanying documentation. The documentation has to be
       </dd>
       <dt>How to test</dt>
       <dd>
-		Parse the OpenAPI Description to confirm the <code>info.contact</code> object is present.
+         Parse the OpenAPI Description to confirm the <code>info.contact</code> object is present.
       </dd>
    </dl>
 </div>
@@ -548,7 +550,7 @@ servers:
       </dd>
       <dt>How to test</dt>
       <dd>
-		Parse the `url` field in the `servers` mentioned in the OpenAPI Description to confirm the a version number is present with prefix <code>v</code> and only contains the *major* version number.
+         Parse the `url` field in the `servers` mentioned in the OpenAPI Description to confirm the a version number is present with prefix <code>v</code> and only contains the *major* version number.
       </dd>
    </dl>
 </div>
@@ -654,7 +656,7 @@ Note: security controls for signing and encrypting of application level messages
       </dd>
       <dt>Rationale</dt>
       <dd>
-         <p>Even when using TLS connections, information in URIs is not secured. URIs can be cached and logged outside of the servers controlled by clients and servers. Any information contained in them should therefore be considered readable by anyone with access to the network (in the case of the internet, the whole world) and MUST NOT contain any sensitive information. This includes client secrets used for authentication, privacy sensitive information suchs as BSNs or any other information which should not be shared. 
+         <p>Even when using TLS connections, information in URIs is not secured. URIs can be cached and logged outside of the servers controlled by clients and servers. Any information contained in them should therefore be considered readable by anyone with access to the network (in the case of the internet, the whole world) and MUST NOT contain any sensitive information. This includes client secrets used for authentication, privacy sensitive information suchs as BSNs or any other information which should not be shared.
          <p>Be aware that queries (anything after the '?' in a URI) are also part of an URI.
       </dd>
    </dl>
@@ -670,6 +672,7 @@ Nevertheless it is advised to review the following security measures, which are 
 Even while remaining client agnostic, clients can be classified in four major groups.
 This is in line with common practice in [[[?OAuth2]]].
 The groups are:
+
 1. Web applications.
 2. Native applications.
 3. Browser-based applications.
@@ -803,30 +806,34 @@ A specific subclass of clients are browser-based applications, that require the 
 Clients in this class are also known as _user-agent-based_ or _single-page-applications_ (SPA).
 All browser-based application SHOULD follow the best practices specified in [OAuth 2.0 for Browser-Based Apps](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-browser-based-apps-22).
 These applications can be split into three architectural patterns:
-- JavaScript applications with a Backend; with this class of applications, the Backend is the confidential client and should intermediate any interaction, with tokens never ending up in the browser.
+
+* JavaScript applications with a Backend; with this class of applications, the Backend is the confidential client and should intermediate any interaction, with tokens never ending up in the browser.
 Effectively, these are not different from regular web-application for this security facet, even though they leverage JavaScript for implementation.
-- JavaScript applications that share a domain with the API (resource server); these can leverage cookies marked as HTTP-Only, Secure and SameSite.
-- JavaScript applications without a Backend; these clients are considered public clients, are potentially more suspect to several types of attacks, including Cross-Site Scripting (XSS), Cross Site Request Forgery (CSRF) and OAuth token theft.
+* JavaScript applications that share a domain with the API (resource server); these can leverage cookies marked as HTTP-Only, Secure and SameSite.
+* JavaScript applications without a Backend; these clients are considered public clients, are potentially more suspect to several types of attacks, including Cross-Site Scripting (XSS), Cross Site Request Forgery (CSRF) and OAuth token theft.
 In order to support these clients, the Cross-Origin Resource Sharing (CORS) policy mentioned above is critical and MUST be supported.
 
 ### Validate content types
+
 A REST request or response body SHOULD match the intended content type in the header.
 Otherwise this could cause misinterpretation at the consumer/producer side and lead to code injection/execution.
 
-- Reject requests containing unexpected or missing content type headers with HTTP response status `406 Not Acceptable` or `415 Unsupported Media Type`.
-- Avoid accidentally exposing unintended content types by explicitly defining content types e.g. Jersey (Java) `@consumes("application/json"); @produces("application/json")`.
+* Reject requests containing unexpected or missing content type headers with HTTP response status `406 Not Acceptable` or `415 Unsupported Media Type`.
+* Avoid accidentally exposing unintended content types by explicitly defining content types e.g. Jersey (Java) `@consumes("application/json"); @produces("application/json")`.
 This avoids XXE-attack vectors for example.
 
 It is common for REST services to allow multiple response types (e.g. `application/xml` or `application/json`, and the client specifies the preferred order of response types by the Accept header in the request.
-- Do NOT simply copy the `Accept` header to the `Content-type` header of the response.
-- Reject the request (ideally with a `406 Not Acceptable` response) if the Accept header does not specifically contain one of the allowable types.
+
+* Do NOT simply copy the `Accept` header to the `Content-type` header of the response.
+* Reject the request (ideally with a `406 Not Acceptable` response) if the Accept header does not specifically contain one of the allowable types.
 
 Services (potentially) including script code (e.g. JavaScript) in their responses MUST be especially careful to defend against header injection attack.
-- Ensure sending intended content type headers in your response matching your body content e.g. `application/json` and not `application/javascript`.
+
+* Ensure sending intended content type headers in your response matching your body content e.g. `application/json` and not `application/javascript`.
 
 ## Geospatial
 
-Geospatial data refers to information that is associated with a physical location on Earth, often expressed by its 2D/3D coordinates. 
+Geospatial data refers to information that is associated with a physical location on Earth, often expressed by its 2D/3D coordinates.
 
 <div class="rule" id="/core/geospatial" data-type="functional">
   <p class="rulelab">Apply the geospatial module for geospatial data</p>
