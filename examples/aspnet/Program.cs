@@ -38,10 +38,10 @@ app.Use(async (context, next) =>
 });
 
 
-app.MapGet("/v1/hello-world", () =>
+app.MapGet("/hello-world", () =>
     Results.Ok(new { message = "Hello, world!" }));
 
-app.MapGet("/v1/openapi.json", async context =>
+app.MapGet("/openapi.json", async context =>
 {
     var swaggerProvider = context.RequestServices.GetRequiredService<Swashbuckle.AspNetCore.Swagger.ISwaggerProvider>();
     var doc = swaggerProvider.GetSwagger("v1");
