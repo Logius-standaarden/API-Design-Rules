@@ -116,7 +116,6 @@ rules:
       function: schema
       functionOptions:
         schema:
-          type: object
           required:
             - email
             - name
