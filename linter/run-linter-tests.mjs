@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import {exec} from 'child_process';
 import utils from 'util';
 import * as path from 'path';

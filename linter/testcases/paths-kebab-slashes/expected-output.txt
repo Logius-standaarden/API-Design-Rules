@@ -1,0 +1,6 @@
+
+/testcases/paths-kebab-slashes/openapi.json
+  96:26  warning  path-keys-no-trailing-slash  Path must not end with slash.  paths./suffix-slash/
+ 154:37  warning  path-keys-no-trailing-slash  Path must not end with slash.  paths./nested-slash/met-suffix/
+
+✖ 2 problems (0 errors, 2 warnings, 0 infos, 0 hints)
