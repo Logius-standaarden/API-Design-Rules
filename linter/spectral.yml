@@ -110,6 +110,24 @@ rules:
       field: "access-control-allow-origin"
     message: "The response of the `/openapi.json` resource should set the `access-control-allow-origin` header with value `*`"
 
+  #/core/doc-openapi-contact
+  # This rule exists in the base oas spectral linter set
+  info-contact: error
+
+  info-contact-fields-exist:
+    severity: error
+    given:
+      - "$.info.contact"
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          required:
+            - email
+            - name
+            - url
+    message: "Missing fields in `info.contact` field. Must specify email, name and url."
+
   #/core/http-methods
   http-methods:
     severity: error
