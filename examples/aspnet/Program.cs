@@ -1,5 +1,11 @@
 using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.SwaggerGen;
 using Microsoft.OpenApi.Writers;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using System.IO;
+using System.Threading.Tasks;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,7 +26,7 @@ builder.Services.AddSwaggerGen(options =>
     });
     options.AddServer(new OpenApiServer { Url = "https://api.example.com/v1" });
 
-    options.OperationFilter<ApiVersionHeaderResponseFilter>();
+    options.DocumentFilter<OpenApiJsonDocumentFilter>();
 });
 
 var app = builder.Build();
@@ -36,7 +42,6 @@ app.Use(async (context, next) =>
 
     await next();
 });
-
 
 app.MapGet("/hello-world", () =>
     Results.Ok(new { message = "Hello, world!" }));
@@ -56,25 +61,3 @@ app.MapGet("/openapi.json", async context =>
 });
 
 app.Run();
-
-
-// Expliciet header toevoegen aan openapi.json zodat de linter het kan zien:
-public class ApiVersionHeaderResponseFilter : Swashbuckle.AspNetCore.SwaggerGen.IOperationFilter
-{
-    public void Apply(OpenApiOperation operation, Swashbuckle.AspNetCore.SwaggerGen.OperationFilterContext context)
-    {
-        var responseHeaders = new OpenApiHeader
-        {
-            Description = "API version",
-            Schema = new OpenApiSchema { Type = "string", Example = new Microsoft.OpenApi.Any.OpenApiString("1.0.0") }
-        };
-
-        foreach (var response in operation.Responses)
-        {
-            if (!response.Value.Headers.ContainsKey("API-Version"))
-            {
-                response.Value.Headers.Add("API-Version", responseHeaders);
-            }
-        }
-    }
-}
