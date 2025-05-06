@@ -8,4 +8,5 @@ on:
 jobs:
   build:
     name: Build
-    uses: Logius-standaarden/Automatisering/.github/workflows/link-checker.yml@pr-timvdlippe-nieuwe-link-checker
+    uses: Logius-standaarden/Automatisering/.github/workflows/link-checker.yml@main
+    secrets: inherit
