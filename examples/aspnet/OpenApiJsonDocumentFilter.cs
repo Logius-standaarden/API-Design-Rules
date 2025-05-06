@@ -6,6 +6,15 @@ public class OpenApiJsonDocumentFilter : IDocumentFilter
 {
     public void Apply(OpenApiDocument swaggerDoc, DocumentFilterContext context)
     {
+        swaggerDoc.Tags = new List<OpenApiTag>
+        {
+            new()
+            {
+                Name = "OpenAPI",
+                Description = "Ophalen OAS"
+            }
+        };
+
         var responseHeaders = new Dictionary<string, OpenApiHeader>
         {
             ["access-control-allow-origin"] = new OpenApiHeader
