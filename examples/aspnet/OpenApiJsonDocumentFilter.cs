@@ -44,6 +44,9 @@ public class OpenApiJsonDocumentFilter : IDocumentFilter
             {
                 [OperationType.Get] = new OpenApiOperation
                 {
+                    OperationId = "getOpenApiJson", 
+                    Tags = [new OpenApiTag { Name = "OpenAPI" }],
+                    Description = "OAS",
                     Summary = "OAS",
                     Responses = new OpenApiResponses
                     {
