@@ -30,7 +30,7 @@ do
         echo "Server has crashed. See above terminal output for more information"
         exit 1
     fi
-    curl --silent http://localhost:5009/v1/openapi.json > generated/openapi.json
+    curl --silent http://localhost:5009/openapi.json > generated/openapi.json
     CURL_EXIT_CODE=$(echo $?)
 done
 
