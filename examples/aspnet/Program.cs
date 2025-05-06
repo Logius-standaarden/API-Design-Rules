@@ -43,9 +43,6 @@ app.Use(async (context, next) =>
     await next();
 });
 
-app.MapGet("/hello-world", () =>
-    Results.Ok(new { message = "Hello, world!" }));
-
 app.MapGet("/openapi.json", async context =>
 {
     var swaggerProvider = context.RequestServices.GetRequiredService<Swashbuckle.AspNetCore.Swagger.ISwaggerProvider>();
