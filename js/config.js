@@ -103,7 +103,7 @@ function processRuleBlocks(config, document) {
   }
 }
 
-var respecConfig = {
+globalThis.respecConfig = {
   alternateFormats: [ { 
         "label" : "pdf",
         "uri" : "API-Design-Rules.pdf"
