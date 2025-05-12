@@ -145,6 +145,47 @@
                     }
                 ]
             }
+        },
+        "/organisaties/{organisationId}/pad": {
+            "get": {
+                "tags": [
+                    "variabele"
+                ],
+                "description": "Met camelCase variabele",
+                "operationId": "getWithCamelCaseVariable",
+                "parameters": [
+                    {
+                        "name": "organisationId",
+                        "in": "path",
+                        "description": "De variabele",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            }
         }
     },
     "components": {

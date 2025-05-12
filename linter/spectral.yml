@@ -149,11 +149,11 @@ rules:
       functionOptions:
         # Deze regex bestaat uit meerdere delen. Ter toelichting:
         # - `\/` staat toe dat een pad enkel een `/` is (de landingspagina)
-        # - `\/_[a-z]+` staat toe dat het laatste stuk van een pad mag beginnen met een `_`
-        # - ([a-z\-]+|{[a-z]+}) zijn kebab-case paden of met variabele notatie (`{id}`)
+        # - `\/_[a-z0-9]+` staat toe dat het laatste stuk van een pad mag beginnen met een `_`
+        # - ([a-z0-9\-]+|{[^}]+}) zijn kebab-case paden of met variabele notatie (`{id}`)
         # - Paden mogen nesten, waardoor de twee groep genest wordt, gescheiden met een `/`
         # - Een pad mag eindigen met een `/`. Dat is volgens een andere regel niet toegestaan, maar we willen niet twee errors genereren
-        match: ^(\/|(\/_[a-z]+|\/(([a-z\-]+|{[a-z]+})(\/([a-z\-\.]+|{[a-z]+}))*)(\/_[a-z]+)?)\/?)$
+        match: ^(\/|(\/_[a-z0-9]+|\/(([a-z0-9\-]+|{[^}]+})(\/([a-z0-9\-\.]+|{[^}]+}))*)(\/_[a-z]+)?)\/?)$
 
   schema-camel-case:
     severity: warn
