@@ -1,0 +1,5 @@
+
+/testcases/landing-page-failure/openapi.json
+ 73:29  warning  operation-success-response  Operation must have at least one "2xx" or "3xx" response.  paths./.get.responses
+
+✖ 1 problem (0 errors, 1 warning, 0 infos, 0 hints)

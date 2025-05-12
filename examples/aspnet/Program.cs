@@ -1,35 +1,33 @@
-using Microsoft.OpenApi.Models;
-using Swashbuckle.AspNetCore.SwaggerGen;
-using Microsoft.OpenApi.Writers;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using System.IO;
-using System.Threading.Tasks;
-
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(options =>
+builder.Services.AddControllers();
+builder.Services.AddOpenApi(options =>
 {
-    options.SwaggerDoc("v1", new OpenApiInfo
+    options.AddDocumentTransformer((document, context, cancellationToken) =>
     {
-        Version = "1.0.0",
-        Title = "Voorbeeld in ASP.NET Core",
-        Description = "Summier voorbeeld dat aan de ADR-linter voldoet",
-        Contact = new OpenApiContact
+        document.Info = new()
         {
-            Name = "API Support",
-            Email = "apisupport@example.com",
-            Url = new Uri("https://example.com/api/support")
-        }
+            Title = "Voorbeeld in ASP.NET Core",
+            Version = "1.0.0",
+            Description = "Summier voorbeeld dat aan de ADR-linter voldoet",
+            Contact = new()
+            {
+                Name = "API Support",
+                Email = "apisupport@example.com",
+                Url = new Uri("https://example.com/api/support")
+            }
+        };
+        document.Servers.Add(new ()
+        {
+            Url = "https://api.example.com/v1"
+        });
+        return Task.CompletedTask;
     });
-    options.AddServer(new OpenApiServer { Url = "https://api.example.com/v1" });
-
-    options.DocumentFilter<OpenApiJsonDocumentFilter>();
+    options.AddDocumentTransformer(new OpenApiJsonDocumentFilter());
 });
 
 var app = builder.Build();
+app.MapOpenApi("/openapi.json");
 
 app.Use(async (context, next) =>
 {
@@ -43,18 +41,6 @@ app.Use(async (context, next) =>
     await next();
 });
 
-app.MapGet("/openapi.json", async context =>
-{
-    var swaggerProvider = context.RequestServices.GetRequiredService<Swashbuckle.AspNetCore.Swagger.ISwaggerProvider>();
-    var doc = swaggerProvider.GetSwagger("v1");
-
-    context.Response.ContentType = "application/json";
-
-    using var textWriter = new StringWriter();
-    var jsonWriter = new OpenApiJsonWriter(textWriter);
-    doc.SerializeAsV3(jsonWriter);
-
-    await context.Response.WriteAsync(textWriter.ToString());
-});
+app.MapControllers();
 
 app.Run();

@@ -1,21 +1,19 @@
-using Swashbuckle.AspNetCore.SwaggerGen;
-using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.OpenApi;
 using Microsoft.OpenApi.Any;
+using Microsoft.OpenApi.Models;
 
-public class OpenApiJsonDocumentFilter : IDocumentFilter
+public class OpenApiJsonDocumentFilter : IOpenApiDocumentTransformer
 {
-    public void Apply(OpenApiDocument swaggerDoc, DocumentFilterContext context)
+    public Task TransformAsync(OpenApiDocument document, OpenApiDocumentTransformerContext context, CancellationToken cancellationToken)
     {
-        swaggerDoc.Tags = new List<OpenApiTag>
+        document.Tags.Add(
+        new()
         {
-            new()
-            {
-                Name = "OpenAPI",
-                Description = "Ophalen OAS"
-            }
-        };
+            Name = "OpenAPI",
+            Description = "Ophalen OAS"
+        });
 
-        var responseHeaders = new Dictionary<string, OpenApiHeader>
+        var openapiHeaders = new Dictionary<string, OpenApiHeader>
         {
             ["access-control-allow-origin"] = new OpenApiHeader
             {
@@ -25,29 +23,20 @@ public class OpenApiJsonDocumentFilter : IDocumentFilter
                     Type = "string",
                     Example = new OpenApiString("*")
                 }
-            },
-            ["API-Version"] = new OpenApiHeader
-            {
-                Description = "API version",
-                Schema = new OpenApiSchema
-                {
-                    Type = "string",
-                    Example = new OpenApiString("1.0.0")
-                }
             }
         };
 
-        var response = new OpenApiResponse
+        var openApiResponse = new OpenApiResponse
         {
             Description = "OAS",
-            Headers = responseHeaders,
+            Headers = openapiHeaders,
             Content = new Dictionary<string, OpenApiMediaType>
             {
                 ["application/json"] = new OpenApiMediaType()
             }
         };
 
-        swaggerDoc.Paths.Add("/openapi.json", new OpenApiPathItem
+        document.Paths.Add("/openapi.json", new OpenApiPathItem
         {
             Operations =
             {
@@ -59,10 +48,24 @@ public class OpenApiJsonDocumentFilter : IDocumentFilter
                     Summary = "OAS",
                     Responses = new OpenApiResponses
                     {
-                        ["200"] = response
+                        ["200"] = openApiResponse
                     }
                 }
             }
         });
+
+        foreach (var pathResponse in document.Paths.Values.SelectMany(path => path.Operations.Values.SelectMany(operation => operation.Responses)))
+        {
+            pathResponse.Value.Headers.Add("API-Version", new OpenApiHeader() {
+                Description = "API version",
+                Schema = new OpenApiSchema
+                {
+                    Type = "string",
+                    Example = new OpenApiString("1.0.0")
+                }
+            });
+        }
+
+        return Task.CompletedTask;
     }
 }

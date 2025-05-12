@@ -1,5 +1,6 @@
 
 /testcases/cor-api/openapi.json
+  37:13    error  missing-landing-page                     There does not exist a resource `/` that should resolve to the landing-page                                             paths
   70:35  warning  use-problem-schema                       The content type of an error response should be application/problem+json or application/problem+xml to match RFC 9457.  paths./heartbeat.get.responses[429].content
   80:35  warning  use-problem-schema                       The content type of an error response should be application/problem+json or application/problem+xml to match RFC 9457.  paths./heartbeat.get.responses[503].content
  154:35    error  paths-open-api-json-specify-cors-header  The response of the `/openapi.json` resource should set the `access-control-allow-origin` header with value `*`         paths./openapi.json.get.responses[200].headers
@@ -26,4 +27,4 @@
  734:35  warning  use-problem-schema                       The content type of an error response should be application/problem+json or application/problem+xml to match RFC 9457.  paths./organisaties/{oin}.get.responses[500].content
  744:35  warning  use-problem-schema                       The content type of an error response should be application/problem+json or application/problem+xml to match RFC 9457.  paths./organisaties/{oin}.get.responses[503].content
 
-✖ 25 problems (1 error, 24 warnings, 0 infos, 0 hints)
+✖ 26 problems (2 errors, 24 warnings, 0 infos, 0 hints)

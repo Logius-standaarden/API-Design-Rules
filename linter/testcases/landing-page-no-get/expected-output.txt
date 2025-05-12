@@ -1,0 +1,5 @@
+
+/testcases/landing-page-no-get/openapi.json
+ 67:13  error  landing-page-no-get-response  There should be a GET endpoint for the `/` resource  paths./
+
+✖ 1 problem (1 error, 0 warnings, 0 infos, 0 hints)

@@ -1,5 +1,5 @@
 
 /testcases/open-api-no-get/openapi.json
- 30:20  error  paths-open-api-json-resource-has-get  There does not exist a GET method (and no other methods) for the `/openapi.json` resource  paths./openapi.json.post
+ 33:20  error  paths-open-api-json-resource-has-get  There does not exist a GET method (and no other methods) for the `/openapi.json` resource  paths./openapi.json.post
 
 ✖ 1 problem (1 error, 0 warnings, 0 infos, 0 hints)
