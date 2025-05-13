@@ -140,6 +140,7 @@ rules:
       field: "@key"
     message: "/core/http-methods: Only apply standard HTTP methods: https://logius-standaarden.github.io/API-Design-Rules/#http-methods"
 
+  #/core/path-segments-kebab-case
   paths-kebab-case:
     severity: warn
     message: "{{property}} is not kebab-case."
