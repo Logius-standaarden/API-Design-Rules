@@ -1,0 +1,5 @@
+
+/testcases/open-api-no-cors-header/openapi.json
+ 40:35  error  paths-open-api-json-specify-cors-header  The response of the `/openapi.json` resource should set the `access-control-allow-origin` header with value `*`  paths./openapi.json.get.responses[200].headers
+
+✖ 1 problem (1 error, 0 warnings, 0 infos, 0 hints)
