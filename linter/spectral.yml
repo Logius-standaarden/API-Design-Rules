@@ -25,13 +25,20 @@ rules:
   #/core/doc-openapi
   openapi3:
     severity: error
-    given:
-      - "$.['openapi']"
+    given: $.['openapi']
     then:
       function: pattern
       functionOptions:
-        match: "^3.0.*$"
-    message: "Use OpenAPI Specification for documentation"
+        match: '^3(.\d+){1,2}$'
+    message: "The OpenAPI Specification is versioned using a `major.minor.patch` versioning scheme. Use a version 3 OpenAPI Specification for documentation."
+
+  openapi-root-exists:
+    severity: error
+    given: $
+    then:
+      field: openapi
+      function: truthy
+    message: "The root of the document must contain the `openapi` property"
 
   #/core/version-header
   missing-version-header:
