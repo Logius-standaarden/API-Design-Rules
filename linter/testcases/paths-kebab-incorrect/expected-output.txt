@@ -1,0 +1,5 @@
+
+/testcases/paths-kebab-incorrect/openapi.json
+ 67:25  warning  paths-kebab-case  /camelCasePad is not kebab-case.  paths./camelCasePad
+
+✖ 1 problem (0 errors, 1 warning, 0 infos, 0 hints)

@@ -1,0 +1,5 @@
+
+/testcases/contact-missing/openapi.json
+ 3:12  error  info-contact  Info object must have "contact" object.  info
+
+✖ 1 problem (1 error, 0 warnings, 0 infos, 0 hints)
