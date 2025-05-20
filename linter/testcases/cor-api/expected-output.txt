@@ -2,7 +2,6 @@
 /testcases/cor-api/openapi.json
   70:35  warning  use-problem-schema                       The content type of an error response should be application/problem+json or application/problem+xml to match RFC 9457.  paths./heartbeat.get.responses[429].content
   80:35  warning  use-problem-schema                       The content type of an error response should be application/problem+json or application/problem+xml to match RFC 9457.  paths./heartbeat.get.responses[503].content
- 154:35    error  paths-open-api-json-specify-cors-header  The response of the `/openapi.json` resource should set the `access-control-allow-origin` header with value `*`         paths./openapi.json.get.responses[200].headers
  181:29  warning  paths-kebab-case                         /laatsteWijziging is not kebab-case.                                                                                    paths./laatsteWijziging
  211:35  warning  use-problem-schema                       The content type of an error response should be application/problem+json or application/problem+xml to match RFC 9457.  paths./laatsteWijziging.get.responses[400].content
  221:35  warning  use-problem-schema                       The content type of an error response should be application/problem+json or application/problem+xml to match RFC 9457.  paths./laatsteWijziging.get.responses[404].content
@@ -26,4 +25,4 @@
  734:35  warning  use-problem-schema                       The content type of an error response should be application/problem+json or application/problem+xml to match RFC 9457.  paths./organisaties/{oin}.get.responses[500].content
  744:35  warning  use-problem-schema                       The content type of an error response should be application/problem+json or application/problem+xml to match RFC 9457.  paths./organisaties/{oin}.get.responses[503].content
 
-✖ 25 problems (1 error, 24 warnings, 0 infos, 0 hints)
+✖ 24 problems (0 errors, 24 warnings, 0 infos, 0 hints)
