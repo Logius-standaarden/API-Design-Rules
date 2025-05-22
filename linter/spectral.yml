@@ -178,3 +178,12 @@ rules:
         type: camel
       field: "@key"
     message: Properties must be lowerCamelCase.
+
+  semver:
+    severity: error
+    message: "Version {{value}} is not in semver format."
+    given: $.info.version
+    then:
+      function: pattern
+      functionOptions:
+        match: ^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
