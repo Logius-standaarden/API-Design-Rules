@@ -45,7 +45,7 @@ Compliance aan de ADR heeft daarom de volgende eigenschappen:
   * Dit betekent dat de compliance checks draaien op de nieuwe patch versie dezelfde score oplevert.
 * Bestaande design rules in een nieuwe minor versie zullen dezelfde resultaten opleveren als eerdere minor versies binnen de major release.
 Nieuwe design rules in een minor versie kunnen in een kleine minderheid resulteren in nieuwe issues.
-  * Dit betekent dat in de meeste gevallen de compliance checks draaien op de nieuwe versie, deze meestal dezelfde score oplevert.
+  * Dit betekent dat in de meeste gevallen dat compliance checks draaien op de nieuwe versie, deze meestal dezelfde score oplevert.
   Echter, er kunnen situaties zijn waar bestaande API's op enkele nieuwe regels niet direct compliant zijn.
 * Design rules in een nieuwe major versie kunnen andere resultaten opleveren.
 Hierbij wordt de impact afgewogen ten opzichte van de waarde van de nieuwe design rule.
