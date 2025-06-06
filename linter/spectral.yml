@@ -20,7 +20,7 @@
 extends: spectral:oas
 
 rules:
-  nlgov:oas3-api-servers: error
+  oas3-api-servers: error
 
   #/core/doc-openapi
   nlgov:openapi3:
@@ -60,7 +60,7 @@ rules:
     given: $..[responses][?(@property && @property.match(/(2|3)\d\d/))]
     then:
       field: headers
-      function: truthy
+    function: truthy
     message: "/core/version-header: Return the full version number in a response header: https://logius-standaarden.github.io/API-Design-Rules/#/core/version-header"
 
   #/core/uri-version
@@ -89,7 +89,7 @@ rules:
 
   #/core/doc-openapi-contact
   # This rule exists in the base oas spectral linter set
-  nlgov:info-contact: error
+  info-contact: error
 
   nlgov:info-contact-fields-exist:
     severity: error
