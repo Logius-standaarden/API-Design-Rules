@@ -52,6 +52,12 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '9.x'
+      - name: Setup python
+        uses: actions/setup-python@v5
+        with:
+          cache: 'pip'
+      - name: Install dependencies
+        run: pip install fastapi uvicorn
       - name: Install Spectral
         run: npm install -g @stoplight/spectral-cli
       - name: Run linter on ${{ matrix.example }} example
