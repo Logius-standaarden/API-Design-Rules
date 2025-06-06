@@ -38,7 +38,7 @@ jobs:
     runs-on: ubuntu-22.04
     strategy:
       matrix:
-        example: [ aspnet, express, quarkus ]
+        example: [ aspnet, express, python, quarkus ]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -52,6 +52,12 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '9.x'
+      - name: Setup python
+        uses: actions/setup-python@v5
+        with:
+          cache: 'pip'
+      - name: Install dependencies
+        run: pip install fastapi uvicorn
       - name: Install Spectral
         run: npm install -g @stoplight/spectral-cli
       - name: Run linter on ${{ matrix.example }} example
