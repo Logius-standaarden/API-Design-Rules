@@ -1,5 +1,5 @@
 
 /testcases/semver-patch-incorrect/openapi.json
- 11:20  error  semver  Version 1.0.1_incorrect is not in semver format.  info.version
+ 11:20  error  nlgov:semver  Version 1.0.1_incorrect is not in semver format.  info.version
 
 ✖ 1 problem (1 error, 0 warnings, 0 infos, 0 hints)
