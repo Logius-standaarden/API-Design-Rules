@@ -134,7 +134,7 @@ rules:
 
   nlgov:schema-camel-case:
     severity: warn
-    message: "Schema name should be CamelCase in {{path}}"
+    message: "Schema name should be UpperCamelCase in {{path}}"
     given: >-
       $.components.schemas[*]~
     then:
