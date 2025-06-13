@@ -38,7 +38,7 @@ jobs:
     runs-on: ubuntu-22.04
     strategy:
       matrix:
-        example: [ aspnet, express, python, quarkus ]
+        example: [ aspnet, express, golang, python, quarkus ]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
