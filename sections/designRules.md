@@ -2,7 +2,7 @@
 
 ## Resources
 
-The REST architectural style is centered around the concept of a [=resource=]. A resource is the key abstraction of information, where every piece of information is named by assigning a globally unique [=URI=] (Uniform Resource Identifier). Resources describe *things*, which can vary between physical objects (e.g. a building or a person) and more abstract concepts (e.g. a permit or an event).
+The REST architectural style is centered around the concept of a [=resource=]. A resource is an abstraction of a conceptual entity, identified by a globally unique [=URI=]. It may correspond to anything from a physical object (e.g. a building or a person) to an abstract concept (e.g. a permit, an event or today's weather). Although a resource is not tied to any specific exchange format, its current state can be transferred to clients through one or more representations, such as JSON or XML.
 
 <span id="api-05"></span>
 <div class="rule" id="/core/naming-resources" data-type="functional">
@@ -10,7 +10,7 @@ The REST architectural style is centered around the concept of a [=resource=]. A
    <dl>
    <dt>Statement</dt>
    <dd>
-   Resources are referred to using nouns (instead of verbs) that are relevant from the perspective of the user of the API.
+   Resources are referred to using nouns (instead of verbs) that represent entities meaningful to the API consumer.
    <div class="example">
       A few correct examples of nouns as part of a URI:
       <ul>
@@ -31,7 +31,7 @@ The REST architectural style is centered around the concept of a [=resource=]. A
 </dl>
 </div>
 
-A resource describing a single thing is called a [=singular resource=]. Resources can also be grouped into collections, which are resources in their own right and can typically be paged, sorted and filtered. Most often all collection members have the same type, but this is not necessarily the case. A resource describing multiple things is called a [=collection resource=]. Collection resources typically contain references to the underlying singular resources.
+A resource that corresponds to a single conceptual entity is referred to as a [=singular resource=]. Resources can also be logically grouped into collections, which are themselves resources and typically support operations like paging, sorting, and filtering. While collection members are often of the same type, this is not strictly required. A collection resource contains references (URIs) to the individual singular resources it includes.
 
 <span id="api-54"></span>
 <div class="rule" id="/core/naming-collections" data-type="functional">
@@ -39,7 +39,7 @@ A resource describing a single thing is called a [=singular resource=]. Resource
    <dl>
       <dt>Statement</dt>
       <dd>
-         A collection resource represents multiple things.
+         Collection resources are referred to using plural nouns.
       </dd>
       <dt>Rationale</dt>
       <dd>
