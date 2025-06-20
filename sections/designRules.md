@@ -111,7 +111,7 @@ A resource describing a single thing is called a [=singular resource=]. Resource
          <div>
             <p>Path segments of a [=URI=] MUST only contain lowercase letters, digits or hyphens. This is also known as <a href="https://developer.mozilla.org/en-US/docs/Glossary/Kebab_case">kebab-case</a>. Hyphens MUST only be used to deliniate distinct words. This also implies that diacritics MUST be normalized and special characters MUST be omitted.
             <p>Another implication of this rule is that file extensions MUST NOT be used. Resources SHOULD use the <code>Accept</code> header for content negotation.
-            <p>The last path segment MAY start with `_`, which is used as a convention to implement search API's
+            <p>The last path segment MAY start with `_`, which is used as a convention to implement <a href="#/core/resource-operations">operations</a>
          </div>
       </dd>
       <dt>Rationale</dt>
