@@ -2,7 +2,7 @@
 
 ### Normative Design Rules
 
-Design rules can be technical rules, which should be tested automatically and functional rules which should be considerd when designing and building the api.
+Design rules can be technical rules, which should be tested automatically and functional rules which should be considered when designing and building the API.
 
 #### List of functional rules
 
