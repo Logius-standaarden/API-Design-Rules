@@ -1,5 +1,5 @@
-import {processRuleBlocks} from "./adr.mjs";
-import { loadRespecWithConfiguration } from "./organisation-config.mjs";
+import {processRuleBlocks} from "https://logius-standaarden.github.io/publicatie/respec/plugins/adr.mjs";
+import { loadRespecWithConfiguration } from "https://logius-standaarden.github.io/publicatie/respec/organisation-config.mjs";
 
 async function initializeHighlightJSYaml() {
   //this is the function you call in 'preProcess', to load the highlighter
