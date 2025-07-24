@@ -492,20 +492,21 @@ An API is as good as the accompanying documentation. The documentation has to be
 </div>
 
 <div class="rule" id="/core/problem-details" data-type="technical">
-  <p class="rulelab">Include problem details with error responses</p>
+   <p class="rulelab">Include problem details with error responses</p>
    <dl>
       <dt>Statement</dt>
       <dd>
-         Error responses with HTTP status codes `4xx` or `5xx` MUST use either `application/problem+json` or `application/problem+xml` as the `Content-Type` header as described in [rfc9457].
+         Error responses with HTTP status codes <code>4xx</code> or <code>5xx</code> MUST use either <code>application/problem+json</code> or <code>application/problem+xml</code> as the <code>Content-Type</code> header, and the response body <strong>MUST</strong> conform to the structure defined in [[rfc9457]].
       </dd>
       <dt>Rationale</dt>
       <dd>
-         <p>Providing problem details in a machine readable format aids automation and debugging. By using a common error format, APIs do not need to define their own or misuse existing HTTP status codes.</p>
+         <p>Providing problem details in a machine-readable format aids automation and debugging. By using a common error format, APIs do not need to define their own or misuse existing HTTP status codes.</p>
          <div class="example">
-            <pre class="json">HTTP/1.1 404 Not Found
+            The following example shows the head and body of a detailed error response.
+            <pre class="http">HTTP/1.1 404 Not Found
 Content-Type: application/problem+json
-
-{
+            </pre>
+            <pre class="json">{
   "type": "https://example.org/probs/not-found",
   "title": "Resource Not Found",
   "status": 404,
@@ -516,8 +517,12 @@ Content-Type: application/problem+json
          </div>
       </dd>
       <dt>How to test</dt>
-         <dd>Verify all responses with status code `4xx` or `5xx` status codes have `Content-Type` marked as either `application/problem+json` or `application/problem+xml`.</dd>
+      <dd>
+         Verify all responses with status code <code>4xx</code> or <code>5xx</code> have <code>Content-Type</code> set to <code>application/problem+json</code> or <code>application/problem+xml</code>.
+      </dd>
+   </dl>
 </div>
+
 
 ## Versioning
 
