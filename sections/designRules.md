@@ -125,6 +125,22 @@ A resource that corresponds to a single conceptual entity is referred to as a [=
    </dl>
 </div>
 
+<div class="rule" id="/core/date-time" data-type="technical">
+   <p class="rulelab">Use ISO 8601 for date and time formats</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         <p>All date and time fields in requests and responses MUST be in ISO 8601 format (e.g., <code>YYYY-MM-DD for dates</code>, <code>YYYY-MM-DDTHH:mm:ssZ</code> for timestamps). The response MUST be in UTC. While the request can have a time offset, storing SHOULD be done in UTC.</p>
+         <p>If the time is not relevant, only the date portion (e.g., <code>YYYY-MM-DD</code>) SHOULD be accepted, stored, and returned.</p>    
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         <p>Implementing ISO 8601 in UTC removes ambiguity in date handling between systems and timezones.</p>
+         <p>Inserting a default or irrelevant time can lead to interpretation errors in international contexts. A publish date of <code>2025-07-24T00:00:00Z</code> could for instance be rendered as July 23 in Ireland. A default time of 23:59 would in turn cause date confusion east of Greenwich.</p>
+      </dd>
+   </dl>
+</div>
+
 ## HTTP methods
 
 Although the REST architectural style does not impose a specific protocol, REST APIs are typically implemented using HTTP [[rfc9110]].
