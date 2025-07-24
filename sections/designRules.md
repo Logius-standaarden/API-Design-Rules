@@ -523,7 +523,6 @@ Content-Type: application/problem+json
    </dl>
 </div>
 
-
 ## Versioning
 
 Changes in APIs are inevitable. APIs should therefore always be versioned, facilitating the transition between changes.
