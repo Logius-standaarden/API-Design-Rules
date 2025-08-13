@@ -496,24 +496,23 @@ An API is as good as the accompanying documentation. The documentation has to be
    <dl>
       <dt>Statement</dt>
       <dd>
-         Error responses with HTTP status codes <code>4xx</code> or <code>5xx</code> MUST use either <code>application/problem+json</code> or <code>application/problem+xml</code> as the <code>Content-Type</code> header, and the response body <strong>MUST</strong> conform to the structure defined in [[rfc9457]].
+         Error responses with HTTP status codes <code>4xx</code> or <code>5xx</code> MUST use either <code>application/problem+json</code> or <code>application/problem+xml</code> as the <code>Content-Type</code> header, and the response body MUST conform to the structure defined in [[rfc9457]].
       </dd>
       <dt>Rationale</dt>
       <dd>
          <p>Providing problem details in a machine-readable format aids automation and debugging. By using a common error format, APIs do not need to define their own or misuse existing HTTP status codes.</p>
          <div class="example">
             The following example shows the head and body of a detailed error response.
-            <pre class="http">HTTP/1.1 404 Not Found
-Content-Type: application/problem+json
-            </pre>
-            <pre class="json">{
+            <pre><code class="http">HTTP/1.1 404 Not Found
+Content-Type: application/problem+json</code><code class="json">
+{
   "type": "https://example.org/probs/not-found",
   "title": "Resource Not Found",
   "status": 404,
   "detail": "No building found with id 12345.",
   "instance": "/gebouwen/12345"
 }
-            </pre>
+</code></pre>
          </div>
       </dd>
       <dt>How to test</dt>
