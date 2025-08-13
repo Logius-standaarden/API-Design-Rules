@@ -156,6 +156,7 @@ rules:
       functionOptions:
         match: ^https://.*
 
+  #/core/problem-details
   nlgov:use-problem-schema:
     severity: warn
     message: "The content type of an error response should be application/problem+json or application/problem+xml to match RFC 9457."
