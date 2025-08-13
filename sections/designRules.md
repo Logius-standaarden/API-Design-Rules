@@ -130,8 +130,8 @@ A resource that corresponds to a single conceptual entity is referred to as a [=
    <dl>
       <dt>Statement</dt>
       <dd>
-         <p>All date and time fields in requests and responses MUST be in ISO 8601 format (e.g., <code>YYYY-MM-DD for dates</code>, <code>YYYY-MM-DDTHH:mm:ssZ</code> for timestamps). The response MUST be in UTC. While the request can have a time offset, storing SHOULD be done in UTC.</p>
-         <p>If the time is not relevant, only the date portion (e.g., <code>YYYY-MM-DD</code>) SHOULD be accepted, stored, and returned.</p>
+         <p>All date and time fields in requests and responses MUST be in ISO 8601 format (e.g., <code>YYYY-MM-DD for dates</code>, <code>YYYY-MM-DDTHH:mm:ssZ</code> for timestamps). Fields in responses MUST be in UTC. Fields in requests MUST allow any time offset, which servers SHOULD normalize to (and store in) UTC.</p>
+         <p>If the time portion is not relevant, only the date portion (e.g., <code>YYYY-MM-DD</code>) SHOULD be accepted, stored, and returned.</p>
       </dd>
       <dt>Rationale</dt>
       <dd>
