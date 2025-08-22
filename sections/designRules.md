@@ -130,7 +130,7 @@ A resource that corresponds to a single conceptual entity is referred to as a [=
    <dl>
       <dt>Statement</dt>
       <dd>
-         <p>All date and time fields in requests and responses MUST be in ISO 8601 format (e.g., <code>YYYY-MM-DD for dates</code>, <code>YYYY-MM-DDTHH:mm:ssZ</code> for timestamps). Fields in responses MUST be in UTC. Fields in requests MUST allow any time offset, which servers SHOULD normalize to (and store in) UTC.</p>
+         <p>All date and time fields in requests and responses MUST follow [[RFC9557]] and thus be in [[ISO8601]] format (e.g., <code>YYYY-MM-DD</code> for dates, <code>YYYY-MM-DDTHH:mm:ssZ</code> for timestamps). Fields in responses containing timestamps MUST be in UTC (e.g. <code>Z</code> as offset). APIs MUST accept fields with timestamps with any time offset in requests and servers SHOULD normalize to (and store in) UTC.</p>
          <p>If the time portion is not relevant, only the date portion (e.g., <code>YYYY-MM-DD</code>) SHOULD be accepted, stored, and returned.</p>
       </dd>
       <dt>Rationale</dt>
