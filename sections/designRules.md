@@ -496,7 +496,8 @@ An API is as good as the accompanying documentation. The documentation has to be
    <dl>
       <dt>Statement</dt>
       <dd>
-         Error responses with HTTP status codes <code>4xx</code> or <code>5xx</code> MUST use either <code>application/problem+json</code> or <code>application/problem+xml</code> as the <code>Content-Type</code> header, and the response body MUST conform to the structure defined in [[rfc9457]].
+         <p>Error responses with HTTP status codes <code>4xx</code> or <code>5xx</code> MUST use either <code>application/problem+json</code> or <code>application/problem+xml</code> as the <code>Content-Type</code> header, and the response body MUST conform to the structure defined in [[rfc9457]].</p>
+         <p>The following fields MUST be present: <code>status</code>, <code>title</code>, and <code>detail</code>. Additionally, only these fields MAY be present: <code>type</code> and <code>instance</code>.</p>
       </dd>
       <dt>Rationale</dt>
       <dd>
