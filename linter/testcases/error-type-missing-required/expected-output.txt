@@ -1,0 +1,5 @@
+
+/testcases/error-type-missing-required/openapi.json
+ 60:42  warning  nlgov:problem-schema-members  These fields are required: status, title and detail. Additionally, only type and instance are allowed.  paths./openapi.json.get.responses[400].content.application/problem+json.schema
+
+✖ 1 problem (0 errors, 1 warning, 0 infos, 0 hints)
