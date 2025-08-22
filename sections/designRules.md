@@ -504,8 +504,7 @@ An API is as good as the accompanying documentation. The documentation has to be
          <div class="example">
             The following example shows the head and body of a detailed error response.
             <pre><code class="http">HTTP/1.1 404 Not Found
-Content-Type: application/problem+json</code><code class="json">
-{
+Content-Type: application/problem+json</code><code class="json">{
   "type": "https://example.org/probs/not-found",
   "title": "Resource Not Found",
   "status": 404,
