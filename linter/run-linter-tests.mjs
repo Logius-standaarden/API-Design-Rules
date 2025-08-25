@@ -80,6 +80,7 @@ for (const apiLocation of await obtainAllTestcases()) {
         console.error(expectedOutput);
         console.error("but got")
         console.error(actualOutput);
+        console.error("You can automatically regenerate the expectations by running this script by calling it with `--refresh`");
         process.exit(1);
     }
 }
