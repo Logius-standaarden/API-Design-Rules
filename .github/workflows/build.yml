@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     name: Build
-    uses: Logius-standaarden/Automatisering/.github/workflows/build.yml@main
+    uses: Logius-standaarden/Automatisering/.github/workflows/build.yml@fix-pdf-generation
   check:
     needs: build
     name: Check
