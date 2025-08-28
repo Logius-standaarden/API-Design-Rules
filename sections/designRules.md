@@ -550,7 +550,7 @@ servers:
       </dd>
       <dt>How to test</dt>
       <dd>
-         Parse the `url` field in the `servers` mentioned in the OpenAPI Description to confirm the a version number is present with prefix <code>v</code> and only contains the *major* version number.
+         Parse the `url` field in the `servers` mentioned in the OpenAPI Description to confirm that a version number is present with prefix <code>v</code> and only contains the *major* version number.
       </dd>
    </dl>
 </div>
@@ -775,7 +775,7 @@ As for outbound filtering, the main concern is leaking of information.
       </dd>
       <dt>How to test</dt>
       <dd>
-         <p>The precense of the mandatory security headers can be tested in an automated way. A test client makes a call to the API root. The response is tested for the precense of mandatory headers.
+         <p>The presense of the mandatory security headers can be tested in an automated way. A test client makes a call to the API root. The response is tested for the presense of mandatory headers.
       </dd>
    </dl>
 </div>
