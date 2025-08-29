@@ -139,11 +139,13 @@ Although the REST architectural style does not impose a specific protocol, REST 
    <dl>
       <dt>Statement</dt>
       <dd>
-         Resources MUST be retrieved or manipulated using standard HTTP methods (GET/POST/PUT/PATCH/DELETE).
+         Resources MUST be retrieved or manipulated using standard HTTP methods (GET/POST/PUT/PATCH/DELETE). Resources MAY support HTTP methods that provide information without manipulating the underlying resources (including but not limited to HEAD/CONNECT/OPTIONS/TRACE).
       </dd>
       <dt>Rationale</dt>
       <dd>
          The HTTP specifications offer a set of standard methods, where every method is designed with explicit semantics. Adhering to the HTTP specification is crucial, since HTTP clients and middleware applications rely on standardized characteristics.
+         <p>According to <a href="https://www.rfc-editor.org/rfc/rfc9110#name-overview">RFC 9110 9.1</a> the <code>GET</code> and <code>HEAD</code> HTTP methods MUST be supported by the server, all other methods are optional.
+         <p>If an optional HTTP request method is sent to a server and the server does not support that HTTP method for the target resource, an HTTP status code <code>405 Method Not Allowed</code> shall be returned and a list of allowed methods for the target resource shall be provided in the <code>Allow</code> header in the response as stated in <a href="https://www.rfc-editor.org/rfc/rfc9110#name-405-method-not-allowed">RFC 9110 15.5.6</a>.
          <table>
             <thead>
                <tr>
@@ -178,54 +180,73 @@ Although the REST architectural style does not impose a specific protocol, REST 
                   <td>Delete</td>
                   <td>Remove a resource with the given [=URI=].</td>
                </tr>
+               <tr>
+                  <td><code>HEAD</code></td>
+                  <td>Read</td>
+                  <td>Retrieve metadata of a resource representation for the given [=URI=].</td>
+               </tr>
+               <tr>
+                  <td><code>CONNECT</code></td>
+                  <td>Read</td>
+                  <td>Setup a tunnel for securely manipulating resources for the given [=URI=].</td>
+               </tr>
+               <tr>
+                  <td><code>OPTIONS</code></td>
+                  <td>Read</td>
+                  <td>Retrieve available operations on a resource for the given [=URI=].</td>
+               </tr>
+               <tr>
+                  <td><code>TRACE</code></td>
+                  <td>Read</td>
+                  <td>Retrieve an application-level loop-back of the original client request for the given [=URI=].</td>
+               </tr>
             </tbody>
          </table>
-         <div class="example">The following table shows some examples of the use of standard HTTP methods:
-      <table>
-      <thead>
-      <tr>
-      <th scope="col">
-      Request</th>
-      <th scope="col">Description</th>
-      </tr>
-      </thead>
-      <tbody>
-         <tr>
-            <td><code>GET /rijksmonumenten</code></td>
-            <td>Retrieves a list of national monuments.</td>
-         </tr>
-         <tr>
-            <td><code>GET /rijksmonumenten/12</code></td>
-            <td>Retrieves an individual national monument.</td>
-         </tr>
-         <tr>
-            <td><code>POST /rijksmonumenten</code></td>
-            <td>Creates a new national monument.</td>
-         </tr>
-         <tr>
-            <td><code>PUT /rijksmonumenten/12</code></td>
-            <td>Modifies national monument #12 completely.</td>
-         </tr>
-         <tr>
-            <td><code>PATCH /rijksmonumenten/12</code></td>
-            <td>Modifies national monument #12 partially.</td>
-         </tr>
-         <tr>
-            <td><code>DELETE /rijksmonumenten/12</code></td>
-            <td>Deletes national monument #12.</td>
-         </tr>
-      </tbody>
-      </table>
-   </div>
-   <p class="note">The HTTP specification [[rfc9110]] offers a set of standard methods, where every method is designed with explicit semantics. HTTP also defines other methods, e.g. <code>HEAD</code>, <code>OPTIONS</code>, <code>TRACE</code>, and <code>CONNECT</code>.<br>
-   The OpenAPI Specification 3.0 <a href="https://spec.openapis.org/oas/v3.0.1#path-item-object">Path Item Object</a> also supports these methods, except for <code>CONNECT</code>.<br>
-  According to <a href="https://www.rfc-editor.org/rfc/rfc9110#name-overview">RFC 9110 9.1</a> the <code>GET</code> and <code>HEAD</code> HTTP methods MUST be supported by the server, all other methods are optional.<br>
-  In addition to the standard HTTP methods, a server may support other optional methods as well, e.g. <code>PROPFIND</code>, <code>COPY</code>, <code>PURGE</code>, <code>VIEW</code>, <code>LINK</code>, <code>UNLINK</code>, <code>LOCK</code>, <code>UNLOCK</code>, etc.<br>
-  If an optional HTTP request method is sent to a server and the server does not support that HTTP method for the target resource, an HTTP status code <code>405 Method Not Allowed</code> shall be returned and a list of allowed methods for the target resource shall be provided in the <code>Allow</code> header in the response as stated in <a href="https://www.rfc-editor.org/rfc/rfc9110#name-405-method-not-allowed">RFC 9110 15.5.6</a>.</p>
+         <div class="example">The following table shows some examples of the use of standard HTTP methods retrieving or manipulating resources:
+            <table>
+               <thead>
+                  <tr>
+                     <th scope="col">Request</th>
+                     <th scope="col">Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td><code>GET /rijksmonumenten</code></td>
+                     <td>Retrieves a list of national monuments.</td>
+                  </tr>
+                  <tr>
+                     <td><code>GET /rijksmonumenten/12</code></td>
+                     <td>Retrieves an individual national monument.</td>
+                  </tr>
+                  <tr>
+                     <td><code>POST /rijksmonumenten</code></td>
+                     <td>Creates a new national monument.</td>
+                  </tr>
+                  <tr>
+                     <td><code>PUT /rijksmonumenten/12</code></td>
+                     <td>Modifies national monument #12 completely.</td>
+                  </tr>
+                  <tr>
+                     <td><code>PATCH /rijksmonumenten/12</code></td>
+                     <td>Modifies national monument #12 partially.</td>
+                  </tr>
+                  <tr>
+                     <td><code>DELETE /rijksmonumenten/12</code></td>
+                     <td>Deletes national monument #12.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+         <div class="note">
+            <p>The HTTP specification [[rfc9110]] offers a set of standard methods, where every method is designed with explicit semantics.
+            The OpenAPI Specification 3.0 <a href="https://spec.openapis.org/oas/v3.0.1#path-item-object">Path Item Object</a> also supports these methods, except for <code>CONNECT</code>.
+            <p>In addition to the standard HTTP methods, a server may support other optional methods as well, e.g. <code>PROPFIND</code>, <code>COPY</code>, <code>PURGE</code>, <code>VIEW</code>, <code>LINK</code>, <code>UNLINK</code>, <code>LOCK</code>, <code>UNLOCK</code>, etc.
+         </div>
       </dd>
       <dt>How to test</dt>
       <dd>
-         Analyse the OpenAPI Description to confirm all supported methods are either `post`, `put`, `get`, `delete`, or `patch`.
+         Analyse the OpenAPI Description to confirm all supported methods are either `get`, `post`, `put`, `patch`, `delete`, `head`, `options` or `trace`.
       </dd>
    </dl>
 </div>
