@@ -517,7 +517,7 @@ Content-Type: application/problem+json</code><code class="json">{
       </dd>
       <dt>How to test</dt>
       <dd>
-         Verify all responses with status code <code>4xx</code> or <code>5xx</code> have <code>Content-Type</code> set to <code>application/problem+json</code> or <code>application/problem+xml</code>.
+         Verify all responses with status code <code>4xx</code> or <code>5xx</code> have <code>Content-Type</code> set to <code>application/problem+json</code> or <code>application/problem+xml</code> and contain the fields <code>status</code>, <code>title</code>, and <code>detail</code>. Optional fields are <code>type</code> and <code>instance</code>. Verify no additional fields are present.
       </dd>
    </dl>
 </div>
