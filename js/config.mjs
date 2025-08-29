@@ -1,4 +1,4 @@
-import {processRuleBlocks} from "./adr.mjs";
+import { processRuleBlocks } from "https://logius-standaarden.github.io/publicatie/respec/plugins/adr.mjs";
 import { loadRespecWithConfiguration } from "https://logius-standaarden.github.io/publicatie/respec/organisation-config.mjs";
 
 async function initializeHighlightJSYaml() {
