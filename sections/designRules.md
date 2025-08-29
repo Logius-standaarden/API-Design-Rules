@@ -1,5 +1,9 @@
 # The core set of Design Rules
 
+## Summary
+
+<div id="design-rule-summary"></div>
+
 ## Resources
 
 The REST architectural style is centered around the concept of a [=resource=]. A resource is an abstraction of a conceptual entity, identified by a globally unique [=URI=]. It may correspond to anything from a physical object (e.g. a building or a person) to an abstract concept (e.g. a permit, an event or today's weather). Although a resource is not tied to any specific exchange format, its current state can be transferred to clients through one or more representations, such as JSON or XML.
