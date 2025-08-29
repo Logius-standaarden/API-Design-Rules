@@ -64,9 +64,7 @@
                                         "title": { "type": "string" },
                                         "detail": {"type": "string" },
                                         "extra": {"type": "string" }
-                                    },
-                                    "required": ["status", "title", "detail"],
-                                    "additionalProperties": false
+                                    }
                                 }
                             }
                         }
