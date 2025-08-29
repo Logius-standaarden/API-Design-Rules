@@ -59,6 +59,9 @@ async function obtainAllTestcases() {
 
 const shouldRefreshOutput = argv.includes('--refresh');
 
+// Installeer spectral als die nog niet er is
+await execute(`which spectral || npm install --yes -g @stoplight/spectral-cli`);
+
 for (const apiLocation of await obtainAllTestcases()) {
     const actualOutput = await runCommand(apiLocation);
 
@@ -77,6 +80,7 @@ for (const apiLocation of await obtainAllTestcases()) {
         console.error(expectedOutput);
         console.error("but got")
         console.error(actualOutput);
+        console.error("You can automatically regenerate the expectations by running this script by calling it with `--refresh`");
         process.exit(1);
     }
 }

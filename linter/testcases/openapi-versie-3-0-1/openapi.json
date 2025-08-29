@@ -1,5 +1,5 @@
 {
-    "openapi": "3.0.3",
+    "openapi": "3.1.0",
     "info": {
         "title": "Baseline",
         "description": "Deze OpenAPI specification bevat het minimale om aan alle regels te voldoen.",
@@ -27,12 +27,12 @@
     ],
     "paths": {
         "/openapi.json": {
-            "post": {
+            "get": {
                 "tags": [
                     "openapi"
                 ],
                 "description": "OpenAPI document",
-                "operationId": "pushOpenapiJSON",
+                "operationId": "getOpenapiJSON",
                 "parameters": [],
                 "responses": {
                     "200": {

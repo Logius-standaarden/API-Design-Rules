@@ -2,7 +2,7 @@
 
 ## Resources
 
-The REST architectural style is centered around the concept of a [=resource=]. A resource is the key abstraction of information, where every piece of information is named by assigning a globally unique [=URI=] (Uniform Resource Identifier). Resources describe *things*, which can vary between physical objects (e.g. a building or a person) and more abstract concepts (e.g. a permit or an event).
+The REST architectural style is centered around the concept of a [=resource=]. A resource is an abstraction of a conceptual entity, identified by a globally unique [=URI=]. It may correspond to anything from a physical object (e.g. a building or a person) to an abstract concept (e.g. a permit, an event or today's weather). Although a resource is not tied to any specific exchange format, its current state can be transferred to clients through one or more representations, such as JSON or XML.
 
 <span id="api-05"></span>
 <div class="rule" id="/core/naming-resources" data-type="functional">
@@ -10,7 +10,7 @@ The REST architectural style is centered around the concept of a [=resource=]. A
    <dl>
    <dt>Statement</dt>
    <dd>
-   Resources are referred to using nouns (instead of verbs) that are relevant from the perspective of the user of the API.
+   Resources are referred to using nouns (instead of verbs) that represent entities meaningful to the API consumer.
    <div class="example">
       A few correct examples of nouns as part of a URI:
       <ul>
@@ -26,12 +26,12 @@ The REST architectural style is centered around the concept of a [=resource=]. A
    </dd>
    <dt>Rationale</dt>
    <dd>
-   Resources describe objects not actions.
+   Resources describe objects, not actions.
    </dd>
 </dl>
 </div>
 
-A resource describing a single thing is called a [=singular resource=]. Resources can also be grouped into collections, which are resources in their own right and can typically be paged, sorted and filtered. Most often all collection members have the same type, but this is not necessarily the case. A resource describing multiple things is called a [=collection resource=]. Collection resources typically contain references to the underlying singular resources.
+A resource that corresponds to a single conceptual entity is referred to as a [=singular resource=]. Resources can also be logically grouped into collections, which are themselves resources and typically support operations like paging, sorting, and filtering. While collection members are often of the same type, this is not strictly required. A collection resource contains references (URIs) to the individual singular resources it includes.
 
 <span id="api-54"></span>
 <div class="rule" id="/core/naming-collections" data-type="functional">
@@ -39,7 +39,7 @@ A resource describing a single thing is called a [=singular resource=]. Resource
    <dl>
       <dt>Statement</dt>
       <dd>
-         A collection resource represents multiple things.
+         Collection resources are referred to using plural nouns.
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -84,11 +84,11 @@ A resource describing a single thing is called a [=singular resource=]. Resource
    <dl>
       <dt>Statement</dt>
       <dd>
-         A [=URI=] MUST never contain a trailing slash. When requesting a resource including a trailing slash, this MUST result in a `404` (not found) error response and not a redirect. This enforces API consumers to use the correct [=URI=].
+         A [=URI=] MUST never contain a trailing slash. When requesting a resource including a trailing slash, this MUST result in a `404` (not found) error response and not a redirect. This forces API consumers to use the correct [=URI=].
       </dd>
       <dt>Rationale</dt>
       <dd>
-         Leaving off trailing slashes, and not implementing a redirect, enforces API consumers to use the correct URI. This avoids confusion and ambiguity.
+         Leaving off trailing slashes, and not implementing a redirect, forces API consumers to use the correct URI. This avoids confusion and ambiguity.
          <div class="example">
             <p>URI without a trailing slash (correct):</p>
             <pre class="nohighlight">https://api.example.org/v1/gebouwen</pre>
@@ -109,16 +109,16 @@ A resource describing a single thing is called a [=singular resource=]. Resource
    <dl>
       <dt>Statement</dt>
       <dd>
-         An API SHOULD not expose implementation details of the underlying application, development platforms/frameworks or database systems/persistence models.
+         An API SHOULD NOT expose implementation details of the underlying application, development platforms/frameworks or database systems/persistence models.
       </dd>
       <dt>Rationale</dt>
       <dd>
          <ul>
             <li>The primary motivation behind this design rule is that an API design MUST focus on usability for the client, regardless of the implementation details under the hood.</li>
             <li>The API, application and infrastructure need to be able to evolve independently to ease the task of maintaining backwards compatibility for APIs during an agile development process.</li>
-            <li>The API design of Convenience,- and Process API types (as described in <a href="https://docs.geostandaarden.nl/api/def-hr-API-Strategie-20200204/#aanbeveling-2-analyseer-welke-api-s-je-aan-moet-bieden-welke-informatievragen-wil-je-beantwoorden">Aanbeveling 2</a> of the NL API Strategie) SHOULD not be a 1-on-1 mapping of the underlying domain- or persistence model.</li>
+            <li>The API design of Convenience,- and Process API types (as described in <a href="https://docs.geostandaarden.nl/api/def-hr-API-Strategie-20200204/#aanbeveling-2-analyseer-welke-api-s-je-aan-moet-bieden-welke-informatievragen-wil-je-beantwoorden">Aanbeveling 2</a> of the NL API Strategie) SHOULD NOT be a 1-on-1 mapping of the underlying domain- or persistence model.</li>
             <li>The API design of a System API type (as described in <a href="https://docs.geostandaarden.nl/api/def-hr-API-Strategie-20200204/#aanbeveling-2-analyseer-welke-api-s-je-aan-moet-bieden-welke-informatievragen-wil-je-beantwoorden">Aanbeveling 2</a> of the NL API Strategie) MAY be a mapping of the underlying  persistence model.</li>
-            <li>The API SHOULD not expose information about the technical components being used, such as development platforms/frameworks or database systems.</li>
+            <li>The API SHOULD NOT expose information about the technical components being used, such as development platforms/frameworks or database systems.</li>
             <li>The API SHOULD offer client-friendly attribute names and values, while persisted data may contain abbreviated terms or serializations which might be cumbersome for consumption.</li>
          </ul>
       </dd>
@@ -332,19 +332,19 @@ Although the REST architectural style does not impose a specific protocol, REST 
 
 One of the key constraints of the REST architectural style is stateless communication between client and server. It means that every request from client to server must contain all of the information necessary to understand the request. The server cannot take advantage of any stored session context on the server as it didn’t memorize previous requests. Session state must therefore reside entirely on the client.
 
-To properly understand this constraint, it's important to make a distinction between two different kinds of state:
+To properly understand this constraint, it is important to make a distinction between two different kinds of state:
 
-* *Session state*: information about the interactions of an end user with a particular client application within the same user session, such as the last page being viewed, the login state or form data in a multi-Step registration process. Session state must reside entirely on the client (e.g. in the user's browser).
+* *Session state*: information about the interactions of an end user with a particular client application within the same user session, such as the last page being viewed, the login state or form data in a multi-step registration process. Session state must reside entirely on the client (e.g. in the user's browser).
 * *Resource state*: information that is permanently stored on the server beyond the scope of a single user session, such as the user's profile, a product purchase or information about a building. Resource state is persisted on the server and must be exchanged between client and server (in both directions) using  representations as part of the request or response payload. This is actually where the term *REpresentational State Transfer (REST)* originates from.
 
-<p class="note">It's a misconception that there should be no state at all. The stateless communication constraint should be seen from the server's point of view and states that the server should not be aware of any <em>session state</em>.</p>
+<p class="note">It is a misconception that there should be no state at all. The stateless communication constraint should be seen from the server's point of view and states that the server should not be aware of any <em>session state</em>.</p>
 
 Stateless communication offers many advantages, including:
 
-* *Simplicity* is increased because the server doesn't have to memorize or retrieve session state while processing requests
+* *Simplicity* is increased because the server does not have to memorize or retrieve session state while processing requests
 * *Scalability* is improved because not having to incorporate session state across multiple requests enables higher concurrency and performance
 * *Observability* is improved since every request can be monitored or analyzed in isolation without having to incorporate session context from other requests
-* *Reliability* is improved because it eases the task of recovering from partial failures since the server doesn't have to maintain, update or communicate session state. One failing request does not influence other requests (depending on the nature of the failure of course).
+* *Reliability* is improved because it eases the task of recovering from partial failures since the server does not have to maintain, update or communicate session state. One failing request does not influence other requests (depending on the nature of the failure of course).
 
 <span id="api-02"></span>
 <div class="rule" id="/core/stateless" data-type="functional">
@@ -352,11 +352,11 @@ Stateless communication offers many advantages, including:
    <dl>
       <dt>Statement</dt>
       <dd>
-         In the context of REST APIs, the server MUST not maintain or require any notion of the functionality of the client application and the corresponding end user interactions.
+         In the context of REST APIs, the server MUST NOT maintain or require any notion of the functionality of the client application and the corresponding end user interactions.
       </dd>
       <dt>Rationale</dt>
       <dd>
-         To achieve full decoupling between client and server, and to benefit from the advantages mentioned above, no session state MUST reside on the server. Session state MUST therefore reside entirely on the client.
+         To achieve full decoupling between client and server, and to benefit from the advantages mentioned above, session state MUST NOT reside on the server. Session state MUST therefore reside entirely on the client.
       </dd>
    </dl>
    <p class="note">The client of a REST API could be a variety of applications such as a browser application, a mobile or desktop application and even another server serving as a backend component for another client. REST APIs should therefore be completely client-agnostic.</p>
@@ -385,7 +385,7 @@ Resources are often interconnected by relationships. Relationships can be modell
     <p>These nested sub-collection resources can be used to post a new comment (<code>POST</code> method) and to retrieve a list of comments (<code>GET</code> method) belonging to the parent resource, i.e. the article or photo. An important consideration is that these comments could never have existed without the existence of the parent resource.</p>
     <p>From the consumer's perspective, this approach makes logical sense, because the most obvious use case is to show comments below the parent article or photo (e.g. on the same web page) including the possibility to paginate through the comments. The process of posting a comment is separate from the process of publishing a new article. Another client use case might also be to show a global <em>latest comments</em> section in the sidebar. For this use case, an additional resource could be provided:</p>
     <pre class="nohighlight">https://api.example.org/v1/comments</pre>
-    <p>If this would have not been a meaningful use case, this resource should not exist at all. Because it doesn't make sense to post a new comment from a global context, this resource would be read-only (only <code>GET</code> method is supported) and may possibly provide a more compact representation than the parent-specific sub-collections.</p>
+    <p>If this would have not been a meaningful use case, this resource should not exist at all. Because it does not make sense to post a new comment from a global context, this resource would be read-only (only <code>GET</code> method is supported) and may possibly provide a more compact representation than the parent-specific sub-collections.</p>
     <p>The [=singular resources=] for comments, referenced from all 3 collections, could still be modelled on a higher level to avoid deep nesting of URIs (which might increase complexity or problems due to the URI length):</p>
     <pre class="nohighlight">https://api.example.org/v1/comments/123<br />https://api.example.org/v1/comments/456</pre>
     <p>Although this approach might seem counterintuitive from a technical perspective (we simply could have modelled a single <code>/comments</code> resource with optional filters for article and photo) and might introduce partially redundant functionality, it makes perfect sense from the perspective of the consumer, which increases developer experience.</p>
@@ -405,11 +405,11 @@ Resources are often interconnected by relationships. Relationships can be modell
       </dd>
       <dt>Rationale</dt>
       <dd>
-         There are resource operations which might not seem to fit well in the CRUD interaction model. For example, approving of a submission or notifying a customer. Depending on the type of the operation, there are three possible approaches:
+         There are resource operations which might not seem to fit well in the CRUD interaction model. For example, approving a submission or notifying a customer. Depending on the type of the operation, there are three possible approaches:
       <ol>
-         <li>Re-model the resource to incorporate extra fields supporting the particular operation. For example, an approval operation can be modelled in a boolean attribute <code>goedgekeurd</code> that can be modified by issuing a <code>PATCH</code> request against the resource. Drawback of this approach is that the resource does not contain any metadata about the operation (when and by whom was the approval given? Was the submission declined in an earlier stage?). Furthermore, this requires a fine-grained authorization model, since approval might require a specific role.</li>
-         <li>Treat the operation as a sub-resource. For example, model a sub-collection resource <code>/inzendingen/12/beoordelingen</code> and add an approval or declination by issuing a <code>POST</code> request. To be able to retrieve the review history (and to consistently adhere to the REST principles), also support the <code>GET</code> method for this resource. The <code>/inzendingen/12</code> resource might still provide a <code>goedgekeurd</code> boolean attribute (same as approach 1) which gets automatically updated on the background after adding a review. This attribute SHOULD however be read-only.</li>
-         <li>In exceptional cases, the approaches above still don't offer an appropriate solution. An example of such an operation is a global search across multiple resources. In this case, the creation of a dedicated resource, possibly nested under an existing resource, is the most obvious solution. Use the imperative mood of a verb, maybe even prefix it with a underscore to distinguish these resources from regular resources. For example: <code>/search</code> or <code>/_search</code>. Depending on the operation characteristics, <code>GET</code> and/or <code>POST</code> method MAY be supported for such a resource.</li>
+         <li>Re-model the resource to incorporate extra fields supporting the particular operation. For example, an approval operation can be modelled in a boolean attribute <code>goedgekeurd</code> that can be modified by issuing a <code>PATCH</code> request against the resource. A drawback of this approach is that the resource does not contain any metadata about the operation (when and by whom was the approval given? Was the submission rejected in an earlier stage?). Furthermore, this requires a fine-grained authorization model, since approval might require a specific role.</li>
+         <li>Treat the operation as a sub-resource. For example, model a sub-collection resource <code>/inzendingen/12/beoordelingen</code> and add an approval or rejection by issuing a <code>POST</code> request. To be able to retrieve the review history (and to consistently adhere to the REST principles), also support the <code>GET</code> method for this resource. The <code>/inzendingen/12</code> resource might still provide a <code>goedgekeurd</code> boolean attribute (same as approach 1) which gets automatically updated in the background after adding a review. This attribute SHOULD however be read-only.</li>
+         <li>In exceptional cases, the approaches above still do not offer an appropriate solution. An example of such an operation is a global search across multiple resources. In this case, the creation of a dedicated resource, possibly nested under an existing resource, is the most obvious solution. Use the imperative mood of a verb, maybe even prefix it with a underscore to distinguish these resources from regular resources. For example: <code>/search</code> or <code>/_search</code>. Depending on the operation characteristics, <code>GET</code> and/or <code>POST</code> method MAY be supported for such a resource.</li>
       </ol>
       </dd>
    </dl>
@@ -490,9 +490,9 @@ An API is as good as the accompanying documentation. The documentation has to be
       </dd>
       <dt>Rationale</dt>
       <dd>
-         <p> Clients (such as Swagger UI or ReDoc) MUST be able to retrieve the document without having to authenticate. Furthermore, the CORS policy for this [=URI=] MUST allow external domains to read the documentation from a browser environment.</p>
+         <p>It MUST be possible for clients (such as Swagger UI or ReDoc) to retrieve the document without having to authenticate. Furthermore, the CORS policy for this [=URI=] MUST allow external domains to read the documentation from a browser environment.</p>
          <p>The standard location for the OAS document is a URI called <code>openapi.json</code> or <code>openapi.yaml</code> within the base path of the API. This can be convenient, because OAS document updates can easily  become part of the CI/CD process.</p>
-         <p>At least the JSON format MUST be supported. When having multiple (major) versions of an API, every API SHOULD provide its own OAS document(s).</p>
+         <p>At least the JSON format MUST be supported. When having multiple (major) versions of an API, every API version SHOULD provide its own OAS document(s).</p>
          <div class="example">
             <p>An API having base path <code>https://api.example.org/v1</code> MUST publish the OAS document at:</p>
             <pre class="nohighlight">https://api.example.org/v1/openapi.json</pre>
@@ -503,9 +503,9 @@ An API is as good as the accompanying documentation. The documentation has to be
       <dt>How to test</dt>
       <dd>
          <ul>
-            <li> Step 1: The API MUST meet the prerequisets to be tested. These include that an OAS file (openapi.json) is publicly available, parsable, all $refs are resolvable and paths are defined.</li>
-            <li> Step 2: The openapi.yaml MAY be available. If available it MUST contain yaml, be readable and parsable.</li>
-            <li> Step 3: The openapi.yaml MUST contain the same OpenAPI Description as the openapi.json.</li>
+            <li> Step 1: The API MUST meet the prerequisites to be tested. These include that an OAS file (openapi.json) is publicly available, parsable, all $refs are resolvable and paths are defined.</li>
+            <li> Step 2: The openapi.yaml document MAY be available. If available it MUST contain YAML, be readable and parsable.</li>
+            <li> Step 3: The openapi.yaml document MUST contain the same OpenAPI Description as the openapi.json document.</li>
             <li> Step 4: The CORS header Access-Control-Allow-Origin MUST allow all origins.</li>
          </ul>
       </dd>
@@ -522,11 +522,11 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
    <dl>
       <dt>Statement</dt>
       <dd>
-         Implement well documented and timely communicated deprecation schedules.
+         Implement well-documented deprecation schedules that are communicated in a timely fashion.
       </dd>
       <dt>Rationale</dt>
       <dd>
-         Managing change is important. In general, well documented and timely communicated deprecation schedules are the most important for API users. When deprecating features or versions, a deprecation schedule MUST be published. This document SHOULD be published on a public web page. Furthermore, active clients SHOULD be informed by e-mail once the schedule has been updated or when versions have reached end-of-life.
+         Managing change is important. In general, good documentation and timely communication regarding deprecation schedules are the most important for API users. When deprecating features or versions, a deprecation schedule MUST be published. This document SHOULD be published on a public web page. Furthermore, active clients SHOULD be informed by e-mail once the schedule has been updated or when versions have reached end-of-life.
       </dd>
    </dl>
 </div>
@@ -601,7 +601,7 @@ servers:
       </dd>
       <dt>Rationale</dt>
       <dd>
-         Version numbering MUST follow the Semantic Versioning [[SemVer]] model to prevent breaking changes when releasing new API versions. Release versions are formatted using the <code>major.minor.patch</code> template (examples: 1.0.2, 1.11.0). Pre-release versions MAY be denoted by appending a hyphen and a series of dot separated identifiers (examples: 1.0.2-rc.1, 2.0.0-beta.3). When releasing a new version which contains backwards-incompatible changes, a new major version MUST be released. Minor and patch releases MAY only contain backwards compatible changes (e.g. the addition of an endpoint or an optional attribute).
+         Version numbering MUST follow the Semantic Versioning [[SemVer]] model to prevent breaking changes when releasing new API versions. Release versions are formatted using the <code>major.minor.patch</code> template (examples: 1.0.2, 1.11.0). Pre-release versions MAY be denoted by appending a hyphen and a series of dot separated identifiers (examples: 1.0.2-rc.1, 2.0.0-beta.3). When releasing a new version which contains backwards-incompatible changes, a new major version MUST be released. Minor and patch releases MUST only contain backwards compatible changes (e.g. the addition of an endpoint or an optional attribute).
       </dd>
       <dt>How to test</dt>
       <dd>
@@ -620,8 +620,8 @@ servers:
       </dd>
       <dt>Rationale</dt>
       <dd>
-         <p>Since the URI only contains the major version, it's useful to provide the full version number in the response headers for every API call. This information could then be used for logging, debugging or auditing purposes. In cases where an intermediate networking component returns an error response (e.g. a reverse proxy enforcing access policies), the version number MAY be omitted.</p>
-         <p>The version number MUST be returned in an HTTP response header named <code>API-Version</code> (case-insensitive) and SHOULD not be prefixed.</p>
+         <p>Since the URI only contains the major version, it is useful to provide the full version number in the response headers for every API call. This information could then be used for logging, debugging or auditing purposes. In cases where an intermediate networking component returns an error response (e.g. a reverse proxy enforcing access policies), the version number MAY be omitted.</p>
+         <p>The version number MUST be returned in an HTTP response header named <code>API-Version</code> (case-insensitive) and SHOULD NOT be prefixed.</p>
          <div class="example">
             <p>An example of an API version response header:</p>
             <pre class="nohighlight">API-Version: 1.0.2</pre>
@@ -638,7 +638,7 @@ servers:
 
 This section describes security principles, concepts and technologies to apply when working with APIs.
 Controls need to be applied for the security objectives of integrity, confidentiality and availability of the API (which includes the services and data provided thereby).
-The [architecture section of the API strategy](https://docs.geostandaarden.nl/api/API-Strategie-architectuur/) contains architecture patterns for implementing Transport security.
+The [architecture section of the API strategy](https://docs.geostandaarden.nl/api/API-Strategie-architectuur/) contains architecture patterns for implementing transport security.
 
 The scope of this section is limited to generic security controls that directly influence the visible parts of an API.
 Effectively, only security standards directly applicable to interactions are discussed here.
@@ -677,8 +677,8 @@ Note: security controls for signing and encrypting of application level messages
       </dd>
       <dt>Rationale</dt>
       <dd>
-         <p>Even when using TLS connections, information in URIs is not secured. URIs can be cached and logged outside of the servers controlled by clients and servers. Any information contained in them should therefore be considered readable by anyone with access to the network (in the case of the internet, the whole world) and MUST NOT contain any sensitive information. This includes client secrets used for authentication, privacy sensitive information suchs as BSNs or any other information which should not be shared.
-         <p>Be aware that queries (anything after the '?' in a URI) are also part of an URI.
+         <p>Even when using TLS connections, information in URIs is not secured. URIs can be cached and logged outside of the servers controlled by clients and servers. Any information contained in them should therefore be considered readable by anyone with access to the network (in the case of the internet, the whole world) and MUST NOT contain any sensitive information. This includes client secrets used for authentication, privacy sensitive information such as BSNs or any other information which should not be shared.
+         <p>Be aware that queries (anything after the '?' in a URI) are also part of a URI.
       </dd>
    </dl>
 </div>
@@ -714,11 +714,11 @@ For instance, this is common practice between a reverse proxy or TLS-offloader a
 Additional HTTP headers are used in such example to pass an original IP-address or client certificate.
 
 Implementations MUST consider filtering both inbound and outbound traffic for HTTP-headers used internally.
-Primary focus of inbound filtering is to prevent injection of malicious headers on requests.
-As for outbound filtering, the main concern is leaking of information.
+The primary focus of inbound filtering is to prevent injection of malicious headers on requests.
+For outbound filtering, the main concern is leaking of information.
 
 <div class="rule" id="/core/transport/security-headers" data-type="technical">
-  <p class="rulelab">Use mandatory security headers in API all responses</p>
+  <p class="rulelab">Use mandatory security headers in all API responses</p>
    <dl>
       <dt>Statement</dt>
       <dd>
@@ -735,10 +735,6 @@ As for outbound filtering, the main concern is leaking of information.
                </tr>
             </thead>
             <tbody>
-               <tr>
-                  <td>Header</td>
-                  <td>Rationale</td>
-               </tr>
                <tr>
                   <td>`Cache-Control: no-store`</td>
                   <td>Prevent sensitive information from being cached.</td>
@@ -788,7 +784,7 @@ As for outbound filtering, the main concern is leaking of information.
                </tr>
                <tr>
                   <td>`Referrer-Policy: no-referrer`</td>
-                  <td>Non-HTML responses SHOULD not trigger additional requests.</td>
+                  <td>Non-HTML responses should not trigger additional requests.</td>
                </tr>
             </tbody>
          </table>
@@ -796,7 +792,7 @@ As for outbound filtering, the main concern is leaking of information.
       </dd>
       <dt>How to test</dt>
       <dd>
-         <p>The precense of the mandatory security headers can be tested in an automated way. A test client makes a call to the API root. The response is tested for the precense of mandatory headers.
+         <p>The presence of the mandatory security headers can be tested in an automated way. A test client makes a call to the API root. The response is tested for the presence of mandatory headers.
       </dd>
    </dl>
 </div>
@@ -811,7 +807,7 @@ As for outbound filtering, the main concern is leaking of information.
       </dd>
       <dt>Rationale</dt>
       <dd>
-         <p>Modern web browsers use Cross-Origin Resource Sharing (CORS) to minimize the risk associated with cross-site HTTP-requests. By default browsers only allow 'same origin' access to resources. This means that responses on requests to another `[scheme]://[hostname]:[port]` than the `Origin` request header of the initial request will not be processed by the browser. To enable cross-site requests API's can return a `Access-Control-Allow-Origin` response header. An allowlist SHOULD be used to determine the validity of different cross-site request. To do this check the `Origin` header of the incoming request and check if the domain in this header is on the whitelist. If this is the case, set the incoming `Origin` header in the `Access-Control-Allow-Origin` response header.
+         <p>Modern web browsers use Cross-Origin Resource Sharing (CORS) to minimize the risk associated with cross-site HTTP-requests. By default browsers only allow 'same origin' access to resources. This means that responses on requests to another `[scheme]://[hostname]:[port]` than the `Origin` request header of the initial request will not be processed by the browser. To enable cross-site requests APIs can return a `Access-Control-Allow-Origin` response header. An allowlist SHOULD be used to determine the validity of different cross-site requests. To do this check the `Origin` header of the incoming request and check if the domain in this header is on the allowlist. If this is the case, set the incoming `Origin` header in the `Access-Control-Allow-Origin` response header.
          <p>Using a wildcard `*` in the `Access-Control-Allow-Origin` response header is NOT RECOMMENDED, because it disables CORS-security measures. Only for an open API which has to be accessed by numerous other websites this is appropriate.
       </dd>
       <dt>How to test</dt>
@@ -825,13 +821,13 @@ As for outbound filtering, the main concern is leaking of information.
 
 A specific subclass of clients are browser-based applications, that require the presence of particular security controls to facilitate secure implementation.
 Clients in this class are also known as _user-agent-based_ or _single-page-applications_ (SPA).
-All browser-based application SHOULD follow the best practices specified in [OAuth 2.0 for Browser-Based Apps](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-browser-based-apps-22).
+All browser-based applications SHOULD follow the best practices specified in [OAuth 2.0 for Browser-Based Apps](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-browser-based-apps-22).
 These applications can be split into three architectural patterns:
 
-* JavaScript applications with a Backend; with this class of applications, the Backend is the confidential client and should intermediate any interaction, with tokens never ending up in the browser.
+* JavaScript applications with a backend; with this class of applications, the backend is the confidential client and should intermediate any interaction, with tokens never ending up in the browser.
 Effectively, these are not different from regular web-application for this security facet, even though they leverage JavaScript for implementation.
 * JavaScript applications that share a domain with the API (resource server); these can leverage cookies marked as HTTP-Only, Secure and SameSite.
-* JavaScript applications without a Backend; these clients are considered public clients, are potentially more suspect to several types of attacks, including Cross-Site Scripting (XSS), Cross Site Request Forgery (CSRF) and OAuth token theft.
+* JavaScript applications without a backend; these clients are considered public clients, and are potentially more vulnerable to several types of attacks, including Cross-Site Scripting (XSS), Cross Site Request Forgery (CSRF) and OAuth token theft.
 In order to support these clients, the Cross-Origin Resource Sharing (CORS) policy mentioned above is critical and MUST be supported.
 
 ### Validate content types
@@ -848,9 +844,9 @@ It is common for REST services to allow multiple response types (e.g. `applicati
 * Do NOT simply copy the `Accept` header to the `Content-type` header of the response.
 * Reject the request (ideally with a `406 Not Acceptable` response) if the Accept header does not specifically contain one of the allowable types.
 
-Services (potentially) including script code (e.g. JavaScript) in their responses MUST be especially careful to defend against header injection attack.
+Services (potentially) including script code (e.g. JavaScript) in their responses MUST be especially careful to defend against header injection attacks.
 
-* Ensure sending intended content type headers in your response matching your body content e.g. `application/json` and not `application/javascript`.
+* Ensure the intended Content-Type headers are sent in the response, matching the body content, e.g. `application/json` and not `application/javascript`.
 
 ## Geospatial
 
