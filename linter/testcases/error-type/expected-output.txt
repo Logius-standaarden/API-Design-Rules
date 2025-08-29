@@ -1,5 +1,5 @@
 
 /testcases/error-type/openapi.json
- 58:35  warning  nlgov:use-problem-schema  The content type of an error response should be application/problem+json or application/problem+xml to match RFC 9457.  paths./openapi.json.get.responses[400].content
+ 58:35  error  nlgov:use-problem-schema  The content type of an error response should be application/problem+json or application/problem+xml to match RFC 9457.  paths./openapi.json.get.responses[400].content
 
-✖ 1 problem (0 errors, 1 warning, 0 infos, 0 hints)
+✖ 1 problem (1 error, 0 warnings, 0 infos, 0 hints)
