@@ -90,6 +90,9 @@ A resource that corresponds to a single conceptual entity is referred to as a [=
       <dt>Statement</dt>
       <dd>
          A [=URI=] MUST never contain a trailing slash. When requesting a resource including a trailing slash, this MUST result in a `404` (not found) error response and not a redirect. This forces API consumers to use the correct [=URI=].
+         <div class="note">
+            This rule does not apply to the root resource (append <code>/</code> to the service root URL).
+         </div>
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -99,11 +102,13 @@ A resource that corresponds to a single conceptual entity is referred to as a [=
             <pre class="nohighlight example-correct">https://api.example.org/v1/gebouwen</pre>
             <p>URI with a trailing slash (incorrect):</p>
             <pre class="nohighlight example-incorrect">https://api.example.org/v1/gebouwen/</pre>
+            <p>URI for the root resource is exempt (correct):</p>
+            <pre class="nohighlight example-correct">https://api.example.org/v1/</pre>
          </div>
       </dd>
       <dt>How to test</dt>
       <dd>
-         Analyse all resource paths in the OpenAPI Description to confirm no resource paths end with a forward slash (<code>/</code>).
+         Analyse all resource paths (except the root resource path) in the OpenAPI Description to confirm no resource paths end with a forward slash (<code>/</code>).
       </dd>
    </dl>
 </div>
