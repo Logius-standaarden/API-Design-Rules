@@ -1,0 +1,1183 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "COR API Services",
+        "description": "Deze Logius REST API's bieden de openbare informatie voor organisaties",
+        "contact": {
+            "name": "Logius",
+            "url": "https://www.logius.nl/diensten/digikoppeling/",
+            "email": "servicecentrum@logius.nl"
+        },
+        "version": "1.2.9-SNAPSHOT"
+    },
+    "servers": [
+        {
+            "url": "https://oinregister.logius.nl/api/v1"
+        }
+    ],
+    "security": [
+        {
+            "default": []
+        }
+    ],
+    "tags": [
+        {
+            "name": "openapi"
+        },
+        {
+            "name": "health"
+        },
+        {
+            "name": "organisatie"
+        },
+        {
+            "name": "wijziging"
+        }
+    ],
+    "paths": {
+        "/heartbeat": {
+            "summary": "Readiness checks worden gebruikt om aan te geven of de API in staat is om requests te verwerken",
+            "description": "Health - Readiness",
+            "get": {
+                "tags": [
+                    "health"
+                ],
+                "summary": "Readiness check van deze API",
+                "description": "Controleer of de API gereed is",
+                "operationId": "getHeartbeat",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HealthCheckResponse"
+                                }
+                            }
+                        }
+                    },
+                    "429": {
+                        "description": "Too Many Requests",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HealthCheckResponse"
+                                }
+                            }
+                        }
+                    },
+                    "503": {
+                        "description": "Service Unavailable",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HealthCheckResponse"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ],
+                "x-throttling-tier": "Unlimited",
+                "x-auth-type": "None",
+                "x-wso2-application-security": {
+                    "security-types": [
+                        "oauth2",
+                        "api_key"
+                    ],
+                    "optional": false
+                }
+            }
+        },
+        "/openapi": {
+            "get": {
+                "tags": [
+                    "openapi"
+                ],
+                "description": "OpenAPI document",
+                "operationId": "getOpenapi",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ],
+                "x-throttling-tier": "Unlimited",
+                "x-auth-type": "None",
+                "x-wso2-application-security": {
+                    "security-types": [
+                        "oauth2",
+                        "api_key"
+                    ],
+                    "optional": false
+                }
+            }
+        },
+        "/openapi.json": {
+            "get": {
+                "tags": [
+                    "openapi"
+                ],
+                "description": "OpenAPI document",
+                "operationId": "getOpenapiJSON",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ],
+                "x-throttling-tier": "Unlimited",
+                "x-auth-type": "None",
+                "x-wso2-application-security": {
+                    "security-types": [
+                        "oauth2",
+                        "api_key"
+                    ],
+                    "optional": false
+                }
+            }
+        },
+        "/laatsteWijziging": {
+            "get": {
+                "tags": [
+                    "wijziging"
+                ],
+                "summary": "Laatste wijziging",
+                "description": "Dit eindpunt geeft het tijdstempel van de laatst gewijzigde organisatie in het systeem",
+                "operationId": "getLaatsteWijziging",
+                "responses": {
+                    "200": {
+                        "description": "Tijdstempel laatst gewijzigde organisatie",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LaatsteWijzigingsDatum"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "De opgegeven parameters zijn onjuist",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Het gevraagde gegeven is niet gevonden",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "405": {
+                        "description": "Het verzoek is niet toegestaan voor dit eindpunt",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "406": {
+                        "description": "De opgegeven Accept Header is onjuist",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "429": {
+                        "description": "Maximaal aantal verzoeken per seconds is overschreden",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "De server heeft een interne fout",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "503": {
+                        "description": "De dienst is niet beschikbaar",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ],
+                "x-throttling-tier": "Unlimited",
+                "x-auth-type": "None",
+                "x-wso2-application-security": {
+                    "security-types": [
+                        "oauth2",
+                        "api_key"
+                    ],
+                    "optional": false
+                }
+            }
+        },
+        "/organisaties": {
+            "get": {
+                "tags": [
+                    "organisatie"
+                ],
+                "summary": "Organisaties Collectie",
+                "description": "Dit eindpunt geeft een lijst van alle openbare organisaties in het systeem",
+                "operationId": "getOrganisations",
+                "parameters": [
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "Schakelaar om details van gekoppelde organisaties (subOIN of OINhouder) op te vragen (default false = geen details)",
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "style": "form",
+                        "explode": true
+                    },
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "description": "Een kommagescheiden string met namen van velden waarvan de waarde opgehaald dient te worden",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": true
+                    },
+                    {
+                        "name": "kvkNummer",
+                        "in": "query",
+                        "description": "Het Kvk Nummer van de organisatie",
+                        "schema": {
+                            "maxLength": 8,
+                            "minLength": 8,
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": true
+                    },
+                    {
+                        "name": "naam",
+                        "in": "query",
+                        "description": "De naam van de organisatie",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": true
+                    },
+                    {
+                        "name": "oin",
+                        "in": "query",
+                        "description": "Het organisatie Identificatienummer",
+                        "schema": {
+                            "maxLength": 20,
+                            "minLength": 20,
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": true
+                    },
+                    {
+                        "name": "organisatieCode",
+                        "in": "query",
+                        "description": "De organisatiecode van de organisatie",
+                        "schema": {
+                            "maxLength": 4,
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": true
+                    },
+                    {
+                        "name": "organisatieType",
+                        "in": "query",
+                        "description": "Het organisatietype van de organisatie",
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/OrganisationType"
+                                }
+                            ]
+                        },
+                        "style": "form",
+                        "explode": true
+                    },
+                    {
+                        "name": "pagina",
+                        "in": "query",
+                        "description": "De opgevraagde pagina",
+                        "schema": {
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "style": "form",
+                        "explode": true
+                    },
+                    {
+                        "name": "resultatenPerPagina",
+                        "in": "query",
+                        "description": "Het aantal organisaties per pagina (-1 voor alle organisaties op 1 pagina)",
+                        "schema": {
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "style": "form",
+                        "explode": true
+                    },
+                    {
+                        "name": "rooId",
+                        "in": "query",
+                        "description": "Het ID zoals in het register Overheidsorganisaties bekend",
+                        "schema": {
+                            "maxLength": 255,
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": true
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "De status van de organisatie binnen het OIN-register",
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/OrganisationStatus"
+                                }
+                            ]
+                        },
+                        "style": "form",
+                        "explode": true
+                    },
+                    {
+                        "name": "zoek",
+                        "in": "query",
+                        "description": "Vrije tekst voor het zoeken in de volgende velden: oin, naam, afkorting",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": true
+                    },
+                    {
+                        "name": "X-Test-Data-Key",
+                        "in": "header",
+                        "description": "De sleutel om toegang te krijgen tot testgegevens",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Lijst met organisaties",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "X-Total-Count": {
+                                "description": "Het totale aantal resultaten",
+                                "style": "simple",
+                                "schema": {
+                                    "format": "int32",
+                                    "type": "integer"
+                                }
+                            },
+                            "X-Pagination-Count": {
+                                "description": "Het totale aantal beschikbare pagina's",
+                                "style": "simple",
+                                "schema": {
+                                    "format": "int32",
+                                    "type": "integer"
+                                }
+                            },
+                            "X-Pagination-Page": {
+                                "description": "De geretourneerde pagina",
+                                "style": "simple",
+                                "schema": {
+                                    "format": "int32",
+                                    "type": "integer"
+                                }
+                            },
+                            "X-Pagination-Limit": {
+                                "description": "Het totale aantal resultaten per pagina",
+                                "style": "simple",
+                                "schema": {
+                                    "format": "int32",
+                                    "type": "integer"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/OrganisatieListResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "De opgegeven parameters zijn onjuist",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Het gevraagde gegeven is niet gevonden",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "405": {
+                        "description": "Het verzoek is niet toegestaan voor dit eindpunt",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "406": {
+                        "description": "De opgegeven Accept Header is onjuist",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "429": {
+                        "description": "Maximaal aantal verzoeken per seconds is overschreden",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "De server heeft een interne fout",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "503": {
+                        "description": "De dienst is niet beschikbaar",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ],
+                "x-throttling-tier": "Unlimited",
+                "x-auth-type": "None",
+                "x-wso2-application-security": {
+                    "security-types": [
+                        "oauth2",
+                        "api_key"
+                    ],
+                    "optional": false
+                }
+            }
+        },
+        "/organisaties/{oin}": {
+            "get": {
+                "tags": [
+                    "organisatie"
+                ],
+                "summary": "Openbare organisatie Informatie",
+                "description": "Dit eindpunt levert de openbare informatie van de organisatie",
+                "operationId": "getOrganisation",
+                "parameters": [
+                    {
+                        "name": "oin",
+                        "in": "path",
+                        "description": "Het organisatie Identificatienummer",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false
+                    },
+                    {
+                        "name": "beschikbaarOp",
+                        "in": "query",
+                        "description": "De datum waarop de organisatiegegevens beschikbaar werden in het systeem",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": true
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "Schakelaar om details van gekoppelde organisaties (subOIN of OINhouder) op te vragen (default false = geen details)",
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "style": "form",
+                        "explode": true
+                    },
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "description": "Een kommagescheiden string met namen van velden waarvan de waarde opgehaald dient te worden",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": true
+                    },
+                    {
+                        "name": "geldigOp",
+                        "in": "query",
+                        "description": "De datum waarop de organisatiegegevens geldig zijn/worden",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": true
+                    },
+                    {
+                        "name": "X-Test-Data-Key",
+                        "in": "header",
+                        "description": "De sleutel om toegang te krijgen tot testgegevens",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Organisatie informatie",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/OrganisatieResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "De opgegeven parameters zijn onjuist",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Het gevraagde gegeven is niet gevonden",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "405": {
+                        "description": "Het verzoek is niet toegestaan voor dit eindpunt",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "406": {
+                        "description": "De opgegeven Accept Header is onjuist",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "429": {
+                        "description": "Maximaal aantal verzoeken per seconds is overschreden",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "De server heeft een interne fout",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "503": {
+                        "description": "De dienst is niet beschikbaar",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ],
+                "x-throttling-tier": "Unlimited",
+                "x-auth-type": "None",
+                "x-wso2-application-security": {
+                    "security-types": [
+                        "oauth2",
+                        "api_key"
+                    ],
+                    "optional": false
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "HealthCheckResponse": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "$ref": "#/components/schemas/HealthCheckStatus"
+                    },
+                    "checks": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/HealthCheckListItem"
+                        },
+                        "nullable": true
+                    }
+                }
+            },
+            "HealthCheckStatus": {
+                "enum": [
+                    "UP",
+                    "DOWN"
+                ],
+                "type": "string"
+            },
+            "HealthCheckListItem": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "status": {
+                        "$ref": "#/components/schemas/HealthCheckStatus"
+                    },
+                    "data": {
+                        "type": "object",
+                        "properties": {
+                            "exceptionClass": {
+                                "type": "object"
+                            },
+                            "exceptionMessage": {
+                                "type": "object"
+                            },
+                            "rootCause": {
+                                "type": "object"
+                            }
+                        },
+                        "nullable": true
+                    }
+                }
+            },
+            "ErrorResponse": {
+                "description": "Foutmeldinggegevens",
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "description": "De link naar het fouttype",
+                        "type": "string"
+                    },
+                    "title": {
+                        "description": "De titel van het fouttype",
+                        "type": "string"
+                    },
+                    "status": {
+                        "format": "int32",
+                        "description": "De HTTP status code",
+                        "type": "integer"
+                    },
+                    "detail": {
+                        "description": "Het detail van de foutmelding",
+                        "type": "string"
+                    },
+                    "instance": {
+                        "description": "Het UUID waarmee een beheerder de foutmelding eenvoudig terug kan vinden in de log",
+                        "type": "string"
+                    },
+                    "parameterDetail": {
+                        "description": "Een lijst met foutdetails over de gebruikte parameters",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ErrorResponseParameter"
+                        }
+                    }
+                }
+            },
+            "ErrorResponseParameter": {
+                "description": "Foutdetail over de gebruikte parameter",
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "description": "Fouttype van de parameter",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Naam van het veld met de fout",
+                        "type": "string"
+                    },
+                    "reason": {
+                        "description": "Foutomschrijving",
+                        "type": "string"
+                    }
+                }
+            },
+            "HalInfo": {
+                "description": "Een HAL-referentie",
+                "type": "object",
+                "properties": {
+                    "href": {
+                        "description": "De link naar de bron",
+                        "type": "string"
+                    },
+                    "type": {
+                        "description": "Het mime-type van de bron",
+                        "type": "string"
+                    }
+                }
+            },
+            "HalPaginationInfo": {
+                "description": "De HAL paginering referentie",
+                "type": "object",
+                "properties": {
+                    "self": {
+                        "description": "De link naar zichzelf",
+                        "type": "object",
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/HalInfo"
+                            }
+                        ]
+                    },
+                    "first": {
+                        "description": "De link naar de eerste pagina van de lijst met gegevens",
+                        "type": "object",
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/HalInfo"
+                            }
+                        ]
+                    },
+                    "prev": {
+                        "description": "De link naar de vorige pagina van de lijst met gegevens",
+                        "type": "object",
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/HalInfo"
+                            }
+                        ]
+                    },
+                    "next": {
+                        "description": "De link naar de volgende pagina van de lijst met gegevens",
+                        "type": "object",
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/HalInfo"
+                            }
+                        ]
+                    },
+                    "last": {
+                        "description": "De link naar de laatste pagina van de lijst met gegevens",
+                        "type": "object",
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/HalInfo"
+                            }
+                        ]
+                    }
+                }
+            },
+            "HalSelfInfo": {
+                "description": "De HAL paginering referentie",
+                "type": "object",
+                "properties": {
+                    "self": {
+                        "description": "De link naar zichzelf",
+                        "type": "object",
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/HalInfo"
+                            }
+                        ]
+                    }
+                }
+            },
+            "LaatsteWijzigingsDatum": {
+                "description": "Modificatiedatum laatst aangepaste organisatie",
+                "type": "object",
+                "properties": {
+                    "_links": {
+                        "description": "De HAL paginering referentie",
+                        "type": "object",
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/HalSelfInfo"
+                            }
+                        ]
+                    },
+                    "laatsteWijziging": {
+                        "description": "Modificatiedatum laatst aangepaste organisatie",
+                        "type": "string",
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/LocalDateTime"
+                            }
+                        ]
+                    }
+                }
+            },
+            "LocalDateTime": {
+                "format": "date-time",
+                "type": "string",
+                "example": "2022-03-10T12:15:50"
+            },
+            "OrganisatieListResponse": {
+                "description": "Lijst met organisatiegegevens",
+                "type": "object",
+                "properties": {
+                    "_links": {
+                        "description": "De HAL paginering referentie",
+                        "type": "object",
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/HalPaginationInfo"
+                            }
+                        ]
+                    },
+                    "organisaties": {
+                        "description": "De lijst met organisaties",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/OrganisatieResponse"
+                        }
+                    }
+                }
+            },
+            "OrganisatieResponse": {
+                "description": "Organisatiegegevens",
+                "type": "object",
+                "properties": {
+                    "_links": {
+                        "description": "De HAL paginering referentie",
+                        "type": "object",
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/HalSelfInfo"
+                            }
+                        ]
+                    },
+                    "naam": {
+                        "description": "De naam van de organisatie",
+                        "type": "string"
+                    },
+                    "oin": {
+                        "description": "Het organisatie Identificatienummer",
+                        "type": "string"
+                    },
+                    "status": {
+                        "description": "De status van de organisatie binnen het OIN-register",
+                        "type": "string",
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/OrganisationStatus"
+                            }
+                        ]
+                    },
+                    "kvkNummer": {
+                        "description": "Het Kvk Nummer van de organisatie",
+                        "maxLength": 8,
+                        "minLength": 8,
+                        "type": "string"
+                    },
+                    "afgifteDatum": {
+                        "description": "De afgiftedatum van de organisatie",
+                        "type": "string",
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/LocalDateTime"
+                            }
+                        ]
+                    },
+                    "laatstAangepastDatum": {
+                        "description": "De laatstaangepastdatum van de organisatie",
+                        "type": "string",
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/LocalDateTime"
+                            }
+                        ]
+                    },
+                    "intrekDatum": {
+                        "description": "De intrekdatum van de organisatie",
+                        "type": "string",
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/LocalDateTime"
+                            }
+                        ]
+                    },
+                    "organisatieCode": {
+                        "description": "De organisatiecode van de organisatie",
+                        "maxLength": 4,
+                        "type": "string"
+                    },
+                    "organisatieType": {
+                        "description": "Het organisatietype van de organisatie",
+                        "type": "string",
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/OrganisationType"
+                            }
+                        ]
+                    },
+                    "rooId": {
+                        "description": "Het ID zoals in het register Overheidsorganisaties bekend",
+                        "type": "string"
+                    },
+                    "hoofdOIN": {
+                        "description": "De oinhouder van de organisatie",
+                        "type": "object",
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/OrganisatieResponse"
+                            }
+                        ]
+                    },
+                    "subOINs": {
+                        "description": "De lijst met suboins van de organisatie",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/OrganisatieResponse"
+                        }
+                    }
+                }
+            },
+            "OrganisationStatus": {
+                "description": "De status van de organisatie binnen het OIN-register",
+                "enum": [
+                    "In Behandeling",
+                    "Actief",
+                    "Ingetrokken"
+                ],
+                "type": "string"
+            },
+            "OrganisationType": {
+                "description": "Het organisatietype van de organisatie",
+                "enum": [
+                    "GM",
+                    "PV",
+                    "WS",
+                    "MNRE",
+                    "GS",
+                    "GR",
+                    "OORG"
+                ],
+                "type": "string"
+            }
+        },
+        "securitySchemes": {
+            "default": {
+                "type": "oauth2",
+                "flows": {
+                    "implicit": {
+                        "authorizationUrl": "https://test.com",
+                        "scopes": {}
+                    }
+                }
+            }
+        }
+    },
+    "x-wso2-cors": {
+        "corsConfigurationEnabled": false,
+        "accessControlAllowOrigins": [
+            "*"
+        ],
+        "accessControlAllowCredentials": false,
+        "accessControlAllowHeaders": [
+            "authorization",
+            "Access-Control-Allow-Origin",
+            "Content-Type",
+            "SOAPAction",
+            "apikey",
+            "Internal-Key"
+        ],
+        "accessControlAllowMethods": [
+            "GET",
+            "PUT",
+            "POST",
+            "DELETE",
+            "PATCH",
+            "OPTIONS"
+        ]
+    },
+    "x-wso2-production-endpoints": {
+        "urls": [
+            "http://onloading-proxy-team-interfaces-cor-v1-2/"
+        ],
+        "type": "http"
+    },
+    "x-wso2-basePath": "/cor/1.2",
+    "x-wso2-transports": [
+        "http",
+        "https"
+    ],
+    "x-wso2-application-security": {
+        "security-types": [
+            "oauth2",
+            "api_key"
+        ],
+        "optional": false
+    },
+    "x-wso2-response-cache": {
+        "enabled": false,
+        "cacheTimeoutInSeconds": 300
+    }
+}

@@ -1,0 +1,5 @@
+
+/testcases/contact-no-url/openapi.json
+ 6:19  error  info-contact-fields-exist  Missing fields in `info.contact` field. Must specify email, name and url.  info.contact
+
+✖ 1 problem (1 error, 0 warnings, 0 infos, 0 hints)

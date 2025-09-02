@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - main
+      - develop
 jobs:
   build:
     name: Build
@@ -12,9 +13,46 @@ jobs:
   check:
     needs: build
     name: Check
-    uses: Logius-standaarden/Automatisering/.github/workflows/check.yml@main    
+    uses: Logius-standaarden/Automatisering/.github/workflows/check.yml@main
   publish:
     needs: build
     name: Publish (Logius)
     uses: Logius-standaarden/Automatisering/.github/workflows/publish.yml@main
     secrets: inherit
+  spectral_linter:
+    needs: build
+    name: Spectral linter test cases
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Run test suite
+        run: |
+          npm install -g @stoplight/spectral-cli
+          node linter/run-linter-tests.mjs
+  examples_linter:
+    needs: spectral_linter
+    name: Examples linter tests
+    runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        example: [ aspnet, express, quarkus ]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: 21
+      - name: Setup .NET 9.x
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.x'
+      - name: Install Spectral
+        run: npm install -g @stoplight/spectral-cli
+      - name: Run linter on ${{ matrix.example }} example
+        run: ./examples/${{ matrix.example }}/build-and-check-project.sh
