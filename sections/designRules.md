@@ -823,7 +823,7 @@ For outbound filtering, the main concern is leaking of information.
                </tr>
                <tr>
                   <td>`Access-Control-Allow-Origin`</td>
-                  <td>To relax the &#39;same origin&#39; policy and allow cross-origin access. See CORS-policy below</td>
+                  <td>To relax the &#39;same origin&#39; policy and allow cross-origin access. See <a href="#/core/transport/cors">/core/transport/cors</a> for more information.</td>
                </tr>
             </tbody>
          </table>
@@ -865,12 +865,26 @@ For outbound filtering, the main concern is leaking of information.
    <dl>
       <dt>Statement</dt>
       <dd>
-         Use CORS to restrict access from other domains (if applicable).
+         Use CORS to restrict access from other domains for applicable resources
       </dd>
       <dt>Rationale</dt>
       <dd>
-         <p>Modern web browsers use Cross-Origin Resource Sharing (CORS) to minimize the risk associated with cross-site HTTP-requests. By default browsers only allow 'same origin' access to resources. This means that responses on requests to another `[scheme]://[hostname]:[port]` than the `Origin` request header of the initial request will not be processed by the browser. To enable cross-site requests APIs can return a `Access-Control-Allow-Origin` response header. An allowlist SHOULD be used to determine the validity of different cross-site requests. To do this check the `Origin` header of the incoming request and check if the domain in this header is on the allowlist. If this is the case, set the incoming `Origin` header in the `Access-Control-Allow-Origin` response header.
-         <p>Using a wildcard `*` in the `Access-Control-Allow-Origin` response header is NOT RECOMMENDED, because it disables CORS-security measures. Only for an open API which has to be accessed by numerous other websites this is appropriate.
+         Different resources can have different uses, as some resources are publicly available whereas others are restricted to several domains.
+         Modern web browsers use Cross-Origin Resource Sharing (CORS) to minimize the risk associated with cross-site HTTP-requests.
+         <p>By default browsers only allow 'same origin' access to resources.
+         This means that responses on requests to another `[scheme]://[hostname]:[port]` than the `Origin` request header of the initial request will not be processed by the browser.
+         To enable cross-site requests APIs can return a `Access-Control-Allow-Origin` response header.
+         <div class="note">
+            Only set this header if the resource is used across different domains.
+            If the resource is only used for the same origin, you SHOULD omit this header.
+         </div>
+         An allowlist SHOULD be used to determine the validity of different cross-site requests.
+         To do this, check the `Origin` header of the incoming request and check if the domain in this header is on the allowlist.
+         If this is the case, set the incoming `Origin` header in the `Access-Control-Allow-Origin` response header.
+         <div class="note">
+            Using a wildcard `*` in the `Access-Control-Allow-Origin` response header is NOT RECOMMENDED, because it disables CORS-security measures.
+            However, if the resource has to be accessed by numerous other origins that are not known up front (such as all resources in an open API, or the `openapi.json` as required by <a href="#/core/publish-openapi">/core/publish-openapi</a>), you MAY use `*`.
+         </div>
       </dd>
       <dt>How to test</dt>
       <dd>
