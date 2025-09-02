@@ -633,7 +633,7 @@ servers:
       </dd>
       <dt>How to test</dt>
       <dd>
-         Parse the `url` field in the `servers` mentioned in the OpenAPI Description to confirm the a version number is present with prefix <code>v</code> and only contains the *major* version number.
+         Parse the `url` field in the `servers` mentioned in the OpenAPI Description to confirm that a version number is present with prefix <code>v</code> and only contains the *major* version number.
       </dd>
    </dl>
 </div>
