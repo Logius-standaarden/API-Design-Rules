@@ -52,10 +52,6 @@ async function highlightSpectralCode(config, document) {
 }
 
 loadRespecWithConfiguration({
-  alternateFormats: [ { 
-        "label" : "pdf",
-        "uri" : "API-Design-Rules.pdf"
-      } ],
   authors: [ 
       { 
         "company" : "Het Kadaster",
