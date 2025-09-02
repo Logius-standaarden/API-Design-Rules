@@ -104,6 +104,10 @@ function processRuleBlocks(config, document) {
 }
 
 globalThis.respecConfig = {
+  alternateFormats: [ {
+        "label" : "pdf",
+        "uri" : "api-adr-2.1.0.pdf"
+      } ],
   authors: [ 
       { 
         "company" : "Het Kadaster",
