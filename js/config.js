@@ -104,10 +104,6 @@ function processRuleBlocks(config, document) {
 }
 
 globalThis.respecConfig = {
-  alternateFormats: [ { 
-        "label" : "pdf",
-        "uri" : "API-Design-Rules.pdf"
-      } ],
   authors: [ 
       { 
         "company" : "Het Kadaster",
@@ -157,7 +153,6 @@ globalThis.respecConfig = {
   specStatus: "DEF",
   specType: "ST",
   pluralize: true,
-  thisVersion: [],
 
   preProcess: [initializeHighlightJSYaml, fetchSpectralConfiguration],
   postProcess: [highlightSpectralCode, processRuleBlocks],
