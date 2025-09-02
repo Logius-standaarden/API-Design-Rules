@@ -76,8 +76,9 @@ A resource that corresponds to a single conceptual entity is referred to as a [=
       </dd>
       <dt>Rationale</dt>
       <dd>
-         The exact meaning of concepts is often lost in translation. Publishing an API for an international audience might also be a reason to define interfaces in English.
-         Note that glossaries exist that define useful sets of attributes which SHOULD preferably be reused. Examples can be found at <a href="http://schema.org/docs/schemas.html">schema.org</a>.
+         <p>If your API references terms used in law or official government communication for example, then these terms have a well-defined meaning. The exact meaning of concepts is often lost in translation, hence such terms SHOULD be defined in the Dutch language.
+         <p>Publishing an API for an international (e.g. European) audience might be a reason to define interfaces in English instead.
+         <p>Note that glossaries exist that define useful sets of attributes which SHOULD preferably be reused. Examples can be found at <a href="http://schema.org/docs/schemas.html">schema.org</a>.
       </dd>
    </dl>
 </div>
