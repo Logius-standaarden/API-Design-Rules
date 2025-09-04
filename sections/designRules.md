@@ -510,7 +510,7 @@ Content-Type: application/problem+json</code><code class="json">{
   "title": "Resource Not Found",
   "status": 404,
   "detail": "No building found with id 12345.",
-  "instance": "/gebouwen/12345"
+  "instance": "/errors/abc"
 }
 </code></pre>
          </div>
