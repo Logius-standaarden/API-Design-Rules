@@ -1,0 +1,5 @@
+
+/testcases/error-type-missing-required/openapi.json
+ 62:50  error  nlgov:problem-schema-members  "properties" property must have required property "detail". These fields are required: status, title and detail. Additionally, only type and instance are allowed.  paths./openapi.json.get.responses[400].content.application/problem+json.schema.properties
+
+✖ 1 problem (1 error, 0 warnings, 0 infos, 0 hints)

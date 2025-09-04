@@ -157,8 +157,9 @@ rules:
       functionOptions:
         match: ^https://.*
 
+  #/core/problem-details
   nlgov:use-problem-schema:
-    severity: warn
+    severity: error
     message: "The content type of an error response should be application/problem+json or application/problem+xml to match RFC 9457."
     given: $..[responses][?(@property && @property.match(/(4|5)\d\d/))].content
     then:
@@ -168,6 +169,30 @@ rules:
           anyOf:
             - required: ["application/problem+json"]
             - required: ["application/problem+xml"]
+
+  nlgov:problem-schema-members:
+    severity: error
+    message: "{{error}}. These fields are required: status, title and detail. Additionally, only type and instance are allowed."
+    given: $..[responses][?(@property && @property.match(/(4|5)\d\d/))].content[?(@property=="application/problem+json" || @property=="application/problem+xml")]..schema
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          properties:
+            properties:
+              type: object
+              properties:
+                status: {}
+                title: {}
+                detail: {}
+                type: {}
+                instance: {}
+              required:
+              - status
+              - title
+              - detail
+              additionalProperties: false
 
   nlgov:property-casing:
     severity: warn
