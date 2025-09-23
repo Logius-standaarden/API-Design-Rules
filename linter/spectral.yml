@@ -132,7 +132,7 @@ rules:
 
   #/core/path-segments-kebab-case
   nlgov:paths-kebab-case:
-    severity: warn
+    severity: error
     message: "{{property}} is not kebab-case."
     given: $.paths[?(@property && !@property.match(/\/openapi\.json/))]~
     then:
@@ -145,6 +145,19 @@ rules:
         # - Paden mogen nesten, waardoor de twee groep genest wordt, gescheiden met een `/`
         # - Een pad mag eindigen met een `/`. Dat is volgens een andere regel niet toegestaan, maar we willen niet twee errors genereren
         match: ^(\/|(\/_[a-z0-9]+|\/(([a-z0-9\-]+|{[^}]+})(\/([a-z0-9\-\.]+|{[^}]+}))*)(\/_[a-z]+)?)\/?)$
+
+  #/core/query-keys-camel-case
+  nlgov:query-keys-camel-case:
+    severity: error
+    message: "{{value}} is not lower camelCase."
+    given:
+      - $.paths.*.*.parameters[?(@.in=='query')]
+      - $.components.securitySchemes[?(@.in=='query')]
+    then:
+      function: pattern
+      field: name
+      functionOptions:
+        match: ^\$?[a-z][a-z0-9]*([A-Z][\w0-9]*)*$
 
   nlgov:schema-camel-case:
     severity: warn
