@@ -15,7 +15,7 @@ The REST architectural style is centered around the concept of a [=resource=]. A
    <dt>Statement</dt>
    <dd>
    Resources are referred to using nouns (instead of verbs) that represent entities meaningful to the API consumer.
-   <div class="example">
+   <aside class="example">
       A few correct examples of nouns as part of a URI:
       <ul>
          <li>Gebouw</li>
@@ -26,7 +26,7 @@ The REST architectural style is centered around the concept of a [=resource=]. A
          <li>Opvragen</li>
          <li>Registreren</li>
       </ul>
-   </div>
+   </aside>
    </dd>
    <dt>Rationale</dt>
    <dd>
@@ -48,20 +48,18 @@ A resource that corresponds to a single conceptual entity is referred to as a [=
       <dt>Rationale</dt>
       <dd>
          The path segment describing the name of the collection resource MUST be written in the plural form.
-         <div class="example">
-            <p>Example collection resources, describing a list of things:</p>
-            <pre class="nohighlight">https://api.example.org/v1/gebouwen<br/>https://api.example.org/v1/vergunningen</pre>
-         </div>
-         <p>Singular resources contained within a collection resource are generally named by appending a path segment for the identification of each individual resource.</p>
-         <div class="example">
-            <p>Example singular resource, contained within a collection resource:</p>
-            <pre class="nohighlight">https://api.example.org/v1/gebouwen/3b9710c4-6614-467a-ab82-36822cf48db1<br/>https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pre>
-         </div>
-         <p>Singular resources that stand on their own, i.e. which are not contained within a collection resource, MUST be named with a path segment that is written in the singular form.</p>
-         <div class="example">
-            <p>Example singular resource describing the profile of the currently authenticated user:</p>
+         <p>Singular resources contained within a collection resource are generally named by appending a path segment for the identification of each individual resource.
+         <p>Singular resources that stand on their own, i.e. which are not contained within a collection resource, MUST be named with a path segment that is written in the singular form.
+         <aside class="example">
+            <p>Collection resources describe a list of things:</p>
+            <pre class="nohighlight">https://api.example.org/v1/gebouwen
+https://api.example.org/v1/vergunningen</pre>
+            <p>Singular resource that is contained within a collection resource:</p>
+            <pre class="nohighlight">https://api.example.org/v1/gebouwen/3b9710c4-6614-467a-ab82-36822cf48db1
+https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pre>
+            <p>Singular resource describing the profile of the currently authenticated user:</p>
             <pre class="nohighlight">https://api.example.org/v1/gebruikersprofiel</pre>
-         </div>
+         </aside>
       </dd>
    </dl>
 </div>
@@ -97,14 +95,14 @@ A resource that corresponds to a single conceptual entity is referred to as a [=
       <dt>Rationale</dt>
       <dd>
          Leaving off trailing slashes, and not implementing a redirect, forces API consumers to use the correct URI. This avoids confusion and ambiguity.
-         <div class="example">
+         <aside class="example">
             <p>URI without a trailing slash (correct):</p>
             <pre class="nohighlight example-correct">https://api.example.org/v1/gebouwen</pre>
             <p>URI with a trailing slash (incorrect):</p>
             <pre class="nohighlight example-incorrect">https://api.example.org/v1/gebouwen/</pre>
             <p>URI for the root resource is exempt (correct):</p>
             <pre class="nohighlight example-correct">https://api.example.org/v1/</pre>
-         </div>
+         </aside>
       </dd>
       <dt>How to test</dt>
       <dd>
@@ -127,7 +125,7 @@ A resource that corresponds to a single conceptual entity is referred to as a [=
       <dt>Rationale</dt>
       <dd>
          <p>Some web servers and frameworks do not handle case sensitivity or special characters of URIs well. The use of kebab-case path segments ensures compatibility with a broad range of systems. It is a more common implementation choice for path segments than camelCase or snake_case. Information (such as names of objects) that requires special characters can be part of the request body instead of being in the URI.
-         <div class="example">
+         <aside class="example">
             <p>URI path segment using kebab-case (correct):</p>
             <pre class="nohighlight example-correct">https://api.example.org/v1/financiele-claims</pre>
             <p>URI path segment not using hyphens to delineate words (incorrect):</p>
@@ -150,14 +148,15 @@ A resource that corresponds to a single conceptual entity is referred to as a [=
             <pre class="nohighlight example-incorrect">https://api.example.org/v1/schema.txt</pre>
             <p>Last URI path segment starting with <code>_</code> (correct):</p>
             <pre class="nohighlight example-correct">https://api.example.org/v1/organisaties/_zoek</pre>
-         </div>
+         </aside>
       </dd>
       <dt>How to test</dt>
       <dd>
-         Loop all resource paths in the OpenAPI Description and check that all resource path segments use lowercase letters, digits or hyphens (<code>-</code>). The last path segment is allowed to start with a <code>_</code>. You can use the following regex for each resource path:
-         <div class="example">
+         Loop all resource paths in the OpenAPI Description and check that all resource path segments use lowercase letters, digits or hyphens (<code>-</code>). The last path segment is allowed to start with a <code>_</code>.
+         <aside class="example">
+            You can use the following regex for each resource path:
             <pre><code>^(\/|(\/_[a-z0-9]+|\/(([a-z0-9\-]+|{[^}]+})(\/([a-z0-9\-\.]+|{[^}]+}))*)(\/_[a-z]+)?)\/?)$</code></pre>
-         </div>
+         </aside>
       </dd>
    </dl>
 </div>
@@ -174,19 +173,20 @@ A resource that corresponds to a single conceptual entity is referred to as a [=
       <dt>Rationale</dt>
       <dd>
          <p>Query keys are often converted to JSON object keys, where camelCase is the naming convention to avoid compatibility issues with JavaScript when deserializing objects.
-         <div class="example">
+         <aside class="example">
             <p>URI query key using camelCase (correct):</p>
             <pre class="nohighlight example-correct">https://api.example.org/v1/gebouwen?typeGebouw=woning</pre>
             <p>URI query key not using camelCase (incorrect):</p>
             <pre class="nohighlight example-incorrect">https://api.example.org/v1/gebouwen?type-gebouw=woning</pre>
-         </div>
+         </aside>
       </dd>
       <dt>How to test</dt>
       <dd>
-         Loop all resource paths in the OpenAPI Description and check that all query keys use letters, digits in camelCase. You can use the following regex for each query key:
-         <div class="example">
+         Loop all resource paths in the OpenAPI Description and check that all query keys use letters, digits in camelCase.
+         <aside class="example">
+            You can use the following regex for each query key:
             <pre><code>^[a-z0-9]+[a-zA-Z0-9]*$</code></pre>
-         </div>
+         </aside>
       </dd>
    </dl>
 </div>
@@ -264,7 +264,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
                </tr>
             </tbody>
          </table>
-         <div class="example">The following table shows some examples of the use of standard HTTP methods:
+         <aside class="example">The following table shows some examples of the use of standard HTTP methods:
       <table>
       <thead>
       <tr>
@@ -300,7 +300,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
          </tr>
       </tbody>
       </table>
-   </div>
+   </aside>
    <p class="note">The HTTP specification [[rfc9110]] offers a set of standard methods, where every method is designed with explicit semantics. HTTP also defines other methods, e.g. <code>HEAD</code>, <code>OPTIONS</code>, <code>TRACE</code>, and <code>CONNECT</code>.<br>
    The OpenAPI Specification 3.0 <a href="https://spec.openapis.org/oas/v3.0.1#path-item-object">Path Item Object</a> also supports these methods, except for <code>CONNECT</code>.<br>
   According to <a href="https://www.rfc-editor.org/rfc/rfc9110#name-overview">RFC 9110 9.1</a> the <code>GET</code> and <code>HEAD</code> HTTP methods MUST be supported by the server, all other methods are optional.<br>
@@ -444,19 +444,20 @@ Resources are often interconnected by relationships. Relationships can be modell
       <dt>Rationale</dt>
       <dd>
          In this use case, the child resource does not necessarily have a top-level collection resource. The best way to explain this design rule is by example.
-         <div class="example">
-    <p>When modelling resources for a news platform including the ability for users to write comments, it might be a good strategy to model the [=collection resources=] hierarchically:</p>
-    <pre class="nohighlight">https://api.example.org/v1/articles/123/comments</pre>
-    <p>The platform might also offer a photo section, where the same commenting functionality is offered. In the same way as for articles, the corresponding sub-collection resource might be published at:</p>
-    <pre class="nohighlight">https://api.example.org/v1/photos/456/comments</pre>
-    <p>These nested sub-collection resources can be used to post a new comment (<code>POST</code> method) and to retrieve a list of comments (<code>GET</code> method) belonging to the parent resource, i.e. the article or photo. An important consideration is that these comments could never have existed without the existence of the parent resource.</p>
-    <p>From the consumer's perspective, this approach makes logical sense, because the most obvious use case is to show comments below the parent article or photo (e.g. on the same web page) including the possibility to paginate through the comments. The process of posting a comment is separate from the process of publishing a new article. Another client use case might also be to show a global <em>latest comments</em> section in the sidebar. For this use case, an additional resource could be provided:</p>
-    <pre class="nohighlight">https://api.example.org/v1/comments</pre>
-    <p>If this would have not been a meaningful use case, this resource should not exist at all. Because it does not make sense to post a new comment from a global context, this resource would be read-only (only <code>GET</code> method is supported) and may possibly provide a more compact representation than the parent-specific sub-collections.</p>
-    <p>The [=singular resources=] for comments, referenced from all 3 collections, could still be modelled on a higher level to avoid deep nesting of URIs (which might increase complexity or problems due to the URI length):</p>
-    <pre class="nohighlight">https://api.example.org/v1/comments/123<br />https://api.example.org/v1/comments/456</pre>
-    <p>Although this approach might seem counterintuitive from a technical perspective (we simply could have modelled a single <code>/comments</code> resource with optional filters for article and photo) and might introduce partially redundant functionality, it makes perfect sense from the perspective of the consumer, which increases developer experience.</p>
-         </div>
+         <aside class="example">
+            When modelling resources for a news platform including the ability for users to write comments, it might be a good strategy to model the [=collection resources=] hierarchically:
+            <pre class="nohighlight">https://api.example.org/v1/articles/123/comments</pre>
+            The platform might also offer a photo section, where the same commenting functionality is offered. In the same way as for articles, the corresponding sub-collection resource might be published at:
+            <pre class="nohighlight">https://api.example.org/v1/photos/456/comments</pre>
+            These nested sub-collection resources can be used to post a new comment (<code>POST</code> method) and to retrieve a list of comments (<code>GET</code> method) belonging to the parent resource, i.e. the article or photo. An important consideration is that these comments could never have existed without the existence of the parent resource.
+            <p>From the consumer's perspective, this approach makes logical sense, because the most obvious use case is to show comments below the parent article or photo (e.g. on the same web page) including the possibility to paginate through the comments. The process of posting a comment is separate from the process of publishing a new article. Another client use case might also be to show a global <em>latest comments</em> section in the sidebar. For this use case, an additional resource could be provided:
+            <pre class="nohighlight">https://api.example.org/v1/comments</pre>
+            If this would have not been a meaningful use case, this resource should not exist at all. Because it does not make sense to post a new comment from a global context, this resource would be read-only (only <code>GET</code> method is supported) and may possibly provide a more compact representation than the parent-specific sub-collections.
+            <p>The [=singular resources=] for comments, referenced from all 3 collections, could still be modelled on a higher level to avoid deep nesting of URIs (which might increase complexity or problems due to the URI length):
+            <pre class="nohighlight">https://api.example.org/v1/comments/123
+https://api.example.org/v1/comments/456</pre>
+            <p>Although this approach might seem counterintuitive from a technical perspective (we simply could have modelled a single <code>/comments</code> resource with optional filters for article and photo) and might introduce partially redundant functionality, it makes perfect sense from the perspective of the consumer, which increases developer experience.
+         </aside>
       </dd>
 </div>
 
@@ -516,14 +517,14 @@ An API is as good as the accompanying documentation. The documentation has to be
       <dt>Rationale</dt>
       <dd>
          The OpenAPI Specification (OAS) [[OPENAPIS]] can include contact information to make clear how to reach out to API owners in case of issues or questions. This is relevant for publicly available APIs (such as OData) where no pre-existing communication channel exists between provider and consumer of the API. For internal APIs (where communication channels such as chat or issue trackers are likely already known), the <code>info.contact</code> MAY be provided.
-         <div class="example">
-            <p>Relevant contact information can include an email address and issue tracker.</p>
+         <aside class="example">
+            Relevant contact information can include an email address and issue tracker.
             <pre><code class="json">{
   "name": "Gebouwen API beheerder",
   "url": "https://www.github.com/ministerie/gebouwen/issues",
   "email": "teamgebouwen@ministerie.nl"
 }</code></pre>
-         </div>
+         </aside>
       </dd>
       <dt>How to test</dt>
       <dd>
@@ -560,12 +561,12 @@ An API is as good as the accompanying documentation. The documentation has to be
          <p>It MUST be possible for clients (such as Swagger UI or ReDoc) to retrieve the document without having to authenticate. Furthermore, the CORS policy for this [=URI=] MUST allow external domains to read the documentation from a browser environment.</p>
          <p>The standard location for the OAS document is a URI called <code>openapi.json</code> or <code>openapi.yaml</code> within the base path of the API. This can be convenient, because OAS document updates can easily  become part of the CI/CD process.</p>
          <p>At least the JSON format MUST be supported. When having multiple (major) versions of an API, every API version SHOULD provide its own OAS document(s).</p>
-         <div class="example">
-            <p>An API having base path <code>https://api.example.org/v1</code> MUST publish the OAS document at:</p>
+         <aside class="example">
+            An API having base path <code>https://api.example.org/v1</code> MUST publish the OAS document at:
             <pre class="nohighlight">https://api.example.org/v1/openapi.json</pre>
-            <p>Optionally, the same OAS document MAY be provided in YAML format:</p>
+            Optionally, the same OAS document MAY be provided in YAML format:
             <pre class="nohighlight">https://api.example.org/v1/openapi.yaml</pre>
-         </div>
+         </aside>
       </dd>
       <dt>How to test</dt>
       <dd>
@@ -624,17 +625,17 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       <dt>Rationale</dt>
       <dd>
          The [=URI=] of an API (base path) MUST include the major version number, prefixed by the letter <code>v</code>. This allows the exploration of multiple versions of an API in the browser. The minor and patch version numbers are not part of the [=URI=] and MAY not have any impact on existing client implementations.
-      <div class="example">
-         <p>An example of an <code class="nohighlight">openapi.yaml</code> for an API with a base path <code class="nohighlight">https://api.example.org/v1</code> and current version 1.0.2:</p>
-         <pre><code class="yaml">openapi: 3.0.0
-info:
-   version: '1.0.2'
-servers:
-   - description: test environment
-   url: https://api.test.example.org/v1
-   - description: production environment
-   url: https://api.example.org/v1</code></pre>
-      </div>
+         <aside class="example">
+            An example of an <code class="nohighlight">openapi.yaml</code> for an API with a base path <code class="nohighlight">https://api.example.org/v1</code> and current version 1.0.2:
+            <pre><code class="yaml">openapi: 3.0.0
+   info:
+      version: '1.0.2'
+   servers:
+      - description: test environment
+      url: https://api.test.example.org/v1
+      - description: production environment
+      url: https://api.example.org/v1</code></pre>
+         </aside>
       </dd>
       <dt>How to test</dt>
       <dd>
@@ -687,12 +688,12 @@ servers:
       </dd>
       <dt>Rationale</dt>
       <dd>
-         <p>Since the URI only contains the major version, it is useful to provide the full version number in the response headers for every API call. This information could then be used for logging, debugging or auditing purposes. In cases where an intermediate networking component returns an error response (e.g. a reverse proxy enforcing access policies), the version number MAY be omitted.</p>
-         <p>The version number MUST be returned in an HTTP response header named <code>API-Version</code> (case-insensitive) and SHOULD NOT be prefixed.</p>
-         <div class="example">
-            <p>An example of an API version response header:</p>
+         Since the URI only contains the major version, it is useful to provide the full version number in the response headers for every API call. This information could then be used for logging, debugging or auditing purposes. In cases where an intermediate networking component returns an error response (e.g. a reverse proxy enforcing access policies), the version number MAY be omitted.
+         <p>The version number MUST be returned in an HTTP response header named <code>API-Version</code> (case-insensitive) and SHOULD NOT be prefixed.
+         <aside class="example">
+            An example of an API version response header:
             <pre class="nohighlight">API-Version: 1.0.2</pre>
-         </div>
+         </aside>
       </dd>
       <dt>How to test</dt>
       <dd>
