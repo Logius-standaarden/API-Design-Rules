@@ -157,7 +157,7 @@ rules:
       function: pattern
       field: name
       functionOptions:
-        match: ^\$?[a-z][a-z0-9]*([A-Z][\w0-9]*)*$
+        match: ^\$?[a-z][a-z\d]*([A-Z][a-z\d]*)*$
 
   nlgov:schema-camel-case:
     severity: warn

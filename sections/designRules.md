@@ -186,7 +186,7 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
       <dd>
          Loop all resource paths in the OpenAPI Description and check that all query keys use letters, digits in camelCase. You can use the following regex for each query key:
          <aside class="example">
-            <pre><code>^\$?[a-z][a-z0-9]*([A-Z][\w0-9]*)*$</code></pre>
+            <pre><code>^\$?[a-z][a-z\d]*([A-Z][a-z\d]*)*$</code></pre>
          </aside>
       </dd>
    </dl>
