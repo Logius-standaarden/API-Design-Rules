@@ -9,15 +9,15 @@ on:
 jobs:
   build:
     name: Build
-    uses: Logius-standaarden/Automatisering/.github/workflows/build.yml@main
+    uses: Logius-standaarden/Automatisering/.github/workflows/build.yml@pr-timvdlippe-meerdere-documenten
   check:
     needs: build
     name: Check
-    uses: Logius-standaarden/Automatisering/.github/workflows/check.yml@main
+    uses: Logius-standaarden/Automatisering/.github/workflows/check.yml@pr-timvdlippe-meerdere-documenten
   publish:
     needs: build
     name: Publish (Logius)
-    uses: Logius-standaarden/Automatisering/.github/workflows/publish.yml@main
+    uses: Logius-standaarden/Automatisering/.github/workflows/publish.yml@pr-timvdlippe-meerdere-documenten
     secrets: inherit
   spectral_linter:
     needs: build
