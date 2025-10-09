@@ -722,7 +722,7 @@ Note: security controls for signing and encrypting of application level messages
     <dt>Statement</dt>
     <dd>
       <p>One should secure all APIs assuming they can be accessed from any location on the internet. Information MUST be exchanged over TLS-based secured connections. No exceptions, so everywhere and always. This is <a href="https://wetten.overheid.nl/BWBR0048156/2023-07-01">required by law</a>.
-      <p>One MUST follow the latest NCSC guidelines [[NCSC 2021]].
+      <p>One MUST follow the latest NCSC guidelines [[NCSC 2025]].
     </dd>
     <dt>Rationale</dt>
     <dd>
