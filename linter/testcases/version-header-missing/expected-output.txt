@@ -1,5 +1,5 @@
 
 /testcases/version-header-missing/openapi.json
- 40:35  error  nlgov:missing-version-header  Return the full version number in a response header  paths./openapi.json.get.responses[200].headers
+ 40:35  error  nlgov:missing-version-header  Return the full version number in a response header.  paths./openapi.json.get.responses[200].headers
 
 ✖ 1 problem (1 error, 0 warnings, 0 infos, 0 hints)
