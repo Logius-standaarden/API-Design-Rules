@@ -128,11 +128,11 @@ A resource that corresponds to a single conceptual entity is referred to as a [=
 ## Date and time
 
 <div class="rule" id="/core/date-time/format" data-type="technical">
-   <p class="rulelab">Use ISO 8601 for date and time formats</p>
+   <p class="rulelab">Use standard format for date, datetime and time</p>
    <dl>
       <dt>Statement</dt>
       <dd>
-         <p>All date, datetime and time fields in requests and responses MUST adhere to [[RFC9557]] and [[ISO8601]] format. Each field in the OpenAPI specification MUST set <code class="json">"type": "string"</code> and set <code>"format"</code> to the <a href="https://spec.openapis.org/registry/format/">OpenAPI format</a> as listed in the following table: 
+         <p>All date, datetime and time fields in requests and responses MUST adhere to [[RFC9557]] and [[ISO8601]] format. Each field in the OpenAPI specification MUST set <code class="json">"type": "string"</code> and set <code>"format"</code> to the <a href="https://spec.openapis.org/registry/format/">OpenAPI format</a> as listed in the following table:
          <table>
             <thead>
                <tr>
@@ -172,11 +172,11 @@ A resource that corresponds to a single conceptual entity is referred to as a [=
    <dl>
       <dt>Statement</dt>
       <dd>
-         <p>Fields in responses containing timestamps MUST be in UTC (e.g. <code>Z</code> as offset). APIs MUST accept fields with timestamps with any time offset in requests.
+         <p>APIs MUST accept fields with timestamps with any timezone offset in requests. Fields in responses containing timestamps MUST be in UTC (e.g. <code>Z</code> as timezone offset).
       </dd>
       <dt>Rationale</dt>
       <dd>
-         <p>TODO
+         <p>Allowing clients to use any timezone offset in requests results in flexibility and less complexity for users. Using UTC in responses results in clarity and removes ambiguity.
       </dd>
    </dl>
 </div>
@@ -191,12 +191,16 @@ A resource that corresponds to a single conceptual entity is referred to as a [=
       <dt>Rationale</dt>
       <dd>
          <p>Appending a default or irrelevant time portion to a date field can lead to interpretation errors. A publish date of <code>2025-07-24T00:00:00Z</code> could for instance be rendered as July 23 in Ireland. A default time of 23:59 would in turn cause date confusion east of Greenwich.
-         <aside class="example">
-            <p>TODO
-         </aside>
       </dd>
    </dl>
 </div>
+
+Handling date and time is tricky and can lead to confusion among clients. The date-time rules remove ambiguity and provide clarity in the API contract between servers and clients.
+
+<aside class="example">
+   <p>A child is born on March 20th 2025. If a client sends a request with value <code>2025-03-20T00:00:00+01:00</code>, timezone conversion would result in <code>2025-03-19T23:00:00Z</code>. When the client receives this value in a response and converts it to a date (by removing the time portion), this would incorrectly result in <code>2025-03-19</code>.
+   <p>Ambiguous date and time handling can therefore lead to misinterpretation and changes of days/months/years depending on which component performs which incorrect conversion. Clients could incorrectly remove a time portion from a datetime value if the value should have been a date in the first place. By specifying which formats are allowed in which fields, the odds of invalid conversion are reduced.
+</aside>
 
 ## HTTP methods
 
