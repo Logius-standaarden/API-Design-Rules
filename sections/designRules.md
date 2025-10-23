@@ -175,11 +175,11 @@ Handling date and time is tricky and can lead to confusion among clients. The da
 </div>
 
 <div class="rule" id="/core/date-time/timezone" data-type="technical">
-   <p class="rulelab">Allow all timezones in requests and use UTC in responses</p>
+   <p class="rulelab">Allow all timezone offsets in requests and use UTC in responses</p>
    <dl>
       <dt>Statement</dt>
       <dd>
-         <p>APIs MUST accept fields with timestamps with any timezone offset in requests. Fields in responses containing timestamps MUST be in UTC (e.g. <code>Z</code> as timezone offset).
+         <p>APIs MUST accept any timezone offset in fields in requests containing a datetime. Fields in responses containing a datetime MUST be in UTC (e.g. <code>Z</code> as timezone offset).
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -188,12 +188,12 @@ Handling date and time is tricky and can lead to confusion among clients. The da
    </dl>
 </div>
 
-<div class="rule" id="/core/date-time/date-omit-timestamp" data-type="technical">
+<div class="rule" id="/core/date-time/date-omit-time-portion" data-type="technical">
    <p class="rulelab">Omit time portion for date fields</p>
    <dl>
       <dt>Statement</dt>
       <dd>
-         <p>If the time portion is not relevant, only the date portion (e.g., <code>YYYY-MM-DD</code>) SHOULD be accepted and returned.
+         <p>If the time portion is not relevant, only the date portion (e.g., <code>YYYY-MM-DD</code>) MUST be accepted and returned.
       </dd>
       <dt>Rationale</dt>
       <dd>
