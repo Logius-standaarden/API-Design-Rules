@@ -193,7 +193,7 @@ Handling date and time is tricky and can lead to confusion among clients. The da
    <dl>
       <dt>Statement</dt>
       <dd>
-         <p>If the time portion is not relevant, only the date portion (e.g., <code>YYYY-MM-DD</code>) MUST be accepted and returned.
+         <p>If the time portion is not relevant, date MUST be used instead of datetime.
       </dd>
       <dt>Rationale</dt>
       <dd>
