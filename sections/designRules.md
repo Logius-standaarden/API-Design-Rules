@@ -125,18 +125,75 @@ A resource that corresponds to a single conceptual entity is referred to as a [=
    </dl>
 </div>
 
-<div class="rule" id="/core/date-time" data-type="technical">
+## Date and time
+
+<div class="rule" id="/core/date-time/format" data-type="technical">
    <p class="rulelab">Use ISO 8601 for date and time formats</p>
    <dl>
       <dt>Statement</dt>
       <dd>
-         <p>All date and time fields in requests and responses MUST follow [[RFC9557]] and thus be in [[ISO8601]] format (e.g., <code>YYYY-MM-DD</code> for dates, <code>YYYY-MM-DDTHH:mm:ssZ</code> for timestamps). Fields in responses containing timestamps MUST be in UTC (e.g. <code>Z</code> as offset). APIs MUST accept fields with timestamps with any time offset in requests and servers SHOULD normalize to (and store in) UTC.</p>
-         <p>If the time portion is not relevant, only the date portion (e.g., <code>YYYY-MM-DD</code>) SHOULD be accepted, stored, and returned.</p>
+         <p>All date, datetime and time fields in requests and responses MUST adhere to [[RFC9557]] and [[ISO8601]] format. Each field in the OpenAPI specification MUST set <code class="json">"type": "string"</code> and set <code>"format"</code> to the <a href="https://spec.openapis.org/registry/format/">OpenAPI format</a> as listed in the following table: 
+         <table>
+            <thead>
+               <tr>
+                  <th scope="col">Field type</th>
+                  <th scope="col">ISO8601 format</th>
+                  <th scope="col">OpenAPI format</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td>Date</td>
+                  <td>full-date (<code>YYYY-MM-DD</code>)</td>
+                  <td><code class="json">"format": "date"</code></td>
+               </tr>
+               <tr>
+                  <td>Datetime</td>
+                  <td>date-time (<code>YYYY-MM-DDThh:mm:ssZ</code> or <code>YYYY-MM-DDThh:mm:ss±hh:mm</code>)</td>
+                  <td><code class="json">"format": "date-time"</code></td>
+               </tr>
+               <tr>
+                  <td>Time</td>
+                  <td>time (<code>hh:mm:ss</code>)</td>
+                  <td><code class="json">"format": "time-local"</code></td>
+               </tr>
+            </tbody>
+         </table>
       </dd>
       <dt>Rationale</dt>
       <dd>
-         <p>Implementing ISO 8601 in UTC removes ambiguity in date handling between systems and timezones.</p>
-         <p>Inserting a default or irrelevant time can lead to interpretation errors in international contexts. A publish date of <code>2025-07-24T00:00:00Z</code> could for instance be rendered as July 23 in Ireland. A default time of 23:59 would in turn cause date confusion east of Greenwich.</p>
+         <p>Implementing RFC9557 and ISO 8601 in UTC removes ambiguity in date handling between systems and timezones.</p>
+      </dd>
+   </dl>
+</div>
+
+<div class="rule" id="/core/date-time/timezone" data-type="technical">
+   <p class="rulelab">Allow all timezones in requests and use UTC in responses</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         <p>Fields in responses containing timestamps MUST be in UTC (e.g. <code>Z</code> as offset). APIs MUST accept fields with timestamps with any time offset in requests.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         <p>TODO
+      </dd>
+   </dl>
+</div>
+
+<div class="rule" id="/core/date-time/date-omit-timestamp" data-type="technical">
+   <p class="rulelab">Omit time portion for date fields</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         <p>If the time portion is not relevant, only the date portion (e.g., <code>YYYY-MM-DD</code>) SHOULD be accepted and returned.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         <p>Appending a default or irrelevant time portion to a date field can lead to interpretation errors. A publish date of <code>2025-07-24T00:00:00Z</code> could for instance be rendered as July 23 in Ireland. A default time of 23:59 would in turn cause date confusion east of Greenwich.
+         <aside class="example">
+            <p>TODO
+         </aside>
       </dd>
    </dl>
 </div>
