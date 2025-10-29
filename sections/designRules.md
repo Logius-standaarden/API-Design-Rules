@@ -483,6 +483,135 @@ https://api.example.org/v1/comments/456</pre>
    </dl>
 </div>
 
+## Error handling
+
+<div class="rule" id="/core/problem-details" data-type="technical">
+   <p class="rulelab">Use problem details for error responses</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         <p>Error responses with HTTP status codes <code>4xx</code> or <code>5xx</code> MUST use either <code>application/problem+json</code> or <code>application/problem+xml</code> as the <code>Content-Type</code> header, and the response body MUST conform to the structure defined in [[rfc9457]].
+         <p>The following fields MUST be present: <code>status</code>, <code>title</code>, and <code>detail</code>.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         <p>Providing problem details in a machine-readable format aids automation and debugging. By using a common error format, APIs do not need to define their own or misuse existing HTTP status codes.</p>
+         <div class="example">
+            The following example shows the head and body of a detailed error response.
+            <pre><code class="http">HTTP/1.1 404 Not Found
+Content-Type: application/problem+json</code><code class="json">{
+  "status": 404,
+  "title": "Resource Not Found",
+  "detail": "No building found with id 12345."
+}
+</code></pre>
+         </div>
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         Verify all responses with status code <code>4xx</code> or <code>5xx</code> have <code>Content-Type</code> set to <code>application/problem+json</code> or <code>application/problem+xml</code> and contain the fields <code>status</code>, <code>title</code>, and <code>detail</code>. Optional fields are <code>type</code> and <code>instance</code>. Verify no additional fields are present.
+      </dd>
+   </dl>
+</div>
+
+<div class="rule" id="/core/invalid-input" data-type="technical">
+  <p class="rulelab">Use status code 400 for invalid input</p>
+  <dl>
+    <dt>Statement</dt>
+    <dd>
+      <p>API requests containing invalid input MUST result in HTTP status code <code>400 Bad Request</code>. This includes syntax errors, missing or invalid query parameters and schema violations for the request payload.</p>
+    </dd>
+    <dt>Rationale</dt>
+    <dd>
+      <p>The semantics of status code <code>400</code> ("the server cannot or will not process the request due to something that is perceived to be a client error") match validation failures more closely than status code <code>422</code>, which historically originates from WebDAV and introduces no added interoperability benefit.</p>
+    </dd>
+    <dt>How to test</dt>
+    <dd>
+      Verify that operations accepting query parameters and/or a request body contain a response with status code <code>400</code>.
+    </dd>
+  </dl>
+</div>
+
+<div class="rule" id="/core/problem-bad-request" data-type="technical">
+  <p class="rulelab">Add specific errors for bad-request responses</p>
+  <dl>
+    <dt>Statement</dt>
+    <dd>
+      <p>Problem details with status code <code>400</code> (Bad Request) MUST include an additional member <code>errors</code> containing an ordered list of validation error objects, as specified below.</p>
+      <p>Each error object MUST contain: <code>in</code>, <code>location</code>, and <code>detail</code>. The optional <code>code</code> field MAY be used for a stable machine-readable rule identifier.</p>
+      <ul>
+        <li><strong><code>in</code></strong> - where the error occurs: <code>body</code> or <code>query</code>.</li>
+        <li><strong><code>location</code></strong> (optional) - a structured locator for the offending value:
+          <ul>
+            <li>For JSON request bodies: an object with a <code>pointer</code> property containing a JSON Pointer [[rfc6901]] expression pointing to the value.</li>
+            <li>For XML request bodies: an element with a <code>path</code> attribute containing an absolute XPath v3.1 [[xpath-31]] expression pointing to the value.</li>
+            <li>For query parameters: an object with a <code>name</code> property (the parameter name). When the same name appears multiple times, include an <code>index</code> property, containing a zero-based index position.</li>
+          </ul>
+          For <code>body</code> errors, the <code>location</code> member may be omitted, in case the error refers to the body as a whole (e.g. syntax errors).
+        </li>
+        <li><strong><code>code</code></strong> (optional) - a short, stable machine code (e.g., <code>date.format</code>).</li>
+        <li><strong><code>detail</code></strong> - a human-readable message describing the violation.</li>
+      </ul>
+      <div class="example">
+        <p>JSON example:</p>
+        <pre><code class="http">HTTP/1.1 400 Bad Request
+Content-Type: application/problem+json</code><code class="json">{
+    "status": 400,
+    "title": "Request validation failed",
+    "errors": [
+      {
+        "in": "body",
+        "location": {
+          "pointer": "#/foo[0]/bar"
+        },
+        "code": "date.format",
+        "detail": "must be ISO 8601"
+      },
+      {
+        "in": "query",
+        "location": {
+          "name": "foo",
+          "index": 1
+        },
+        "code": "date.format",
+        "detail": "must be ISO 8601"
+      }
+    ]
+  }</code></pre>
+      </div>
+      <div class="example">
+        <p>XML example:</p>
+        <pre><code class="http">HTTP/1.1 400 Bad Request
+Content-Type: application/problem+xml</code><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;problem xmlns=&quot;urn:ietf:rfc:7807&quot;&gt;
+  &lt;status&gt;400&lt;/status&gt;
+  &lt;title&gt;Request validation failed&lt;/title&gt;
+  &lt;errors&gt;
+    &lt;error in=&quot;body&quot;&gt;
+      &lt;location path=&quot;/foo[1]/bar/text()&quot; /&gt;
+      &lt;code&gt;date.format&lt;/code&gt;
+      &lt;detail&gt;must be ISO 8601&lt;/detail&gt;
+    &lt;/error&gt;
+    &lt;error in=&quot;query&quot;&gt;
+      &lt;location name=&quot;foo&quot; index=&quot;1&quot; /&gt;
+      &lt;code&gt;date.format&lt;/code&gt;
+      &lt;detail&gt;must be ISO 8601&lt;/detail&gt;
+    &lt;/error&gt;
+  &lt;/errors&gt;
+&lt;/problem&gt;</code></pre>
+      </div>
+    </dd>
+    <dt>Rationale</dt>
+    <dd>
+      <p>Having a single, consistent <code>errors</code> structure makes validation issues predictable for clients, while relying on established locators using universal standards (JSON Pointer, XPath).</p>
+    </dd>
+    <dt>How to test</dt>
+    <dd>
+      Verify that content schemas for media types <code>application/problem+json</code> or <code>application/problem+xml</code> as part of responses with status 400, contain a required <code>errors</code> member conforming to the requirements above.
+    </dd>
+  </dl>
+</div>
+
 ## Documentation
 
 An API is as good as the accompanying documentation. The documentation has to be easily findable, searchable and publicly accessible. Most developers will first read the documentation before they start implementing. Hiding the technical documentation in PDF documents and/or behind a login creates a barrier for both developers and search engines.
@@ -576,35 +705,6 @@ An API is as good as the accompanying documentation. The documentation has to be
             <li> Step 3: The openapi.yaml document MUST contain the same OpenAPI Description as the openapi.json document.</li>
             <li> Step 4: The CORS header Access-Control-Allow-Origin MUST allow all origins.</li>
          </ul>
-      </dd>
-   </dl>
-</div>
-
-<div class="rule" id="/core/problem-details" data-type="technical">
-   <p class="rulelab">Include problem details with error responses</p>
-   <dl>
-      <dt>Statement</dt>
-      <dd>
-         <p>Error responses with HTTP status codes <code>4xx</code> or <code>5xx</code> MUST use either <code>application/problem+json</code> or <code>application/problem+xml</code> as the <code>Content-Type</code> header, and the response body MUST conform to the structure defined in [[rfc9457]].
-         <p>The following fields MUST be present: <code>status</code>, <code>title</code>, and <code>detail</code>.
-      </dd>
-      <dt>Rationale</dt>
-      <dd>
-         <p>Providing problem details in a machine-readable format aids automation and debugging. By using a common error format, APIs do not need to define their own or misuse existing HTTP status codes.</p>
-         <div class="example">
-            The following example shows the head and body of a detailed error response.
-            <pre><code class="http">HTTP/1.1 404 Not Found
-Content-Type: application/problem+json</code><code class="json">{
-  "title": "Resource Not Found",
-  "status": 404,
-  "detail": "No building found with id 12345."
-}
-</code></pre>
-         </div>
-      </dd>
-      <dt>How to test</dt>
-      <dd>
-         Verify all responses with status code <code>4xx</code> or <code>5xx</code> have <code>Content-Type</code> set to <code>application/problem+json</code> or <code>application/problem+xml</code> and contain the fields <code>status</code>, <code>title</code>, and <code>detail</code>. Optional fields are <code>type</code> and <code>instance</code>. Verify no additional fields are present.
       </dd>
    </dl>
 </div>
