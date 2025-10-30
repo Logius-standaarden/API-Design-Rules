@@ -927,16 +927,17 @@ Services (potentially) including script code (e.g. JavaScript) in their response
 
 * Ensure the intended Content-Type headers are sent in the response, matching the body content, e.g. `application/json` and not `application/javascript`.
 
-## Geospatial
+## Normative modules
 
-Geospatial data refers to information that is associated with a physical location on Earth, often expressed by its 2D/3D coordinates.
+The following modules are normative for all REST API's.
 
-<div class="rule" id="/core/geospatial" data-type="functional">
+<div class="rule" id="/core/modules/geospatial" data-type="functional">
   <p class="rulelab">Apply the geospatial module for geospatial data</p>
   <dl>
     <dt>Statement</dt>
     <dd>
-       The [[[ADR-GEO]]] version 1.0.x MUST be applied when providing geospatial data or functionality.
+       <p>The [[[ADR-GEO]]] version 1.0.x MUST be applied when providing geospatial data or functionality.
+       <p class="note">Geospatial data refers to information that is associated with a physical location on Earth, often expressed by its 2D/3D coordinates.
     </dd>
     <dt>Rationale</dt>
     <dd>
@@ -949,3 +950,53 @@ Geospatial data refers to information that is associated with a physical locatio
     </dd>
   </dl>
 </div>
+
+<div class="rule" id="/core/modules/signing" data-type="functional">
+  <p class="rulelab">Apply the signing module for signing payloads</p>
+  <dl>
+    <dt>Statement</dt>
+    <dd>
+       <p>The [[[ADR-signing]]] version 1.0.x MUST be applied when signing payloads.
+       <p class="note">This rule does not dictate signing.
+       Instead, it only applies in situations where there is a need for assurance of end to end message integrity and authenticity between client application and server application.
+       In those situations, [[[ADR-signing]]] specifies how to sign.
+    </dd>
+    <dt>Rationale</dt>
+    <dd>
+      The [[[ADR-signing]]] formalizes as set of rules regarding:
+      <ol>
+         <li>How to sign data in request and response payloads.</li>
+         <li>Which header to specify the signature.</li>
+      </ol>
+    </dd>
+  </dl>
+</div>
+
+<div class="rule" id="/core/modules/encryption" data-type="functional">
+  <p class="rulelab">Apply the encryption module for encrypting payloads</p>
+  <dl>
+    <dt>Statement</dt>
+    <dd>
+       <p>The [[[ADR-encryption]]] version 1.0.x MUST be applied when encrypting payloads.
+       <p class="note">This rule does not dictate encryption.
+       Instead, it only applies in situations where there is a need for end to end message payload confidentiality between client application and server application.
+       In those situations, [[[ADR-encryption]]] specifies how to encrypt.
+    </dd>
+    <dt>Rationale</dt>
+    <dd>
+      The [[[ADR-encryption]]] formalizes as set of rules regarding:
+      <ol>
+         <li>How to encrypt data in request and response payloads.</li>
+         <li>The flow of operations between client and server.</li>
+      </ol>
+    </dd>
+  </dl>
+</div>
+
+If both the signing and encryption modules apply, use the following flow of operations:
+
+<figure>
+   <div class="mermaid" data-figure-name="signing-in-combination-with-encryption.mermaid">
+   </div>
+   <figcaption>Signing in combination with encryption</figcaption>
+</figure>
