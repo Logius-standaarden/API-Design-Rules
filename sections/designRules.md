@@ -496,7 +496,7 @@ https://api.example.org/v1/comments/456</pre>
       <dt>Rationale</dt>
       <dd>
          <p>Providing problem details in a machine-readable format aids automation and debugging. By using a common error format, APIs do not need to define their own or misuse existing HTTP status codes.</p>
-         <div class="example">
+         <aside class="example">
             The following example shows the head and body of a detailed error response.
             <pre><code class="http">HTTP/1.1 404 Not Found
 Content-Type: application/problem+json</code><code class="json">{
@@ -505,11 +505,11 @@ Content-Type: application/problem+json</code><code class="json">{
   "detail": "No building found with id 12345."
 }
 </code></pre>
-         </div>
+         </aside>
       </dd>
       <dt>How to test</dt>
       <dd>
-         Verify all responses with status code <code>4xx</code> or <code>5xx</code> have <code>Content-Type</code> set to <code>application/problem+json</code> or <code>application/problem+xml</code> and contain the fields <code>status</code>, <code>title</code>, and <code>detail</code>. Optional fields are <code>type</code> and <code>instance</code>. Verify no additional fields are present.
+         Verify all responses with status code <code>4xx</code> or <code>5xx</code> have <code>Content-Type</code> set to <code>application/problem+json</code> or <code>application/problem+xml</code> and the body contains fields <code>status</code>, <code>title</code>, and <code>detail</code>.
       </dd>
    </dl>
 </div>
@@ -541,6 +541,7 @@ Content-Type: application/problem+json</code><code class="json">{
       <p>Each error object MUST contain <code>in</code> and <code>detail</code> members, and MAY optionally contain <code>location</code> and <code>code</code> members.</p>
       <ul>
         <li><strong><code>in</code></strong> - where the error occurs: <code>body</code> or <code>query</code>.</li>
+         <li><strong><code>detail</code></strong> - a human-readable message describing the violation.</li>
         <li><strong><code>location</code></strong> (optional) - a structured locator for the offending value:
           <ul>
             <li>For JSON request bodies: an object with a <code>pointer</code> property containing a JSON Pointer [[rfc6901]] expression pointing to the value.</li>
@@ -550,9 +551,8 @@ Content-Type: application/problem+json</code><code class="json">{
           For <code>body</code> errors, the <code>location</code> member may be omitted, in case the error refers to the body as a whole (e.g. syntax errors).
         </li>
         <li><strong><code>code</code></strong> (optional) - a short, stable machine-readable code as a rule identifier (e.g. <code>date.format</code>). If a <code>type</code> URI is provided on the message-level, dereferencing this URI SHOULD result in a page describing all possible <code>code</code> values including a description for each value.</li>
-        <li><strong><code>detail</code></strong> - a human-readable message describing the violation.</li>
       </ul>
-      <div class="example">
+      <aside class="example">
         <p>JSON example:</p>
         <pre><code class="http">HTTP/1.1 400 Bad Request
 Content-Type: application/problem+json</code><code class="json">{
@@ -578,8 +578,8 @@ Content-Type: application/problem+json</code><code class="json">{
       }
     ]
   }</code></pre>
-      </div>
-      <div class="example">
+      </aside>
+      <aside class="example">
         <p>XML example:</p>
         <pre><code class="http">HTTP/1.1 400 Bad Request
 Content-Type: application/problem+xml</code><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
@@ -599,7 +599,7 @@ Content-Type: application/problem+xml</code><code class="xml">&lt;?xml version=&
     &lt;/error&gt;
   &lt;/errors&gt;
 &lt;/problem&gt;</code></pre>
-      </div>
+      </aside>
     </dd>
     <dt>Rationale</dt>
     <dd>
