@@ -185,7 +185,7 @@ rules:
 
   nlgov:problem-schema-members:
     severity: error
-    message: "{{error}}. These fields are required: status, title and detail. Additionally, only type and instance are allowed."
+    message: "{{error}}. These fields are required: status, title and detail."
     given: $..[responses][?(@property && @property.match(/(4|5)\d\d/))].content[?(@property=="application/problem+json" || @property=="application/problem+xml")]..schema
     then:
       function: schema
@@ -195,17 +195,10 @@ rules:
           properties:
             properties:
               type: object
-              properties:
-                status: {}
-                title: {}
-                detail: {}
-                type: {}
-                instance: {}
               required:
               - status
               - title
               - detail
-              additionalProperties: false
 
   nlgov:property-casing:
     severity: warn

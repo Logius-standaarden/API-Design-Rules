@@ -585,8 +585,8 @@ An API is as good as the accompanying documentation. The documentation has to be
    <dl>
       <dt>Statement</dt>
       <dd>
-         <p>Error responses with HTTP status codes <code>4xx</code> or <code>5xx</code> MUST use either <code>application/problem+json</code> or <code>application/problem+xml</code> as the <code>Content-Type</code> header, and the response body MUST conform to the structure defined in [[rfc9457]].</p>
-         <p>The following fields MUST be present: <code>status</code>, <code>title</code>, and <code>detail</code>. Additionally, only these fields MAY be present: <code>type</code> and <code>instance</code>.</p>
+         <p>Error responses with HTTP status codes <code>4xx</code> or <code>5xx</code> MUST use either <code>application/problem+json</code> or <code>application/problem+xml</code> as the <code>Content-Type</code> header, and the response body MUST conform to the structure defined in [[rfc9457]].
+         <p>The following fields MUST be present: <code>status</code>, <code>title</code>, and <code>detail</code>.
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -595,11 +595,9 @@ An API is as good as the accompanying documentation. The documentation has to be
             The following example shows the head and body of a detailed error response.
             <pre><code class="http">HTTP/1.1 404 Not Found
 Content-Type: application/problem+json</code><code class="json">{
-  "type": "https://example.org/probs/not-found",
   "title": "Resource Not Found",
   "status": 404,
-  "detail": "No building found with id 12345.",
-  "instance": "/errors/abc"
+  "detail": "No building found with id 12345."
 }
 </code></pre>
          </div>
