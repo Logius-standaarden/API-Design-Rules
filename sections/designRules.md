@@ -549,7 +549,7 @@ Content-Type: application/problem+json</code><code class="json">{
           </ul>
           For <code>body</code> errors, the <code>location</code> member may be omitted, in case the error refers to the body as a whole (e.g. syntax errors).
         </li>
-        <li><strong><code>code</code></strong> (optional) - a short, stable machine-readable code as a rule identifier (e.g. <code>date.format</code>). If a <code>type</code> URI is provided on the message-level, resolving this URI SHOULD result in a page describing all possible <code>code</code> values including a description for each value.</li>
+        <li><strong><code>code</code></strong> (optional) - a short, stable machine-readable code as a rule identifier (e.g. <code>date.format</code>). If a <code>type</code> URI is provided on the message-level, dereferencing this URI SHOULD result in a page describing all possible <code>code</code> values including a description for each value.</li>
         <li><strong><code>detail</code></strong> - a human-readable message describing the violation.</li>
       </ul>
       <div class="example">
