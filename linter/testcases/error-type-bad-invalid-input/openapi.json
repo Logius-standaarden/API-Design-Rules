@@ -1,0 +1,232 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "Baseline",
+        "description": "Deze OpenAPI specification bevat het minimale om aan alle regels te voldoen.",
+        "contact": {
+            "name": "Beheerder",
+            "url": "https://www.example.com",
+            "email": "mail@example.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "https://example.com/api/v1"
+        }
+    ],
+    "security": [
+        {
+            "default": []
+        }
+    ],
+    "tags": [
+        {
+            "name": "openapi"
+        },
+        {
+            "name": "resource"
+        }
+    ],
+    "paths": {
+        "/openapi.json": {
+            "get": {
+                "tags": [
+                    "openapi"
+                ],
+                "description": "OpenAPI document",
+                "operationId": "getOpenapiJSON",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "access-control-allow-origin": {
+                                "description": "Alle origins mogen bij deze resource",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "OK",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": { "type": "integer" },
+                                        "title": { "type": "string" },
+                                        "detail": { "type": "string" },
+                                        "errors": {
+                                            "type": "object",
+                                            "properties": {
+                                                "in": { "type": "string" },
+                                                "location": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "pointer": { "type": "string" },
+                                                        "name": { "type": "string" },
+                                                        "index": { "type": "integer" }
+                                                    }
+                                                },
+                                                "code": { "type": "string" },
+                                                "detail": { "type": "string" }
+                                            }
+                                        }
+                                    },
+                                    "required": ["status", "title", "detail", "errors"],
+                                    "additionalProperties": false
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            }
+        },
+        "/invalid-response-vereist": {
+            "get": {
+                "tags": [
+                    "resource"
+                ],
+                "description": "Resource",
+                "operationId": "getPropertiesCorrect",
+                "parameters": [
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "Schakelaar om details van gekoppelde organisaties (subOIN of OINhouder) op te vragen (default false = geen details)",
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "style": "form",
+                        "explode": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "resource"
+                ],
+                "description": "Resource",
+                "operationId": "putPropertiesCorrect",
+                "parameters": [
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "Schakelaar om details van gekoppelde organisaties (subOIN of OINhouder) op te vragen (default false = geen details)",
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "style": "form",
+                        "explode": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "resource"
+                ],
+                "description": "Resource",
+                "operationId": "postPropertiesCorrect",
+                "parameters": [
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "Schakelaar om details van gekoppelde organisaties (subOIN of OINhouder) op te vragen (default false = geen details)",
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "style": "form",
+                        "explode": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+        },
+        "securitySchemes": {
+            "default": {
+                "type": "oauth2",
+                "flows": {
+                    "implicit": {
+                        "authorizationUrl": "https://test.com",
+                        "scopes": {}
+                    }
+                }
+            }
+        }
+    }
+}

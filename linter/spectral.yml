@@ -200,6 +200,23 @@ rules:
               - title
               - detail
 
+  #/core/error-handling/invalid-input
+  nlgov:problem-invalid-input:
+    severity: error
+    message: "Endpoints that have parameters must be able to return a 400 response"
+    given:
+      - $.paths..[?( @property.match(/(get)|(put)|(post)/) && @.parameters && @.parameters.length > 0 )]
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          properties:
+            responses:
+              type: object
+              required:
+              - "400"
+
   #/core/error-handling/bad-request
   nlgov:problem-schema-members-bad-request:
     severity: error
