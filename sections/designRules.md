@@ -519,7 +519,7 @@ Content-Type: application/problem+json</code><code class="json">{
   <dl>
     <dt>Statement</dt>
     <dd>
-      <p>API requests containing invalid input MUST result in HTTP status code <code>400 Bad Request</code>. This includes syntax errors, missing or invalid query parameters and schema violations for the request payload.</p>
+      <p>API requests containing invalid input MUST result in HTTP status code <code>400 Bad Request</code>. Invalid input includes syntax errors, missing or invalid query parameters and schema violations for the request payload.</p>
     </dd>
     <dt>Rationale</dt>
     <dd>
