@@ -185,8 +185,7 @@ Handling date and time is tricky and can lead to confusion among clients. The da
       <dd>
          <p>Allowing clients to use any timezone offset in requests results in flexibility and less complexity for users. Using UTC in responses results in clarity and removes ambiguity.
          <p class="note">This specification does not state rules regarding storage in databases.
-         However, it is recommended to store the originally supplied timezone from the client request in the database, such that later the location of the client can be determined.
-         For example, an extra field in a response can contain the originally supplied timezone, if that's useful for the client.
+         However, if the original timezone of a given timestamp value is relevant for users (such as the timezone in which a value is registered), it is recommended to store and publish the timezone details (e.g. the zone offset) as a separate property.
       </dd>
    </dl>
 </div>
