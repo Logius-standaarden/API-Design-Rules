@@ -53,7 +53,7 @@
                             }
                         }
                     },
-                    "400": {
+                    "404": {
                         "description": "NOK",
                         "content": {
                             "application/problem+json": {

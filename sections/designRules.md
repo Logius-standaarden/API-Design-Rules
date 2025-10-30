@@ -485,7 +485,7 @@ https://api.example.org/v1/comments/456</pre>
 
 ## Error handling
 
-<div class="rule" id="/core/problem-details" data-type="technical">
+<div class="rule" id="/core/error-handling/problem-details" data-type="technical">
    <p class="rulelab">Use problem details for error responses</p>
    <dl>
       <dt>Statement</dt>
@@ -514,12 +514,13 @@ Content-Type: application/problem+json</code><code class="json">{
    </dl>
 </div>
 
-<div class="rule" id="/core/invalid-input" data-type="technical">
+<div class="rule" id="/core/error-handling/invalid-input" data-type="technical">
   <p class="rulelab">Use status code 400 for invalid input</p>
   <dl>
     <dt>Statement</dt>
     <dd>
-      <p>API requests containing invalid input MUST result in HTTP status code <code>400 Bad Request</code>. Invalid input includes syntax errors, missing or invalid query parameters and schema violations for the request payload.</p>
+      <p>API requests containing invalid input MUST result in HTTP status code <code>400</code> (Bad Request).
+      Invalid input includes syntax errors, missing or invalid query parameters and schema violations for the request payload.
     </dd>
     <dt>Rationale</dt>
     <dd>
@@ -532,13 +533,13 @@ Content-Type: application/problem+json</code><code class="json">{
   </dl>
 </div>
 
-<div class="rule" id="/core/problem-bad-request" data-type="technical">
-  <p class="rulelab">Add specific errors for bad-request responses</p>
+<div class="rule" id="/core/error-handling/bad-request" data-type="technical">
+  <p class="rulelab">Add specific errors for Bad Request responses</p>
   <dl>
     <dt>Statement</dt>
     <dd>
-      <p>Problem details with status code <code>400</code> (Bad Request) MUST include an additional member <code>errors</code> containing an ordered list of validation error objects, as specified below.</p>
-      <p>Each error object MUST contain <code>in</code> and <code>detail</code> members, and MAY optionally contain <code>location</code> and <code>code</code> members.</p>
+      <p>Problem details with status code <code>400</code> (Bad Request) MUST include an additional member <code>errors</code> containing an ordered list of validation error objects, as specified below.
+      <p>Each error object MUST contain <code>in</code> and <code>detail</code> members, and MAY optionally contain <code>location</code> and <code>code</code> members.
       <ul>
         <li><strong><code>in</code></strong> - where the error occurs: <code>body</code> or <code>query</code>.</li>
          <li><strong><code>detail</code></strong> - a human-readable message describing the violation.</li>
@@ -553,7 +554,6 @@ Content-Type: application/problem+json</code><code class="json">{
         <li><strong><code>code</code></strong> (optional) - a short, stable machine-readable code as a rule identifier (e.g. <code>date.format</code>). If a <code>type</code> URI is provided on the message-level, dereferencing this URI SHOULD result in a page describing all possible <code>code</code> values including a description for each value.</li>
       </ul>
       <aside class="example">
-        <p>JSON example:</p>
         <pre><code class="http">HTTP/1.1 400 Bad Request
 Content-Type: application/problem+json</code><code class="json">{
     "status": 400,
@@ -580,7 +580,6 @@ Content-Type: application/problem+json</code><code class="json">{
   }</code></pre>
       </aside>
       <aside class="example">
-        <p>XML example:</p>
         <pre><code class="http">HTTP/1.1 400 Bad Request
 Content-Type: application/problem+xml</code><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;problem xmlns=&quot;urn:ietf:rfc:7807&quot;&gt;
@@ -607,7 +606,7 @@ Content-Type: application/problem+xml</code><code class="xml">&lt;?xml version=&
     </dd>
     <dt>How to test</dt>
     <dd>
-      Verify that content schemas for media types <code>application/problem+json</code> or <code>application/problem+xml</code> as part of responses with status 400, contain a required <code>errors</code> member conforming to the requirements above.
+      Verify all responses with status code <code>400</code> contain a required <code>errors</code> member conforming to the requirements above.
     </dd>
   </dl>
 </div>
