@@ -9,6 +9,7 @@
 The REST architectural style is centered around the concept of a [=resource=]. A resource is an abstraction of a conceptual entity, identified by a globally unique [=URI=]. It may correspond to anything from a physical object (e.g. a building or a person) to an abstract concept (e.g. a permit, an event or today's weather). Although a resource is not tied to any specific exchange format, its current state can be transferred to clients through one or more representations, such as JSON or XML.
 
 <span id="api-05"></span>
+
 <div class="rule" id="/core/naming-resources" data-type="functional">
    <p class="rulelab">Use nouns to name resources</p>
    <dl>
@@ -38,6 +39,7 @@ The REST architectural style is centered around the concept of a [=resource=]. A
 A resource that corresponds to a single conceptual entity is referred to as a [=singular resource=]. Resources can also be logically grouped into collections, which are themselves resources and typically support operations like paging, sorting, and filtering. While collection members are often of the same type, this is not strictly required. A collection resource contains references (URIs) to the individual singular resources it includes.
 
 <span id="api-54"></span>
+
 <div class="rule" id="/core/naming-collections" data-type="functional">
    <p class="rulelab">Use plural nouns to name collection resources</p>
    <dl>
@@ -65,6 +67,7 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
 </div>
 
 <span id="api-04"></span>
+
 <div class="rule" id="/core/interface-language" data-type="functional">
    <p class="rulelab">Define interfaces in Dutch unless there is an official English glossary available</p>
    <dl>
@@ -82,6 +85,7 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
 </div>
 
 <span id="api-48"></span>
+
 <div class="rule" id="/core/no-trailing-slash" data-type="technical">
    <p class="rulelab">Leave off trailing slashes from URIs</p>
    <dl>
@@ -192,6 +196,7 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
 </div>
 
 <span id="api-53"></span>
+
 <div class="rule" id="/core/hide-implementation" data-type="functional">
    <p class="rulelab">Hide irrelevant implementation details</p>
    <dl>
@@ -218,6 +223,7 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
 Although the REST architectural style does not impose a specific protocol, REST APIs are typically implemented using HTTP [[rfc9110]].
 
 <span id="api-03"></span>
+
 <div class="rule" id="/core/http-methods" data-type="technical">
    <p class="rulelab">Only apply standard HTTP methods</p>
    <dl>
@@ -315,6 +321,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
 </div>
 
 <span id="api-01"></span>
+
 <div class="rule" id="/core/http-safety" data-type="functional">
    <p class="rulelab">Adhere to HTTP safety and idempotency semantics for operations</p>
    <dl>
@@ -401,19 +408,20 @@ One of the key constraints of the REST architectural style is stateless communic
 
 To properly understand this constraint, it is important to make a distinction between two different kinds of state:
 
-* *Session state*: information about the interactions of an end user with a particular client application within the same user session, such as the last page being viewed, the login state or form data in a multi-step registration process. Session state must reside entirely on the client (e.g. in the user's browser).
-* *Resource state*: information that is permanently stored on the server beyond the scope of a single user session, such as the user's profile, a product purchase or information about a building. Resource state is persisted on the server and must be exchanged between client and server (in both directions) using  representations as part of the request or response payload. This is actually where the term *REpresentational State Transfer (REST)* originates from.
+- _Session state_: information about the interactions of an end user with a particular client application within the same user session, such as the last page being viewed, the login state or form data in a multi-step registration process. Session state must reside entirely on the client (e.g. in the user's browser).
+- _Resource state_: information that is permanently stored on the server beyond the scope of a single user session, such as the user's profile, a product purchase or information about a building. Resource state is persisted on the server and must be exchanged between client and server (in both directions) using representations as part of the request or response payload. This is actually where the term _REpresentational State Transfer (REST)_ originates from.
 
 <p class="note">It is a misconception that there should be no state at all. The stateless communication constraint should be seen from the server's point of view and states that the server should not be aware of any <em>session state</em>.</p>
 
 Stateless communication offers many advantages, including:
 
-* *Simplicity* is increased because the server does not have to memorize or retrieve session state while processing requests
-* *Scalability* is improved because not having to incorporate session state across multiple requests enables higher concurrency and performance
-* *Observability* is improved since every request can be monitored or analyzed in isolation without having to incorporate session context from other requests
-* *Reliability* is improved because it eases the task of recovering from partial failures since the server does not have to maintain, update or communicate session state. One failing request does not influence other requests (depending on the nature of the failure of course).
+- _Simplicity_ is increased because the server does not have to memorize or retrieve session state while processing requests
+- _Scalability_ is improved because not having to incorporate session state across multiple requests enables higher concurrency and performance
+- _Observability_ is improved since every request can be monitored or analyzed in isolation without having to incorporate session context from other requests
+- _Reliability_ is improved because it eases the task of recovering from partial failures since the server does not have to maintain, update or communicate session state. One failing request does not influence other requests (depending on the nature of the failure of course).
 
 <span id="api-02"></span>
+
 <div class="rule" id="/core/stateless" data-type="functional">
    <p class="rulelab">Do not maintain session state on the server</p>
    <dl>
@@ -434,6 +442,7 @@ Stateless communication offers many advantages, including:
 Resources are often interconnected by relationships. Relationships can be modelled in different ways depending on the cardinality, semantics and more importantly, the use cases and access patterns the REST API needs to support.
 
 <span id="api-06"></span>
+
 <div class="rule" id="/core/nested-child" data-type="functional">
   <p class="rulelab">Use nested URIs for child resources</p>
   <dl>
@@ -464,6 +473,7 @@ https://api.example.org/v1/comments/456</pre>
 ## Operations
 
 <span id="api-10"></span>
+
 <div class="rule" id="/core/resource-operations" data-type="functional">
   <p class="rulelab">Model resource operations as a sub-resource or dedicated resource</p>
   <dl>
@@ -488,6 +498,7 @@ https://api.example.org/v1/comments/456</pre>
 An API is as good as the accompanying documentation. The documentation has to be easily findable, searchable and publicly accessible. Most developers will first read the documentation before they start implementing. Hiding the technical documentation in PDF documents and/or behind a login creates a barrier for both developers and search engines.
 
 <span id="api-16"></span>
+
 <div class="rule" id="/core/doc-openapi" data-type="technical">
   <p class="rulelab">Use OpenAPI Specification for documentation</p>
   <dl>
@@ -534,6 +545,7 @@ An API is as good as the accompanying documentation. The documentation has to be
 </div>
 
 <span id="api-17"></span>
+
 <div class="rule" id="/core/doc-language" data-type="functional">
   <p class="rulelab">Publish documentation in Dutch unless there is existing documentation in English</p>
   <dl>
@@ -549,6 +561,7 @@ An API is as good as the accompanying documentation. The documentation has to be
 </div>
 
 <span id="api-51"></span>
+
 <div class="rule" id="/core/publish-openapi" data-type="technical">
   <p class="rulelab">Publish OAS document at a standard location in JSON-format</p>
    <dl>
@@ -585,6 +598,7 @@ An API is as good as the accompanying documentation. The documentation has to be
 Changes in APIs are inevitable. APIs should therefore always be versioned, facilitating the transition between changes.
 
 <span id="api-18"></span>
+
 <div class="rule" id="/core/deprecation-schedule" data-type="functional">
   <p class="rulelab">Include a deprecation schedule when deprecating features or versions</p>
    <dl>
@@ -600,6 +614,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
 </div>
 
 <span id="api-19"></span>
+
 <div class="rule" id="/core/transition-period" data-type="functional">
   <p class="rulelab">Schedule a fixed transition period for a new major API version</p>
    <dl>
@@ -615,6 +630,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
 </div>
 
 <span id="api-20"></span>
+
 <div class="rule" id="/core/uri-version" data-type="technical">
   <p class="rulelab">Include the major version number in the URI</p>
     <dl>
@@ -645,6 +661,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
 </div>
 
 <span id="api-55"></span>
+
 <div class="rule" id="/core/changelog" data-type="functional">
   <p class="rulelab">Publish a changelog for API changes between versions</p>
    <dl>
@@ -660,6 +677,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
 </div>
 
 <span id="api-56"></span>
+
 <div class="rule" id="/core/semver" data-type="technical">
   <p class="rulelab">Adhere to the Semantic Versioning model when releasing API changes</p>
   <dl>
@@ -679,6 +697,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
 </div>
 
 <span id="api-57"></span>
+
 <div class="rule" id="/core/version-header" data-type="technical">
   <p class="rulelab">Return the full version number in a response header</p>
    <dl>
@@ -716,6 +735,7 @@ In order to meet the complete security objectives, every implementer MUST also a
 Note: security controls for signing and encrypting of application level messages are part of separate extensions: [Signing](https://geonovum.github.io/KP-APIs/API-strategie-modules/signing-jades/) and [Encryption](https://geonovum.github.io/KP-APIs/API-strategie-modules/encryption/).
 
 <span id="api-11"></span>
+
 <div class="rule" id="/core/transport/tls" data-type="technical">
   <p class="rulelab">Secure connections using TLS</p>
   <dl>
@@ -736,6 +756,7 @@ Note: security controls for signing and encrypting of application level messages
 </div>
 
 <span id="api-58"></span>
+
 <div class="rule" id="/core/transport/no-sensitive-uris" data-type="functional">
   <p class="rulelab">No sensitive information in URIs</p>
    <dl>
@@ -745,9 +766,10 @@ Note: security controls for signing and encrypting of application level messages
       </dd>
       <dt>Rationale</dt>
       <dd>
-         <p>Even when using TLS connections, information in URIs is not secured. URIs can be cached and logged outside of the servers controlled by clients and servers. Any information contained in them should therefore be considered readable by anyone with access to the network (in the case of the internet, the whole world) and MUST NOT contain any sensitive information. This includes client secrets used for authentication, privacy sensitive information such as BSNs or any other information which should not be shared.
+         <p>Even when using TLS connections, information in URIs is not secured. URIs can be cached and logged outside of the servers controlled by clients and servers. Any information contained in them should therefore be considered readable by anyone with access to the network (in the case of the internet, the whole world) and MUST NOT contain any sensitive information. This includes client secrets used for authentication, privacy sensitive information or any other information which should not be shared.
          <p>Be aware that queries (anything after the '?' in a URI) are also part of a URI.
       </dd>
+      <p class="note">It is up to you what the definition of sensitive means for your context. The term sensitive is deliberatly not defined in this document.</p>
    </dl>
 </div>
 
@@ -866,6 +888,7 @@ For outbound filtering, the main concern is leaking of information.
 </div>
 
 <span id="api-50"></span>
+
 <div class="rule" id="/core/transport/cors" data-type="technical">
   <p class="rulelab">Use CORS to control access</p>
    <dl>
@@ -892,29 +915,29 @@ Clients in this class are also known as _user-agent-based_ or _single-page-appli
 All browser-based applications SHOULD follow the best practices specified in [OAuth 2.0 for Browser-Based Apps](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-browser-based-apps-22).
 These applications can be split into three architectural patterns:
 
-* JavaScript applications with a backend; with this class of applications, the backend is the confidential client and should intermediate any interaction, with tokens never ending up in the browser.
-Effectively, these are not different from regular web-application for this security facet, even though they leverage JavaScript for implementation.
-* JavaScript applications that share a domain with the API (resource server); these can leverage cookies marked as HTTP-Only, Secure and SameSite.
-* JavaScript applications without a backend; these clients are considered public clients, and are potentially more vulnerable to several types of attacks, including Cross-Site Scripting (XSS), Cross Site Request Forgery (CSRF) and OAuth token theft.
-In order to support these clients, the Cross-Origin Resource Sharing (CORS) policy mentioned above is critical and MUST be supported.
+- JavaScript applications with a backend; with this class of applications, the backend is the confidential client and should intermediate any interaction, with tokens never ending up in the browser.
+  Effectively, these are not different from regular web-application for this security facet, even though they leverage JavaScript for implementation.
+- JavaScript applications that share a domain with the API (resource server); these can leverage cookies marked as HTTP-Only, Secure and SameSite.
+- JavaScript applications without a backend; these clients are considered public clients, and are potentially more vulnerable to several types of attacks, including Cross-Site Scripting (XSS), Cross Site Request Forgery (CSRF) and OAuth token theft.
+  In order to support these clients, the Cross-Origin Resource Sharing (CORS) policy mentioned above is critical and MUST be supported.
 
 ### Validate content types
 
 A REST request or response body SHOULD match the intended content type in the header.
 Otherwise this could cause misinterpretation at the consumer/producer side and lead to code injection/execution.
 
-* Reject requests containing unexpected or missing content type headers with HTTP response status `406 Not Acceptable` or `415 Unsupported Media Type`.
-* Avoid accidentally exposing unintended content types by explicitly defining content types e.g. Jersey (Java) `@consumes("application/json"); @produces("application/json")`.
-This avoids XXE-attack vectors for example.
+- Reject requests containing unexpected or missing content type headers with HTTP response status `406 Not Acceptable` or `415 Unsupported Media Type`.
+- Avoid accidentally exposing unintended content types by explicitly defining content types e.g. Jersey (Java) `@consumes("application/json"); @produces("application/json")`.
+  This avoids XXE-attack vectors for example.
 
 It is common for REST services to allow multiple response types (e.g. `application/xml` or `application/json`, and the client specifies the preferred order of response types by the Accept header in the request.
 
-* Do NOT simply copy the `Accept` header to the `Content-type` header of the response.
-* Reject the request (ideally with a `406 Not Acceptable` response) if the Accept header does not specifically contain one of the allowable types.
+- Do NOT simply copy the `Accept` header to the `Content-type` header of the response.
+- Reject the request (ideally with a `406 Not Acceptable` response) if the Accept header does not specifically contain one of the allowable types.
 
 Services (potentially) including script code (e.g. JavaScript) in their responses MUST be especially careful to defend against header injection attacks.
 
-* Ensure the intended Content-Type headers are sent in the response, matching the body content, e.g. `application/json` and not `application/javascript`.
+- Ensure the intended Content-Type headers are sent in the response, matching the body content, e.g. `application/json` and not `application/javascript`.
 
 ## Geospatial
 
