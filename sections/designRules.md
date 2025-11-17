@@ -171,10 +171,14 @@ Handling date and time is tricky and can lead to confusion among clients. The da
       <dd>
          <p>Implementing RFC9557 and ISO 8601 removes ambiguity in date handling between systems and timezones.
       </dd>
+      <dt>How to test</dt>
+      <dd>
+         Analyse all fields and if the field represents a date, date-time or time, ensure it has the correct format according to the table above.
+      </dd>
    </dl>
 </div>
 
-<div class="rule" id="/core/date-time/timezone" data-type="technical">
+<div class="rule" id="/core/date-time/timezone" data-type="functional">
    <p class="rulelab">Allow all timezone offsets in requests and use UTC in responses</p>
    <dl>
       <dt>Statement</dt>
@@ -200,6 +204,10 @@ Handling date and time is tricky and can lead to confusion among clients. The da
       <dt>Rationale</dt>
       <dd>
          <p>Appending a default or irrelevant time portion to a date field can lead to interpretation errors. A publish date of <code>2025-07-24T00:00:00Z</code> could for instance be rendered as July 23 in Ireland. A default time of 23:59 would in turn cause date confusion east of Greenwich.
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         Analyse all fields that set format to "date-time" and ensure that the fields do not represent solely a date.
       </dd>
    </dl>
 </div>
