@@ -539,18 +539,19 @@ Content-Type: application/problem+json</code><code class="json">{
     <dt>Statement</dt>
     <dd>
       <p>Problem details with status code <code>400</code> (Bad Request) MUST include an additional member <code>errors</code> containing an ordered list of validation error objects, as specified below.
-      <p>Each error object MUST contain <code>in</code> and <code>detail</code> members, and MAY optionally contain <code>location</code> and <code>code</code> members.
+      <p>Each error object MUST contain <code>in</code> and <code>detail</code> members, and MAY optionally contain <code>location</code>, <code>index</code> and <code>code</code> members.
       <ul>
         <li><strong><code>in</code></strong> - where the error occurs: <code>body</code> or <code>query</code>.</li>
          <li><strong><code>detail</code></strong> - a human-readable message describing the violation.</li>
-        <li><strong><code>location</code></strong> (optional) - a structured locator for the offending value:
+        <li><strong><code>location</code></strong> (optional) - a locator for the offending value:
           <ul>
-            <li>For JSON request bodies: an object with a <code>pointer</code> property containing a JSON Pointer [[rfc6901]] expression pointing to the value.</li>
-            <li>For XML request bodies: an element with a <code>path</code> attribute containing an absolute XPath v3.1 [[xpath-31]] expression pointing to the value.</li>
-            <li>For query parameters: an object with a <code>name</code> property (the parameter name). When the same name appears multiple times, include an <code>index</code> property, containing a zero-based index position.</li>
+            <li>For JSON request bodies: a JSON Pointer [[rfc6901]] expression pointing to the value.</li>
+            <li>For XML request bodies: an absolute XPath v3.1 [[xpath-31]] expression pointing to the value.</li>
+            <li>For query parameters: the parameter name.</li>
           </ul>
           For <code>body</code> errors, the <code>location</code> member may be omitted, in case the error refers to the body as a whole (e.g. syntax errors).
         </li>
+        <li><strong><code>index</code></strong> (optional) - a zero-based index position when multiple query parameters have the same name.</li>
         <li><strong><code>code</code></strong> (optional) - a short, stable machine-readable code as a rule identifier (e.g. <code>date.format</code>). If a <code>type</code> URI is provided on the message-level, dereferencing this URI SHOULD result in a page describing all possible <code>code</code> values including a description for each value.</li>
       </ul>
       <aside class="example">
@@ -561,18 +562,20 @@ Content-Type: application/problem+json</code><code class="json">{
     "errors": [
       {
         "in": "body",
-        "location": {
-          "pointer": "#/foo[0]/bar"
-        },
+        "location": "#/foo[0]/bar",
         "code": "date.format",
         "detail": "must be ISO 8601"
       },
       {
         "in": "query",
-        "location": {
-          "name": "foo",
-          "index": 1
-        },
+        "location": "foo",
+        "code": "date.format",
+        "detail": "must be ISO 8601"
+      }
+      {
+        "in": "query",
+        "location": "array",
+        "index": 1,
         "code": "date.format",
         "detail": "must be ISO 8601"
       }
@@ -587,12 +590,18 @@ Content-Type: application/problem+xml</code><code class="xml">&lt;?xml version=&
   &lt;title&gt;Request validation failed&lt;/title&gt;
   &lt;errors&gt;
     &lt;error in=&quot;body&quot;&gt;
-      &lt;location path=&quot;/foo[1]/bar/text()&quot; /&gt;
+      &lt;location&gt;/foo[1]/bar/text()&lt;/location&gt;
       &lt;code&gt;date.format&lt;/code&gt;
       &lt;detail&gt;must be ISO 8601&lt;/detail&gt;
     &lt;/error&gt;
     &lt;error in=&quot;query&quot;&gt;
-      &lt;location name=&quot;foo&quot; index=&quot;1&quot; /&gt;
+      &lt;location&gt;foo&lt;/location&gt;
+      &lt;code&gt;date.format&lt;/code&gt;
+      &lt;detail&gt;must be ISO 8601&lt;/detail&gt;
+    &lt;/error&gt;
+    &lt;error in=&quot;query&quot;&gt;
+      &lt;location&gt;array&lt;/location&gt;
+      &lt;index&gt;1&lt;/index&gt;
       &lt;code&gt;date.format&lt;/code&gt;
       &lt;detail&gt;must be ISO 8601&lt;/detail&gt;
     &lt;/error&gt;
@@ -607,6 +616,24 @@ Content-Type: application/problem+xml</code><code class="xml">&lt;?xml version=&
     <dt>How to test</dt>
     <dd>
       Verify all responses with status code <code>400</code> contain a required <code>errors</code> member conforming to the requirements above.
+    </dd>
+  </dl>
+</div>
+
+<div class="rule" id="/core/error-handling/all-errors" data-type="functional">
+  <p class="rulelab">Return all errors together for bad requests</p>
+  <dl>
+    <dt>Statement</dt>
+    <dd>
+      <p>API requests with HTTP status code <code>400</code> (Bad Request) SHOULD include all applicable schema validation errors and MAY include additional errors.
+    </dd>
+    <dt>Rationale</dt>
+    <dd>
+      <p>To reduce the amount of roundtrips between client and server, all applicable schema validation errors SHOULD be returned together.
+      This allows a client to present validation errors to a user in one go, reducing user friction with multiple retries.
+      <p>It depends on a validation technique whether this is possible or not.
+      For example, when a client provides a date in the weekend, where only dates on weekdays are allowed, it depends on which service performs these validation checks.
+      In these cases, include the additional validation errors together with other errors whenever feasible.
     </dd>
   </dl>
 </div>
