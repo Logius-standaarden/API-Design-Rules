@@ -875,16 +875,12 @@ For outbound filtering, the main concern is leaking of information.
       </dd>
       <dt>Rationale</dt>
       <dd>
-         Different resources can have different uses, as some resources are publicly available whereas others are restricted to several domains.
+         <p></p>Different resources can have different uses, as some resources are publicly available whereas others are restricted to several domains.
          Modern web browsers use Cross-Origin Resource Sharing (CORS) to minimize the risk associated with cross-site HTTP-requests.
          <p>By default browsers only allow 'same origin' access to resources.
          This means that responses on requests to another `[scheme]://[hostname]:[port]` than the `Origin` request header of the initial request will not be processed by the browser.
          To enable cross-site requests APIs can return a `Access-Control-Allow-Origin` response header.
-         <div class="note">
-            Only set this header if the resource is used across different domains.
-            If the resource is only used for the same origin, you SHOULD omit this header.
-         </div>
-         An allowlist SHOULD be used to determine the validity of different cross-site requests.
+         <p>An allowlist SHOULD be used to determine the validity of different cross-site requests.
          To do this, check the `Origin` header of the incoming request and check if the domain in this header is on the allowlist.
          If this is the case, set the incoming `Origin` header in the `Access-Control-Allow-Origin` response header.
          <div class="note">
