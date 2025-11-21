@@ -766,10 +766,10 @@ Note: security controls for signing and encrypting of application level messages
       </dd>
       <dt>Rationale</dt>
       <dd>
-         <p>Even when using TLS connections, information in URIs is not secured. URIs can be cached and logged outside of the servers controlled by clients and servers. Any information contained in them should therefore be considered readable by anyone with access to the network (in the case of the internet, the whole world) and MUST NOT contain any sensitive information. This includes client secrets used for authentication, privacy sensitive information or any other information which should not be shared.
+         <p>When using TLS connections, the path and query information in URIs are secured just like the message headers and body. However, before the TLS connection starts on the server, after the TLS connection ends on the client and whenever the TLS protocol is broken in between, URIs can be cached and logged, as can headers and bodies. For REST API's that are accessed directly from user devices, like web browsers, do not put client secrets used for authentication, privacy sensitive information or any other information which should not be shared in the URI, since these are directly visible to users, are stored in the web browser's history and cache and can be bookmarked and sent to others.
          <p>Be aware that queries (anything after the '?' in a URI) are also part of a URI.
       </dd>
-      <p class="note">It is up to you what the definition of sensitive means for your context. The term sensitive is deliberatly not defined in this document.</p>
+      <p class="note">The term sensitive is deliberatly left undefined in this document.</p>
    </dl>
 </div>
 
