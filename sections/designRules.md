@@ -520,7 +520,8 @@ Content-Type: application/problem+json</code><code class="json">{
     <dt>Statement</dt>
     <dd>
       <p>API requests containing invalid input MUST result in HTTP status code <code>400</code> (Bad Request).
-      Invalid input includes syntax errors, missing or invalid query parameters and schema violations for the request payload.
+      Invalid input includes syntax errors, missing or invalid query parameters.
+      <p>The request payload SHOULD be validated with a schema. A request payload with schema validation errors MUST be treated as invalid input.
     </dd>
     <dt>Rationale</dt>
     <dd>
