@@ -1,7 +1,7 @@
 
 /testcases/error-type-bad-invalid-input/openapi.json
- 119:29  error  nlgov:problem-invalid-input  Endpoints that have parameters must be able to return a 400 response  paths./invalid-response-vereist.get.responses
- 157:29  error  nlgov:problem-invalid-input  Endpoints that have parameters must be able to return a 400 response  paths./invalid-response-vereist.put.responses
- 195:29  error  nlgov:problem-invalid-input  Endpoints that have parameters must be able to return a 400 response  paths./invalid-response-vereist.post.responses
+ 119:29  error  nlgov:problem-invalid-input  GET endpoints that have parameters and all other endpoints must be able to return a 400 response  paths./invalid-response-vereist.get.responses
+ 157:29  error  nlgov:problem-invalid-input  GET endpoints that have parameters and all other endpoints must be able to return a 400 response  paths./invalid-response-vereist.put.responses
+ 195:29  error  nlgov:problem-invalid-input  GET endpoints that have parameters and all other endpoints must be able to return a 400 response  paths./invalid-response-vereist.post.responses
 
 ✖ 3 problems (3 errors, 0 warnings, 0 infos, 0 hints)
