@@ -109,15 +109,19 @@ loadRespecWithConfiguration({
   localBiblio: {
     "ADR-encryption": {
       authors: ["P. Haasnoot"],
-      href: "https://gitdocumentatie.logius.nl/publicatie/api/mod-encryption/",
+      href: "https://logius-standaarden.github.io/API-mod-encryption/",
       publisher: "Logius",
-      title: "API Design Rules Module: Encryption"
+      title: "API Design Rules Module: Encryption",
+      // TODO: verwijder voor publicatie
+      status: "Draft",
     },
     "ADR-signing": {
       authors: ["P. Haasnoot"],
-      href: "https://gitdocumentatie.logius.nl/publicatie/api/mod-signing/",
+      href: "https://logius-standaarden.github.io/API-mod-signing/",
       publisher: "Logius",
-      title: "API Design Rules Module: Signing"
+      title: "API Design Rules Module: Signing",
+      // TODO: verwijder voor publicatie
+      status: "Draft",
     },
   }
 });
