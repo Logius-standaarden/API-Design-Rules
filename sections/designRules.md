@@ -218,12 +218,12 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
 Although the REST architectural style does not impose a specific protocol, REST APIs are typically implemented using HTTP [[rfc9110]].
 
 <span id="api-03"></span>
-<div class="rule" id="/core/http-methods" data-type="technical">
+<div class="rule" id="/core/http-methods" data-type="functional">
    <p class="rulelab">Only apply standard HTTP methods</p>
    <dl>
       <dt>Statement</dt>
       <dd>
-         Resources MUST be retrieved or manipulated using standard HTTP methods (GET/POST/PUT/PATCH/DELETE).
+         An API MUST adhere to the HTTP method semantics defined in [[rfc9110]].
       </dd>
       <dt>Rationale</dt>
       <dd>
