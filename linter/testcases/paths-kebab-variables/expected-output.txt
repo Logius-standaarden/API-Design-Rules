@@ -1,1 +1,7 @@
-No results with a severity of 'error' found!
+
+/testcases/paths-kebab-variables/openapi.json
+  87:29  error  nlgov:problem-invalid-input  GET endpoints that have parameters and all other endpoints must be able to return a 400 response  paths./organisaties/{id}.get.responses
+ 128:29  error  nlgov:problem-invalid-input  GET endpoints that have parameters and all other endpoints must be able to return a 400 response  paths./organisaties/{id}/nested.get.responses
+ 169:29  error  nlgov:problem-invalid-input  GET endpoints that have parameters and all other endpoints must be able to return a 400 response  paths./organisaties/{organisationId}/pad.get.responses
+
+✖ 3 problems (3 errors, 0 warnings, 0 infos, 0 hints)

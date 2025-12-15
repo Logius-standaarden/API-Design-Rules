@@ -54,9 +54,18 @@
                         }
                     },
                     "404": {
-                        "description": "OK",
+                        "description": "NOK",
                         "content": {
-                            "application/hal+json": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": { "type": "integer" },
+                                        "title": { "type": "string" },
+                                        "detail": {"type": "string" },
+                                        "extra": {"type": "string" }
+                                    }
+                                }
                             }
                         }
                     }

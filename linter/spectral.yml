@@ -183,8 +183,9 @@ rules:
       functionOptions:
         match: ^https://.*
 
+  #/core/error-handling/problem-details
   nlgov:use-problem-schema:
-    severity: warn
+    severity: error
     message: "The content type of an error response should be application/problem+json or application/problem+xml to match RFC 9457."
     given: $..[responses][?(@property && @property.match(/(4|5)\d\d/))].content
     then:
@@ -194,6 +195,77 @@ rules:
           anyOf:
             - required: ["application/problem+json"]
             - required: ["application/problem+xml"]
+
+  nlgov:problem-schema-members:
+    severity: error
+    message: "{{error}}. These fields are required: status, title and detail."
+    given: $..[responses][?(@property && @property.match(/(4|5)\d\d/))].content[?(@property=="application/problem+json" || @property=="application/problem+xml")]..schema
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          properties:
+            properties:
+              type: object
+              required:
+              - status
+              - title
+              - detail
+
+  #/core/error-handling/invalid-input
+  nlgov:problem-invalid-input:
+    severity: error
+    message: "GET endpoints that have parameters and all other endpoints must be able to return a 400 response"
+    given:
+      - $.paths..[?( @property.match(/get/) && @.parameters && @.parameters.length > 0 )]
+      - $.paths..[?( @property.match(/(put)|(post)|(delete)|(patch)/))]
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          properties:
+            responses:
+              type: object
+              required:
+              - "400"
+
+  #/core/error-handling/bad-request
+  nlgov:problem-schema-members-bad-request:
+    severity: error
+    given: $..[responses][?(@property && @property.match(400))].content[?(@property=="application/problem+json" || @property=="application/problem+xml")]..schema.properties
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          properties:
+            errors:
+              type: object
+              properties:
+                properties:
+                  type: object
+                  properties:
+                    in: {}
+                    detail: {}
+                    location:
+                      type: object
+                      properties:
+                        properties:
+                          type: object
+                          properties:
+                            pointer: {}
+                            name: {}
+                            index: {}
+                          additionalProperties: false
+                    code: {}
+                  required:
+                    - in
+                    - detail
+                  additionalProperties: false
+          required:
+          - errors
 
   nlgov:property-casing:
     severity: warn

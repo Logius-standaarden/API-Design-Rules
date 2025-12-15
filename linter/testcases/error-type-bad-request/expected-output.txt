@@ -1,0 +1,6 @@
+
+/testcases/error-type-bad-request/openapi.json
+ 133:58  error  nlgov:problem-schema-members-bad-request  Property "extra" is not expected to be here     paths./properties-correct.get.responses[400].content.application/problem+json.schema.properties.errors.properties
+ 254:66  error  nlgov:problem-schema-members-bad-request  Property "pointer2" is not expected to be here  paths./properties-location-verkeerd-format.get.responses[400].content.application/problem+json.schema.properties.errors.properties.location.properties
+
+✖ 2 problems (2 errors, 0 warnings, 0 infos, 0 hints)
