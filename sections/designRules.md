@@ -214,6 +214,93 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
    </dl>
 </div>
 
+## Date and time
+
+Handling date and time is tricky and can lead to confusion among clients. The date-time rules remove ambiguity and provide clarity in the API contract between servers and clients.
+
+<aside class="example">
+   <p>A child is born on March 20th 2025 in The Netherlands. If a client sends a request with value <code>2025-03-20T00:00:00+01:00</code>, timezone conversion would result in <code>2025-03-19T23:00:00Z</code>. When the client receives this value in a response and incorrectly converts it to a date (by removing the time portion), this would result in <code>2025-03-19</code>.
+   <p>Ambiguous date and time handling can therefore lead to misinterpretation and changes of days/months/years depending on which component performs which incorrect conversion. Clients could incorrectly remove a time portion from a datetime value if the value should have been a date in the first place. By specifying which formats are allowed in which fields, the odds of invalid conversion are reduced.
+</aside>
+
+<div class="rule" id="/core/date-time/format" data-type="technical">
+   <p class="rulelab">Use standard format for date, datetime and time</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         <p>All date, datetime and time fields in requests and responses MUST adhere to [[RFC9557]] and [[ISO8601]] format. Each field in the OpenAPI specification MUST set <code class="json">"type": "string"</code> and set <code>"format"</code> to the <a href="https://spec.openapis.org/registry/format/">OpenAPI format</a> as listed in the following table:
+         <table>
+            <thead>
+               <tr>
+                  <th scope="col">Field type</th>
+                  <th scope="col">ISO8601 format</th>
+                  <th scope="col">OpenAPI format</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td>Date</td>
+                  <td>full-date (<code>YYYY-MM-DD</code>)</td>
+                  <td><code class="json">"format": "date"</code></td>
+               </tr>
+               <tr>
+                  <td>Datetime</td>
+                  <td>date-time (<code>YYYY-MM-DDThh:mm:ssZ</code> or <code>YYYY-MM-DDThh:mm:ss±hh:mm</code>)</td>
+                  <td><code class="json">"format": "date-time"</code></td>
+               </tr>
+               <tr>
+                  <td>Time</td>
+                  <td>time (<code>hh:mm:ss</code>)</td>
+                  <td><code class="json">"format": "time-local"</code></td>
+               </tr>
+            </tbody>
+         </table>
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         <p>Implementing RFC9557 and ISO 8601 removes ambiguity in date handling between systems and timezones.
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         Analyse all fields and if the field represents a date, date-time or time, ensure it has the correct format according to the table above.
+      </dd>
+   </dl>
+</div>
+
+<div class="rule" id="/core/date-time/timezone" data-type="functional">
+   <p class="rulelab">Allow all timezone offsets in requests and use UTC in responses</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         <p>APIs MUST accept any timezone offset in fields in requests containing a datetime. Fields in responses containing a datetime MUST be in UTC (e.g. <code>Z</code> as timezone offset).
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         <p>Allowing clients to use any timezone offset in requests results in flexibility and less complexity for users. Using UTC in responses results in clarity and removes ambiguity.
+         <p class="note">This specification does not state rules regarding storage in databases.
+         However, if the original timezone of a given timestamp value is relevant for users (such as the timezone in which a value is registered), it is recommended to store and publish the timezone details (e.g. the zone offset) as a separate property.
+      </dd>
+   </dl>
+</div>
+
+<div class="rule" id="/core/date-time/date-omit-time-portion" data-type="technical">
+   <p class="rulelab">Omit time portion for date fields</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         <p>If the time portion is not relevant, <code>date</code> format MUST be used instead of <code>date-time</code> format.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         <p>Appending a default or irrelevant time portion to a date field can lead to interpretation errors. A publish date of <code>2025-07-24T00:00:00Z</code> could for instance be rendered as July 23 in Ireland. A default time of 23:59 would in turn cause date confusion east of Greenwich.
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         Analyse all fields that set format to "date-time" and ensure that the fields do not represent solely a date.
+      </dd>
+   </dl>
+</div>
+
 ## HTTP methods
 
 Although the REST architectural style does not impose a specific protocol, REST APIs are typically implemented using HTTP [[rfc9110]].

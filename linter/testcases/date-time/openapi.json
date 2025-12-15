@@ -1,0 +1,238 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "Baseline",
+        "description": "Deze OpenAPI specification bevat het minimale om aan alle regels te voldoen.",
+        "contact": {
+            "name": "Beheerder",
+            "url": "https://www.example.com",
+            "email": "mail@example.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "https://example.com/api/v1"
+        }
+    ],
+    "security": [
+        {
+            "default": []
+        }
+    ],
+    "tags": [
+        {
+            "name": "openapi"
+        },
+        {
+            "name": "time"
+        }
+    ],
+    "paths": {
+        "/openapi.json": {
+            "get": {
+                "tags": [
+                    "openapi"
+                ],
+                "description": "OpenAPI document",
+                "operationId": "getOpenapiJSON",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "access-control-allow-origin": {
+                                "description": "Alle origins mogen bij deze resource",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            }
+        },
+        "/resources-with-time-incorrect": {
+            "get": {
+                "tags": [
+                    "time"
+                ],
+                "description": "Resources with time incorrect",
+                "operationId": "getResourcesIncorrect",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "date-time-local": {
+                                            "type": "string",
+                                            "format": "date-time-local"
+                                        },
+                                        "date": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "datum": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "geboorteDatum": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "birthDate": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "expiration_date": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "expiration_Date": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "timestamp": {
+                                            "type": "string",
+                                            "format": "time"
+                                        },
+                                        "missingFormatDate": {
+                                            "nullable": true
+                                        },
+                                        "meerdereDatum": {
+                                            "type": "string",
+                                            "allOf": [
+                                                {
+                                                    "$ref": "#/components/schemas/LocalDateTimeIncorrect"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            }
+        },
+        "/resources-with-time-correct": {
+            "get": {
+                "tags": [
+                    "time"
+                ],
+                "description": "Resources with time correct",
+                "operationId": "getResourcesCorrect",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "date": {
+                                            "type": "string",
+                                            "format": "date"
+                                        },
+                                        "datum": {
+                                            "type": "string",
+                                            "format": "date"
+                                        },
+                                        "geboorteDatum": {
+                                            "type": "string",
+                                            "format": "date"
+                                        },
+                                        "birthDate": {
+                                            "type": "string",
+                                            "format": "date"
+                                        },
+                                        "timestamp": {
+                                            "type": "string",
+                                            "format": "time-local"
+                                        },
+                                        "meerdereDatum": {
+                                            "type": "string",
+                                            "allOf": [
+                                                {
+                                                    "$ref": "#/components/schemas/LocalDateTimeCorrect"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "LocalDateTimeIncorrect": {
+                "format": "date-time",
+                "type": "string"
+            },
+            "LocalDateTimeCorrect": {
+                "format": "date",
+                "type": "string"
+            }
+        },
+        "securitySchemes": {
+            "default": {
+                "type": "oauth2",
+                "flows": {
+                    "implicit": {
+                        "authorizationUrl": "https://test.com",
+                        "scopes": {}
+                    }
+                }
+            }
+        }
+    }
+}
