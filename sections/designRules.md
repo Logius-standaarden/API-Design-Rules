@@ -745,10 +745,16 @@ Note: security controls for signing and encrypting of application level messages
       </dd>
       <dt>Rationale</dt>
       <dd>
-         <p>When using TLS connections, the path and query information in URIs are secured just like the message headers and body. However, before the TLS connection starts on the server, after the TLS connection ends on the client and whenever the TLS protocol is terminated and newly initiatied in between, URIs can be cached and logged, as can headers and bodies. For REST API's that are accessed directly from user devices, like web browsers, do not put client secrets used for authentication, privacy sensitive information or any other information which should not be shared in the URI, since these are directly visible to users, are stored in the web browser's history and cache and can be bookmarked and sent to others.
+         <p>When using TLS connections, the path and query information in URIs are secured just like the message headers and body. However, URIs can be cached and logged, as can headers and bodies in the following situations:
+         <ul>
+           <li>before the TLS connection starts on the server
+           <li>after the TLS connection ends on the client
+           <li>whenever the TLS protocol is terminated and newly initiated in between
+         </ul>
+         <p>For REST API's that are accessed directly from user devices, like web browsers, do not put client secrets used for authentication, privacy sensitive information or any other information which should not be shared in the URI. These are directly visible to users, are stored in the web browser's history and cache and can be bookmarked and sent to others.
          <p>Be aware that queries (anything after the '?' in a URI) are also part of a URI.
       </dd>
-      <p class="note">The term sensitive is deliberatly left undefined in this document.</p>
+      <p class="note">The term sensitive is deliberately left undefined in this document.</p>
    </dl>
 </div>
 
