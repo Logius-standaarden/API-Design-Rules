@@ -751,7 +751,8 @@ Note: security controls for signing and encrypting of application level messages
            <li>after the TLS connection ends on the client
            <li>whenever the TLS protocol is terminated and newly initiated in between
          </ul>
-         <p>For REST API's that are accessed directly from user devices, like web browsers, do not put client secrets used for authentication, privacy sensitive information or any other information which should not be shared in the URI. These are directly visible to users, are stored in the web browser's history and cache and can be bookmarked and sent to others.
+         <p>For REST API's that are accessed directly from user devices, like web browsers, do not put client secrets used for authentication and other sensitive information in the URI. These are directly visible to users, are stored in the web browser's history and cache and can be bookmarked and sent to others.
+         <p>For REST API's that are only used for system-to-system interation on closed networks where all systems are under control of the involved client and server organisations, do not put client secrets used for authentication in the URI and be careful to put sensitive information in the URI. Intermediate network components that terminate and newly initiate TLS could log or otherwise store URIs. Consider the consequences, advantages and disadvantages of using sensitive information in the URI and be deliberate about which information is logged, for which purposes and who has access.
          <p>Be aware that queries (anything after the '?' in a URI) are also part of a URI.
       </dd>
       <p class="note">The term sensitive is deliberately left undefined in this document.</p>
