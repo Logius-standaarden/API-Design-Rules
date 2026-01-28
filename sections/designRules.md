@@ -534,6 +534,43 @@ An API is as good as the accompanying documentation. The documentation has to be
    </dl>
 </div>
 
+<div class="rule" id="/core/doc-openapi-servers" data-type="technical">
+  <p class="rulelab">Document server information</p>
+  <dl>
+      <dt>Statement</dt>
+      <dd>
+         OpenAPI definition document MUST include at least one Server object in <a href="https://spec.openapis.org/oas/v3.0.1.html#server-object"><code>servers</code></a>.
+         One or more Server objects MUST have a <code>url</code> which is an absolute URL.
+         At most one Server object MAY have a <url>url</code> which is a relative URL.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         The OpenAPI Specification (OAS) [[OPENAPIS]] can include information about servers which serve this API. It can list different environments, such as production and pre-production. If desired, a relative URL can be used to denote where an API resides, regardless of origin. However, only one relative URL may be present to avoid ambiguation for consumers which relative URL is applicable for the current origin.
+         <aside class="example">
+            <pre><code class="json">[{
+  "url": "https://production.example.com/api/v1",
+  "description": "Production server"
+},
+{
+  "url": "https://staging.example.com/api/v1",
+  "description": "Pre-production server"
+},
+{
+  "url": "/api/v1",
+  "description": "API location on the origin that the openapi.json is served"
+}]</code></pre>
+         </aside>
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+        <ul>
+          <li>Step 1: Parse the OpenAPI Description to confirm the <code>servers</code> list is present.</li>
+          <li>Step 2: The list contains at least one object with an absolute URL</li>
+          <li>Step 3: The list contains at most one object with a relative URL</li>
+      </dd>
+   </dl>
+</div>
+
 <span id="api-17"></span>
 <div class="rule" id="/core/doc-language" data-type="functional">
   <p class="rulelab">Publish documentation in Dutch unless there is existing documentation in English</p>
