@@ -547,18 +547,22 @@ An API is as good as the accompanying documentation. The documentation has to be
       <dd>
          The OpenAPI Specification (OAS) [[OPENAPIS]] can include information about servers which serve this API. It can list different environments, such as production and pre-production. If desired, a relative URL can be used to denote where an API resides, regardless of origin. However, only one relative URL may be present to avoid ambiguation for consumers which relative URL is applicable for the current origin.
          <aside class="example">
-            <pre><code class="json">[{
-  "url": "https://production.example.com/api/v1",
-  "description": "Production server"
-},
-{
-  "url": "https://staging.example.com/api/v1",
-  "description": "Pre-production server"
-},
-{
-  "url": "/api/v1",
-  "description": "API location on the origin that the openapi.json is served"
-}]</code></pre>
+            <pre><code class="json">{
+  "servers": [
+    {
+      "url": "https://production.example.com/api/v1",
+      "description": "Production server"
+    },
+    {
+      "url": "https://staging.example.com/api/v1",
+      "description": "Pre-production server"
+    },
+    {
+      "url": "/api/v1",
+      "description": "API location on the origin that the openapi.json is served"
+    }
+  ]
+}</code></pre>
          </aside>
       </dd>
       <dt>How to test</dt>
