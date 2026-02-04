@@ -560,6 +560,7 @@ Content-Type: application/problem+json</code><code class="json">{
 Content-Type: application/problem+json</code><code class="json">{
     "status": 400,
     "title": "Request validation failed",
+    "detail": "Invalid input in body or query parameters",
     "errors": [
       {
         "in": "body",
@@ -589,6 +590,7 @@ Content-Type: application/problem+xml</code><code class="xml">&lt;?xml version=&
 &lt;problem xmlns=&quot;urn:ietf:rfc:7807&quot;&gt;
   &lt;status&gt;400&lt;/status&gt;
   &lt;title&gt;Request validation failed&lt;/title&gt;
+  &lt;detail&gt;Invalid input in body or query parameters&lt;/detail&gt;
   &lt;errors&gt;
     &lt;error in=&quot;body&quot;&gt;
       &lt;location&gt;/foo[1]/bar/text()&lt;/location&gt;
