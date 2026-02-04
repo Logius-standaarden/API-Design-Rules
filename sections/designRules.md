@@ -188,7 +188,7 @@ Handling date and time is tricky and can lead to confusion among clients. The da
       <dt>Rationale</dt>
       <dd>
          <p>Allowing clients to use any timezone offset in requests results in flexibility and less complexity for users. Using UTC in responses results in clarity and removes ambiguity.
-         <p class="note">While storage formats are outside the scope of this specification, it is RECOMMENDED to use appropriate temporal datatypes (such as <code>DATE</code> and <code>TIMESTAMPTZ</code>). Many database systems store these values internally in UTC and handle timezone conversion automatically on read/write. When the original timezone is relevant for users (such as the timezone in which a value is registered), store and publish the zone offset as a separate property.
+         <p class="note">While storage formats are outside the scope of this specification, it is recommended to use appropriate temporal datatypes (such as <code>DATE</code> and <code>TIMESTAMPTZ</code>). Many database systems store these values internally in UTC and handle timezone conversion automatically on read/write. When the original timezone is relevant for users (such as the timezone in which a value is registered), store and publish the zone offset as a separate property.
       </dd>
    </dl>
 </div>
