@@ -188,8 +188,7 @@ Handling date and time is tricky and can lead to confusion among clients. The da
       <dt>Rationale</dt>
       <dd>
          <p>Allowing clients to use any timezone offset in requests results in flexibility and less complexity for users. Using UTC in responses results in clarity and removes ambiguity.
-         <p class="note">This specification does not state rules regarding storage in databases.
-         However, if the original timezone of a given timestamp value is relevant for users (such as the timezone in which a value is registered), it is recommended to store and publish the timezone details (e.g. the zone offset) as a separate property.
+         <p class="note">While storage formats are outside the scope of this specification, it is recommended to use appropriate temporal datatypes (such as <code>DATE</code> and <code>TIMESTAMPTZ</code>). Many database systems store these values internally in UTC and handle timezone conversion automatically on read/write. When the original timezone is relevant for users (such as the timezone in which a value is registered), store and publish the zone offset as a separate property.
       </dd>
    </dl>
 </div>
@@ -204,6 +203,7 @@ Handling date and time is tricky and can lead to confusion among clients. The da
       <dt>Rationale</dt>
       <dd>
          <p>Appending a default or irrelevant time portion to a date field can lead to interpretation errors. A publish date of <code>2025-07-24T00:00:00Z</code> could for instance be rendered as July 23 in Ireland. A default time of 23:59 would in turn cause date confusion east of Greenwich.
+         <p class="note">To prevent conversion errors between storage and API, it is recommended to also store date values without a time portion (i.e. not as a timestamp).
       </dd>
       <dt>How to test</dt>
       <dd>
