@@ -240,17 +240,17 @@ Handling date and time is tricky and can lead to confusion among clients. The da
             <tbody>
                <tr>
                   <td>Date</td>
-                  <td>full-date (<code>YYYY-MM-DD</code>)</td>
+                  <td>full-date</td>
                   <td><code class="json">"format": "date"</code></td>
                </tr>
                <tr>
                   <td>Datetime</td>
-                  <td>date-time (<code>YYYY-MM-DDThh:mm:ssZ</code> or <code>YYYY-MM-DDThh:mm:ss±hh:mm</code>)</td>
+                  <td>date-time</td>
                   <td><code class="json">"format": "date-time"</code></td>
                </tr>
                <tr>
                   <td>Time</td>
-                  <td>time (<code>hh:mm:ss</code>)</td>
+                  <td>time</td>
                   <td><code class="json">"format": "time-local"</code></td>
                </tr>
             </tbody>
