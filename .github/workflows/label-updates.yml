@@ -1,0 +1,16 @@
+name: Update labels
+on:
+  pull_request_review:
+  pull_request_target:
+    types:
+      - edited
+      - opened
+      - reopened
+      - closed
+
+jobs:
+  update-labels:
+    name: Update labels
+    uses: Logius-standaarden/Automatisering/.github/workflows/label-updates.yml@main
+    with:
+      technisch_overleg: API

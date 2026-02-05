@@ -1,5 +1,6 @@
 import { processRuleBlocks } from "https://logius-standaarden.github.io/publicatie/respec/plugins/adr.mjs";
 import { loadRespecWithConfiguration } from "https://logius-standaarden.github.io/publicatie/respec/organisation-config.mjs";
+import { generateMermaidFigures } from "https://logius-standaarden.github.io/publicatie/respec/plugins/mermaid.mjs";
 
 async function initializeHighlightJSYaml() {
   //this is the function you call in 'preProcess', to load the highlighter
@@ -103,5 +104,24 @@ loadRespecWithConfiguration({
   pluralize: true,
 
   preProcess: [initializeHighlightJSYaml, fetchSpectralConfiguration],
-  postProcess: [highlightSpectralCode, (config, document, utils) => processRuleBlocks(config, document, utils, spectralConfiguration)],
+  postProcess: [generateMermaidFigures, highlightSpectralCode, (config, document, utils) => processRuleBlocks(config, document, utils, spectralConfiguration)],
+
+  localBiblio: {
+    "ADR-encryption": {
+      authors: ["P. Haasnoot"],
+      href: "https://logius-standaarden.github.io/API-mod-encryption/",
+      publisher: "Logius",
+      title: "API Design Rules Module: Encryption",
+      // TODO: verwijder voor publicatie
+      status: "Draft",
+    },
+    "ADR-signing": {
+      authors: ["P. Haasnoot"],
+      href: "https://logius-standaarden.github.io/API-mod-signing/",
+      publisher: "Logius",
+      title: "API Design Rules Module: Signing",
+      // TODO: verwijder voor publicatie
+      status: "Draft",
+    },
+  }
 });

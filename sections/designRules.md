@@ -167,7 +167,7 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
       <dt>Statement</dt>
       <dd>
          <div>
-            <p>Query keys in a [=URI=] MUST only contain letters and digits, where the first letter of each word is capitalized, except for the first letter of the entire compound word. This is also known as <a href="https://developer.mozilla.org/en-US/docs/Glossary/Camel_case">lower camelCase</a>. This also implies that diacritics MUST be normalized and special characters MUST be omitted.
+            <p>Query keys in a [=URI=] MUST only contain letters and digits, where the first letter of each word is capitalized, except for the first letter (MUST NOT be a digit) of the entire compound word. This is also known as <a href="https://developer.mozilla.org/en-US/docs/Glossary/Camel_case">lower camelCase</a>. This also implies that diacritics MUST be normalized and special characters MUST be omitted.
          </div>
       </dd>
       <dt>Rationale</dt>
@@ -178,14 +178,15 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
             <pre class="nohighlight example-correct">https://api.example.org/v1/gebouwen?typeGebouw=woning</pre>
             <p>URI query key not using camelCase (incorrect):</p>
             <pre class="nohighlight example-incorrect">https://api.example.org/v1/gebouwen?type-gebouw=woning</pre>
+            <p>URI query key starts with digit (incorrect):</p>
+            <pre class="nohighlight example-incorrect">https://api.example.org/v1/gebouwen?2ndReviewer=alice</pre>
          </aside>
       </dd>
       <dt>How to test</dt>
       <dd>
-         Loop all resource paths in the OpenAPI Description and check that all query keys use letters, digits in camelCase.
+         Loop all resource paths in the OpenAPI Description and check that all query keys use letters, digits in camelCase. You can use the following regex for each query key:
          <aside class="example">
-            You can use the following regex for each query key:
-            <pre><code>^[a-z0-9]+[a-zA-Z0-9]*$</code></pre>
+            <pre><code>^\$?[a-z][a-z\d]*([A-Z][a-z\d]*)*$</code></pre>
          </aside>
       </dd>
    </dl>
@@ -218,12 +219,12 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
 Although the REST architectural style does not impose a specific protocol, REST APIs are typically implemented using HTTP [[rfc9110]].
 
 <span id="api-03"></span>
-<div class="rule" id="/core/http-methods" data-type="technical">
+<div class="rule" id="/core/http-methods" data-type="functional">
    <p class="rulelab">Only apply standard HTTP methods</p>
    <dl>
       <dt>Statement</dt>
       <dd>
-         Resources MUST be retrieved or manipulated using standard HTTP methods (GET/POST/PUT/PATCH/DELETE).
+         An API MUST adhere to the HTTP method semantics defined in [[rfc9110]].
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -987,7 +988,7 @@ For outbound filtering, the main concern is leaking of information.
                </tr>
                <tr>
                   <td>`Access-Control-Allow-Origin`</td>
-                  <td>To relax the &#39;same origin&#39; policy and allow cross-origin access. See CORS-policy below</td>
+                  <td>To relax the &#39;same origin&#39; policy and allow cross-origin access. See <a href="#/core/transport/cors">/core/transport/cors</a> for more information.</td>
                </tr>
             </tbody>
          </table>
@@ -1029,12 +1030,22 @@ For outbound filtering, the main concern is leaking of information.
    <dl>
       <dt>Statement</dt>
       <dd>
-         Use CORS to restrict access from other domains (if applicable).
+         Use CORS to restrict access from other domains for applicable resources
       </dd>
       <dt>Rationale</dt>
       <dd>
-         <p>Modern web browsers use Cross-Origin Resource Sharing (CORS) to minimize the risk associated with cross-site HTTP-requests. By default browsers only allow 'same origin' access to resources. This means that responses on requests to another `[scheme]://[hostname]:[port]` than the `Origin` request header of the initial request will not be processed by the browser. To enable cross-site requests APIs can return a `Access-Control-Allow-Origin` response header. An allowlist SHOULD be used to determine the validity of different cross-site requests. To do this check the `Origin` header of the incoming request and check if the domain in this header is on the allowlist. If this is the case, set the incoming `Origin` header in the `Access-Control-Allow-Origin` response header.
-         <p>Using a wildcard `*` in the `Access-Control-Allow-Origin` response header is NOT RECOMMENDED, because it disables CORS-security measures. Only for an open API which has to be accessed by numerous other websites this is appropriate.
+         <p>Different resources can have different uses, as some resources are publicly available whereas others are restricted to several domains.
+         Modern web browsers use Cross-Origin Resource Sharing (CORS) to minimize the risk associated with cross-site HTTP-requests.
+         <p>By default browsers only allow 'same origin' access to resources.
+         This means that responses on requests to another `[scheme]://[hostname]:[port]` than the `Origin` request header of the initial request will not be processed by the browser.
+         To enable cross-site requests APIs can return a `Access-Control-Allow-Origin` response header.
+         <p>An allowlist SHOULD be used to determine the validity of different cross-site requests.
+         To do this, check the `Origin` header of the incoming request and check if the domain in this header is on the allowlist.
+         If this is the case, set the incoming `Origin` header in the `Access-Control-Allow-Origin` response header.
+         <div class="note">
+            Using a wildcard `*` in the `Access-Control-Allow-Origin` response header is NOT RECOMMENDED, because it disables CORS-security measures.
+            However, if the resource has to be accessed by numerous other origins that are not known up front (such as all resources in an open API, or the `openapi.json` as required by <a href="#/core/publish-openapi">/core/publish-openapi</a>), you MAY use `*`.
+         </div>
       </dd>
       <dt>How to test</dt>
       <dd>
@@ -1074,16 +1085,17 @@ Services (potentially) including script code (e.g. JavaScript) in their response
 
 * Ensure the intended Content-Type headers are sent in the response, matching the body content, e.g. `application/json` and not `application/javascript`.
 
-## Geospatial
+## Normative modules
 
-Geospatial data refers to information that is associated with a physical location on Earth, often expressed by its 2D/3D coordinates.
+The following modules are normative for all REST API's.
 
-<div class="rule" id="/core/geospatial" data-type="functional">
+<div class="rule" id="/core/modules/geospatial" data-type="functional">
   <p class="rulelab">Apply the geospatial module for geospatial data</p>
   <dl>
     <dt>Statement</dt>
     <dd>
-       The [[[ADR-GEO]]] version 1.0.x MUST be applied when providing geospatial data or functionality.
+       <p>The [[[ADR-GEO]]] version 1.0.x MUST be applied when providing geospatial data or functionality.
+       <p class="note">Geospatial data refers to information that is associated with a physical location on Earth, often expressed by its 2D/3D coordinates.
     </dd>
     <dt>Rationale</dt>
     <dd>
@@ -1096,3 +1108,53 @@ Geospatial data refers to information that is associated with a physical locatio
     </dd>
   </dl>
 </div>
+
+<div class="rule" id="/core/modules/signing" data-type="functional">
+  <p class="rulelab">Apply the signing module for signing payloads</p>
+  <dl>
+    <dt>Statement</dt>
+    <dd>
+       <p>The [[[ADR-signing]]] version 1.0.x MUST be applied when signing payloads.
+       <p class="note">This rule does not dictate signing.
+       Instead, it only applies in situations where there is a need for assurance of end to end message integrity and authenticity between client application and server application.
+       In those situations, [[[ADR-signing]]] specifies how to sign.
+    </dd>
+    <dt>Rationale</dt>
+    <dd>
+      The [[[ADR-signing]]] formalizes as set of rules regarding:
+      <ol>
+         <li>How to sign data in request and response payloads.</li>
+         <li>Which header to specify the signature.</li>
+      </ol>
+    </dd>
+  </dl>
+</div>
+
+<div class="rule" id="/core/modules/encryption" data-type="functional">
+  <p class="rulelab">Apply the encryption module for encrypting payloads</p>
+  <dl>
+    <dt>Statement</dt>
+    <dd>
+       <p>The [[[ADR-encryption]]] version 1.0.x MUST be applied when encrypting payloads.
+       <p class="note">This rule does not dictate encryption.
+       Instead, it only applies in situations where there is a need for end to end message payload confidentiality between client application and server application.
+       In those situations, [[[ADR-encryption]]] specifies how to encrypt.
+    </dd>
+    <dt>Rationale</dt>
+    <dd>
+      The [[[ADR-encryption]]] formalizes as set of rules regarding:
+      <ol>
+         <li>How to encrypt data in request and response payloads.</li>
+         <li>The flow of operations between client and server.</li>
+      </ol>
+    </dd>
+  </dl>
+</div>
+
+If both the signing and encryption modules apply, use the following flow of operations:
+
+<figure>
+   <div class="mermaid" data-figure-name="signing-in-combination-with-encryption.mermaid">
+   </div>
+   <figcaption>Signing in combination with encryption</figcaption>
+</figure>
