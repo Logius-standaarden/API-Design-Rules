@@ -6,7 +6,7 @@
 # configuratie.
 #
 # Voor meer informatie hierover, zie de kennisbank van DON:
-# https://developer.overheid.nl/kennisbank/apis/tools/api-design-rules-linter
+# https://developer.overheid.nl/kennisbank/apis/api-design-rules/api-design-rules-linter
 #
 # Hierbij ook de ingevoegde instructies die kunnen worden gekopieerd om de linter
 # te draaien:
@@ -38,7 +38,7 @@ rules:
     then:
       field: openapi
       function: truthy
-    message: "The root of the document must contain the `openapi` property"
+    message: "The root of the document must contain the `openapi` property."
 
   #/core/version-header
   nlgov:missing-version-header:
@@ -53,7 +53,8 @@ rules:
           - Api-version
           - api-version
           - API-version
-    message: "Return the full version number in a response header"
+    message: "Return the full version number in a response header."
+    documentationUrl: "https://developer.overheid.nl/kennisbank/apis/api-design-rules/hoe-te-voldoen/version-header"
 
   nlgov:missing-header:
     severity: error
@@ -61,7 +62,8 @@ rules:
     then:
       field: headers
       function: truthy
-    message: "/core/version-header: Return the full version number in a response header: https://logius-standaarden.github.io/API-Design-Rules/#/core/version-header"
+    message: "Return the full version number in a response header."
+    documentationUrl: "https://developer.overheid.nl/kennisbank/apis/api-design-rules/hoe-te-voldoen/version-header"
 
   #/core/uri-version
   nlgov:include-major-version-in-uri:
@@ -73,7 +75,8 @@ rules:
       functionOptions:
         match: "\\/v[\\d+]"
       field: url
-    message: "/core/uri-version: Include the major version number in the URI: https://logius-standaarden.github.io/API-Design-Rules/#/core/uri-version"
+    message: "Include the major version number in the URI."
+    documentationUrl: "https://developer.overheid.nl/kennisbank/apis/api-design-rules/hoe-te-voldoen/uri-version"
 
   #/core/no-trailing-slash
   nlgov:paths-no-trailing-slash:
@@ -85,11 +88,19 @@ rules:
       functionOptions:
         notMatch: ".+ \\/$"
       field: "@key"
-    message: "/core/no-trailing-slash: Leave off trailing slashes from URIs: https://logius-standaarden.github.io/API-Design-Rules/#/core/no-trailing-slash"
+    message: "Leave off trailing slashes from URIs."
+    documentationUrl: "https://developer.overheid.nl/kennisbank/apis/api-design-rules/hoe-te-voldoen/no-trailing-slash"
 
   #/core/doc-openapi-contact
-  # This rule exists in the base oas spectral linter set
-  info-contact: error
+  info-contact:
+    severity: error
+    given:
+      - "$"
+    then:
+      field: "info.contact"
+      function: truthy
+    message: 'Info object must have "contact" object.'
+    documentationUrl: "https://developer.overheid.nl/kennisbank/apis/api-design-rules/hoe-te-voldoen/doc-openapi-contact"
 
   nlgov:info-contact-fields-exist:
     severity: error
@@ -104,6 +115,7 @@ rules:
             - name
             - url
     message: "Missing fields in `info.contact` field. Must specify email, name and url."
+    documentationUrl: "https://developer.overheid.nl/kennisbank/apis/api-design-rules/hoe-te-voldoen/doc-openapi-contact"
 
   #/core/http-methods
   nlgov:http-methods:
@@ -115,10 +127,12 @@ rules:
       functionOptions:
         match: "post|put|get|delete|patch|parameters"
       field: "@key"
-    message: "/core/http-methods: Only apply standard HTTP methods: https://logius-standaarden.github.io/API-Design-Rules/#http-methods"
+    message: "Only apply standard HTTP methods."
+    documentationUrl: "https://developer.overheid.nl/kennisbank/apis/api-design-rules/hoe-te-voldoen/http-methods"
 
+  #/core/path-segments-kebab-case
   nlgov:paths-kebab-case:
-    severity: warn
+    severity: error
     message: "{{property}} is not kebab-case."
     given: $.paths[?(@property && !@property.match(/\/openapi\.json/))]~
     then:
@@ -131,6 +145,19 @@ rules:
         # - Paden mogen nesten, waardoor de twee groep genest wordt, gescheiden met een `/`
         # - Een pad mag eindigen met een `/`. Dat is volgens een andere regel niet toegestaan, maar we willen niet twee errors genereren
         match: ^(\/|(\/_[a-z0-9]+|\/(([a-z0-9\-]+|{[^}]+})(\/([a-z0-9\-\.]+|{[^}]+}))*)(\/_[a-z]+)?)\/?)$
+
+  #/core/query-keys-camel-case
+  nlgov:query-keys-camel-case:
+    severity: error
+    message: "{{value}} is not lower camelCase."
+    given:
+      - $.paths.*.*.parameters[?(@.in=='query')]
+      - $.components.securitySchemes[?(@.in=='query')]
+    then:
+      function: pattern
+      field: name
+      functionOptions:
+        match: ^\$?[a-z][a-z\d]*([A-Z][a-z\d]*)*$
 
   nlgov:schema-camel-case:
     severity: warn

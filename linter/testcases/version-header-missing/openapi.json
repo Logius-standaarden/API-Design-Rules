@@ -10,6 +10,11 @@
         },
         "version": "1.0.0"
     },
+    "servers": [
+        {
+            "url": "https://example.com/api/v1"
+        }
+    ],
     "security": [
         {
             "default": []
@@ -33,13 +38,6 @@
                     "200": {
                         "description": "OK",
                         "headers": {
-                            "API-Version": {
-                                "description": "De huidige versie van de applicatie",
-                                "style": "simple",
-                                "schema": {
-                                    "type": "string"
-                                }
-                            },
                             "access-control-allow-origin": {
                                 "description": "Alle origins mogen bij deze resource",
                                 "schema": {

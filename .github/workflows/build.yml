@@ -20,7 +20,6 @@ jobs:
     uses: Logius-standaarden/Automatisering/.github/workflows/publish.yml@main
     secrets: inherit
   spectral_linter:
-    needs: build
     name: Spectral linter test cases
     runs-on: ubuntu-22.04
     steps:
