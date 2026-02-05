@@ -218,7 +218,7 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
 
 Handling date and time is tricky and can lead to confusion among clients. The date-time rules remove ambiguity and provide clarity in the API contract between servers and clients.
 
-<aside class="example">
+<aside class="example" id="date-and-time-example">
    <p>A child is born on March 20th 2025 in The Netherlands. If a client sends a request with value <code>2025-03-20T00:00:00+01:00</code>, timezone conversion would result in <code>2025-03-19T23:00:00Z</code>. When the client receives this value in a response and incorrectly converts it to a date (by removing the time portion), this would result in <code>2025-03-19</code>.
    <p>Ambiguous date and time handling can therefore lead to misinterpretation and changes of days/months/years depending on which component performs which incorrect conversion. Clients could incorrectly remove a time portion from a datetime value if the value should have been a date in the first place. By specifying which formats are allowed in which fields, the odds of invalid conversion are reduced.
 </aside>
@@ -300,6 +300,9 @@ Handling date and time is tricky and can lead to confusion among clients. The da
       </dd>
    </dl>
 </div>
+
+The combination of <a href="#/core/date-time/timezone">/core/date-time/timezone</a> and <a href="#/core/date-time/date-omit-time-portion">/core/date-time/date-omit-time-portion</a> leads to the conclusion that if a field contains a UTC timezone, it MUST be interpreted as datetime.
+As such, it avoids confusion as shown in <a href="#date-and-time-example">the above example</a>.
 
 ## HTTP methods
 
