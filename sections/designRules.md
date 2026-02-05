@@ -228,7 +228,7 @@ Handling date and time is tricky and can lead to confusion among clients. The da
    <dl>
       <dt>Statement</dt>
       <dd>
-         <p>All date, datetime and time fields in requests and responses MUST adhere to [[RFC9557]] and [[ISO8601]] format. Each field in the OpenAPI specification MUST set <code class="json">"type": "string"</code> and set <code>"format"</code> to the <a href="https://spec.openapis.org/registry/format/">OpenAPI format</a> as listed in the following table:
+         <p>All date, datetime and time fields in requests and responses MUST adhere to [[RFC9557]] and [[ISO8601-1]] format. Each field in the OpenAPI specification MUST set <code class="json">"type": "string"</code> and set <code>"format"</code> to the <a href="https://spec.openapis.org/registry/format/">OpenAPI format</a> as listed in the following table:
          <table>
             <thead>
                <tr>
