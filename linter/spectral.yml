@@ -172,8 +172,8 @@ rules:
           char: ""
 
   nlgov:servers-use-https:
-    severity: warn
-    message: "Server URL {{value}} {{error}}."
+    severity: error
+    message: "Server URL {{value}} must start with https:// instead of http://."
     given:
       - $.servers[*]
       - $.paths..servers[*]
@@ -181,7 +181,46 @@ rules:
       field: url
       function: pattern
       functionOptions:
-        match: ^https://.*
+        notMatch: ^http://.*
+
+  nlgov:servers-at-most-one-relative:
+    severity: error
+    message: "At most one relative URL may be specified as server."
+    given:
+      - $.servers
+      - $.paths..servers
+    then:
+      function: schema
+      functionOptions:
+        dialect: draft2020-12
+        schema:
+          type: array
+          contains:
+            type: object
+            properties:
+              url:
+                pattern: ^(?!https:).+
+          minContains: 0
+          maxContains: 1
+
+  nlgov:servers-at-least-one-absolute:
+    severity: error
+    message: "At least one absolute URL must be specified as server."
+    given:
+      - $.servers
+      - $.paths..servers
+    then:
+      function: schema
+      functionOptions:
+        dialect: draft2020-12
+        schema:
+          type: array
+          contains:
+            type: object
+            properties:
+              url:
+                pattern: ^https://.*
+          minContains: 1
 
   nlgov:use-problem-schema:
     severity: warn

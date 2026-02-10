@@ -1,0 +1,5 @@
+
+/testcases/servers-no-https/openapi.json
+ 15:20  error  nlgov:servers-use-https  Server URL http://production.example.com/api/v1 must start with https:// instead of http://.  servers[0].url
+
+✖ 1 problem (1 error, 0 warnings, 0 infos, 0 hints)
