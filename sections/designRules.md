@@ -272,7 +272,7 @@ Handling date and time is tricky and can lead to confusion among clients. The da
    <dl>
       <dt>Statement</dt>
       <dd>
-         <p>APIs MUST accept any timezone offset in fields in requests containing a datetime. Fields in responses containing a datetime MUST be in UTC (e.g. <code>Z</code> as timezone offset).
+         <p>APIs MUST accept any timezone offset in fields in requests containing a datetime. Fields in responses containing a datetime SHOULD be in UTC (e.g. <code>Z</code> as timezone offset).
       </dd>
       <dt>Rationale</dt>
       <dd>
