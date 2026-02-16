@@ -262,8 +262,8 @@ Handling date and time is tricky and can lead to confusion among clients. The da
          <div class="note">RFC9557 is a profile on ISO8601, but is not a strict subset of allowed notations. Practically to adhere to both, the following limitations MUST be applied to RFC9557:
            <ul>
               <li>In a field with a date-time value, the date and time component MUST be separated by a "T" in uppercase.
-              <li>The timezone offset "Z" must be uppercase.
-              <li>"-00:00" is not allowed as timezone offset.
+              <li>The timezone offset "Z" MUST be uppercase.
+              <li>"-00:00" MUST NOT be used as timezone offset.
            </ul>
          </div>
       </dd>
