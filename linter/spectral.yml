@@ -216,10 +216,10 @@ rules:
   #/core/error-handling/invalid-input
   nlgov:problem-invalid-input:
     severity: error
-    message: "GET endpoints that have parameters and all other endpoints must be able to return a 400 response"
+    message: "GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response"
     given:
-      - $.paths..[?( @property.match(/get/) && @.parameters && @.parameters.length > 0 )]
-      - $.paths..[?( @property.match(/(put)|(post)|(delete)|(patch)/))]
+      - $.paths..[?( @property.match(/(get)|(delete)/) && @.parameters && @.parameters.length > 0 )]
+      - $.paths..[?( @property.match(/(put)|(post)|(patch)/))]
     then:
       function: schema
       functionOptions:
