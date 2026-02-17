@@ -741,9 +741,8 @@ Note: security controls for signing and encrypting of application level messages
    <dl>
       <dt>Statement</dt>
       <dd>
-         Do not put any sensitive information in URIs
-         
-         In case of REST-API's for system to system communication on a closed network: This rule applies only when there is logging involved in systems that are not under control of the organizations involved in the exchange 
+         <p>Do not put any sensitive information in URIs
+         <p>In case of REST-API's for system to system communication on a closed network, this rule applies only when there is logging involved in systems that are not under control of the organizations involved in the exchange 
       </dd>
       <dt>Rationale</dt>
       <dd>
