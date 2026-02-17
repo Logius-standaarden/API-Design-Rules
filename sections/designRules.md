@@ -250,7 +250,7 @@ Handling date and time is tricky and can lead to confusion among clients. The da
                </tr>
                <tr>
                   <td>Time</td>
-                  <td>time</td>
+                  <td>partial-time</td>
                   <td><code class="json">"format": "time-local"</code></td>
                </tr>
             </tbody>
