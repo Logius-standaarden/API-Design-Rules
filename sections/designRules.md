@@ -9,12 +9,13 @@
 The REST architectural style is centered around the concept of a [=resource=]. A resource is an abstraction of a conceptual entity, identified by a globally unique [=URI=]. It may correspond to anything from a physical object (e.g. a building or a person) to an abstract concept (e.g. a permit, an event or today's weather). Although a resource is not tied to any specific exchange format, its current state can be transferred to clients through one or more representations, such as JSON or XML.
 
 <span id="api-05"></span>
+
 <div class="rule" id="/core/naming-resources" data-type="functional">
    <p class="rulelab">Use nouns to name resources</p>
    <dl>
    <dt>Statement</dt>
    <dd>
-   Resources are referred to using nouns (instead of verbs) that represent entities meaningful to the API consumer.
+   Resources MUST be referred to using nouns (instead of verbs) that represent entities meaningful to the API consumer.
    <aside class="example">
       A few correct examples of nouns as part of a URI:
       <ul>
@@ -38,12 +39,13 @@ The REST architectural style is centered around the concept of a [=resource=]. A
 A resource that corresponds to a single conceptual entity is referred to as a [=singular resource=]. Resources can also be logically grouped into collections, which are themselves resources and typically support operations like paging, sorting, and filtering. While collection members are often of the same type, this is not strictly required. A collection resource contains references (URIs) to the individual singular resources it includes.
 
 <span id="api-54"></span>
+
 <div class="rule" id="/core/naming-collections" data-type="functional">
    <p class="rulelab">Use plural nouns to name collection resources</p>
    <dl>
       <dt>Statement</dt>
       <dd>
-         Collection resources are referred to using plural nouns.
+         Collection resources MUST be referred to using plural nouns.
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -65,6 +67,7 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
 </div>
 
 <span id="api-04"></span>
+
 <div class="rule" id="/core/interface-language" data-type="functional">
    <p class="rulelab">Define interfaces in Dutch unless there is an official English glossary available</p>
    <dl>
@@ -82,12 +85,13 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
 </div>
 
 <span id="api-48"></span>
+
 <div class="rule" id="/core/no-trailing-slash" data-type="technical">
    <p class="rulelab">Leave off trailing slashes from URIs</p>
    <dl>
       <dt>Statement</dt>
       <dd>
-         A [=URI=] MUST never contain a trailing slash. When requesting a resource including a trailing slash, this MUST result in a `404` (not found) error response and not a redirect. This forces API consumers to use the correct [=URI=].
+         A [=URI=] MUST NOT contain a trailing slash. When requesting a resource including a trailing slash, this MUST result in a `404` (not found) error response and not a redirect. This forces API consumers to use the correct [=URI=].
          <div class="note">
             This rule does not apply to the root resource (append <code>/</code> to the service root URL).
          </div>
@@ -193,6 +197,7 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
 </div>
 
 <span id="api-53"></span>
+
 <div class="rule" id="/core/hide-implementation" data-type="functional">
    <p class="rulelab">Hide irrelevant implementation details</p>
    <dl>
@@ -219,6 +224,7 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
 Although the REST architectural style does not impose a specific protocol, REST APIs are typically implemented using HTTP [[rfc9110]].
 
 <span id="api-03"></span>
+
 <div class="rule" id="/core/http-methods" data-type="functional">
    <p class="rulelab">Only apply standard HTTP methods</p>
    <dl>
@@ -316,6 +322,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
 </div>
 
 <span id="api-01"></span>
+
 <div class="rule" id="/core/http-safety" data-type="functional">
    <p class="rulelab">Adhere to HTTP safety and idempotency semantics for operations</p>
    <dl>
@@ -386,7 +393,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
    <dl>
       <dt>Statement</dt>
       <dd>
-         Always use the semantically appropriate HTTP <a href="https://www.rfc-editor.org/rfc/rfc9110#name-status-codes">status code</a> ([[rfc9110]]) for the response.
+         An API MUST use the semantically appropriate HTTP <a href="https://www.rfc-editor.org/rfc/rfc9110#name-status-codes">status code</a> ([[rfc9110]]) for the response.
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -415,6 +422,7 @@ Stateless communication offers many advantages, including:
 * *Reliability* is improved because it eases the task of recovering from partial failures since the server does not have to maintain, update or communicate session state. One failing request does not influence other requests (depending on the nature of the failure of course).
 
 <span id="api-02"></span>
+
 <div class="rule" id="/core/stateless" data-type="functional">
    <p class="rulelab">Do not maintain session state on the server</p>
    <dl>
@@ -435,6 +443,7 @@ Stateless communication offers many advantages, including:
 Resources are often interconnected by relationships. Relationships can be modelled in different ways depending on the cardinality, semantics and more importantly, the use cases and access patterns the REST API needs to support.
 
 <span id="api-06"></span>
+
 <div class="rule" id="/core/nested-child" data-type="functional">
   <p class="rulelab">Use nested URIs for child resources</p>
   <dl>
@@ -465,12 +474,13 @@ https://api.example.org/v1/comments/456</pre>
 ## Operations
 
 <span id="api-10"></span>
+
 <div class="rule" id="/core/resource-operations" data-type="functional">
   <p class="rulelab">Model resource operations as a sub-resource or dedicated resource</p>
   <dl>
       <dt>Statement</dt>
       <dd>
-         Model resource operations as a sub-resource or dedicated resource</a>.
+         Resource operations MUST be modelled as a sub-resource or dedicated resource</a>.
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -489,6 +499,7 @@ https://api.example.org/v1/comments/456</pre>
 An API is as good as the accompanying documentation. The documentation has to be easily findable, searchable and publicly accessible. Most developers will first read the documentation before they start implementing. Hiding the technical documentation in PDF documents and/or behind a login creates a barrier for both developers and search engines.
 
 <span id="api-16"></span>
+
 <div class="rule" id="/core/doc-openapi" data-type="technical">
   <p class="rulelab">Use OpenAPI Specification for documentation</p>
   <dl>
@@ -535,6 +546,7 @@ An API is as good as the accompanying documentation. The documentation has to be
 </div>
 
 <span id="api-17"></span>
+
 <div class="rule" id="/core/doc-language" data-type="functional">
   <p class="rulelab">Publish documentation in Dutch unless there is existing documentation in English</p>
   <dl>
@@ -550,6 +562,7 @@ An API is as good as the accompanying documentation. The documentation has to be
 </div>
 
 <span id="api-51"></span>
+
 <div class="rule" id="/core/publish-openapi" data-type="technical">
   <p class="rulelab">Publish OAS document at a standard location in JSON-format</p>
    <dl>
@@ -586,12 +599,13 @@ An API is as good as the accompanying documentation. The documentation has to be
 Changes in APIs are inevitable. APIs should therefore always be versioned, facilitating the transition between changes.
 
 <span id="api-18"></span>
+
 <div class="rule" id="/core/deprecation-schedule" data-type="functional">
   <p class="rulelab">Include a deprecation schedule when deprecating features or versions</p>
    <dl>
       <dt>Statement</dt>
       <dd>
-         Implement well-documented deprecation schedules that are communicated in a timely fashion.
+         The API owner SHOULD implement well-documented deprecation schedules that are communicated in a timely fashion.
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -601,6 +615,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
 </div>
 
 <span id="api-19"></span>
+
 <div class="rule" id="/core/transition-period" data-type="functional">
   <p class="rulelab">Schedule a fixed transition period for a new major API version</p>
    <dl>
@@ -616,6 +631,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
 </div>
 
 <span id="api-20"></span>
+
 <div class="rule" id="/core/uri-version" data-type="technical">
   <p class="rulelab">Include the major version number in the URI</p>
     <dl>
@@ -646,12 +662,13 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
 </div>
 
 <span id="api-55"></span>
+
 <div class="rule" id="/core/changelog" data-type="functional">
   <p class="rulelab">Publish a changelog for API changes between versions</p>
    <dl>
       <dt>Statement</dt>
       <dd>
-         Publish a changelog.
+         A changelog MUST be publised for every API version.
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -661,12 +678,13 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
 </div>
 
 <span id="api-56"></span>
+
 <div class="rule" id="/core/semver" data-type="technical">
   <p class="rulelab">Adhere to the Semantic Versioning model when releasing API changes</p>
   <dl>
       <dt>Statement</dt>
       <dd>
-         Implement Semantic Versioning.
+         Semantic Versioning MUST be used for API versioning.
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -680,12 +698,13 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
 </div>
 
 <span id="api-57"></span>
+
 <div class="rule" id="/core/version-header" data-type="technical">
   <p class="rulelab">Return the full version number in a response header</p>
    <dl>
       <dt>Statement</dt>
       <dd>
-         Return the API-Version header.
+         The API-Version header MUST be returned in a response header in every response.
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -717,12 +736,13 @@ In order to meet the complete security objectives, every implementer MUST also a
 Note: security controls for signing and encrypting of application level messages are part of separate extensions: [Signing](https://geonovum.github.io/KP-APIs/API-strategie-modules/signing-jades/) and [Encryption](https://geonovum.github.io/KP-APIs/API-strategie-modules/encryption/).
 
 <span id="api-11"></span>
+
 <div class="rule" id="/core/transport/tls" data-type="technical">
   <p class="rulelab">Secure connections using TLS</p>
   <dl>
     <dt>Statement</dt>
     <dd>
-      <p>One should secure all APIs assuming they can be accessed from any location on the internet. Information MUST be exchanged over TLS-based secured connections. No exceptions, so everywhere and always. This is <a href="https://wetten.overheid.nl/BWBR0048156/2023-07-01">required by law</a>.
+      <p>Information exchanged by APIs MUST be secured using TLS-based connections. No exceptions, so everywhere and always. This is <a href="https://wetten.overheid.nl/BWBR0048156/2023-07-01">required by law</a>.
       <p>One MUST follow the latest NCSC guidelines [[NCSC 2025]].
     </dd>
     <dt>Rationale</dt>
@@ -737,12 +757,13 @@ Note: security controls for signing and encrypting of application level messages
 </div>
 
 <span id="api-58"></span>
+
 <div class="rule" id="/core/transport/no-sensitive-uris" data-type="functional">
   <p class="rulelab">No sensitive information in URIs</p>
    <dl>
       <dt>Statement</dt>
       <dd>
-         Do not put any sensitive information in URIs
+         Sensitive information MUST NOT be part of URIs
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -791,7 +812,7 @@ For outbound filtering, the main concern is leaking of information.
    <dl>
       <dt>Statement</dt>
       <dd>
-         Return API security headers in all server responses to instruct the client to act in a secure manner
+         API security headers MUST be returned in all server responses to instruct the client to act in a secure manner
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -867,12 +888,13 @@ For outbound filtering, the main concern is leaking of information.
 </div>
 
 <span id="api-50"></span>
+
 <div class="rule" id="/core/transport/cors" data-type="technical">
   <p class="rulelab">Use CORS to control access</p>
    <dl>
       <dt>Statement</dt>
       <dd>
-         Use CORS to restrict access from other domains for applicable resources
+         CORS MUST be used to restrict access from other domains for applicable resources
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -904,23 +926,22 @@ All browser-based applications SHOULD follow the best practices specified in [OA
 These applications can be split into three architectural patterns:
 
 * JavaScript applications with a backend; with this class of applications, the backend is the confidential client and should intermediate any interaction, with tokens never ending up in the browser.
-Effectively, these are not different from regular web-application for this security facet, even though they leverage JavaScript for implementation.
+  Effectively, these are not different from regular web-application for this security facet, even though they leverage JavaScript for implementation.
 * JavaScript applications that share a domain with the API (resource server); these can leverage cookies marked as HTTP-Only, Secure and SameSite.
 * JavaScript applications without a backend; these clients are considered public clients, and are potentially more vulnerable to several types of attacks, including Cross-Site Scripting (XSS), Cross Site Request Forgery (CSRF) and OAuth token theft.
-In order to support these clients, the Cross-Origin Resource Sharing (CORS) policy mentioned above is critical and MUST be supported.
+  In order to support these clients, the Cross-Origin Resource Sharing (CORS) policy mentioned above is critical and MUST be supported.
 
 ### Validate content types
 
-A REST request or response body SHOULD match the intended content type in the header.
-Otherwise this could cause misinterpretation at the consumer/producer side and lead to code injection/execution.
+A REST request or response body SHOULD match the intended content type in the header. Otherwise this could cause misinterpretation at the consumer/producer side and lead to code injection/execution.
 
-* Reject requests containing unexpected or missing content type headers with HTTP response status `406 Not Acceptable` or `415 Unsupported Media Type`.
-* Avoid accidentally exposing unintended content types by explicitly defining content types e.g. Jersey (Java) `@consumes("application/json"); @produces("application/json")`.
-This avoids XXE-attack vectors for example.
+* Requests containing unexpected or missing content type headers MUST be rejected with HTTP response status `406 Not Acceptable` or `415 Unsupported Media Type`.
+* Accidentally exposing unintended content types MUST be avoided by explicitly defining content types e.g. Jersey (Java) `@consumes("application/json"); @produces("application/json")`.
+  This avoids XXE-attack vectors for example.
 
-It is common for REST services to allow multiple response types (e.g. `application/xml` or `application/json`, and the client specifies the preferred order of response types by the Accept header in the request.
+It is common for REST services to allow multiple response types (e.g. `application/xml` or `application/json`) in which case then the client specifies the preferred order of response types by the Accept header in the request.
 
-* Do NOT simply copy the `Accept` header to the `Content-type` header of the response.
+* Do not simply copy the `Accept` header to the `Content-type` header of the response.
 * Reject the request (ideally with a `406 Not Acceptable` response) if the Accept header does not specifically contain one of the allowable types.
 
 Services (potentially) including script code (e.g. JavaScript) in their responses MUST be especially careful to defend against header injection attacks.
