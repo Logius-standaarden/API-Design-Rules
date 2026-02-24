@@ -64,7 +64,6 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
    </dl>
 </div>
 
-
 <span id="api-04"></span>
 <div class="rule" id="/core/interface-language" data-type="functional">
    <p class="rulelab">Define interfaces in Dutch unless there is an official English glossary available</p>
@@ -81,7 +80,6 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
       </dd>
    </dl>
 </div>
-
 
 <span id="api-48"></span>
 <div class="rule" id="/core/no-trailing-slash" data-type="technical">
@@ -194,7 +192,6 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
    </dl>
 </div>
 
-
 <span id="api-53"></span>
 <div class="rule" id="/core/hide-implementation" data-type="functional">
    <p class="rulelab">Hide irrelevant implementation details</p>
@@ -220,7 +217,6 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
 ## HTTP methods
 
 Although the REST architectural style does not impose a specific protocol, REST APIs are typically implemented using HTTP [[rfc9110]].
-
 
 <span id="api-03"></span>
 <div class="rule" id="/core/http-methods" data-type="functional">
@@ -318,7 +314,6 @@ Although the REST architectural style does not impose a specific protocol, REST 
       </dd>
    </dl>
 </div>
-
 
 <span id="api-01"></span>
 <div class="rule" id="/core/http-safety" data-type="functional">
@@ -419,7 +414,6 @@ Stateless communication offers many advantages, including:
 * *Observability* is improved since every request can be monitored or analyzed in isolation without having to incorporate session context from other requests
 * *Reliability* is improved because it eases the task of recovering from partial failures since the server does not have to maintain, update or communicate session state. One failing request does not influence other requests (depending on the nature of the failure of course).
 
-
 <span id="api-02"></span>
 <div class="rule" id="/core/stateless" data-type="functional">
    <p class="rulelab">Do not maintain session state on the server</p>
@@ -439,7 +433,6 @@ Stateless communication offers many advantages, including:
 ## Relationships
 
 Resources are often interconnected by relationships. Relationships can be modelled in different ways depending on the cardinality, semantics and more importantly, the use cases and access patterns the REST API needs to support.
-
 
 <span id="api-06"></span>
 <div class="rule" id="/core/nested-child" data-type="functional">
@@ -471,7 +464,6 @@ https://api.example.org/v1/comments/456</pre>
 
 ## Operations
 
-
 <span id="api-10"></span>
 <div class="rule" id="/core/resource-operations" data-type="functional">
   <p class="rulelab">Model resource operations as a sub-resource or dedicated resource</p>
@@ -495,7 +487,6 @@ https://api.example.org/v1/comments/456</pre>
 ## Documentation
 
 An API is as good as the accompanying documentation. The documentation has to be easily findable, searchable and publicly accessible. Most developers will first read the documentation before they start implementing. Hiding the technical documentation in PDF documents and/or behind a login creates a barrier for both developers and search engines.
-
 
 <span id="api-16"></span>
 <div class="rule" id="/core/doc-openapi" data-type="technical">
@@ -543,7 +534,6 @@ An API is as good as the accompanying documentation. The documentation has to be
    </dl>
 </div>
 
-
 <span id="api-17"></span>
 <div class="rule" id="/core/doc-language" data-type="functional">
   <p class="rulelab">Publish documentation in Dutch unless there is existing documentation in English</p>
@@ -558,7 +548,6 @@ An API is as good as the accompanying documentation. The documentation has to be
       </dd>
    </dl>
 </div>
-
 
 <span id="api-51"></span>
 <div class="rule" id="/core/publish-openapi" data-type="technical">
@@ -596,7 +585,6 @@ An API is as good as the accompanying documentation. The documentation has to be
 
 Changes in APIs are inevitable. APIs should therefore always be versioned, facilitating the transition between changes.
 
-
 <span id="api-18"></span>
 <div class="rule" id="/core/deprecation-schedule" data-type="functional">
   <p class="rulelab">Include a deprecation schedule when deprecating features or versions</p>
@@ -612,7 +600,6 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
    </dl>
 </div>
 
-
 <span id="api-19"></span>
 <div class="rule" id="/core/transition-period" data-type="functional">
   <p class="rulelab">Schedule a fixed transition period for a new major API version</p>
@@ -627,7 +614,6 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       </dd>
    </dl>
 </div>
-
 
 <span id="api-20"></span>
 <div class="rule" id="/core/uri-version" data-type="technical">
@@ -659,7 +645,6 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
    </dl>
 </div>
 
-
 <span id="api-55"></span>
 <div class="rule" id="/core/changelog" data-type="functional">
   <p class="rulelab">Publish a changelog for API changes between versions</p>
@@ -674,7 +659,6 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       </dd>
    </dl>
 </div>
-
 
 <span id="api-56"></span>
 <div class="rule" id="/core/semver" data-type="technical">
@@ -694,7 +678,6 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       </dd>
    </dl>
 </div>
-
 
 <span id="api-57"></span>
 <div class="rule" id="/core/version-header" data-type="technical">
@@ -733,7 +716,6 @@ In order to meet the complete security objectives, every implementer MUST also a
 
 Note: security controls for signing and encrypting of application level messages are part of separate extensions: [Signing](https://geonovum.github.io/KP-APIs/API-strategie-modules/signing-jades/) and [Encryption](https://geonovum.github.io/KP-APIs/API-strategie-modules/encryption/).
 
-
 <span id="api-11"></span>
 <div class="rule" id="/core/transport/tls" data-type="technical">
   <p class="rulelab">Secure connections using TLS</p>
@@ -753,7 +735,6 @@ Note: security controls for signing and encrypting of application level messages
     </dd>
   </dl>
 </div>
-
 
 <span id="api-58"></span>
 <div class="rule" id="/core/transport/no-sensitive-uris" data-type="functional">
@@ -884,7 +865,6 @@ For outbound filtering, the main concern is leaking of information.
       </dd>
    </dl>
 </div>
-
 
 <span id="api-50"></span>
 <div class="rule" id="/core/transport/cors" data-type="technical">
