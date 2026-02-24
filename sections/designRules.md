@@ -14,7 +14,7 @@ The REST architectural style is centered around the concept of a [=resource=]. A
    <dl>
    <dt>Statement</dt>
    <dd>
-   Resources are referred to using nouns (instead of verbs) that represent entities meaningful to the API consumer.
+   Resources MUST be referred to using nouns (instead of verbs) that represent entities meaningful to the API consumer.
    <aside class="example">
       A few correct examples of nouns as part of a URI:
       <ul>
@@ -43,7 +43,7 @@ A resource that corresponds to a single conceptual entity is referred to as a [=
    <dl>
       <dt>Statement</dt>
       <dd>
-         Collection resources are referred to using plural nouns.
+         Collection resources MUST be referred to using plural nouns.
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -87,7 +87,7 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
    <dl>
       <dt>Statement</dt>
       <dd>
-         A [=URI=] MUST never contain a trailing slash. When requesting a resource including a trailing slash, this MUST result in a `404` (not found) error response and not a redirect. This forces API consumers to use the correct [=URI=].
+         A [=URI=] MUST NOT contain a trailing slash. When requesting a resource including a trailing slash, this MUST result in a `404` (not found) error response and not a redirect. This forces API consumers to use the correct [=URI=].
          <div class="note">
             This rule does not apply to the root resource (append <code>/</code> to the service root URL).
          </div>
@@ -386,7 +386,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
    <dl>
       <dt>Statement</dt>
       <dd>
-         Always use the semantically appropriate HTTP <a href="https://www.rfc-editor.org/rfc/rfc9110#name-status-codes">status code</a> ([[rfc9110]]) for the response.
+         An API MUST use the semantically appropriate HTTP <a href="https://www.rfc-editor.org/rfc/rfc9110#name-status-codes">status code</a> ([[rfc9110]]) for the response.
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -470,7 +470,7 @@ https://api.example.org/v1/comments/456</pre>
   <dl>
       <dt>Statement</dt>
       <dd>
-         Model resource operations as a sub-resource or dedicated resource</a>.
+         Resource operations MUST be modelled as a sub-resource or dedicated resource</a>.
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -591,7 +591,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
    <dl>
       <dt>Statement</dt>
       <dd>
-         Implement well-documented deprecation schedules that are communicated in a timely fashion.
+         The API owner SHOULD implement well-documented deprecation schedules that are communicated in a timely fashion.
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -651,7 +651,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
    <dl>
       <dt>Statement</dt>
       <dd>
-         Publish a changelog.
+         A changelog MUST be publised for every API version.
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -666,7 +666,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
   <dl>
       <dt>Statement</dt>
       <dd>
-         Implement Semantic Versioning.
+         Semantic Versioning MUST be used for API versioning.
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -685,7 +685,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
    <dl>
       <dt>Statement</dt>
       <dd>
-         Return the API-Version header.
+         The API-Version header MUST be returned in a response header in every response.
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -722,7 +722,7 @@ Note: security controls for signing and encrypting of application level messages
   <dl>
     <dt>Statement</dt>
     <dd>
-      <p>One should secure all APIs assuming they can be accessed from any location on the internet. Information MUST be exchanged over TLS-based secured connections. No exceptions, so everywhere and always. This is <a href="https://wetten.overheid.nl/BWBR0048156/2023-07-01">required by law</a>.
+      <p>Information exchanged by APIs MUST be secured using TLS-based connections. No exceptions, so everywhere and always. This is <a href="https://wetten.overheid.nl/BWBR0048156/2023-07-01">required by law</a>.
       <p>One MUST follow the latest NCSC guidelines [[NCSC 2025]].
     </dd>
     <dt>Rationale</dt>
@@ -791,7 +791,7 @@ For outbound filtering, the main concern is leaking of information.
    <dl>
       <dt>Statement</dt>
       <dd>
-         Return API security headers in all server responses to instruct the client to act in a secure manner
+         API security headers MUST be returned in all server responses to instruct the client to act in a secure manner
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -872,7 +872,7 @@ For outbound filtering, the main concern is leaking of information.
    <dl>
       <dt>Statement</dt>
       <dd>
-         Use CORS to restrict access from other domains for applicable resources
+         CORS MUST be used to restrict access from other domains for applicable resources
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -904,23 +904,22 @@ All browser-based applications SHOULD follow the best practices specified in [OA
 These applications can be split into three architectural patterns:
 
 * JavaScript applications with a backend; with this class of applications, the backend is the confidential client and should intermediate any interaction, with tokens never ending up in the browser.
-Effectively, these are not different from regular web-application for this security facet, even though they leverage JavaScript for implementation.
+  Effectively, these are not different from regular web-application for this security facet, even though they leverage JavaScript for implementation.
 * JavaScript applications that share a domain with the API (resource server); these can leverage cookies marked as HTTP-Only, Secure and SameSite.
 * JavaScript applications without a backend; these clients are considered public clients, and are potentially more vulnerable to several types of attacks, including Cross-Site Scripting (XSS), Cross Site Request Forgery (CSRF) and OAuth token theft.
-In order to support these clients, the Cross-Origin Resource Sharing (CORS) policy mentioned above is critical and MUST be supported.
+  In order to support these clients, the Cross-Origin Resource Sharing (CORS) policy mentioned above is critical and MUST be supported.
 
 ### Validate content types
 
-A REST request or response body SHOULD match the intended content type in the header.
-Otherwise this could cause misinterpretation at the consumer/producer side and lead to code injection/execution.
+A REST request or response body SHOULD match the intended content type in the header. Otherwise this could cause misinterpretation at the consumer/producer side and lead to code injection/execution.
 
-* Reject requests containing unexpected or missing content type headers with HTTP response status `406 Not Acceptable` or `415 Unsupported Media Type`.
-* Avoid accidentally exposing unintended content types by explicitly defining content types e.g. Jersey (Java) `@consumes("application/json"); @produces("application/json")`.
-This avoids XXE-attack vectors for example.
+* Requests containing unexpected or missing content type headers MUST be rejected with HTTP response status `406 Not Acceptable` or `415 Unsupported Media Type`.
+* Accidentally exposing unintended content types MUST be avoided by explicitly defining content types e.g. Jersey (Java) `@consumes("application/json"); @produces("application/json")`.
+  This avoids XXE-attack vectors for example.
 
-It is common for REST services to allow multiple response types (e.g. `application/xml` or `application/json`, and the client specifies the preferred order of response types by the Accept header in the request.
+It is common for REST services to allow multiple response types (e.g. `application/xml` or `application/json`) in which case then the client specifies the preferred order of response types by the Accept header in the request.
 
-* Do NOT simply copy the `Accept` header to the `Content-type` header of the response.
+* Do not simply copy the `Accept` header to the `Content-type` header of the response.
 * Reject the request (ideally with a `406 Not Acceptable` response) if the Accept header does not specifically contain one of the allowable types.
 
 Services (potentially) including script code (e.g. JavaScript) in their responses MUST be especially careful to defend against header injection attacks.
