@@ -9,7 +9,6 @@
 The REST architectural style is centered around the concept of a [=resource=]. A resource is an abstraction of a conceptual entity, identified by a globally unique [=URI=]. It may correspond to anything from a physical object (e.g. a building or a person) to an abstract concept (e.g. a permit, an event or today's weather). Although a resource is not tied to any specific exchange format, its current state can be transferred to clients through one or more representations, such as JSON or XML.
 
 <span id="api-05"></span>
-
 <div class="rule" id="/core/naming-resources" data-type="functional">
    <p class="rulelab">Use nouns to name resources</p>
    <dl>
@@ -39,7 +38,6 @@ The REST architectural style is centered around the concept of a [=resource=]. A
 A resource that corresponds to a single conceptual entity is referred to as a [=singular resource=]. Resources can also be logically grouped into collections, which are themselves resources and typically support operations like paging, sorting, and filtering. While collection members are often of the same type, this is not strictly required. A collection resource contains references (URIs) to the individual singular resources it includes.
 
 <span id="api-54"></span>
-
 <div class="rule" id="/core/naming-collections" data-type="functional">
    <p class="rulelab">Use plural nouns to name collection resources</p>
    <dl>
@@ -66,8 +64,8 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
    </dl>
 </div>
 
-<span id="api-04"></span>
 
+<span id="api-04"></span>
 <div class="rule" id="/core/interface-language" data-type="functional">
    <p class="rulelab">Define interfaces in Dutch unless there is an official English glossary available</p>
    <dl>
@@ -84,8 +82,8 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
    </dl>
 </div>
 
-<span id="api-48"></span>
 
+<span id="api-48"></span>
 <div class="rule" id="/core/no-trailing-slash" data-type="technical">
    <p class="rulelab">Leave off trailing slashes from URIs</p>
    <dl>
@@ -196,8 +194,8 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
    </dl>
 </div>
 
-<span id="api-53"></span>
 
+<span id="api-53"></span>
 <div class="rule" id="/core/hide-implementation" data-type="functional">
    <p class="rulelab">Hide irrelevant implementation details</p>
    <dl>
@@ -223,8 +221,8 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
 
 Although the REST architectural style does not impose a specific protocol, REST APIs are typically implemented using HTTP [[rfc9110]].
 
-<span id="api-03"></span>
 
+<span id="api-03"></span>
 <div class="rule" id="/core/http-methods" data-type="functional">
    <p class="rulelab">Only apply standard HTTP methods</p>
    <dl>
@@ -321,8 +319,8 @@ Although the REST architectural style does not impose a specific protocol, REST 
    </dl>
 </div>
 
-<span id="api-01"></span>
 
+<span id="api-01"></span>
 <div class="rule" id="/core/http-safety" data-type="functional">
    <p class="rulelab">Adhere to HTTP safety and idempotency semantics for operations</p>
    <dl>
@@ -421,8 +419,8 @@ Stateless communication offers many advantages, including:
 * *Observability* is improved since every request can be monitored or analyzed in isolation without having to incorporate session context from other requests
 * *Reliability* is improved because it eases the task of recovering from partial failures since the server does not have to maintain, update or communicate session state. One failing request does not influence other requests (depending on the nature of the failure of course).
 
-<span id="api-02"></span>
 
+<span id="api-02"></span>
 <div class="rule" id="/core/stateless" data-type="functional">
    <p class="rulelab">Do not maintain session state on the server</p>
    <dl>
@@ -442,8 +440,8 @@ Stateless communication offers many advantages, including:
 
 Resources are often interconnected by relationships. Relationships can be modelled in different ways depending on the cardinality, semantics and more importantly, the use cases and access patterns the REST API needs to support.
 
-<span id="api-06"></span>
 
+<span id="api-06"></span>
 <div class="rule" id="/core/nested-child" data-type="functional">
   <p class="rulelab">Use nested URIs for child resources</p>
   <dl>
@@ -473,8 +471,8 @@ https://api.example.org/v1/comments/456</pre>
 
 ## Operations
 
-<span id="api-10"></span>
 
+<span id="api-10"></span>
 <div class="rule" id="/core/resource-operations" data-type="functional">
   <p class="rulelab">Model resource operations as a sub-resource or dedicated resource</p>
   <dl>
@@ -498,8 +496,8 @@ https://api.example.org/v1/comments/456</pre>
 
 An API is as good as the accompanying documentation. The documentation has to be easily findable, searchable and publicly accessible. Most developers will first read the documentation before they start implementing. Hiding the technical documentation in PDF documents and/or behind a login creates a barrier for both developers and search engines.
 
-<span id="api-16"></span>
 
+<span id="api-16"></span>
 <div class="rule" id="/core/doc-openapi" data-type="technical">
   <p class="rulelab">Use OpenAPI Specification for documentation</p>
   <dl>
@@ -545,8 +543,8 @@ An API is as good as the accompanying documentation. The documentation has to be
    </dl>
 </div>
 
-<span id="api-17"></span>
 
+<span id="api-17"></span>
 <div class="rule" id="/core/doc-language" data-type="functional">
   <p class="rulelab">Publish documentation in Dutch unless there is existing documentation in English</p>
   <dl>
@@ -561,8 +559,8 @@ An API is as good as the accompanying documentation. The documentation has to be
    </dl>
 </div>
 
-<span id="api-51"></span>
 
+<span id="api-51"></span>
 <div class="rule" id="/core/publish-openapi" data-type="technical">
   <p class="rulelab">Publish OAS document at a standard location in JSON-format</p>
    <dl>
@@ -598,8 +596,8 @@ An API is as good as the accompanying documentation. The documentation has to be
 
 Changes in APIs are inevitable. APIs should therefore always be versioned, facilitating the transition between changes.
 
-<span id="api-18"></span>
 
+<span id="api-18"></span>
 <div class="rule" id="/core/deprecation-schedule" data-type="functional">
   <p class="rulelab">Include a deprecation schedule when deprecating features or versions</p>
    <dl>
@@ -614,8 +612,8 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
    </dl>
 </div>
 
-<span id="api-19"></span>
 
+<span id="api-19"></span>
 <div class="rule" id="/core/transition-period" data-type="functional">
   <p class="rulelab">Schedule a fixed transition period for a new major API version</p>
    <dl>
@@ -630,8 +628,8 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
    </dl>
 </div>
 
-<span id="api-20"></span>
 
+<span id="api-20"></span>
 <div class="rule" id="/core/uri-version" data-type="technical">
   <p class="rulelab">Include the major version number in the URI</p>
     <dl>
@@ -661,8 +659,8 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
    </dl>
 </div>
 
-<span id="api-55"></span>
 
+<span id="api-55"></span>
 <div class="rule" id="/core/changelog" data-type="functional">
   <p class="rulelab">Publish a changelog for API changes between versions</p>
    <dl>
@@ -677,8 +675,8 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
    </dl>
 </div>
 
-<span id="api-56"></span>
 
+<span id="api-56"></span>
 <div class="rule" id="/core/semver" data-type="technical">
   <p class="rulelab">Adhere to the Semantic Versioning model when releasing API changes</p>
   <dl>
@@ -697,8 +695,8 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
    </dl>
 </div>
 
-<span id="api-57"></span>
 
+<span id="api-57"></span>
 <div class="rule" id="/core/version-header" data-type="technical">
   <p class="rulelab">Return the full version number in a response header</p>
    <dl>
@@ -735,8 +733,8 @@ In order to meet the complete security objectives, every implementer MUST also a
 
 Note: security controls for signing and encrypting of application level messages are part of separate extensions: [Signing](https://geonovum.github.io/KP-APIs/API-strategie-modules/signing-jades/) and [Encryption](https://geonovum.github.io/KP-APIs/API-strategie-modules/encryption/).
 
-<span id="api-11"></span>
 
+<span id="api-11"></span>
 <div class="rule" id="/core/transport/tls" data-type="technical">
   <p class="rulelab">Secure connections using TLS</p>
   <dl>
@@ -756,8 +754,8 @@ Note: security controls for signing and encrypting of application level messages
   </dl>
 </div>
 
-<span id="api-58"></span>
 
+<span id="api-58"></span>
 <div class="rule" id="/core/transport/no-sensitive-uris" data-type="functional">
   <p class="rulelab">No sensitive information in URIs</p>
    <dl>
@@ -887,8 +885,8 @@ For outbound filtering, the main concern is leaking of information.
    </dl>
 </div>
 
-<span id="api-50"></span>
 
+<span id="api-50"></span>
 <div class="rule" id="/core/transport/cors" data-type="technical">
   <p class="rulelab">Use CORS to control access</p>
    <dl>
