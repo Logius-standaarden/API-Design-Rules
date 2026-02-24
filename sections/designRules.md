@@ -742,7 +742,7 @@ Note: security controls for signing and encrypting of application level messages
    <dl>
       <dt>Statement</dt>
       <dd>
-         Sensitive information MUST NOT be part of URIs
+         Do not put any sensitive information in URIs
       </dd>
       <dt>Rationale</dt>
       <dd>
