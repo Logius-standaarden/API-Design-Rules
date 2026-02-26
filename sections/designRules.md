@@ -280,11 +280,19 @@ Handling date and time is tricky and can lead to confusion among clients. The da
       <dt>Statement</dt>
       <dd>
          <p>APIs MUST accept any timezone offset in fields in requests containing a datetime. Fields in responses containing a datetime SHOULD be in UTC (e.g. <code>Z</code> as timezone offset).
+         <aside class="example">
+            <p>A field "meetingStartTime" containing a datetime value to denote the start time of a meeting. Depending on the local timezone of the client, the UTC datetime value is converted to that local timezone.
+            <p>For example, a Dutch government worker travels to Ottowa in Canada and has an online meeting with their Dutch colleagues in The Netherlands. Instead of showing the meeting start time in the timezone of The Netherlands, it is shown in the relevant local timezone in Ottowa.
+         </aside>
+         <p>If the original timezone is relevant for users (such as the timezone in which a value is registered), the timezone offset MUST be stored and published as a separate field in [[ISO8601-1]] format <code>time-offset</code>.
+         <aside class="example">
+            <p>A response containing a field "timeOfBirth" with a datetime value to denote the time of birth of a child in The Netherlands also has a field "timeOfBirthTimezone" with the relevant timezone offset (<code>+01:00</code> or <code>+02:00</code>).
+         </aside>
       </dd>
       <dt>Rationale</dt>
       <dd>
          <p>Allowing clients to use any timezone offset in requests results in flexibility and less complexity for users. Using UTC in responses results in clarity and removes ambiguity.
-         <p class="note">While storage formats are outside the scope of this specification, it is recommended to use appropriate temporal datatypes (such as <code>DATE</code> and <code>TIMESTAMPTZ</code>). Many database systems store these values internally in UTC and handle timezone conversion automatically on read/write. When the original timezone is relevant for users (such as the timezone in which a value is registered), store and publish the zone offset as a separate property.
+         <p class="note">While storage formats are outside the scope of this specification, it is recommended to use appropriate temporal datatypes (such as <code>DATE</code> and <code>TIMESTAMPTZ</code>). Many database systems store these values internally in UTC and handle timezone conversion automatically on read/write.
       </dd>
    </dl>
 </div>
