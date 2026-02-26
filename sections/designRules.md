@@ -216,7 +216,7 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
 
 ## HTTP methods
 
-Although the REST architectural style does not impose a specific protocol, REST APIs are typically implemented using HTTP [[rfc9110]].
+Although the REST architectural style does not impose a specific protocol, REST APIs are typically implemented using HTTP [[RFC9110]].
 
 <span id="api-03"></span>
 <div class="rule" id="/core/http-methods" data-type="functional">
@@ -224,7 +224,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
    <dl>
       <dt>Statement</dt>
       <dd>
-         An API MUST adhere to the HTTP method semantics defined in [[rfc9110]].
+         An API MUST adhere to the HTTP method semantics defined in [[RFC9110]].
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -302,7 +302,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
       </tbody>
       </table>
    </aside>
-   <p class="note">The HTTP specification [[rfc9110]] offers a set of standard methods, where every method is designed with explicit semantics. HTTP also defines other methods, e.g. <code>HEAD</code>, <code>OPTIONS</code>, <code>TRACE</code>, and <code>CONNECT</code>.<br>
+   <p class="note">The HTTP specification [[RFC9110]] offers a set of standard methods, where every method is designed with explicit semantics. HTTP also defines other methods, e.g. <code>HEAD</code>, <code>OPTIONS</code>, <code>TRACE</code>, and <code>CONNECT</code>.<br>
    The OpenAPI Specification 3.0 <a href="https://spec.openapis.org/oas/v3.0.1#path-item-object">Path Item Object</a> also supports these methods, except for <code>CONNECT</code>.<br>
   According to <a href="https://www.rfc-editor.org/rfc/rfc9110#name-overview">RFC 9110 9.1</a> the <code>GET</code> and <code>HEAD</code> HTTP methods MUST be supported by the server, all other methods are optional.<br>
   In addition to the standard HTTP methods, a server may support other optional methods as well, e.g. <code>PROPFIND</code>, <code>COPY</code>, <code>PURGE</code>, <code>VIEW</code>, <code>LINK</code>, <code>UNLINK</code>, <code>LOCK</code>, <code>UNLOCK</code>, etc.<br>
@@ -372,7 +372,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
       <dt>Rationale</dt>
       <dd>
          <p>
-            The HTTP protocol [[rfc9110]] specifies whether an HTTP method SHOULD be considered safe and/or idempotent. These characteristics are important for clients and middleware applications, because they SHOULD be taken into account when implementing caching and fault tolerance strategies.
+            The HTTP protocol [[RFC9110]] specifies whether an HTTP method SHOULD be considered safe and/or idempotent. These characteristics are important for clients and middleware applications, because they SHOULD be taken into account when implementing caching and fault tolerance strategies.
          </p>
          <p>
             Request methods are considered <i>safe</i> if their defined semantics are essentially read-only; i.e., the client does not request, and does not expect, any state change on the origin server as a result of applying a safe method to a target resource. A request method is considered <i>idempotent</i> if the intended effect on the server of multiple identical requests with that method is the same as the effect for a single such request.
@@ -386,7 +386,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
    <dl>
       <dt>Statement</dt>
       <dd>
-         An API MUST use the semantically appropriate HTTP <a href="https://www.rfc-editor.org/rfc/rfc9110#name-status-codes">status code</a> ([[rfc9110]]) for the response.
+         An API MUST use the semantically appropriate HTTP <a href="https://www.rfc-editor.org/rfc/rfc9110#name-status-codes">status code</a> ([[RFC9110]]) for the response.
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -772,7 +772,7 @@ This section contains elements that apply to the generic classes of clients list
 Although not every client implementation has a need for all the specifications referenced below, a client agnostic API SHOULD provide these to facilitate any client to implement relevant security controls.
 
 Most specifications referenced in this section are applicable to the first three classes of clients listed above.
-Security considerations for native applications are provided in [[[rfc8252]]], much of which can help non-OAuth2 based implementations as well.
+Security considerations for native applications are provided in [[[RFC8252]]], much of which can help non-OAuth2 based implementations as well.
 For browser-based applications a subsection is included with additional details and information.
 System-to-system (sometimes called machine-to-machine) may have a need for the listed specifications as well.
 Note that different usage patterns may be applicable in contexts with system-to-system clients, see above under Client Authentication.
