@@ -22,20 +22,21 @@ async function initializeHighlightJSYaml() {
   });
 }
 
-let spectralConfiguration;
-async function fetchSpectralConfiguration() {
-  const spectralResponse = await fetch('linter/spectral.yml');
-  spectralConfiguration = await spectralResponse.text();
+const LINTER_CONFIGURATION_PATH = 'media/linter.yml';
+let linterConfiguration;
+async function fetchLinterConfiguration() {
+  const linterResponse = await fetch(LINTER_CONFIGURATION_PATH);
+  linterConfiguration = await linterResponse.text();
 }
 
-async function highlightSpectralCode(config, document) {
+async function highlightLinterCode(config, document) {
   //this is the function you call in 'postProcess', to load the highlighter
   const worker = await new Promise(resolve => {
     require(["core/worker"], ({ worker }) => resolve(worker));
   });
 
   const action = "highlight";
-  const code = spectralConfiguration;
+  const code = linterConfiguration;
   const lang = "yaml";
   worker.postMessage({ action, code, languages: [lang] });
   return new Promise(resolve => {
@@ -44,8 +45,12 @@ async function highlightSpectralCode(config, document) {
       if (responseAction === action && responseLang === lang) {
         worker.removeEventListener("message", listener);
 
-        const codeElement = document.querySelector('.spectral-yaml code');
+        const codeElement = document.querySelector('.linter-yaml code');
         codeElement.innerHTML = data.value;
+        const linkToConfiguration = document.createElement('div');
+        linkToConfiguration.innerHTML = `Open the above details to inspect the linter configuration. You can also <a href="${LINTER_CONFIGURATION_PATH}">open the configuration file in separate tab</a>`
+        linkToConfiguration.style.marginTop = '1em';
+        document.querySelector('.linter-yaml').after(linkToConfiguration);
         resolve();
       }
     });
@@ -103,8 +108,8 @@ loadRespecWithConfiguration({
   specType: "ST",
   pluralize: true,
 
-  preProcess: [initializeHighlightJSYaml, fetchSpectralConfiguration],
-  postProcess: [generateMermaidFigures, highlightSpectralCode, (config, document, utils) => processRuleBlocks(config, document, utils, spectralConfiguration)],
+  preProcess: [initializeHighlightJSYaml, fetchLinterConfiguration],
+  postProcess: [generateMermaidFigures, highlightLinterCode, (config, document, utils) => processRuleBlocks(config, document, utils, linterConfiguration)],
 
   localBiblio: {
     "ADR-encryption": {
