@@ -11,7 +11,7 @@ const readFile = utils.promisify(fs.readFile);
 const readdir = utils.promisify(fs.readdir);
 const writeFile = utils.promisify(fs.writeFile);
 
-const LINTER_RULESET_LOCATION = path.join(__dirname, '..', 'media', 'linter.yml');
+const LINTER_RULESET_LOCATION = path.join(__dirname, '..', 'media', 'linter.yaml');
 
 function computeTestCommand(apiLocation) {
     return `spectral lint -r ${LINTER_RULESET_LOCATION} ${apiLocation}/openapi.json || true`

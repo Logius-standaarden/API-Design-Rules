@@ -7,4 +7,4 @@ if ! [ -f "$1" ]; then
   exit 1
 fi
 
-spectral lint -r $CURRENT_DIRECTORY/../media/linter.yml $1
+spectral lint -r $CURRENT_DIRECTORY/../media/linter.yaml $1
