@@ -22,7 +22,7 @@ async function initializeHighlightJSYaml() {
   });
 }
 
-const LINTER_CONFIGURATION_PATH = 'media/linter.yml';
+const LINTER_CONFIGURATION_PATH = 'media/linter.yaml';
 let linterConfiguration;
 async function fetchLinterConfiguration() {
   const linterResponse = await fetch(LINTER_CONFIGURATION_PATH);
