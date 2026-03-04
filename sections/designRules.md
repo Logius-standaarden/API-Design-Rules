@@ -742,12 +742,21 @@ Note: security controls for signing and encrypting of application level messages
    <dl>
       <dt>Statement</dt>
       <dd>
-         Do not put any sensitive information in URIs
+         <p>Sensitive information MUST NOT be part of URIs
+         <p class="note">The term sensitive is deliberately left undefined in this document.</p>
+         <p>In case of REST-API's for system to system communication on a closed network, this rule applies only when there is logging involved in systems that are not under control of the organizations involved in the exchange
       </dd>
       <dt>Rationale</dt>
       <dd>
-         <p>Even when using TLS connections, information in URIs is not secured. URIs can be cached and logged outside of the servers controlled by clients and servers. Any information contained in them should therefore be considered readable by anyone with access to the network (in the case of the internet, the whole world) and MUST NOT contain any sensitive information. This includes client secrets used for authentication, privacy sensitive information such as BSNs or any other information which should not be shared.
-         <p>Be aware that queries (anything after the '?' in a URI) are also part of a URI.
+         <p>When using TLS connections, the path and query information in URIs are secured just like the message headers and body. However, URIs can be cached and logged, as can headers and bodies in the following situations:
+         <ul>
+           <li>before the TLS connection starts on the server
+           <li>after the TLS connection ends on the client
+           <li>whenever the TLS protocol is terminated and newly initiated in between
+         </ul>
+         <p class="note">Be aware that queries (anything after the '?' in a URI) are also part of a URI.
+         <p>For REST API's that are accessed directly from user devices, like web browsers, do not put client secrets used for authentication and other sensitive information in the URI. These are directly visible to users, are stored in the web browser's history and cache and can be bookmarked and sent to others.
+         <p>For REST API's that are only used for system-to-system integration on closed networks where all systems are under control of the organizations involved in the exchange, do not put client secrets used for authentication in the URI and be careful to put sensitive information in the URI. Intermediate network components that terminate and newly initiate TLS could log or otherwise store URIs. Consider the consequences, advantages and disadvantages of using sensitive information in the URI and be deliberate about which information is logged, for which purposes and who has access.
       </dd>
    </dl>
 </div>
