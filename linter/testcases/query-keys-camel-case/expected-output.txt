@@ -1,9 +1,10 @@
 
 /testcases/query-keys-camel-case/openapi.json
-  84:33  error  nlgov:query-keys-camel-case  kebab-case is not lower camelCase.           paths./resource.get.parameters[1].name
-  91:33  error  nlgov:query-keys-camel-case  _startMetUnderscore is not lower camelCase.  paths./resource.get.parameters[2].name
-  98:33  error  nlgov:query-keys-camel-case  9startMetGetal is not lower camelCase.       paths./resource.get.parameters[3].name
- 105:33  error  nlgov:query-keys-camel-case  snake_case is not lower camelCase.           paths./resource.get.parameters[4].name
- 112:33  error  nlgov:query-keys-camel-case  UpperCamelCase is not lower camelCase.       paths./resource.get.parameters[5].name
+  84:33  error  nlgov:query-keys-camel-case  kebab-case is not lower camelCase.                                                                            paths./resource.get.parameters[1].name
+  91:33  error  nlgov:query-keys-camel-case  _startMetUnderscore is not lower camelCase.                                                                   paths./resource.get.parameters[2].name
+  98:33  error  nlgov:query-keys-camel-case  9startMetGetal is not lower camelCase.                                                                        paths./resource.get.parameters[3].name
+ 105:33  error  nlgov:query-keys-camel-case  snake_case is not lower camelCase.                                                                            paths./resource.get.parameters[4].name
+ 112:33  error  nlgov:query-keys-camel-case  UpperCamelCase is not lower camelCase.                                                                        paths./resource.get.parameters[5].name
+ 118:29  error  nlgov:problem-invalid-input  GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response  paths./resource.get.responses
 
-✖ 5 problems (5 errors, 0 warnings, 0 infos, 0 hints)
+✖ 6 problems (6 errors, 0 warnings, 0 infos, 0 hints)
