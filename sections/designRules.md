@@ -14,7 +14,7 @@ The REST architectural style is centered around the concept of a [=resource=]. A
    <dl>
    <dt>Statement</dt>
    <dd>
-   Resources are referred to using nouns (instead of verbs) that represent entities meaningful to the API consumer.
+   Resources MUST be referred to using nouns (instead of verbs) that represent entities meaningful to the API consumer.
    <aside class="example">
       A few correct examples of nouns as part of a URI:
       <ul>
@@ -43,7 +43,7 @@ A resource that corresponds to a single conceptual entity is referred to as a [=
    <dl>
       <dt>Statement</dt>
       <dd>
-         Collection resources are referred to using plural nouns.
+         Collection resources MUST be referred to using plural nouns.
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -87,7 +87,7 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
    <dl>
       <dt>Statement</dt>
       <dd>
-         A [=URI=] MUST never contain a trailing slash. When requesting a resource including a trailing slash, this MUST result in a `404` (not found) error response and not a redirect. This forces API consumers to use the correct [=URI=].
+         A [=URI=] MUST NOT contain a trailing slash. When requesting a resource including a trailing slash, this MUST result in a `404` (not found) error response and not a redirect. This forces API consumers to use the correct [=URI=].
          <div class="note">
             This rule does not apply to the root resource (append <code>/</code> to the service root URL).
          </div>
@@ -318,7 +318,7 @@ Handling date and time is tricky and can lead to confusion among clients. The da
 
 ## HTTP methods
 
-Although the REST architectural style does not impose a specific protocol, REST APIs are typically implemented using HTTP [[rfc9110]].
+Although the REST architectural style does not impose a specific protocol, REST APIs are typically implemented using HTTP [[RFC9110]].
 
 <span id="api-03"></span>
 <div class="rule" id="/core/http-methods" data-type="functional">
@@ -326,7 +326,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
    <dl>
       <dt>Statement</dt>
       <dd>
-         An API MUST adhere to the HTTP method semantics defined in [[rfc9110]].
+         An API MUST adhere to the HTTP method semantics defined in [[RFC9110]].
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -404,7 +404,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
       </tbody>
       </table>
    </aside>
-   <p class="note">The HTTP specification [[rfc9110]] offers a set of standard methods, where every method is designed with explicit semantics. HTTP also defines other methods, e.g. <code>HEAD</code>, <code>OPTIONS</code>, <code>TRACE</code>, and <code>CONNECT</code>.<br>
+   <p class="note">The HTTP specification [[RFC9110]] offers a set of standard methods, where every method is designed with explicit semantics. HTTP also defines other methods, e.g. <code>HEAD</code>, <code>OPTIONS</code>, <code>TRACE</code>, and <code>CONNECT</code>.<br>
    The OpenAPI Specification 3.0 <a href="https://spec.openapis.org/oas/v3.0.1#path-item-object">Path Item Object</a> also supports these methods, except for <code>CONNECT</code>.<br>
   According to <a href="https://www.rfc-editor.org/rfc/rfc9110#name-overview">RFC 9110 9.1</a> the <code>GET</code> and <code>HEAD</code> HTTP methods MUST be supported by the server, all other methods are optional.<br>
   In addition to the standard HTTP methods, a server may support other optional methods as well, e.g. <code>PROPFIND</code>, <code>COPY</code>, <code>PURGE</code>, <code>VIEW</code>, <code>LINK</code>, <code>UNLINK</code>, <code>LOCK</code>, <code>UNLOCK</code>, etc.<br>
@@ -474,7 +474,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
       <dt>Rationale</dt>
       <dd>
          <p>
-            The HTTP protocol [[rfc9110]] specifies whether an HTTP method SHOULD be considered safe and/or idempotent. These characteristics are important for clients and middleware applications, because they SHOULD be taken into account when implementing caching and fault tolerance strategies.
+            The HTTP protocol [[RFC9110]] specifies whether an HTTP method SHOULD be considered safe and/or idempotent. These characteristics are important for clients and middleware applications, because they SHOULD be taken into account when implementing caching and fault tolerance strategies.
          </p>
          <p>
             Request methods are considered <i>safe</i> if their defined semantics are essentially read-only; i.e., the client does not request, and does not expect, any state change on the origin server as a result of applying a safe method to a target resource. A request method is considered <i>idempotent</i> if the intended effect on the server of multiple identical requests with that method is the same as the effect for a single such request.
@@ -488,7 +488,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
    <dl>
       <dt>Statement</dt>
       <dd>
-         Always use the semantically appropriate HTTP <a href="https://www.rfc-editor.org/rfc/rfc9110#name-status-codes">status code</a> ([[rfc9110]]) for the response.
+         An API MUST use the semantically appropriate HTTP <a href="https://www.rfc-editor.org/rfc/rfc9110#name-status-codes">status code</a> ([[RFC9110]]) for the response.
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -572,7 +572,7 @@ https://api.example.org/v1/comments/456</pre>
   <dl>
       <dt>Statement</dt>
       <dd>
-         Model resource operations as a sub-resource or dedicated resource</a>.
+         Resource operations MUST be modelled as a sub-resource or dedicated resource</a>.
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -693,7 +693,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
    <dl>
       <dt>Statement</dt>
       <dd>
-         Implement well-documented deprecation schedules that are communicated in a timely fashion.
+         The API owner SHOULD implement well-documented deprecation schedules that are communicated in a timely fashion.
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -753,7 +753,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
    <dl>
       <dt>Statement</dt>
       <dd>
-         Publish a changelog.
+         A changelog MUST be publised for every API version.
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -768,7 +768,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
   <dl>
       <dt>Statement</dt>
       <dd>
-         Implement Semantic Versioning.
+         Semantic Versioning MUST be used for API versioning.
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -787,7 +787,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
    <dl>
       <dt>Statement</dt>
       <dd>
-         Return the API-Version header.
+         The API-Version header MUST be returned in a response header in every response.
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -824,7 +824,7 @@ Note: security controls for signing and encrypting of application level messages
   <dl>
     <dt>Statement</dt>
     <dd>
-      <p>One should secure all APIs assuming they can be accessed from any location on the internet. Information MUST be exchanged over TLS-based secured connections. No exceptions, so everywhere and always. This is <a href="https://wetten.overheid.nl/BWBR0048156/2023-07-01">required by law</a>.
+      <p>Information exchanged by APIs MUST be secured using TLS-based connections. No exceptions, so everywhere and always. This is <a href="https://wetten.overheid.nl/BWBR0048156/2023-07-01">required by law</a>.
       <p>One MUST follow the latest NCSC guidelines [[NCSC 2025]].
     </dd>
     <dt>Rationale</dt>
@@ -844,12 +844,21 @@ Note: security controls for signing and encrypting of application level messages
    <dl>
       <dt>Statement</dt>
       <dd>
-         Do not put any sensitive information in URIs
+         <p>Sensitive information MUST NOT be part of URIs
+         <p class="note">The term sensitive is deliberately left undefined in this document.</p>
+         <p>In case of REST-API's for system to system communication on a closed network, this rule applies only when there is logging involved in systems that are not under control of the organizations involved in the exchange
       </dd>
       <dt>Rationale</dt>
       <dd>
-         <p>Even when using TLS connections, information in URIs is not secured. URIs can be cached and logged outside of the servers controlled by clients and servers. Any information contained in them should therefore be considered readable by anyone with access to the network (in the case of the internet, the whole world) and MUST NOT contain any sensitive information. This includes client secrets used for authentication, privacy sensitive information such as BSNs or any other information which should not be shared.
-         <p>Be aware that queries (anything after the '?' in a URI) are also part of a URI.
+         <p>When using TLS connections, the path and query information in URIs are secured just like the message headers and body. However, URIs can be cached and logged, as can headers and bodies in the following situations:
+         <ul>
+           <li>before the TLS connection starts on the server
+           <li>after the TLS connection ends on the client
+           <li>whenever the TLS protocol is terminated and newly initiated in between
+         </ul>
+         <p class="note">Be aware that queries (anything after the '?' in a URI) are also part of a URI.
+         <p>For REST API's that are accessed directly from user devices, like web browsers, do not put client secrets used for authentication and other sensitive information in the URI. These are directly visible to users, are stored in the web browser's history and cache and can be bookmarked and sent to others.
+         <p>For REST API's that are only used for system-to-system integration on closed networks where all systems are under control of the organizations involved in the exchange, do not put client secrets used for authentication in the URI and be careful to put sensitive information in the URI. Intermediate network components that terminate and newly initiate TLS could log or otherwise store URIs. Consider the consequences, advantages and disadvantages of using sensitive information in the URI and be deliberate about which information is logged, for which purposes and who has access.
       </dd>
    </dl>
 </div>
@@ -874,7 +883,7 @@ This section contains elements that apply to the generic classes of clients list
 Although not every client implementation has a need for all the specifications referenced below, a client agnostic API SHOULD provide these to facilitate any client to implement relevant security controls.
 
 Most specifications referenced in this section are applicable to the first three classes of clients listed above.
-Security considerations for native applications are provided in [[[rfc8252]]], much of which can help non-OAuth2 based implementations as well.
+Security considerations for native applications are provided in [[[RFC8252]]], much of which can help non-OAuth2 based implementations as well.
 For browser-based applications a subsection is included with additional details and information.
 System-to-system (sometimes called machine-to-machine) may have a need for the listed specifications as well.
 Note that different usage patterns may be applicable in contexts with system-to-system clients, see above under Client Authentication.
@@ -893,7 +902,7 @@ For outbound filtering, the main concern is leaking of information.
    <dl>
       <dt>Statement</dt>
       <dd>
-         Return API security headers in all server responses to instruct the client to act in a secure manner
+         API security headers MUST be returned in all server responses to instruct the client to act in a secure manner
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -974,7 +983,7 @@ For outbound filtering, the main concern is leaking of information.
    <dl>
       <dt>Statement</dt>
       <dd>
-         Use CORS to restrict access from other domains for applicable resources
+         CORS MUST be used to restrict access from other domains for applicable resources
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -1006,23 +1015,22 @@ All browser-based applications SHOULD follow the best practices specified in [OA
 These applications can be split into three architectural patterns:
 
 * JavaScript applications with a backend; with this class of applications, the backend is the confidential client and should intermediate any interaction, with tokens never ending up in the browser.
-Effectively, these are not different from regular web-application for this security facet, even though they leverage JavaScript for implementation.
+  Effectively, these are not different from regular web-application for this security facet, even though they leverage JavaScript for implementation.
 * JavaScript applications that share a domain with the API (resource server); these can leverage cookies marked as HTTP-Only, Secure and SameSite.
 * JavaScript applications without a backend; these clients are considered public clients, and are potentially more vulnerable to several types of attacks, including Cross-Site Scripting (XSS), Cross Site Request Forgery (CSRF) and OAuth token theft.
-In order to support these clients, the Cross-Origin Resource Sharing (CORS) policy mentioned above is critical and MUST be supported.
+  In order to support these clients, the Cross-Origin Resource Sharing (CORS) policy mentioned above is critical and MUST be supported.
 
 ### Validate content types
 
-A REST request or response body SHOULD match the intended content type in the header.
-Otherwise this could cause misinterpretation at the consumer/producer side and lead to code injection/execution.
+A REST request or response body SHOULD match the intended content type in the header. Otherwise this could cause misinterpretation at the consumer/producer side and lead to code injection/execution.
 
-* Reject requests containing unexpected or missing content type headers with HTTP response status `406 Not Acceptable` or `415 Unsupported Media Type`.
-* Avoid accidentally exposing unintended content types by explicitly defining content types e.g. Jersey (Java) `@consumes("application/json"); @produces("application/json")`.
-This avoids XXE-attack vectors for example.
+* Requests containing unexpected or missing content type headers MUST be rejected with HTTP response status `406 Not Acceptable` or `415 Unsupported Media Type`.
+* Accidentally exposing unintended content types MUST be avoided by explicitly defining content types e.g. Jersey (Java) `@consumes("application/json"); @produces("application/json")`.
+  This avoids XXE-attack vectors for example.
 
-It is common for REST services to allow multiple response types (e.g. `application/xml` or `application/json`, and the client specifies the preferred order of response types by the Accept header in the request.
+It is common for REST services to allow multiple response types (e.g. `application/xml` or `application/json`) in which case then the client specifies the preferred order of response types by the Accept header in the request.
 
-* Do NOT simply copy the `Accept` header to the `Content-type` header of the response.
+* Do not simply copy the `Accept` header to the `Content-type` header of the response.
 * Reject the request (ideally with a `406 Not Acceptable` response) if the Accept header does not specifically contain one of the allowable types.
 
 Services (potentially) including script code (e.g. JavaScript) in their responses MUST be especially careful to defend against header injection attacks.

@@ -13,8 +13,8 @@
 #
 # ```
 # npm install -g @stoplight/spectral-cli
-# curl -L https://static.developer.overheid.nl/adr/ruleset.yaml > .spectral.yml
-# spectral lint -r .spectral.yml $OAS_URL_OR_FILE
+# curl -L https://static.developer.overheid.nl/adr/ruleset.yaml > .linter.yaml
+# spectral lint -r .linter.yaml $OAS_URL_OR_FILE
 # ```
 
 extends: spectral:oas
