@@ -586,6 +586,75 @@ https://api.example.org/v1/comments/456</pre>
    </dl>
 </div>
 
+## Error handling
+
+<div class="rule" id="/core/error-handling/problem-details" data-type="technical">
+   <p class="rulelab">Use problem details for error responses</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         <p>Error responses with HTTP status codes <code>4xx</code> or <code>5xx</code> MUST use either <code>application/problem+json</code> or <code>application/problem+xml</code> as the <code>Content-Type</code> header, and the response body MUST conform to the structure defined in [[rfc9457]].
+         <p>The following fields MUST be present: <code>status</code>, <code>title</code>, and <code>detail</code>.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         <p>Providing problem details in a machine-readable format aids automation and debugging. By using a common error format, APIs do not need to define their own or misuse existing HTTP status codes.</p>
+         <aside class="example">
+            The following example shows the head and body of a detailed error response.
+            <pre><code class="http">HTTP/1.1 404 Not Found
+Content-Type: application/problem+json</code><code class="json">{
+  "status": 404,
+  "title": "Resource Not Found",
+  "detail": "No building found with id 12345."
+}
+</code></pre>
+         </aside>
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         Verify all responses with status code <code>4xx</code> or <code>5xx</code> have <code>Content-Type</code> set to <code>application/problem+json</code> or <code>application/problem+xml</code> and the body contains fields <code>status</code>, <code>title</code>, and <code>detail</code>.
+      </dd>
+   </dl>
+</div>
+
+<div class="rule" id="/core/error-handling/invalid-input" data-type="technical">
+  <p class="rulelab">Use status code 400 for invalid input</p>
+  <dl>
+    <dt>Statement</dt>
+    <dd>
+      <p>API requests containing invalid input MUST result in HTTP status code <code>400</code> (Bad Request).
+      Invalid input includes syntax errors, missing or invalid query parameters.
+      <p>The request payload SHOULD be validated with a schema. A request payload with schema validation errors MUST be treated as invalid input.
+    </dd>
+    <dt>Rationale</dt>
+    <dd>
+      <p>The semantics of status code <code>400</code> ("the server cannot or will not process the request due to something that is perceived to be a client error") match validation failures more closely than status code <code>422</code>, which historically originates from WebDAV and introduces no added interoperability benefit.</p>
+    </dd>
+    <dt>How to test</dt>
+    <dd>
+      Verify that operations accepting query parameters and/or a request body contain a response with status code <code>400</code>.
+    </dd>
+  </dl>
+</div>
+
+<div class="rule" id="/core/error-handling/all-errors" data-type="functional">
+  <p class="rulelab">Return all errors together for bad requests</p>
+  <dl>
+    <dt>Statement</dt>
+    <dd>
+      <p>API requests with HTTP status code <code>400</code> (Bad Request) SHOULD include all applicable schema validation errors and MAY include additional errors.
+    </dd>
+    <dt>Rationale</dt>
+    <dd>
+      <p>To reduce the amount of roundtrips between client and server, all applicable schema validation errors SHOULD be returned together.
+      This allows a client to present validation errors to a user in one go, reducing user friction with multiple retries.
+      <p>It depends on a validation technique whether this is possible or not.
+      For example, when a client provides a date in the weekend, where only dates on weekdays are allowed, it depends on which service performs these validation checks.
+      In these cases, include the additional validation errors together with other errors whenever feasible.
+    </dd>
+  </dl>
+</div>
+
 ## Documentation
 
 An API is as good as the accompanying documentation. The documentation has to be easily findable, searchable and publicly accessible. Most developers will first read the documentation before they start implementing. Hiding the technical documentation in PDF documents and/or behind a login creates a barrier for both developers and search engines.
