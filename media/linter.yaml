@@ -13,8 +13,8 @@
 #
 # ```
 # npm install -g @stoplight/spectral-cli
-# curl -L https://static.developer.overheid.nl/adr/ruleset.yaml > .spectral.yml
-# spectral lint -r .spectral.yml $OAS_URL_OR_FILE
+# curl -L https://static.developer.overheid.nl/adr/ruleset.yaml > .linter.yaml
+# spectral lint -r .linter.yaml $OAS_URL_OR_FILE
 # ```
 
 extends: spectral:oas
@@ -277,6 +277,56 @@ rules:
         type: camel
       field: "@key"
     message: Properties must be lowerCamelCase.
+
+  #/core/date-time/timezone
+  nlgov:date-time-ensure-timezone:
+    severity: error
+    given: $..properties[*].format
+    message: "Use date-time format which includes a timezone"
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: "/^date-time-local$/"
+
+  nlgov:time-without-timezone:
+    severity: error
+    given: $..properties[*].format
+    message: "Use time-local format without a timezone"
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: "/^time$/"
+
+  #/core/date-time/date-omit-time-portion
+  nlgov:specify-format-for-date-and-time:
+    severity: error
+    given:
+      - $..properties[date,datum]
+      - $..properties[?(@property && @property.match(/((\w+D)|(_[dD]))((ate)|(atum))/))]
+    message: "Any date field must set 'format' to 'date'"
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          anyOf:
+            - required: ["format"]
+            - properties:
+                allOf:
+                  type: array
+                  items:
+                    required: ["format"]
+              required: ["allOf"]
+
+  nlgov:use-date-instead-of-datetime:
+    severity: error
+    given:
+      - $..properties[date,datum]..format
+      - $..properties[?(@property && @property.match(/((\w+D)|(_[dD]))((ate)|(atum))/))]..format
+    message: "Field represents a date and therefore must set 'format' to 'date'"
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: "/^date-time$/"
 
   nlgov:semver:
     severity: error
