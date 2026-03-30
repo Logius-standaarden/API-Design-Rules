@@ -21,8 +21,3 @@
   - [Repository](https://github.com/Logius-standaarden/OIDC-NLGOV)
 
 Het **Beheermodel** voor deze standaarden is gepubliceerd op: https://gitdocumentatie.logius.nl/publicatie/api/beheermodel/
-
-### Versie 2.0.0 Release notes
-
-Een overzicht van de releasenotes is beschikbaar waarin alle wijzigingen zijn opgesomd. zie hiervoor:
-- https://github.com/Logius-standaarden/API-Design-Rules/blob/develop/ReleaseNotes.md
