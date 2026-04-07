@@ -18,7 +18,7 @@ Despite the fact that two authors are mentioned in the list of authors, this doc
 
 This document is part of the *Nederlandse API Strategie*.
 
-The Nederlandse API Strategie consists of [a set of distinct documents](https://www.geonovum.nl/themas/kennisplatform-apis#APIStrategie).
+The Nederlandse API Strategie consists of [a set of distinct documents](https://developer.overheid.nl/communities/kennisplatform-apis/#api-strategie).
 
 | Status           | Description & Link                                                                                               |
 | ---------------- | ---------------------------------------------------------------------------------------------------------------- |
