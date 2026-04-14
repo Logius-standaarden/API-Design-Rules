@@ -244,26 +244,33 @@ rules:
             errors:
               type: object
               properties:
-                properties:
+                items:
                   type: object
                   properties:
-                    in: {}
-                    detail: {}
-                    location:
+                    properties:
                       type: object
                       properties:
-                        properties:
+                        in: {}
+                        detail: {}
+                        location:
                           type: object
                           properties:
-                            pointer: {}
-                            name: {}
-                            index: {}
-                          additionalProperties: false
-                    code: {}
+                            properties:
+                              type: object
+                              properties:
+                                pointer: {}
+                                name: {}
+                                index: {}
+                              additionalProperties: false
+                        code: {}
+                      required:
+                      - in
+                      - detail
+                      - location
                   required:
-                    - in
-                    - detail
-                  additionalProperties: false
+                  - properties
+              required:
+              - items
           required:
           - errors
 
