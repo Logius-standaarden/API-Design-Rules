@@ -308,6 +308,9 @@ Handling date and time is tricky and can lead to confusion among clients. The da
       <dd>
          <p>Appending a default or irrelevant time portion to a date field can lead to interpretation errors. A publish date of <code>2025-07-24T00:00:00Z</code> could for instance be rendered as July 23 in Ireland. A default time of 23:59 would in turn cause date confusion east of Greenwich.
          <p class="note">To prevent conversion errors between storage and API, it is recommended to also store date values without a time portion (i.e. not as a timestamp).
+         <aside class="example">
+            <p>A response containing a field "birthDate" with a date value to denote the date of birth of a child in The Netherlands.
+         </aside>
       </dd>
       <dt>How to test</dt>
       <dd>
