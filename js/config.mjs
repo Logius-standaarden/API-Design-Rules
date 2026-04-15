@@ -83,17 +83,17 @@ loadRespecWithConfiguration({
       },
       { 
         "company" : "Logius",
-        "companyURL" : "https://logius.nl",
+        "companyURL" : "https://www.logius.nl",
         "name" : "Alexander Green"
       },
       { 
         "company" : "Logius",
-        "companyURL" : "https://logius.nl",
+        "companyURL" : "https://www.logius.nl",
         "name" : "Martin van der Plas"
       },
       { 
         "company" : "Logius",
-        "companyURL" : "https://logius.nl",
+        "companyURL" : "https://www.logius.nl",
         "name" : "Tim van der Lippe"
       }
     ],
@@ -117,16 +117,12 @@ loadRespecWithConfiguration({
       href: "https://logius-standaarden.github.io/API-mod-encryption/",
       publisher: "Logius",
       title: "API Design Rules Module: Encryption",
-      // TODO: verwijder voor publicatie
-      status: "Draft",
     },
     "ADR-signing": {
       authors: ["P. Haasnoot"],
       href: "https://logius-standaarden.github.io/API-mod-signing/",
       publisher: "Logius",
       title: "API Design Rules Module: Signing",
-      // TODO: verwijder voor publicatie
-      status: "Draft",
     },
   }
 });
