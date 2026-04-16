@@ -31,7 +31,8 @@ public class BadRequestProblem extends HttpProblem {
         @Schema(description = "Human-readable message describing the violation")
         public String detail;
 
-        @Schema(description = "A locator for the offending value")
+        @Schema(nullable = true, description = "A locator for the offending value")
+        @JsonInclude(value = JsonInclude.Include.NON_NULL)
         public String location;
 
         @Schema(
@@ -41,17 +42,35 @@ public class BadRequestProblem extends HttpProblem {
         @JsonInclude(value = JsonInclude.Include.NON_NULL)
         public Integer index;
 
+        @Schema(
+                nullable = true,
+                description = "A  short, stable machine-readable code as a rule identifier")
+        @JsonInclude(value = JsonInclude.Include.NON_NULL)
+        public String code;
+
         private BadRequestDetails(
-                BadRequestLocation in, String detail, String location, Integer index) {
+                BadRequestLocation in, String detail, String location, Integer index, String code) {
             this.in = in;
             this.detail = detail;
             this.location = location;
             this.index = index;
+            this.code = code;
         }
 
-        public static BadRequestDetails forQuery(
-                BadRequestLocation in, String detail, Integer index) {
-            return new BadRequestDetails(in, detail, "query", index);
+        public static BadRequestDetails forSingleQuery(
+                String queryParameterName, String detail, String code) {
+            return new BadRequestDetails(
+                    BadRequestLocation.Query, detail, queryParameterName, null, code);
+        }
+
+        public static BadRequestDetails forIndexedQuery(
+                String queryParameterName, String detail, Integer index, String code) {
+            return new BadRequestDetails(
+                    BadRequestLocation.Query, detail, queryParameterName, index, code);
+        }
+
+        public static BadRequestDetails forBody(String location, String detail, String code) {
+            return new BadRequestDetails(BadRequestLocation.Body, detail, location, null, code);
         }
     }
 

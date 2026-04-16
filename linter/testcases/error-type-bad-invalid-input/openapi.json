@@ -67,19 +67,16 @@
                                         "title": { "type": "string" },
                                         "detail": { "type": "string" },
                                         "errors": {
-                                            "type": "object",
-                                            "properties": {
-                                                "in": { "type": "string" },
-                                                "location": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "pointer": { "type": "string" },
-                                                        "name": { "type": "string" },
-                                                        "index": { "type": "integer" }
-                                                    }
-                                                },
-                                                "code": { "type": "string" },
-                                                "detail": { "type": "string" }
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "in": { "type": "string" },
+                                                    "location": { "type": "string" },
+                                                    "code": { "type": "string" },
+                                                    "detail": { "type": "string" },
+                                                    "index": { "type": "number" }
+                                                }
                                             }
                                         }
                                     },

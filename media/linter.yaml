@@ -250,23 +250,39 @@ rules:
                     properties:
                       type: object
                       properties:
-                        in: {}
-                        detail: {}
+                        in:
+                          type: object
+                          properties:
+                            type:
+                              const: string
+                        detail:
+                          type: object
+                          properties:
+                            type:
+                              const: string
                         location:
                           type: object
                           properties:
-                            properties:
-                              type: object
-                              properties:
-                                pointer: {}
-                                name: {}
-                                index: {}
-                              additionalProperties: false
-                        code: {}
+                            type:
+                              const: string
+                        code:
+                          type: object
+                          properties:
+                            type:
+                              const: string
+                        index:
+                          type: object
+                          properties:
+                            type:
+                              oneOf:
+                              - const: number
+                              - const: integer
                       required:
                       - in
                       - detail
                       - location
+                      - code
+                      - index
                   required:
                   - properties
               required:

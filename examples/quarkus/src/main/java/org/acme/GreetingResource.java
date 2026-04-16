@@ -13,8 +13,8 @@ import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.jboss.resteasy.reactive.RestQuery;
 import org.jboss.resteasy.reactive.Separator;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @Path("/hello")
 @Tag(name = "greeting")
@@ -51,28 +51,39 @@ public class GreetingResource {
                     @Content(
                             mediaType = "application/problem+json",
                             schema = @Schema(implementation = BadRequestProblem.class)))
-    public String withInput(@RestQuery("query") @Separator(",") List<String> queryParam) {
-        if (queryParam.isEmpty()) {
-            throw new BadRequestProblem(
-                    "Missing required query parameter",
-                    List.of(
-                            BadRequestProblem.BadRequestDetails.forQuery(
-                                    BadRequestProblem.BadRequestLocation.Query,
-                                    "Query parameter is invalid",
-                                    null)));
+    public String withInput(
+            @RestQuery("queryInput") @Separator(",") List<String> queryInputParam,
+            PostRequestyBody body) {
+        var errors = new ArrayList<BadRequestProblem.BadRequestDetails>();
+        if (queryInputParam.isEmpty()) {
+            errors.add(
+                    BadRequestProblem.BadRequestDetails.forSingleQuery(
+                            "queryInput",
+                            "Missing required query parameter",
+                            "input.query.missing"));
         }
-        var queryParams = queryParam.iterator();
+        var queryParams = queryInputParam.iterator();
         for (var index = 0; queryParams.hasNext(); index++) {
             var param = queryParams.next();
             if (!param.equals("42")) {
-                throw new BadRequestProblem(
-                        "Missing required query parameter",
-                        List.of(
-                                BadRequestProblem.BadRequestDetails.forQuery(
-                                        BadRequestProblem.BadRequestLocation.Query,
-                                        "Query parameter is invalid",
-                                        index)));
+                errors.add(
+                        BadRequestProblem.BadRequestDetails.forIndexedQuery(
+                                "queryInput",
+                                "Value for query parameter is not 42, but was %s".formatted(param),
+                                index,
+                                "input.query.invalid"));
             }
+        }
+        if (!body.field.equals("foo")) {
+            errors.add(
+                    BadRequestProblem.BadRequestDetails.forBody(
+                            "field",
+                            "Value for field in body should be foo, but was %s"
+                                    .formatted(body.field),
+                            "input.body.field.invalid"));
+        }
+        if (!errors.isEmpty()) {
+            throw new BadRequestProblem("Failed to process request input", errors);
         }
         return "Successful response";
     }

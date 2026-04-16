@@ -67,19 +67,16 @@
                                         "title": { "type": "string" },
                                         "detail": { "type": "string" },
                                         "errors": {
-                                            "type": "object",
-                                            "properties": {
-                                                "in": { "type": "string" },
-                                                "location": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "pointer": { "type": "string" },
-                                                        "name": { "type": "string" },
-                                                        "index": { "type": "integer" }
-                                                    }
-                                                },
-                                                "code": { "type": "string" },
-                                                "detail": { "type": "string" }
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "in": { "type": "string" },
+                                                    "location": { "type": "string" },
+                                                    "code": { "type": "string" },
+                                                    "detail": { "type": "string" },
+                                                    "index": { "type": "number" }
+                                                }
                                             }
                                         }
                                     },
@@ -129,20 +126,16 @@
                                         "title": { "type": "string" },
                                         "detail": { "type": "string" },
                                         "errors": {
-                                            "type": "object",
-                                            "properties": {
-                                                "in": { "type": "string" },
-                                                "location": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "pointer": { "type": "string" },
-                                                        "name": { "type": "string" },
-                                                        "index": { "type": "integer" }
-                                                    }
-                                                },
-                                                "code": { "type": "string" },
-                                                "detail": { "type": "string" },
-                                                "extra": { "type": "string" }
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "in": { "type": "string" },
+                                                    "location": { "type": "string" },
+                                                    "code": { "type": "string" },
+                                                    "detail": { "type": "string" },
+                                                    "index": { "type": "number" }
+                                                }
                                             }
                                         }
                                     },
@@ -192,11 +185,15 @@
                                         "title": { "type": "string" },
                                         "detail": { "type": "string" },
                                         "errors": {
-                                            "type": "object",
-                                            "properties": {
-                                                "in": { "type": "string" },
-                                                "code": { "type": "string" },
-                                                "detail": { "type": "string" }
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "in": { "type": "string" },
+                                                    "code": { "type": "string" },
+                                                    "detail": { "type": "string" },
+                                                    "index": { "type": "number" }
+                                                }
                                             }
                                         }
                                     },
@@ -214,13 +211,13 @@
                 ]
             }
         },
-        "/properties-location-verkeerd-format": {
+        "/properties-verkeerd-formaat-in": {
             "get": {
                 "tags": [
                     "resource"
                 ],
                 "description": "Resource",
-                "operationId": "getPropertiesVerkeerdFormat",
+                "operationId": "getPropertiesVerkeerdFormatIn",
                 "parameters": [],
                 "responses": {
                     "200": {
@@ -246,19 +243,311 @@
                                         "title": { "type": "string" },
                                         "detail": { "type": "string" },
                                         "errors": {
-                                            "type": "object",
-                                            "properties": {
-                                                "in": { "type": "string" },
-                                                "location": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "pointer2": { "type": "string" },
-                                                        "name": { "type": "string" },
-                                                        "index": { "type": "integer" }
-                                                    }
-                                                },
-                                                "code": { "type": "string" },
-                                                "detail": { "type": "string" }
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "in": { "type": "number" },
+                                                    "location": { "type": "string" },
+                                                    "code": { "type": "string" },
+                                                    "detail": { "type": "string" },
+                                                    "index": { "type": "number" }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "required": ["status", "title", "detail", "errors"],
+                                    "additionalProperties": false
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            }
+        },
+        "/properties-verkeerd-formaat-location": {
+            "get": {
+                "tags": [
+                    "resource"
+                ],
+                "description": "Resource",
+                "operationId": "getPropertiesVerkeerdFormatLocation",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "OK",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": { "type": "integer" },
+                                        "title": { "type": "string" },
+                                        "detail": { "type": "string" },
+                                        "errors": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "in": { "type": "string" },
+                                                    "location": { "type": "number" },
+                                                    "code": { "type": "string" },
+                                                    "detail": { "type": "string" },
+                                                    "index": { "type": "number" }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "required": ["status", "title", "detail", "errors"],
+                                    "additionalProperties": false
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            }
+        },
+        "/properties-verkeerd-formaat-code": {
+            "get": {
+                "tags": [
+                    "resource"
+                ],
+                "description": "Resource",
+                "operationId": "getPropertiesVerkeerdFormatCode",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "OK",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": { "type": "integer" },
+                                        "title": { "type": "string" },
+                                        "detail": { "type": "string" },
+                                        "errors": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "in": { "type": "string" },
+                                                    "location": { "type": "string" },
+                                                    "code": { "type": "number" },
+                                                    "detail": { "type": "string" },
+                                                    "index": { "type": "number" }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "required": ["status", "title", "detail", "errors"],
+                                    "additionalProperties": false
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            }
+        },
+        "/properties-verkeerd-formaat-detail": {
+            "get": {
+                "tags": [
+                    "resource"
+                ],
+                "description": "Resource",
+                "operationId": "getPropertiesVerkeerdFormatDetail",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "OK",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": { "type": "integer" },
+                                        "title": { "type": "string" },
+                                        "detail": { "type": "string" },
+                                        "errors": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "in": { "type": "string" },
+                                                    "location": { "type": "string" },
+                                                    "code": { "type": "string" },
+                                                    "detail": { "type": "number" },
+                                                    "index": { "type": "number" }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "required": ["status", "title", "detail", "errors"],
+                                    "additionalProperties": false
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            }
+        },
+        "/properties-verkeerd-formaat-index": {
+            "get": {
+                "tags": [
+                    "resource"
+                ],
+                "description": "Resource",
+                "operationId": "getPropertiesVerkeerdFormatIndex",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "OK",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": { "type": "integer" },
+                                        "title": { "type": "string" },
+                                        "detail": { "type": "string" },
+                                        "errors": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "in": { "type": "string" },
+                                                    "location": { "type": "string" },
+                                                    "code": { "type": "string" },
+                                                    "detail": { "type": "string" },
+                                                    "index": { "type": "string" }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "required": ["status", "title", "detail", "errors"],
+                                    "additionalProperties": false
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            }
+        },
+        "/properties-index-als-integer": {
+            "get": {
+                "tags": [
+                    "resource"
+                ],
+                "description": "Resource",
+                "operationId": "getPropertiesIndexAlsInteger",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "OK",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": { "type": "integer" },
+                                        "title": { "type": "string" },
+                                        "detail": { "type": "string" },
+                                        "errors": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "in": { "type": "string" },
+                                                    "location": { "type": "string" },
+                                                    "code": { "type": "string" },
+                                                    "detail": { "type": "string" },
+                                                    "index": { "type": "integer" }
+                                                }
                                             }
                                         }
                                     },
