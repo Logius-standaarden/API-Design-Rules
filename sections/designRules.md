@@ -649,7 +649,7 @@ Content-Type: application/problem+json</code><code class="json">{
          <li><strong><code>detail</code></strong> - a human-readable message describing the violation.</li>
         <li><strong><code>location</code></strong> (optional) - a locator for the offending value:
           <ul>
-            <li>For JSON request bodies: a JSON Pointer [[rfc6901]] expression pointing to the value.</li>
+            <li>For JSON request bodies: a JSON Pointer [[RFC6901]] expression pointing to the value.</li>
             <li>For XML request bodies: an absolute XPath v3.1 [[xpath-31]] expression pointing to the value.</li>
             <li>For query parameters: the parameter name.</li>
           </ul>
