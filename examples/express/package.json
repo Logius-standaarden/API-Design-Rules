@@ -1,5 +1,6 @@
 {
     "name": "express-example",
+    "type": "module",
     "dependencies": {
         "@wesleytodd/openapi": "^1.1.0",
         "express": "^5.2.0"
