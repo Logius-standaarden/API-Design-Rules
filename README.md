@@ -2,19 +2,19 @@
 
 ### Links
 
-- NLGov API Design Rules (ADR)
+- NLgov API Design Rules (ADR)
   - [Formele standaard](https://forumstandaardisatie.nl/open-standaarden/rest-api-design-rules)
   - [Gepubliceerde versie](https://gitdocumentatie.logius.nl/publicatie/api/adr/)
   - [Werkversie](https://logius-standaarden.github.io/API-Design-Rules/)
   - [Repository](https://github.com/Logius-standaarden/API-Design-Rules)
 
-- NLGov OAuth 2.0 profile (OAuth)
+- NLgov Assurance profile for OAuth 2.0 (OAuth)
   - [Formele standaard](https://forumstandaardisatie.nl/open-standaarden/nl-gov-assurance-profile-oauth-20)
   - [Gepubliceerde versie](https://gitdocumentatie.logius.nl/publicatie/api/oauth/)
   - [Werkversie](https://logius-standaarden.github.io/OAuth-NL-profiel/)
   - [Repository](https://github.com/Logius-standaarden/OAuth-NL-profiel)
 
-- NLGov OpenID Connect profile (OIDC)
+- NLgov Assurance profile for OpenID Connect 1.0 (OIDC)
   - [Formele standaard](https://forumstandaardisatie.nl/open-standaarden/nl-gov-assurance-profile-oidc)
   - [Gepubliceerde versie](https://gitdocumentatie.logius.nl/publicatie/api/oidc/)
   - [Werkversie](https://logius-standaarden.github.io/OIDC-NLGOV/)
