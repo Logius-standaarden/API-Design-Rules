@@ -1,0 +1,584 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "Baseline",
+        "description": "Deze OpenAPI specification bevat het minimale om aan alle regels te voldoen.",
+        "contact": {
+            "name": "Beheerder",
+            "url": "https://www.example.com",
+            "email": "mail@example.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "https://example.com/api/v1"
+        }
+    ],
+    "security": [
+        {
+            "default": []
+        }
+    ],
+    "tags": [
+        {
+            "name": "openapi"
+        },
+        {
+            "name": "resource"
+        }
+    ],
+    "paths": {
+        "/openapi.json": {
+            "get": {
+                "tags": [
+                    "openapi"
+                ],
+                "description": "OpenAPI document",
+                "operationId": "getOpenapiJSON",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "access-control-allow-origin": {
+                                "description": "Alle origins mogen bij deze resource",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "OK",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": { "type": "integer" },
+                                        "title": { "type": "string" },
+                                        "detail": { "type": "string" },
+                                        "errors": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "in": { "type": "string" },
+                                                    "location": { "type": "string" },
+                                                    "code": { "type": "string" },
+                                                    "detail": { "type": "string" },
+                                                    "index": { "type": "number" }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "required": ["status", "title", "detail", "errors"],
+                                    "additionalProperties": false
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            }
+        },
+        "/properties-correct": {
+            "get": {
+                "tags": [
+                    "resource"
+                ],
+                "description": "Resource",
+                "operationId": "getPropertiesCorrect",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "OK",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": { "type": "integer" },
+                                        "title": { "type": "string" },
+                                        "detail": { "type": "string" },
+                                        "errors": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "in": { "type": "string" },
+                                                    "location": { "type": "string" },
+                                                    "code": { "type": "string" },
+                                                    "detail": { "type": "string" },
+                                                    "index": { "type": "number" }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "required": ["status", "title", "detail", "errors"],
+                                    "additionalProperties": false
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            }
+        },
+        "/properties-zonder-location": {
+            "get": {
+                "tags": [
+                    "resource"
+                ],
+                "description": "Resource",
+                "operationId": "getResource",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "OK",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": { "type": "integer" },
+                                        "title": { "type": "string" },
+                                        "detail": { "type": "string" },
+                                        "errors": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "in": { "type": "string" },
+                                                    "code": { "type": "string" },
+                                                    "detail": { "type": "string" },
+                                                    "index": { "type": "number" }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "required": ["status", "title", "detail", "errors"],
+                                    "additionalProperties": false
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            }
+        },
+        "/properties-verkeerd-formaat-in": {
+            "get": {
+                "tags": [
+                    "resource"
+                ],
+                "description": "Resource",
+                "operationId": "getPropertiesVerkeerdFormatIn",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "OK",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": { "type": "integer" },
+                                        "title": { "type": "string" },
+                                        "detail": { "type": "string" },
+                                        "errors": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "in": { "type": "number" },
+                                                    "location": { "type": "string" },
+                                                    "code": { "type": "string" },
+                                                    "detail": { "type": "string" },
+                                                    "index": { "type": "number" }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "required": ["status", "title", "detail", "errors"],
+                                    "additionalProperties": false
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            }
+        },
+        "/properties-verkeerd-formaat-location": {
+            "get": {
+                "tags": [
+                    "resource"
+                ],
+                "description": "Resource",
+                "operationId": "getPropertiesVerkeerdFormatLocation",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "OK",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": { "type": "integer" },
+                                        "title": { "type": "string" },
+                                        "detail": { "type": "string" },
+                                        "errors": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "in": { "type": "string" },
+                                                    "location": { "type": "number" },
+                                                    "code": { "type": "string" },
+                                                    "detail": { "type": "string" },
+                                                    "index": { "type": "number" }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "required": ["status", "title", "detail", "errors"],
+                                    "additionalProperties": false
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            }
+        },
+        "/properties-verkeerd-formaat-code": {
+            "get": {
+                "tags": [
+                    "resource"
+                ],
+                "description": "Resource",
+                "operationId": "getPropertiesVerkeerdFormatCode",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "OK",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": { "type": "integer" },
+                                        "title": { "type": "string" },
+                                        "detail": { "type": "string" },
+                                        "errors": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "in": { "type": "string" },
+                                                    "location": { "type": "string" },
+                                                    "code": { "type": "number" },
+                                                    "detail": { "type": "string" },
+                                                    "index": { "type": "number" }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "required": ["status", "title", "detail", "errors"],
+                                    "additionalProperties": false
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            }
+        },
+        "/properties-verkeerd-formaat-detail": {
+            "get": {
+                "tags": [
+                    "resource"
+                ],
+                "description": "Resource",
+                "operationId": "getPropertiesVerkeerdFormatDetail",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "OK",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": { "type": "integer" },
+                                        "title": { "type": "string" },
+                                        "detail": { "type": "string" },
+                                        "errors": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "in": { "type": "string" },
+                                                    "location": { "type": "string" },
+                                                    "code": { "type": "string" },
+                                                    "detail": { "type": "number" },
+                                                    "index": { "type": "number" }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "required": ["status", "title", "detail", "errors"],
+                                    "additionalProperties": false
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            }
+        },
+        "/properties-verkeerd-formaat-index": {
+            "get": {
+                "tags": [
+                    "resource"
+                ],
+                "description": "Resource",
+                "operationId": "getPropertiesVerkeerdFormatIndex",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "OK",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": { "type": "integer" },
+                                        "title": { "type": "string" },
+                                        "detail": { "type": "string" },
+                                        "errors": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "in": { "type": "string" },
+                                                    "location": { "type": "string" },
+                                                    "code": { "type": "string" },
+                                                    "detail": { "type": "string" },
+                                                    "index": { "type": "string" }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "required": ["status", "title", "detail", "errors"],
+                                    "additionalProperties": false
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            }
+        },
+        "/properties-index-als-integer": {
+            "get": {
+                "tags": [
+                    "resource"
+                ],
+                "description": "Resource",
+                "operationId": "getPropertiesIndexAlsInteger",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "OK",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": { "type": "integer" },
+                                        "title": { "type": "string" },
+                                        "detail": { "type": "string" },
+                                        "errors": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "in": { "type": "string" },
+                                                    "location": { "type": "string" },
+                                                    "code": { "type": "string" },
+                                                    "detail": { "type": "string" },
+                                                    "index": { "type": "integer" }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "required": ["status", "title", "detail", "errors"],
+                                    "additionalProperties": false
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+        },
+        "securitySchemes": {
+            "default": {
+                "type": "oauth2",
+                "flows": {
+                    "implicit": {
+                        "authorizationUrl": "https://test.com",
+                        "scopes": {}
+                    }
+                }
+            }
+        }
+    }
+}
