@@ -17,10 +17,22 @@
 # spectral lint -r .linter.yaml $OAS_URL_OR_FILE
 # ```
 
-extends: spectral:oas
+extends:
+  - ["spectral:oas", "off"] # extend spectral:oas maar zet standaard alle regels uit
 
 rules:
+  #/core/publish-openapi (deze error-rules valideren of OAS valid is)
+  oas3-schema: error
+  operation-operationId-unique: error
+  path-params: error
+  openapi-tags-uniqueness: error
+  oas3-valid-media-example: error
+  oas3-valid-schema-example: error
+  oas3-server-variables: error
   oas3-api-servers: error
+
+  #/core/no-trailing-slash
+  path-keys-no-trailing-slash: error
 
   #/core/doc-openapi
   nlgov:openapi3:
