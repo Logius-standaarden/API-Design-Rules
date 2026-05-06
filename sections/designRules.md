@@ -687,7 +687,9 @@ An API is as good as the accompanying documentation. The documentation has to be
   <dl>
       <dt>Statement</dt>
       <dd>
-         OpenAPI definition document SHOULD include the <a href="https://spec.openapis.org/oas/v3.0.1.html#contact-object"><code>info.contact</code></a> object for publicly available APIs. Contact information SHOULD NOT be a generic contact address for the whole organisation.
+         OpenAPI definition document SHOULD include the <a href="https://spec.openapis.org/oas/v3.0.1.html#contact-object"><code>info.contact</code></a> object for publicly available APIs.
+         The <code>info.contact</code> object MUST include the fields <code>name</code>, <code>url</code> and <code>email</code>.
+         Contact information SHOULD NOT be a generic contact address for the whole organisation.
       </dd>
       <dt>Rationale</dt>
       <dd>
