@@ -705,7 +705,10 @@ An API is as good as the accompanying documentation. The documentation has to be
       </dd>
       <dt>How to test</dt>
       <dd>
-         Parse the OpenAPI Description to confirm the <code>info.contact</code> object is present.
+         <ul>
+            <li>Step 1. Parse the OpenAPI Description to confirm the <code>info.contact</code> object is present.
+            <li>Step 2. The <code>info.contact</code> MUST contain the fields <code>name</code>, <code>url</code> and <code>email</code>
+         </ul>
       </dd>
    </dl>
 </div>
