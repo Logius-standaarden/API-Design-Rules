@@ -1,5 +1,5 @@
 {
-    "openapi": "3.0.3",
+    "openapi": "3.0.1",
     "info": {
         "title": "Baseline",
         "description": "Deze OpenAPI specification bevat het minimale om aan alle regels te voldoen.",
@@ -8,7 +8,7 @@
             "url": "https://www.example.com",
             "email": "mail@example.com"
         },
-        "version": "1.0.0"
+        "version": "1.2"
     },
     "servers": [
         {
@@ -33,39 +33,6 @@
                 ],
                 "description": "OpenAPI document",
                 "operationId": "getOpenapiJSON",
-                "parameters": [],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "headers": {
-                            "API-Version": {
-                                "description": "De huidige versie van de applicatie",
-                                "style": "simple",
-                                "schema": {
-                                    "type": "string"
-                                }
-                            },
-                            "access-control-allow-origin": {
-                                "description": "Alle origins mogen bij deze resource",
-                                "schema": {
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "default": []
-                    }
-                ]
-            },
-            "post": {
-                "tags": [
-                    "openapi"
-                ],
-                "description": "OpenAPI document",
-                "operationId": "pushOpenapiJSON",
                 "parameters": [],
                 "responses": {
                     "200": {

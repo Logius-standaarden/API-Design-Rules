@@ -1,5 +1,5 @@
 {
-    "openapi": "3.0.3",
+    "openapi": "3.0.1",
     "info": {
         "title": "Baseline",
         "description": "Deze OpenAPI specification bevat het minimale om aan alle regels te voldoen.",
@@ -41,6 +41,12 @@
                             "API-Version": {
                                 "description": "De huidige versie van de applicatie",
                                 "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "access-control-allow-origin": {
+                                "description": "Alle origins mogen bij deze resource",
                                 "schema": {
                                     "type": "string"
                                 }

@@ -11,10 +11,10 @@ const readFile = utils.promisify(fs.readFile);
 const readdir = utils.promisify(fs.readdir);
 const writeFile = utils.promisify(fs.writeFile);
 
-const SPECTRAL_RULESET_LOCATION = path.join(__dirname, 'spectral.yml');
+const LINTER_RULESET_LOCATION = path.join(__dirname, '..', 'media', 'linter.yaml');
 
 function computeTestCommand(apiLocation) {
-    return `spectral lint -r ${SPECTRAL_RULESET_LOCATION} ${apiLocation}/openapi.json || true`
+    return `spectral lint -r ${LINTER_RULESET_LOCATION} ${apiLocation}/openapi.json || true`
 }
 
 function removeProcessDir(output) {
@@ -59,6 +59,9 @@ async function obtainAllTestcases() {
 
 const shouldRefreshOutput = argv.includes('--refresh');
 
+// Installeer spectral als die nog niet er is
+await execute(`which spectral || npm install --yes -g @stoplight/spectral-cli`);
+
 for (const apiLocation of await obtainAllTestcases()) {
     const actualOutput = await runCommand(apiLocation);
 
@@ -77,6 +80,7 @@ for (const apiLocation of await obtainAllTestcases()) {
         console.error(expectedOutput);
         console.error("but got")
         console.error(actualOutput);
+        console.error("You can automatically regenerate the expectations by running this script by calling it with `--refresh`");
         process.exit(1);
     }
 }

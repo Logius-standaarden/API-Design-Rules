@@ -1,0 +1,5 @@
+
+/testcases/semver-incorrect/openapi.json
+ 11:20  error  nlgov:semver  Version 1.2 is not in semver format.  info.version
+
+✖ 1 problem (1 error, 0 warnings, 0 infos, 0 hints)

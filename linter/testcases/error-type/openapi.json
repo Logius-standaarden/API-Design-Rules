@@ -53,7 +53,7 @@
                             }
                         }
                     },
-                    "400": {
+                    "404": {
                         "description": "OK",
                         "content": {
                             "application/hal+json": {

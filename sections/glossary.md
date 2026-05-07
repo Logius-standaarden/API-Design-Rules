@@ -23,7 +23,7 @@
     <dfn>URI</dfn>
   </dt>
   <dd>
-    A URI [[rfc3986]] (Uniform Resource Identifier) is a string that identifies a resource. URIs are intended to be unique across the web, allowing resources to be unambiguously referenced.
+    A URI [[RFC3986]] (Uniform Resource Identifier) is a string that identifies a resource. URIs are intended to be unique across the web, allowing resources to be unambiguously referenced.
   </dd>
   <dt>
     <dfn>OGC</dfn>

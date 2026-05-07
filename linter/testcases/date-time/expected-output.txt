@@ -1,0 +1,14 @@
+
+/testcases/date-time/openapi.json
+  94:55  error  nlgov:date-time-ensure-timezone         Use date-time format which includes a timezone                     paths./resources-with-time-incorrect.get.responses[200].content.application/json.schema.properties.date-time-local.format
+  98:55  error  nlgov:use-date-instead-of-datetime      Field represents a date and therefore must set 'format' to 'date'  paths./resources-with-time-incorrect.get.responses[200].content.application/json.schema.properties.date.format
+ 102:55  error  nlgov:use-date-instead-of-datetime      Field represents a date and therefore must set 'format' to 'date'  paths./resources-with-time-incorrect.get.responses[200].content.application/json.schema.properties.datum.format
+ 106:55  error  nlgov:use-date-instead-of-datetime      Field represents a date and therefore must set 'format' to 'date'  paths./resources-with-time-incorrect.get.responses[200].content.application/json.schema.properties.geboorteDatum.format
+ 110:55  error  nlgov:use-date-instead-of-datetime      Field represents a date and therefore must set 'format' to 'date'  paths./resources-with-time-incorrect.get.responses[200].content.application/json.schema.properties.birthDate.format
+ 114:55  error  nlgov:use-date-instead-of-datetime      Field represents a date and therefore must set 'format' to 'date'  paths./resources-with-time-incorrect.get.responses[200].content.application/json.schema.properties.expiration_date.format
+ 118:55  error  nlgov:use-date-instead-of-datetime      Field represents a date and therefore must set 'format' to 'date'  paths./resources-with-time-incorrect.get.responses[200].content.application/json.schema.properties.expiration_Date.format
+ 122:55  error  nlgov:time-without-timezone             Use time-local format without a timezone                           paths./resources-with-time-incorrect.get.responses[200].content.application/json.schema.properties.timestamp.format
+ 124:61  error  nlgov:specify-format-for-date-and-time  Any date field must set 'format' to 'date'                         paths./resources-with-time-incorrect.get.responses[200].content.application/json.schema.properties.missingFormatDate
+ 218:27  error  nlgov:use-date-instead-of-datetime      Field represents a date and therefore must set 'format' to 'date'  components.schemas.LocalDateTimeIncorrect.format
+
+✖ 10 problems (10 errors, 0 warnings, 0 infos, 0 hints)
