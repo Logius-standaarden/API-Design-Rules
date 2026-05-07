@@ -146,7 +146,7 @@ rules:
   nlgov:paths-kebab-case:
     severity: error
     message: "{{property}} is not kebab-case."
-    given: $.paths[?(@property && !@property.match(/\/openapi\.json/))]~
+    given: $.paths[?(@property && !@property.match(/\/openapi\.(json)|(yaml)/))]~
     then:
       function: pattern
       functionOptions:
@@ -224,6 +224,24 @@ rules:
               - status
               - title
               - detail
+
+  #/core/error-handling/invalid-input
+  nlgov:problem-invalid-input:
+    severity: error
+    message: "GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response"
+    given:
+      - $.paths..[?( @property.match(/(get)|(delete)/) && @.parameters && @.parameters.length > 0 )]
+      - $.paths..[?( @property.match(/(put)|(post)|(patch)/))]
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          properties:
+            responses:
+              type: object
+              required:
+              - "400"
 
   nlgov:property-casing:
     severity: warn

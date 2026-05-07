@@ -127,6 +127,36 @@
                                 }
                             }
                         }
+                    },
+                    "400": {
+                        "description": "OK",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": { "type": "integer" },
+                                        "title": { "type": "string" },
+                                        "detail": { "type": "string" },
+                                        "errors": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "in": { "type": "string" },
+                                                    "location": { "type": "string" },
+                                                    "code": { "type": "string" },
+                                                    "detail": { "type": "string" },
+                                                    "index": { "type": "number" }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "required": ["status", "title", "detail", "errors"],
+                                    "additionalProperties": false
+                                }
+                            }
+                        }
                     }
                 },
                 "security": [
