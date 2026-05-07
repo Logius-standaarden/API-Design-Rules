@@ -25,7 +25,7 @@
             "name": "openapi"
         },
         {
-            "name": "zoek"
+            "name": "resource"
         }
     ],
     "paths": {
@@ -55,134 +55,6 @@
                                 }
                             }
                         }
-                    }
-                },
-                "security": [
-                    {
-                        "default": []
-                    }
-                ]
-            }
-        },
-        "/organisaties/_zoek": {
-            "get": {
-                "tags": [
-                    "zoek"
-                ],
-                "description": "Organisatie zoek operatie",
-                "operationId": "organisatieZoek",
-                "parameters": [],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "headers": {
-                            "API-Version": {
-                                "description": "De huidige versie van de applicatie",
-                                "style": "simple",
-                                "schema": {
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "default": []
-                    }
-                ]
-            }
-        },
-        "/_zoek": {
-            "get": {
-                "tags": [
-                    "zoek"
-                ],
-                "description": "Globale zoekoperatie",
-                "operationId": "globalZoek",
-                "parameters": [],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "headers": {
-                            "API-Version": {
-                                "description": "De huidige versie van de applicatie",
-                                "style": "simple",
-                                "schema": {
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "default": []
-                    }
-                ]
-            }
-        },
-        "/_zoek/": {
-            "get": {
-                "tags": [
-                    "zoek"
-                ],
-                "description": "Globale zoekoperatie met trailing",
-                "operationId": "globalZoekMetTrailing",
-                "parameters": [],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "headers": {
-                            "API-Version": {
-                                "description": "De huidige versie van de applicatie",
-                                "style": "simple",
-                                "schema": {
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "default": []
-                    }
-                ]
-            }
-        },
-        "/organisaties/{id}/nested/_zoek": {
-            "get": {
-                "tags": [
-                    "zoek"
-                ],
-                "description": "Met variabele nested en zoek",
-                "operationId": "getWithVariableNestedEnZoek",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "De variabele",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "style": "simple",
-                        "explode": false
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "headers": {
-                            "API-Version": {
-                                "description": "De huidige versie van de applicatie",
-                                "style": "simple",
-                                "schema": {
-                                    "type": "string"
-                                }
-                            }
-                        }
                     },
                     "400": {
                         "description": "OK",
@@ -195,21 +67,140 @@
                                         "title": { "type": "string" },
                                         "detail": { "type": "string" },
                                         "errors": {
-                                            "type": "array",
-                                            "items": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "in": { "type": "string" },
-                                                    "location": { "type": "string" },
-                                                    "code": { "type": "string" },
-                                                    "detail": { "type": "string" },
-                                                    "index": { "type": "number" }
-                                                }
+                                            "type": "object",
+                                            "properties": {
+                                                "in": { "type": "string" },
+                                                "location": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "pointer": { "type": "string" },
+                                                        "name": { "type": "string" },
+                                                        "index": { "type": "integer" }
+                                                    }
+                                                },
+                                                "code": { "type": "string" },
+                                                "detail": { "type": "string" }
                                             }
                                         }
                                     },
                                     "required": ["status", "title", "detail", "errors"],
                                     "additionalProperties": false
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            }
+        },
+        "/invalid-response-vereist": {
+            "get": {
+                "tags": [
+                    "resource"
+                ],
+                "description": "Resource",
+                "operationId": "getPropertiesCorrect",
+                "parameters": [
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "Schakelaar om details van gekoppelde organisaties (subOIN of OINhouder) op te vragen (default false = geen details)",
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "style": "form",
+                        "explode": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "resource"
+                ],
+                "description": "Resource",
+                "operationId": "putPropertiesCorrect",
+                "parameters": [
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "Schakelaar om details van gekoppelde organisaties (subOIN of OINhouder) op te vragen (default false = geen details)",
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "style": "form",
+                        "explode": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "resource"
+                ],
+                "description": "Resource",
+                "operationId": "postPropertiesCorrect",
+                "parameters": [
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "Schakelaar om details van gekoppelde organisaties (subOIN of OINhouder) op te vragen (default false = geen details)",
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "style": "form",
+                        "explode": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
                                 }
                             }
                         }
