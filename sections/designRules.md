@@ -707,7 +707,7 @@ An API is as good as the accompanying documentation. The documentation has to be
       <dd>
          <ul>
             <li>Step 1. Parse the OpenAPI Description to confirm the <code>info.contact</code> object is present.
-            <li>Step 2. The <code>info.contact</code> MUST contain the fields <code>name</code>, <code>url</code> and <code>email</code>
+            <li>Step 2. Confirm <code>info.contact</code> contains the fields <code>name</code>, <code>url</code> and <code>email</code>.
          </ul>
       </dd>
    </dl>
