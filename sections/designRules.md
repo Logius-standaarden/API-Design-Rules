@@ -593,7 +593,7 @@ https://api.example.org/v1/comments/456</pre>
    <dl>
       <dt>Statement</dt>
       <dd>
-         <p>Error responses with HTTP status codes <code>4xx</code> or <code>5xx</code> MUST use either <code>application/problem+json</code> or <code>application/problem+xml</code> as the <code>Content-Type</code> header, and the response body MUST conform to the structure defined in [[rfc9457]].
+         <p>Error responses with HTTP status codes <code>4xx</code> or <code>5xx</code> MUST use either <code>application/problem+json</code> or <code>application/problem+xml</code> as the <code>Content-Type</code> header, and the response body MUST conform to the structure defined in [[RFC9457]].
          <p>The following fields MUST be present: <code>status</code>, <code>title</code>, and <code>detail</code>.
       </dd>
       <dt>Rationale</dt>
