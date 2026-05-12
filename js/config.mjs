@@ -4,9 +4,8 @@ import { generateMermaidFigures } from "https://logius-standaarden.github.io/pub
 
 async function initializeHighlightJSYaml() {
   //this is the function you call in 'preProcess', to load the highlighter
-  const worker = await new Promise(resolve => {
-    require(["core/worker"], ({ worker }) => resolve(worker));
-  });
+  const worker = await document.respec.worker;
+
   const action = "highlight-load-lang-self-registration";
   const langURL = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/yaml.min.js";
   const lang = "yaml";
@@ -31,9 +30,7 @@ async function fetchLinterConfiguration() {
 
 async function highlightLinterCode(config, document) {
   //this is the function you call in 'postProcess', to load the highlighter
-  const worker = await new Promise(resolve => {
-    require(["core/worker"], ({ worker }) => resolve(worker));
-  });
+  const worker = await document.respec.worker;
 
   const action = "highlight";
   const code = linterConfiguration;
