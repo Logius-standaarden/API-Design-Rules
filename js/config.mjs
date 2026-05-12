@@ -104,7 +104,7 @@ loadRespecWithConfiguration({
   previousPublishDate: "2025-08-27",
   previousPublishVersion: "2.1.0",
   shortName: "adr",
-  specStatus: "VV",
+  specStatus: "WV",
   specType: "ST",
   pluralize: true,
 
