@@ -329,7 +329,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
    <dl>
       <dt>Statement</dt>
       <dd>
-         An API MUST adhere to the HTTP method semantics defined in [[RFC9110]].
+         An API MUST adhere to the HTTP method semantics defined in [[RFC9110]] and [[RFC5789]].
       </dd>
       <dt>Rationale</dt>
       <dd>
