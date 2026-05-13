@@ -243,7 +243,6 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
 </code></pre>
          </aside>
          <p>All fields in requests and responses containing multiple localized options MUST be an array of objects where all objects have a field <code>"taal"</code> (Dutch) or all have a field <code>"language"</code> (English) with a value conforming [[RFC5646]] and all have a field <code>"waarde"</code> (Dutch) or have a field <code>"value"</code> (English) with the localized string.
-         <p> 
          <aside class="example">
             The following example shows a response for a resource with multiple localized options in an API with Dutch as its interface language.
             <pre><code class="json">{
@@ -277,7 +276,7 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
 </code></pre>
          </aside>
          <p class="warning">[[?ISO3166-1]] concerns identifiers of countries and MUST NOT be used to denote languages, since countries and languages are not equivalent.
-         <p class="note">Following [[RFC4647]] a language code in [[?ISO-639-1]] format match a language tag in [[RFC5646]] regardless of language subtag.
+         <p class="note">Following [[RFC4647]] a language code in [[?ISO-639-1]] format matches a language tag in [[RFC5646]] regardless of language subtag.
       </dd>
       <dt>Rationale</dt>
       <dd>
