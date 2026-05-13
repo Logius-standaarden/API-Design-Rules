@@ -214,6 +214,89 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
    </dl>
 </div>
 
+<div class="rule" id="/core/lang-code" data-type="technical">
+   <p class="rulelab">Use standard language codes for localization</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         <p>A resource containing localized information MUST follow <a href="https://www.rfc-editor.org/info/bcp47">BCP 47</a> [[RFC4647]] [[RFC5646]].
+         All fields in requests and responses containing singular localized information MUST be an object with a field <code>"taal"</code> (Dutch) or <code>"language"</code> (English) with a value conforming [[RFC5646]] and a field <code>"waarde"</code> (Dutch) or <code>"value"</code> (English) with the localized string.
+         <p class="note">Use the <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">language subtag registry</a> maintained by IANA for possible language subtags.
+         <aside class="example">
+            The following example shows a response for a resource with singular localized information in an API with Dutch as its interface language.
+            <pre><code class="json">{
+  "status": {
+    "taal": "nl-NL",
+    "waarde": "Goedgekeurd"
+  }
+}
+</code></pre>
+         </aside>
+         <aside class="example">
+            The following example shows a response for a resource with singular localized information in an API with English as its interface language.
+            <pre><code class="json">{
+  "status": {
+    "language": "nl-NL",
+    "value": "Goedgekeurd"
+  }
+}
+</code></pre>
+         </aside>
+         <p>All fields in requests and responses containing multiple localized options MUST be an array of objects where all objects have a field <code>"taal"</code> (Dutch) or all have a field <code>"language"</code> (English) with a value conforming [[RFC5646]] and all have a field <code>"waarde"</code> (Dutch) or have a field <code>"value"</code> (English) with the localized string.
+         <p> 
+         <aside class="example">
+            The following example shows a response for a resource with multiple localized options in an API with Dutch as its interface language.
+            <pre><code class="json">{
+  "status": [
+     {
+      "taal": "nl-NL",
+      "waarde": "Goedgekeurd"
+    },
+    {
+      "taal": "en-GB",
+      "waarde": "Accepted"
+    }
+  ]
+}
+</code></pre>
+         </aside>
+         <aside class="example">
+            The following example shows a response for a resource with multiple localized options in an API with English as its interface language.
+            <pre><code class="json">{
+  "status": [
+     {
+      "language": "nl-NL",
+      "value": "Goedgekeurd"
+     },
+     {
+       "language": "en-GB",
+       "value": "Accepted"
+     }
+  ]
+}
+</code></pre>
+         </aside>
+         <p class="warning">[[?ISO3166-1]] concerns identifiers of countries and MUST NOT be used to denote languages, since countries and languages are not equivalent.
+         <p class="note">Following [[RFC4647]] a language code in [[?ISO-639-1]] format match a language tag in [[RFC5646]] regardless of language subtag.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         Standardized language codes removes ambiguity in language handling between systems, potentially present in separate regions with different (spoken) languages.
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         <ul>
+            <li>Analyse all fields and if the field represents a language and ensure either one of the following options applies:
+            <ul>
+               <li>In case of singular localized information, ensure it is an object. It has two fields <code>"taal"</code> and <code>"waarde"</code> or it has two fields <code>"language"</code> and <code>"value"</code>.
+               <li>In case of multiple localized options, ensure it is an array. Either all objects have two fields <code>"taal"</code> and <code>"waarde"</code> or all objects have two fields <code>"language"</code> and <code>"value"</code>.
+            </ul>
+            <li>Confirm each field <code>"taal"</code> or <code>"language"</code> has a value in [[RFC5646]] format.
+         </ul>
+      </dd>
+   </dl>
+</div>
+
 ## Date and time
 
 Handling date and time is tricky and can lead to confusion among clients. The date-time rules remove ambiguity and provide clarity in the API contract between servers and clients.
