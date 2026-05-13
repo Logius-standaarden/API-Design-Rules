@@ -288,7 +288,7 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
             <li>Analyse all fields and if the field represents a language and ensure either one of the following options applies:
             <ul>
                <li>In case of singular localized information, ensure it is an object. It has two fields <code>"taal"</code> and <code>"waarde"</code> or it has two fields <code>"language"</code> and <code>"value"</code>.
-               <li>In case of multiple localized options, ensure it is an array. Either all objects have two fields <code>"taal"</code> and <code>"waarde"</code> or all objects have two fields <code>"language"</code> and <code>"value"</code>.
+               <li>In case of multiple localized options, ensure it is an array consisting of objects. Either all objects have two fields <code>"taal"</code> and <code>"waarde"</code> or all objects have two fields <code>"language"</code> and <code>"value"</code>.
             </ul>
             <li>Confirm each field <code>"taal"</code> or <code>"language"</code> has a value in [[RFC5646]] format.
          </ul>
