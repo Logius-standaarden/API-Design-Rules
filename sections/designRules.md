@@ -329,7 +329,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
    <dl>
       <dt>Statement</dt>
       <dd>
-         An API MUST adhere to the HTTP method semantics defined in [[RFC9110]].
+         An API MUST adhere to the HTTP method semantics defined in [[RFC9110]] and [[RFC5789]].
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -407,7 +407,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
       </tbody>
       </table>
    </aside>
-   <p class="note">The HTTP specification [[RFC9110]] offers a set of standard methods, where every method is designed with explicit semantics. HTTP also defines other methods, e.g. <code>HEAD</code>, <code>OPTIONS</code>, <code>TRACE</code>, and <code>CONNECT</code>.<br>
+   <p class="note">The HTTP specification [[RFC9110]] and the later introduced <code>PATCH</code> method specification [[RFC5789]] offer a set of standard methods, where every method is designed with explicit semantics. HTTP also defines other methods, e.g. <code>HEAD</code>, <code>OPTIONS</code>, <code>TRACE</code>, and <code>CONNECT</code>.<br>
    The OpenAPI Specification 3.0 <a href="https://spec.openapis.org/oas/v3.0.1#path-item-object">Path Item Object</a> also supports these methods, except for <code>CONNECT</code>.<br>
   According to <a href="https://www.rfc-editor.org/rfc/rfc9110#name-overview">RFC 9110 9.1</a> the <code>GET</code> and <code>HEAD</code> HTTP methods MUST be supported by the server, all other methods are optional.<br>
   In addition to the standard HTTP methods, a server may support other optional methods as well, e.g. <code>PROPFIND</code>, <code>COPY</code>, <code>PURGE</code>, <code>VIEW</code>, <code>LINK</code>, <code>UNLINK</code>, <code>LOCK</code>, <code>UNLOCK</code>, etc.<br>
