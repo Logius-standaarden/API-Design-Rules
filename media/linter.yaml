@@ -193,7 +193,7 @@ rules:
       field: url
       function: pattern
       functionOptions:
-        match: ^https://.*
+        notMatch: ^http://.*
 
   #/core/error-handling/problem-details
   nlgov:use-problem-schema:
