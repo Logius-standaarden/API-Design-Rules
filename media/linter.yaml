@@ -31,9 +31,6 @@ rules:
   oas3-server-variables: error
   oas3-api-servers: error
 
-  #/core/no-trailing-slash
-  path-keys-no-trailing-slash: error
-
   #/core/doc-openapi
   nlgov:openapi3:
     severity: error
@@ -98,7 +95,7 @@ rules:
     then:
       function: pattern
       functionOptions:
-        notMatch: ".+ \\/$"
+        notMatch: ".+\\/$"
       field: "@key"
     message: "Leave off trailing slashes from URIs."
     documentationUrl: "https://developer.overheid.nl/kennisbank/apis/api-design-rules/hoe-te-voldoen/no-trailing-slash"
