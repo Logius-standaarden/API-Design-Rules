@@ -214,6 +214,88 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
    </dl>
 </div>
 
+<div class="rule" id="/core/lang-code" data-type="technical">
+   <p class="rulelab">Use standard language codes and field names for language content</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         <p>A resource containing language content MUST follow <a href="https://www.rfc-editor.org/info/bcp47">BCP 47</a> [[RFC4647]] [[RFC5646]].
+         All fields in requests and responses containing monolingual content MUST be an object with two fields (JSON) or tag with two subtags (XML). In it, <code>"taal"</code> (Dutch) or <code>"language"</code> (English) contains a value conforming [[RFC5646]] and <code>"waarde"</code> (Dutch) or <code>"value"</code> (English) contains the lingual content.
+         <p class="note">Use the <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">language subtag registry</a> maintained by IANA for possible language subtags.
+         <aside class="example">
+            The following example shows a response for a resource with monolingual content in an API with Dutch as its <a href="#/core/interface-language">interface language</a>.
+            <pre><code class="json">{
+  "ondertitel": {
+    "taal": "nl-NL",
+    "waarde": "Een blogpost over API's"
+  }
+}
+</code></pre>
+         </aside>
+         <aside class="example">
+            The following example shows a response for a resource with monolingual content in an API with English as its <a href="#/core/interface-language">interface language</a>.
+            <pre><code class="json">{
+  "subtitle": {
+    "language": "nl-NL",
+    "value": "Een blogpost over API's"
+  }
+}
+</code></pre>
+         </aside>
+         <p>All fields in requests and responses containing multilingual content MUST be an array of objects (JSON) or multiple children tags (XML). All elements either have a field <code>"taal"</code> (Dutch) or all have a field <code>"language"</code> (English) with a value conforming [[RFC5646]] and all have a field <code>"waarde"</code> (Dutch) or have a field <code>"value"</code> (English) with the lingual content.
+         <aside class="example">
+            The following example shows a response for a resource with multilingual content in an API with Dutch as its <a href="#/core/interface-language">interface language</a>.
+            <pre><code class="json">{
+  "ondertitel": [
+     {
+      "taal": "nl-NL",
+      "waarde": "Een blogpost over API's"
+    },
+    {
+      "taal": "en-GB",
+      "waarde": "A blogpost about API's"
+    }
+  ]
+}
+</code></pre>
+         </aside>
+         <aside class="example">
+            The following example shows a response for a resource with multilingual content in an API with English as its <a href="#/core/interface-language">interface language</a>.
+            <pre><code class="json">{
+  "subtitle": [
+     {
+      "language": "nl-NL",
+      "value": "Een blogpost over API's"
+     },
+     {
+       "language": "en-GB",
+       "value": "A blogpost about API's"
+     }
+  ]
+}
+</code></pre>
+         </aside>
+         <p class="warning">[[?ISO3166-1]] concerns identifiers of countries and MUST NOT be used to denote languages, since countries and languages are not equivalent.
+         <p class="note">Following [[RFC4647]] a language code in [[?ISO-639-1]] format matches a language tag in [[RFC5646]] regardless of language subtag.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         Standardized language codes removes ambiguity in language handling between systems, potentially present in separate regions with different (spoken) languages.
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         <ul>
+            <li>Analyse all fields and if the field represents a language and ensure either one of the following options applies:
+            <ul>
+               <li>In case of monolingual content, ensure it is an object (JSON) or tag (XML). It has two fields <code>"taal"</code> and <code>"waarde"</code> or it has two fields <code>"language"</code> and <code>"value"</code>.
+               <li>In case of multilingual content, ensure it is an array consisting of objects (JSON) or multiple children tags (XML). Either all objects/children have two fields <code>"taal"</code> and <code>"waarde"</code> or all objects/children have two fields <code>"language"</code> and <code>"value"</code>.
+            </ul>
+            <li>Confirm each field <code>"taal"</code> or <code>"language"</code> has a value in [[RFC5646]] format.
+         </ul>
+      </dd>
+   </dl>
+</div>
+
 ## Date and time
 
 Handling date and time is tricky and can lead to confusion among clients. The date-time rules remove ambiguity and provide clarity in the API contract between servers and clients.
