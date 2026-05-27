@@ -215,61 +215,61 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
 </div>
 
 <div class="rule" id="/core/lang-code" data-type="technical">
-   <p class="rulelab">Use standard language codes for localization</p>
+   <p class="rulelab">Use standard language codes and field names for multilingual content</p>
    <dl>
       <dt>Statement</dt>
       <dd>
          <p>A resource containing localized information MUST follow <a href="https://www.rfc-editor.org/info/bcp47">BCP 47</a> [[RFC4647]] [[RFC5646]].
-         All fields in requests and responses containing singular localized information MUST be an object with a field <code>"taal"</code> (Dutch) or <code>"language"</code> (English) with a value conforming [[RFC5646]] and a field <code>"waarde"</code> (Dutch) or <code>"value"</code> (English) with the localized string.
+         All fields in requests and responses containing singular localized information MUST be an object with two fields (JSON) or tag with two subtags (XML). In it, <code>"taal"</code> (Dutch) or <code>"language"</code> (English) contains a value conforming [[RFC5646]] and <code>"waarde"</code> (Dutch) or <code>"value"</code> (English) contains the localized string.
          <p class="note">Use the <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">language subtag registry</a> maintained by IANA for possible language subtags.
          <aside class="example">
-            The following example shows a response for a resource with singular localized information in an API with Dutch as its interface language.
+            The following example shows a response for a resource with singular localized information in an API with Dutch as its <a href="#/core/interface-language">interface language</a>.
             <pre><code class="json">{
-  "status": {
+  "ondertitel": {
     "taal": "nl-NL",
-    "waarde": "Goedgekeurd"
+    "waarde": "Een blogpost over API's"
   }
 }
 </code></pre>
          </aside>
          <aside class="example">
-            The following example shows a response for a resource with singular localized information in an API with English as its interface language.
+            The following example shows a response for a resource with singular localized information in an API with English as its <a href="#/core/interface-language">interface language</a>.
             <pre><code class="json">{
-  "status": {
+  "subtitle": {
     "language": "nl-NL",
-    "value": "Goedgekeurd"
+    "value": "Een blogpost over API's"
   }
 }
 </code></pre>
          </aside>
          <p>All fields in requests and responses containing multiple localized options MUST be an array of objects where all objects have a field <code>"taal"</code> (Dutch) or all have a field <code>"language"</code> (English) with a value conforming [[RFC5646]] and all have a field <code>"waarde"</code> (Dutch) or have a field <code>"value"</code> (English) with the localized string.
          <aside class="example">
-            The following example shows a response for a resource with multiple localized options in an API with Dutch as its interface language.
+            The following example shows a response for a resource with multiple localized options in an API with Dutch as its <a href="#/core/interface-language">interface language</a>.
             <pre><code class="json">{
-  "status": [
+  "ondertitel": [
      {
       "taal": "nl-NL",
-      "waarde": "Goedgekeurd"
+      "waarde": "Een blogpost over API's"
     },
     {
       "taal": "en-GB",
-      "waarde": "Accepted"
+      "waarde": "A blogpost about API's"
     }
   ]
 }
 </code></pre>
          </aside>
          <aside class="example">
-            The following example shows a response for a resource with multiple localized options in an API with English as its interface language.
+            The following example shows a response for a resource with multiple localized options in an API with English as its <a href="#/core/interface-language">interface language</a>.
             <pre><code class="json">{
-  "status": [
+  "subtitle": [
      {
       "language": "nl-NL",
-      "value": "Goedgekeurd"
+      "value": "Een blogpost over API's"
      },
      {
        "language": "en-GB",
-       "value": "Accepted"
+       "value": "A blogpost about API's"
      }
   ]
 }
