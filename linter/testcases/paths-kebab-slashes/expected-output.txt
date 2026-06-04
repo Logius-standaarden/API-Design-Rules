@@ -1,6 +1,6 @@
 
 /testcases/paths-kebab-slashes/openapi.json
-  96:26  error  path-keys-no-trailing-slash  Path must not end with slash.  paths./suffix-slash/
- 154:37  error  path-keys-no-trailing-slash  Path must not end with slash.  paths./nested-slash/met-suffix/
+  96:26  error  nlgov:paths-no-trailing-slash  Leave off trailing slashes from URIs.  paths./suffix-slash/
+ 154:37  error  nlgov:paths-no-trailing-slash  Leave off trailing slashes from URIs.  paths./nested-slash/met-suffix/
 
 ✖ 2 problems (2 errors, 0 warnings, 0 infos, 0 hints)
