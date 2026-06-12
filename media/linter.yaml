@@ -171,20 +171,8 @@ rules:
       functionOptions:
         match: ^\$?[a-z][a-z\d]*([A-Z][a-z\d]*)*$
 
-  nlgov:schema-camel-case:
-    severity: warn
-    message: "Schema name should be UpperCamelCase in {{path}}"
-    given: >-
-      $.components.schemas[*]~
-    then:
-      function: casing
-      functionOptions:
-        type: pascal
-        separator:
-          char: ""
-
   nlgov:servers-use-https:
-    severity: warn
+    severity: error
     message: "Server URL {{value}} {{error}}."
     given:
       - $.servers[*]
@@ -244,7 +232,7 @@ rules:
               - "400"
 
   nlgov:property-casing:
-    severity: warn
+    severity: error
     given:
       - "$.*.schemas[*].properties.[?(@property && @property.match(/_links/i))]"
     then:
