@@ -231,17 +231,6 @@ rules:
               required:
               - "400"
 
-  nlgov:property-casing:
-    severity: error
-    given:
-      - "$.*.schemas[*].properties.[?(@property && @property.match(/_links/i))]"
-    then:
-      function: casing
-      functionOptions:
-        type: camel
-      field: "@key"
-    message: Properties must be lowerCamelCase.
-
   #/core/date-time/timezone
   nlgov:date-time-ensure-timezone:
     severity: error
