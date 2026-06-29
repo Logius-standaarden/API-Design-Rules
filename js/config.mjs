@@ -54,6 +54,17 @@ async function highlightLinterCode(config, document) {
   });
 }
 
+function runSpellcheck(config, document) {
+  if (!config.spellcheck) {
+    return;
+  }
+  document.querySelector('.head').remove();
+  document.getElementById('references')?.remove();
+  for (const element of document.getElementsByClassName('remove-for-spellcheck')) {
+    element.remove();
+  }
+}
+
 loadRespecWithConfiguration({
   authors: [ 
       { 
@@ -104,9 +115,15 @@ loadRespecWithConfiguration({
   specStatus: "WV",
   specType: "ST",
   pluralize: true,
+  spellcheck: false,
 
   preProcess: [initializeHighlightJSYaml, fetchLinterConfiguration],
-  postProcess: [generateMermaidFigures, highlightLinterCode, (config, document, utils) => processRuleBlocks(config, document, utils, linterConfiguration)],
+  postProcess: [
+    generateMermaidFigures,
+    highlightLinterCode,
+    (config, document, utils) => processRuleBlocks(config, document, utils, linterConfiguration),
+    runSpellcheck,
+  ],
 
   localBiblio: {
     "ADR-encryption": {

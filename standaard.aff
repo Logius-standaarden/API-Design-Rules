@@ -1,0 +1,10 @@
+SET UTF-8
+
+# Required to make sure that combinations of two are also allowed.
+# The default is 3, which wouldn't match for RFC123
+COMPOUNDMIN 1
+
+COMPOUNDRULE 3
+COMPOUNDRULE RN* # Allow RFC notation
+COMPOUNDRULE IN* # Allow ISO notation
+COMPOUNDRULE VN  # Allow v1 notation

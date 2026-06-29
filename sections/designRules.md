@@ -18,13 +18,13 @@ The REST architectural style is centered around the concept of a [=resource=]. A
    <aside class="example">
       A few correct examples of nouns as part of a URI:
       <ul>
-         <li>Gebouw</li>
-         <li>Vergunning</li>
+         <li><code>Gebouw</code></li>
+         <li><code>Vergunning</code></li>
       </ul>
       <p>This is different than RPC-style APIs, where verbs are often used to perform certain actions:</p>
       <ul>
-         <li>Opvragen</li>
-         <li>Registreren</li>
+         <li><code>Opvragen</code></li>
+         <li><code>Registreren</code></li>
       </ul>
    </aside>
    </dd>

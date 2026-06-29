@@ -61,3 +61,23 @@ jobs:
         run: npm install -g @stoplight/spectral-cli
       - name: Run linter on ${{ matrix.example }} example
         run: ./examples/${{ matrix.example }}/build-and-check-project.sh
+  spellchecker:
+    name: Run spellcheck
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install hunspell
+        run: |
+          sudo apt-get install hunspell
+          wget -O en_GB.aff https://cgit.freedesktop.org/libreoffice/dictionaries/plain/en/en_GB.aff
+          wget -O en_GB.dic https://cgit.freedesktop.org/libreoffice/dictionaries/plain/en/en_GB.dic
+      - name: Build spellcheck version of standard
+        run: |
+          REPLACEMENT_REGEX="s/spellcheck: false/spellcheck: true/"
+          sed -i "$REPLACEMENT_REGEX" js/config.mjs
+          mkdir ~/static
+          npx respec --localhost --src index.html --out ~/static/index.html --haltonwarn
+      - name: Run spellcheck
+        run: |
+          hunspell -l -d en_GB,standaard -H ~/static/index.html | sort -u > spelling.txt
+          [ -s spelling.txt ] && cat spelling.txt && exit 1

@@ -20,6 +20,8 @@ This document is part of the *Nederlandse API Strategie*.
 
 The Nederlandse API Strategie consists of [a set of distinct documents](https://developer.overheid.nl/communities/kennisplatform-apis/#api-strategie).
 
+<div class="remove-for-spellcheck">
+
 | Status           | Description & Link                                                                                               |
 |------------------|------------------------------------------------------------------------------------------------------------------|
 | Informative      | [Inleiding NL API Strategie](https://geonovum.github.io/KP-APIs/API-strategie-algemeen/Inleiding/)               |
@@ -33,6 +35,8 @@ The Nederlandse API Strategie consists of [a set of distinct documents](https://
 | Normative module | [Transport Security module v1.0](https://gitdocumentatie.logius.nl/publicatie/api/mod-ts/1.0.2/)                 |
 
 Before reading this document it is advised to gain knowledge of the informative documents, in particular the [Architecture](https://geonovum.github.io/KP-APIs/API-strategie-algemeen/Architectuur/).
+
+</div>
 
 An overview of all current documents is available in this Dutch infographic:
 <figure>
