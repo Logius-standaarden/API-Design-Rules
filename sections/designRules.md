@@ -6,7 +6,7 @@
 
 ## Resources
 
-The REST architectural style is centered around the concept of a [=resource=]. A resource is an abstraction of a conceptual entity, identified by a globally unique [=URI=]. It may correspond to anything from a physical object (e.g. a building or a person) to an abstract concept (e.g. a permit, an event or today's weather). Although a resource is not tied to any specific exchange format, its current state can be transferred to clients through one or more representations, such as JSON or XML.
+The REST architectural style is centred around the concept of a [=resource=]. A resource is an abstraction of a conceptual entity, identified by a globally unique [=URI=]. It may correspond to anything from a physical object (e.g. a building or a person) to an abstract concept (e.g. a permit, an event or today's weather). Although a resource is not tied to any specific exchange format, its current state can be transferred to clients through one or more representations, such as JSON or XML.
 
 <span id="api-05"></span>
 <div class="rule" id="/core/naming-resources" data-type="functional">
@@ -117,8 +117,8 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
       <dt>Statement</dt>
       <dd>
          <div>
-            <p>Path segments of a [=URI=] MUST only contain lowercase letters, digits or hyphens. This is also known as <a href="https://developer.mozilla.org/en-US/docs/Glossary/Kebab_case">kebab-case</a>. Hyphens MUST only be used to deliniate distinct words. This also implies that diacritics MUST be normalized and special characters MUST be omitted.
-            <p>Another implication of this rule is that file extensions MUST NOT be used. Resources SHOULD use the <code>Accept</code> header for content negotation.
+            <p>Path segments of a [=URI=] MUST only contain lowercase letters, digits or hyphens. This is also known as <a href="https://developer.mozilla.org/en-US/docs/Glossary/Kebab_case">kebab-case</a>. Hyphens MUST only be used to delineate distinct words. This also implies that diacritics MUST be normalised and special characters MUST be omitted.
+            <p>Another implication of this rule is that file extensions MUST NOT be used. Resources SHOULD use the <code>Accept</code> header for content negotiation.
             <p>The last path segment MAY start with `_`, which is used as a convention to implement <a href="#/core/resource-operations">operations</a>
          </div>
       </dd>
@@ -136,7 +136,7 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
             <pre class="nohighlight example-incorrect">https://api.example.org/v1/organisatie-</pre>
             <p>URI path segment starting with a hyphen (incorrect):</p>
             <pre class="nohighlight example-incorrect">https://api.example.org/v1/-organisatie</pre>
-            <p>URI path segment using normalized diacritics (correct):</p>
+            <p>URI path segment using normalised diacritics (correct):</p>
             <pre class="nohighlight example-correct">https://api.example.org/v1/scenes</pre>
             <p>URI path segment using diacritics (incorrect):</p>
             <pre class="nohighlight example-incorrect">https://api.example.org/v1/scènes</pre>
@@ -167,12 +167,12 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
       <dt>Statement</dt>
       <dd>
          <div>
-            <p>Query keys in a [=URI=] MUST only contain letters and digits, where the first letter of each word is capitalized, except for the first letter (MUST NOT be a digit) of the entire compound word. This is also known as <a href="https://developer.mozilla.org/en-US/docs/Glossary/Camel_case">lower camelCase</a>. This also implies that diacritics MUST be normalized and special characters MUST be omitted.
+            <p>Query keys in a [=URI=] MUST only contain letters and digits, where the first letter of each word is capitalised, except for the first letter (MUST NOT be a digit) of the entire compound word. This is also known as <a href="https://developer.mozilla.org/en-US/docs/Glossary/Camel_case">lower camelCase</a>. This also implies that diacritics MUST be normalised and special characters MUST be omitted.
          </div>
       </dd>
       <dt>Rationale</dt>
       <dd>
-         <p>Query keys are often converted to JSON object keys, where camelCase is the naming convention to avoid compatibility issues with JavaScript when deserializing objects.
+         <p>Query keys are often converted to JSON object keys, where camelCase is the naming convention to avoid compatibility issues with JavaScript when deserialising objects.
          <aside class="example">
             <p>URI query key using camelCase (correct):</p>
             <pre class="nohighlight example-correct">https://api.example.org/v1/gebouwen?typeGebouw=woning</pre>
@@ -208,7 +208,7 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
             <li>The API design of Convenience,- and Process API types (as described in <a href="https://docs.geostandaarden.nl/api/def-hr-API-Strategie-20200204/#aanbeveling-2-analyseer-welke-api-s-je-aan-moet-bieden-welke-informatievragen-wil-je-beantwoorden">Aanbeveling 2</a> of the NL API Strategie) SHOULD NOT be a 1-on-1 mapping of the underlying domain- or persistence model.</li>
             <li>The API design of a System API type (as described in <a href="https://docs.geostandaarden.nl/api/def-hr-API-Strategie-20200204/#aanbeveling-2-analyseer-welke-api-s-je-aan-moet-bieden-welke-informatievragen-wil-je-beantwoorden">Aanbeveling 2</a> of the NL API Strategie) MAY be a mapping of the underlying  persistence model.</li>
             <li>The API SHOULD NOT expose information about the technical components being used, such as development platforms/frameworks or database systems.</li>
-            <li>The API SHOULD offer client-friendly attribute names and values, while persisted data may contain abbreviated terms or serializations which might be cumbersome for consumption.</li>
+            <li>The API SHOULD offer client-friendly attribute names and values, while persisted data may contain abbreviated terms or serialisations which might be cumbersome for consumption.</li>
          </ul>
       </dd>
    </dl>
@@ -292,7 +292,7 @@ Handling date and time is tricky and can lead to confusion among clients. The da
       <dt>Rationale</dt>
       <dd>
          <p>Allowing clients to use any timezone offset in requests results in flexibility and less complexity for users. Using UTC in responses results in clarity and removes ambiguity.
-         <p class="note">While storage formats are outside the scope of this specification, it is recommended to use appropriate temporal datatypes (such as <code>DATE</code> and <code>TIMESTAMPTZ</code>). Many database systems store these values internally in UTC and handle timezone conversion automatically on read/write.
+         <p class="note">While storage formats are outside the scope of this specification, it is recommended to use appropriate temporal data types (such as <code>DATE</code> and <code>TIMESTAMPTZ</code>). Many database systems store these values internally in UTC and handle timezone conversion automatically on read/write.
       </dd>
    </dl>
 </div>
@@ -333,7 +333,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
       </dd>
       <dt>Rationale</dt>
       <dd>
-         The HTTP specifications offer a set of standard methods, where every method is designed with explicit semantics. Adhering to the HTTP specification is crucial, since HTTP clients and middleware applications rely on standardized characteristics.
+         The HTTP specifications offer a set of standard methods, where every method is designed with explicit semantics. Adhering to the HTTP specification is crucial, since HTTP clients and middleware applications rely on standardised characteristics.
          <table>
             <thead>
                <tr>
@@ -410,7 +410,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
    <p class="note">The HTTP specification [[RFC9110]] and the later introduced <code>PATCH</code> method specification [[RFC5789]] offer a set of standard methods, where every method is designed with explicit semantics. HTTP also defines other methods, e.g. <code>HEAD</code>, <code>OPTIONS</code>, <code>TRACE</code>, and <code>CONNECT</code>.<br>
    The OpenAPI Specification 3.0 <a href="https://spec.openapis.org/oas/v3.0.1#path-item-object">Path Item Object</a> also supports these methods, except for <code>CONNECT</code>.<br>
   According to <a href="https://www.rfc-editor.org/rfc/rfc9110#name-overview">RFC 9110 9.1</a> the <code>GET</code> and <code>HEAD</code> HTTP methods MUST be supported by the server, all other methods are optional.<br>
-  In addition to the standard HTTP methods, a server may support other optional methods as well, e.g. <code>PROPFIND</code>, <code>COPY</code>, <code>PURGE</code>, <code>VIEW</code>, <code>LINK</code>, <code>UNLINK</code>, <code>LOCK</code>, <code>UNLOCK</code>, etc.<br>
+  In addition to the standard HTTP methods, a server may support other optional methods as well, e.g. <code>PROPFIND</code>, <code>COPY</code>, <code>PURGE</code>, <code>VIEW</code>, <code>LINK</code>, <code>UNLINK</code>, <code>LOCK</code>, <code>UNLOCK</code>, etcetera.<br>
   If an optional HTTP request method is sent to a server and the server does not support that HTTP method for the target resource, an HTTP status code <code>405 Method Not Allowed</code> shall be returned and a list of allowed methods for the target resource shall be provided in the <code>Allow</code> header in the response as stated in <a href="https://www.rfc-editor.org/rfc/rfc9110#name-405-method-not-allowed">RFC 9110 15.5.6</a>.</p>
       </dd>
       <dt>How to test</dt>
@@ -503,7 +503,7 @@ Although the REST architectural style does not impose a specific protocol, REST 
 
 ## Statelessness
 
-One of the key constraints of the REST architectural style is stateless communication between client and server. It means that every request from client to server must contain all of the information necessary to understand the request. The server cannot take advantage of any stored session context on the server as it didn’t memorize previous requests. Session state must therefore reside entirely on the client.
+One of the key constraints of the REST architectural style is stateless communication between client and server. It means that every request from client to server must contain all of the information necessary to understand the request. The server cannot take advantage of any stored session context on the server as it didn’t memorise previous requests. Session state must therefore reside entirely on the client.
 
 To properly understand this constraint, it is important to make a distinction between two different kinds of state:
 
@@ -514,9 +514,9 @@ To properly understand this constraint, it is important to make a distinction be
 
 Stateless communication offers many advantages, including:
 
-* *Simplicity* is increased because the server does not have to memorize or retrieve session state while processing requests
+* *Simplicity* is increased because the server does not have to memorise or retrieve session state while processing requests
 * *Scalability* is improved because not having to incorporate session state across multiple requests enables higher concurrency and performance
-* *Observability* is improved since every request can be monitored or analyzed in isolation without having to incorporate session context from other requests
+* *Observability* is improved since every request can be monitored or analysed in isolation without having to incorporate session context from other requests
 * *Reliability* is improved because it eases the task of recovering from partial failures since the server does not have to maintain, update or communicate session state. One failing request does not influence other requests (depending on the nature of the failure of course).
 
 <span id="api-02"></span>
@@ -562,7 +562,7 @@ Resources are often interconnected by relationships. Relationships can be modell
             <p>The [=singular resources=] for comments, referenced from all 3 collections, could still be modelled on a higher level to avoid deep nesting of URIs (which might increase complexity or problems due to the URI length):
             <pre class="nohighlight">https://api.example.org/v1/comments/123
 https://api.example.org/v1/comments/456</pre>
-            <p>Although this approach might seem counterintuitive from a technical perspective (we simply could have modelled a single <code>/comments</code> resource with optional filters for article and photo) and might introduce partially redundant functionality, it makes perfect sense from the perspective of the consumer, which increases developer experience.
+            <p>Although this approach might seem counter-intuitive from a technical perspective (we simply could have modelled a single <code>/comments</code> resource with optional filters for article and photo) and might introduce partially redundant functionality, it makes perfect sense from the perspective of the consumer, which increases developer experience.
          </aside>
       </dd>
 </div>
@@ -581,7 +581,7 @@ https://api.example.org/v1/comments/456</pre>
       <dd>
          There are resource operations which might not seem to fit well in the CRUD interaction model. For example, approving a submission or notifying a customer. Depending on the type of the operation, there are three possible approaches:
       <ol>
-         <li>Re-model the resource to incorporate extra fields supporting the particular operation. For example, an approval operation can be modelled in a boolean attribute <code>goedgekeurd</code> that can be modified by issuing a <code>PATCH</code> request against the resource. A drawback of this approach is that the resource does not contain any metadata about the operation (when and by whom was the approval given? Was the submission rejected in an earlier stage?). Furthermore, this requires a fine-grained authorization model, since approval might require a specific role.</li>
+         <li>Re-model the resource to incorporate extra fields supporting the particular operation. For example, an approval operation can be modelled in a boolean attribute <code>goedgekeurd</code> that can be modified by issuing a <code>PATCH</code> request against the resource. A drawback of this approach is that the resource does not contain any metadata about the operation (when and by whom was the approval given? Was the submission rejected in an earlier stage?). Furthermore, this requires a fine-grained authorisation model, since approval might require a specific role.</li>
          <li>Treat the operation as a sub-resource. For example, model a sub-collection resource <code>/inzendingen/12/beoordelingen</code> and add an approval or rejection by issuing a <code>POST</code> request. To be able to retrieve the review history (and to consistently adhere to the REST principles), also support the <code>GET</code> method for this resource. The <code>/inzendingen/12</code> resource might still provide a <code>goedgekeurd</code> boolean attribute (same as approach 1) which gets automatically updated in the background after adding a review. This attribute SHOULD however be read-only.</li>
          <li>In exceptional cases, the approaches above still do not offer an appropriate solution. An example of such an operation is a global search across multiple resources. In this case, the creation of a dedicated resource, possibly nested under an existing resource, is the most obvious solution. Use the imperative mood of a verb, maybe even prefix it with a underscore to distinguish these resources from regular resources. For example: <code>/search</code> or <code>/_search</code>. Depending on the operation characteristics, <code>GET</code> and/or <code>POST</code> method MAY be supported for such a resource.</li>
       </ol>
@@ -649,7 +649,7 @@ Content-Type: application/problem+json</code><code class="json">{
     </dd>
     <dt>Rationale</dt>
     <dd>
-      <p>To reduce the amount of roundtrips between client and server, all applicable schema validation errors SHOULD be returned together.
+      <p>To reduce the amount of round trips between client and server, all applicable schema validation errors SHOULD be returned together.
       This allows a client to present validation errors to a user in one go, reducing user friction with multiple retries.
       <p>It depends on a validation technique whether this is possible or not.
       For example, when a client provides a date in the weekend, where only dates on weekdays are allowed, it depends on which service performs these validation checks.
@@ -677,7 +677,7 @@ An API is as good as the accompanying documentation. The documentation has to be
       </dd>
       <dt>How to test</dt>
       <dd>
-         Parse the resource at the provided location as an OpenAPI Description and confirm all $refs are resolvable and paths are defined.
+         Parse the resource at the provided location as an OpenAPI Description and confirm all <code>$refs</code> are resolvable and paths are defined.
       </dd>
    </dl>
 </div>
@@ -751,8 +751,8 @@ An API is as good as the accompanying documentation. The documentation has to be
       <dt>How to test</dt>
       <dd>
          <ul>
-            <li> Step 1: The API MUST meet the prerequisites to be tested. These include that an OAS file (openapi.json) is publicly available, parsable, all $refs are resolvable and paths are defined.</li>
-            <li> Step 2: The openapi.yaml document MAY be available. If available it MUST contain YAML, be readable and parsable.</li>
+            <li> Step 1: The API MUST meet the prerequisites to be tested. These include that an OAS file (openapi.json) is publicly available, parseable, all <code>$refs</code> are resolvable and paths are defined.</li>
+            <li> Step 2: The openapi.yaml document MAY be available. If available it MUST contain YAML, be readable and parseable.</li>
             <li> Step 3: The openapi.yaml document MUST contain the same OpenAPI Description as the openapi.json document.</li>
             <li> Step 4: The CORS header Access-Control-Allow-Origin MUST allow all origins.</li>
          </ul>
@@ -830,7 +830,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
    <dl>
       <dt>Statement</dt>
       <dd>
-         A changelog MUST be publised for every API version.
+         A changelog MUST be published for every API version.
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -849,7 +849,7 @@ Changes in APIs are inevitable. APIs should therefore always be versioned, facil
       </dd>
       <dt>Rationale</dt>
       <dd>
-         Version numbering MUST follow the Semantic Versioning [[SemVer]] model to prevent breaking changes when releasing new API versions. Release versions are formatted using the <code>major.minor.patch</code> template (examples: 1.0.2, 1.11.0). Pre-release versions MAY be denoted by appending a hyphen and a series of dot separated identifiers (examples: 1.0.2-rc.1, 2.0.0-beta.3). When releasing a new version which contains backwards-incompatible changes, a new major version MUST be released. Minor and patch releases MUST only contain backwards compatible changes (e.g. the addition of an endpoint or an optional attribute).
+         Version numbering MUST follow the Semantic Versioning [[SemVer]] model to prevent breaking changes when releasing new API versions. Release versions are formatted using the <code>major.minor.patch</code> template (examples: <code>1.0.2</code>, <code>1.11.0</code>). Pre-release versions MAY be denoted by appending a hyphen and a series of dot separated identifiers (examples: <code>1.0.2-rc.1</code>, <code>2.0.0-beta.3</code>). When releasing a new version which contains backwards-incompatible changes, a new major version MUST be released. Minor and patch releases MUST only contain backwards compatible changes (e.g. the addition of an endpoint or an optional attribute).
       </dd>
       <dt>How to test</dt>
       <dd>
@@ -910,7 +910,7 @@ Note: security controls for signing and encrypting of application level messages
     </dd>
     <dt>How to test</dt>
     <dd>
-        <p>The usage of TLS is machine testable. Follow the latest NCSC guidelines on what is required to test. The serverside is what will be tested, only control over the server is assumed for testing. A testing client will be employed to test adherence of the server. Supporting any protocols, algorithms, key sizes, options or ciphers that are deemed insufficient or phased out by NCSC will lead to failure on the automated test. Both positive and negative scenarios are part of the test: testing that a subset of *Good* and *Sufficient* configurations are supported and configurations deemed  *Insufficient* or marked for *Phase out*. A manual exception to the automated test results can be made when configurations designated for *Phase out* are supported; The API provider will have to provide clear documentation regarding the phase out schedule.  
+        <p>The usage of TLS is machine testable. Follow the latest NCSC guidelines on what is required to test. The server-side is what will be tested, only control over the server is assumed for testing. A testing client will be employed to test adherence of the server. Supporting any protocols, algorithms, key sizes, options or ciphers that are deemed insufficient or phased out by NCSC will lead to failure on the automated test. Both positive and negative scenarios are part of the test: testing that a subset of *Good* and *Sufficient* configurations are supported and configurations deemed  *Insufficient* or marked for *Phase out*. A manual exception to the automated test results can be made when configurations designated for *Phase out* are supported; The API provider will have to provide clear documentation regarding the phase out schedule.  
     </dd>
   </dl>
 </div>
@@ -923,7 +923,7 @@ Note: security controls for signing and encrypting of application level messages
       <dd>
          <p>Sensitive information MUST NOT be part of URIs
          <p class="note">The term sensitive is deliberately left undefined in this document.</p>
-         <p>In case of REST-API's for system to system communication on a closed network, this rule applies only when there is logging involved in systems that are not under control of the organizations involved in the exchange
+         <p>In case of REST-API's for system to system communication on a closed network, this rule applies only when there is logging involved in systems that are not under control of the organisations involved in the exchange
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -935,7 +935,7 @@ Note: security controls for signing and encrypting of application level messages
          </ul>
          <p class="note">Be aware that queries (anything after the '?' in a URI) are also part of a URI.
          <p>For REST API's that are accessed directly from user devices, like web browsers, do not put client secrets used for authentication and other sensitive information in the URI. These are directly visible to users, are stored in the web browser's history and cache and can be bookmarked and sent to others.
-         <p>For REST API's that are only used for system-to-system integration on closed networks where all systems are under control of the organizations involved in the exchange, do not put client secrets used for authentication in the URI and be careful to put sensitive information in the URI. Intermediate network components that terminate and newly initiate TLS could log or otherwise store URIs. Consider the consequences, advantages and disadvantages of using sensitive information in the URI and be deliberate about which information is logged, for which purposes and who has access.
+         <p>For REST API's that are only used for system-to-system integration on closed networks where all systems are under control of the organisations involved in the exchange, do not put client secrets used for authentication in the URI and be careful to put sensitive information in the URI. Intermediate network components that terminate and newly initiate TLS could log or otherwise store URIs. Consider the consequences, advantages and disadvantages of using sensitive information in the URI and be deliberate about which information is logged, for which purposes and who has access.
       </dd>
    </dl>
 </div>
@@ -965,7 +965,7 @@ For browser-based applications a subsection is included with additional details 
 System-to-system (sometimes called machine-to-machine) may have a need for the listed specifications as well.
 Note that different usage patterns may be applicable in contexts with system-to-system clients, see above under Client Authentication.
 
-Realizations may rely on internal usage of HTTP-Headers.
+Realisations may rely on internal usage of HTTP-Headers.
 Information for processing requests and responses can be passed between components, that can have security implications.
 For instance, this is common practice between a reverse proxy or TLS-offloader and an application server.
 Additional HTTP headers are used in such example to pass an original IP-address or client certificate.
@@ -1022,7 +1022,7 @@ For outbound filtering, the main concern is leaking of information.
                </tr>
             </tbody>
          </table>
-         <p>The headers below are only intended to provide additional security when responses are rendered as HTML. As such, if the API will never return HTML in responses, then these headers may not be necessary. You SHOULD include the headers as part of a defense-in-depth approach if there is any uncertainty about the function of the headers, the types of information that the API returns or information it may return in the future.
+         <p>The headers below are only intended to provide additional security when responses are rendered as HTML. As such, if the API will never return HTML in responses, then these headers may not be necessary. You SHOULD include the headers as part of a defence-in-depth approach if there is any uncertainty about the function of the headers, the types of information that the API returns or information it may return in the future.
          <table>
             <thead>
                <tr>
@@ -1065,7 +1065,7 @@ For outbound filtering, the main concern is leaking of information.
       <dt>Rationale</dt>
       <dd>
          <p>Different resources can have different uses, as some resources are publicly available whereas others are restricted to several domains.
-         Modern web browsers use Cross-Origin Resource Sharing (CORS) to minimize the risk associated with cross-site HTTP-requests.
+         Modern web browsers use Cross-Origin Resource Sharing (CORS) to minimise the risk associated with cross-site HTTP-requests.
          <p>By default browsers only allow 'same origin' access to resources.
          This means that responses on requests to another `[scheme]://[hostname]:[port]` than the `Origin` request header of the initial request will not be processed by the browser.
          To enable cross-site requests APIs can return a `Access-Control-Allow-Origin` response header.
@@ -1103,7 +1103,7 @@ A REST request or response body SHOULD match the intended content type in the he
 
 * Requests containing unexpected or missing content type headers MUST be rejected with HTTP response status `406 Not Acceptable` or `415 Unsupported Media Type`.
 * Accidentally exposing unintended content types MUST be avoided by explicitly defining content types e.g. Jersey (Java) `@consumes("application/json"); @produces("application/json")`.
-  This avoids XXE-attack vectors for example.
+  This avoids XML external entity injection attack vectors for example.
 
 It is common for REST services to allow multiple response types (e.g. `application/xml` or `application/json`) in which case then the client specifies the preferred order of response types by the Accept header in the request.
 
@@ -1128,7 +1128,7 @@ The following modules are normative for all REST API's.
     </dd>
     <dt>Rationale</dt>
     <dd>
-      The [[[ADR-GEO]]] formalizes as set of rules regarding:
+      The [[[ADR-GEO]]] formalises as set of rules regarding:
       <ol>
          <li>How to encode geospatial data in request and response payloads.</li>
          <li>How resource collections can be filtered by a given bounding box.</li>
@@ -1150,7 +1150,7 @@ The following modules are normative for all REST API's.
     </dd>
     <dt>Rationale</dt>
     <dd>
-      The [[[ADR-signing]]] formalizes as set of rules regarding:
+      The [[[ADR-signing]]] formalises as set of rules regarding:
       <ol>
          <li>How to sign data in request and response payloads.</li>
          <li>Which header to specify the signature.</li>
@@ -1171,7 +1171,7 @@ The following modules are normative for all REST API's.
     </dd>
     <dt>Rationale</dt>
     <dd>
-      The [[[ADR-encryption]]] formalizes as set of rules regarding:
+      The [[[ADR-encryption]]] formalises as set of rules regarding:
       <ol>
          <li>How to encrypt data in request and response payloads.</li>
          <li>The flow of operations between client and server.</li>
