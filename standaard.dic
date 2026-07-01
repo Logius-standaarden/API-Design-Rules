@@ -1,4 +1,4 @@
-73
+75
 0/N
 1/N
 2/N
@@ -14,6 +14,7 @@ ISO/I
 v/V
 Aanbeveling
 ADR
+Authorization
 backend
 BCP
 beheermodel
@@ -47,6 +48,7 @@ OPENAPIS
 Ottowa
 Overheid
 OWASP
+parseable
 ReDoc
 regex
 REpresentational
