@@ -14,7 +14,8 @@ const writeFile = utils.promisify(fs.writeFile);
 const LINTER_RULESET_LOCATION = path.join(__dirname, '..', 'media', 'linter.yaml');
 
 function computeTestCommand(apiLocation) {
-    return `spectral lint -r ${LINTER_RULESET_LOCATION} ${apiLocation}/openapi.json || true`
+    const specificationFile = fs.readdirSync(apiLocation).find(file => file.endsWith('.json'));
+    return `spectral lint -r ${LINTER_RULESET_LOCATION} ${apiLocation}/${specificationFile} || true`
 }
 
 function removeProcessDir(output) {
