@@ -20,6 +20,9 @@
 extends:
   - ["spectral:oas", "off"] # extend spectral:oas maar zet standaard alle regels uit
 
+formats:
+  - oas3
+
 rules:
   #/core/publish-openapi (deze error-rules valideren of OAS valid is)
   oas3-schema: error
