@@ -1,5 +1,5 @@
 
-/testcases/openapi-versie-missing/openapi.json
+/testcases/unrecognized-format-openapi/openapi.json
  1:1  warning  unrecognized-format  The provided document does not match any of the registered formats [OpenAPI 3.x, OpenAPI 2.0 (Swagger), OpenAPI 3.0.x, OpenAPI 3.1.x]
 
 ✖ 1 problem (0 errors, 1 warning, 0 infos, 0 hints)
