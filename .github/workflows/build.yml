@@ -69,8 +69,8 @@ jobs:
       - name: Install hunspell
         run: |
           sudo apt-get install hunspell
-          wget -O en_GB.aff https://cgit.freedesktop.org/libreoffice/dictionaries/plain/en/en_GB.aff
-          wget -O en_GB.dic https://cgit.freedesktop.org/libreoffice/dictionaries/plain/en/en_GB.dic
+          wget -O en_GB.aff https://raw.githubusercontent.com/Logius-standaarden/Automatisering/main/scripts/spellcheck/en_GB.aff
+          wget -O en_GB.dic https://raw.githubusercontent.com/Logius-standaarden/Automatisering/main/scripts/spellcheck/en_GB.dic
       - name: Build spellcheck version of standard
         run: |
           REPLACEMENT_REGEX="s/spellcheck: false/spellcheck: true/"
