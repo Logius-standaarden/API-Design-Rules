@@ -20,6 +20,9 @@
 extends:
   - ["spectral:oas", "off"] # extend spectral:oas maar zet standaard alle regels uit
 
+formats:
+  - oas3
+
 rules:
   #/core/publish-openapi (deze error-rules valideren of OAS valid is)
   oas3-schema: error
@@ -48,6 +51,7 @@ rules:
       field: openapi
       function: truthy
     message: "The root of the document must contain the `openapi` property."
+    formats: [oas2]
 
   #/core/version-header
   nlgov:missing-version-header:
@@ -206,9 +210,9 @@ rules:
             properties:
               type: object
               required:
-              - status
-              - title
-              - detail
+                - status
+                - title
+                - detail
 
   #/core/error-handling/invalid-input
   nlgov:problem-invalid-input:
@@ -226,7 +230,7 @@ rules:
             responses:
               type: object
               required:
-              - "400"
+                - "400"
 
   #/core/date-time/timezone
   nlgov:date-time-ensure-timezone:

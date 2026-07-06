@@ -1,0 +1,26 @@
+{
+    "arazzo": "1.0.1",
+    "info": {
+        "title": "Minimale Arazzo-specificatie",
+        "description": "Deze Arazzo-specificatie bevat het minimale om geen errors te geven.",
+        "version": "1.0.0"
+    },
+    "sourceDescriptions": [
+        {
+            "name": "basis-api",
+            "url": "https://example.com/openapi.json",
+            "type": "openapi"
+        }
+    ],
+    "workflows": [
+        {
+            "workflowId": "openapi-document-ophalen",
+            "steps": [
+                {
+                    "stepId": "openapi-document-ophalen",
+                    "operationId": "getOpenapiJSON"
+                }
+            ]
+        }
+    ]
+}

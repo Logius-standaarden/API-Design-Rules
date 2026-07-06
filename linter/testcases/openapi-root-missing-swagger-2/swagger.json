@@ -1,0 +1,71 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Baseline",
+        "description": "Deze OpenAPI specification bevat het minimale om aan alle regels te voldoen.",
+        "contact": {
+            "name": "Beheerder",
+            "url": "https://www.example.com",
+            "email": "mail@example.com"
+        },
+        "version": "1.0.0"
+    },
+    "host": "example.com",
+    "basePath": "/api/v1",
+    "schemes": [
+        "https"
+    ],
+    "security": [
+        {
+            "default": []
+        }
+    ],
+    "tags": [
+        {
+            "name": "swagger"
+        }
+    ],
+    "paths": {
+        "/swagger.json": {
+            "get": {
+                "tags": [
+                    "swagger"
+                ],
+                "description": "Swagger document",
+                "operationId": "getSwaggerJSON",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "type": "string"
+                            },
+                            "access-control-allow-origin": {
+                                "description": "Alle origins mogen bij deze resource",
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            }
+        }
+    },
+    "definitions": {
+    },
+    "securityDefinitions": {
+        "default": {
+            "type": "oauth2",
+            "flow": "implicit",
+            "authorizationUrl": "https://test.com",
+            "scopes": {
+            }
+        }
+    }
+}

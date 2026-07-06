@@ -1,0 +1,5 @@
+
+/testcases/openapi-root-missing-swagger-2/swagger.json
+ 1:1  error  nlgov:openapi-root-exists  The root of the document must contain the `openapi` property.
+
+✖ 1 problem (1 error, 0 warnings, 0 infos, 0 hints)
