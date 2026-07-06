@@ -80,4 +80,8 @@ jobs:
       - name: Run spellcheck
         run: |
           hunspell -l -d en_GB,standaard -H ~/static/index.html | sort -u > spelling.txt
-          [ -s spelling.txt ] && cat spelling.txt && exit 1
+          if [ -s spelling.txt ]; then
+            echo "De volgende woorden zijn niet toegestaan:"
+            cat spelling.txt
+            exit 1
+          fi
