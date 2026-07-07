@@ -1,4 +1,4 @@
-75
+70
 0/N
 1/N
 2/N
@@ -13,8 +13,6 @@ RFC/R
 ISO/I
 v/V
 Aanbeveling
-ADR
-Authorization
 backend
 BCP
 beheermodel
@@ -24,9 +22,7 @@ CORS
 CRS
 CSRF
 datetime
-Digikoppeling
 DX
-Geonovum
 json
 JWE
 JWS
@@ -44,7 +40,6 @@ offloader
 OGC
 openapi
 OpenAPI
-OPENAPIS
 Ottowa
 Overheid
 OWASP
