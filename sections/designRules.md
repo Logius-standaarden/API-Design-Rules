@@ -154,7 +154,7 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
       <dd>
          Loop all resource paths in the OpenAPI Description and check that all resource path segments use lowercase letters, digits or hyphens (<code>-</code>). The last path segment is allowed to start with a <code>_</code>.
          <aside class="example">
-            You can use the following regex for each resource path:
+            You can use the following regular expression for each resource path:
             <pre><code>^(\/|(\/_[a-z0-9]+|\/(([a-z0-9\-]+|{[^}]+})(\/([a-z0-9\-\.]+|{[^}]+}))*)(\/_[a-z]+)?)\/?)$</code></pre>
          </aside>
       </dd>
@@ -184,7 +184,7 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
       </dd>
       <dt>How to test</dt>
       <dd>
-         Loop all resource paths in the OpenAPI Description and check that all query keys use letters, digits in camelCase. You can use the following regex for each query key:
+         Loop all resource paths in the OpenAPI Description and check that all query keys use letters, digits in camelCase. You can use the following regular expression for each query key:
          <aside class="example">
             <pre><code>^\$?[a-z][a-z\d]*([A-Z][a-z\d]*)*$</code></pre>
          </aside>
@@ -219,7 +219,7 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
 Handling date and time is tricky and can lead to confusion among clients. The date-time rules remove ambiguity and provide clarity in the API contract between servers and clients.
 
 <aside class="example">
-   <p>A child is born on March 20th 2025 in The Netherlands. If a client sends a request with value <code>2025-03-20T00:00:00+01:00</code>, timezone conversion would result in <code>2025-03-19T23:00:00Z</code>. When the client receives this value in a response and incorrectly converts it to a date (by removing the time portion), this would result in <code>2025-03-19</code>.
+   <p>A child is born on March 20th 2025 in The Netherlands. If a client sends a request with value <code>2025-03-20T00:00:00+01:00</code>, time zone conversion would result in <code>2025-03-19T23:00:00Z</code>. When the client receives this value in a response and incorrectly converts it to a date (by removing the time portion), this would result in <code>2025-03-19</code>.
    <p>Ambiguous date and time handling can therefore lead to misinterpretation and changes of days/months/years depending on which component performs which incorrect conversion. Clients could incorrectly remove a time portion from a datetime value if the value should have been a date in the first place. By specifying which formats are allowed in which fields, the odds of invalid conversion are reduced.
 </aside>
 
@@ -258,12 +258,12 @@ Handling date and time is tricky and can lead to confusion among clients. The da
       </dd>
       <dt>Rationale</dt>
       <dd>
-         <p>Implementing RFC9557 and ISO 8601 removes ambiguity in date handling between systems and timezones.
+         <p>Implementing RFC9557 and ISO 8601 removes ambiguity in date handling between systems and time zones.
          <div class="note">RFC9557 is a profile on ISO8601, but is not a strict subset of allowed notations. Practically, to adhere to both, the following limitations MUST be applied to RFC9557:
            <ul>
               <li>In a field with a date-time value, the date and time component MUST be separated by a "T" in uppercase.
-              <li>The timezone offset "Z" MUST be uppercase.
-              <li>"-00:00" MUST NOT be used as timezone offset.
+              <li>The time zone offset "Z" MUST be uppercase.
+              <li>"-00:00" MUST NOT be used as time zone offset.
            </ul>
          </div>
       </dd>
@@ -275,24 +275,24 @@ Handling date and time is tricky and can lead to confusion among clients. The da
 </div>
 
 <div class="rule" id="/core/date-time/timezone" data-type="functional">
-   <p class="rulelab">Allow all timezone offsets in requests and use UTC in responses</p>
+   <p class="rulelab">Allow all time zone offsets in requests and use UTC in responses</p>
    <dl>
       <dt>Statement</dt>
       <dd>
-         <p>APIs MUST accept any timezone offset in fields in requests containing a datetime. Fields in responses containing a datetime SHOULD be in UTC (e.g. <code>Z</code> as timezone offset).
+         <p>APIs MUST accept any time zone offset in fields in requests containing a datetime. Fields in responses containing a datetime SHOULD be in UTC (e.g. <code>Z</code> as time zone offset).
          <aside class="example">
-            <p>A field "<code>meetingStartTime</code>" containing a datetime value to denote the start time of a meeting. Depending on the local timezone of the client, the UTC datetime value is converted to that local timezone.
-            <p>For example, a Dutch government worker travels to Ottowa in Canada and has an online meeting with their Dutch colleagues in The Netherlands. Instead of showing the meeting start time in the timezone of The Netherlands, it is shown in the relevant local timezone in Ottowa.
+            <p>A field "<code>meetingStartTime</code>" containing a datetime value to denote the start time of a meeting. Depending on the local time zone of the client, the UTC datetime value is converted to that local time zone.
+            <p>For example, a Dutch government worker travels to Ottowa in Canada and has an online meeting with their Dutch colleagues in The Netherlands. Instead of showing the meeting start time in the time zone of The Netherlands, it is shown in the relevant local time zone in Ottowa.
          </aside>
-         <p>If the original timezone is relevant for users (such as the timezone in which a value is registered), the timezone offset MUST be stored and published as a separate field in [[ISO8601-1]] format <code>time-offset</code>.
+         <p>If the original time zone is relevant for users (such as the time zone in which a value is registered), the time zone offset MUST be stored and published as a separate field in [[ISO8601-1]] format <code>time-offset</code>.
          <aside class="example">
-            <p>A response containing a field "<code>timeOfBirth</code>" with a datetime value to denote the time of birth of a child in The Netherlands also has a field "<code>timeOfBirthTimezone</code>" with the relevant timezone offset (<code>+01:00</code> or <code>+02:00</code>).
+            <p>A response containing a field "<code>timeOfBirth</code>" with a datetime value to denote the time of birth of a child in The Netherlands also has a field "<code>timeOfBirthTimezone</code>" with the relevant time zone offset (<code>+01:00</code> or <code>+02:00</code>).
          </aside>
       </dd>
       <dt>Rationale</dt>
       <dd>
-         <p>Allowing clients to use any timezone offset in requests results in flexibility and less complexity for users. Using UTC in responses results in clarity and removes ambiguity.
-         <p class="note">While storage formats are outside the scope of this specification, it is recommended to use appropriate temporal data types (such as <code>DATE</code> and <code>TIMESTAMPTZ</code>). Many database systems store these values internally in UTC and handle timezone conversion automatically on read/write.
+         <p>Allowing clients to use any time zone offset in requests results in flexibility and less complexity for users. Using UTC in responses results in clarity and removes ambiguity.
+         <p class="note">While storage formats are outside the scope of this specification, it is recommended to use appropriate temporal data types (such as <code>DATE</code> and <code>TIMESTAMPTZ</code>). Many database systems store these values internally in UTC and handle time zone conversion automatically on read/write.
       </dd>
    </dl>
 </div>
@@ -1094,8 +1094,8 @@ These applications can be split into three architectural patterns:
 * JavaScript applications with a backend; with this class of applications, the backend is the confidential client and should intermediate any interaction, with tokens never ending up in the browser.
   Effectively, these are not different from regular web-application for this security facet, even though they leverage JavaScript for implementation.
 * JavaScript applications that share a domain with the API (resource server); these can leverage cookies marked as HTTP-Only, Secure and SameSite.
-* JavaScript applications without a backend; these clients are considered public clients, and are potentially more vulnerable to several types of attacks, including Cross-Site Scripting (XSS), Cross Site Request Forgery (CSRF) and OAuth token theft.
-  In order to support these clients, the Cross-Origin Resource Sharing (CORS) policy mentioned above is critical and MUST be supported.
+* JavaScript applications without a backend; these clients are considered public clients, and are potentially more vulnerable to several types of attacks, including Cross-Site Scripting (<code>XSS</code>), Cross Site Request Forgery (<code>CSRF</code>) and OAuth token theft.
+  In order to support these clients, the Cross-Origin Resource Sharing (<code>CORS</code>) policy mentioned above is critical and MUST be supported.
 
 ### Validate content types
 
@@ -1132,7 +1132,7 @@ The following modules are normative for all REST API's.
       <ol>
          <li>How to encode geospatial data in request and response payloads.</li>
          <li>How resource collections can be filtered by a given bounding box.</li>
-         <li>How to deal with different coordinate systems (CRS).</li>
+         <li>How to deal with different coordinate systems (<code>CRS</code>).</li>
       </ol>
     </dd>
   </dl>

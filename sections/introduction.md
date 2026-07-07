@@ -4,7 +4,7 @@
 
 More and more governmental organisations offer REST APIs (henceforth abbreviated as APIs), in addition to existing interfaces like SOAP and WFS. These APIs aim to be developer-friendly and easy to implement. While this is a commendable aim, it does not shield a developer from a steep learning curve getting to know every new API, in particular when every individual API is designed using different patterns and conventions.
 
-This document aims to describe a widely applicable set of design rules for the unambiguous provisioning of REST APIs. The primary goal is to offer guidance for organisations designing new APIs, with the purpose of increasing developer experience (DX) and interoperability between APIs. Hopefully, many organisations will adopt these design rules in their corporate API strategies and provide feedback about exceptions and additions to subsequently improve these design rules.
+This document aims to describe a widely applicable set of design rules for the unambiguous provisioning of REST APIs. The primary goal is to offer guidance for organisations designing new APIs, with the purpose of increasing developer experience (<code>DX</code>) and interoperability between APIs. Hopefully, many organisations will adopt these design rules in their corporate API strategies and provide feedback about exceptions and additions to subsequently improve these design rules.
 
 ## Status
 
