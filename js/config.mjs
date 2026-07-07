@@ -60,7 +60,8 @@ function runSpellcheck(config, document) {
   }
   document.querySelector('.head').remove();
   document.getElementById('references')?.remove();
-  for (const element of document.getElementsByClassName('remove-for-spellcheck')) {
+  const removableElements = [...document.getElementsByClassName('remove-for-spellcheck')];
+  for (const element of removableElements) {
     element.remove();
   }
 }
