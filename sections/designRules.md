@@ -281,12 +281,12 @@ Handling date and time is tricky and can lead to confusion among clients. The da
       <dd>
          <p>APIs MUST accept any timezone offset in fields in requests containing a datetime. Fields in responses containing a datetime SHOULD be in UTC (e.g. <code>Z</code> as timezone offset).
          <aside class="example">
-            <p>A field "meetingStartTime" containing a datetime value to denote the start time of a meeting. Depending on the local timezone of the client, the UTC datetime value is converted to that local timezone.
+            <p>A field "<code>meetingStartTime</code>" containing a datetime value to denote the start time of a meeting. Depending on the local timezone of the client, the UTC datetime value is converted to that local timezone.
             <p>For example, a Dutch government worker travels to Ottowa in Canada and has an online meeting with their Dutch colleagues in The Netherlands. Instead of showing the meeting start time in the timezone of The Netherlands, it is shown in the relevant local timezone in Ottowa.
          </aside>
          <p>If the original timezone is relevant for users (such as the timezone in which a value is registered), the timezone offset MUST be stored and published as a separate field in [[ISO8601-1]] format <code>time-offset</code>.
          <aside class="example">
-            <p>A response containing a field "timeOfBirth" with a datetime value to denote the time of birth of a child in The Netherlands also has a field "timeOfBirthTimezone" with the relevant timezone offset (<code>+01:00</code> or <code>+02:00</code>).
+            <p>A response containing a field "<code>timeOfBirth</code>" with a datetime value to denote the time of birth of a child in The Netherlands also has a field "<code>timeOfBirthTimezone</code>" with the relevant timezone offset (<code>+01:00</code> or <code>+02:00</code>).
          </aside>
       </dd>
       <dt>Rationale</dt>
@@ -309,7 +309,7 @@ Handling date and time is tricky and can lead to confusion among clients. The da
          <p>Appending a default or irrelevant time portion to a date field can lead to interpretation errors. A publish date of <code>2025-07-24T00:00:00Z</code> could for instance be rendered as July 23 in Ireland. A default time of 23:59 would in turn cause date confusion east of Greenwich.
          <p class="note">To prevent conversion errors between storage and API, it is recommended to also store date values without a time portion (i.e. not as a timestamp).
          <aside class="example">
-            <p>A response containing a field "birthDate" with a date value to denote the date of birth of a child in The Netherlands.
+            <p>A response containing a field "<code>birthDate</code>" with a date value to denote the date of birth of a child in The Netherlands.
          </aside>
       </dd>
       <dt>How to test</dt>
