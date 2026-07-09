@@ -104,9 +104,17 @@ loadRespecWithConfiguration({
   specStatus: "WV",
   specType: "ST",
   pluralize: true,
+  spellcheck: false,
 
-  preProcess: [initializeHighlightJSYaml, fetchLinterConfiguration],
-  postProcess: [generateMermaidFigures, highlightLinterCode, (config, document, utils) => processRuleBlocks(config, document, utils, linterConfiguration)],
+  preProcess: [
+    initializeHighlightJSYaml,
+    fetchLinterConfiguration,
+  ],
+  postProcess: [
+    generateMermaidFigures,
+    highlightLinterCode,
+    (config, document, utils) => processRuleBlocks(config, document, utils, linterConfiguration),
+  ],
 
   localBiblio: {
     "ADR-encryption": {
