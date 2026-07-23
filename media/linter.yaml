@@ -283,8 +283,8 @@ rules:
         notMatch: "/^date-time$/"
 
   nlgov:info-version-exists:
-    severity: error
-    message: "The OpenAPI document must contain an info.version field."
+    severity: warn 
+    message: "The OpenAPI document should contain an info.version field."
     given: $.info
     then:
       field: version
