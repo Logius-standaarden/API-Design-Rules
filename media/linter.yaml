@@ -236,7 +236,7 @@ rules:
   nlgov:date-time-ensure-timezone:
     severity: error
     given: $..properties[*].format
-    message: "Use date-time format which includes a timezone"
+    message: "Use date-time format which includes a time zone"
     then:
       function: pattern
       functionOptions:
@@ -245,7 +245,7 @@ rules:
   nlgov:time-without-timezone:
     severity: error
     given: $..properties[*].format
-    message: "Use time-local format without a timezone"
+    message: "Use time-local format without a time zone"
     then:
       function: pattern
       functionOptions:
