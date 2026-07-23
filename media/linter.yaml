@@ -282,6 +282,14 @@ rules:
       functionOptions:
         notMatch: "/^date-time$/"
 
+  nlgov:info-version-exists:
+    severity: error
+    message: "The OpenAPI document must contain an info.version field."
+    given: $.info
+    then:
+      field: version
+      function: truthy
+
   nlgov:semver:
     severity: error
     message: "Version {{value}} is not in semver format."
