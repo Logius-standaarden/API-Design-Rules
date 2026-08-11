@@ -82,7 +82,8 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
 </div>
 
 <span id="api-48"></span>
-<div class="rule" id="/core/no-trailing-slash" data-type="technical">
+<span id="/core/no-trailing-slash"></span>
+<div class="rule" id="/core/no-empty-path-segments" data-type="technical">
    <p class="rulelab">Avoid empty path segments from URIs</p>
    <dl>
       <dt>Statement</dt>
