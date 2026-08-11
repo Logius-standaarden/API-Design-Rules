@@ -82,12 +82,13 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
 </div>
 
 <span id="api-48"></span>
-<div class="rule" id="/core/no-trailing-slash" data-type="technical">
-   <p class="rulelab">Leave off trailing slashes from URIs</p>
+<span id="/core/no-trailing-slash"></span>
+<div class="rule" id="/core/no-empty-path-segments" data-type="technical">
+   <p class="rulelab">Avoid empty path segments from URIs</p>
    <dl>
       <dt>Statement</dt>
       <dd>
-         A [=URI=] MUST NOT contain a trailing slash. When requesting a resource including a trailing slash, this MUST result in a `404` (not found) error response and not a redirect. This forces API consumers to use the correct [=URI=].
+         A [=URI=] MUST NOT contain empty path segments. When requesting a resource including a trailing slash or consecutive slashes, this MUST result in a `404` (not found) error response and not a redirect. This forces API consumers to use the correct [=URI=].
          <div class="note">
             This rule does not apply to the root resource (append <code>/</code> to the service root URL).
          </div>
