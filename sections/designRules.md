@@ -197,7 +197,8 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
    <dl>
       <dt>Statement</dt>
       <dd>
-         <p>An API MUST return an object which contains a field (its key MAY be named <code>items</code>) with its value an array of items from a collection resource.
+         <p>An API MUST return an object for a <code>GET</code> request on a collection resource.
+         The object MUST contain a field (its key MAY be named <code>items</code>) with its value an array of items from a collection resource.
       </dd>
       <dt>Rationale</dt>
       <dd>
@@ -210,8 +211,11 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
          Changing the response from an array to an object is a breaking change, hence it is future-proof to always return an object.
          <aside class="example">
             The following example shows a response from a collection resource containing all items
-            <pre><code class="http">HTTP/1.1 200 OK
-Content-Type: application/json</code><code class="json">{
+            <pre class="http">GET /organisations HTTP/1.1</pre>
+<pre class="http">HTTP/1.1 200 OK
+Content-Type: application/json
+   
+{
    "metadata": {
    },
   "items": [
@@ -224,13 +228,12 @@ Content-Type: application/json</code><code class="json">{
        "name": "Geonovum"
      }
   ]
-}
-</code></pre>
+}</pre>
          </aside>
       </dd>
       <dt>How to test</dt>
       <dd>
-         Analyse all responses and check that the type is not an array.
+         Analyse all responses for paths supporting a <code>GET</code> method and check that the type of response is an object.
       </dd>
    </dl>
 </div>
