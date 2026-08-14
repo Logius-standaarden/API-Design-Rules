@@ -214,7 +214,7 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
             <pre class="http">GET /organisations HTTP/1.1</pre>
 <pre class="http">HTTP/1.1 200 OK
 Content-Type: application/json
-   
+
 {
    "metadata": {
    },
