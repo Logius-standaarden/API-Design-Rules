@@ -192,17 +192,18 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
    </dl>
 </div>
 
-<div class="rule" id="/core/collections-return-objects" data-type="technical">
-   <p class="rulelab">Return an object when retrieving items from a collection resource</p>
+<div class="rule" id="/core/always-return-objects" data-type="technical">
+   <p class="rulelab">Always return a response with an object</p>
    <dl>
       <dt>Statement</dt>
       <dd>
-         <p>An API MUST return an object for a <code>GET</code> request on a collection resource.
-         The object MUST contain a field (its key MAY be named <code>items</code>) with its value an array of items from a collection resource.
+         <p>An API MUST return a response with a top-level object, regardless of request method.
+         For <a>collection resources</a>, the object MUST contain a field (its key MAY be named <code>items</code>) with its value an array of items from that collection.
       </dd>
       <dt>Rationale</dt>
       <dd>
-         <p>Items in a collection resources can be retrieved all at once, or a subset thereof.
+         <p>For <a>singular resources</a>, objects are returned as part of RESTful design.
+         <p>For <a>collection resources</a>, items can be retrieved all at once, or a subset thereof.
          In both cases, wrapping the returned items in an object allows metadata to be attached to the response.
          Examples of metadata are structured data to implement linked data concepts, or pagination data for performance purposes.
          <p>If a collection resource directly returns an array of object information from the collection, such metadata can only be provided using HTTP headers.
@@ -233,7 +234,7 @@ Content-Type: application/json
       </dd>
       <dt>How to test</dt>
       <dd>
-         Analyse all responses for paths supporting a <code>GET</code> method and check that the type of response is an object.
+         Analyse all responses for paths and check that the response contains a top-level object.
       </dd>
    </dl>
 </div>

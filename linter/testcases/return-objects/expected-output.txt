@@ -1,0 +1,7 @@
+
+/testcases/return-objects/openapi.json
+ 108:44  error  nlgov:always-return-objects  The content of all responses should be wrapped in an object  paths./incorrect.get.responses[200].content.application/json.schema.type
+ 113:44  error  nlgov:always-return-objects  The content of all responses should be wrapped in an object  paths./incorrect.get.responses[200].content.application/hal+json.schema.type
+ 118:44  error  nlgov:always-return-objects  The content of all responses should be wrapped in an object  paths./incorrect.get.responses[200].content.application/xml.schema.type
+
+✖ 3 problems (3 errors, 0 warnings, 0 infos, 0 hints)
