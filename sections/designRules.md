@@ -197,7 +197,7 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
    <dl>
       <dt>Statement</dt>
       <dd>
-         <p>An API MUST return a response with a top-level object, regardless of request method.
+         <p>A JSON or XML response MUST have a top-level object, regardless of request method.
          For <a>collection resources</a>, the object MUST contain a field (its key MAY be named <code>items</code>) with its value an array of items from that collection.
       </dd>
       <dt>Rationale</dt>

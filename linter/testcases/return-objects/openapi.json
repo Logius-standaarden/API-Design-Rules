@@ -62,7 +62,7 @@
                                    "type": "object"
                                 }
                             },
-                            "plain/text": {
+                            "text/plain": {
                                 "schema": {
                                    "type": "string"
                                 }
