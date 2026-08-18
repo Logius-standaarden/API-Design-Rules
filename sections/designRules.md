@@ -221,11 +221,11 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
       <dd>
          <p>A resource containing language content MUST follow <a href="https://www.rfc-editor.org/info/bcp47">BCP 47</a> [[RFC4647]] [[RFC5646]].
          <p class="warning">[[?ISO3166-1]] concerns identifiers of countries and MUST NOT be used to denote languages, since countries and languages are not equivalent.
-         <p class="note">Following [[RFC4647]] a language code in [[?ISO-639-1]] format matches a language tag in [[RFC5646]] regardless of language subtag.
+         <p class="note">Following [[RFC4647]] a language code in [[?ISO-639-1]] format matches a language tag in [[RFC5646]] format regardless of language subtag.
       </dd>
       <dt>Rationale</dt>
       <dd>
-         Standardized language codes removes ambiguity in language handling between systems, potentially present in separate regions with different (spoken) languages.
+         Standardised language codes removes ambiguity in language handling between systems, potentially present in separate regions with different (spoken) languages.
       </dd>
       <dt>How to test</dt>
       <dd>
