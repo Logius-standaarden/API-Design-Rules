@@ -1,0 +1,17 @@
+
+/testcases/language-code/openapi.json
+  92:52  error  nlgov:specify-format-for-language-code  Any field that represents a language must set 'format' to 'language'       paths./resources-with-language-incorrect.get.responses[200].content.application/json.schema.properties.language
+  95:65  error  nlgov:specify-format-for-language-code  Any field that represents a language must set 'format' to 'language'       paths./resources-with-language-incorrect.get.responses[200].content.application/json.schema.properties.thoroughfare_language
+  98:70  error  nlgov:specify-format-for-language-code  Any field that represents a language must set 'format' to 'language'       paths./resources-with-language-incorrect.get.responses[200].content.application/json.schema.properties.railName_localNameLanguage
+ 101:48  error  nlgov:specify-format-for-language-code  Any field that represents a language must set 'format' to 'language'       paths./resources-with-language-incorrect.get.responses[200].content.application/json.schema.properties.taal
+ 104:59  error  nlgov:specify-format-for-language-code  Any field that represents a language must set 'format' to 'language'       paths./resources-with-language-incorrect.get.responses[200].content.application/json.schema.properties.organisatieTaal
+ 107:60  error  nlgov:specify-format-for-language-code  Any field that represents a language must set 'format' to 'language'       paths./resources-with-language-incorrect.get.responses[200].content.application/json.schema.properties.organisatie_taal
+ 127:55  error  nlgov:use-language-code                 Field represents a language and therefore must set 'format' to 'language'  paths./resources-with-language-incorrect.get.responses[200].content.application/json+verkeerd-format.schema.properties.language.format
+ 131:55  error  nlgov:use-language-code                 Field represents a language and therefore must set 'format' to 'language'  paths./resources-with-language-incorrect.get.responses[200].content.application/json+verkeerd-format.schema.properties.thoroughfare_language.format
+ 135:55  error  nlgov:use-language-code                 Field represents a language and therefore must set 'format' to 'language'  paths./resources-with-language-incorrect.get.responses[200].content.application/json+verkeerd-format.schema.properties.railName_localNameLanguage.format
+ 139:55  error  nlgov:use-language-code                 Field represents a language and therefore must set 'format' to 'language'  paths./resources-with-language-incorrect.get.responses[200].content.application/json+verkeerd-format.schema.properties.taal.format
+ 143:55  error  nlgov:use-language-code                 Field represents a language and therefore must set 'format' to 'language'  paths./resources-with-language-incorrect.get.responses[200].content.application/json+verkeerd-format.schema.properties.organisatieTaal.format
+ 147:55  error  nlgov:use-language-code                 Field represents a language and therefore must set 'format' to 'language'  paths./resources-with-language-incorrect.get.responses[200].content.application/json+verkeerd-format.schema.properties.organisatie_taal.format
+ 236:27  error  nlgov:use-language-code                 Field represents a language and therefore must set 'format' to 'language'  components.schemas.LanguageIncorrect.format
+
+✖ 13 problems (13 errors, 0 warnings, 0 infos, 0 hints)
