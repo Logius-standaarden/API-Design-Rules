@@ -192,6 +192,53 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
    </dl>
 </div>
 
+<div class="rule" id="/core/always-return-objects" data-type="technical">
+   <p class="rulelab">Always return a response with an object</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         <p>A JSON or XML response MUST have a top-level object, regardless of request method.
+         For <a>collection resources</a>, the object MUST contain a field (its key MAY be named <code>items</code>) with its value an array of items from that collection.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         <p>For <a>singular resources</a>, objects are returned as part of RESTful design.
+         <p>For <a>collection resources</a>, items can be retrieved all at once, or a subset thereof.
+         In both cases, wrapping the returned items in an object allows metadata to be attached to the response.
+         Examples of metadata are structured data to implement linked data concepts, or pagination data for performance purposes.
+         <p>If a collection resource directly returns an array of object information from the collection, such metadata can only be provided using HTTP headers.
+         While that is feasible, HTTP headers are generally more difficult to work with than content from a response body.
+         <p>Even if currently no metadata is attached to a response, that could be the case in the future.
+         Changing the response from an array to an object is a breaking change, hence it is future-proof to always return an object.
+         <aside class="example">
+            The following example shows a response from a collection resource containing all items
+            <pre class="http">GET /organisations HTTP/1.1</pre>
+<pre class="http">HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+   "metadata": {
+   },
+  "items": [
+     {
+       "id": "12345",
+       "name": "Logius"
+     },
+     {
+       "id": "67890",
+       "name": "Geonovum"
+     }
+  ]
+}</pre>
+         </aside>
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         Analyse all JSON and XML responses for paths and check that the response contains a top-level object.
+      </dd>
+   </dl>
+</div>
+
 <span id="api-53"></span>
 <div class="rule" id="/core/hide-implementation" data-type="functional">
    <p class="rulelab">Hide irrelevant implementation details</p>
