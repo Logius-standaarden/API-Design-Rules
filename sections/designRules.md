@@ -234,7 +234,7 @@ Content-Type: application/json
       </dd>
       <dt>How to test</dt>
       <dd>
-         Analyse all responses for paths and check that the response contains a top-level object.
+         Analyse all JSON and XML responses for paths and check that the response contains a top-level object.
       </dd>
    </dl>
 </div>
