@@ -1,0 +1,256 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "Baseline",
+        "description": "Deze OpenAPI specification bevat het minimale om aan alle regels te voldoen.",
+        "contact": {
+            "name": "Beheerder",
+            "url": "https://www.example.com",
+            "email": "mail@example.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "https://example.com/api/v1"
+        }
+    ],
+    "security": [
+        {
+            "default": []
+        }
+    ],
+    "tags": [
+        {
+            "name": "openapi"
+        },
+        {
+            "name": "language"
+        }
+    ],
+    "paths": {
+        "/openapi.json": {
+            "get": {
+                "tags": [
+                    "openapi"
+                ],
+                "description": "OpenAPI document",
+                "operationId": "getOpenapiJSON",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "access-control-allow-origin": {
+                                "description": "Alle origins mogen bij deze resource",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            }
+        },
+        "/resources-with-language-incorrect": {
+            "get": {
+                "tags": [
+                    "language"
+                ],
+                "description": "Resources with language incorrect",
+                "operationId": "getLanguageIncorrect",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "language": {
+                                            "type": "string"
+                                        },
+                                        "thoroughfare_language": {
+                                            "type": "string"
+                                        },
+                                        "railName_localNameLanguage": {
+                                            "type": "string"
+                                        },
+                                        "taal": {
+                                            "type": "string"
+                                        },
+                                        "organisatieTaal": {
+                                            "type": "string"
+                                        },
+                                        "organisatie_taal": {
+                                            "type": "string"
+                                        },
+                                        "meerdereTaal": {
+                                            "type": "string",
+                                            "allOf": [
+                                                {
+                                                    "$ref": "#/components/schemas/LanguageIncorrect"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            },
+                            "application/json+verkeerd-format": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "language": {
+                                            "type": "string",
+                                            "format": "byte"
+                                        },
+                                        "thoroughfare_language": {
+                                            "type": "string",
+                                            "format": "byte"
+                                        },
+                                        "railName_localNameLanguage": {
+                                            "type": "string",
+                                            "format": "byte"
+                                        },
+                                        "taal": {
+                                            "type": "string",
+                                            "format": "byte"
+                                        },
+                                        "organisatieTaal": {
+                                            "type": "string",
+                                            "format": "byte"
+                                        },
+                                        "organisatie_taal": {
+                                            "type": "string",
+                                            "format": "byte"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            }
+        },
+        "/resources-with-language-correct": {
+            "get": {
+                "tags": [
+                    "language"
+                ],
+                "description": "Resources with language correct",
+                "operationId": "getLanguagesCorrect",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "language": {
+                                            "type": "string",
+                                            "format": "language"
+                                        },
+                                        "thoroughfare_language": {
+                                            "type": "string",
+                                            "format": "language"
+                                        },
+                                        "railName_localNameLanguage": {
+                                            "type": "string",
+                                            "format": "language"
+                                        },
+                                        "taal": {
+                                            "type": "string",
+                                            "format": "language"
+                                        },
+                                        "organisatieTaal": {
+                                            "type": "string",
+                                            "format": "language"
+                                        },
+                                        "organisatie_taal": {
+                                            "type": "string",
+                                            "format": "language"
+                                        },
+                                        "meerdereTaal": {
+                                            "type": "string",
+                                            "allOf": [
+                                                {
+                                                    "$ref": "#/components/schemas/LanguageCorrect"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "LanguageIncorrect": {
+                "format": "byte",
+                "type": "string"
+            },
+            "LanguageCorrect": {
+                "format": "language",
+                "type": "string"
+            }
+        },
+        "securitySchemes": {
+            "default": {
+                "type": "oauth2",
+                "flows": {
+                    "implicit": {
+                        "authorizationUrl": "https://test.com",
+                        "scopes": {}
+                    }
+                }
+            }
+        }
+    }
+}

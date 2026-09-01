@@ -282,6 +282,39 @@ rules:
       functionOptions:
         notMatch: "/^date-time$/"
 
+  #/core/lang-code
+  nlgov:specify-format-for-language-code:
+    severity: error
+    given:
+      - $..properties[taal,lang,language]
+      - $..properties[?(@property && @property.match(/((\w+T)|(_[tT]))aal/))]
+      - $..properties[?(@property && @property.match(/((\w+L)|(_[lL]))ang(uage)?/))]
+    message: "Any field that represents a language must set 'format' to 'language'"
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          anyOf:
+            - required: ["format"]
+            - properties:
+                allOf:
+                  type: array
+                  items:
+                    required: ["format"]
+              required: ["allOf"]
+
+  nlgov:use-language-code:
+    severity: error
+    given:
+      - $..properties[taal,lang,language]..format
+      - $..properties[?(@property && @property.match(/((\w+T)|(_[tT]))aal/))]..format
+      - $..properties[?(@property && @property.match(/((\w+L)|(_[lL]))ang(uage)?/))]..format
+    message: "Field represents a language and therefore must set 'format' to 'language'"
+    then:
+      function: pattern
+      functionOptions:
+        match: "/^language$/"
+
   nlgov:semver:
     severity: error
     message: "Version {{value}} is not in semver format."

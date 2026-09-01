@@ -214,6 +214,34 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
    </dl>
 </div>
 
+<div class="rule" id="/core/lang-code" data-type="technical">
+   <p class="rulelab">Use standard language codes and field names for language content</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         <p>A resource containing language content MUST follow <a href="https://www.rfc-editor.org/info/bcp47">BCP 47</a> [[RFC4647]] [[RFC5646]].
+            The <a href="https://www.rfc-editor.org/info/rfc5646/#section-2.2.1">Primary Language Subtag</a> MUST be lowercase.
+            Languages MUST have a <a href="https://www.rfc-editor.org/info/rfc5646/#section-2.2.4">Region</a> subtag in uppercase.
+         <p class="warning">[[?ISO3166-1]] concerns identifiers of countries and MUST NOT be used to denote languages, since countries and languages are not equivalent.
+         <p class="note">Following [[RFC4647]] a language code in [[?ISO-639-1]] format matches a language tag in [[RFC5646]] format regardless of language subtag.
+         <aside class="example">
+            <p>The Dutch language in The Netherlands is <code>nl-NL</code> where <code>nl</code> is the Primary Language Subtag and <code>NL</code> is the Region subtag.
+         </aside>
+         <aside class="example">
+            <p>The English language in The United Kingdom is <code>en-GB</code> where <code>en</code> is the Primary Language Subtag and <code>GB</code> is the Region subtag.
+         </aside>
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         Standardised language codes removes ambiguity in language handling between systems, potentially present in separate regions with different (spoken) languages.
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         Confirm each field that represents a language has a value in [[RFC5646]] format.
+      </dd>
+   </dl>
+</div>
+
 ## Date and time
 
 Handling date and time is tricky and can lead to confusion among clients. The date-time rules remove ambiguity and provide clarity in the API contract between servers and clients.
