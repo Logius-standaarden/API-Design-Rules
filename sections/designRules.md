@@ -217,7 +217,7 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
 Content-Type: application/json
 
 {
-   "metadata": {
+   "someOtherField": {
    },
   "items": [
      {
