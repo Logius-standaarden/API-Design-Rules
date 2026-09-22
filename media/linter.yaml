@@ -315,6 +315,18 @@ rules:
       functionOptions:
         match: "/^language$/"
 
+  nlgov:correct-language-enum:
+    severity: error
+    given:
+      - $..properties[taal,lang,language]..enum[*]
+      - $..properties[?(@property && @property.match(/((\w+T)|(_[tT]))aal/))]..enum[*]
+      - $..properties[?(@property && @property.match(/((\w+L)|(_[lL]))ang(uage)?/))]..enum[*]
+    message: "Values listed in enums must conform to RFC5646 with Primary Language subtag lowercase and Region subtag uppercase: {{value}} is not"
+    then:
+      function: pattern
+      functionOptions:
+        match: "/^[a-z]{2}-[A-Z]{2}$/"
+
   nlgov:semver:
     severity: error
     message: "Version {{value}} is not in semver format."

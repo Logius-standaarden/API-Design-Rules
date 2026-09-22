@@ -92,6 +92,11 @@
                                         "language": {
                                             "type": "string"
                                         },
+                                        "enumLanguage": {
+                                            "type": "string",
+                                            "format": "language",
+                                            "enum": ["nl-nl", "fy-NL", "NL-BE", "EN-gb"]
+                                        },
                                         "thoroughfare_language": {
                                             "type": "string"
                                         },
@@ -187,6 +192,11 @@
                                         "language": {
                                             "type": "string",
                                             "format": "language"
+                                        },
+                                        "enumLanguage": {
+                                            "type": "string",
+                                            "format": "language",
+                                            "enum": ["nl-NL", "nl-BE"]
                                         },
                                         "thoroughfare_language": {
                                             "type": "string",

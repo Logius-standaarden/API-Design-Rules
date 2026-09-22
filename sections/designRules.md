@@ -220,12 +220,27 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
       <dt>Statement</dt>
       <dd>
          <p>A resource containing language content MUST follow <a href="https://www.rfc-editor.org/info/bcp47">BCP 47</a> [[RFC4647]] [[RFC5646]].
-            The <a href="https://www.rfc-editor.org/info/rfc5646/#section-2.2.1">Primary Language Subtag</a> MUST be lowercase.
-            Languages MUST have a <a href="https://www.rfc-editor.org/info/rfc5646/#section-2.2.4">Region</a> subtag in uppercase.
+         The <a href="https://www.rfc-editor.org/info/rfc5646/#section-2.2.1">Primary Language Subtag</a> MUST be lowercase.
+         Languages MUST have a <a href="https://www.rfc-editor.org/info/rfc5646/#section-2.2.4">Region</a> subtag in uppercase.
+         <p>Each field that contains language content in the OpenAPI specification MUST set <code class="json">"type": "string"</code> and set <code>"format"</code> to the <a href="https://spec.openapis.org/registry/format/language.html">OpenAPI format</a> <code>"language"</code>.
+         <p>These fields MAY specify a schema that includes an <code>"enum"</code> with the list of possible values.
+         <aside class="example"><pre><code class="json">"enumLanguage": {
+   "type": "string",
+   "format": "language",
+   "enum": ["nl-NL", "fy-NL", "nl-BE", "en-GB"]
+}
+</code></pre>
+         </aside>
          <p class="warning">[[?ISO3166-1]] concerns identifiers of countries and MUST NOT be used to denote languages, since countries and languages are not equivalent.
          <p class="note">Following [[RFC4647]] a language code in [[?ISO-639-1]] format matches a language tag in [[RFC5646]] format regardless of language subtag.
          <aside class="example">
             <p>The Dutch language in The Netherlands is <code>nl-NL</code> where <code>nl</code> is the Primary Language Subtag and <code>NL</code> is the Region subtag.
+         </aside>
+         <aside class="example">
+            <p>The Dutch language in Belgium is <code>nl-BE</code> where <code>nl</code> is the Primary Language Subtag and <code>BE</code> is the Region subtag.
+         </aside>
+         <aside class="example">
+            <p>The Western Frisian language in The Netherlands is <code>fy-NL</code> where <code>fy</code> is the Primary Language Subtag and <code>NL</code> is the Region subtag.
          </aside>
          <aside class="example">
             <p>The English language in The United Kingdom is <code>en-GB</code> where <code>en</code> is the Primary Language Subtag and <code>GB</code> is the Region subtag.
