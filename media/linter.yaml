@@ -290,3 +290,14 @@ rules:
       function: pattern
       functionOptions:
         match: ^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
+
+  #/core/always-return-objects
+  nlgov:always-return-objects:
+    severity: error
+    message: "The content of all responses should be wrapped in an object"
+    given: $..[responses][*][content][?(@property.toString().match(/(json)|(xml)/))][schema]
+    then:
+      field: type
+      function: pattern
+      functionOptions:
+        match: "object"
