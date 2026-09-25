@@ -261,6 +261,76 @@ Content-Type: application/json
    </dl>
 </div>
 
+<div class="rule" id="/core/lang-code" data-type="technical">
+   <p class="rulelab">Use standard language codes and field names for language content</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         <p>A resource containing language content MUST follow <a href="https://www.rfc-editor.org/info/bcp47">BCP 47</a> [[RFC4647]] [[RFC5646]].
+         The <a href="https://www.rfc-editor.org/info/rfc5646/#section-2.2.1">Primary Language Subtag</a> MUST be lowercase.
+         Languages MUST have a <a href="https://www.rfc-editor.org/info/rfc5646/#section-2.2.4">Region</a> subtag in uppercase.
+         <p>Each field that contains language content in the OpenAPI specification MUST set <code class="json">"type": "string"</code> and set <code>"format"</code> to the <a href="https://spec.openapis.org/registry/format/language.html">OpenAPI format</a> <code>"language"</code>.
+         <p>These fields MAY specify a schema that includes an <code>"enum"</code> with the list of possible values.
+         <aside class="example"><pre><code class="json">"enumLanguage": {
+   "type": "string",
+   "format": "language",
+   "enum": ["nl-NL", "fy-NL", "nl-BE", "en-GB"]
+}
+</code></pre>
+         </aside>
+         <p class="warning">[[?ISO3166-1]] concerns identifiers of countries and MUST NOT be used to denote languages, since countries and languages are not equivalent.
+         <p class="note">Following [[RFC4647]] a language code in [[?ISO-639-1]] format matches a language tag in [[RFC5646]] format regardless of language subtag.
+         <aside class="example">
+            <p>The following table shows some examples of language codes and their respective subtags in corresponding capitalisation.
+            <table>
+               <thead>
+                  <tr>
+                     <th scope="col">Language code</th>
+                     <th scope="col">Textual description</th>
+                     <th scope="col">Primary Language Subtag</th>
+                     <th scope="col">Region Subtag</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td><code>nl-NL</code></td>
+                     <td>The Dutch language in The Netherlands</td>
+                     <td><code>nl</code></td>
+                     <td><code>NL</code></td>
+                  </tr>
+                  <tr>
+                     <td><code>nl-BE</code></td>
+                     <td>The Dutch language in Belgium</td>
+                     <td><code>nl</code></td>
+                     <td><code>BE</code></td>
+                  </tr>
+                  <tr>
+                     <td><code>fy-NL</code></td>
+                     <td>The Western Frisian language in The Netherlands</td>
+                     <td><code>fy</code></td>
+                     <td><code>NL</code></td>
+                  </tr>
+                  <tr>
+                     <td><code>en-GB</code></td>
+                     <td>The English language in Great Britain</td>
+                     <td><code>en</code></td>
+                     <td><code>GB</code></td>
+                  </tr>
+               </tbody>
+            </table>
+         </aside>
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         Standardised language codes removes ambiguity in language handling between systems, potentially present in separate regions with different (spoken) languages.
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         Confirm each field that represents a language has a value in [[RFC5646]] format.
+      </dd>
+   </dl>
+</div>
+
 ## Date and time
 
 Handling date and time is tricky and can lead to confusion among clients. The date-time rules remove ambiguity and provide clarity in the API contract between servers and clients.
