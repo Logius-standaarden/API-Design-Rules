@@ -234,16 +234,42 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
          <p class="warning">[[?ISO3166-1]] concerns identifiers of countries and MUST NOT be used to denote languages, since countries and languages are not equivalent.
          <p class="note">Following [[RFC4647]] a language code in [[?ISO-639-1]] format matches a language tag in [[RFC5646]] format regardless of language subtag.
          <aside class="example">
-            <p>The Dutch language in The Netherlands is <code>nl-NL</code> where <code>nl</code> is the Primary Language Subtag and <code>NL</code> is the Region subtag.
-         </aside>
-         <aside class="example">
-            <p>The Dutch language in Belgium is <code>nl-BE</code> where <code>nl</code> is the Primary Language Subtag and <code>BE</code> is the Region subtag.
-         </aside>
-         <aside class="example">
-            <p>The Western Frisian language in The Netherlands is <code>fy-NL</code> where <code>fy</code> is the Primary Language Subtag and <code>NL</code> is the Region subtag.
-         </aside>
-         <aside class="example">
-            <p>The English language in The United Kingdom is <code>en-GB</code> where <code>en</code> is the Primary Language Subtag and <code>GB</code> is the Region subtag.
+            <table>
+               <thead>
+                  <tr>
+                     <th scope="col">Language code</th>
+                     <th scope="col">Textual description</th>
+                     <th scope="col">Primary Language Subtag</th>
+                     <th scope="col">Region Subtag</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td><code>nl-NL</code></td>
+                     <td>The Dutch language in The Netherlands</td>
+                     <td><code>nl</code></td>
+                     <td><code>NL</code></td>
+                  </tr>
+                  <tr>
+                     <td><code>nl-BE</code></td>
+                     <td>The Dutch language in Belgium</td>
+                     <td><code>nl</code></td>
+                     <td><code>BE</code></td>
+                  </tr>
+                  <tr>
+                     <td><code>fy-NL</code></td>
+                     <td>The Western Frisian language in The Netherlands</td>
+                     <td><code>fy</code></td>
+                     <td><code>NL</code></td>
+                  </tr>
+                  <tr>
+                     <td><code>en-GB</code></td>
+                     <td>The English language in Great Britain</td>
+                     <td><code>en</code></td>
+                     <td><code>GB</code></td>
+                  </tr>
+               </tbody>
+            </table>
          </aside>
       </dd>
       <dt>Rationale</dt>
