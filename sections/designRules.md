@@ -232,7 +232,7 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
 </code></pre>
          </aside>
          <p class="warning">[[?ISO3166-1]] concerns identifiers of countries and MUST NOT be used to denote languages, since countries and languages are not equivalent.
-         <p class="note">Following [[RFC4647]] a language code in [[?ISO-639-1]] format matches a language tag in [[RFC5646]] format regardless of language subtag.
+         <p class="note">Following [[RFC4647]] a language code in [[?ISO-639-1]] format matches a language tag in [[RFC5646]] format regardless of region subtag.
          <aside class="example">
             <p>The following table shows some examples of language codes and their respective subtags in corresponding capitalisation.
             <table>
@@ -265,7 +265,7 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
                   </tr>
                   <tr>
                      <td><code>en-GB</code></td>
-                     <td>The English language in Great Britain</td>
+                     <td>The English language in the United Kingdom</td>
                      <td><code>en</code></td>
                      <td><code>GB</code></td>
                   </tr>
