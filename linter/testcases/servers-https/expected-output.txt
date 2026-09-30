@@ -1,0 +1,9 @@
+
+/testcases/servers-https/openapi.json
+  15:20  error  nlgov:servers-use-https  Server URL http://example.com/api/v1 "http://example.com/api/v1" must not match the pattern "^http://.*".      servers[0].url
+  64:32  error  nlgov:servers-use-https  Server URL http://example.com/api/v1 "http://example.com/api/v1" must not match the pattern "^http://.*".      paths./openapi.json.get.servers[0].url
+  70:28  error  nlgov:servers-use-https  Server URL http://example.com/api/v1 "http://example.com/api/v1" must not match the pattern "^http://.*".      paths./openapi.json.servers[0].url
+ 119:44  error  nlgov:servers-use-https  Server URL http://example.com/callback "http://example.com/callback" must not match the pattern "^http://.*".  paths./apis.get.callbacks.apiGewijzigd.{$request.query.callbackUrl}.servers[0].url
+ 127:48  error  nlgov:servers-use-https  Server URL http://example.com/callback "http://example.com/callback" must not match the pattern "^http://.*".  paths./apis.get.callbacks.apiGewijzigd.{$request.query.callbackUrl}.post.servers[0].url
+
+✖ 5 problems (5 errors, 0 warnings, 0 infos, 0 hints)
