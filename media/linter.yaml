@@ -177,7 +177,10 @@ rules:
     message: "Server URL {{value}} {{error}}."
     given:
       - $.servers[*]
-      - $.paths..servers[*]
+      - $.paths[*].servers[*]
+      - $.paths[*][*].servers[*]
+      - $.paths[*][*].callbacks[*][*].servers[*]
+      - $.paths[*][*].callbacks[*][*][*].servers[*]
     then:
       field: url
       function: pattern
