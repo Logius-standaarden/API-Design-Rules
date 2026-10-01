@@ -96,10 +96,10 @@ loadRespecWithConfiguration({
     ],
   github: "https://github.com/Logius-standaarden/API-Design-Rules",
   pubDomain: "api",
-  publishDate: "2026-06-18",
-  publishVersion: "2.2.1",
-  previousPublishDate: "2026-06-02",
-  previousPublishVersion: "2.2.0",
+  publishDate: "2026-09-29",
+  publishVersion: "2.2.2",
+  previousPublishDate: "2026-06-18",
+  previousPublishVersion: "2.2.1",
   shortName: "adr",
   specStatus: "DEF",
   specType: "ST",
@@ -111,19 +111,15 @@ loadRespecWithConfiguration({
   localBiblio: {
     "ADR-encryption": {
       authors: ["P. Haasnoot"],
-      href: "https://logius-standaarden.github.io/API-mod-encryption/",
+      href: "https://gitdocumentatie.logius.nl/publicatie/api/mod-encryption/1.0/",
       publisher: "Logius",
       title: "API Design Rules Module: Encryption",
-      // TODO: verwijder voor publicatie
-      status: "Draft",
     },
     "ADR-signing": {
       authors: ["P. Haasnoot"],
-      href: "https://logius-standaarden.github.io/API-mod-signing/",
+      href: "https://gitdocumentatie.logius.nl/publicatie/api/mod-signing/1.0/",
       publisher: "Logius",
       title: "API Design Rules Module: Signing",
-      // TODO: verwijder voor publicatie
-      status: "Draft",
     },
   }
 });
