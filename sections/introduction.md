@@ -32,7 +32,8 @@ The Nederlandse API Strategie consists of [a set of distinct documents](https://
 | Normative        | [NLgov OAuth profiel](https://gitdocumentatie.logius.nl/publicatie/api/oauth/)                                   |
 | Normative        | [Digikoppeling REST API koppelvlak specificatie](https://gitdocumentatie.logius.nl/publicatie/dk/restapi/)       |
 | Normative module | [GEO module v1.0](https://gitdocumentatie.logius.nl/publicatie/api/mod-geo/1.0.2/)                               |
-| Normative module | [Transport Security module v1.0](https://gitdocumentatie.logius.nl/publicatie/api/mod-ts/1.0.2/)                 |
+| Normative module | [Signing module v1.0](https://gitdocumentatie.logius.nl/publicatie/api/mod-signing/1.0/)                         |
+| Normative module | [Encryption module v1.0](https://gitdocumentatie.logius.nl/publicatie/api/mod-encryption/1.0/)                   |
 
 Before reading this document it is advised to gain knowledge of the informative documents, in particular the [Architecture](https://geonovum.github.io/KP-APIs/API-strategie-algemeen/Architectuur/).
 
