@@ -1,23 +1,24 @@
-## API Design Rules
+<h1 align="center">NLgov REST API Design Rules</h1>
 
-### Links
+<p align="center">
+  Een lijst afspraken die ontwikkelaars volgen tijdens het bouwen van een REST-API voor de publieke sector.</em>
+</p>
 
-- NLgov API Design Rules (ADR)
-  - [Formele standaard](https://forumstandaardisatie.nl/open-standaarden/rest-api-design-rules)
-  - [Gepubliceerde versie](https://gitdocumentatie.logius.nl/publicatie/api/adr/)
-  - [Werkversie](https://logius-standaarden.github.io/API-Design-Rules/)
-  - [Repository](https://github.com/Logius-standaarden/API-Design-Rules)
+<p align="center">
+  <a href="https://gitdocumentatie.logius.nl/publicatie/api/adr/"><img alt="Vastgestelde versie" src="https://img.shields.io/badge/Gepubliceerd-2.2.2-0B71CE?style=flat-square"></a>
+</p>
 
-- NLgov Assurance profile for OAuth 2.0 (OAuth)
-  - [Formele standaard](https://forumstandaardisatie.nl/open-standaarden/nl-gov-assurance-profile-oauth-20)
-  - [Gepubliceerde versie](https://gitdocumentatie.logius.nl/publicatie/api/oauth/)
-  - [Werkversie](https://logius-standaarden.github.io/OAuth-NL-profiel/)
-  - [Repository](https://github.com/Logius-standaarden/OAuth-NL-profiel)
+<p align="center">
+  <a href="https://logius-standaarden.github.io/API-Design-Rules/"><b>Werkversie</b></a> &nbsp;·&nbsp;
+  <a href="https://github.com/Logius-standaarden/API-Design-Rules/issues/new/choose"><b>Issue indienen</b></a> &nbsp;·&nbsp;
+  <a href="https://gitdocumentatie.logius.nl/publicatie/api/beheermodel/"><b>Beheermodel</b></a>
+</p>
 
-- NLgov Assurance profile for OpenID Connect 1.0 (OIDC)
-  - [Formele standaard](https://forumstandaardisatie.nl/open-standaarden/nl-gov-assurance-profile-oidc)
-  - [Gepubliceerde versie](https://gitdocumentatie.logius.nl/publicatie/api/oidc/)
-  - [Werkversie](https://logius-standaarden.github.io/OIDC-NLGOV/)
-  - [Repository](https://github.com/Logius-standaarden/OIDC-NLGOV)
+---
 
-Het **Beheermodel** voor deze standaarden is gepubliceerd op: https://gitdocumentatie.logius.nl/publicatie/api/beheermodel/
+## Over deze standaard
+
+NLgov REST API Design Rules is een lijst afspraken die ontwikkelaars volgen tijdens het bouwen van een REST-API voor de publieke sector.
+Door de regels te hanteren wordt de API voorspelbaar.
+En dat is wel zo prettig voor andere ontwikkelaars die er gebruik van willen maken.
+Dankzij deze regels blijft het makkelijk voor organisaties om gegevens met elkaar uit te wisselen.
