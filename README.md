@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <a href="https://gitdocumentatie.logius.nl/publicatie/api/adr/"><img alt="Vastgestelde versie" src="https://img.shields.io/badge/Gepubliceerd-2.2.2-0B71CE?style=flat-square"></a>
+  <a href="https://gitdocumentatie.logius.nl/publicatie/api/adr/"><img alt="Gepubliceerde versie 2.2.2" src="https://img.shields.io/badge/Gepubliceerd-2.2.2-0B71CE?style=flat-square"></a>
 </p>
 
 <p align="center">
