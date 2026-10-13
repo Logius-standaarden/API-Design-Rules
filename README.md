@@ -1,7 +1,7 @@
 <h1 align="center">NLgov REST API Design Rules</h1>
 
 <p align="center">
-  Een lijst afspraken die ontwikkelaars volgen tijdens het bouwen van een REST-API voor de publieke sector.</em>
+  <em>Een lijst afspraken die ontwikkelaars volgen tijdens het bouwen van een REST-API voor de publieke sector.</em>
 </p>
 
 <p align="center">
