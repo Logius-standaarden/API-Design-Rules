@@ -1,0 +1,251 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "Servers HTTPS",
+        "description": "Deze OpenAPI specification bevat servers zonder https op hoofd-, pad-, operatie- en callbackniveau, en een schema met een property genaamd servers die niet gevalideerd mag worden.",
+        "contact": {
+            "name": "Beheerder",
+            "url": "https://www.example.com",
+            "email": "mail@example.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://example.com/api/v1"
+        }
+    ],
+    "security": [
+        {
+            "default": []
+        }
+    ],
+    "tags": [
+        {
+            "name": "openapi"
+        }
+    ],
+    "paths": {
+        "/openapi.json": {
+            "get": {
+                "tags": [
+                    "openapi"
+                ],
+                "description": "OpenAPI document",
+                "operationId": "getOpenapiJSON",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "access-control-allow-origin": {
+                                "description": "Alle origins mogen bij deze resource",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ],
+                "servers": [
+                    {
+                        "url": "http://example.com/api/v1"
+                    }
+                ]
+            },
+            "servers": [
+                {
+                    "url": "http://example.com/api/v1"
+                }
+            ]
+        },
+        "/apis": {
+            "get": {
+                "tags": [
+                    "openapi"
+                ],
+                "description": "Lijst van API's",
+                "operationId": "getApis",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "access-control-allow-origin": {
+                                "description": "Alle origins mogen bij deze resource",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Api"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ],
+                "callbacks": {
+                    "apiGewijzigd": {
+                        "{$request.query.callbackUrl}": {
+                            "servers": [
+                                {
+                                    "url": "http://example.com/callback"
+                                }
+                            ],
+                            "post": {
+                                "description": "Notificatie van een gewijzigde API",
+                                "operationId": "postApiGewijzigd",
+                                "servers": [
+                                    {
+                                        "url": "http://example.com/callback"
+                                    }
+                                ],
+                                "requestBody": {
+                                    "content": {
+                                        "application/json": {
+                                            "schema": {
+                                                "$ref": "#/components/schemas/Api"
+                                            }
+                                        }
+                                    }
+                                },
+                                "responses": {
+                                    "204": {
+                                        "description": "No Content",
+                                        "headers": {
+                                            "API-Version": {
+                                                "description": "De huidige versie van de applicatie",
+                                                "style": "simple",
+                                                "schema": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "400": {
+                                        "description": "Bad Request",
+                                        "content": {
+                                            "application/problem+json": {
+                                                "schema": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "status": {
+                                                            "type": "integer"
+                                                        },
+                                                        "title": {
+                                                            "type": "string"
+                                                        },
+                                                        "detail": {
+                                                            "type": "string"
+                                                        },
+                                                        "errors": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "in": {
+                                                                    "type": "string"
+                                                                },
+                                                                "location": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "pointer": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "name": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "index": {
+                                                                            "type": "integer"
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "code": {
+                                                                    "type": "string"
+                                                                },
+                                                                "detail": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "status",
+                                                        "title",
+                                                        "detail",
+                                                        "errors"
+                                                    ],
+                                                    "additionalProperties": false
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Api": {
+                "type": "object",
+                "properties": {
+                    "servers": {
+                        "type": "object",
+                        "properties": {
+                            "url": {
+                                "type": "string"
+                            },
+                            "description": {
+                                "type": "string"
+                            }
+                        },
+                        "example": {
+                            "url": "http://example.com/api/v1",
+                            "description": "Voorbeeld van een server van een andere API"
+                        }
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "default": {
+                "type": "oauth2",
+                "flows": {
+                    "implicit": {
+                        "authorizationUrl": "https://test.com",
+                        "scopes": {}
+                    }
+                }
+            }
+        }
+    }
+}
