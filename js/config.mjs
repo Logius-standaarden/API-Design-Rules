@@ -1,58 +1,6 @@
-import { processRuleBlocks } from "https://logius-standaarden.github.io/publicatie/respec/plugins/adr.mjs";
+import { processRuleBlocks, initializeHighlightJSYaml, fetchLinterConfiguration, highlightLinterCode } from "https://logius-standaarden.github.io/publicatie/respec/plugins/adr.mjs";
 import { loadRespecWithConfiguration } from "https://logius-standaarden.github.io/publicatie/respec/organisation-config.mjs";
 import { generateMermaidFigures } from "https://logius-standaarden.github.io/publicatie/respec/plugins/mermaid.mjs";
-
-async function initializeHighlightJSYaml() {
-  //this is the function you call in 'preProcess', to load the highlighter
-  const worker = await document.respec.worker;
-
-  const action = "highlight-load-lang-self-registration";
-  const langURL = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/yaml.min.js";
-  const lang = "yaml";
-  worker.postMessage({ action, langURL, lang });
-  return new Promise(resolve => {
-    worker.addEventListener("message", function listener({ data }) {
-      const { action: responseAction, lang: responseLang } = data;
-      if (responseAction === action && responseLang === lang) {
-        worker.removeEventListener("message", listener);
-        resolve();
-      }
-    });
-  });
-}
-
-const LINTER_CONFIGURATION_PATH = 'media/linter.yaml';
-let linterConfiguration;
-async function fetchLinterConfiguration() {
-  const linterResponse = await fetch(LINTER_CONFIGURATION_PATH);
-  linterConfiguration = await linterResponse.text();
-}
-
-async function highlightLinterCode(config, document) {
-  //this is the function you call in 'postProcess', to load the highlighter
-  const worker = await document.respec.worker;
-
-  const action = "highlight";
-  const code = linterConfiguration;
-  const lang = "yaml";
-  worker.postMessage({ action, code, languages: [lang] });
-  return new Promise(resolve => {
-    worker.addEventListener("message", function listener({ data }) {
-      const { action: responseAction, language: responseLang } = data;
-      if (responseAction === action && responseLang === lang) {
-        worker.removeEventListener("message", listener);
-
-        const codeElement = document.querySelector('.linter-yaml code');
-        codeElement.innerHTML = data.value;
-        const linkToConfiguration = document.createElement('div');
-        linkToConfiguration.innerHTML = `Open the above details to inspect the linter configuration. You can also <a href="${LINTER_CONFIGURATION_PATH}">open the configuration file in separate tab</a>`
-        linkToConfiguration.style.marginTop = '1em';
-        document.querySelector('.linter-yaml').after(linkToConfiguration);
-        resolve();
-      }
-    });
-  });
-}
 
 loadRespecWithConfiguration({
   authors: [ 
@@ -113,7 +61,7 @@ loadRespecWithConfiguration({
   postProcess: [
     generateMermaidFigures,
     highlightLinterCode,
-    (config, document, utils) => processRuleBlocks(config, document, utils, linterConfiguration),
+    processRuleBlocks,
   ],
 
   localBiblio: {
