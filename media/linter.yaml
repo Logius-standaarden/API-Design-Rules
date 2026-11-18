@@ -219,7 +219,7 @@ rules:
     severity: error
     message: "GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response"
     given:
-      - $.paths.[?( @.parameters && @.parameters.length > 0 )][?( @property.match(/(get)|(delete)/) )]
+      - $.paths[?( @.parameters && @.parameters.length > 0 )][get,delete]
       - $.paths..[?( @property.match(/(get)|(delete)/) && @.parameters && @.parameters.length > 0 )]
       - $.paths..[?( @property.match(/(put)|(post)|(patch)/))]
     then:
