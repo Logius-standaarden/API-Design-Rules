@@ -212,6 +212,45 @@
                     }
                 ]
             }
+        },
+        "/invalid-response-vereist/{pathParameter}": {
+            "parameters": [
+                {
+                    "name": "pathParameter",
+                    "in": "path",
+                    "description": "Pad parameter",
+                    "schema": {
+                        "type": "integer"
+                    },
+                    "required": true
+                }
+            ],
+            "get": {
+                "tags": [
+                    "resource"
+                ],
+                "description": "Resource",
+                "operationId": "getPropertiesIncorrectWithPathParameter",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            }
         }
     },
     "components": {
