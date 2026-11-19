@@ -14,7 +14,7 @@ const writeFile = utils.promisify(fs.writeFile);
 const LINTER_RULESET_LOCATION = path.join(__dirname, '..', 'media', 'linter.yaml');
 
 function computeTestCommand(apiLocation) {
-    return `spectral lint -r ${LINTER_RULESET_LOCATION} ${apiLocation}/*.json || true`
+    return `openlint lint --ruleset ${LINTER_RULESET_LOCATION} ${apiLocation}/*.json || true`
 }
 
 function removeProcessDir(output) {
@@ -58,9 +58,6 @@ async function obtainAllTestcases() {
 }
 
 const shouldRefreshOutput = argv.includes('--refresh');
-
-// Installeer spectral als die nog niet er is
-await execute(`which spectral || npm install --yes -g @stoplight/spectral-cli`);
 
 for (const apiLocation of await obtainAllTestcases()) {
     const actualOutput = await runCommand(apiLocation);

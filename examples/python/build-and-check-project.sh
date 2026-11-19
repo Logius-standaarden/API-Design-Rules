@@ -41,4 +41,4 @@ kill $SERVER_PID
 wait $SERVER_PID 2>/dev/null
 
 # Run linter
-../run-spectral-linter.sh "$(realpath generated/openapi.json)"
+../run-openlint-linter.sh "$(realpath generated/openapi.json)"

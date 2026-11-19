@@ -19,20 +19,20 @@ jobs:
     name: Publish (Logius)
     uses: Logius-standaarden/Automatisering/.github/workflows/publish.yml@main
     secrets: inherit
-  spectral_linter:
+  linter_testcases:
     name: Linter test cases
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
       - name: Run test suite
         run: |
-          npm install -g @stoplight/spectral-cli
+          npm install -g openlint
           node linter/run-linter-tests.mjs
   examples_linter:
-    needs: spectral_linter
+    needs: linter_testcases
     name: Examples linter tests
     runs-on: ubuntu-22.04
     strategy:
@@ -42,7 +42,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
       - uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
@@ -57,7 +57,7 @@ jobs:
           cache: 'pip'
       - name: Install dependencies
         run: pip install fastapi uvicorn
-      - name: Install Spectral
-        run: npm install -g @stoplight/spectral-cli
+      - name: Install Openlint
+        run: npm install -g openlint
       - name: Run linter on ${{ matrix.example }} example
         run: ./examples/${{ matrix.example }}/build-and-check-project.sh
