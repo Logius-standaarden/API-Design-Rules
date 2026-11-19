@@ -1,5 +1,5 @@
-# Deze linter configuratie is geschreven voor Spectral. Voor meer informatie over
-# die tool, zie https://stoplight.io/open-source/spectral
+# Deze linter configuratie is geschreven voor Openlint. Voor meer informatie over
+# die tool, zie https://docs.openlint.org/
 #
 # De linter configuratie wordt tevens gehost op https://developer.overheid.nl (DON).
 # Deze kan worden gebruikt in onder andere CI systemen voor live updates van de
@@ -12,13 +12,11 @@
 # te draaien:
 #
 # ```
-# npm install -g @stoplight/spectral-cli
-# curl -L https://static.developer.overheid.nl/adr/ruleset.yaml > .linter.yaml
-# spectral lint -r .linter.yaml $OAS_URL_OR_FILE
+# npx @developer-overheid-nl/don-checker@latest validate --standard adr --input $OAS_URL_OR_FILE
 # ```
 
 extends:
-  - ["spectral:oas", "off"] # extend spectral:oas maar zet standaard alle regels uit
+  - ["openlint:openapi", "off"] # extend openlint:openapi maar zet standaard alle regels uit
 
 formats:
   - oas3

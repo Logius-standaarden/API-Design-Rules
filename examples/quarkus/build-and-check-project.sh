@@ -5,4 +5,4 @@ cd $CURRENT_DIRECTORY
 
 ./mvnw --no-transfer-progress package
 
-../run-spectral-linter.sh $(realpath target/generated/openapi/openapi.json)
+../run-openlint-linter.sh $(realpath target/generated/openapi/openapi.json)
