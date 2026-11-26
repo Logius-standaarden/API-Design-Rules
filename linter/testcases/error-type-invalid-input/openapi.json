@@ -251,6 +251,200 @@
                     }
                 ]
             }
+        },
+        "/invalid-response-path-parameter-with-string-format/{pathParameter}": {
+            "parameters": [
+                {
+                    "name": "pathParameter",
+                    "in": "path",
+                    "description": "Pad parameter",
+                    "schema": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "required": true
+                }
+            ],
+            "get": {
+                "tags": [
+                    "resource"
+                ],
+                "description": "Resource",
+                "operationId": "getPropertiesIncorrectWithStringPathParameter",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            }
+        },
+        "/valid-response-path-parameter-as-string/{pathParameter}": {
+            "parameters": [
+                {
+                    "name": "pathParameter",
+                    "in": "path",
+                    "description": "Pad parameter",
+                    "schema": {
+                        "type": "string"
+                    },
+                    "required": true
+                }
+            ],
+            "get": {
+                "tags": [
+                    "resource"
+                ],
+                "description": "Resource",
+                "operationId": "getPropertiesCorrectWithPathParameter",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            }
+        },
+        "/invalid-response-parameter-per-endpoint": {
+            "get": {
+                "tags": [
+                    "resource"
+                ],
+                "description": "Resource",
+                "operationId": "getPropertiesIncorrectWithEndpointParameters",
+                "parameters": [
+                    {
+                        "name": "queryParameter",
+                        "in": "query",
+                        "description": "Query parameter",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "resource"
+                ],
+                "description": "Resource",
+                "operationId": "deletePropertiesIncorrectWithEndpointParameters",
+                "parameters": [
+                    {
+                        "name": "queryParameter",
+                        "in": "query",
+                        "description": "Query parameter",
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            }
+        },
+        "/valid-response-parameter-per-endpoint/{pathParameter}": {
+            "get": {
+                "tags": [
+                    "resource"
+                ],
+                "description": "Resource",
+                "operationId": "getPropertiesCorrectWithEndpointParameters",
+                "parameters": [
+                    {
+                        "name": "pathParameter",
+                        "in": "path",
+                        "description": "Path parameter",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "API-Version": {
+                                "description": "De huidige versie van de applicatie",
+                                "style": "simple",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            }
         }
     },
     "components": {
