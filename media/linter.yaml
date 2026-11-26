@@ -215,11 +215,25 @@ rules:
   #/core/error-handling/invalid-input
   nlgov:problem-invalid-input:
     severity: error
-    message: "GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response"
+    message: "GET and DELETE endpoints that have parameters that need to be validated, and all other endpoints, must be able to return a 400 response"
+    # Dit zijn complexe selectors, maar het komt op het volgende neer:
+    # - Alle parameters die vereist zijn moeten gevalideerd worden
+    #     - Uitzondering: path parameters zijn altijd al vereist
+    # - Alle parameters die een schema hebben moeten gevalideerd worden:
+    #     - Dit is alleen het geval als het type niet een string is, want een string mag alles bevatten
+    #       BEHALVE als het string ook een format heeft, dan weer wel.
     given:
-      - $.paths[?( @.parameters && @.parameters.length > 0 )][get,delete]
-      - $.paths..[?( @property.match(/(get)|(delete)/) && @.parameters && @.parameters.length > 0 )]
-      - $.paths..[?( @property.match(/(put)|(post)|(patch)/))]
+      - '$.paths[?(
+          @.parameters[?(
+            (@.required == true && !(@.in == "path"))
+              || (@.schema && (@.schema.type != "string" || @.schema.format))
+          )])][get,delete]'
+      - $.paths.[?(
+          @.parameters[?(
+            (@.required == true && !(@.in == "path"))
+              || (@.schema && (@.schema.type != "string" || @.schema.format))
+          )])]
+      - $.paths[*][put,post,patch]
     then:
       function: schema
       functionOptions:
